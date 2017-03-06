@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- LICENSE_PLACEHOLDER -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<name>izpack</name>
+	<groupId>fr.cnes.regards.framework.deployment</groupId>
+	<artifactId>izpack</artifactId>
+	<description>Deployment with Izpack</description>
+
+	<!-- Launch IzPack automatically -->
+	<packaging>izpack-jar</packaging>
+	
+	<parent>
+		<groupId>fr.cnes.regards</groupId>
+		<artifactId>regards-deployment</artifactId>
+		<version>0.0.0-SNAPSHOT</version>
+	</parent>
+
+	<properties>
+		<izpack.version>5.0.10</izpack.version>
+		<izpack.staging.dir>${project.build.directory}/staging</izpack.staging.dir>
+	</properties>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/izpack</directory>
+				<targetPath>../staging</targetPath>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<configuration>
+					<outputDirectory>${izpack.staging.dir}/lib</outputDirectory>
+					<excludeTransitive>true</excludeTransitive>
+					<stripVersion>true</stripVersion>
+					<overWriteReleases>true</overWriteReleases>
+					<overWriteSnapshots>true</overWriteSnapshots>
+					<overWriteIfNewer>true</overWriteIfNewer>
+					<excludeScope>system</excludeScope>
+				</configuration>
+				<executions>
+					<execution>
+						<id>copy</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.izpack</groupId>
+				<artifactId>izpack-maven-plugin</artifactId>
+				<version>${izpack.version}</version>
+				<extensions>true</extensions>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>izpack</goal>
+						</goals>
+						<configuration>
+							<!-- base for relative paths in izpack descriptor -->
+							<attach>false</attach>
+							<kind>standard</kind>
+							<descriptorEncoding>UTF-8</descriptorEncoding>
+							<baseDir>${izpack.staging.dir}</baseDir>
+							<finalName>regards-izpack-installer</finalName>
+							<mkdirs>true</mkdirs>
+							<installFile>${basedir}/src/main/izpack/install.xml</installFile>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.codehaus.izpack</groupId>
+						<artifactId>izpack-panel</artifactId>
+						<version>${izpack.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>fr.cnes.regards.microservices.administration.controller</groupId>
+			<artifactId>bootstrap-administration</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>fr.cnes.regards.microservices.catalog</groupId>
+			<artifactId>bootstrap-catalog</artifactId>
+		</dependency>
+	</dependencies>
+</project>

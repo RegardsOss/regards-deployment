@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- LICENSE_PLACEHOLDER -->
+<izpack:installation version="5.0"
+	xmlns:izpack="http://izpack.org/schema/installation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://izpack.org/schema/installation http://izpack.org/schema/5.0/izpack-installation-5.0.xsd">
+
+	<info>
+		<appname>REGARDS</appname>
+		<appversion>@{project.version}</appversion>
+		<appsubpath>regards</appsubpath>
+		<javaversion>@{java.version}</javaversion>
+		<requiresjdk>no</requiresjdk>
+		<url>https://github.com/regards</url>
+		<!-- TODO GBN -->
+		<!-- <authors/> -->
+		<!-- <uninstaller> -->
+	</info>
+
+	<locale>
+		<langpack iso3="eng" />
+	</locale>
+
+	<guiprefs width="800" height="600" resizable="no">
+		<laf name="substance">
+			<os family="unix" />
+			<param name="variant" value="graphite" />
+		</laf>
+		<laf name="substance">
+			<os family="windows" />
+			<param name="variant" value="windows" />
+		</laf>
+		<laf name="substance">
+			<os family="mac" />
+			<param name="variant" value="mist-aqua" />
+		</laf>
+		<modifier key="useButtonIcons" value="no" />
+		<modifier key="useLabelIcons" value="no" />
+		<modifier key="labelGap" value="2" />
+		<modifier key="layoutAnchor" value="NORTHWEST" />
+		<modifier key="useHeadingPanel" value="yes" />
+		<modifier key="headingImageOnLeft" value="yes" />
+		<modifier key="headingLineCount" value="1" />
+		<modifier key="headingFontSize" value="1.5" />
+		<modifier key="headingBackgroundColor" value="0x00ffffff" />
+		<modifier key="headingPanelCounter" value="text" />
+		<modifier key="headingPanelCounterPos" value="inHeading" />
+		<!-- Show the splashScreen for a minimum of 1000 milliseconds -->
+		<modifier key="useSplashScreen" value="3000" />
+	</guiprefs>
+
+	<resources>
+		<res id="InfoPanel.info" src="doc/readme.txt" parse="yes" />
+		<res id="LicencePanel.licence" src="legal/License.txt" />
+
+		<!--Define the splash screen image as a reading just like a heading image -->
+		<res id="Splash.image" src="images/splash.jpg" />
+		<res id="userInputSpec.xml" src="userInputSpec.xml" parse="yes" type="xml"/>
+	</resources>
+
+	<dynamicvariables>
+		<variable name="eureka.selected" value="false" />
+		<variable name="eureka.port" value="6666" />
+		<variable name="config.selected" value="false" />
+		<variable name="cloud.config.port" value="7777" />
+		<variable name="frontend.selected" value="false" />
+		<variable name="frontend.port" value="8888" />
+		<variable name="gateway.selected" value="false" />
+		<variable name="gateway.port" value="9999" />
+		<variable name="microservices.admin.selected" value="false" />
+		<variable name="microservices.catalog.selected" value="false" />
+	</dynamicvariables>
+
+	<conditions>
+		<condition type="variable" id="isEurekaSelected">
+			<name>eureka.selected</name>
+			<value>true</value>
+		</condition>
+		<condition type="variable" id="isRemoteEureka">
+			<name>eureka.host</name>
+			<value>remote</value>
+		</condition>
+		<condition type="variable" id="isConfigSelected">
+			<name>config.selected</name>
+			<value>true</value>
+		</condition>
+		<condition type="variable" id="isFrontendSelected">
+			<name>frontend.selected</name>
+			<value>true</value>
+		</condition>
+		<condition type="variable" id="isGatewaySelected">
+			<name>gateway.selected</name>
+			<value>true</value>
+		</condition>
+		<condition type="variable" id="isMicroservicesAdminSelected">
+			<name>microservices.admin.selected</name>
+			<value>true</value>
+		</condition>
+		<condition type="variable" id="isMicroservicesCatalogSelected">
+			<name>microservices.catalog.selected</name>
+			<value>true</value>
+		</condition>
+	</conditions>
+
+	<panels>
+		<panel classname="HelloPanel" />
+		<panel classname="TargetPanel" />
+		<panel classname="UserInputPanel" id="SelectComponentsPanel" />
+		<panel classname="UserInputPanel" id="DataBasePanel" />
+		<panel classname="UserInputPanel" id="EurekaPanel" condition="isEurekaSelected" />
+		<panel classname="UserInputPanel" id="CloudConfigPanel"
+			condition="isConfigSelected" />
+		<panel classname="UserInputPanel" id="FrontendPanel" condition="isFrontendSelected" />
+		<panel classname="UserInputPanel" id="GatewayPanel" condition="isGatewaySelected" />
+		<panel classname="UserInputPanel" id="MicroservicesPanel"/>
+			<!-- condition="isMicroservicesSelected" /-->
+		<panel classname="UserInputPanel" id="ArchivalStoragePanel" />
+		<panel classname="SummaryPanel" />
+		<panel classname="InstallPanel" />
+		<panel classname="SimpleFinishPanel" />
+	</panels>
+	<packs>
+		<pack name="core" required="yes">
+			<description>REGARDS Installation</description>
+
+			<file targetdir="$INSTALL_PATH" src="doc/readme.txt" />
+			<file targetdir="$INSTALL_PATH" src="legal/License.txt" />
+
+			<!-- The runnable application should be in this directory -->
+			<fileset dir="config/" targetdir="$INSTALL_PATH/REGARDS">
+				<include name="**" />
+			</fileset>
+
+			<!-- This file contains placeholder variables starting with $ that Izpack 
+				substitutes with values that the user enters during installation in the UserInputPanel -->
+			<parsable targetfile="$INSTALL_PATH/REGARDS/config.xml"/>
+		</pack>
+		<pack name="admin" required="no" condition="isMicroservicesAdminSelected">
+			<description>REGARDS Admin Installation</description>
+
+			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS/services">
+				<include name="*administration*" />
+			</fileset>
+		</pack>
+		<pack name="catalog" required="no" condition="isMicroservicesCatalogSelected">
+			<description>REGARDS Catalog Installation</description>
+
+			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS/services">
+				<include name="*catalog*" />
+			</fileset>
+		</pack>
+	</packs>
+
+	<!-- TODO GBN, faire le paquetage -->
+	<!-- <packs> -->
+	<!-- <pack name="Test Core" required="yes"> -->
+	<!-- <description>The core files needed for the application</description> -->
+	<!-- <fileset dir="plain" targetdir="${INSTALL_PATH}" override="true"/> -->
+	<!-- <parsable targetfile="${INSTALL_PATH}/test.properties"/> -->
+	<!-- </pack> -->
+	<!-- </packs> -->
+
+</izpack:installation>
