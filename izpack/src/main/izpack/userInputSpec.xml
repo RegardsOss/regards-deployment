@@ -60,8 +60,8 @@
 
 	<panel id="CloudConfigPanel">
 		<field txt="REGARDS Cloud Config configuration" type="title" />
-		<field type="text" variable="cloud.config.port">
-			<spec txt="Cloud config Web serveur port:" size="15" set="${cloud.config.port}" />
+		<field type="text" variable="regards.config.cloud.config.port">
+			<spec txt="Cloud config Web serveur port:" size="15" set="${regards.config.cloud.config.port}" />
 		</field>
 		<field type="text" variable="registry.host">
 			<spec txt="Registry server adress:" size="15"

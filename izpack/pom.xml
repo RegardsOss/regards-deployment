@@ -151,40 +151,31 @@
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
-			  <build>
-    <plugins>
-      <plugin>
-        <artifactId>maven-resources-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>filter-unpack-resources</id>
-            <!-- here the phase you need -->
-            <phase>process-resources</phase>
-            <goals>
-              <goal>copy-resources</goal>
-            </goals>
-            <configuration>
-              <outputDirectory>${izpack.staging.dir}/config</outputDirectory>
-              <resources>
-                <resource>
-			<directory>${temp.dir.filtering}</directory>
-                  <filtering>true</filtering>
-                </resource>
-              </resources>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-    <!--
-				<resources>
-					<resource>
-						<directory>${temp.dir.filtering}</directory>
-						<filtering>true</filtering>
-						<outputDirectory>${izpack.staging.dir}/config</outputDirectory>
-					</resource>
-				</resources>
--->
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-resources-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>filter-unpack-resources</id>
+								<!-- here the phase you need -->
+								<phase>process-resources</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${izpack.staging.dir}/config</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${temp.dir.filtering}</directory>
+											<filtering>true</filtering>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
 				<filters>
 					<filter>src/main/filters/delivery.properties</filter>
 				</filters>
