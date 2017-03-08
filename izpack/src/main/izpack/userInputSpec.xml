@@ -1,112 +1,112 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!-- LICENSE_PLACEHOLDER -->
 <izpack:userinput version="5.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:izpack="http://izpack.org/schema/userinput" xsi:schemaLocation="http://izpack.org/schema/userinput http://izpack.org/schema/5.0/izpack-userinput-5.0.xsd">
-	<panel id="DataBasePanel">
-		<!-- TODO GBN : Externaliser les messages -->
-		<field id="text.database.label" txt="" type="title" />
-		<field type="text" variable="pgsql.host">
-			<spec txt="Database Host:" size="15" set="${database.host}" />
-		</field>
-		<field type="text" variable="pgsql.port">
-			<spec txt="Database Port:" size="15" set="${database.port}" />
-		</field>
-		<field type="text" variable="pgsql.sid">
-			<spec txt="Database SID:" size="15" set="" />
-		</field>
-		<field type="text" variable="pgsql.user">
-			<spec txt="Database Username:" size="15" set="" />
-		</field>
-		<field type="password" variable="pgsql.password">
-			<spec>
-				<pwd txt="Database Password:" size="15" set="" />
-				<pwd txt="Retype Password:" size="15" set="" />
-			</spec>
-			<validator
-				class="com.izforge.izpack.panels.userinput.validator.PasswordEqualityValidator"
-				txt="Both versions of the password must match" />
-		</field>
-	</panel>
+<!-- 	<panel id="DataBasePanel"> -->
+<!-- 		<field id="text.database.label" txt="" type="title" /> -->
+<!-- 		<field type="text" variable="pgsql.host"> -->
+<!-- 			<spec txt="Database Host:" size="15" set="${database.host}" /> -->
+<!-- 		</field> -->
+<!-- 		<field type="text" variable="pgsql.port"> -->
+<!-- 			<spec txt="Database Port:" size="15" set="${database.port}" /> -->
+<!-- 		</field> -->
+<!-- 		<field type="text" variable="pgsql.sid"> -->
+<!-- 			<spec txt="Database SID:" size="15" set="" /> -->
+<!-- 		</field> -->
+<!-- 		<field type="text" variable="pgsql.user"> -->
+<!-- 			<spec txt="Database Username:" size="15" set="" /> -->
+<!-- 		</field> -->
+<!-- 		<field type="password" variable="pgsql.password"> -->
+<!-- 			<spec> -->
+<!-- 				<pwd txt="Database Password:" size="15" set="" /> -->
+<!-- 				<pwd txt="Retype Password:" size="15" set="" /> -->
+<!-- 			</spec> -->
+<!-- 			<validator -->
+<!-- 				class="com.izforge.izpack.panels.userinput.validator.PasswordEqualityValidator" -->
+<!-- 				txt="Both versions of the password must match" /> -->
+<!-- 		</field> -->
+<!-- 	</panel> -->
 
 	<panel id="SelectComponentsPanel">
-		<field txt="Select REGARDS components to install" type="title" />
+		<field id="text.selectcomponentspanel.title.label" type="title" />
 		<field type="check" variable="frontend.selected">
-			<spec txt="Frontend" true="true" false="false" set="true" />
+			<spec id="text.selectcomponentspanel.frontend.label" true="true" false="false" />
 		</field>
 		<field type="check" variable="config.selected">
-			<spec txt="Cloud Config Server" true="true" false="false" set="true" />
+			<spec id="text.selectcomponentspanel.config.label" true="true" false="false" />
 		</field>
 		<field type="check" variable="registry.selected">
-			<spec txt="Registry Server" true="true" false="false" set="true" />
+			<spec id="text.selectcomponentspanel.registry.label" true="true" false="false" />
 		</field>
 		<field type="check" variable="gateway.selected">
-			<spec txt="Gateway" true="true" false="false" set="true" />
+			<spec id="text.selectcomponentspanel.gateway.label" true="true" false="false" />
 		</field>
 		<field type="check" variable="microservices.admin.selected">
-			<spec txt="Microservice Admin" true="true" false="false" set="true" />
+			<spec id="text.selectcomponentspanel.admin.label" true="true" false="false" />
 		</field>
 		<field type="check" variable="microservices.dam.selected">
-			<spec txt="Microservice Data Management" true="true" false="false" set="true" />
+			<spec id="text.selectcomponentspanel.dam.label" true="true" false="false" />
 		</field>
 		<field type="check" variable="microservices.catalog.selected">
-			<spec txt="Microservice Catalog" true="true" false="false" set="true" />
+			<spec id="text.selectcomponentspanel.catalog.label" true="true" false="false" />
 		</field>
-		<field type="check" variable="microservices.acces.selected">
-			<spec txt="Microservice Access" true="true" false="false" set="true" />
+		<field type="check" variable="microservices.access.selected">
+			<spec id="text.selectcomponentspanel.access.label" true="true" false="false" />
 		</field>
 		<field type="check" variable="microservices.storage.selected">
-			<spec txt="Microservice Storage" true="true" false="false" set="true" />
+			<spec id="text.selectcomponentspanel.storage.label" true="true" false="false" />
 		</field>
 	</panel>
 
-	<panel id="CloudConfigPanel">
-		<field txt="REGARDS Cloud Config configuration" type="title" />
+	<panel id="CommonConfigPanel">
+		<field id="text.commonconfigpanel.title.label" type="title" />
+		<!-- TODO GBN : Ajouter le Host -->
 		<field type="text" variable="regards.config.cloud.config.port">
-			<spec txt="Cloud config Web serveur port:" size="15" set="${regards.config.cloud.config.port}" />
-		</field>
-		<field type="text" variable="registry.host">
-			<spec txt="Registry server adress:" size="15"
-				set="https://localhost:${registry.port}" />
+			<spec id="text.commonconfigpanel.config.port.label" size="15" />
 		</field>
 	</panel>
 
-	<panel id="RegistryPanel">
-		<field txt="REGARDS Registry Server configuration" type="title" />
-		<field type="text" variable="registry.port">
-			<spec txt="Registry Web serveur port:" size="15" set="${registry.port}" />
+	<panel id="RegistryConfigPanel">
+		<field id="text.registryconfigpanel.title.label" type="title" />
+		<field type="text" variable="regards.config.service.registry.uri">
+			<spec id="text.registryconfigpanel.host.label" size="15" set="${regards.config.service.registry.uri}" />
+		</field>
+		<field type="text" variable="regards.config.service.registry.port">
+			<spec id="text.registryconfigpanel.port.label" size="15" set="${regards.config.service.registry.port}" />
 		</field>
 	</panel>
 
-	<panel id="FrontendPanel">
-		<field txt="REGARDS Frontend configuration" type="title" />
-		<field type="text" variable="frontend.port">
-			<spec txt="Frontend Web serveur port:" size="15" set="${frontend.port}" />
-		</field>
-		<field type="text" variable="registry.host">
-			<spec txt="Gateway server adress:" size="15"
-				set="https://localhost:${gateway.port}" />
-		</field>
-	</panel>
+<!-- TODO GBN : Finir les config -->
+<!-- 	<panel id="FrontendPanel"> -->
+<!-- 		<field txt="REGARDS Frontend configuration" type="title" /> -->
+<!-- 		<field type="text" variable="frontend.port"> -->
+<!-- 			<spec txt="Frontend Web serveur port:" size="15" set="${frontend.port}" /> -->
+<!-- 		</field> -->
+<!-- 		<field type="text" variable="registry.host"> -->
+<!-- 			<spec txt="Gateway server adress:" size="15" -->
+<!-- 				set="https://localhost:${gateway.port}" /> -->
+<!-- 		</field> -->
+<!-- 	</panel> -->
 
-	<panel id="GatewayPanel">
-		<field txt="REGARDS Gateway configuration" type="title" />
-		<field type="text" variable="gateway.port">
-			<spec txt="Gateway Web serveur port:" size="15" set="${gateway.port}" />
-		</field>
-		<field type="staticText" align="left"
-			txt="Select authentication plugins : " />
-		<field type="check" variable="gateway.auth.plugin.ldap">
-			<spec txt="LDAP Authentication Plugin" true="true" false="false"
-				set="${gateway.auth.plugin.ldap}" />
-		</field>
-		<field type="check" variable="gateway.auth.plugin.ldap">
-			<spec txt="Active Directory Authentication Plugin" true="true"
-				false="false" set="${gateway.auth.plugin.ldap}" />
-		</field>
-		<field type="check" variable="gateway.auth.plugin.ldap">
-			<spec txt="Shibboleth Authentication Plugin" true="true" false="false"
-				set="${gateway.auth.plugin.ldap}" />
-		</field>
-	</panel>
+<!-- 	<panel id="GatewayPanel"> -->
+<!-- 		<field txt="REGARDS Gateway configuration" type="title" /> -->
+<!-- 		<field type="text" variable="gateway.port"> -->
+<!-- 			<spec txt="Gateway Web serveur port:" size="15" set="${gateway.port}" /> -->
+<!-- 		</field> -->
+<!-- 		<field type="staticText" align="left" -->
+<!-- 			txt="Select authentication plugins : " /> -->
+<!-- 		<field type="check" variable="gateway.auth.plugin.ldap"> -->
+<!-- 			<spec txt="LDAP Authentication Plugin" true="true" false="false" -->
+<!-- 				set="${gateway.auth.plugin.ldap}" /> -->
+<!-- 		</field> -->
+<!-- 		<field type="check" variable="gateway.auth.plugin.ldap"> -->
+<!-- 			<spec txt="Active Directory Authentication Plugin" true="true" -->
+<!-- 				false="false" set="${gateway.auth.plugin.ldap}" /> -->
+<!-- 		</field> -->
+<!-- 		<field type="check" variable="gateway.auth.plugin.ldap"> -->
+<!-- 			<spec txt="Shibboleth Authentication Plugin" true="true" false="false" -->
+<!-- 				set="${gateway.auth.plugin.ldap}" /> -->
+<!-- 		</field> -->
+<!-- 	</panel> -->
 
 <!-- TODO GBN : Voir ce qu'on garde -->
 <!-- 	<panel id="MicroservicesPanel"> -->
