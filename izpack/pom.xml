@@ -15,12 +15,13 @@
 	<parent>
 		<groupId>fr.cnes.regards</groupId>
 		<artifactId>regards-deployment</artifactId>
-		<version>0.0.0-SNAPSHOT</version>
+		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
 	<properties>
 		<izpack.version>5.0.10</izpack.version>
 		<izpack.staging.dir>${project.build.directory}/staging</izpack.staging.dir>
+		<temp.dir.filtering>target/config-to-filter</temp.dir.filtering>
 	</properties>
 
 	<build>
@@ -50,6 +51,26 @@
 						<goals>
 							<goal>copy-dependencies</goal>
 						</goals>
+					</execution>
+					<execution>
+						<id>unpack</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>fr.cnes.regards.cloud</groupId>
+									<artifactId>bootstrap-config</artifactId>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${temp.dir.filtering}</outputDirectory>
+							<includes>BOOT-INF/classes/*.properties,BOOT-INF/classes/regards/*.properties</includes>
+							<overWriteReleases>true</overWriteReleases>
+							<overWriteSnapshots>true</overWriteSnapshots>
+							<overWriteIfNewer>true</overWriteIfNewer>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
@@ -88,12 +109,86 @@
 	</build>
 	<dependencies>
 		<dependency>
-			<groupId>fr.cnes.regards.microservices.administration.controller</groupId>
+			<groupId>fr.cnes.regards.cloud</groupId>
+			<artifactId>bootstrap-gateway</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>fr.cnes.regards.cloud</groupId>
+			<artifactId>bootstrap-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>fr.cnes.regards.cloud</groupId>
+			<artifactId>bootstrap-registry</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>fr.cnes.regards.microservices.administration</groupId>
 			<artifactId>bootstrap-administration</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>fr.cnes.regards.microservices.catalog</groupId>
 			<artifactId>bootstrap-catalog</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>fr.cnes.regards.microservices.access</groupId>
+			<artifactId>bootstrap-access</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>fr.cnes.regards.microservices.dam</groupId>
+			<artifactId>bootstrap-dam</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>fr.cnes.regards.microservices.storage</groupId>
+			<artifactId>bootstrap-storage</artifactId>
+		</dependency>
 	</dependencies>
+	
+	<profiles>
+		<profile>
+			<id>development</id>
+		</profile>
+		<profile>
+			<id>delivery</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>filter-unpack-resources</id>
+            <!-- here the phase you need -->
+            <phase>process-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${izpack.staging.dir}/config</outputDirectory>
+              <resources>
+                <resource>
+			<directory>${temp.dir.filtering}</directory>
+                  <filtering>true</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+    <!--
+				<resources>
+					<resource>
+						<directory>${temp.dir.filtering}</directory>
+						<filtering>true</filtering>
+						<outputDirectory>${izpack.staging.dir}/config</outputDirectory>
+					</resource>
+				</resources>
+-->
+				<filters>
+					<filter>src/main/filters/delivery.properties</filter>
+				</filters>
+			</build>
+		</profile>
+	</profiles>
 </project>

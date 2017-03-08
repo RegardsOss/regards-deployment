@@ -8,12 +8,12 @@
 	<artifactId>regards-deployment</artifactId>
 	<description>REGARDS deployment</description>
 	<packaging>pom</packaging>
-	<version>0.0.0-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 
 	<parent>
 		<groupId>fr.cnes.regards</groupId>
 		<artifactId>regards-parent</artifactId>
-		<version>0.0.7-SNAPSHOT</version>
+		<version>1.0.0-SNAPSHOT</version>
 		<relativePath/>
 	</parent>
 

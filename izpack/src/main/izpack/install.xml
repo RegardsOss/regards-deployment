@@ -55,49 +55,63 @@
 		<!--Define the splash screen image as a reading just like a heading image -->
 		<res id="Splash.image" src="images/splash.jpg" />
 		<res id="userInputSpec.xml" src="userInputSpec.xml" parse="yes" type="xml"/>
+		<res id="userInputLang.xml_eng" src="userInputLang.xml_eng" />
 	</resources>
 
 	<dynamicvariables>
-		<variable name="eureka.selected" value="false" />
-		<variable name="eureka.port" value="6666" />
-		<variable name="config.selected" value="false" />
-		<variable name="cloud.config.port" value="7777" />
-		<variable name="frontend.selected" value="false" />
+		<variable name="database.host" value="regards-database" />
+		<variable name="database.port" value="5432" />
 		<variable name="frontend.port" value="8888" />
-		<variable name="gateway.selected" value="false" />
+		<variable name="registry.port" value="6666" />
+		<variable name="cloud.config.port" value="7777" />
 		<variable name="gateway.port" value="9999" />
-		<variable name="microservices.admin.selected" value="false" />
-		<variable name="microservices.catalog.selected" value="false" />
+		<variable name="frontend.selected" value="true" />
+		<variable name="registry.selected" value="true" />
+		<variable name="config.selected" value="true" />
+		<variable name="gateway.selected" value="true" />
+		<variable name="microservices.admin.selected" value="true" />
+		<variable name="microservices.dam.selected" value="true" />
+		<variable name="microservices.catalog.selected" value="true" />
+		<variable name="microservices.access.selected" value="true" />
+		<variable name="microservices.storage.selected" value="true" />
 	</dynamicvariables>
 
 	<conditions>
-		<condition type="variable" id="isEurekaSelected">
-			<name>eureka.selected</name>
-			<value>true</value>
-		</condition>
-		<condition type="variable" id="isRemoteEureka">
-			<name>eureka.host</name>
-			<value>remote</value>
+		<condition type="variable" id="isFrontendSelected">
+			<name>frontend.selected</name>
+			<value>${frontend.selected}</value>
 		</condition>
 		<condition type="variable" id="isConfigSelected">
 			<name>config.selected</name>
-			<value>true</value>
+			<value>${config.selected}</value>
 		</condition>
-		<condition type="variable" id="isFrontendSelected">
-			<name>frontend.selected</name>
-			<value>true</value>
+		<condition type="variable" id="isRegistrySelected">
+			<name>registry.selected</name>
+			<value>${registry.selected}</value>
 		</condition>
 		<condition type="variable" id="isGatewaySelected">
 			<name>gateway.selected</name>
-			<value>true</value>
+			<value>${gateway.selected}</value>
 		</condition>
 		<condition type="variable" id="isMicroservicesAdminSelected">
 			<name>microservices.admin.selected</name>
-			<value>true</value>
+			<value>${microservices.admin.selected}</value>
+		</condition>
+		<condition type="variable" id="isMicroservicesDataManagementSelected">
+			<name>microservices.dam.selected</name>
+			<value>${microservices.dam.selected}</value>
 		</condition>
 		<condition type="variable" id="isMicroservicesCatalogSelected">
 			<name>microservices.catalog.selected</name>
-			<value>true</value>
+			<value>${microservices.catalog.selected}</value>
+		</condition>
+		<condition type="variable" id="isMicroservicesAccessSelected">
+			<name>microservices.access.selected</name>
+			<value>${microservices.access.selected}</value>
+		</condition>
+		<condition type="variable" id="isMicroservicesStorageSelected">
+			<name>microservices.storage.selected</name>
+			<value>${microservices.storage.selected}</value>
 		</condition>
 	</conditions>
 
@@ -106,14 +120,15 @@
 		<panel classname="TargetPanel" />
 		<panel classname="UserInputPanel" id="SelectComponentsPanel" />
 		<panel classname="UserInputPanel" id="DataBasePanel" />
-		<panel classname="UserInputPanel" id="EurekaPanel" condition="isEurekaSelected" />
+		<panel classname="UserInputPanel" id="RegistryPanel" condition="isRegistrySelected" />
 		<panel classname="UserInputPanel" id="CloudConfigPanel"
 			condition="isConfigSelected" />
 		<panel classname="UserInputPanel" id="FrontendPanel" condition="isFrontendSelected" />
 		<panel classname="UserInputPanel" id="GatewayPanel" condition="isGatewaySelected" />
-		<panel classname="UserInputPanel" id="MicroservicesPanel"/>
+<!-- 		<panel classname="UserInputPanel" id="MicroservicesPanel"/> -->
+			<!-- TODO GBN, voir si on garde la condition -->
 			<!-- condition="isMicroservicesSelected" /-->
-		<panel classname="UserInputPanel" id="ArchivalStoragePanel" />
+<!-- 		<panel classname="UserInputPanel" id="ArchivalStoragePanel" /> -->
 		<panel classname="SummaryPanel" />
 		<panel classname="InstallPanel" />
 		<panel classname="SimpleFinishPanel" />
@@ -126,26 +141,71 @@
 			<file targetdir="$INSTALL_PATH" src="legal/License.txt" />
 
 			<!-- The runnable application should be in this directory -->
-			<fileset dir="config/" targetdir="$INSTALL_PATH/REGARDS">
+			<fileset dir="config/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config">
 				<include name="**" />
 			</fileset>
 
 			<!-- This file contains placeholder variables starting with $ that Izpack 
 				substitutes with values that the user enters during installation in the UserInputPanel -->
-			<parsable targetfile="$INSTALL_PATH/REGARDS/config.xml"/>
+<!-- 			<parsable type="javaprop"> -->
+<!-- 				<fileset targetdir="$INSTALL_PATH/REGARDS/config" includes="**" /> -->
+<!-- 			</parsable> -->
+			<parsable targetfile="$INSTALL_PATH/REGARDS/config/application.properties" />
 		</pack>
-		<pack name="admin" required="no" condition="isMicroservicesAdminSelected">
-			<description>REGARDS Admin Installation</description>
+		<pack name="config" required="no" condition="isConfigSelected">
+			<description>REGARDS Configuration service installation</description>
 
 			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS/services">
-				<include name="*administration*" />
+				<include name="bootstrap-config.jar" />
+			</fileset>
+		</pack>
+		<pack name="registry" required="no" condition="isRegistrySelected">
+			<description>REGARDS Registry service installation</description>
+
+			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS/services">
+				<include name="bootstrap-registry.jar" />
+			</fileset>
+		</pack>
+		<pack name="gateway" required="no" condition="isGatewaySelected">
+			<description>REGARDS Gateway service installation</description>
+
+			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS/services">
+				<include name="bootstrap-gateway.jar" />
+			</fileset>
+		</pack>
+		<pack name="admin" required="no" condition="isMicroservicesAdminSelected">
+			<description>REGARDS Administration service installation</description>
+
+			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS/services">
+				<include name="bootstrap-administration.jar" />
+			</fileset>
+		</pack>
+		<pack name="dam" required="no" condition="isMicroservicesDataManagementSelected">
+			<description>REGARDS Data Management services installation</description>
+
+			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS/services">
+				<include name="bootstrap-dam.jar" />
 			</fileset>
 		</pack>
 		<pack name="catalog" required="no" condition="isMicroservicesCatalogSelected">
-			<description>REGARDS Catalog Installation</description>
+			<description>REGARDS Catalog services installation</description>
 
 			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS/services">
-				<include name="*catalog*" />
+				<include name="bootstrap-catalog.jar" />
+			</fileset>
+		</pack>
+		<pack name="access" required="no" condition="isMicroservicesAccessSelected">
+			<description>REGARDS Access service installation</description>
+
+			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS/services">
+				<include name="bootstrap-access.jar" />
+			</fileset>
+		</pack>
+		<pack name="storage" required="no" condition="isMicroservicesStorageSelected">
+			<description>REGARDS Storage service installation</description>
+
+			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS/services">
+				<include name="bootstrap-storage.jar" />
 			</fileset>
 		</pack>
 	</packs>
