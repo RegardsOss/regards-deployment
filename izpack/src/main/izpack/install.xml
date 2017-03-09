@@ -143,71 +143,83 @@
 			<file targetdir="$INSTALL_PATH" src="doc/readme.txt" override="true"/>
 			<file targetdir="$INSTALL_PATH" src="legal/License.txt" override="true"/>
 
-			<!-- The runnable application should be in this directory -->
-			<fileset dir="config/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config" override="true">
-				<include name="**" />
-			</fileset>
+			<file targetdir="$INSTALL_PATH/REGARDS/config" src="config/BOOT-INF/classes/application.properties" override="true"/>
 
 			<!-- This file contains placeholder variables starting with $ that Izpack 
 				substitutes with values that the user enters during installation in the UserInputPanel -->
-<!-- 			<parsable type="javaprop"> -->
-<!-- 				<fileset targetdir="$INSTALL_PATH/REGARDS/config" includes="**" /> -->
-<!-- 			</parsable> -->
-			<parsable targetfile="$INSTALL_PATH/REGARDS/config/application.properties"/>
+			<parsable type="javaprop" targetfile="$INSTALL_PATH/REGARDS/config/application.properties"/>
 		</pack>
 		<pack name="config" required="no" condition="isConfigSelected">
 			<description>REGARDS Configuration service installation</description>
 
-			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS/services" override="true">
+			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true">
 				<include name="bootstrap-config.jar" />
 			</fileset>
+			
+			<fileset dir="config/BOOT-INF/classes/regards" targetdir="$INSTALL_PATH/REGARDS/config/regards" override="true">
+				<include name="*" />
+			</fileset>
+
+			<!-- This file contains placeholder variables starting with $ that Izpack 
+				substitutes with values that the user enters during installation in the UserInputPanel -->
+			<!-- WARNING the fileset izpack functionality does'nt work for parsable with izpack 5.0.6 to 5.0.10 -->
+			<parsable type="javaprop" targetfile="$INSTALL_PATH/REGARDS/config/regards/application.properties"/>
+			<parsable type="javaprop" targetfile="$INSTALL_PATH/REGARDS/config/regards/rs-registry.properties"/>
+			<parsable type="javaprop" targetfile="$INSTALL_PATH/REGARDS/config/regards/rs-gateway.properties"/>
+			<parsable type="javaprop" targetfile="$INSTALL_PATH/REGARDS/config/regards/rs-admin.properties"/>
+			<parsable type="javaprop" targetfile="$INSTALL_PATH/REGARDS/config/regards/rs-dam.properties"/>
+			<parsable type="javaprop" targetfile="$INSTALL_PATH/REGARDS/config/regards/rs-access.properties"/>
+<!-- 				<fileset targetdir="$INSTALL_PATH/REGARDS/config/regards"> -->
+<!-- 					<include name="application.properties"/> -->
+<!-- 				</fileset> -->
+<!-- 			</parsable> -->
 		</pack>
 		<pack name="registry" required="no" condition="isRegistrySelected">
 			<description>REGARDS Registry service installation</description>
 
-			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS/services" override="true">
+			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true">
 				<include name="bootstrap-registry.jar" />
 			</fileset>
 		</pack>
 		<pack name="gateway" required="no" condition="isGatewaySelected">
 			<description>REGARDS Gateway service installation</description>
 
-			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS/services" override="true">
+			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true">
 				<include name="bootstrap-gateway.jar" />
 			</fileset>
 		</pack>
 		<pack name="admin" required="no" condition="isMicroservicesAdminSelected">
 			<description>REGARDS Administration service installation</description>
 
-			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS/services" override="true">
+			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true">
 				<include name="bootstrap-administration.jar" />
 			</fileset>
 		</pack>
 		<pack name="dam" required="no" condition="isMicroservicesDataManagementSelected">
 			<description>REGARDS Data Management services installation</description>
 
-			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS/services" override="true">
+			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true">
 				<include name="bootstrap-dam.jar" />
 			</fileset>
 		</pack>
 		<pack name="catalog" required="no" condition="isMicroservicesCatalogSelected">
 			<description>REGARDS Catalog services installation</description>
 
-			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS/services" override="true">
+			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true">
 				<include name="bootstrap-catalog.jar" />
 			</fileset>
 		</pack>
 		<pack name="access" required="no" condition="isMicroservicesAccessSelected">
 			<description>REGARDS Access service installation</description>
 
-			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS/services" override="true">
+			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true">
 				<include name="bootstrap-access.jar" />
 			</fileset>
 		</pack>
 		<pack name="storage" required="no" condition="isMicroservicesStorageSelected">
 			<description>REGARDS Storage service installation</description>
 
-			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS/services" override="true">
+			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true">
 				<include name="bootstrap-storage.jar" />
 			</fileset>
 		</pack>
