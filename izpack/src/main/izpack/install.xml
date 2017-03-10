@@ -60,6 +60,7 @@
 
 	<dynamicvariables>
 		<!-- Common -->
+		<variable name="regards.config.cloud.config.address" value="localhost" />
 		<variable name="regards.config.cloud.config.port" value="8888" />
 		
 		<!-- Config microservice -->
@@ -143,11 +144,11 @@
 			<file targetdir="$INSTALL_PATH" src="doc/readme.txt" override="true"/>
 			<file targetdir="$INSTALL_PATH" src="legal/License.txt" override="true"/>
 
-			<file targetdir="$INSTALL_PATH/REGARDS/config" src="config/BOOT-INF/classes/application.properties" override="true"/>
+			<file targetdir="$INSTALL_PATH/REGARDS/config" src="config/bootstrap.properties" override="true"/>
 
 			<!-- This file contains placeholder variables starting with $ that Izpack 
 				substitutes with values that the user enters during installation in the UserInputPanel -->
-			<parsable type="javaprop" targetfile="$INSTALL_PATH/REGARDS/config/application.properties"/>
+			<parsable type="javaprop" targetfile="$INSTALL_PATH/REGARDS/config/bootstrap.properties"/>
 		</pack>
 		<pack name="config" required="no" condition="isConfigSelected">
 			<description>REGARDS Configuration service installation</description>

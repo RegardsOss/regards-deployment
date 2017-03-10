@@ -60,6 +60,10 @@
 	<panel id="CommonConfigPanel">
 		<field id="text.commonconfigpanel.title.label" type="title" />
 		<!-- TODO GBN : Ajouter le Host -->
+		
+		<field type="text" variable="regards.config.cloud.config.address">
+			<spec id="text.commonconfigpanel.config.address.label" size="15" />
+		</field>
 		<field type="text" variable="regards.config.cloud.config.port">
 			<spec id="text.commonconfigpanel.config.port.label" size="15" />
 		</field>

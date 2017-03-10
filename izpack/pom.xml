@@ -66,7 +66,7 @@
 								</artifactItem>
 							</artifactItems>
 							<outputDirectory>${temp.dir.filtering}</outputDirectory>
-							<includes>BOOT-INF/classes/*.properties,BOOT-INF/classes/regards/*.properties</includes>
+							<includes>BOOT-INF/classes/regards/*.properties</includes>
 							<overWriteReleases>true</overWriteReleases>
 							<overWriteSnapshots>true</overWriteSnapshots>
 							<overWriteIfNewer>true</overWriteIfNewer>
