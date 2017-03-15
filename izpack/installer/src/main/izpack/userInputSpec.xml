@@ -59,19 +59,49 @@
 
 	<panel id="CommonConfigPanel">
 		<field id="text.commonconfigpanel.title.label" type="title" />
-		<!-- TODO GBN : Ajouter le Host -->
+		
+		<field type="text" variable="regards.config.cloud.config.address">
+			<spec id="text.commonconfigpanel.config.address.label" size="15">
+<!-- 				<processor class="fr.cnes.regards.deployment.izpack.processor.ProcessorMicroserviceList"/> -->
+			</spec>
+			<!-- TODO GBN : Faire un validator correcte -->
+<!-- 			<validator class="com.izforge.izpack.panels.userinput.validator.HostAddressValidator" -->
+<!-- 			           id="text.validator.host.error.label"/> -->
+		</field>
+
 		<field type="text" variable="regards.config.cloud.config.port">
 			<spec id="text.commonconfigpanel.config.port.label" size="15" />
+			<validator class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+			           id="text.validator.port.error.label"/>
 		</field>
 	</panel>
 
 	<panel id="RegistryConfigPanel">
 		<field id="text.registryconfigpanel.title.label" type="title" />
-		<field type="text" variable="regards.config.service.registry.uri">
-			<spec id="text.registryconfigpanel.host.label" size="15" set="${regards.config.service.registry.uri}" />
-		</field>
-		<field type="text" variable="regards.config.service.registry.port">
-			<spec id="text.registryconfigpanel.port.label" size="15" set="${regards.config.service.registry.port}" />
+		<field type="custom" minRow="1" maxRow="50"
+			variable="microservice.registry.count">
+			<spec>
+				<col>
+					<field type="text" variable="microservice.registry.uri">
+						<spec id="text.registryconfigpanel.host.label" size="15"
+							set="${microservice.registry.uri}" />
+										<!-- TODO GBN : Faire un validator correcte -->
+<!-- 						<validator class="com.izforge.izpack.panels.userinput.validator.HostAddressValidator" -->
+<!-- 							id="text.validator.host.error.label"/> -->
+					</field>
+				</col>
+				<col>
+					<field type="text" variable="microservice.registry.port">
+						<spec id="text.registryconfigpanel.port.label" size="15"
+							set="${microservice.registry.port}" />
+						<validator class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							id="text.validator.port.error.label">
+						</validator>
+					</field>
+				</col>
+				<processor class="fr.cnes.regards.deployment.izpack.processor.ProcessorMicroserviceList"/>
+			</spec>
+			<validator class="fr.cnes.regards.deployment.izpack.validator.ValidatorMicroserviceList"/>
 		</field>
 	</panel>
 

@@ -6,7 +6,7 @@
 
 	<info>
 		<appname>REGARDS</appname>
-		<appversion>@{project.version}</appversion>
+		<appversion>@{regards.izpack.panel.version}</appversion>
 		<appsubpath>regards</appsubpath>
 		<javaversion>@{java.version}</javaversion>
 		<requiresjdk>no</requiresjdk>
@@ -20,18 +20,16 @@
 		<langpack iso3="eng" />
 	</locale>
 
+	<logging>
+		<log-file pattern="regards_install.log" append="false" level="ALL" />
+	</logging>
+
 	<guiprefs width="800" height="600" resizable="no">
-		<laf name="substance">
+		<laf name="looks">
 			<os family="unix" />
-			<param name="variant" value="graphite" />
-		</laf>
-		<laf name="substance">
 			<os family="windows" />
-			<param name="variant" value="windows" />
-		</laf>
-		<laf name="substance">
 			<os family="mac" />
-			<param name="variant" value="mist-aqua" />
+			<param name="variant" value="plastic" />
 		</laf>
 		<modifier key="useButtonIcons" value="no" />
 		<modifier key="useLabelIcons" value="no" />
@@ -57,21 +55,27 @@
 		<res id="userInputSpec.xml" src="userInputSpec.xml" parse="yes" type="xml"/>
 		<res id="userInputLang.xml_eng" src="userInputLang.xml_eng" />
 	</resources>
+	
+	<jar src="custom/regards-izpack-panels.jar" stage="install"/>
 
 	<dynamicvariables>
 		<!-- Common -->
+		<variable name="regards.config.cloud.config.address" value="localhost" />
 		<variable name="regards.config.cloud.config.port" value="8888" />
 		
 		<!-- Config microservice -->
-		<variable name="regards.config.service.registry.uri" value="localhost" />
-		<variable name="regards.config.service.registry.port" value="8761" />
 		<variable name="regards.config.spring.rabbitmq.addresses" value="172.26.47.52:5672" />
 		<variable name="regards.config.spring.rabbitmq.username" value="guest" />
 		<variable name="regards.config.spring.rabbitmq.password" value="guest" />
 		<variable name="regards.config.regards.amqp.management.host" value="172.26.47.52" />
 		<variable name="regards.config.regards.amqp.management.port" value="15672" />
 		<variable name="regards.config.admin.regards.accounts.root.user.login" value="regards-admin@c-s.fr" />
-		<variable name="regards.config.admin.regards.accounts.root.user.password" value="root_admin" />
+		<variable name="regards.config.admin.regards.accounts.root.user.password" value="root_admin" /><variable name="creature.count" value="0"/>
+		
+		<!-- Internal variables -->
+		<variable name="microservice.registry.count" value="0"/>
+		<variable name="microservice.registry.uri" value="localhost" />
+		<variable name="microservice.registry.port" value="8761" />
 		
 		<!-- Internal Izpack variables -->
 		<variable name="frontend.selected" value="true" />
@@ -127,9 +131,14 @@
 	<panels>
 		<panel classname="HelloPanel" />
 		<panel classname="TargetPanel" />
+		<!-- this is our custom panel, loaded from the izpack-panels.jar file -->
+		<!-- TODO GBN Faire un custom panel qui ne génère pas une java.lang.reflect.InvocationTargetException -->
+<!-- 		<panel classname="fr.cnes.regards.deployment.izpack.panel.PanelRegistry" id="panelRegistry"/> -->
 		<panel classname="UserInputPanel" id="SelectComponentsPanel" />
 		<panel classname="UserInputPanel" id="CommonConfigPanel" />
-		<panel classname="UserInputPanel" id="RegistryConfigPanel" condition="isConfigSelected" />
+		<panel classname="UserInputPanel" id="RegistryConfigPanel" condition="isConfigSelected">
+			<validator classname="fr.cnes.regards.deployment.izpack.validator.ValidatorRegistryPanel"/>
+		</panel>
 <!-- TODO GBN : Finir les config -->
 <!-- 		<panel classname="UserInputPanel" id="GatewayConfigPanel" condition="isConfigSelected" /> -->
 		<panel classname="SummaryPanel" />
@@ -143,11 +152,18 @@
 			<file targetdir="$INSTALL_PATH" src="doc/readme.txt" override="true"/>
 			<file targetdir="$INSTALL_PATH" src="legal/License.txt" override="true"/>
 
-			<file targetdir="$INSTALL_PATH/REGARDS/config" src="config/BOOT-INF/classes/application.properties" override="true"/>
+			<file targetdir="$INSTALL_PATH/REGARDS/config" src="config/bootstrap.properties" override="true"/>
 
 			<!-- This file contains placeholder variables starting with $ that Izpack 
 				substitutes with values that the user enters during installation in the UserInputPanel -->
-			<parsable type="javaprop" targetfile="$INSTALL_PATH/REGARDS/config/application.properties"/>
+			<parsable type="javaprop" targetfile="$INSTALL_PATH/REGARDS/config/bootstrap.properties"/>
+		</pack>
+		<pack name="frontend" required="no" condition="isFrontendSelected">
+			<description>REGARDS Frontend service installation</description>
+
+			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true">
+				<include name="bootstrap-frontend.*ar" />
+			</fileset>
 		</pack>
 		<pack name="config" required="no" condition="isConfigSelected">
 			<description>REGARDS Configuration service installation</description>
@@ -180,58 +196,62 @@
 			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true">
 				<include name="bootstrap-registry.jar" />
 			</fileset>
-		</pack>
-		<pack name="gateway" required="no" condition="isGatewaySelected">
-			<description>REGARDS Gateway service installation</description>
-
-			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true">
-				<include name="bootstrap-gateway.jar" />
+		
+			<fileset dir="bin/" targetdir="$INSTALL_PATH/REGARDS/bin" override="true">
+				<include name="install_registry.sh" />
 			</fileset>
+		
+			<executable targetfile="$INSTALL_PATH/REGARDS/bin/install_registry.sh"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<!-- TODO GBN : Mettre le keep a false -->
+				<os family="unix" />
+				<args>
+					<arg value="${microservice.registry.microserviceList}" />
+				</args>
+			</executable>
 		</pack>
-		<pack name="admin" required="no" condition="isMicroservicesAdminSelected">
-			<description>REGARDS Administration service installation</description>
+<!-- 		<pack name="gateway" required="no" condition="isGatewaySelected"> -->
+<!-- 			<description>REGARDS Gateway service installation</description> -->
 
-			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true">
-				<include name="bootstrap-administration.jar" />
-			</fileset>
-		</pack>
-		<pack name="dam" required="no" condition="isMicroservicesDataManagementSelected">
-			<description>REGARDS Data Management services installation</description>
+<!-- 			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true"> -->
+<!-- 				<include name="bootstrap-gateway.jar" /> -->
+<!-- 			</fileset> -->
+<!-- 		</pack> -->
+<!-- 		<pack name="admin" required="no" condition="isMicroservicesAdminSelected"> -->
+<!-- 			<description>REGARDS Administration service installation</description> -->
 
-			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true">
-				<include name="bootstrap-dam.jar" />
-			</fileset>
-		</pack>
-		<pack name="catalog" required="no" condition="isMicroservicesCatalogSelected">
-			<description>REGARDS Catalog services installation</description>
+<!-- 			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true"> -->
+<!-- 				<include name="bootstrap-administration.jar" /> -->
+<!-- 			</fileset> -->
+<!-- 		</pack> -->
+<!-- 		<pack name="dam" required="no" condition="isMicroservicesDataManagementSelected"> -->
+<!-- 			<description>REGARDS Data Management services installation</description> -->
 
-			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true">
-				<include name="bootstrap-catalog.jar" />
-			</fileset>
-		</pack>
-		<pack name="access" required="no" condition="isMicroservicesAccessSelected">
-			<description>REGARDS Access service installation</description>
+<!-- 			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true"> -->
+<!-- 				<include name="bootstrap-dam.jar" /> -->
+<!-- 			</fileset> -->
+<!-- 		</pack> -->
+<!-- 		<pack name="catalog" required="no" condition="isMicroservicesCatalogSelected"> -->
+<!-- 			<description>REGARDS Catalog services installation</description> -->
 
-			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true">
-				<include name="bootstrap-access.jar" />
-			</fileset>
-		</pack>
-		<pack name="storage" required="no" condition="isMicroservicesStorageSelected">
-			<description>REGARDS Storage service installation</description>
+<!-- 			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true"> -->
+<!-- 				<include name="bootstrap-catalog.jar" /> -->
+<!-- 			</fileset> -->
+<!-- 		</pack> -->
+<!-- 		<pack name="access" required="no" condition="isMicroservicesAccessSelected"> -->
+<!-- 			<description>REGARDS Access service installation</description> -->
 
-			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true">
-				<include name="bootstrap-storage.jar" />
-			</fileset>
-		</pack>
+<!-- 			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true"> -->
+<!-- 				<include name="bootstrap-access.jar" /> -->
+<!-- 			</fileset> -->
+<!-- 		</pack> -->
+<!-- 		<pack name="storage" required="no" condition="isMicroservicesStorageSelected"> -->
+<!-- 			<description>REGARDS Storage service installation</description> -->
+
+<!-- 			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true"> -->
+<!-- 				<include name="bootstrap-storage.jar" /> -->
+<!-- 			</fileset> -->
+<!-- 		</pack> -->
 	</packs>
-
-	<!-- TODO GBN, faire le paquetage -->
-	<!-- <packs> -->
-	<!-- <pack name="Test Core" required="yes"> -->
-	<!-- <description>The core files needed for the application</description> -->
-	<!-- <fileset dir="plain" targetdir="${INSTALL_PATH}" override="true"/> -->
-	<!-- <parsable targetfile="${INSTALL_PATH}/test.properties"/> -->
-	<!-- </pack> -->
-	<!-- </packs> -->
 
 </izpack:installation>
