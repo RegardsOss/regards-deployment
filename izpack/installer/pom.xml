@@ -64,8 +64,20 @@
 						</configuration>
 					</execution>
 					<execution>
+						<!-- copy tools -->
+						<id>copy-izpack-utils-dependencies</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${izpack.staging.dir}/utils</outputDirectory>
+							<includeArtifactIds>regards-izpack-utils</includeArtifactIds>
+						</configuration>
+					</execution>
+					<execution>
 						<!-- copy izpack custom (custom panels, etc.) jars to izpack staging custom -->
-						<id>copy-izpack-dependencies</id>
+						<id>copy-izpack-panelss-dependencies</id>
 						<phase>prepare-package</phase>
 						<goals>
 							<goal>copy-dependencies</goal>
@@ -74,7 +86,7 @@
 							<outputDirectory>${izpack.staging.dir}/custom</outputDirectory>
 							<excludeTransitive>false</excludeTransitive>
 							<stripVersion>true</stripVersion>
-							<includeArtifactIds>regards-izpack-panels</includeArtifactIds>
+							<includeArtifactIds>regards-izpack-panels,regards-izpack-utils</includeArtifactIds>
 							<!-- IMPORTANT: this causes *only* our custom panels to be copied -->
 						</configuration>
 					</execution>
@@ -124,13 +136,13 @@
 				<!-- must have a dependency here on any code used in the installer, otherwise 
 					the classloader will not find it. So in this case we need our panels and 
 					then the package that contains the base classes for the panels -->
-				<dependencies>
-					<dependency>
-						<groupId>fr.cnes.regards.deployment</groupId>
-						<artifactId>regards-izpack-panels</artifactId>
-						<version>${regards.izpack.panel.version}</version>
-					</dependency>
-				</dependencies>
+<!-- 				<dependencies> -->
+<!-- 					<dependency> -->
+<!-- 						<groupId>fr.cnes.regards.deployment</groupId> -->
+<!-- 						<artifactId>regards-izpack-panels</artifactId> -->
+<!-- 						<version>${regards.izpack.panels.version}</version> -->
+<!-- 					</dependency> -->
+<!-- 				</dependencies> -->
 			</plugin>
 		</plugins>
 	</build>
@@ -175,7 +187,12 @@
 		<dependency>
 			<groupId>fr.cnes.regards.deployment</groupId>
 			<artifactId>regards-izpack-panels</artifactId>
-			<version>${regards.izpack.panel.version}</version>
+			<version>${regards.izpack.panels.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.cnes.regards.deployment</groupId>
+			<artifactId>regards-izpack-utils</artifactId>
+			<version>${regards.izpack.utils.version}</version>
 		</dependency>
 	</dependencies>
 	

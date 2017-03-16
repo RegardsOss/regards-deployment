@@ -4,8 +4,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>regards-izpack-panels</artifactId>
-	<description>Custom Regards Panels for Izpack Installer</description>
+	<artifactId>regards-izpack-utils</artifactId>
+	<description>Custom Regards Tools for Izpack Installer and Starters</description>
 
 	<parent>
 		<groupId>fr.cnes.regards.deployment</groupId>
@@ -15,15 +15,11 @@
 	</parent>
 
 	<dependencies>
+		<!-- Tests -->
 		<dependency>
-			<groupId>org.codehaus.izpack</groupId>
-			<artifactId>izpack-panel</artifactId>
-			<version>${maven.izpack.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>fr.cnes.regards.deployment</groupId>
-			<artifactId>regards-izpack-utils</artifactId>
-			<version>${regards.izpack.utils.version}</version>
+			<groupId>fr.cnes.regards.framework.test</groupId>
+			<artifactId>regards-test</artifactId>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 

@@ -16,9 +16,9 @@
   <str id="text.commonconfigpanel.config.address.label" txt="Cloud config Web serveur host:"/>
   <str id="text.commonconfigpanel.config.port.label" txt="Cloud config Web serveur port:"/>
   
-  <str id="text.registryconfigpanel.title.label" txt="REGARDS Registry Server configuration"/>
-  <str id="text.registryconfigpanel.host.label" txt="Registry Web serveur host:"/>
-  <str id="text.registryconfigpanel.port.label" txt="Registry Web serveur port:"/>
+  <str id="text.registry.configpanel.title.label" txt="REGARDS Registry Server configuration"/>
+  <str id="text.registry.configpanel.host.label" txt="Registry Web serveur host:"/>
+  <str id="text.registry.configpanel.port.label" txt="Registry Web serveur port:"/>
   
   <str id="text.validator.host.error.label" txt="Invalid host format!"/>
   <str id="text.validator.port.error.label" txt="Invalid port format!"/>

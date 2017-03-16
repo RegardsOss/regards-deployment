@@ -42,7 +42,7 @@
 		<modifier key="headingBackgroundColor" value="0x00ffffff" />
 		<modifier key="headingPanelCounter" value="text" />
 		<modifier key="headingPanelCounterPos" value="inHeading" />
-		<!-- Show the splashScreen for a minimum of 1000 milliseconds -->
+		<!-- Show the splashScreen for a minimum of 3000 milliseconds -->
 		<modifier key="useSplashScreen" value="3000" />
 	</guiprefs>
 
@@ -57,6 +57,7 @@
 	</resources>
 	
 	<jar src="custom/regards-izpack-panels.jar" stage="install"/>
+	<jar src="custom/regards-izpack-utils.jar" stage="install"/>
 
 	<dynamicvariables>
 		<!-- Common -->
@@ -154,6 +155,10 @@
 
 			<file targetdir="$INSTALL_PATH/REGARDS/config" src="config/bootstrap.properties" override="true"/>
 
+			<fileset dir="utils/" targetdir="$INSTALL_PATH/REGARDS/lib" override="true">
+				<include name="*.jar" />
+			</fileset>
+
 			<!-- This file contains placeholder variables starting with $ that Izpack 
 				substitutes with values that the user enters during installation in the UserInputPanel -->
 			<parsable type="javaprop" targetfile="$INSTALL_PATH/REGARDS/config/bootstrap.properties"/>
@@ -198,14 +203,19 @@
 			</fileset>
 		
 			<fileset dir="bin/" targetdir="$INSTALL_PATH/REGARDS/bin" override="true">
-				<include name="install_registry.sh" />
+				<include name="*.groovy" />
 			</fileset>
-		
-			<executable targetfile="$INSTALL_PATH/REGARDS/bin/install_registry.sh"
+			
+			<executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
 				type="bin" stage="postinstall" failure="abort" keep="true">
 				<!-- TODO GBN : Mettre le keep a false -->
 				<os family="unix" />
 				<args>
+					<arg value="-i"/>
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t"/>
+					<arg value="registry" />
+					<arg value="-c"/>
 					<arg value="${microservice.registry.microserviceList}" />
 				</args>
 			</executable>
