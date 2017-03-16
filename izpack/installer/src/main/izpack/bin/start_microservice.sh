@@ -26,12 +26,12 @@ function extract_field
 
   if ! fct_result=$(expr "${fct_transformed_string}" : ".*[[:blank:]|{]${FCT_FIELD_ID}=\([^,|}]*\)")
   then
-	  # Warning, if expr result="0" the return code is 0 even if they have no error
-	  if [ "${fct_result}" != "0" ]
-	  then
-	    printf >&2 "ERROR : Pattern \"${FCT_FIELD_ID}\" not founded in \"${FCT_FORMATTED_STRING}\".\n"
-	    exit 1
-	  fi
+    # Warning, if expr result="0" the return code is 0 even if they have no error
+    if [ "${fct_result}" != "0" ]
+    then
+      printf >&2 "ERROR : Pattern \"${FCT_FIELD_ID}\" not founded in \"${FCT_FORMATTED_STRING}\".\n"
+      exit 1
+    fi
   fi
 
   printf "${fct_result}"
