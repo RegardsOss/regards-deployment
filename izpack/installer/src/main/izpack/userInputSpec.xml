@@ -4,7 +4,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:izpack="http://izpack.org/schema/userinput"
 	xsi:schemaLocation="http://izpack.org/schema/userinput http://izpack.org/schema/5.0/izpack-userinput-5.0.xsd">
 	<!-- <panel id="DataBasePanel"> -->
-	<!-- <field id="text.database.label" txt="" type="title" /> -->
+	<!-- <field id="database.label" txt="" type="title" /> -->
 	<!-- <field type="text" variable="pgsql.host"> -->
 	<!-- <spec txt="Database Host:" size="15" set="${database.host}" /> -->
 	<!-- </field> -->
@@ -29,88 +29,92 @@
 	<!-- </panel> -->
 
 	<panel id="SelectComponentsPanel">
-		<field id="text.selectcomponentspanel.title.label" type="title" />
+		<field id="selectcomponentspanel.title.label" type="title" />
 		<field type="check" variable="frontend.selected">
-			<spec id="text.selectcomponentspanel.frontend.label" true="true"
+			<spec id="selectcomponentspanel.frontend.label" true="true"
 				false="false" />
 		</field>
-		<field type="check" variable="config.selected">
-			<spec id="text.selectcomponentspanel.config.label" true="true"
+		<field type="check" variable="microservices.selected">
+			<spec id="selectcomponentspanel.microservices.label" true="true"
 				false="false" />
+		</field>
+	</panel>
+
+	<panel id="SelectMicroservicesPanel">
+		<field id="selectmicroservicesspanel.title.label" type="title" />
+		<field type="check" variable="config.selected">
+			<spec id="selectmicroservicespanel.config.label" true="true"
+				false="false" set="true" />
 		</field>
 		<field type="check" variable="registry.selected">
-			<spec id="text.selectcomponentspanel.registry.label" true="true"
-				false="false" />
+			<spec id="selectmicroservicespanel.registry.label" true="true"
+				false="false" set="true" />
 		</field>
 		<field type="check" variable="gateway.selected">
-			<spec id="text.selectcomponentspanel.gateway.label" true="true"
-				false="false" />
+			<spec id="selectmicroservicespanel.gateway.label" true="true"
+				false="false" set="true" />
 		</field>
 		<field type="check" variable="microservices.admin.selected">
-			<spec id="text.selectcomponentspanel.admin.label" true="true"
-				false="false" />
+			<spec id="selectmicroservicespanel.admin.label" true="true"
+				false="false" set="true" />
 		</field>
 		<field type="check" variable="microservices.dam.selected">
-			<spec id="text.selectcomponentspanel.dam.label" true="true"
-				false="false" />
+			<spec id="selectmicroservicespanel.dam.label" true="true"
+				false="false" set="true" />
 		</field>
 		<field type="check" variable="microservices.catalog.selected">
-			<spec id="text.selectcomponentspanel.catalog.label" true="true"
-				false="false" />
+			<spec id="selectmicroservicespanel.catalog.label" true="true"
+				false="false" set="true" />
 		</field>
 		<field type="check" variable="microservices.access.selected">
-			<spec id="text.selectcomponentspanel.access.label" true="true"
-				false="false" />
-		</field>
-		<field type="check" variable="microservices.storage.selected">
-			<spec id="text.selectcomponentspanel.storage.label" true="true"
-				false="false" />
+			<spec id="selectmicroservicespanel.access.label" true="true"
+				false="false" set="true" />
 		</field>
 	</panel>
 
 	<panel id="CommonConfigPanel">
-		<field id="text.commonconfigpanel.title.label" type="title" />
+		<field id="commonconfigpanel.title.label" type="title" />
 
 		<field type="text" variable="regards.config.cloud.config.address">
-			<spec id="text.commonconfigpanel.config.address.label" size="15">
+			<spec id="commonconfigpanel.config.address.label" size="15">
 				<!-- <processor class="fr.cnes.regards.deployment.izpack.processor.ProcessorMicroserviceList"/> -->
 			</spec>
 			<!-- TODO GBN : Faire un validator correcte -->
 			<!-- <validator class="com.izforge.izpack.panels.userinput.validator.HostAddressValidator" -->
-			<!-- id="text.validator.host.error.label"/> -->
+			<!-- id="validator.host.error.label"/> -->
 		</field>
 
 		<field type="text" variable="regards.config.cloud.config.port">
-			<spec id="text.commonconfigpanel.config.port.label" size="15" />
+			<spec id="commonconfigpanel.config.port.label" size="15" />
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
-				id="text.validator.port.error.label" />
+				id="validator.port.error.label" />
 		</field>
 	</panel>
 
 	<panel id="RegistryConfigPanel">
-		<field id="text.registry.configpanel.title.label"
+		<field id="registry.configpanel.title.label"
 			type="title" />
 		<field type="custom" minRow="1" maxRow="50"
 			variable="microservice.registry.count">
 			<spec>
 				<col>
 					<field type="text" variable="microservice.registry.uri">
-						<spec id="text.registry.configpanel.host.label" size="15"
+						<spec id="registry.configpanel.host.label" size="15"
 							set="${microservice.registry.uri}" />
 						<!-- TODO GBN : Faire un validator correcte -->
 						<!-- <validator class="com.izforge.izpack.panels.userinput.validator.HostAddressValidator" -->
-						<!-- id="text.validator.host.error.label"/> -->
+						<!-- id="validator.host.error.label"/> -->
 					</field>
 				</col>
 				<col>
 					<field type="text" variable="microservice.registry.port">
-						<spec id="text.registry.configpanel.port.label" size="15"
+						<spec id="registry.configpanel.port.label" size="15"
 							set="${microservice.registry.port}">
 						</spec>
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
-							id="text.validator.port.error.label">
+							id="validator.port.error.label">
 						</validator>
 					</field>
 				</col>

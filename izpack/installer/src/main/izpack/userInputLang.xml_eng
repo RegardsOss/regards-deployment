@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!-- LICENSE_PLACEHOLDER -->
 <izpack:langpack version="5.0" xmlns:izpack="http://izpack.org/schema/langpack" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://izpack.org/schema/langpack http://izpack.org/schema/5.0/izpack-langpack-5.0.xsd">
-  <str id="text.selectcomponentspanel.title.label" txt="Select REGARDS components to install"/>
-  <str id="text.selectcomponentspanel.frontend.label" txt="Frontend"/>
-  <str id="text.selectcomponentspanel.config.label" txt="Cloud Config Server"/>
-  <str id="text.selectcomponentspanel.registry.label" txt="Registry Server"/>
-  <str id="text.selectcomponentspanel.gateway.label" txt="Gateway"/>
-  <str id="text.selectcomponentspanel.admin.label" txt="Microservice Admin"/>
-  <str id="text.selectcomponentspanel.dam.label" txt="Microservice Data Management"/>
-  <str id="text.selectcomponentspanel.catalog.label" txt="Microservice Catalog"/>
-  <str id="text.selectcomponentspanel.access.label" txt="Microservice Access"/>
-  <str id="text.selectcomponentspanel.storage.label" txt="Microservice Storage"/>
+  <str id="selectcomponentspanel.title.label" txt="Select REGARDS components to install"/>
+  <str id="selectcomponentspanel.frontend.label" txt="Frontend"/>
+  <str id="selectcomponentspanel.microservices.label" txt="Microservices"/>
   
-  <str id="text.commonconfigpanel.title.label" txt="REGARDS Common configuration"/>
-  <str id="text.commonconfigpanel.config.address.label" txt="Cloud config Web serveur host:"/>
-  <str id="text.commonconfigpanel.config.port.label" txt="Cloud config Web serveur port:"/>
+  <str id="selectmicroservicesspanel.title.label" txt="Select REGARDS microservices to install"/>
+  <str id="selectmicroservicespanel.config.label" txt="Cloud Config Server"/>
+  <str id="selectmicroservicespanel.registry.label" txt="Registry Server"/>
+  <str id="selectmicroservicespanel.gateway.label" txt="Gateway"/>
+  <str id="selectmicroservicespanel.admin.label" txt="Microservice Admin"/>
+  <str id="selectmicroservicespanel.dam.label" txt="Microservice Data Management"/>
+  <str id="selectmicroservicespanel.catalog.label" txt="Microservice Catalog"/>
+  <str id="selectmicroservicespanel.access.label" txt="Microservice Access"/>
+  <str id="selectmicroservicespanel.storage.label" txt="Microservice Storage"/>
   
-  <str id="text.registry.configpanel.title.label" txt="REGARDS Registry Server configuration"/>
-  <str id="text.registry.configpanel.host.label" txt="Registry Web serveur host:"/>
-  <str id="text.registry.configpanel.port.label" txt="Registry Web serveur port:"/>
+  <str id="commonconfigpanel.title.label" txt="REGARDS Common configuration"/>
+  <str id="commonconfigpanel.config.address.label" txt="Cloud config Web serveur host:"/>
+  <str id="commonconfigpanel.config.port.label" txt="Cloud config Web serveur port:"/>
   
-  <str id="text.validator.host.error.label" txt="Invalid host format!"/>
-  <str id="text.validator.port.error.label" txt="Invalid port format!"/>
+  <str id="registry.configpanel.title.label" txt="REGARDS Registry Server configuration"/>
+  <str id="registry.configpanel.host.label" txt="Registry Web serveur host:"/>
+  <str id="registry.configpanel.port.label" txt="Registry Web serveur port:"/>
+  
+  <str id="validator.host.error.label" txt="Invalid host format!"/>
+  <str id="validator.port.error.label" txt="Invalid port format!"/>
 
 </izpack:langpack>

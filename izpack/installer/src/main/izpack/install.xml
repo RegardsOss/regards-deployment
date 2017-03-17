@@ -6,7 +6,7 @@
 
 	<info>
 		<appname>REGARDS</appname>
-		<appversion>@{regards.izpack.panel.version}</appversion>
+		<appversion>@{regards.izpack.panels.version}</appversion>
 		<appsubpath>regards</appsubpath>
 		<javaversion>@{java.version}</javaversion>
 		<requiresjdk>no</requiresjdk>
@@ -80,19 +80,24 @@
 		
 		<!-- Internal Izpack variables -->
 		<variable name="frontend.selected" value="true" />
-		<variable name="registry.selected" value="true" />
-		<variable name="config.selected" value="true"/>
-		<variable name="gateway.selected" value="true" />
-		<variable name="microservices.admin.selected" value="true" />
-		<variable name="microservices.dam.selected" value="true" />
-		<variable name="microservices.catalog.selected" value="true" />
-		<variable name="microservices.access.selected" value="true" />
-		<variable name="microservices.storage.selected" value="true" />
+		<variable name="microservices.selected" value="true" />
+		<variable name="registry.selected" value="false" />
+		<variable name="config.selected" value="false"/>
+		<variable name="gateway.selected" value="false" />
+		<variable name="microservices.admin.selected" value="false" />
+		<variable name="microservices.dam.selected" value="false" />
+		<variable name="microservices.catalog.selected" value="false" />
+		<variable name="microservices.access.selected" value="false" />
+		<variable name="microservices.storage.selected" value="false" />
 	</dynamicvariables>
 
 	<conditions>
 		<condition type="variable" id="isFrontendSelected">
 			<name>frontend.selected</name>
+			<value>true</value>
+		</condition>
+		<condition type="variable" id="isMicroservicesSelected">
+			<name>microservices.selected</name>
 			<value>true</value>
 		</condition>
 		<condition type="variable" id="isConfigSelected">
@@ -127,6 +132,10 @@
 			<name>microservices.storage.selected</name>
 			<value>true</value>
 		</condition>
+		<condition type="and" id="mustInstallRegistry">
+			<condition type="ref" refid="isMicroservicesSelected" />
+			<condition type="ref" refid="isRegistrySelected" />
+		</condition>
 	</conditions>
 
 	<panels>
@@ -136,6 +145,7 @@
 		<!-- TODO GBN Faire un custom panel qui ne génère pas une java.lang.reflect.InvocationTargetException -->
 <!-- 		<panel classname="fr.cnes.regards.deployment.izpack.panel.PanelRegistry" id="panelRegistry"/> -->
 		<panel classname="UserInputPanel" id="SelectComponentsPanel" />
+		<panel classname="UserInputPanel" id="SelectMicroservicesPanel" condition="isMicroservicesSelected" />
 		<panel classname="UserInputPanel" id="CommonConfigPanel" />
 		<panel classname="UserInputPanel" id="RegistryConfigPanel" condition="isConfigSelected">
 			<validator classname="fr.cnes.regards.deployment.izpack.validator.ValidatorRegistryPanel"/>
@@ -146,18 +156,28 @@
 		<panel classname="InstallPanel" />
 		<panel classname="SimpleFinishPanel" />
 	</panels>
+
 	<packs>
 		<pack name="core" required="yes">
-			<description>REGARDS Installation</description>
+			<description>REGARDS Core installation</description>
 
 			<file targetdir="$INSTALL_PATH" src="doc/readme.txt" override="true"/>
 			<file targetdir="$INSTALL_PATH" src="legal/License.txt" override="true"/>
-
+		</pack>
+		<pack name="coreMicroservices" required="no" condition="isMicroservicesSelected">
+			<description>REGARDS Core microservices installation</description>
+			
 			<file targetdir="$INSTALL_PATH/REGARDS/config" src="config/bootstrap.properties" override="true"/>
-
+			<fileset dir="bin/" targetdir="$INSTALL_PATH/REGARDS/bin" override="true">
+				<include name="*" />
+			</fileset>
 			<fileset dir="utils/" targetdir="$INSTALL_PATH/REGARDS/lib" override="true">
 				<include name="*.jar" />
 			</fileset>
+			
+			<executable type="bin" stage="never" keep="true">
+				<fileset targetdir="$INSTALL_PATH/REGARDS/bin" includes="*" />
+			</executable>
 
 			<!-- This file contains placeholder variables starting with $ that Izpack 
 				substitutes with values that the user enters during installation in the UserInputPanel -->
@@ -195,20 +215,15 @@
 <!-- 				</fileset> -->
 <!-- 			</parsable> -->
 		</pack>
-		<pack name="registry" required="no" condition="isRegistrySelected">
+		<pack name="registry" required="no" condition="mustInstallRegistry">
 			<description>REGARDS Registry service installation</description>
 
 			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true">
 				<include name="bootstrap-registry.jar" />
 			</fileset>
-		
-			<fileset dir="bin/" targetdir="$INSTALL_PATH/REGARDS/bin" override="true">
-				<include name="*.groovy" />
-			</fileset>
-			
+
 			<executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
 				type="bin" stage="postinstall" failure="abort" keep="true">
-				<!-- TODO GBN : Mettre le keep a false -->
 				<os family="unix" />
 				<args>
 					<arg value="-i"/>
