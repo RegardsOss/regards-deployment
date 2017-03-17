@@ -62,6 +62,7 @@ do
     ;;
   n)
     typeset -ri MICROSERVICE_ID="${OPTARG}"
+    start_only_one=true
     ;;
   \?|h)
     usage ${PROCESSUS_NAME}
@@ -74,7 +75,7 @@ shift $((${OPTIND} - 1))
 trap end EXIT
 
 # Check arguments
-if [ -z "${MICROSERVICE_TYPE}" -o -z "${MICROSERVICE_ID}" ]
+if [ -z "${MICROSERVICE_TYPE}" ]
 then
   printf >&2 "ERROR : Some mandatory arguments are missing.\n\n"
   usage ${PROCESSUS_NAME}
@@ -82,20 +83,34 @@ fi
 
 export CLASSPATH="${DIR_RACINE}"/lib/regards-izpack-utils.jar
 typeset microservices_infos
-microservices_infos=$(get_microservice_info.groovy -n "${MICROSERVICE_ID}" -t "${MICROSERVICE_TYPE}" -i "${DIR_RACINE}")
-if [ "${microservices_infos}" = "null" ]
+if [ -n "${MICROSERVICE_ID}" ]
 then
-  printf >&2  "ERROR : Id \"${MICROSERVICE_ID}\" doesn't exist for this microservice type \"${MICROSERVICE_TYPE}\"\n"
-  exit 1
+  microservices_infos="$(get_microservice_info.groovy -n "${MICROSERVICE_ID}" -t "${MICROSERVICE_TYPE}" -i "${DIR_RACINE}")"
+  if [ "${microservices_infos}" = "null" ]
+  then
+    printf >&2  "ERROR : Id \"${MICROSERVICE_ID}\" doesn't exist for this microservice type \"${MICROSERVICE_TYPE}\"\n"
+    exit 1
+  fi
+else
+  microservices_infos="$(get_microservice_info.groovy -t "${MICROSERVICE_TYPE}" -i "${DIR_RACINE}")"
 fi
 
-typeset -A microservices_infos_t
-microservices_infos_t[id]=$(extract_field "${microservices_infos}" "id")
-microservices_infos_t[host]=$(extract_field "${microservices_infos}" "host")
-microservices_infos_t[port]=$(extract_field "${microservices_infos}" "port")
-
 cd "${DIR_RACINE}"
-exec java -jar -Dserver.address="${microservices_infos_t[host]}" -Dserver.port="${microservices_infos_t[port]}" bootstrap-${MICROSERVICE_TYPE}.jar
+typeset log_file
+printf "${microservices_infos}\n" | while read line
+do
+  typeset -A microservices_infos_t
+  microservices_infos_t[id]=$(extract_field "${line}" "id")
+  microservices_infos_t[host]=$(extract_field "${line}" "host")
+  microservices_infos_t[port]=$(extract_field "${line}" "port")
+
+  printf >&2 "Starting ${MICROSERVICE_TYPE} type on \"${microservices_infos_t[host]}:${microservices_infos_t[port]}\" ...\n"
+  log_file="${DIR_RACINE}"/logs/"${MICROSERVICE_TYPE}-id${microservices_infos_t[id]}".log
+
+  java -jar -Dserver.address="${microservices_infos_t[host]}" -Dserver.port="${microservices_infos_t[port]}" bootstrap-${MICROSERVICE_TYPE}.jar > "${log_file}" 2>&1 &
+  
+  # TODO GBN : Faire la récupération du pid
+done
 
 exit 0
 

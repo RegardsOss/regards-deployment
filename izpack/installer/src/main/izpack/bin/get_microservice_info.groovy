@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-def cli = new CliBuilder(usage: 'install_registry.groovy [-h] -i <regards install directory> -n <microservice id> -t <microservice type>')
+def cli = new CliBuilder(usage: 'install_registry.groovy [-h] -i <regards install directory> [-n <microservice id>] -t <microservice type>')
 // Create the list of options.
 cli.with {
   h longOpt: 'help', 'Show usage information'
@@ -22,7 +22,13 @@ if (options.h) {
 // TODO GBN : Faire la lecture précise des paramètres et notamment les asserts pour vérifier les paramètres 
 String regardsInstallDir = options.i;
 String microserviceType = options.t;
-int id = Integer.valueOf(options.n);
+
+int id;
+boolean idIsSet = false;
+if (options.n) {
+  id = Integer.valueOf(options.n);
+  idIsSet = true;
+}
 
 import java.nio.file.Paths;
 import java.nio.file.Path;
@@ -32,6 +38,12 @@ import fr.cnes.regards.deployment.izpack.utils.model.MicroserviceConfigList;
 // Microservice Registry Configuration file
 Path registryFilePath = Paths.get(regardsInstallDir, "config/" + microserviceType + "_config.xml");
 MicroserviceConfigList microserviceConfigList = MicroserviceConfigListAccessor.readFromFile(registryFilePath);
-println microserviceConfigList.get(id).toString();
+
+if (idIsSet) {
+  println microserviceConfigList.get(id).toString();
+}
+else {
+  println microserviceConfigList.toString();
+}
 
 System.exit(0);
