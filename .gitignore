@@ -1,2 +1,5 @@
-/.project
+.project
+.classpath
+regards_install.log
+.settings/
 target/
