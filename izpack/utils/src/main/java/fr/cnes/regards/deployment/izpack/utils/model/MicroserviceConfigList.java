@@ -25,4 +25,26 @@ public class MicroserviceConfigList {
         // Return null if index is not found
         return null;
     }
+
+    /**
+     * Methode surchargee
+     *
+     * @see java.lang.Object#toString()
+     * @since 1.0.0
+     */
+    @Override
+    public String toString() {
+        String result = "";
+        boolean isNotFirst = false;
+        for (MicroserviceConfig microserviceConfig : microserviceConfigList) {
+            if (isNotFirst) {
+                result += "\n";
+            } else {
+                isNotFirst = true;
+            }
+
+            result += microserviceConfig.toString();
+        }
+        return result;
+    }
 }

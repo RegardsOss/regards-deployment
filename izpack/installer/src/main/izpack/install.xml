@@ -53,6 +53,7 @@
 		<!--Define the splash screen image as a reading just like a heading image -->
 		<res id="Splash.image" src="images/splash.jpg" />
 		<res id="userInputSpec.xml" src="userInputSpec.xml" parse="yes" type="xml"/>
+		<res id="ProcessPanel.Spec.xml" src="ProcessPanel.Spec.xml" parse="yes" type="xml"/>
 		<res id="userInputLang.xml_eng" src="userInputLang.xml_eng" />
 	</resources>
 	
@@ -140,10 +141,9 @@
 
 	<panels>
 		<panel classname="HelloPanel" />
+		<panel classname="InfoPanel" />
+		<panel classname="LicencePanel" />
 		<panel classname="TargetPanel" />
-		<!-- this is our custom panel, loaded from the izpack-panels.jar file -->
-		<!-- TODO GBN Faire un custom panel qui ne génère pas une java.lang.reflect.InvocationTargetException -->
-<!-- 		<panel classname="fr.cnes.regards.deployment.izpack.panel.PanelRegistry" id="panelRegistry"/> -->
 		<panel classname="UserInputPanel" id="SelectComponentsPanel" />
 		<panel classname="UserInputPanel" id="SelectMicroservicesPanel" condition="isMicroservicesSelected" />
 		<panel classname="UserInputPanel" id="CommonConfigPanel" />
@@ -154,6 +154,7 @@
 <!-- 		<panel classname="UserInputPanel" id="GatewayConfigPanel" condition="isConfigSelected" /> -->
 		<panel classname="SummaryPanel" />
 		<panel classname="InstallPanel" />
+		<panel classname="ProcessPanel" />
 		<panel classname="SimpleFinishPanel" />
 	</panels>
 

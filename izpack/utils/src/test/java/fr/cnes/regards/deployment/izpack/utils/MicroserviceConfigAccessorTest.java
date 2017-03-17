@@ -31,19 +31,16 @@ public class MicroserviceConfigAccessorTest {
                         + "</microserviceConfig>\n" + "</microserviceConfigList>\n");
 
         String pojoString = MicroserviceConfigListAccessor.writeToString(microserviceConfigList);
-
         System.out.println(pojoString);
     }
 
     @Test
-    public void testReadFromFileWriteToString() {
+    public void testReadFromFile() {
 
         MicroserviceConfigList microserviceConfigList = MicroserviceConfigListAccessor.readFromFile(Paths
                 .get("test/context/incoming/microserviceConfig.xml"));
 
-        String pojoString = MicroserviceConfigListAccessor.writeToString(microserviceConfigList);
-
-        System.out.println(pojoString);
+        System.out.println(microserviceConfigList.toString());
     }
 
     @Test
