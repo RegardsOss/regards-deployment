@@ -25,6 +25,12 @@
 			<artifactId>regards-izpack-utils</artifactId>
 			<version>${regards.izpack.utils.version}</version>
 		</dependency>
+		<!-- Tests -->
+		<dependency>
+			<groupId>fr.cnes.regards.framework.test</groupId>
+			<artifactId>regards-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 </project>

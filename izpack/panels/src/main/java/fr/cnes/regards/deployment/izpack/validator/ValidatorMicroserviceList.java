@@ -35,7 +35,8 @@ public abstract class ValidatorMicroserviceList implements DataValidator {
         final String portName = "microservice." + microServiceIdentifier + ".port";
         final String microserviceListName = "microservice." + microServiceIdentifier + ".microserviceList";
 
-        int nbMicroservices = Integer.valueOf(installData.getVariable(count)) + IZPACK_FIRST_INDEX_OF_VARIABLE_LIST;
+        String countAsString = installData.getVariable(count);
+        int nbMicroservices = Integer.valueOf(countAsString) + IZPACK_FIRST_INDEX_OF_VARIABLE_LIST;
 
         MicroserviceConfigList microserviceConfigList = new MicroserviceConfigList();
         // Concatenate all values in single one formatted
@@ -52,7 +53,6 @@ public abstract class ValidatorMicroserviceList implements DataValidator {
         }
         // Set result in a new variable
         // Careful, if you use an existing one, it's doesn't work.
-
         installData.setVariable(microserviceListName,
                                 MicroserviceConfigListAccessor.writeToString(microserviceConfigList));
 

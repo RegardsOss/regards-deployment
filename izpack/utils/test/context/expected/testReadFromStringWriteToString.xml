@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<microserviceConfigList>
+    <microserviceConfig id="0">
+        <host>localhost5</host>
+        <port>7780</port>
+    </microserviceConfig>
+    <microserviceConfig id="1">
+        <host>localhost6</host>
+        <port>7781</port>
+    </microserviceConfig>
+</microserviceConfigList>
