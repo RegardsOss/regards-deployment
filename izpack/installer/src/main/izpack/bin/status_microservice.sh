@@ -67,27 +67,19 @@ typeset microservices_infos
 microservices_infos=$(get_microservice_info "${ROOT_DIR}" "${MICROSERVICE_TYPE}" "${MICROSERVICE_ID}")
 
 cd "${ROOT_DIR}"
-typeset log_file pid pid_file
+typeset pid pid_file
 typeset -r PROGRAM_NAME="bootstrap-${MICROSERVICE_TYPE}"
 printf "${microservices_infos}\n" | while read line
 do
   typeset -A microservices_infos_t
   microservices_infos_t[id]=$(extract_field "${line}" "id")
-  microservices_infos_t[host]=$(extract_field "${line}" "host")
-  microservices_infos_t[port]=$(extract_field "${line}" "port")
 
   pid_file="$(get_pid_file_name "${ROOT_DIR}" "${MICROSERVICE_TYPE}" "${microservices_infos_t[id]}")"
 
   # Check if microservice is already started
   if ! is_microservice_running "${pid_file}" "${PROGRAM_NAME}" "${MICROSERVICE_TYPE}" "${microservices_infos_t[id]}"
   then
-    printf >&2 "Starting ${MICROSERVICE_TYPE} type on \"${microservices_infos_t[host]}:${microservices_infos_t[port]}\" ...\n"
-    log_file="${ROOT_DIR}"/logs/"${MICROSERVICE_TYPE}-id${microservices_infos_t[id]}".log
-
-    java -jar -Dserver.address="${microservices_infos_t[host]}" -Dserver.port="${microservices_infos_t[port]}" ${PROGRAM_NAME}.jar > "${log_file}" 2>&1 &
-    pid=$!
-
-    echo "${pid}" > "${pid_file}"
+    printf >&2 "Microservice \"${MICROSERVICE_TYPE}\" type id \"${microservices_infos_t[id]}\" is not running.\n"
   fi
 done
 
