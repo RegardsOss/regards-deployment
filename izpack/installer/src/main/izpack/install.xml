@@ -177,7 +177,7 @@
 			</fileset>
 			
 			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/bin" includes="*" />
+				<fileset targetdir="$INSTALL_PATH/REGARDS/bin" includes="*.groovy,*_microservice.sh" excludes="functions.sh" />
 			</executable>
 
 			<!-- This file contains placeholder variables starting with $ that Izpack 
@@ -204,17 +204,11 @@
 
 			<!-- This file contains placeholder variables starting with $ that Izpack 
 				substitutes with values that the user enters during installation in the UserInputPanel -->
-			<!-- WARNING the fileset izpack functionality does'nt work for parsable with izpack 5.0.6 to 5.0.10 -->
-			<parsable type="javaprop" targetfile="$INSTALL_PATH/REGARDS/config/regards/application.properties"/>
-			<parsable type="javaprop" targetfile="$INSTALL_PATH/REGARDS/config/regards/rs-registry.properties"/>
-			<parsable type="javaprop" targetfile="$INSTALL_PATH/REGARDS/config/regards/rs-gateway.properties"/>
-			<parsable type="javaprop" targetfile="$INSTALL_PATH/REGARDS/config/regards/rs-admin.properties"/>
-			<parsable type="javaprop" targetfile="$INSTALL_PATH/REGARDS/config/regards/rs-dam.properties"/>
-			<parsable type="javaprop" targetfile="$INSTALL_PATH/REGARDS/config/regards/rs-access.properties"/>
-<!-- 				<fileset targetdir="$INSTALL_PATH/REGARDS/config/regards"> -->
-<!-- 					<include name="application.properties"/> -->
-<!-- 				</fileset> -->
-<!-- 			</parsable> -->
+			<parsable type="javaprop">
+				<fileset targetdir="$INSTALL_PATH/REGARDS/config/regards">
+					<include name="*.properties"/>
+				</fileset>
+			</parsable>
 		</pack>
 		<pack name="registry" required="no" condition="mustInstallRegistry">
 			<description>REGARDS Registry service installation</description>
