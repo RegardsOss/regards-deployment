@@ -67,13 +67,6 @@ find "${ROOT_DIR_INSTALL}"/* -prune -type f -exec chmod 0640 {} \;
 chown :${ADMIN_REGARDS_GROUP} "${ROOT_DIR_INSTALL}"/.installationinformation
 chmod 0640 "${ROOT_DIR_INSTALL}"/.installationinformation
 
-# Root uninstall dir only acceded by admin
-chown -R :${ADMIN_REGARDS_GROUP} "${ROOT_DIR_INSTALL}"/Uninstaller
-chmod 0750 "${ROOT_DIR_INSTALL}"/Uninstaller
-
-# Root uninstall file only acceded by admin
-chmod 0640 "${ROOT_DIR_INSTALL}"/Uninstaller/*
-
 # Root dir acceded by admin and exec user
 chown :${RUNTIME_REGARDS_GROUP} "${ROOT_DIR}"
 chmod 0750 "${ROOT_DIR}"
