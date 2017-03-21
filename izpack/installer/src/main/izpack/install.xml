@@ -80,6 +80,7 @@
 		<variable name="microservice.registry.port" value="8761" />
 		
 		<!-- Internal Izpack variables -->
+		<variable name="security.level.selected" value="normal" />
 		<variable name="frontend.selected" value="true" />
 		<variable name="microservices.selected" value="true" />
 		<variable name="registry.selected" value="false" />
@@ -93,6 +94,10 @@
 	</dynamicvariables>
 
 	<conditions>
+		<condition type="variable" id="isSecurityEnforced">
+			<name>security.level.selected</name>
+			<value>enforce</value>
+		</condition>
 		<condition type="variable" id="isFrontendSelected">
 			<name>frontend.selected</name>
 			<value>true</value>
@@ -144,6 +149,7 @@
 		<panel classname="InfoPanel" />
 		<panel classname="LicencePanel" />
 		<panel classname="TargetPanel" />
+		<panel classname="UserInputPanel" id="SelectSecurityLevelPanel" />
 		<panel classname="UserInputPanel" id="SelectComponentsPanel" />
 		<panel classname="UserInputPanel" id="SelectMicroservicesPanel" condition="isMicroservicesSelected" />
 		<panel classname="UserInputPanel" id="CommonConfigPanel" />
@@ -177,7 +183,7 @@
 			</fileset>
 			
 			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/bin" includes="*.groovy,*_microservice.sh" excludes="functions.sh" />
+				<fileset targetdir="$INSTALL_PATH/REGARDS/bin" includes="*.groovy,*_microservice.sh,postinstall_*" excludes="functions.sh" />
 			</executable>
 
 			<!-- This file contains placeholder variables starting with $ that Izpack 

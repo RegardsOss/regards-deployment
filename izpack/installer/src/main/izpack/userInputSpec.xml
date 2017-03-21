@@ -28,6 +28,25 @@
 	<!-- </field> -->
 	<!-- </panel> -->
 
+	<panel id="SelectSecurityLevelPanel">
+		<field id="selectsecuritylevelpanel.title.label" type="title" />
+		<field type="radio" variable="security.level.selected">
+			<spec>
+				<choice id="selectsecuritylevelpanel.normal.label" value="normal"
+					set="true" />
+				<choice id="selectsecuritylevelpanel.enforce.label" value="enforce" />
+			</spec>
+		</field>
+		<field type="space" />
+		<field id="selectsecuritylevelpanel.title.label" type="divider"
+			align="top" />
+		<field type="space" />
+		<field type="staticText" align="left"
+			id="selectsecuritylevelpanel.enforce.description.1.label" bold="true"/>
+		<field type="staticText" align="left"
+			id="selectsecuritylevelpanel.enforce.description.2.label" bold="false"/>
+	</panel>
+
 	<panel id="SelectComponentsPanel">
 		<field id="selectcomponentspanel.title.label" type="title" />
 		<field type="check" variable="frontend.selected">
