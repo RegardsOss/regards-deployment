@@ -105,7 +105,7 @@ function read_config
   search_line=$(egrep "^[[:blank:]]*${FCT_PARAMETER}[[:blank:]]*=" "${FCT_CONFIGURATION_FILE}")
   if [ -z "${search_line}" ]
   then
-    printf >&2  "ERROR : Mandatory property \"${FCT_PARAMETER}\" isn't define in properties file \"${FCT_CONFIGURATION_FILE}\".\n"
+    printf >&2  "ERROR : Mandatory property \"${FCT_PARAMETER}\" isn't defined in properties file \"${FCT_CONFIGURATION_FILE}\".\n"
     exit 1
   fi
 

@@ -107,6 +107,12 @@ chmod 0750 "${ROOT_DIR}"/bin
 # Files acceded throw rx by exec users
 chmod 0750 "${ROOT_DIR}"/bin/*
 
+# Dirs acceded throw rx by root users
+chmod 0700 "${ROOT_DIR}"/sbin
+
+# Files acceded throw rx by exec users
+chmod 0700 "${ROOT_DIR}"/sbin/*
+
 # Dirs acceded throw ro by exec users
 chown -R :${RUNTIME_REGARDS_GROUP} "${ROOT_DIR}"/lib
 chmod 0750 "${ROOT_DIR}"/lib
