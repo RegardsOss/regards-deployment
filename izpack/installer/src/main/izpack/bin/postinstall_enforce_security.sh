@@ -94,7 +94,7 @@ chmod 2770 "${ROOT_DIR}"/{run,logs}
 find "${ROOT_DIR}"/{run,logs} -type f -exec chmod 0660 {} \;
 
 # Dirs shared by admin (rw) and exec (ro) users
-chown :${ADMIN_REGARDS_GROUP} "${ROOT_DIR}"/config
+chown -R :${ADMIN_REGARDS_GROUP} "${ROOT_DIR}"/config
 find "${ROOT_DIR}"/config -type d -exec chmod 2775 {} \;
 
 # Files shared by admin (rw) and exec (ro) users
