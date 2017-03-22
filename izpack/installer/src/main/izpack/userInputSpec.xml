@@ -45,6 +45,37 @@
 			id="selectsecuritylevelpanel.enforce.description.1.label" bold="true"/>
 		<field type="staticText" align="left"
 			id="selectsecuritylevelpanel.enforce.description.2.label" bold="false"/>
+		<field type="staticText" align="left"
+			id="selectsecuritylevelpanel.enforce.description.3.label" bold="false"/>
+		<field type="staticText" align="left"
+			id="selectsecuritylevelpanel.enforce.description.4.label" bold="false"/>
+		<field type="staticText" align="left"
+			id="selectsecuritylevelpanel.enforce.description.5.label" bold="false"/>
+	</panel>
+	
+	<!-- TODO GBN, Les tooltip ne marche pas -->
+	<panel id="ConfigSecurityMicroservicesPanel">
+		<field id="configsecuritylevelpanel.title.label" type="title" />
+		<field type="text" variable="regards.config.regards.microservices.exec.user"
+				tooltip="configsecuritylevelpanel.exec.user.tooltip">
+			<spec size="15" id="configsecuritylevelpanel.exec.user.label" set="${regards.config.regards.microservices.exec.user}"/>
+		</field>
+		<field type="space" />
+		<field id="selectsecuritylevelpanel.title.label" type="divider"
+			align="top" />
+		<field type="space" />
+		<field type="text" variable="regards.config.regards.microservices.regards.group" tooltip="configsecuritylevelpanel.regards.group.tooltip" id="configsecuritylevelpanel.exec.group.label">
+			<spec size="15" id="configsecuritylevelpanel.regards.group.label" set="${regards.config.regards.microservices.regards.group}"/>
+		</field>
+		<field type="text" variable="regards.config.regards.microservices.exec.group" tooltip="configsecuritylevelpanel.exec.group.tooltip" id="configsecuritylevelpanel.exec.group.label">
+			<spec size="15" id="configsecuritylevelpanel.exec.group.label" set="${regards.config.regards.microservices.exec.group}"/>
+		</field>
+		<field type="text" variable="regards.config.regards.microservices.admin.group" tooltip="configsecuritylevelpanel.admin.group.tooltip" id="configsecuritylevelpanel.exec.group.label" size="35">
+			<spec size="15" id="configsecuritylevelpanel.admin.group.label" set="${regards.config.regards.microservices.admin.group}"/>
+		</field>
+		<field type="text" variable="regards.config.regards.microservices.runtime.group" tooltip="configsecuritylevelpanel.runtime.group.tooltip" id="configsecuritylevelpanel.exec.group.label">
+			<spec size="15" id="configsecuritylevelpanel.runtime.group.label" set="${regards.config.regards.microservices.runtime.group}"/>
+		</field>
 	</panel>
 
 	<panel id="SelectComponentsPanel">

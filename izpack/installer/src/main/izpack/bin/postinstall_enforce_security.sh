@@ -39,10 +39,26 @@ shift $((${OPTIND} - 1))
 
 trap end EXIT
 
-typeset -r GLOBAL_REGARDS_GROUP="regards"
-typeset -r ADMIN_REGARDS_GROUP="rsadmin"
-typeset -r EXEC_REGARDS_GROUP="rsexec"
-typeset -r RUNTIME_REGARDS_GROUP="rsrun"
+if [ -z "${ROOT_DIR_INSTALL}" -o -z "${ROOT_DIR}" ]
+then
+  printf >&2 "ERROR : Venv ROOT_DIR_INSTALL or ROOT_DIR can't be empty.\n"
+  exit 1
+fi
+
+# Load libraries
+typeset FUNCTIONS_FILE="${ROOT_DIR}"/lib/functions.sh
+if [ ! -r "${FUNCTIONS_FILE}" ]
+then
+  printf >&2 "ERROR : Library file \"${FUNCTIONS_FILE}\" must be readable.\n"
+  exit 1
+fi
+. "${FUNCTIONS_FILE}"
+
+typeset -r CONFIGURATION_FILE="${ROOT_DIR}"/config/system.properties
+typeset -r GLOBAL_REGARDS_GROUP=$(read_config "${CONFIGURATION_FILE}" "regards.microservices.regards.group")
+typeset -r EXEC_REGARDS_GROUP=$(read_config "${CONFIGURATION_FILE}" "regards.microservices.exec.group")
+typeset -r ADMIN_REGARDS_GROUP=$(read_config "${CONFIGURATION_FILE}" "regards.microservices.admin.group")
+typeset -r RUNTIME_REGARDS_GROUP=$(read_config "${CONFIGURATION_FILE}" "regards.microservices.runtime.group")
 
 # Two type of users must existed
 # * Admin owned GLOBAL_REGARDS_GROUP, ADMIN_REGARDS_GROUP, RUNTIME_REGARDS_GROUP use to administer REGARDS
@@ -51,11 +67,6 @@ typeset -r RUNTIME_REGARDS_GROUP="rsrun"
 # GLOBAL_REGARDS_GROUP group is used to filter the first directory and ensure that user can access to the regards subtree.
 # RUNTIME_REGARDS_GROUP is used to shared access between admin and exec users.
 
-if [ -z "${ROOT_DIR_INSTALL}" -o -z "${ROOT_DIR}" ]
-then
-  printf >&2 "ERROR : Venv ROOT_DIR_INSTALL or ROOT_DIR can't be empty.\n"
-  exit 1
-fi
 
 # Root install dir
 chown :${GLOBAL_REGARDS_GROUP} "${ROOT_DIR_INSTALL}"
@@ -83,11 +94,11 @@ chmod 2770 "${ROOT_DIR}"/{run,logs}
 find "${ROOT_DIR}"/{run,logs} -type f -exec chmod 0660 {} \;
 
 # Dirs shared by admin (rw) and exec (ro) users
-chown -R :${ADMIN_REGARDS_GROUP} "${ROOT_DIR}"/config
-chmod 0775 "${ROOT_DIR}"/config
+chown :${ADMIN_REGARDS_GROUP} "${ROOT_DIR}"/config
+find "${ROOT_DIR}"/config -type d -exec chmod 2775 {} \;
 
 # Files shared by admin (rw) and exec (ro) users
-chmod 0775 "${ROOT_DIR}"/config/*
+find "${ROOT_DIR}"/config -type f -exec chmod 0664 {} \;
 
 # Dirs acceded throw rx by exec users
 chown -R :${RUNTIME_REGARDS_GROUP} "${ROOT_DIR}"/bin

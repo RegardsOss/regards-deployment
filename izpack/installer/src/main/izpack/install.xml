@@ -11,6 +11,7 @@
 		<javaversion>@{java.version}</javaversion>
 		<requiresjdk>no</requiresjdk>
 		<url>https://github.com/regards</url>
+		<pack-compression-format>gz</pack-compression-format>
 		<!-- TODO GBN -->
 		<!-- <authors/> -->
 		<!-- <uninstaller> -->
@@ -61,6 +62,13 @@
 	<jar src="custom/regards-izpack-utils.jar" stage="install"/>
 
 	<dynamicvariables>
+		<!-- Security -->
+		<variable name="regards.config.regards.microservices.exec.user" value="regards" />
+		<variable name="regards.config.regards.microservices.regards.group" value="regards" />
+		<variable name="regards.config.regards.microservices.exec.group" value="rsexec" />
+		<variable name="regards.config.regards.microservices.admin.group" value="rsadmin" />
+		<variable name="regards.config.regards.microservices.runtime.group" value="rsrun" />
+	
 		<!-- Common -->
 		<variable name="regards.config.cloud.config.address" value="localhost" />
 		<variable name="regards.config.cloud.config.port" value="8888" />
@@ -150,6 +158,7 @@
 		<panel classname="LicencePanel" />
 		<panel classname="TargetPanel" />
 		<panel classname="UserInputPanel" id="SelectSecurityLevelPanel" />
+		<panel classname="UserInputPanel" id="ConfigSecurityMicroservicesPanel" condition="isSecurityEnforced" />
 		<panel classname="UserInputPanel" id="SelectComponentsPanel" />
 		<panel classname="UserInputPanel" id="SelectMicroservicesPanel" condition="isMicroservicesSelected" />
 		<panel classname="UserInputPanel" id="CommonConfigPanel" />
@@ -170,11 +179,8 @@
 
 			<file targetdir="$INSTALL_PATH" src="doc/readme.txt" override="true"/>
 			<file targetdir="$INSTALL_PATH" src="legal/License.txt" override="true"/>
-		</pack>
-		<pack name="coreMicroservices" required="no" condition="isMicroservicesSelected">
-			<description>REGARDS Core microservices installation</description>
 			
-			<file targetdir="$INSTALL_PATH/REGARDS/config" src="config/bootstrap.properties" override="true"/>
+			<file targetdir="$INSTALL_PATH/REGARDS/config" src="config/system.properties" override="true"/>
 			<fileset dir="bin/" targetdir="$INSTALL_PATH/REGARDS/bin" override="true">
 				<include name="*" />
 			</fileset>
@@ -185,12 +191,19 @@
 				<include name="*.jar" />
 			</fileset>
 			
+			<parsable type="javaprop" targetfile="$INSTALL_PATH/REGARDS/config/system.properties"/>
+			
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/bin" includes="*"/>
 			</executable>
+			
+		</pack>
+		
+		<pack name="coreMicroservices" required="no" condition="isMicroservicesSelected">
+			<description>REGARDS Core microservices installation</description>
+			
+			<file targetdir="$INSTALL_PATH/REGARDS/config" src="config/bootstrap.properties" override="true"/>
 
-			<!-- This file contains placeholder variables starting with $ that Izpack 
-				substitutes with values that the user enters during installation in the UserInputPanel -->
 			<parsable type="javaprop" targetfile="$INSTALL_PATH/REGARDS/config/bootstrap.properties"/>
 		</pack>
 		<pack name="frontend" required="no" condition="isFrontendSelected">
@@ -211,8 +224,6 @@
 				<include name="*" />
 			</fileset>
 
-			<!-- This file contains placeholder variables starting with $ that Izpack 
-				substitutes with values that the user enters during installation in the UserInputPanel -->
 			<parsable type="javaprop">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/config/regards">
 					<include name="*.properties"/>
@@ -239,6 +250,7 @@
 				</args>
 			</executable>
 		</pack>
+
 <!-- 		<pack name="gateway" required="no" condition="isGatewaySelected"> -->
 <!-- 			<description>REGARDS Gateway service installation</description> -->
 

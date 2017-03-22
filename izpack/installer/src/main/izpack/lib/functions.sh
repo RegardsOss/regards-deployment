@@ -85,3 +85,34 @@ function is_microservice_running
   fi
   return 1
 }
+
+# read_config ##########################################################
+function read_config
+{
+  typeset -r FCT_CONFIGURATION_FILE="$1"
+  typeset -r FCT_PARAMETER="$2"
+
+  # Variable
+  typeset search_value search_line
+
+  if [ ! -r "${FCT_CONFIGURATION_FILE}" ]
+  then
+   printf >&2  "ERROR : File \"${FCT_CONFIGURATION_FILE}\" doesn't exist or not readable.\n"
+   exit 1
+  fi
+
+  # Extract parameter value from configuration file
+  search_line=$(egrep "^[[:blank:]]*${FCT_PARAMETER}[[:blank:]]*=" "${FCT_CONFIGURATION_FILE}")
+  if [ -z "${search_line}" ]
+  then
+    printf >&2  "ERROR : Mandatory property \"${FCT_PARAMETER}\" isn't define in properties file \"${FCT_CONFIGURATION_FILE}\".\n"
+    exit 1
+  fi
+
+  if ! search_value=$(expr "${search_line}" : ".*\=[[:blank:]]*\(.*\)")
+  then
+    printf >&2  "ERROR : Property line definition \"${search_line}\" is malformed.\n"
+    exit 1
+  fi
+  eval eval echo "${search_value}"
+}
