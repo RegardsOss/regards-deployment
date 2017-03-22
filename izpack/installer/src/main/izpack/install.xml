@@ -178,12 +178,15 @@
 			<fileset dir="bin/" targetdir="$INSTALL_PATH/REGARDS/bin" override="true">
 				<include name="*" />
 			</fileset>
+			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS/lib" override="true">
+				<include name="*" />
+			</fileset>
 			<fileset dir="utils/" targetdir="$INSTALL_PATH/REGARDS/lib" override="true">
 				<include name="*.jar" />
 			</fileset>
 			
 			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/bin" includes="*.groovy,*_microservice.sh,postinstall_*" excludes="functions.sh" />
+				<fileset targetdir="$INSTALL_PATH/REGARDS/bin" includes="*"/>
 			</executable>
 
 			<!-- This file contains placeholder variables starting with $ that Izpack 

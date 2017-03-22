@@ -55,7 +55,7 @@ then
 fi
 
 # Load libraries
-typeset FUNCTIONS_FILE="${ROOT_DIR}"/bin/functions.sh
+typeset FUNCTIONS_FILE="${ROOT_DIR}"/lib/functions.sh
 if [ ! -r "${FUNCTIONS_FILE}" ]
 then
   printf >&2 "ERROR : Library file \"${FUNCTIONS_FILE}\" must be readable.\n"
