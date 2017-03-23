@@ -50,7 +50,7 @@
 							<goal>copy-dependencies</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${izpack.staging.dir}/lib</outputDirectory>
+							<outputDirectory>${izpack.staging.dir}/microservices</outputDirectory>
 							<includeArtifactIds>
 								bootstrap-config,
 								bootstrap-registry,
@@ -98,7 +98,6 @@
 							<goal>unpack</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${izpack.staging.dir}/lib</outputDirectory>
 							<artifactItems>
 								<artifactItem>
 									<groupId>fr.cnes.regards.cloud</groupId>

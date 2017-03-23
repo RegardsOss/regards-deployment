@@ -244,7 +244,7 @@
 		<pack name="frontend" required="no" condition="isFrontendSelected">
 			<description>REGARDS Frontend service installation</description>
 
-			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true">
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true">
 				<include name="bootstrap-frontend.*ar" />
 			</fileset>
 		</pack>
@@ -262,7 +262,7 @@
 		<pack name="conf" required="no" condition="mustInstallConf">
 			<description>REGARDS Configuration service installation</description>
 
-			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true">
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true">
 				<include name="bootstrap-config.jar" />
 			</fileset>
 			<fileset dir="sbin/conf" targetdir="$INSTALL_PATH/REGARDS/sbin" override="true">
@@ -299,7 +299,7 @@
 		<pack name="registry" required="no" condition="mustInstallRegistry">
 			<description>REGARDS Registry service installation</description>
 
-			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true">
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true">
 				<include name="bootstrap-registry.jar" />
 			</fileset>
 			<fileset dir="sbin/registry" targetdir="$INSTALL_PATH/REGARDS/sbin" override="true">
@@ -327,7 +327,7 @@
 		<pack name="gateway" required="no" condition="mustInstallGateway">
 			<description>REGARDS Gateway service installation</description>
 
-			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true">
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true">
 				<include name="bootstrap-gateway.jar" />
 			</fileset>
 			<fileset dir="sbin/gateway" targetdir="$INSTALL_PATH/REGARDS/sbin" override="true">
@@ -355,7 +355,7 @@
 		<pack name="admin" required="no" condition="mustInstallAdmin">
 			<description>REGARDS Administration service installation</description>
 
-			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true">
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true">
 				<include name="bootstrap-administration.jar" />
 			</fileset>
 			<fileset dir="sbin/admin" targetdir="$INSTALL_PATH/REGARDS/sbin" override="true">
@@ -379,45 +379,32 @@
 			</executable>
 		</pack>
 
-<!-- 		<pack name="gateway" required="no" condition="isGatewaySelected"> -->
-<!-- 			<description>REGARDS Gateway service installation</description> -->
-
-<!-- 			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true"> -->
-<!-- 				<include name="bootstrap-gateway.jar" /> -->
-<!-- 			</fileset> -->
-<!-- 		</pack> -->
-<!-- 		<pack name="admin" required="no" condition="isMicroservicesAdminSelected"> -->
-<!-- 			<description>REGARDS Administration service installation</description> -->
-
-<!-- 			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true"> -->
-<!-- 				<include name="bootstrap-administration.jar" /> -->
-<!-- 			</fileset> -->
 <!-- 		</pack> -->
 <!-- 		<pack name="dam" required="no" condition="isMicroservicesDataManagementSelected"> -->
 <!-- 			<description>REGARDS Data Management services installation</description> -->
 
-<!-- 			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true"> -->
+<!-- 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> -->
 <!-- 				<include name="bootstrap-dam.jar" /> -->
 <!-- 			</fileset> -->
 <!-- 		</pack> -->
 <!-- 		<pack name="catalog" required="no" condition="isMicroservicesCatalogSelected"> -->
 <!-- 			<description>REGARDS Catalog services installation</description> -->
 
-<!-- 			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true"> -->
+<!-- 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> -->
 <!-- 				<include name="bootstrap-catalog.jar" /> -->
 <!-- 			</fileset> -->
 <!-- 		</pack> -->
 <!-- 		<pack name="access" required="no" condition="isMicroservicesAccessSelected"> -->
 <!-- 			<description>REGARDS Access service installation</description> -->
 
-<!-- 			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true"> -->
+<!-- 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> -->
 <!-- 				<include name="bootstrap-access.jar" /> -->
 <!-- 			</fileset> -->
 <!-- 		</pack> -->
 <!-- 		<pack name="storage" required="no" condition="isMicroservicesStorageSelected"> -->
 <!-- 			<description>REGARDS Storage service installation</description> -->
 
-<!-- 			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS" override="true"> -->
+<!-- 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> -->
 <!-- 				<include name="bootstrap-storage.jar" /> -->
 <!-- 			</fileset> -->
 <!-- 		</pack> -->
