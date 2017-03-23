@@ -1,29 +1,65 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!-- LICENSE_PLACEHOLDER -->
-<izpack:langpack version="5.0" xmlns:izpack="http://izpack.org/schema/langpack" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://izpack.org/schema/langpack http://izpack.org/schema/5.0/izpack-langpack-5.0.xsd">
-  <str id="selectcomponentspanel.title.label" txt="Select REGARDS components to install"/>
-  <str id="selectcomponentspanel.frontend.label" txt="Frontend"/>
-  <str id="selectcomponentspanel.microservices.label" txt="Microservices"/>
-  
-  <str id="selectmicroservicesspanel.title.label" txt="Select REGARDS microservices to install"/>
-  <str id="selectmicroservicespanel.config.label" txt="Cloud Config Server"/>
-  <str id="selectmicroservicespanel.registry.label" txt="Registry Server"/>
-  <str id="selectmicroservicespanel.gateway.label" txt="Gateway"/>
-  <str id="selectmicroservicespanel.admin.label" txt="Microservice Admin"/>
-  <str id="selectmicroservicespanel.dam.label" txt="Microservice Data Management"/>
-  <str id="selectmicroservicespanel.catalog.label" txt="Microservice Catalog"/>
-  <str id="selectmicroservicespanel.access.label" txt="Microservice Access"/>
-  <str id="selectmicroservicespanel.storage.label" txt="Microservice Storage"/>
-  
-  <str id="commonconfigpanel.title.label" txt="REGARDS Common configuration"/>
-  <str id="commonconfigpanel.config.address.label" txt="Cloud config Web serveur host:"/>
-  <str id="commonconfigpanel.config.port.label" txt="Cloud config Web serveur port:"/>
-  
-  <str id="registry.configpanel.title.label" txt="REGARDS Registry Server configuration"/>
-  <str id="registry.configpanel.host.label" txt="Registry Web serveur host:"/>
-  <str id="registry.configpanel.port.label" txt="Registry Web serveur port:"/>
-  
-  <str id="validator.host.error.label" txt="Invalid host format!"/>
-  <str id="validator.port.error.label" txt="Invalid port format!"/>
+<izpack:langpack version="5.0"
+	xmlns:izpack="http://izpack.org/schema/langpack" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://izpack.org/schema/langpack http://izpack.org/schema/5.0/izpack-langpack-5.0.xsd">
+	
+	<str id="selectsecuritylevelpanel.title.label" txt="Select REGARDS security level" />
+	<str id="selectsecuritylevelpanel.normal.label" txt="Normal" />
+	<str id="selectsecuritylevelpanel.enforce.label" txt="Enforce" />
+	<str id="selectsecuritylevelpanel.enforce.description.1.label" txt="If you choose Enforce Level, some requirements must be respected (values will could be customized by next panels) :"/>
+	<str id="selectsecuritylevelpanel.enforce.description.2.label" txt="	* Groups REGARDS, EXEC, ADMIN and RUNTIME must exist and owned by this install user for installation."/>
+	<str id="selectsecuritylevelpanel.enforce.description.3.label" txt="	* Groups REGARDS, EXEC, RUNTIME must owned by the exec user (used to run microservices)."/>
+	<str id="selectsecuritylevelpanel.enforce.description.4.label" txt="	* Groups REGARDS, ADMIN and RUNTIME must owned by the admin user (used to administrate)."/>
+	<str id="selectsecuritylevelpanel.enforce.description.5.label" txt="	* User EXEC will have to exist to run microservices."/>
+
+	<str id="configsecuritylevelpanel.title.label" txt="Security customization" />
+	<str id="configsecuritylevelpanel.exec.user.label" txt="Exec user" />
+	<str id="configsecuritylevelpanel.exec.user.tooltip" txt="User used to run microservices" />
+	<str id="configsecuritylevelpanel.regards.group.label" txt="Regards group" />
+	<str id="configsecuritylevelpanel.regards.group.tooltip" txt="Group used to protected access to regards componant" />
+	<str id="configsecuritylevelpanel.exec.group.label" txt="Exec group" />
+	<str id="configsecuritylevelpanel.exec.group.tooltip" txt="Group used to protected access to exec binaries" />
+	<str id="configsecuritylevelpanel.admin.group.label" txt="Admin group" />
+	<str id="configsecuritylevelpanel.admin.group.tooltip" txt="Group used to restrict access to admin functionalities" />
+	<str id="configsecuritylevelpanel.runtime.group.label" txt="Runtime group" />
+	<str id="configsecuritylevelpanel.runtime.group.tooltip" txt="Group used to shared files between exec and admin profiles" />
+
+	<str id="selectcomponentspanel.title.label" txt="Select REGARDS components to install" />
+	<str id="selectcomponentspanel.frontend.label" txt="Frontend" />
+	<str id="selectcomponentspanel.microservices.label" txt="Microservices" />
+
+	<str id="selectmicroservicesspanel.title.label" txt="Select REGARDS microservices to install" />
+	<str id="selectmicroservicespanel.config.label" txt="Cloud Config Server" />
+	<str id="selectmicroservicespanel.registry.label" txt="Registry Server" />
+	<str id="selectmicroservicespanel.gateway.label" txt="Gateway" />
+	<str id="selectmicroservicespanel.admin.label" txt="Microservice Admin" />
+	<str id="selectmicroservicespanel.dam.label" txt="Microservice Data Management" />
+	<str id="selectmicroservicespanel.catalog.label" txt="Microservice Catalog" />
+	<str id="selectmicroservicespanel.access.label" txt="Microservice Access" />
+	<str id="selectmicroservicespanel.storage.label" txt="Microservice Storage" />
+
+	<str id="commonconfigpanel.title.label" txt="REGARDS Common configuration" />
+	<str id="commonconfigpanel.config.address.label" txt="Cloud config Web serveur host:" />
+	<str id="commonconfigpanel.config.port.label" txt="Cloud config Web serveur port:" />
+
+	<str id="conf.configpanel.title.label" txt="REGARDS Cloud conf Server configuration" />
+	<str id="conf.configpanel.host.label" txt="Cloud config Web serveur host:" />
+	<str id="conf.configpanel.port.label" txt="Cloud config Web serveur host:" />
+	
+	<str id="registry.configpanel.title.label" txt="REGARDS Registry Server configuration" />
+	<str id="registry.configpanel.host.label" txt="Registry Web serveur host:" />
+	<str id="registry.configpanel.port.label" txt="Registry Web serveur port:" />
+
+	<str id="gateway.configpanel.title.label" txt="REGARDS Gateway Server configuration" />
+	<str id="gateway.configpanel.host.label" txt="Gateway Web serveur host:" />
+	<str id="gateway.configpanel.port.label" txt="Gateway Web serveur port:" />
+
+	<str id="admin.configpanel.title.label" txt="REGARDS Admin Server configuration" />
+	<str id="admin.configpanel.host.label" txt="Admin Web serveur host:" />
+	<str id="admin.configpanel.port.label" txt="Admin Web serveur port:" />
+
+	<str id="validator.host.error.label" txt="Invalid host format!" />
+	<str id="validator.port.error.label" txt="Invalid port format!" />
 
 </izpack:langpack>

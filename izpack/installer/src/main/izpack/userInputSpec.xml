@@ -28,6 +28,56 @@
 	<!-- </field> -->
 	<!-- </panel> -->
 
+	<panel id="SelectSecurityLevelPanel">
+		<field id="selectsecuritylevelpanel.title.label" type="title" />
+		<field type="radio" variable="security.level.selected">
+			<spec>
+				<choice id="selectsecuritylevelpanel.normal.label" value="normal"
+					set="true" />
+				<choice id="selectsecuritylevelpanel.enforce.label" value="enforce" />
+			</spec>
+		</field>
+		<field type="space" />
+		<field id="selectsecuritylevelpanel.title.label" type="divider"
+			align="top" />
+		<field type="space" />
+		<field type="staticText" align="left"
+			id="selectsecuritylevelpanel.enforce.description.1.label" bold="true"/>
+		<field type="staticText" align="left"
+			id="selectsecuritylevelpanel.enforce.description.2.label" bold="false"/>
+		<field type="staticText" align="left"
+			id="selectsecuritylevelpanel.enforce.description.3.label" bold="false"/>
+		<field type="staticText" align="left"
+			id="selectsecuritylevelpanel.enforce.description.4.label" bold="false"/>
+		<field type="staticText" align="left"
+			id="selectsecuritylevelpanel.enforce.description.5.label" bold="false"/>
+	</panel>
+	
+	<!-- TODO GBN, Les tooltip ne marche pas -->
+	<panel id="ConfigSecurityMicroservicesPanel">
+		<field id="configsecuritylevelpanel.title.label" type="title" />
+		<field type="text" variable="regards.config.regards.microservices.exec.user"
+				tooltip="configsecuritylevelpanel.exec.user.tooltip">
+			<spec size="15" id="configsecuritylevelpanel.exec.user.label" set="${regards.config.regards.microservices.exec.user}"/>
+		</field>
+		<field type="space" />
+		<field id="selectsecuritylevelpanel.title.label" type="divider"
+			align="top" />
+		<field type="space" />
+		<field type="text" variable="regards.config.regards.microservices.regards.group" tooltip="configsecuritylevelpanel.regards.group.tooltip" id="configsecuritylevelpanel.exec.group.label">
+			<spec size="15" id="configsecuritylevelpanel.regards.group.label" set="${regards.config.regards.microservices.regards.group}"/>
+		</field>
+		<field type="text" variable="regards.config.regards.microservices.exec.group" tooltip="configsecuritylevelpanel.exec.group.tooltip" id="configsecuritylevelpanel.exec.group.label">
+			<spec size="15" id="configsecuritylevelpanel.exec.group.label" set="${regards.config.regards.microservices.exec.group}"/>
+		</field>
+		<field type="text" variable="regards.config.regards.microservices.admin.group" tooltip="configsecuritylevelpanel.admin.group.tooltip" id="configsecuritylevelpanel.exec.group.label" size="35">
+			<spec size="15" id="configsecuritylevelpanel.admin.group.label" set="${regards.config.regards.microservices.admin.group}"/>
+		</field>
+		<field type="text" variable="regards.config.regards.microservices.runtime.group" tooltip="configsecuritylevelpanel.runtime.group.tooltip" id="configsecuritylevelpanel.exec.group.label">
+			<spec size="15" id="configsecuritylevelpanel.runtime.group.label" set="${regards.config.regards.microservices.runtime.group}"/>
+		</field>
+	</panel>
+
 	<panel id="SelectComponentsPanel">
 		<field id="selectcomponentspanel.title.label" type="title" />
 		<field type="check" variable="frontend.selected">
@@ -42,7 +92,7 @@
 
 	<panel id="SelectMicroservicesPanel">
 		<field id="selectmicroservicesspanel.title.label" type="title" />
-		<field type="check" variable="config.selected">
+		<field type="check" variable="conf.selected">
 			<spec id="selectmicroservicespanel.config.label" true="true"
 				false="false" set="true" />
 		</field>
@@ -75,8 +125,8 @@
 	<panel id="CommonConfigPanel">
 		<field id="commonconfigpanel.title.label" type="title" />
 
-		<field type="text" variable="regards.config.cloud.config.address">
-			<spec id="commonconfigpanel.config.address.label" size="15">
+		<field type="text" variable="regards.config.cloud.conf.uri">
+			<spec id="commonconfigpanel.config.address.label" size="15" set="${regards.config.cloud.conf.uri}">
 				<!-- <processor class="fr.cnes.regards.deployment.izpack.processor.ProcessorMicroserviceList"/> -->
 			</spec>
 			<!-- TODO GBN : Faire un validator correcte -->
@@ -84,18 +134,48 @@
 			<!-- id="validator.host.error.label"/> -->
 		</field>
 
-		<field type="text" variable="regards.config.cloud.config.port">
-			<spec id="commonconfigpanel.config.port.label" size="15" />
+		<field type="text" variable="regards.config.cloud.conf.port">
+			<spec id="commonconfigpanel.config.port.label" size="15" set="${regards.config.cloud.conf.port}"/>
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 				id="validator.port.error.label" />
 		</field>
 	</panel>
 
+	<panel id="ConfConfigPanel">
+		<field id="conf.configpanel.title.label"
+			type="title" />
+		<field type="custom" minRow="1" maxRow="1"
+			variable="microservice.conf.count">
+			<spec>
+				<col>
+					<field type="text" variable="regards.config.cloud.conf.uri">
+						<spec id="conf.configpanel.host.label" size="15"
+							set="${regards.config.cloud.conf.uri}" />
+						<!-- TODO GBN : Faire un validator correcte -->
+						<!-- <validator class="com.izforge.izpack.panels.userinput.validator.HostAddressValidator" -->
+						<!-- id="validator.host.error.label"/> -->
+					</field>
+				</col>
+				<col>
+					<field type="text" variable="regards.config.cloud.conf.port">
+						<spec id="conf.configpanel.port.label" size="15"
+							set="${regards.config.cloud.conf.port}">
+						</spec>
+						<validator
+							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							id="validator.port.error.label">
+						</validator>
+					</field>
+				</col>
+			</spec>
+		</field>
+	</panel>
+
 	<panel id="RegistryConfigPanel">
 		<field id="registry.configpanel.title.label"
 			type="title" />
-		<field type="custom" minRow="1" maxRow="50"
+		<field type="custom" minRow="1" maxRow="1"
 			variable="microservice.registry.count">
 			<spec>
 				<col>
@@ -119,8 +199,66 @@
 					</field>
 				</col>
 			</spec>
-			<validator
-				class="fr.cnes.regards.deployment.izpack.validator.ValidatorMicroserviceList" />
+		</field>
+	</panel>
+
+	<panel id="GatewayConfigPanel">
+		<field id="gateway.configpanel.title.label"
+			type="title" />
+		<field type="custom" minRow="1" maxRow="1"
+			variable="microservice.gateway.count">
+			<spec>
+				<col>
+					<field type="text" variable="microservice.gateway.uri">
+						<spec id="gateway.configpanel.host.label" size="15"
+							set="${microservice.gateway.uri}" />
+						<!-- TODO GBN : Faire un validator correcte -->
+						<!-- <validator class="com.izforge.izpack.panels.userinput.validator.HostAddressValidator" -->
+						<!-- id="validator.host.error.label"/> -->
+					</field>
+				</col>
+				<col>
+					<field type="text" variable="microservice.gateway.port">
+						<spec id="gateway.configpanel.port.label" size="15"
+							set="${microservice.gateway.port}">
+						</spec>
+						<validator
+							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							id="validator.port.error.label">
+						</validator>
+					</field>
+				</col>
+			</spec>
+		</field>
+	</panel>
+
+	<panel id="AdminConfigPanel">
+		<field id="admin.configpanel.title.label"
+			type="title" />
+		<field type="custom" minRow="1" maxRow="50"
+			variable="microservice.admin.count">
+			<spec>
+				<col>
+					<field type="text" variable="microservice.admin.uri">
+						<spec id="admin.configpanel.host.label" size="15"
+							set="${microservice.admin.uri}" />
+						<!-- TODO GBN : Faire un validator correcte -->
+						<!-- <validator class="com.izforge.izpack.panels.userinput.validator.HostAddressValidator" -->
+						<!-- id="validator.host.error.label"/> -->
+					</field>
+				</col>
+				<col>
+					<field type="text" variable="microservice.admin.port">
+						<spec id="admin.configpanel.port.label" size="15"
+							set="${microservice.admin.port}">
+						</spec>
+						<validator
+							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							id="validator.port.error.label">
+						</validator>
+					</field>
+				</col>
+			</spec>
 		</field>
 	</panel>
 
@@ -156,38 +294,6 @@
 	<!-- <field type="check" variable="gateway.auth.plugin.ldap"> -->
 	<!-- <spec txt="Shibboleth Authentication Plugin" true="true" false="false" -->
 	<!-- set="${gateway.auth.plugin.ldap}" /> -->
-	<!-- </field> -->
-	<!-- </panel> -->
-
-	<!-- TODO GBN : Voir ce qu'on garde -->
-	<!-- <panel id="MicroservicesPanel"> -->
-	<!-- <field txt="REGARDS Microservice(s) configuration" type="title" /> -->
-	<!-- <field type="staticText" align="left" -->
-	<!-- txt="Select miroservices to install : " /> -->
-	<!-- <field type="check" variable="ms.administration"> -->
-	<!-- <spec txt="Administration" true="true" false="false" set="false" /> -->
-	<!-- </field> -->
-	<!-- <field type="check" variable="ms.ingest"> -->
-	<!-- <spec txt="Ingest" true="true" false="false" set="false" /> -->
-	<!-- </field> -->
-	<!-- <field type="check" variable="ms.ingest"> -->
-	<!-- <spec txt="Data provider" true="true" false="false" set="false" /> -->
-	<!-- </field> -->
-	<!-- <field type="check" variable="ms.ingest"> -->
-	<!-- <spec txt="Archival Storage" true="true" false="false" set="false" 
-		/> -->
-	<!-- </field> -->
-	<!-- <field type="check" variable="ms.ingest"> -->
-	<!-- <spec txt="Data management" true="true" false="false" set="false" /> -->
-	<!-- </field> -->
-	<!-- <field type="check" variable="ms.ingest"> -->
-	<!-- <spec txt="Catalog" true="true" false="false" set="false" /> -->
-	<!-- </field> -->
-	<!-- <field type="check" variable="ms.ingest"> -->
-	<!-- <spec txt="Order" true="true" false="false" set="false" /> -->
-	<!-- </field> -->
-	<!-- <field type="check" variable="ms.ingest"> -->
-	<!-- <spec txt="Processing" true="true" false="false" set="false" /> -->
 	<!-- </field> -->
 	<!-- </panel> -->
 

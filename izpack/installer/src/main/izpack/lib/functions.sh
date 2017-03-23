@@ -65,7 +65,7 @@ function get_microservice_info
 function is_microservice_running
 {
   typeset -r FCT_PID_FILE="$1"
-  typeset -r FCT_PROGRAM_NAME="$2"
+  typeset -r FCT_LIB_EXEC_JAVA="$2"
   typeset -r FCT_MICROSERVICE_TYPE="$3"
   typeset -r FCT_MICROSERVICE_ID="$4"
   
@@ -74,7 +74,7 @@ function is_microservice_running
   if [ -e "${FCT_PID_FILE}" ]
   then
     fct_pid=$(cat "${FCT_PID_FILE}")
-    if ps --no-headers -p ${fct_pid} -f | grep "${FCT_PROGRAM_NAME}" > /dev/null
+    if ps --no-headers -p ${fct_pid} -f | grep "${FCT_LIB_EXEC_JAVA}" > /dev/null
     then
       printf >&2 "Microservice \"${FCT_MICROSERVICE_TYPE}\" type id \"${FCT_MICROSERVICE_ID}\" is running with pid ${fct_pid}.\n"
       return 0
@@ -84,4 +84,49 @@ function is_microservice_running
     fi
   fi
   return 1
+}
+
+# get_lib_exec_java ####################################################
+function get_lib_exec_java
+{
+  typeset -r FCT_LIB_EXEC_JAVA_PATH="$1"
+
+  typeset fct_lib_exec_java
+  if ! fct_lib_exec_java=$(ls "${FCT_LIB_EXEC_JAVA_PATH}"*.[wj]ar)
+  then
+    printf >&2  "ERROR : File starting by \"${FCT_LIB_EXEC_JAVA_PATH}\" must exist.\n"
+    exit 1
+  fi
+  basename "${fct_lib_exec_java}"
+}
+
+# read_config ##########################################################
+function read_config
+{
+  typeset -r FCT_CONFIGURATION_FILE="$1"
+  typeset -r FCT_PARAMETER="$2"
+
+  # Variable
+  typeset search_value search_line
+
+  if [ ! -r "${FCT_CONFIGURATION_FILE}" ]
+  then
+   printf >&2  "ERROR : File \"${FCT_CONFIGURATION_FILE}\" doesn't exist or not readable.\n"
+   exit 1
+  fi
+
+  # Extract parameter value from configuration file
+  search_line=$(egrep "^[[:blank:]]*${FCT_PARAMETER}[[:blank:]]*=" "${FCT_CONFIGURATION_FILE}")
+  if [ -z "${search_line}" ]
+  then
+    printf >&2  "ERROR : Mandatory property \"${FCT_PARAMETER}\" isn't defined in properties file \"${FCT_CONFIGURATION_FILE}\".\n"
+    exit 1
+  fi
+
+  if ! search_value=$(expr "${search_line}" : ".*\=[[:blank:]]*\(.*\)")
+  then
+    printf >&2  "ERROR : Property line definition \"${search_line}\" is malformed.\n"
+    exit 1
+  fi
+  eval eval echo "${search_value}"
 }

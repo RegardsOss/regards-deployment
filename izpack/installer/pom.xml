@@ -54,6 +54,7 @@
 							<includeArtifactIds>
 								bootstrap-config,
 								bootstrap-registry,
+								bootstrap-gateway,
 								bootstrap-administration,
 								bootstrap-catalog,
 								bootstrap-access,
@@ -127,22 +128,12 @@
 							<kind>standard</kind>
 							<descriptorEncoding>UTF-8</descriptorEncoding>
 							<baseDir>${izpack.staging.dir}</baseDir>
-							<finalName>regards-izpack-installer</finalName>
+							<finalName>REGARDS-OSS-Installer</finalName>
 							<mkdirs>true</mkdirs>
 							<installFile>${basedir}/src/main/izpack/install.xml</installFile>
 						</configuration>
 					</execution>
 				</executions>
-				<!-- must have a dependency here on any code used in the installer, otherwise 
-					the classloader will not find it. So in this case we need our panels and 
-					then the package that contains the base classes for the panels -->
-<!-- 				<dependencies> -->
-<!-- 					<dependency> -->
-<!-- 						<groupId>fr.cnes.regards.deployment</groupId> -->
-<!-- 						<artifactId>regards-izpack-panels</artifactId> -->
-<!-- 						<version>${regards.izpack.panels.version}</version> -->
-<!-- 					</dependency> -->
-<!-- 				</dependencies> -->
 			</plugin>
 		</plugins>
 	</build>
