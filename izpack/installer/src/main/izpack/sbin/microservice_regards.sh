@@ -53,6 +53,34 @@ then
   usage ${PROCESSUS_NAME}
 fi
 
-exec "${ROOT_DIR}"/sbin/microservice.sh -t admin "$@"
+typeset service_type_list
+case "${COMMAND}" in
+  start|status)
+    service_type_list="conf registry admin gateway dam catalog access frontend"
+    ;;
+  stop)
+    service_type_list="frontend access catalog dam gateway admin registry conf"
+    ;;
+  *)
+    usage ${PROCESSUS_NAME}
+    ;;
+esac
+
+typeset service_type
+for service_type in ${service_type_list}
+do
+  if [ -e "${ROOT_DIR}/sbin/microservice_${service_type}.sh" ]
+  then
+    "${ROOT_DIR}"/sbin/microservice.sh -t "${service_type}" "$@"
+    # Wait service starting
+    case "${COMMAND}" in
+      start)
+        sleep 5
+        ;;
+      *)
+        ;;
+    esac
+  fi
+done
 
 exit 0

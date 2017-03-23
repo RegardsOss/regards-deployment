@@ -83,6 +83,6 @@ case  "${COMMAND}" in
   *)
     usage ${PROCESSUS_NAME}
     ;;
-  esac
+esac
 
 exit 0
