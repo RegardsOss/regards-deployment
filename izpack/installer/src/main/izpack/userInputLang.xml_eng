@@ -39,6 +39,12 @@
 	<str id="selectmicroservicespanel.access.label" txt="Microservice Access" />
 	<str id="selectmicroservicespanel.storage.label" txt="Microservice Storage" />
 
+	<str id="frontend.configpanel.title.label" txt="REGARDS Frontend Server configuration" />
+	<str id="frontend.configpanel.host.label" txt="Frontend Web serveur host:" />
+	<str id="frontend.configpanel.port.label" txt="Frontend config Web serveur host:" />
+	<str id="frontend.configpanel.gateway.address.label" txt="Gateway Web serveur host:" />
+	<str id="frontend.configpanel.gateway.port.label" txt="Gateway Web serveur port:" />
+
 	<str id="commonconfigpanel.title.label" txt="REGARDS Common configuration" />
 	<str id="commonconfigpanel.config.address.label" txt="Cloud config Web serveur host:" />
 	<str id="commonconfigpanel.config.port.label" txt="Cloud config Web serveur port:" />
@@ -55,9 +61,21 @@
 	<str id="gateway.configpanel.host.label" txt="Gateway Web serveur host:" />
 	<str id="gateway.configpanel.port.label" txt="Gateway Web serveur port:" />
 
-	<str id="admin.configpanel.title.label" txt="REGARDS Admin Server configuration" />
-	<str id="admin.configpanel.host.label" txt="Admin Web serveur host:" />
-	<str id="admin.configpanel.port.label" txt="Admin Web serveur port:" />
+	<str id="admin.configpanel.title.label" txt="REGARDS Administration Server configuration" />
+	<str id="admin.configpanel.host.label" txt="Administration Web serveur host:" />
+	<str id="admin.configpanel.port.label" txt="Administration Web serveur port:" />
+
+	<str id="dam.configpanel.title.label" txt="REGARDS Data Management Server configuration" />
+	<str id="dam.configpanel.host.label" txt="Data Management Web serveur host:" />
+	<str id="dam.configpanel.port.label" txt="Data Management Web serveur port:" />
+
+	<str id="catalog.configpanel.title.label" txt="REGARDS Catalog Server configuration" />
+	<str id="catalog.configpanel.host.label" txt="Catalog Web serveur host:" />
+	<str id="catalog.configpanel.port.label" txt="Catalog Web serveur port:" />
+
+	<str id="access.configpanel.title.label" txt="REGARDS Access Server configuration" />
+	<str id="access.configpanel.host.label" txt="Access Web serveur host:" />
+	<str id="access.configpanel.port.label" txt="Access Web serveur port:" />
 
 	<str id="validator.host.error.label" txt="Invalid host format!" />
 	<str id="validator.port.error.label" txt="Invalid port format!" />
