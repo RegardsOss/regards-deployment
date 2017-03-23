@@ -13,7 +13,8 @@ package fr.cnes.regards.deployment.izpack.validator;
  */
 public class ValidatorRegistryPanel extends ValidatorMicroserviceList {
 
-    public ValidatorRegistryPanel() {
-        microServiceIdentifier = "registry";
-    }
+	public ValidatorRegistryPanel() {
+		microServiceIdentifier = "microservice.registry";
+		microServiceCountIdentifier = microServiceIdentifier;
+	}
 }

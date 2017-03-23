@@ -67,8 +67,9 @@ typeset microservices_infos
 microservices_infos=$(get_microservice_info "${ROOT_DIR}" "${MICROSERVICE_TYPE}" "${MICROSERVICE_ID}")
 
 cd "${ROOT_DIR}"
-typeset pid pid_file
-typeset -r PROGRAM_NAME="bootstrap-${MICROSERVICE_TYPE}"
+typeset pid pid_file lib_exec_java
+lib_exec_java=$(get_lib_exec_java "${ROOT_DIR}/bootstrap-${MICROSERVICE_TYPE}")
+
 printf "${microservices_infos}\n" | while read line
 do
   typeset -A microservices_infos_t
@@ -76,7 +77,7 @@ do
 
   pid_file="$(get_pid_file_name "${ROOT_DIR}" "${MICROSERVICE_TYPE}" "${microservices_infos_t[id]}")"
 
-  if is_microservice_running "${pid_file}" "${PROGRAM_NAME}" "${MICROSERVICE_TYPE}" "${microservices_infos_t[id]}"
+  if is_microservice_running "${pid_file}" "${lib_exec_java}" "${MICROSERVICE_TYPE}" "${microservices_infos_t[id]}"
   then
     pid=$(cat "${pid_file}")
     printf >&2 "Stopping ${MICROSERVICE_TYPE} type id \"${microservices_infos_t[id]}\" pid \"${pid}\" ...\n"

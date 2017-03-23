@@ -54,6 +54,7 @@
 							<includeArtifactIds>
 								bootstrap-config,
 								bootstrap-registry,
+								bootstrap-gateway,
 								bootstrap-administration,
 								bootstrap-catalog,
 								bootstrap-access,

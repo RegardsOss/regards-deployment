@@ -43,9 +43,21 @@
 	<str id="commonconfigpanel.config.address.label" txt="Cloud config Web serveur host:" />
 	<str id="commonconfigpanel.config.port.label" txt="Cloud config Web serveur port:" />
 
+	<str id="conf.configpanel.title.label" txt="REGARDS Cloud conf Server configuration" />
+	<str id="conf.configpanel.host.label" txt="Cloud config Web serveur host:" />
+	<str id="conf.configpanel.port.label" txt="Cloud config Web serveur host:" />
+	
 	<str id="registry.configpanel.title.label" txt="REGARDS Registry Server configuration" />
 	<str id="registry.configpanel.host.label" txt="Registry Web serveur host:" />
 	<str id="registry.configpanel.port.label" txt="Registry Web serveur port:" />
+
+	<str id="gateway.configpanel.title.label" txt="REGARDS Gateway Server configuration" />
+	<str id="gateway.configpanel.host.label" txt="Gateway Web serveur host:" />
+	<str id="gateway.configpanel.port.label" txt="Gateway Web serveur port:" />
+
+	<str id="admin.configpanel.title.label" txt="REGARDS Admin Server configuration" />
+	<str id="admin.configpanel.host.label" txt="Admin Web serveur host:" />
+	<str id="admin.configpanel.port.label" txt="Admin Web serveur port:" />
 
 	<str id="validator.host.error.label" txt="Invalid host format!" />
 	<str id="validator.port.error.label" txt="Invalid port format!" />
