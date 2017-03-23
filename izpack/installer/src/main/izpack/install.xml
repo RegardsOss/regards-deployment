@@ -72,6 +72,8 @@
 		<!-- Common -->
 		<variable name="regards.config.cloud.conf.uri" value="localhost" />
 		<variable name="regards.config.cloud.conf.port" value="8888" />
+		<variable name="regards.config.cloud.gateway.uri" value="localhost" />
+		<variable name="regards.config.cloud.gateway.port" value="8000" />
 		
 		<!-- Config microservice -->
 		<variable name="regards.config.spring.rabbitmq.addresses" value="172.26.47.52:5672" />
@@ -83,6 +85,9 @@
 		<variable name="regards.config.admin.regards.accounts.root.user.password" value="root_admin" /><variable name="creature.count" value="0"/>
 		
 		<!-- Internal variables -->
+		<variable name="microservice.frontend.count" value="0"/>
+		<variable name="microservice.frontend.uri" value="localhost" />
+		<variable name="microservice.frontend.port" value="3333" />
 		<variable name="microservice.conf.count" value="0"/>
 		<variable name="microservice.registry.count" value="0"/>
 		<variable name="microservice.registry.uri" value="localhost" />
@@ -93,6 +98,15 @@
 		<variable name="microservice.admin.count" value="0"/>
 		<variable name="microservice.admin.uri" value="localhost" />
 		<variable name="microservice.admin.port" value="8777" />
+		<variable name="microservice.dam.count" value="0"/>
+		<variable name="microservice.dam.uri" value="localhost" />
+		<variable name="microservice.dam.port" value="8080" />
+		<variable name="microservice.catalog.count" value="0"/>
+		<variable name="microservice.catalog.uri" value="localhost" />
+		<variable name="microservice.catalog.port" value="4444" />
+		<variable name="microservice.access.count" value="0"/>
+		<variable name="microservice.access.uri" value="localhost" />
+		<variable name="microservice.access.port" value="8990" />
 		
 		<!-- Internal Izpack variables -->
 		<variable name="security.level.selected" value="normal" />
@@ -177,6 +191,18 @@
 			<condition type="ref" refid="isMicroservicesSelected" />
 			<condition type="ref" refid="isMicroservicesAdminSelected" />
 		</condition>
+		<condition type="and" id="mustInstallDam">
+			<condition type="ref" refid="isMicroservicesSelected" />
+			<condition type="ref" refid="isMicroservicesDataManagementSelected" />
+		</condition>
+		<condition type="and" id="mustInstallCatalog">
+			<condition type="ref" refid="isMicroservicesSelected" />
+			<condition type="ref" refid="isMicroservicesCatalogSelected" />
+		</condition>
+		<condition type="and" id="mustInstallAccess">
+			<condition type="ref" refid="isMicroservicesSelected" />
+			<condition type="ref" refid="isMicroservicesAccessSelected" />
+		</condition>
 	</conditions>
 
 	<panels>
@@ -187,6 +213,9 @@
 		<panel classname="UserInputPanel" id="SelectSecurityLevelPanel" />
 		<panel classname="UserInputPanel" id="ConfigSecurityMicroservicesPanel" condition="isSecurityEnforced" />
 		<panel classname="UserInputPanel" id="SelectComponentsPanel" />
+		<panel classname="UserInputPanel" id="FrontendConfigPanel" condition="isFrontendSelected">
+			<validator classname="fr.cnes.regards.deployment.izpack.validator.ValidatorFrontendPanel"/>
+		</panel>
 		<panel classname="UserInputPanel" id="SelectMicroservicesPanel" condition="isMicroservicesSelected" />
 		<!-- CommonConfigPanel is not necessary if conf service is selected -->
 		<panel classname="UserInputPanel" id="CommonConfigPanel" condition="mustConfigureConfServerAccess" />
@@ -202,7 +231,15 @@
 		<panel classname="UserInputPanel" id="AdminConfigPanel" condition="mustInstallAdmin">
 			<validator classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAdminPanel"/>
 		</panel>
-		<!-- TODO GBN, ajouter les panels manquants -->
+		<panel classname="UserInputPanel" id="DamConfigPanel" condition="mustInstallDam">
+			<validator classname="fr.cnes.regards.deployment.izpack.validator.ValidatorDamPanel"/>
+		</panel>
+		<panel classname="UserInputPanel" id="CatalogConfigPanel" condition="mustInstallCatalog">
+			<validator classname="fr.cnes.regards.deployment.izpack.validator.ValidatorCatalogPanel"/>
+		</panel>
+		<panel classname="UserInputPanel" id="AccessConfigPanel" condition="mustInstallAccess">
+			<validator classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAccessPanel"/>
+		</panel>
 		<panel classname="SummaryPanel" />
 		<panel classname="InstallPanel" />
 		<panel classname="ProcessPanel" />
@@ -247,6 +284,25 @@
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true">
 				<include name="bootstrap-frontend.*ar" />
 			</fileset>
+			<fileset dir="sbin/frontend" targetdir="$INSTALL_PATH/REGARDS/sbin" override="true">
+				<include name="*" />
+			</fileset>
+
+			<executable type="bin" stage="never" keep="true">
+				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+			</executable>
+			<executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i"/>
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t"/>
+					<arg value="frontend" />
+					<arg value="-c"/>
+					<arg value="${microservice.frontend.microserviceList}" />
+				</args>
+			</executable>
 		</pack>
 
 		<!-- ####################################################################################################### -->
@@ -379,35 +435,89 @@
 			</executable>
 		</pack>
 
-<!-- 		</pack> -->
-<!-- 		<pack name="dam" required="no" condition="isMicroservicesDataManagementSelected"> -->
-<!-- 			<description>REGARDS Data Management services installation</description> -->
+		<!-- ####################################################################################################### -->
+		<pack name="dam" required="no" condition="mustInstallDam">
+			<description>REGARDS Data Management service installation</description>
 
-<!-- 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> -->
-<!-- 				<include name="bootstrap-dam.jar" /> -->
-<!-- 			</fileset> -->
-<!-- 		</pack> -->
-<!-- 		<pack name="catalog" required="no" condition="isMicroservicesCatalogSelected"> -->
-<!-- 			<description>REGARDS Catalog services installation</description> -->
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true">
+				<include name="bootstrap-dam.jar" />
+			</fileset>
+			<fileset dir="sbin/dam" targetdir="$INSTALL_PATH/REGARDS/sbin" override="true">
+				<include name="*" />
+			</fileset>
+			
+			<executable type="bin" stage="never" keep="true">
+				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+			</executable>
+			<executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i"/>
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t"/>
+					<arg value="dam" />
+					<arg value="-c"/>
+					<arg value="${microservice.dam.microserviceList}" />
+				</args>
+			</executable>
+		</pack>
 
-<!-- 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> -->
-<!-- 				<include name="bootstrap-catalog.jar" /> -->
-<!-- 			</fileset> -->
-<!-- 		</pack> -->
-<!-- 		<pack name="access" required="no" condition="isMicroservicesAccessSelected"> -->
-<!-- 			<description>REGARDS Access service installation</description> -->
+		<!-- ####################################################################################################### -->
+		<pack name="catalog" required="no" condition="mustInstallCatalog">
+			<description>REGARDS Catalog service installation</description>
 
-<!-- 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> -->
-<!-- 				<include name="bootstrap-access.jar" /> -->
-<!-- 			</fileset> -->
-<!-- 		</pack> -->
-<!-- 		<pack name="storage" required="no" condition="isMicroservicesStorageSelected"> -->
-<!-- 			<description>REGARDS Storage service installation</description> -->
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true">
+				<include name="bootstrap-catalog.jar" />
+			</fileset>
+			<fileset dir="sbin/catalog" targetdir="$INSTALL_PATH/REGARDS/sbin" override="true">
+				<include name="*" />
+			</fileset>
+			
+			<executable type="bin" stage="never" keep="true">
+				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+			</executable>
+			<executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i"/>
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t"/>
+					<arg value="catalog" />
+					<arg value="-c"/>
+					<arg value="${microservice.catalog.microserviceList}" />
+				</args>
+			</executable>
+		</pack>
 
-<!-- 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> -->
-<!-- 				<include name="bootstrap-storage.jar" /> -->
-<!-- 			</fileset> -->
-<!-- 		</pack> -->
+		<!-- ####################################################################################################### -->
+		<pack name="access" required="no" condition="mustInstallAccess">
+			<description>REGARDS Access service installation</description>
+
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true">
+				<include name="bootstrap-access.jar" />
+			</fileset>
+			<fileset dir="sbin/access" targetdir="$INSTALL_PATH/REGARDS/sbin" override="true">
+				<include name="*" />
+			</fileset>
+			
+			<executable type="bin" stage="never" keep="true">
+				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+			</executable>
+			<executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i"/>
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t"/>
+					<arg value="access" />
+					<arg value="-c"/>
+					<arg value="${microservice.access.microserviceList}" />
+				</args>
+			</executable>
+		</pack>
 	</packs>
 
 </izpack:installation>

@@ -122,18 +122,47 @@
 		</field>
 	</panel>
 
+	<panel id="FrontendConfigPanel">
+		<field id="frontend.configpanel.title.label"
+			type="title" />
+		<field type="custom" minRow="1" maxRow="1"
+			variable="microservice.frontend.count">
+			<spec>
+				<col>
+					<field type="text" variable="microservice.frontend.uri">
+						<spec id="frontend.configpanel.host.label" size="15"
+							set="${microservice.frontend.uri}" />
+					</field>
+				</col>
+				<col>
+					<field type="text" variable="microservice.frontend.port">
+						<spec id="frontend.configpanel.port.label" size="15"
+							set="${microservice.frontend.port}">
+						</spec>
+						<validator
+							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							id="validator.port.error.label">
+						</validator>
+					</field>
+				</col>
+			</spec>
+		</field>
+		<field type="text" variable="regards.config.cloud.gateway.uri">
+			<spec id="frontend.configpanel.gateway.address.label" size="15" set="${regards.config.cloud.gateway.uri}"/>
+		</field>
+		<field type="text" variable="regards.config.cloud.gateway.port">
+			<spec id="frontend.configpanel.gateway.port.label" size="15" set="${regards.config.cloud.gateway.port}"/>
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+				id="validator.port.error.label" />
+		</field>
+	</panel>
+
 	<panel id="CommonConfigPanel">
 		<field id="commonconfigpanel.title.label" type="title" />
-
 		<field type="text" variable="regards.config.cloud.conf.uri">
-			<spec id="commonconfigpanel.config.address.label" size="15" set="${regards.config.cloud.conf.uri}">
-				<!-- <processor class="fr.cnes.regards.deployment.izpack.processor.ProcessorMicroserviceList"/> -->
-			</spec>
-			<!-- TODO GBN : Faire un validator correcte -->
-			<!-- <validator class="com.izforge.izpack.panels.userinput.validator.HostAddressValidator" -->
-			<!-- id="validator.host.error.label"/> -->
+			<spec id="commonconfigpanel.config.address.label" size="15" set="${regards.config.cloud.conf.uri}"/>
 		</field>
-
 		<field type="text" variable="regards.config.cloud.conf.port">
 			<spec id="commonconfigpanel.config.port.label" size="15" set="${regards.config.cloud.conf.port}"/>
 			<validator
@@ -152,16 +181,12 @@
 					<field type="text" variable="regards.config.cloud.conf.uri">
 						<spec id="conf.configpanel.host.label" size="15"
 							set="${regards.config.cloud.conf.uri}" />
-						<!-- TODO GBN : Faire un validator correcte -->
-						<!-- <validator class="com.izforge.izpack.panels.userinput.validator.HostAddressValidator" -->
-						<!-- id="validator.host.error.label"/> -->
 					</field>
 				</col>
 				<col>
 					<field type="text" variable="regards.config.cloud.conf.port">
 						<spec id="conf.configpanel.port.label" size="15"
-							set="${regards.config.cloud.conf.port}">
-						</spec>
+							set="${regards.config.cloud.conf.port}"/>
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
@@ -212,16 +237,12 @@
 					<field type="text" variable="microservice.gateway.uri">
 						<spec id="gateway.configpanel.host.label" size="15"
 							set="${microservice.gateway.uri}" />
-						<!-- TODO GBN : Faire un validator correcte -->
-						<!-- <validator class="com.izforge.izpack.panels.userinput.validator.HostAddressValidator" -->
-						<!-- id="validator.host.error.label"/> -->
 					</field>
 				</col>
 				<col>
 					<field type="text" variable="microservice.gateway.port">
 						<spec id="gateway.configpanel.port.label" size="15"
-							set="${microservice.gateway.port}">
-						</spec>
+							set="${microservice.gateway.port}"/>
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
@@ -242,16 +263,90 @@
 					<field type="text" variable="microservice.admin.uri">
 						<spec id="admin.configpanel.host.label" size="15"
 							set="${microservice.admin.uri}" />
-						<!-- TODO GBN : Faire un validator correcte -->
-						<!-- <validator class="com.izforge.izpack.panels.userinput.validator.HostAddressValidator" -->
-						<!-- id="validator.host.error.label"/> -->
 					</field>
 				</col>
 				<col>
 					<field type="text" variable="microservice.admin.port">
 						<spec id="admin.configpanel.port.label" size="15"
-							set="${microservice.admin.port}">
-						</spec>
+							set="${microservice.admin.port}"/>
+						<validator
+							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							id="validator.port.error.label">
+						</validator>
+					</field>
+				</col>
+			</spec>
+		</field>
+	</panel>
+
+	<panel id="DamConfigPanel">
+		<field id="dam.configpanel.title.label"
+			type="title" />
+		<field type="custom" minRow="1" maxRow="50"
+			variable="microservice.dam.count">
+			<spec>
+				<col>
+					<field type="text" variable="microservice.dam.uri">
+						<spec id="dam.configpanel.host.label" size="15"
+							set="${microservice.dam.uri}" />
+					</field>
+				</col>
+				<col>
+					<field type="text" variable="microservice.dam.port">
+						<spec id="dam.configpanel.port.label" size="15"
+							set="${microservice.dam.port}"/>
+						<validator
+							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							id="validator.port.error.label">
+						</validator>
+					</field>
+				</col>
+			</spec>
+		</field>
+	</panel>
+
+	<panel id="CatalogConfigPanel">
+		<field id="catalog.configpanel.title.label"
+			type="title" />
+		<field type="custom" minRow="1" maxRow="50"
+			variable="microservice.catalog.count">
+			<spec>
+				<col>
+					<field type="text" variable="microservice.catalog.uri">
+						<spec id="catalog.configpanel.host.label" size="15"
+							set="${microservice.catalog.uri}" />
+					</field>
+				</col>
+				<col>
+					<field type="text" variable="microservice.catalog.port">
+						<spec id="catalog.configpanel.port.label" size="15"
+							set="${microservice.catalog.port}"/>
+						<validator
+							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							id="validator.port.error.label">
+						</validator>
+					</field>
+				</col>
+			</spec>
+		</field>
+	</panel>
+
+	<panel id="AccessConfigPanel">
+		<field id="access.configpanel.title.label"
+			type="title" />
+		<field type="custom" minRow="1" maxRow="50"
+			variable="microservice.access.count">
+			<spec>
+				<col>
+					<field type="text" variable="microservice.access.uri">
+						<spec id="access.configpanel.host.label" size="15"
+							set="${microservice.access.uri}" />
+					</field>
+				</col>
+				<col>
+					<field type="text" variable="microservice.access.port">
+						<spec id="access.configpanel.port.label" size="15"
+							set="${microservice.access.port}"/>
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
