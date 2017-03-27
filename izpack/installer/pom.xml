@@ -57,7 +57,8 @@
 								bootstrap-gateway,
 								bootstrap-administration,
 								bootstrap-catalog,
-								bootstrap-access,
+								bootstrap-access-instance,
+								bootstrap-access-project,
 								bootstrap-dam,
 								bootstrap-storage,
 								bootstrap-frontend
@@ -159,7 +160,11 @@
 		</dependency>
 		<dependency>
 			<groupId>fr.cnes.regards.microservices.access</groupId>
-			<artifactId>bootstrap-access</artifactId>
+			<artifactId>bootstrap-access-instance</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>fr.cnes.regards.microservices.access</groupId>
+			<artifactId>bootstrap-access-project</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>fr.cnes.regards.microservices.dam</groupId>

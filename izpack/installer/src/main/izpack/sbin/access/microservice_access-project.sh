@@ -53,6 +53,6 @@ then
   usage ${PROCESSUS_NAME}
 fi
 
-exec "${ROOT_DIR}"/sbin/microservice.sh -t access "$@"
+exec "${ROOT_DIR}"/sbin/microservice.sh -t 'access-project' "$@"
 
 exit 0
