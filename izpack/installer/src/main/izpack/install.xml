@@ -104,9 +104,12 @@
 		<variable name="microservice.catalog.count" value="0"/>
 		<variable name="microservice.catalog.uri" value="localhost" />
 		<variable name="microservice.catalog.port" value="4444" />
-		<variable name="microservice.access.count" value="0"/>
-		<variable name="microservice.access.uri" value="localhost" />
-		<variable name="microservice.access.port" value="8990" />
+		<variable name="microservice.access-instance.count" value="0"/>
+		<variable name="microservice.access-instance.uri" value="localhost" />
+		<variable name="microservice.access-instance.port" value="8990" />
+		<variable name="microservice.access-project.count" value="0"/>
+		<variable name="microservice.access-project.uri" value="localhost" />
+		<variable name="microservice.access-project.port" value="9990" />
 		
 		<!-- Internal Izpack variables -->
 		<variable name="security.level.selected" value="normal" />
@@ -237,13 +240,16 @@
 		<panel classname="UserInputPanel" id="CatalogConfigPanel" condition="mustInstallCatalog">
 			<validator classname="fr.cnes.regards.deployment.izpack.validator.ValidatorCatalogPanel"/>
 		</panel>
-		<panel classname="UserInputPanel" id="AccessConfigPanel" condition="mustInstallAccess">
-			<validator classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAccessPanel"/>
+		<panel classname="UserInputPanel" id="AccessInstanceConfigPanel" condition="mustInstallAccess">
+			<validator classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAccessInstancePanel"/>
+		</panel>
+		<panel classname="UserInputPanel" id="AccessProjectConfigPanel" condition="mustInstallAccess">
+			<validator classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAccessProjectPanel"/>
 		</panel>
 		<panel classname="SummaryPanel" />
 		<panel classname="InstallPanel" />
 		<panel classname="ProcessPanel" />
-		<panel classname="SimpleFinishPanel" />
+		<panel classname="FinishPanel" />
 	</panels>
 
 	<packs>
@@ -284,7 +290,7 @@
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true">
 				<include name="bootstrap-frontend.*ar" />
 			</fileset>
-			<fileset dir="sbin/frontend" targetdir="$INSTALL_PATH/REGARDS/sbin" override="true">
+			<fileset dir="sbin/frontend/" targetdir="$INSTALL_PATH/REGARDS/sbin" override="true">
 				<include name="*" />
 			</fileset>
 
@@ -321,7 +327,7 @@
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true">
 				<include name="bootstrap-config.jar" />
 			</fileset>
-			<fileset dir="sbin/conf" targetdir="$INSTALL_PATH/REGARDS/sbin" override="true">
+			<fileset dir="sbin/conf/" targetdir="$INSTALL_PATH/REGARDS/sbin" override="true">
 				<include name="*" />
 			</fileset>
 			<fileset dir="config/BOOT-INF/classes/regards" targetdir="$INSTALL_PATH/REGARDS/config/regards" override="true">
@@ -496,7 +502,8 @@
 			<description>REGARDS Access service installation</description>
 
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true">
-				<include name="bootstrap-access.jar" />
+				<include name="bootstrap-access-instance.jar" />
+				<include name="bootstrap-access-project.jar" />
 			</fileset>
 			<fileset dir="sbin/access" targetdir="$INSTALL_PATH/REGARDS/sbin" override="true">
 				<include name="*" />
@@ -512,9 +519,21 @@
 					<arg value="-i"/>
 					<arg value="$INSTALL_PATH/REGARDS" />
 					<arg value="-t"/>
-					<arg value="access" />
+					<arg value="access-instance" />
 					<arg value="-c"/>
-					<arg value="${microservice.access.microserviceList}" />
+					<arg value="${microservice.access-instance.microserviceList}" />
+				</args>
+			</executable>
+			<executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i"/>
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t"/>
+					<arg value="access-project" />
+					<arg value="-c"/>
+					<arg value="${microservice.access-project.microserviceList}" />
 				</args>
 			</executable>
 		</pack>

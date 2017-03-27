@@ -331,22 +331,48 @@
 		</field>
 	</panel>
 
-	<panel id="AccessConfigPanel">
-		<field id="access.configpanel.title.label"
+	<panel id="AccessInstanceConfigPanel">
+		<field id="access-instance.configpanel.title.label"
 			type="title" />
 		<field type="custom" minRow="1" maxRow="50"
-			variable="microservice.access.count">
+			variable="microservice.access-instance.count">
 			<spec>
 				<col>
-					<field type="text" variable="microservice.access.uri">
-						<spec id="access.configpanel.host.label" size="15"
-							set="${microservice.access.uri}" />
+					<field type="text" variable="microservice.access-instance.uri">
+						<spec id="access-instance.configpanel.host.label" size="15"
+							set="${microservice.access-instance.uri}" />
 					</field>
 				</col>
 				<col>
-					<field type="text" variable="microservice.access.port">
-						<spec id="access.configpanel.port.label" size="15"
-							set="${microservice.access.port}"/>
+					<field type="text" variable="microservice.access-instance.port">
+						<spec id="access-instance.configpanel.port.label" size="15"
+							set="${microservice.access-instance.port}"/>
+						<validator
+							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							id="validator.port.error.label">
+						</validator>
+					</field>
+				</col>
+			</spec>
+		</field>
+	</panel>
+
+	<panel id="AccessProjectConfigPanel">
+		<field id="access-project.configpanel.title.label"
+			type="title" />
+		<field type="custom" minRow="1" maxRow="50"
+			variable="microservice.access-project.count">
+			<spec>
+				<col>
+					<field type="text" variable="microservice.access-project.uri">
+						<spec id="access-project.configpanel.host.label" size="15"
+							set="${microservice.access-project.uri}" />
+					</field>
+				</col>
+				<col>
+					<field type="text" variable="microservice.access-project.port">
+						<spec id="access-project.configpanel.port.label" size="15"
+							set="${microservice.access-project.port}"/>
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">

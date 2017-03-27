@@ -73,9 +73,13 @@
 	<str id="catalog.configpanel.host.label" txt="Catalog Web serveur host:" />
 	<str id="catalog.configpanel.port.label" txt="Catalog Web serveur port:" />
 
-	<str id="access.configpanel.title.label" txt="REGARDS Access Server configuration" />
-	<str id="access.configpanel.host.label" txt="Access Web serveur host:" />
-	<str id="access.configpanel.port.label" txt="Access Web serveur port:" />
+	<str id="access-instance.configpanel.title.label" txt="REGARDS Instance Access Server configuration" />
+	<str id="access-instance.configpanel.host.label" txt="Instance Access Web serveur host:" />
+	<str id="access-instance.configpanel.port.label" txt="Instance Access Web serveur port:" />
+
+	<str id="access-project.configpanel.title.label" txt="REGARDS Project Access Server configuration" />
+	<str id="access-project.configpanel.host.label" txt="Project Access Web serveur host:" />
+	<str id="access-project.configpanel.port.label" txt="Project Access Web serveur port:" />
 
 	<str id="validator.host.error.label" txt="Invalid host format!" />
 	<str id="validator.port.error.label" txt="Invalid port format!" />
