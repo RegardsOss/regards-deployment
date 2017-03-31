@@ -9,7 +9,7 @@
 		id="LicencePanel_2" />
 	<com.izforge.izpack.panels.target.TargetPanel
 		id="TargetPanel_3">
-		<installpath>/opt/regards</installpath>
+		<installpath>/opt/regards/regards-ic</installpath>
 	</com.izforge.izpack.panels.target.TargetPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="SelectSecurityLevelPanel">
