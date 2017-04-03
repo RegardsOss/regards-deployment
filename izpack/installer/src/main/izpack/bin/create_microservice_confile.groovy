@@ -27,8 +27,10 @@ String microserviceType = options.t;
 import java.nio.file.Paths;
 import java.nio.file.Path;
 
-Thread.currentThread().getContextClassLoader().addURL((Paths.get(regardsInstallDir, "lib/regards-izpack-utils.jar").toUri().toURL()));
-Thread.currentThread().getContextClassLoader().URLs.each{ println it }
+def urlLoader = new GroovyClassLoader();
+urlLoader.addURL((Paths.get(regardsInstallDir, "lib/regards-izpack-utils.jar").toUri().toURL()));
+println "ClassLoader :"
+urlLoader.URLs.each{ println it }
 
 println "Creation of Registry microservice configuration file"
 
@@ -37,6 +39,6 @@ println "Xml input configuration : " + xmlConfig;
 
 // Microservice Registry Configuration file
 Path registryFilePath = Paths.get(regardsInstallDir, "config/" + microserviceType + "_config.xml");
-Class.forName("fr.cnes.regards.deployment.izpack.utils.MicroserviceConfigListAccessor").writeToFile(xmlConfig, registryFilePath);
+Class.forName("fr.cnes.regards.deployment.izpack.utils.MicroserviceConfigListAccessor", true, urlLoader).writeToFile(xmlConfig, registryFilePath);
 
 System.exit(0);
