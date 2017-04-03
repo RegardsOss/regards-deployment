@@ -27,8 +27,8 @@ String microserviceType = options.t;
 import java.nio.file.Paths;
 import java.nio.file.Path;
 
-this.class.classLoader.rootLoader.addURL((Paths.get(regardsInstallDir, "lib/regards-izpack-utils.jar").toUri().toURL()));
-this.class.classLoader.rootLoader.URLs.each{ println it }
+Thread.currentThread().getContextClassLoader().addURL((Paths.get(regardsInstallDir, "lib/regards-izpack-utils.jar").toUri().toURL()));
+Thread.currentThread().getContextClassLoader().URLs.each{ println it }
 
 println "Creation of Registry microservice configuration file"
 
