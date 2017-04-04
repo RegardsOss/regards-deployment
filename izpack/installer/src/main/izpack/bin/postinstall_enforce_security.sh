@@ -83,8 +83,16 @@ chown :${RUNTIME_REGARDS_GROUP} "${ROOT_DIR}"
 chmod 0750 "${ROOT_DIR}"
 
 # Services files read for execution by exec user
-chown :${EXEC_REGARDS_GROUP} "${ROOT_DIR}/"{*.war,*.jar}
-chmod 0640 "${ROOT_DIR}/"{*.war,*.jar}
+if ls "${ROOT_DIR}/"*.war > /dev/null 2>&1
+then
+  chown :${EXEC_REGARDS_GROUP} "${ROOT_DIR}/"*.war
+  chmod 0640 "${ROOT_DIR}/"*.war
+fi
+if ls "${ROOT_DIR}/"*.jar > /dev/null 2>&1
+then
+  chown :${EXEC_REGARDS_GROUP} "${ROOT_DIR}/"*.jar
+  chmod 0640 "${ROOT_DIR}/"*.jar
+fi
 
 # Dirs shared throw rw by admin and exec users
 chown -R :${RUNTIME_REGARDS_GROUP} "${ROOT_DIR}"/{run,logs}
@@ -105,19 +113,28 @@ chown -R :${RUNTIME_REGARDS_GROUP} "${ROOT_DIR}"/bin
 chmod 0750 "${ROOT_DIR}"/bin
 
 # Files acceded throw rx by exec users
-chmod 0750 "${ROOT_DIR}"/bin/*
+if ls "${ROOT_DIR}"/bin/* > /dev/null 2>&1
+then
+  chmod 0750 "${ROOT_DIR}"/bin/*
+fi
 
 # Dirs acceded throw rx by root users
 chmod 0700 "${ROOT_DIR}"/sbin
 
 # Files acceded throw rx by exec users
-chmod 0700 "${ROOT_DIR}"/sbin/*
+if ls "${ROOT_DIR}"/sbin/* > /dev/null 2>&1
+then
+  chmod 0700 "${ROOT_DIR}"/sbin/*
+fi
 
 # Dirs acceded throw ro by exec users
 chown -R :${RUNTIME_REGARDS_GROUP} "${ROOT_DIR}"/lib
 chmod 0750 "${ROOT_DIR}"/lib
 
 # Files acceded throw ro by exec users
-chmod 0640 "${ROOT_DIR}"/lib/*
+if ls "${ROOT_DIR}"/lib/* > /dev/null 2>&1
+then
+  chmod 0640 "${ROOT_DIR}"/lib/*
+fi
 
 exit 0
