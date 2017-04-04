@@ -49,9 +49,47 @@
 	<str id="commonconfigpanel.config.address.label" txt="Cloud config Web serveur host:" />
 	<str id="commonconfigpanel.config.port.label" txt="Cloud config Web serveur port:" />
 
+	<str id="rabbitmqconfigpanel.title.label" txt="Message Broker configuration" />
+	<str id="rabbitmqconfigpanel.rabbitmq.addresses.label" txt="Message Broker addresses:" />
+	<str id="rabbitmqconfigpanel.rabbitmq.username.label" txt="Message Broker username:" />
+	<str id="rabbitmqconfigpanel.rabbitmq.password.label" txt="Message Broker password:" />
+	<str id="rabbitmqconfigpanel.amqp.management.host.label" txt="Message Broker management host:" />
+	<str id="rabbitmqconfigpanel.amqp.management.port.label" txt="Message Broker management port:" />
+
 	<str id="conf.configpanel.title.label" txt="REGARDS Cloud conf Server configuration" />
 	<str id="conf.configpanel.host.label" txt="Cloud config Web serveur host:" />
-	<str id="conf.configpanel.port.label" txt="Cloud config Web serveur host:" />
+	<str id="conf.configpanel.port.label" txt="Cloud config Web serveur port:" />
+	<str id="conf.configpanel.admin.regards.accounts.root.user.login.label" txt="Cloud config admin login:" />
+	<str id="conf.configpanel.admin.regards.accounts.root.user.password.label" txt="Cloud config admin password:" />
+	
+	<str id="databaseconfigpanel.title.label" txt="REGARDS Datasources configuration" />
+	<str id="databaseconfigpanel.gateway.regards.jpa.instance.datasource.url.label" txt="Gateway datasource instrance url:" />
+	<str id="databaseconfigpanel.gateway.regards.jpa.instance.datasource.user.name.label" txt="Gateway datasource instrance user:" />
+	<str id="databaseconfigpanel.gateway.regards.jpa.instance.datasource.password.label" txt="Gateway datasource instrance password:" />
+	<str id="databaseconfigpanel.gateway.regards.jpa.multitenant.tenants.url.1.label" txt="Gateway datasource first tenant url:" />
+	<str id="databaseconfigpanel.gateway.regards.jpa.multitenant.tenants.user.name.1.label" txt="Gateway datasource first tenant user:" />
+	<str id="databaseconfigpanel.gateway.regards.jpa.multitenant.tenants.password.1.label" txt="Gateway datasource first tenant password:" />
+	<str id="databaseconfigpanel.admin.regards.jpa.instance.datasource.url.label" txt="Administration datasource instrance url:" />
+	<str id="databaseconfigpanel.admin.regards.jpa.instance.datasource.user.name.label" txt="Administration datasource instrance user:" />
+	<str id="databaseconfigpanel.admin.regards.jpa.instance.datasource.password.label" txt="Administration datasource instrance password:" />
+	<str id="databaseconfigpanel.admin.regards.jpa.multitenant.tenants.url.1.label" txt="Administration datasource first tenant url:" />
+	<str id="databaseconfigpanel.admin.regards.jpa.multitenant.tenants.user.name.1.label" txt="Administration datasource first tenant user:" />
+	<str id="databaseconfigpanel.admin.regards.jpa.multitenant.tenants.password.1.label" txt="Administration datasource first tenant password:" />
+	<str id="databaseconfigpanel.dam.regards.jpa.instance.datasource.url.label" txt="DataManagement datasource instrance url:" />
+	<str id="databaseconfigpanel.dam.regards.jpa.instance.datasource.user.name.label" txt="DataManagement datasource instrance user:" />
+	<str id="databaseconfigpanel.dam.regards.jpa.instance.datasource.password.label" txt="DataManagement datasource instrance password:" />
+	<str id="databaseconfigpanel.dam.regards.jpa.multitenant.tenants.url.1.label" txt="DataManagement datasource first tenant url:" />
+	<str id="databaseconfigpanel.dam.regards.jpa.multitenant.tenants.user.name.1.label" txt="DataManagement datasource first tenant user:" />
+	<str id="databaseconfigpanel.dam.regards.jpa.multitenant.tenants.password.1.label" txt="DataManagement datasource first tenant password:" />
+	<str id="databaseconfigpanel.access.instance.regards.jpa.instance.datasource.url.label" txt="Access Instance datasource instrance url:" />
+	<str id="databaseconfigpanel.access.instance.regards.jpa.instance.datasource.user.name.label" txt="Access Instance datasource instrance user:" />
+	<str id="databaseconfigpanel.access.instance.regards.jpa.instance.datasource.password.label" txt="Access Instance datasource instrance password:" />
+	<str id="databaseconfigpanel.access.project.regards.jpa.instance.datasource.url.label" txt="Access Project datasource instrance url:" />
+	<str id="databaseconfigpanel.access.project.regards.jpa.instance.datasource.user.name.label" txt="Access Project datasource instrance user:" />
+	<str id="databaseconfigpanel.access.project.regards.jpa.instance.datasource.password.label" txt="Access Project datasource instrance password:" />
+	<str id="databaseconfigpanel.access.project.regards.jpa.multitenant.tenants.url.1.label" txt="Access Project datasource first tenant url:" />
+	<str id="databaseconfigpanel.access.project.regards.jpa.multitenant.tenants.user.name.1.label" txt="Access Project datasource first tenant user:" />
+	<str id="databaseconfigpanel.access.project.regards.jpa.multitenant.tenants.password.1.label" txt="Access Project datasource first tenant password:" />
 	
 	<str id="registry.configpanel.title.label" txt="REGARDS Registry Server configuration" />
 	<str id="registry.configpanel.host.label" txt="Registry Web serveur host:" />

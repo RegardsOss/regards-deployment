@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- LICENSE_PLACEHOLDER -->
+<izpack:processing version="5.0"
+	xmlns:izpack="http://izpack.org/schema/processing" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://izpack.org/schema/processing http://izpack.org/schema/5.0/izpack-processing-5.0.xsd">
+
+	<job name="postinstall_mk_empty_dirs">
+		<executefile name="$INSTALL_PATH/REGARDS/bin/postinstall_mk_empty_dirs.groovy" workingDir="$INSTALL_PATH/REGARDS/"/>
+	</job>
+	
+	<job name="postinstall_enforce_security" condition="isSecurityEnforced">
+		<os family="unix"/>
+		<executefile name="$INSTALL_PATH/REGARDS/bin/postinstall_enforce_security.sh" workingDir="$INSTALL_PATH/REGARDS/"/>
+	</job>
+</izpack:processing>
