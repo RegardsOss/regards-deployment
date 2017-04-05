@@ -53,6 +53,6 @@ then
   usage ${PROCESSUS_NAME}
 fi
 
-exec "${ROOT_DIR}"/sbin/microservice.sh -t admin "$@"
+exec "${ROOT_DIR}"/sbin/microservice.sh -t frontend "$@"
 
 exit 0

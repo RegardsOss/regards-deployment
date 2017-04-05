@@ -335,8 +335,8 @@
 				<include name="**/*" />
 			</fileset>
 			
-			<parsable type="plain" targetfile="$INSTALL_PATH/REGARDS/www">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/www" includes="*,**/*"/>
+			<parsable type="plain">
+				<fileset targetdir="$INSTALL_PATH/REGARDS/www" includes="**/*.js"/>
 			</parsable>
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
