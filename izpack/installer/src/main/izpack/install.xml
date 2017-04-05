@@ -76,13 +76,43 @@
 		<variable name="regards.config.cloud.gateway.port" value="8000" />
 		
 		<!-- Config microservice -->
-		<variable name="regards.config.spring.rabbitmq.addresses" value="172.26.47.52:5672" />
+		<variable name="regards.config.spring.rabbitmq.host" value="localhost" />
+		<variable name="regards.config.spring.rabbitmq.port" value="5672" />
 		<variable name="regards.config.spring.rabbitmq.username" value="guest" />
 		<variable name="regards.config.spring.rabbitmq.password" value="guest" />
-		<variable name="regards.config.regards.amqp.management.host" value="172.26.47.52" />
+		<variable name="regards.config.regards.amqp.management.host" value="localhost" />
 		<variable name="regards.config.regards.amqp.management.port" value="15672" />
 		<variable name="regards.config.admin.regards.accounts.root.user.login" value="regards-admin@c-s.fr" />
-		<variable name="regards.config.admin.regards.accounts.root.user.password" value="root_admin" /><variable name="creature.count" value="0"/>
+		<variable name="regards.config.admin.regards.accounts.root.user.password" value="root_admin" />
+
+		<!-- Config database microservice -->
+		<variable name="regards.config.gateway.regards.jpa.instance.datasource.url" value="localhost:5432/rs_gateway_instance"/>
+		<variable name="regards.config.gateway.regards.jpa.instance.datasource.user.name" value="rs_gateway_user"/>
+		<variable name="regards.config.gateway.regards.jpa.instance.datasource.password" value="rs_gateway_pwd"/>
+		<variable name="regards.config.gateway.regards.jpa.multitenant.tenants.url.1" value="localhost:5432/rs_gateway_tenant0"/>
+		<variable name="regards.config.gateway.regards.jpa.multitenant.tenants.user.name.1" value="rs_gateway_tenant0_user"/>
+		<variable name="regards.config.gateway.regards.jpa.multitenant.tenants.password.1" value="rs_gateway_tenant0_pwd"/>
+		<variable name="regards.config.admin.regards.jpa.instance.datasource.url" value="localhost:5432/rs_admin_instance"/>
+		<variable name="regards.config.admin.regards.jpa.instance.datasource.user.name" value="rs_admin_user"/>
+		<variable name="regards.config.admin.regards.jpa.instance.datasource.password" value="rs_admin_pwd"/>
+		<variable name="regards.config.admin.regards.jpa.multitenant.tenants.url.1" value="localhost:5432/rs_admin_tenant0"/>
+		<variable name="regards.config.admin.regards.jpa.multitenant.tenants.user.name.1" value="rs_admin_tenant0_user"/>
+		<variable name="regards.config.admin.regards.jpa.multitenant.tenants.password.1" value="rs_admin_tenant0_pwd"/>
+		<variable name="regards.config.dam.regards.jpa.instance.datasource.url" value="localhost:5432/rs_dam_instance"/>
+		<variable name="regards.config.dam.regards.jpa.instance.datasource.user.name" value="rs_dam_user"/>
+		<variable name="regards.config.dam.regards.jpa.instance.datasource.password" value="rs_dam_pwd"/>
+		<variable name="regards.config.dam.regards.jpa.multitenant.tenants.url.1" value="localhost:5432/rs_dam_tenant0"/>
+		<variable name="regards.config.dam.regards.jpa.multitenant.tenants.user.name.1" value="rs_dam_tenant0_user"/>
+		<variable name="regards.config.dam.regards.jpa.multitenant.tenants.password.1" value="rs_dam_tenant0_pwd"/>
+		<variable name="regards.config.access.instance.regards.jpa.instance.datasource.url" value="localhost:5432/rs_acces_instance"/>
+		<variable name="regards.config.access.instance.regards.jpa.instance.datasource.user.name" value="rs_acces_user"/>
+		<variable name="regards.config.access.instance.regards.jpa.instance.datasource.password" value="rs_acces_pwd"/>
+		<variable name="regards.config.access.project.regards.jpa.instance.datasource.url" value="localhost:5432/rs_access_projet_instance"/>
+		<variable name="regards.config.access.project.regards.jpa.instance.datasource.user.name" value="rs_access_projet_user"/>
+		<variable name="regards.config.access.project.regards.jpa.instance.datasource.password" value="rs_access_projet_pwd"/>
+		<variable name="regards.config.access.project.regards.jpa.multitenant.tenants.url.1" value="localhost:5432/rs_access_projet_tenant0"/>
+		<variable name="regards.config.access.project.regards.jpa.multitenant.tenants.user.name.1" value="rs_access_projet_tenant0_user"/>
+		<variable name="regards.config.access.project.regards.jpa.multitenant.tenants.password.1" value="rs_access_projet_tenant0_pwd"/>
 		
 		<!-- Internal variables -->
 		<variable name="microservice.frontend.count" value="0"/>
@@ -206,6 +236,12 @@
 			<condition type="ref" refid="isMicroservicesSelected" />
 			<condition type="ref" refid="isMicroservicesAccessSelected" />
 		</condition>
+		<condition type="and" id="mustConfigureRabbitmq">
+			<condition type="ref" refid="isMicroservicesSelected" />
+		</condition>
+		<condition type="and" id="mustConfigureDatabase">
+			<condition type="ref" refid="mustInstallConf" />
+		</condition>
 	</conditions>
 
 	<panels>
@@ -220,6 +256,8 @@
 			<validator classname="fr.cnes.regards.deployment.izpack.validator.ValidatorFrontendPanel"/>
 		</panel>
 		<panel classname="UserInputPanel" id="SelectMicroservicesPanel" condition="isMicroservicesSelected" />
+		<panel classname="UserInputPanel" id="RabbitmqConfigPanel" condition="mustConfigureRabbitmq" />
+		<panel classname="UserInputPanel" id="DataBaseConfigPanel" condition="mustConfigureDatabase" />
 		<!-- CommonConfigPanel is not necessary if conf service is selected -->
 		<panel classname="UserInputPanel" id="CommonConfigPanel" condition="mustConfigureConfServerAccess" />
 		<panel classname="UserInputPanel" id="ConfConfigPanel" condition="mustInstallConf">
@@ -293,7 +331,13 @@
 			<fileset dir="sbin/frontend/" targetdir="$INSTALL_PATH/REGARDS/sbin" override="true">
 				<include name="*" />
 			</fileset>
-
+			<fileset dir="config/static" targetdir="$INSTALL_PATH/REGARDS/www" override="true">
+				<include name="**/*" />
+			</fileset>
+			
+			<parsable type="plain" targetfile="$INSTALL_PATH/REGARDS/www">
+				<fileset targetdir="$INSTALL_PATH/REGARDS/www" includes="*,**/*"/>
+			</parsable>
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
 			</executable>
