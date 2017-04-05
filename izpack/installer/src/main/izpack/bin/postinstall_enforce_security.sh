@@ -137,4 +137,12 @@ then
   chmod 0640 "${ROOT_DIR}"/lib/*
 fi
 
+# www directory and subdirs
+if ls "${ROOT_DIR}"/www > /dev/null 2>&1
+then
+  chown -R :${ADMIN_REGARDS_GROUP} "${ROOT_DIR}"/www
+  find "${ROOT_DIR}"/www -type d -exec chmod 2775 {} \;
+  find "${ROOT_DIR}"/www -type f -exec chmod 0664 {} \;
+fi
+
 exit 0

@@ -93,7 +93,7 @@
 						</configuration>
 					</execution>
 					<execution>
-						<id>unpack</id>
+						<id>unpack-back</id>
 						<phase>generate-sources</phase>
 						<goals>
 							<goal>unpack</goal>
@@ -107,6 +107,24 @@
 							</artifactItems>
 							<outputDirectory>${temp.dir.filtering}</outputDirectory>
 							<includes>BOOT-INF/classes/regards/*.properties</includes>
+						</configuration>
+					</execution>
+					<execution>
+						<id>unpack-front</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>fr.cnes.regards</groupId>
+									<artifactId>bootstrap-frontend</artifactId>
+									<type>war</type>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${temp.dir.filtering}</outputDirectory>
+							<includes>static/conf/**/*,static/plugins/**/*,static/img/**/*</includes>
 						</configuration>
 					</execution>
 				</executions>
