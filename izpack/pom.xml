@@ -16,7 +16,7 @@
 	</parent>
 
 	<properties>
-		<maven.izpack.version>5.1.0-RC7</maven.izpack.version>
+		<maven.izpack.version>5.1.0</maven.izpack.version>
 		<regards.izpack.panels.version>${project.version}</regards.izpack.panels.version>
 		<regards.izpack.utils.version>${project.version}</regards.izpack.utils.version>
 	</properties>
