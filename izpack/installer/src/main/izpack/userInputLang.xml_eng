@@ -50,7 +50,8 @@
 	<str id="commonconfigpanel.config.port.label" txt="Cloud config Web serveur port:" />
 
 	<str id="rabbitmqconfigpanel.title.label" txt="Message Broker configuration" />
-	<str id="rabbitmqconfigpanel.rabbitmq.addresses.label" txt="Message Broker addresses:" />
+	<str id="rabbitmqconfigpanel.rabbitmq.host.label" txt="Message Broker host:" />
+	<str id="rabbitmqconfigpanel.rabbitmq.port.label" txt="Message Broker port:" />
 	<str id="rabbitmqconfigpanel.rabbitmq.username.label" txt="Message Broker username:" />
 	<str id="rabbitmqconfigpanel.rabbitmq.password.label" txt="Message Broker password:" />
 	<str id="rabbitmqconfigpanel.amqp.management.host.label" txt="Message Broker management host:" />

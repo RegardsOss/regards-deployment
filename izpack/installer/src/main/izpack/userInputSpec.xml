@@ -136,8 +136,14 @@
 
 	<panel id="RabbitmqConfigPanel">
 		<field id="rabbitmqconfigpanel.title.label" type="title" />
-		<field type="text" variable="regards.config.spring.rabbitmq.addresses">
-			<spec id="rabbitmqconfigpanel.rabbitmq.addresses.label" size="15" set="${regards.config.spring.rabbitmq.addresses}"/>
+		<field type="text" variable="regards.config.spring.rabbitmq.host">
+			<spec id="rabbitmqconfigpanel.rabbitmq.host.label" size="15" set="${regards.config.spring.rabbitmq.host}"/>
+		</field>
+		<field type="text" variable="regards.config.spring.rabbitmq.port">
+			<spec id="rabbitmqconfigpanel.rabbitmq.port.label" size="15" set="${regards.config.spring.rabbitmq.port}"/>
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+				id="validator.port.error.label" />
 		</field>
 		<field type="text" variable="regards.config.spring.rabbitmq.username">
 			<spec id="rabbitmqconfigpanel.rabbitmq.username.label" size="15" set="${regards.config.spring.rabbitmq.username}"/>
