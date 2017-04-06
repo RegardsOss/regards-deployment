@@ -2,7 +2,7 @@
 
 def cli = new CliBuilder(usage: 'create_microservice_confile.groovy [-h] -i <regards install directory> -c <configuration string> -t <microservice type>')
 
-// Create the list of options.
+// Define the list of options
 cli.with {
   h longOpt: 'help', 'Show usage information'
   i longOpt: 'regards-installdir', args: 1, argName: 'installdir', 'regards install directory', required: true

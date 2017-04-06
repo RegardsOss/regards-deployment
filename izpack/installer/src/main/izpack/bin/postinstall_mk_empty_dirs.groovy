@@ -1,15 +1,18 @@
 #!/usr/bin/env groovy
 
 def cli = new CliBuilder(usage: 'install_registry.groovy [-h]')
-// Create the list of options.
+
+// Define the list of options
 cli.with {
   h longOpt: 'help', 'Show usage information'
 }
 
+// Retrieve options
 def options = cli.parse(args)
-if (!options) {
-  return
-}
+
+// End if options are incorrect
+if (!options) return
+
 // Show usage text when -h or --help option is used.
 if (options.h) {
   cli.usage()
