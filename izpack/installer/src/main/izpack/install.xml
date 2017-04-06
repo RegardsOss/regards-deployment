@@ -12,9 +12,9 @@
 		<requiresjdk>no</requiresjdk>
 		<url>https://github.com/regards</url>
 		<pack-compression-format>gz</pack-compression-format>
-		<!-- TODO GBN -->
-		<!-- <authors/> -->
-		<!-- <uninstaller> -->
+		<authors>
+			<author name="CS" email="regards@c-s.fr"/>
+		</authors>
 	</info>
 
 	<locale>
