@@ -53,100 +53,162 @@
 
 		<!--Define the splash screen image as a reading just like a heading image -->
 		<res id="Splash.image" src="images/splash.jpg" />
-		<res id="userInputSpec.xml" src="userInputSpec.xml" parse="yes" type="xml"/>
-		<res id="ProcessPanel.Spec.xml" src="ProcessPanel.Spec.xml" parse="yes" type="xml"/>
+		<res id="userInputSpec.xml" src="userInputSpec.xml" parse="yes"
+			type="xml" />
+		<res id="ProcessPanel.Spec.xml" src="ProcessPanel.Spec.xml" parse="yes"
+			type="xml" />
 		<res id="userInputLang.xml_eng" src="userInputLang.xml_eng" />
 	</resources>
-	
-	<jar src="custom/regards-izpack-panels.jar" stage="install"/>
-	<jar src="custom/regards-izpack-utils.jar" stage="install"/>
+
+	<jar src="custom/regards-izpack-panels.jar" stage="install" />
+	<jar src="custom/regards-izpack-utils.jar" stage="install" />
 
 	<dynamicvariables>
 		<!-- Security -->
-		<variable name="regards.config.regards.microservices.exec.user" value="regards" />
-		<variable name="regards.config.regards.microservices.regards.group" value="regards" />
-		<variable name="regards.config.regards.microservices.exec.group" value="rsexec" />
-		<variable name="regards.config.regards.microservices.admin.group" value="rsadmin" />
-		<variable name="regards.config.regards.microservices.runtime.group" value="rsrun" />
-	
+		<variable name="regards.config.regards.microservices.exec.user"
+			value="regards" />
+		<variable name="regards.config.regards.microservices.regards.group"
+			value="regards" />
+		<variable name="regards.config.regards.microservices.exec.group"
+			value="rsexec" />
+		<variable name="regards.config.regards.microservices.admin.group"
+			value="rsadmin" />
+		<variable name="regards.config.regards.microservices.runtime.group"
+			value="rsrun" />
+
 		<!-- Common -->
 		<variable name="regards.config.cloud.conf.uri" value="localhost" />
 		<variable name="regards.config.cloud.conf.port" value="8888" />
 		<variable name="regards.config.cloud.gateway.uri" value="localhost" />
 		<variable name="regards.config.cloud.gateway.port" value="8000" />
-		
+
 		<!-- Config microservice -->
 		<variable name="regards.config.spring.rabbitmq.host" value="localhost" />
 		<variable name="regards.config.spring.rabbitmq.port" value="5672" />
-		<variable name="regards.config.spring.rabbitmq.username" value="guest" />
-		<variable name="regards.config.spring.rabbitmq.password" value="guest" />
-		<variable name="regards.config.regards.amqp.management.host" value="localhost" />
-		<variable name="regards.config.regards.amqp.management.port" value="15672" />
-		<variable name="regards.config.admin.regards.accounts.root.user.login" value="regards-admin@c-s.fr" />
-		<variable name="regards.config.admin.regards.accounts.root.user.password" value="root_admin" />
+		<variable name="regards.config.spring.rabbitmq.username"
+			value="guest" />
+		<variable name="regards.config.spring.rabbitmq.password"
+			value="guest" />
+		<variable name="regards.config.regards.amqp.management.host"
+			value="localhost" />
+		<variable name="regards.config.regards.amqp.management.port"
+			value="15672" />
+		<variable name="regards.config.admin.regards.accounts.root.user.login"
+			value="regards-admin@c-s.fr" />
+		<variable name="regards.config.admin.regards.accounts.root.user.password"
+			value="root_admin" />
 
 		<!-- Config database microservice -->
-		<variable name="regards.config.gateway.regards.jpa.instance.datasource.url" value="localhost:5432/rs_gateway_instance"/>
-		<variable name="regards.config.gateway.regards.jpa.instance.datasource.user.name" value="rs_gateway_user"/>
-		<variable name="regards.config.gateway.regards.jpa.instance.datasource.password" value="rs_gateway_pwd"/>
-		<variable name="regards.config.gateway.regards.jpa.multitenant.tenants.url.1" value="localhost:5432/rs_gateway_tenant0"/>
-		<variable name="regards.config.gateway.regards.jpa.multitenant.tenants.user.name.1" value="rs_gateway_tenant0_user"/>
-		<variable name="regards.config.gateway.regards.jpa.multitenant.tenants.password.1" value="rs_gateway_tenant0_pwd"/>
-		<variable name="regards.config.admin.regards.jpa.instance.datasource.url" value="localhost:5432/rs_admin_instance"/>
-		<variable name="regards.config.admin.regards.jpa.instance.datasource.user.name" value="rs_admin_user"/>
-		<variable name="regards.config.admin.regards.jpa.instance.datasource.password" value="rs_admin_pwd"/>
-		<variable name="regards.config.admin.regards.jpa.multitenant.tenants.url.1" value="localhost:5432/rs_admin_tenant0"/>
-		<variable name="regards.config.admin.regards.jpa.multitenant.tenants.user.name.1" value="rs_admin_tenant0_user"/>
-		<variable name="regards.config.admin.regards.jpa.multitenant.tenants.password.1" value="rs_admin_tenant0_pwd"/>
-		<variable name="regards.config.dam.regards.jpa.instance.datasource.url" value="localhost:5432/rs_dam_instance"/>
-		<variable name="regards.config.dam.regards.jpa.instance.datasource.user.name" value="rs_dam_user"/>
-		<variable name="regards.config.dam.regards.jpa.instance.datasource.password" value="rs_dam_pwd"/>
-		<variable name="regards.config.dam.regards.jpa.multitenant.tenants.url.1" value="localhost:5432/rs_dam_tenant0"/>
-		<variable name="regards.config.dam.regards.jpa.multitenant.tenants.user.name.1" value="rs_dam_tenant0_user"/>
-		<variable name="regards.config.dam.regards.jpa.multitenant.tenants.password.1" value="rs_dam_tenant0_pwd"/>
-		<variable name="regards.config.access.instance.regards.jpa.instance.datasource.url" value="localhost:5432/rs_acces_instance"/>
-		<variable name="regards.config.access.instance.regards.jpa.instance.datasource.user.name" value="rs_acces_user"/>
-		<variable name="regards.config.access.instance.regards.jpa.instance.datasource.password" value="rs_acces_pwd"/>
-		<variable name="regards.config.access.project.regards.jpa.instance.datasource.url" value="localhost:5432/rs_access_projet_instance"/>
-		<variable name="regards.config.access.project.regards.jpa.instance.datasource.user.name" value="rs_access_projet_user"/>
-		<variable name="regards.config.access.project.regards.jpa.instance.datasource.password" value="rs_access_projet_pwd"/>
-		<variable name="regards.config.access.project.regards.jpa.multitenant.tenants.url.1" value="localhost:5432/rs_access_projet_tenant0"/>
-		<variable name="regards.config.access.project.regards.jpa.multitenant.tenants.user.name.1" value="rs_access_projet_tenant0_user"/>
-		<variable name="regards.config.access.project.regards.jpa.multitenant.tenants.password.1" value="rs_access_projet_tenant0_pwd"/>
-		
+		<variable name="regards.config.gateway.regards.jpa.instance.datasource.url"
+			value="localhost:5432/rs_gateway_instance" />
+		<variable
+			name="regards.config.gateway.regards.jpa.instance.datasource.user.name"
+			value="rs_gateway_user" />
+		<variable
+			name="regards.config.gateway.regards.jpa.instance.datasource.password"
+			value="rs_gateway_pwd" />
+		<variable
+			name="regards.config.gateway.regards.jpa.multitenant.tenants.url.1"
+			value="localhost:5432/rs_gateway_tenant0" />
+		<variable
+			name="regards.config.gateway.regards.jpa.multitenant.tenants.user.name.1"
+			value="rs_gateway_tenant0_user" />
+		<variable
+			name="regards.config.gateway.regards.jpa.multitenant.tenants.password.1"
+			value="rs_gateway_tenant0_pwd" />
+		<variable name="regards.config.admin.regards.jpa.instance.datasource.url"
+			value="localhost:5432/rs_admin_instance" />
+		<variable
+			name="regards.config.admin.regards.jpa.instance.datasource.user.name"
+			value="rs_admin_user" />
+		<variable
+			name="regards.config.admin.regards.jpa.instance.datasource.password"
+			value="rs_admin_pwd" />
+		<variable name="regards.config.admin.regards.jpa.multitenant.tenants.url.1"
+			value="localhost:5432/rs_admin_tenant0" />
+		<variable
+			name="regards.config.admin.regards.jpa.multitenant.tenants.user.name.1"
+			value="rs_admin_tenant0_user" />
+		<variable
+			name="regards.config.admin.regards.jpa.multitenant.tenants.password.1"
+			value="rs_admin_tenant0_pwd" />
+		<variable name="regards.config.dam.regards.jpa.instance.datasource.url"
+			value="localhost:5432/rs_dam_instance" />
+		<variable
+			name="regards.config.dam.regards.jpa.instance.datasource.user.name"
+			value="rs_dam_user" />
+		<variable
+			name="regards.config.dam.regards.jpa.instance.datasource.password"
+			value="rs_dam_pwd" />
+		<variable name="regards.config.dam.regards.jpa.multitenant.tenants.url.1"
+			value="localhost:5432/rs_dam_tenant0" />
+		<variable
+			name="regards.config.dam.regards.jpa.multitenant.tenants.user.name.1"
+			value="rs_dam_tenant0_user" />
+		<variable
+			name="regards.config.dam.regards.jpa.multitenant.tenants.password.1"
+			value="rs_dam_tenant0_pwd" />
+		<variable
+			name="regards.config.access.instance.regards.jpa.instance.datasource.url"
+			value="localhost:5432/rs_acces_instance" />
+		<variable
+			name="regards.config.access.instance.regards.jpa.instance.datasource.user.name"
+			value="rs_acces_user" />
+		<variable
+			name="regards.config.access.instance.regards.jpa.instance.datasource.password"
+			value="rs_acces_pwd" />
+		<variable
+			name="regards.config.access.project.regards.jpa.instance.datasource.url"
+			value="localhost:5432/rs_access_projet_instance" />
+		<variable
+			name="regards.config.access.project.regards.jpa.instance.datasource.user.name"
+			value="rs_access_projet_user" />
+		<variable
+			name="regards.config.access.project.regards.jpa.instance.datasource.password"
+			value="rs_access_projet_pwd" />
+		<variable
+			name="regards.config.access.project.regards.jpa.multitenant.tenants.url.1"
+			value="localhost:5432/rs_access_projet_tenant0" />
+		<variable
+			name="regards.config.access.project.regards.jpa.multitenant.tenants.user.name.1"
+			value="rs_access_projet_tenant0_user" />
+		<variable
+			name="regards.config.access.project.regards.jpa.multitenant.tenants.password.1"
+			value="rs_access_projet_tenant0_pwd" />
+
 		<!-- Internal variables -->
-		<variable name="microservice.frontend.count" value="0"/>
+		<variable name="microservice.frontend.count" value="0" />
 		<variable name="microservice.frontend.uri" value="localhost" />
 		<variable name="microservice.frontend.port" value="3333" />
-		<variable name="microservice.conf.count" value="0"/>
-		<variable name="microservice.registry.count" value="0"/>
+		<variable name="microservice.conf.count" value="0" />
+		<variable name="microservice.registry.count" value="0" />
 		<variable name="microservice.registry.uri" value="localhost" />
 		<variable name="microservice.registry.port" value="8761" />
-		<variable name="microservice.gateway.count" value="0"/>
+		<variable name="microservice.gateway.count" value="0" />
 		<variable name="microservice.gateway.uri" value="localhost" />
 		<variable name="microservice.gateway.port" value="8000" />
-		<variable name="microservice.admin.count" value="0"/>
+		<variable name="microservice.admin.count" value="0" />
 		<variable name="microservice.admin.uri" value="localhost" />
 		<variable name="microservice.admin.port" value="8777" />
-		<variable name="microservice.dam.count" value="0"/>
+		<variable name="microservice.dam.count" value="0" />
 		<variable name="microservice.dam.uri" value="localhost" />
 		<variable name="microservice.dam.port" value="8080" />
-		<variable name="microservice.catalog.count" value="0"/>
+		<variable name="microservice.catalog.count" value="0" />
 		<variable name="microservice.catalog.uri" value="localhost" />
 		<variable name="microservice.catalog.port" value="4444" />
-		<variable name="microservice.access-instance.count" value="0"/>
+		<variable name="microservice.access-instance.count" value="0" />
 		<variable name="microservice.access-instance.uri" value="localhost" />
 		<variable name="microservice.access-instance.port" value="8990" />
-		<variable name="microservice.access-project.count" value="0"/>
+		<variable name="microservice.access-project.count" value="0" />
 		<variable name="microservice.access-project.uri" value="localhost" />
 		<variable name="microservice.access-project.port" value="9990" />
-		
+
 		<!-- Internal Izpack variables -->
 		<variable name="security.level.selected" value="normal" />
 		<variable name="frontend.selected" value="true" />
 		<variable name="microservices.selected" value="true" />
 		<variable name="registry.selected" value="false" />
-		<variable name="conf.selected" value="false"/>
+		<variable name="conf.selected" value="false" />
 		<variable name="gateway.selected" value="false" />
 		<variable name="microservices.admin.selected" value="false" />
 		<variable name="microservices.dam.selected" value="false" />
@@ -250,39 +312,61 @@
 		<panel classname="LicencePanel" />
 		<panel classname="TargetPanel" />
 		<panel classname="UserInputPanel" id="SelectSecurityLevelPanel" />
-		<panel classname="UserInputPanel" id="ConfigSecurityMicroservicesPanel" condition="isSecurityEnforced" />
+		<panel classname="UserInputPanel" id="ConfigSecurityMicroservicesPanel"
+			condition="isSecurityEnforced" />
 		<panel classname="UserInputPanel" id="SelectComponentsPanel" />
-		<panel classname="UserInputPanel" id="FrontendConfigPanel" condition="isFrontendSelected">
-			<validator classname="fr.cnes.regards.deployment.izpack.validator.ValidatorFrontendPanel"/>
+		<panel classname="UserInputPanel" id="FrontendConfigPanel"
+			condition="isFrontendSelected">
+			<validator
+				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorFrontendPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="SelectMicroservicesPanel" condition="isMicroservicesSelected" />
-		<panel classname="UserInputPanel" id="RabbitmqConfigPanel" condition="mustConfigureRabbitmq" />
-		<panel classname="UserInputPanel" id="DataBaseConfigPanel" condition="mustConfigureDatabase" />
+		<panel classname="UserInputPanel" id="SelectMicroservicesPanel"
+			condition="isMicroservicesSelected" />
+		<panel classname="UserInputPanel" id="RabbitmqConfigPanel"
+			condition="mustConfigureRabbitmq" />
+		<panel classname="UserInputPanel" id="DataBaseConfigPanel"
+			condition="mustConfigureDatabase" />
 		<!-- CommonConfigPanel is not necessary if conf service is selected -->
-		<panel classname="UserInputPanel" id="CommonConfigPanel" condition="mustConfigureConfServerAccess" />
-		<panel classname="UserInputPanel" id="ConfConfigPanel" condition="mustInstallConf">
-			<validator classname="fr.cnes.regards.deployment.izpack.validator.ValidatorConfPanel"/>
+		<panel classname="UserInputPanel" id="CommonConfigPanel"
+			condition="mustConfigureConfServerAccess" />
+		<panel classname="UserInputPanel" id="ConfConfigPanel"
+			condition="mustInstallConf">
+			<validator
+				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorConfPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="RegistryConfigPanel" condition="mustInstallRegistry">
-			<validator classname="fr.cnes.regards.deployment.izpack.validator.ValidatorRegistryPanel"/>
+		<panel classname="UserInputPanel" id="RegistryConfigPanel"
+			condition="mustInstallRegistry">
+			<validator
+				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorRegistryPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="GatewayConfigPanel" condition="mustInstallGateway">
-			<validator classname="fr.cnes.regards.deployment.izpack.validator.ValidatorGatewayPanel"/>
+		<panel classname="UserInputPanel" id="GatewayConfigPanel"
+			condition="mustInstallGateway">
+			<validator
+				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorGatewayPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="AdminConfigPanel" condition="mustInstallAdmin">
-			<validator classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAdminPanel"/>
+		<panel classname="UserInputPanel" id="AdminConfigPanel"
+			condition="mustInstallAdmin">
+			<validator
+				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAdminPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="DamConfigPanel" condition="mustInstallDam">
-			<validator classname="fr.cnes.regards.deployment.izpack.validator.ValidatorDamPanel"/>
+			<validator
+				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorDamPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="CatalogConfigPanel" condition="mustInstallCatalog">
-			<validator classname="fr.cnes.regards.deployment.izpack.validator.ValidatorCatalogPanel"/>
+		<panel classname="UserInputPanel" id="CatalogConfigPanel"
+			condition="mustInstallCatalog">
+			<validator
+				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorCatalogPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="AccessInstanceConfigPanel" condition="mustInstallAccess">
-			<validator classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAccessInstancePanel"/>
+		<panel classname="UserInputPanel" id="AccessInstanceConfigPanel"
+			condition="mustInstallAccess">
+			<validator
+				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAccessInstancePanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="AccessProjectConfigPanel" condition="mustInstallAccess">
-			<validator classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAccessProjectPanel"/>
+		<panel classname="UserInputPanel" id="AccessProjectConfigPanel"
+			condition="mustInstallAccess">
+			<validator
+				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAccessProjectPanel" />
 		</panel>
 		<panel classname="SummaryPanel" />
 		<panel classname="InstallPanel" />
@@ -295,61 +379,72 @@
 		<pack name="core" required="yes">
 			<description>REGARDS Core installation</description>
 
-			<file targetdir="$INSTALL_PATH" src="doc/readme.txt" override="true"/>
-			<file targetdir="$INSTALL_PATH" src="legal/License.txt" override="true"/>
-			
-			<file targetdir="$INSTALL_PATH/REGARDS/config" src="config/system.properties" override="true"/>
-			<fileset dir="bin/" targetdir="$INSTALL_PATH/REGARDS/bin" override="true">
+			<file targetdir="$INSTALL_PATH" src="doc/readme.txt" override="true" />
+			<file targetdir="$INSTALL_PATH" src="legal/License.txt"
+				override="true" />
+
+			<file targetdir="$INSTALL_PATH/REGARDS/config" src="config/system.properties"
+				override="true" />
+			<fileset dir="bin/" targetdir="$INSTALL_PATH/REGARDS/bin"
+				override="true">
 				<include name="*" />
 			</fileset>
-			<fileset dir="sbin/" targetdir="$INSTALL_PATH/REGARDS/sbin" override="true">
+			<fileset dir="sbin/" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true">
 				<include name="*" />
 			</fileset>
-			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS/lib" override="true">
+			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS/lib"
+				override="true">
 				<include name="*" />
 			</fileset>
-			<fileset dir="utils/" targetdir="$INSTALL_PATH/REGARDS/lib" override="true">
+			<fileset dir="utils/" targetdir="$INSTALL_PATH/REGARDS/lib"
+				override="true">
 				<include name="*.jar" />
 			</fileset>
-			
-			<parsable type="javaprop" targetfile="$INSTALL_PATH/REGARDS/config/system.properties"/>
-			
+
+			<parsable type="javaprop"
+				targetfile="$INSTALL_PATH/REGARDS/config/system.properties" />
+
 			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/bin" includes="*"/>
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+				<fileset targetdir="$INSTALL_PATH/REGARDS/bin" includes="*" />
+				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
-			
+
 		</pack>
-		
+
 		<!-- ####################################################################################################### -->
 		<pack name="frontend" required="no" condition="isFrontendSelected">
 			<description>REGARDS Frontend service installation</description>
 
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true">
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+				override="true">
 				<include name="bootstrap-frontend.*ar" />
 			</fileset>
-			<fileset dir="sbin/frontend/" targetdir="$INSTALL_PATH/REGARDS/sbin" override="true">
+			<fileset dir="sbin/frontend/" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true">
 				<include name="*" />
 			</fileset>
-			<fileset dir="config/static" targetdir="$INSTALL_PATH/REGARDS/www" override="true">
+			<fileset dir="config/static" targetdir="$INSTALL_PATH/REGARDS/www"
+				override="true">
 				<include name="**/*" />
 			</fileset>
-			
+
 			<parsable type="plain">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/www" includes="**/*.js"/>
+				<fileset targetdir="$INSTALL_PATH/REGARDS/www" includes="**/*.js" />
 			</parsable>
 			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
-			<executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
 				type="bin" stage="postinstall" failure="abort" keep="true">
 				<os family="unix" />
 				<args>
-					<arg value="-i"/>
+					<arg value="-i" />
 					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t"/>
+					<arg value="-t" />
 					<arg value="frontend" />
-					<arg value="-c"/>
+					<arg value="-c" />
 					<arg value="${microservice.frontend.microserviceList}" />
 				</args>
 			</executable>
@@ -358,44 +453,50 @@
 		<!-- ####################################################################################################### -->
 		<pack name="coreMicroservices" required="no" condition="isMicroservicesSelected">
 			<description>REGARDS Core microservices installation</description>
-			
-			<file targetdir="$INSTALL_PATH/REGARDS/config" src="config/bootstrap.properties" override="true"/>
 
-			<parsable type="javaprop" targetfile="$INSTALL_PATH/REGARDS/config/bootstrap.properties"/>
+			<file targetdir="$INSTALL_PATH/REGARDS/config" src="config/bootstrap.properties"
+				override="true" />
+
+			<parsable type="javaprop"
+				targetfile="$INSTALL_PATH/REGARDS/config/bootstrap.properties" />
 		</pack>
 
 		<!-- ####################################################################################################### -->
 		<pack name="conf" required="no" condition="mustInstallConf">
 			<description>REGARDS Configuration service installation</description>
 
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true">
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+				override="true">
 				<include name="bootstrap-config.jar" />
 			</fileset>
-			<fileset dir="sbin/conf/" targetdir="$INSTALL_PATH/REGARDS/sbin" override="true">
+			<fileset dir="sbin/conf/" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true">
 				<include name="*" />
 			</fileset>
-			<fileset dir="config/BOOT-INF/classes/regards" targetdir="$INSTALL_PATH/REGARDS/config/regards" override="true">
+			<fileset dir="config/BOOT-INF/classes/regards" targetdir="$INSTALL_PATH/REGARDS/config/regards"
+				override="true">
 				<include name="*" />
 			</fileset>
 
 			<parsable type="javaprop">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/config/regards">
-					<include name="*.properties"/>
+					<include name="*.properties" />
 				</fileset>
 			</parsable>
-			
+
 			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
-			<executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
 				type="bin" stage="postinstall" failure="abort" keep="true">
 				<os family="unix" />
 				<args>
-					<arg value="-i"/>
+					<arg value="-i" />
 					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t"/>
+					<arg value="-t" />
 					<arg value="conf" />
-					<arg value="-c"/>
+					<arg value="-c" />
 					<arg value="${microservice.conf.microserviceList}" />
 				</args>
 			</executable>
@@ -405,25 +506,28 @@
 		<pack name="registry" required="no" condition="mustInstallRegistry">
 			<description>REGARDS Registry service installation</description>
 
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true">
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+				override="true">
 				<include name="bootstrap-registry.jar" />
 			</fileset>
-			<fileset dir="sbin/registry" targetdir="$INSTALL_PATH/REGARDS/sbin" override="true">
+			<fileset dir="sbin/registry" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true">
 				<include name="*" />
 			</fileset>
-			
+
 			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
-			<executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
 				type="bin" stage="postinstall" failure="abort" keep="true">
 				<os family="unix" />
 				<args>
-					<arg value="-i"/>
+					<arg value="-i" />
 					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t"/>
+					<arg value="-t" />
 					<arg value="registry" />
-					<arg value="-c"/>
+					<arg value="-c" />
 					<arg value="${microservice.registry.microserviceList}" />
 				</args>
 			</executable>
@@ -433,25 +537,28 @@
 		<pack name="gateway" required="no" condition="mustInstallGateway">
 			<description>REGARDS Gateway service installation</description>
 
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true">
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+				override="true">
 				<include name="bootstrap-gateway.jar" />
 			</fileset>
-			<fileset dir="sbin/gateway" targetdir="$INSTALL_PATH/REGARDS/sbin" override="true">
+			<fileset dir="sbin/gateway" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true">
 				<include name="*" />
 			</fileset>
-			
+
 			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
-			<executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
 				type="bin" stage="postinstall" failure="abort" keep="true">
 				<os family="unix" />
 				<args>
-					<arg value="-i"/>
+					<arg value="-i" />
 					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t"/>
+					<arg value="-t" />
 					<arg value="gateway" />
-					<arg value="-c"/>
+					<arg value="-c" />
 					<arg value="${microservice.gateway.microserviceList}" />
 				</args>
 			</executable>
@@ -461,25 +568,28 @@
 		<pack name="admin" required="no" condition="mustInstallAdmin">
 			<description>REGARDS Administration service installation</description>
 
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true">
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+				override="true">
 				<include name="bootstrap-administration.jar" />
 			</fileset>
-			<fileset dir="sbin/admin" targetdir="$INSTALL_PATH/REGARDS/sbin" override="true">
+			<fileset dir="sbin/admin" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true">
 				<include name="*" />
 			</fileset>
-			
+
 			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
-			<executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
 				type="bin" stage="postinstall" failure="abort" keep="true">
 				<os family="unix" />
 				<args>
-					<arg value="-i"/>
+					<arg value="-i" />
 					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t"/>
+					<arg value="-t" />
 					<arg value="admin" />
-					<arg value="-c"/>
+					<arg value="-c" />
 					<arg value="${microservice.admin.microserviceList}" />
 				</args>
 			</executable>
@@ -489,25 +599,28 @@
 		<pack name="dam" required="no" condition="mustInstallDam">
 			<description>REGARDS Data Management service installation</description>
 
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true">
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+				override="true">
 				<include name="bootstrap-dam.jar" />
 			</fileset>
-			<fileset dir="sbin/dam" targetdir="$INSTALL_PATH/REGARDS/sbin" override="true">
+			<fileset dir="sbin/dam" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true">
 				<include name="*" />
 			</fileset>
-			
+
 			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
-			<executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
 				type="bin" stage="postinstall" failure="abort" keep="true">
 				<os family="unix" />
 				<args>
-					<arg value="-i"/>
+					<arg value="-i" />
 					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t"/>
+					<arg value="-t" />
 					<arg value="dam" />
-					<arg value="-c"/>
+					<arg value="-c" />
 					<arg value="${microservice.dam.microserviceList}" />
 				</args>
 			</executable>
@@ -517,25 +630,28 @@
 		<pack name="catalog" required="no" condition="mustInstallCatalog">
 			<description>REGARDS Catalog service installation</description>
 
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true">
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+				override="true">
 				<include name="bootstrap-catalog.jar" />
 			</fileset>
-			<fileset dir="sbin/catalog" targetdir="$INSTALL_PATH/REGARDS/sbin" override="true">
+			<fileset dir="sbin/catalog" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true">
 				<include name="*" />
 			</fileset>
-			
+
 			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
-			<executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
 				type="bin" stage="postinstall" failure="abort" keep="true">
 				<os family="unix" />
 				<args>
-					<arg value="-i"/>
+					<arg value="-i" />
 					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t"/>
+					<arg value="-t" />
 					<arg value="catalog" />
-					<arg value="-c"/>
+					<arg value="-c" />
 					<arg value="${microservice.catalog.microserviceList}" />
 				</args>
 			</executable>
@@ -545,38 +661,42 @@
 		<pack name="access" required="no" condition="mustInstallAccess">
 			<description>REGARDS Access service installation</description>
 
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true">
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+				override="true">
 				<include name="bootstrap-access-instance.jar" />
 				<include name="bootstrap-access-project.jar" />
 			</fileset>
-			<fileset dir="sbin/access" targetdir="$INSTALL_PATH/REGARDS/sbin" override="true">
+			<fileset dir="sbin/access" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true">
 				<include name="*" />
 			</fileset>
-			
+
 			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
-			<executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
 				type="bin" stage="postinstall" failure="abort" keep="true">
 				<os family="unix" />
 				<args>
-					<arg value="-i"/>
+					<arg value="-i" />
 					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t"/>
+					<arg value="-t" />
 					<arg value="access-instance" />
-					<arg value="-c"/>
+					<arg value="-c" />
 					<arg value="${microservice.access-instance.microserviceList}" />
 				</args>
 			</executable>
-			<executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
 				type="bin" stage="postinstall" failure="abort" keep="true">
 				<os family="unix" />
 				<args>
-					<arg value="-i"/>
+					<arg value="-i" />
 					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t"/>
+					<arg value="-t" />
 					<arg value="access-project" />
-					<arg value="-c"/>
+					<arg value="-c" />
 					<arg value="${microservice.access-project.microserviceList}" />
 				</args>
 			</executable>
