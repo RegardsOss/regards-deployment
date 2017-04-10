@@ -77,8 +77,8 @@
 			value="rsrun" />
 
 		<!-- Common -->
-		<variable name="regards.config.cloud.conf.uri" value="localhost" />
-		<variable name="regards.config.cloud.conf.port" value="8888" />
+		<variable name="regards.config.cloud.config.address" value="localhost" />
+		<variable name="regards.config.cloud.config.port" value="8888" />
 		<variable name="regards.config.cloud.gateway.uri" value="localhost" />
 		<variable name="regards.config.cloud.gateway.port" value="8000" />
 
@@ -99,14 +99,6 @@
 			value="root_admin" />
 
 		<!-- Config database microservice -->
-		<variable name="regards.config.gateway.regards.jpa.instance.datasource.url"
-			value="localhost:5432/rs_gateway_instance" />
-		<variable
-			name="regards.config.gateway.regards.jpa.instance.datasource.user.name"
-			value="rs_gateway_user" />
-		<variable
-			name="regards.config.gateway.regards.jpa.instance.datasource.password"
-			value="rs_gateway_pwd" />
 		<variable
 			name="regards.config.gateway.regards.jpa.multitenant.tenants.url.1"
 			value="localhost:5432/rs_gateway_tenant0" />
@@ -132,14 +124,6 @@
 		<variable
 			name="regards.config.admin.regards.jpa.multitenant.tenants.password.1"
 			value="rs_admin_tenant0_pwd" />
-		<variable name="regards.config.dam.regards.jpa.instance.datasource.url"
-			value="localhost:5432/rs_dam_instance" />
-		<variable
-			name="regards.config.dam.regards.jpa.instance.datasource.user.name"
-			value="rs_dam_user" />
-		<variable
-			name="regards.config.dam.regards.jpa.instance.datasource.password"
-			value="rs_dam_pwd" />
 		<variable name="regards.config.dam.regards.jpa.multitenant.tenants.url.1"
 			value="localhost:5432/rs_dam_tenant0" />
 		<variable
@@ -157,15 +141,6 @@
 		<variable
 			name="regards.config.access.instance.regards.jpa.instance.datasource.password"
 			value="rs_acces_pwd" />
-		<variable
-			name="regards.config.access.project.regards.jpa.instance.datasource.url"
-			value="localhost:5432/rs_access_projet_instance" />
-		<variable
-			name="regards.config.access.project.regards.jpa.instance.datasource.user.name"
-			value="rs_access_projet_user" />
-		<variable
-			name="regards.config.access.project.regards.jpa.instance.datasource.password"
-			value="rs_access_projet_pwd" />
 		<variable
 			name="regards.config.access.project.regards.jpa.multitenant.tenants.url.1"
 			value="localhost:5432/rs_access_projet_tenant0" />

@@ -62,9 +62,6 @@
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="DataBaseConfigPanel">
-		<entry
-			key="regards.config.access.project.regards.jpa.instance.datasource.password"
-			value="" />
 		<entry key="regards.config.dam.regards.jpa.multitenant.tenants.password.1"
 			value="" />
 		<entry
@@ -73,14 +70,6 @@
 		<entry
 			key="regards.config.access.instance.regards.jpa.instance.datasource.password"
 			value="" />
-		<entry
-			key="regards.config.access.project.regards.jpa.instance.datasource.url"
-			value="localhost:5432/rs_access_projet_instance" />
-		<entry
-			key="regards.config.gateway.regards.jpa.instance.datasource.password"
-			value="" />
-		<entry key="regards.config.dam.regards.jpa.instance.datasource.user.name"
-			value="rs_dam_user" />
 		<entry key="regards.config.admin.regards.jpa.instance.datasource.url"
 			value="localhost:5432/rs_admin_instance" />
 		<entry key="regards.config.admin.regards.jpa.multitenant.tenants.url.1"
@@ -88,8 +77,6 @@
 		<entry
 			key="regards.config.access.instance.regards.jpa.instance.datasource.user.name"
 			value="rs_acces_user" />
-		<entry key="regards.config.gateway.regards.jpa.instance.datasource.url"
-			value="localhost:5432/rs_gateway_instance" />
 		<entry key="regards.config.gateway.regards.jpa.multitenant.tenants.url.1"
 			value="localhost:5432/rs_gateway_tenant0" />
 		<entry
@@ -109,11 +96,6 @@
 		<entry
 			key="regards.config.gateway.regards.jpa.multitenant.tenants.password.1"
 			value="" />
-		<entry key="regards.config.dam.regards.jpa.instance.datasource.url"
-			value="localhost:5432/rs_dam_instance" />
-		<entry
-			key="regards.config.gateway.regards.jpa.instance.datasource.user.name"
-			value="rs_gateway_user" />
 		<entry key="regards.config.admin.regards.jpa.instance.datasource.password"
 			value="" />
 		<entry
@@ -128,26 +110,21 @@
 		<entry
 			key="regards.config.access.project.regards.jpa.multitenant.tenants.user.name.1"
 			value="rs_access_projet_tenant0_user" />
-		<entry
-			key="regards.config.access.project.regards.jpa.instance.datasource.user.name"
-			value="rs_access_projet_user" />
-		<entry key="regards.config.dam.regards.jpa.instance.datasource.password"
-			value="" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="ConfConfigPanel">
-		<entry key="regards.config.cloud.conf.port.1" value="8888" />
+		<entry key="regards.config.cloud.config.port.1" value="8888" />
 		<entry key="regards.config.admin.regards.accounts.root.user.login"
 			value="regards-admin@c-s.fr" />
 		<entry key="regards.config.admin.regards.accounts.root.user.password"
 			value="" />
-		<entry key="regards.config.cloud.conf.uri.1" value="localhost" />
+		<entry key="regards.config.cloud.config.address.1" value="localhost" />
 		<entry key="microservice.conf.count" value="1" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="RegistryConfigPanel">
 		<entry key="microservice.registry.count" value="1" />
-		<entry key="microservice.registry.uri.1" value="localhost" />
+		<entry key="regards.config.cloud.config.host.1" value="localhost" />
 		<entry key="microservice.registry.port.1" value="8761" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
