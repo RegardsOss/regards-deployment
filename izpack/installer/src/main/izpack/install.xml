@@ -13,7 +13,7 @@
 		<url>https://github.com/regards</url>
 		<pack-compression-format>gz</pack-compression-format>
 		<authors>
-			<author name="CS" email="regards@c-s.fr"/>
+			<author name="CS" email="regards@c-s.fr" />
 		</authors>
 	</info>
 
@@ -294,8 +294,6 @@
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorFrontendPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="SelectMicroservicesPanel"
-			condition="isMicroservicesSelected" />
 		<panel classname="UserInputPanel" id="RabbitmqConfigPanel"
 			condition="mustConfigureRabbitmq" />
 		<panel classname="UserInputPanel" id="DataBaseConfigPanel"
@@ -425,7 +423,8 @@
 		</pack>
 
 		<!-- ####################################################################################################### -->
-		<pack name="coreMicroservices" required="no" condition="isMicroservicesSelected">
+		<pack name="coreMicroservices" required="no"
+			condition="mustInstallConf || mustInstallRegistry || mustInstallGateway || mustInstallAdmin || mustInstallDam mustInstallCatalog || mustInstallAccess">
 			<description>REGARDS Core microservices installation</description>
 
 			<file targetdir="$INSTALL_PATH/REGARDS/config" src="config/bootstrap.properties"

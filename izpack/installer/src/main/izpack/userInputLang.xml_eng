@@ -25,11 +25,9 @@
 	<str id="configsecuritylevelpanel.runtime.group.label" txt="Runtime group" />
 	<str id="configsecuritylevelpanel.runtime.group.tooltip" txt="Group used to shared files between exec and admin profiles" />
 
-	<str id="selectcomponentspanel.title.label" txt="Select REGARDS components to install" />
+	<str id="selectcomponentspanel.title.label" txt="Which components would you want to install?" />
 	<str id="selectcomponentspanel.frontend.label" txt="Frontend" />
 	<str id="selectcomponentspanel.microservices.label" txt="Microservices" />
-
-	<str id="selectmicroservicesspanel.title.label" txt="Select REGARDS microservices to install" />
 	<str id="selectmicroservicespanel.config.label" txt="Cloud Config Server" />
 	<str id="selectmicroservicespanel.registry.label" txt="Registry Server" />
 	<str id="selectmicroservicespanel.gateway.label" txt="Gateway" />

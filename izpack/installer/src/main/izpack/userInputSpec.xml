@@ -68,10 +68,6 @@
 			<spec id="selectcomponentspanel.microservices.label" true="true"
 				false="false" />
 		</field>
-	</panel>
-
-	<panel id="SelectMicroservicesPanel">
-		<field id="selectmicroservicesspanel.title.label" type="title" />
 		<field type="check" variable="conf.selected">
 			<spec id="selectmicroservicespanel.config.label" true="true"
 				false="false" set="true" />
