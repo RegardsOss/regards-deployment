@@ -64,30 +64,30 @@
 	<str id="conf.configpanel.admin.regards.accounts.root.user.password.label" txt="Cloud config admin password:" />
 	
 	<str id="databaseconfigpanel.title.label" txt="REGARDS Datasources configuration" />
-	<str id="databaseconfigpanel.gateway.regards.jpa.instance.datasource.url.label" txt="Gateway datasource instrance url:" />
-	<str id="databaseconfigpanel.gateway.regards.jpa.instance.datasource.user.name.label" txt="Gateway datasource instrance user:" />
-	<str id="databaseconfigpanel.gateway.regards.jpa.instance.datasource.password.label" txt="Gateway datasource instrance password:" />
+	<str id="databaseconfigpanel.gateway.regards.jpa.instance.datasource.url.label" txt="Gateway datasource instance url:" />
+	<str id="databaseconfigpanel.gateway.regards.jpa.instance.datasource.user.name.label" txt="Gateway datasource instance user:" />
+	<str id="databaseconfigpanel.gateway.regards.jpa.instance.datasource.password.label" txt="Gateway datasource instance password:" />
 	<str id="databaseconfigpanel.gateway.regards.jpa.multitenant.tenants.url.1.label" txt="Gateway datasource first tenant url:" />
 	<str id="databaseconfigpanel.gateway.regards.jpa.multitenant.tenants.user.name.1.label" txt="Gateway datasource first tenant user:" />
 	<str id="databaseconfigpanel.gateway.regards.jpa.multitenant.tenants.password.1.label" txt="Gateway datasource first tenant password:" />
-	<str id="databaseconfigpanel.admin.regards.jpa.instance.datasource.url.label" txt="Administration datasource instrance url:" />
-	<str id="databaseconfigpanel.admin.regards.jpa.instance.datasource.user.name.label" txt="Administration datasource instrance user:" />
-	<str id="databaseconfigpanel.admin.regards.jpa.instance.datasource.password.label" txt="Administration datasource instrance password:" />
+	<str id="databaseconfigpanel.admin.regards.jpa.instance.datasource.url.label" txt="Administration datasource instance url:" />
+	<str id="databaseconfigpanel.admin.regards.jpa.instance.datasource.user.name.label" txt="Administration datasource instance user:" />
+	<str id="databaseconfigpanel.admin.regards.jpa.instance.datasource.password.label" txt="Administration datasource instance password:" />
 	<str id="databaseconfigpanel.admin.regards.jpa.multitenant.tenants.url.1.label" txt="Administration datasource first tenant url:" />
 	<str id="databaseconfigpanel.admin.regards.jpa.multitenant.tenants.user.name.1.label" txt="Administration datasource first tenant user:" />
 	<str id="databaseconfigpanel.admin.regards.jpa.multitenant.tenants.password.1.label" txt="Administration datasource first tenant password:" />
-	<str id="databaseconfigpanel.dam.regards.jpa.instance.datasource.url.label" txt="DataManagement datasource instrance url:" />
-	<str id="databaseconfigpanel.dam.regards.jpa.instance.datasource.user.name.label" txt="DataManagement datasource instrance user:" />
-	<str id="databaseconfigpanel.dam.regards.jpa.instance.datasource.password.label" txt="DataManagement datasource instrance password:" />
+	<str id="databaseconfigpanel.dam.regards.jpa.instance.datasource.url.label" txt="DataManagement datasource instance url:" />
+	<str id="databaseconfigpanel.dam.regards.jpa.instance.datasource.user.name.label" txt="DataManagement datasource instance user:" />
+	<str id="databaseconfigpanel.dam.regards.jpa.instance.datasource.password.label" txt="DataManagement datasource instance password:" />
 	<str id="databaseconfigpanel.dam.regards.jpa.multitenant.tenants.url.1.label" txt="DataManagement datasource first tenant url:" />
 	<str id="databaseconfigpanel.dam.regards.jpa.multitenant.tenants.user.name.1.label" txt="DataManagement datasource first tenant user:" />
 	<str id="databaseconfigpanel.dam.regards.jpa.multitenant.tenants.password.1.label" txt="DataManagement datasource first tenant password:" />
-	<str id="databaseconfigpanel.access.instance.regards.jpa.instance.datasource.url.label" txt="Access Instance datasource instrance url:" />
-	<str id="databaseconfigpanel.access.instance.regards.jpa.instance.datasource.user.name.label" txt="Access Instance datasource instrance user:" />
-	<str id="databaseconfigpanel.access.instance.regards.jpa.instance.datasource.password.label" txt="Access Instance datasource instrance password:" />
-	<str id="databaseconfigpanel.access.project.regards.jpa.instance.datasource.url.label" txt="Access Project datasource instrance url:" />
-	<str id="databaseconfigpanel.access.project.regards.jpa.instance.datasource.user.name.label" txt="Access Project datasource instrance user:" />
-	<str id="databaseconfigpanel.access.project.regards.jpa.instance.datasource.password.label" txt="Access Project datasource instrance password:" />
+	<str id="databaseconfigpanel.access.instance.regards.jpa.instance.datasource.url.label" txt="Access Instance datasource instance url:" />
+	<str id="databaseconfigpanel.access.instance.regards.jpa.instance.datasource.user.name.label" txt="Access Instance datasource instance user:" />
+	<str id="databaseconfigpanel.access.instance.regards.jpa.instance.datasource.password.label" txt="Access Instance datasource instance password:" />
+	<str id="databaseconfigpanel.access.project.regards.jpa.instance.datasource.url.label" txt="Access Project datasource instance url:" />
+	<str id="databaseconfigpanel.access.project.regards.jpa.instance.datasource.user.name.label" txt="Access Project datasource instance user:" />
+	<str id="databaseconfigpanel.access.project.regards.jpa.instance.datasource.password.label" txt="Access Project datasource instance password:" />
 	<str id="databaseconfigpanel.access.project.regards.jpa.multitenant.tenants.url.1.label" txt="Access Project datasource first tenant url:" />
 	<str id="databaseconfigpanel.access.project.regards.jpa.multitenant.tenants.user.name.1.label" txt="Access Project datasource first tenant user:" />
 	<str id="databaseconfigpanel.access.project.regards.jpa.multitenant.tenants.password.1.label" txt="Access Project datasource first tenant password:" />
