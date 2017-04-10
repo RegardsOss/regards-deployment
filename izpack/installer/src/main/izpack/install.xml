@@ -308,7 +308,6 @@
 
 	<panels>
 		<panel classname="HelloPanel" />
-		<panel classname="InfoPanel" />
 		<panel classname="LicencePanel" />
 		<panel classname="TargetPanel" />
 		<panel classname="UserInputPanel" id="SelectSecurityLevelPanel" />
