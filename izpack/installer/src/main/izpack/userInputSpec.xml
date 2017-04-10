@@ -18,39 +18,43 @@
 			align="top" />
 		<field type="space" />
 		<field type="staticText" align="left"
-			id="selectsecuritylevelpanel.enforce.description.1.label" bold="true"/>
+			id="selectsecuritylevelpanel.enforce.description.1.label" bold="true" />
 		<field type="staticText" align="left"
-			id="selectsecuritylevelpanel.enforce.description.2.label" bold="false"/>
+			id="selectsecuritylevelpanel.enforce.description.2.label" bold="false" />
 		<field type="staticText" align="left"
-			id="selectsecuritylevelpanel.enforce.description.3.label" bold="false"/>
+			id="selectsecuritylevelpanel.enforce.description.3.label" bold="false" />
 		<field type="staticText" align="left"
-			id="selectsecuritylevelpanel.enforce.description.4.label" bold="false"/>
+			id="selectsecuritylevelpanel.enforce.description.4.label" bold="false" />
 		<field type="staticText" align="left"
-			id="selectsecuritylevelpanel.enforce.description.5.label" bold="false"/>
+			id="selectsecuritylevelpanel.enforce.description.5.label" bold="false" />
 	</panel>
-	
-	<!-- TODO GBN, Tooltips daosn't working, it seems to be a Izpack bug -->
+
 	<panel id="ConfigSecurityMicroservicesPanel">
 		<field id="configsecuritylevelpanel.title.label" type="title" />
-		<field type="text" variable="regards.config.regards.microservices.exec.user"
-				tooltip="configsecuritylevelpanel.exec.user.tooltip">
-			<spec size="15" id="configsecuritylevelpanel.exec.user.label" set="${regards.config.regards.microservices.exec.user}"/>
+		<field type="text" variable="regards.config.regards.microservices.exec.user">
+			<spec size="15" id="configsecuritylevelpanel.exec.user.label"
+				set="${regards.config.regards.microservices.exec.user}" />
 		</field>
 		<field type="space" />
 		<field id="selectsecuritylevelpanel.title.label" type="divider"
 			align="top" />
 		<field type="space" />
-		<field type="text" variable="regards.config.regards.microservices.regards.group" tooltip="configsecuritylevelpanel.regards.group.tooltip" id="configsecuritylevelpanel.exec.group.label">
-			<spec size="15" id="configsecuritylevelpanel.regards.group.label" set="${regards.config.regards.microservices.regards.group}"/>
+		<field type="text" variable="regards.config.regards.microservices.regards.group" id="configsecuritylevelpanel.exec.group.label">
+			<spec size="15" id="configsecuritylevelpanel.regards.group.label"
+				set="${regards.config.regards.microservices.regards.group}" />
 		</field>
-		<field type="text" variable="regards.config.regards.microservices.exec.group" tooltip="configsecuritylevelpanel.exec.group.tooltip" id="configsecuritylevelpanel.exec.group.label">
-			<spec size="15" id="configsecuritylevelpanel.exec.group.label" set="${regards.config.regards.microservices.exec.group}"/>
+		<field type="text" variable="regards.config.regards.microservices.exec.group" id="configsecuritylevelpanel.exec.group.label">
+			<spec size="15" id="configsecuritylevelpanel.exec.group.label"
+				set="${regards.config.regards.microservices.exec.group}" />
 		</field>
-		<field type="text" variable="regards.config.regards.microservices.admin.group" tooltip="configsecuritylevelpanel.admin.group.tooltip" id="configsecuritylevelpanel.exec.group.label" size="35">
-			<spec size="15" id="configsecuritylevelpanel.admin.group.label" set="${regards.config.regards.microservices.admin.group}"/>
+		<field type="text" variable="regards.config.regards.microservices.admin.group" id="configsecuritylevelpanel.exec.group.label"
+			size="35">
+			<spec size="15" id="configsecuritylevelpanel.admin.group.label"
+				set="${regards.config.regards.microservices.admin.group}" />
 		</field>
-		<field type="text" variable="regards.config.regards.microservices.runtime.group" tooltip="configsecuritylevelpanel.runtime.group.tooltip" id="configsecuritylevelpanel.exec.group.label">
-			<spec size="15" id="configsecuritylevelpanel.runtime.group.label" set="${regards.config.regards.microservices.runtime.group}"/>
+		<field type="text" variable="regards.config.regards.microservices.runtime.group" id="configsecuritylevelpanel.exec.group.label">
+			<spec size="15" id="configsecuritylevelpanel.runtime.group.label"
+				set="${regards.config.regards.microservices.runtime.group}" />
 		</field>
 	</panel>
 
@@ -85,8 +89,8 @@
 				false="false" set="true" />
 		</field>
 		<field type="check" variable="microservices.dam.selected">
-			<spec id="selectmicroservicespanel.dam.label" true="true"
-				false="false" set="true" />
+			<spec id="selectmicroservicespanel.dam.label" true="true" false="false"
+				set="true" />
 		</field>
 		<field type="check" variable="microservices.catalog.selected">
 			<spec id="selectmicroservicespanel.catalog.label" true="true"
@@ -99,8 +103,7 @@
 	</panel>
 
 	<panel id="FrontendConfigPanel">
-		<field id="frontend.configpanel.title.label"
-			type="title" />
+		<field id="frontend.configpanel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="1"
 			variable="microservice.frontend.count">
 			<spec>
@@ -124,10 +127,12 @@
 			</spec>
 		</field>
 		<field type="text" variable="regards.config.cloud.gateway.uri">
-			<spec id="frontend.configpanel.gateway.address.label" size="15" set="${regards.config.cloud.gateway.uri}"/>
+			<spec id="frontend.configpanel.gateway.address.label" size="15"
+				set="${regards.config.cloud.gateway.uri}" />
 		</field>
 		<field type="text" variable="regards.config.cloud.gateway.port">
-			<spec id="frontend.configpanel.gateway.port.label" size="15" set="${regards.config.cloud.gateway.port}"/>
+			<spec id="frontend.configpanel.gateway.port.label" size="15"
+				set="${regards.config.cloud.gateway.port}" />
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 				id="validator.port.error.label" />
@@ -137,27 +142,33 @@
 	<panel id="RabbitmqConfigPanel">
 		<field id="rabbitmqconfigpanel.title.label" type="title" />
 		<field type="text" variable="regards.config.spring.rabbitmq.host">
-			<spec id="rabbitmqconfigpanel.rabbitmq.host.label" size="15" set="${regards.config.spring.rabbitmq.host}"/>
+			<spec id="rabbitmqconfigpanel.rabbitmq.host.label" size="15"
+				set="${regards.config.spring.rabbitmq.host}" />
 		</field>
 		<field type="text" variable="regards.config.spring.rabbitmq.port">
-			<spec id="rabbitmqconfigpanel.rabbitmq.port.label" size="15" set="${regards.config.spring.rabbitmq.port}"/>
+			<spec id="rabbitmqconfigpanel.rabbitmq.port.label" size="15"
+				set="${regards.config.spring.rabbitmq.port}" />
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 				id="validator.port.error.label" />
 		</field>
 		<field type="text" variable="regards.config.spring.rabbitmq.username">
-			<spec id="rabbitmqconfigpanel.rabbitmq.username.label" size="15" set="${regards.config.spring.rabbitmq.username}"/>
+			<spec id="rabbitmqconfigpanel.rabbitmq.username.label" size="15"
+				set="${regards.config.spring.rabbitmq.username}" />
 		</field>
 		<field type="password" variable="regards.config.spring.rabbitmq.password">
 			<spec>
-				<pwd id="rabbitmqconfigpanel.rabbitmq.password.label" size="15" set="${regards.config.spring.rabbitmq.password}"/>
+				<pwd id="rabbitmqconfigpanel.rabbitmq.password.label" size="15"
+					set="${regards.config.spring.rabbitmq.password}" />
 			</spec>
 		</field>
 		<field type="text" variable="regards.config.regards.amqp.management.host">
-			<spec id="rabbitmqconfigpanel.amqp.management.host.label" size="15" set="${regards.config.regards.amqp.management.host}"/>
+			<spec id="rabbitmqconfigpanel.amqp.management.host.label" size="15"
+				set="${regards.config.regards.amqp.management.host}" />
 		</field>
 		<field type="text" variable="regards.config.regards.amqp.management.port">
-			<spec id="rabbitmqconfigpanel.amqp.management.port.label" size="15" set="${regards.config.regards.amqp.management.port}"/>
+			<spec id="rabbitmqconfigpanel.amqp.management.port.label" size="15"
+				set="${regards.config.regards.amqp.management.port}" />
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 				id="validator.port.error.label" />
@@ -167,10 +178,12 @@
 	<panel id="CommonConfigPanel">
 		<field id="commonconfigpanel.title.label" type="title" />
 		<field type="text" variable="regards.config.cloud.conf.uri">
-			<spec id="commonconfigpanel.config.address.label" size="15" set="${regards.config.cloud.conf.uri}"/>
+			<spec id="commonconfigpanel.config.address.label" size="15"
+				set="${regards.config.cloud.conf.uri}" />
 		</field>
 		<field type="text" variable="regards.config.cloud.conf.port">
-			<spec id="commonconfigpanel.config.port.label" size="15" set="${regards.config.cloud.conf.port}"/>
+			<spec id="commonconfigpanel.config.port.label" size="15"
+				set="${regards.config.cloud.conf.port}" />
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 				id="validator.port.error.label" />
@@ -178,10 +191,8 @@
 	</panel>
 
 	<panel id="ConfConfigPanel">
-		<field id="conf.configpanel.title.label"
-			type="title" />
-		<field type="custom" minRow="1" maxRow="1"
-			variable="microservice.conf.count">
+		<field id="conf.configpanel.title.label" type="title" />
+		<field type="custom" minRow="1" maxRow="1" variable="microservice.conf.count">
 			<spec>
 				<col>
 					<field type="text" variable="regards.config.cloud.conf.uri">
@@ -192,7 +203,7 @@
 				<col>
 					<field type="text" variable="regards.config.cloud.conf.port">
 						<spec id="conf.configpanel.port.label" size="15"
-							set="${regards.config.cloud.conf.port}"/>
+							set="${regards.config.cloud.conf.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
@@ -201,140 +212,247 @@
 				</col>
 			</spec>
 		</field>
-		<field type="text" variable="regards.config.admin.regards.accounts.root.user.login">
-			<spec id="conf.configpanel.admin.regards.accounts.root.user.login.label" size="15" set="${regards.config.admin.regards.accounts.root.user.login}"/>
+		<field type="text"
+			variable="regards.config.admin.regards.accounts.root.user.login">
+			<spec id="conf.configpanel.admin.regards.accounts.root.user.login.label"
+				size="15" set="${regards.config.admin.regards.accounts.root.user.login}" />
 		</field>
-		<field type="password" variable="regards.config.admin.regards.accounts.root.user.password">
+		<field type="password"
+			variable="regards.config.admin.regards.accounts.root.user.password">
 			<spec>
-				<pwd id="conf.configpanel.admin.regards.accounts.root.user.password.label" size="15" set="${regards.config.admin.regards.accounts.root.user.password}"/>
+				<pwd
+					id="conf.configpanel.admin.regards.accounts.root.user.password.label"
+					size="15" set="${regards.config.admin.regards.accounts.root.user.password}" />
 			</spec>
 		</field>
 	</panel>
-	
+
 	<panel id="DataBaseConfigPanel">
 		<field id="databaseconfigpanel.title.label" type="title" />
-		<field type="space"/>
-		<field type="text" variable="regards.config.gateway.regards.jpa.instance.datasource.url">
-			<spec id="databaseconfigpanel.gateway.regards.jpa.instance.datasource.url.label" size="15" set="${regards.config.gateway.regards.jpa.instance.datasource.url}" />
+		<field type="space" />
+		<field type="text"
+			variable="regards.config.gateway.regards.jpa.instance.datasource.url">
+			<spec
+				id="databaseconfigpanel.gateway.regards.jpa.instance.datasource.url.label"
+				size="15" set="${regards.config.gateway.regards.jpa.instance.datasource.url}" />
 		</field>
-		<field type="text" variable="regards.config.gateway.regards.jpa.instance.datasource.user.name">
-			<spec id="databaseconfigpanel.gateway.regards.jpa.instance.datasource.user.name.label" size="15" set="${regards.config.gateway.regards.jpa.instance.datasource.user.name}" />
+		<field type="text"
+			variable="regards.config.gateway.regards.jpa.instance.datasource.user.name">
+			<spec
+				id="databaseconfigpanel.gateway.regards.jpa.instance.datasource.user.name.label"
+				size="15"
+				set="${regards.config.gateway.regards.jpa.instance.datasource.user.name}" />
 		</field>
-		<field type="password" variable="regards.config.gateway.regards.jpa.instance.datasource.password">
+		<field type="password"
+			variable="regards.config.gateway.regards.jpa.instance.datasource.password">
 			<spec>
-				<pwd id="databaseconfigpanel.gateway.regards.jpa.instance.datasource.password.label" size="15" set="${regards.config.gateway.regards.jpa.instance.datasource.password}" />
+				<pwd
+					id="databaseconfigpanel.gateway.regards.jpa.instance.datasource.password.label"
+					size="15"
+					set="${regards.config.gateway.regards.jpa.instance.datasource.password}" />
 			</spec>
 		</field>
-		<field type="text" variable="regards.config.gateway.regards.jpa.multitenant.tenants.url.1">
-			<spec id="databaseconfigpanel.gateway.regards.jpa.multitenant.tenants.url.1.label" size="15" set="${regards.config.gateway.regards.jpa.multitenant.tenants.url.1}" />
+		<field type="text"
+			variable="regards.config.gateway.regards.jpa.multitenant.tenants.url.1">
+			<spec
+				id="databaseconfigpanel.gateway.regards.jpa.multitenant.tenants.url.1.label"
+				size="15"
+				set="${regards.config.gateway.regards.jpa.multitenant.tenants.url.1}" />
 		</field>
-		<field type="text" variable="regards.config.gateway.regards.jpa.multitenant.tenants.user.name.1">
-			<spec id="databaseconfigpanel.gateway.regards.jpa.multitenant.tenants.user.name.1.label" size="15" set="${regards.config.gateway.regards.jpa.multitenant.tenants.user.name.1}" />
+		<field type="text"
+			variable="regards.config.gateway.regards.jpa.multitenant.tenants.user.name.1">
+			<spec
+				id="databaseconfigpanel.gateway.regards.jpa.multitenant.tenants.user.name.1.label"
+				size="15"
+				set="${regards.config.gateway.regards.jpa.multitenant.tenants.user.name.1}" />
 		</field>
-		<field type="password" variable="regards.config.gateway.regards.jpa.multitenant.tenants.password.1">
+		<field type="password"
+			variable="regards.config.gateway.regards.jpa.multitenant.tenants.password.1">
 			<spec>
-				<pwd id="databaseconfigpanel.gateway.regards.jpa.multitenant.tenants.password.1.label" size="15" set="${regards.config.gateway.regards.jpa.multitenant.tenants.password.1}" />
+				<pwd
+					id="databaseconfigpanel.gateway.regards.jpa.multitenant.tenants.password.1.label"
+					size="15"
+					set="${regards.config.gateway.regards.jpa.multitenant.tenants.password.1}" />
 			</spec>
 		</field>
-		<field type="space"/>
-		<field type="divider"/>
-		<field type="space"/>
-		<field type="text" variable="regards.config.admin.regards.jpa.instance.datasource.url">
-			<spec id="databaseconfigpanel.admin.regards.jpa.instance.datasource.url.label" size="15" set="${regards.config.admin.regards.jpa.instance.datasource.url}" />
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+		<field type="text"
+			variable="regards.config.admin.regards.jpa.instance.datasource.url">
+			<spec
+				id="databaseconfigpanel.admin.regards.jpa.instance.datasource.url.label"
+				size="15" set="${regards.config.admin.regards.jpa.instance.datasource.url}" />
 		</field>
-		<field type="text" variable="regards.config.admin.regards.jpa.instance.datasource.user.name">
-			<spec id="databaseconfigpanel.admin.regards.jpa.instance.datasource.user.name.label" size="15" set="${regards.config.admin.regards.jpa.instance.datasource.user.name}" />
+		<field type="text"
+			variable="regards.config.admin.regards.jpa.instance.datasource.user.name">
+			<spec
+				id="databaseconfigpanel.admin.regards.jpa.instance.datasource.user.name.label"
+				size="15"
+				set="${regards.config.admin.regards.jpa.instance.datasource.user.name}" />
 		</field>
-		<field type="password" variable="regards.config.admin.regards.jpa.instance.datasource.password">
+		<field type="password"
+			variable="regards.config.admin.regards.jpa.instance.datasource.password">
 			<spec>
-				<pwd id="databaseconfigpanel.admin.regards.jpa.instance.datasource.password.label" size="15" set="${regards.config.admin.regards.jpa.instance.datasource.password}" />
+				<pwd
+					id="databaseconfigpanel.admin.regards.jpa.instance.datasource.password.label"
+					size="15"
+					set="${regards.config.admin.regards.jpa.instance.datasource.password}" />
 			</spec>
 		</field>
-		<field type="text" variable="regards.config.admin.regards.jpa.multitenant.tenants.url.1">
-			<spec id="databaseconfigpanel.admin.regards.jpa.multitenant.tenants.url.1.label" size="15" set="${regards.config.admin.regards.jpa.multitenant.tenants.url.1}" />
+		<field type="text"
+			variable="regards.config.admin.regards.jpa.multitenant.tenants.url.1">
+			<spec
+				id="databaseconfigpanel.admin.regards.jpa.multitenant.tenants.url.1.label"
+				size="15" set="${regards.config.admin.regards.jpa.multitenant.tenants.url.1}" />
 		</field>
-		<field type="text" variable="regards.config.admin.regards.jpa.multitenant.tenants.user.name.1">
-			<spec id="databaseconfigpanel.admin.regards.jpa.multitenant.tenants.user.name.1.label" size="15" set="${regards.config.admin.regards.jpa.multitenant.tenants.user.name.1}" />
+		<field type="text"
+			variable="regards.config.admin.regards.jpa.multitenant.tenants.user.name.1">
+			<spec
+				id="databaseconfigpanel.admin.regards.jpa.multitenant.tenants.user.name.1.label"
+				size="15"
+				set="${regards.config.admin.regards.jpa.multitenant.tenants.user.name.1}" />
 		</field>
-		<field type="password" variable="regards.config.admin.regards.jpa.multitenant.tenants.password.1">
+		<field type="password"
+			variable="regards.config.admin.regards.jpa.multitenant.tenants.password.1">
 			<spec>
-				<pwd id="databaseconfigpanel.admin.regards.jpa.multitenant.tenants.password.1.label" size="15" set="${regards.config.admin.regards.jpa.multitenant.tenants.password.1}" />
+				<pwd
+					id="databaseconfigpanel.admin.regards.jpa.multitenant.tenants.password.1.label"
+					size="15"
+					set="${regards.config.admin.regards.jpa.multitenant.tenants.password.1}" />
 
-<!-- TODO GBN : Faire des doubles validations de mdp ? -->
-<!-- 			<validator -->
-<!-- 				class="com.izforge.izpack.panels.userinput.validator.PasswordEqualityValidator" -->
-<!-- 				txt="Both versions of the password must match" /> -->
+				<!-- TODO GBN : Faire des doubles validations de mdp ? -->
+				<!-- <validator -->
+				<!-- class="com.izforge.izpack.panels.userinput.validator.PasswordEqualityValidator" -->
+				<!-- txt="Both versions of the password must match" /> -->
 			</spec>
 		</field>
-		<field type="space"/>
-		<field type="divider"/>
-		<field type="space"/>
-		<field type="text" variable="regards.config.dam.regards.jpa.instance.datasource.url">
-			<spec id="databaseconfigpanel.dam.regards.jpa.instance.datasource.url.label" size="15" set="${regards.config.dam.regards.jpa.instance.datasource.url}" />
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+		<field type="text"
+			variable="regards.config.dam.regards.jpa.instance.datasource.url">
+			<spec
+				id="databaseconfigpanel.dam.regards.jpa.instance.datasource.url.label"
+				size="15" set="${regards.config.dam.regards.jpa.instance.datasource.url}" />
 		</field>
-		<field type="text" variable="regards.config.dam.regards.jpa.instance.datasource.user.name">
-			<spec id="databaseconfigpanel.dam.regards.jpa.instance.datasource.user.name.label" size="15" set="${regards.config.dam.regards.jpa.instance.datasource.user.name}" />
+		<field type="text"
+			variable="regards.config.dam.regards.jpa.instance.datasource.user.name">
+			<spec
+				id="databaseconfigpanel.dam.regards.jpa.instance.datasource.user.name.label"
+				size="15"
+				set="${regards.config.dam.regards.jpa.instance.datasource.user.name}" />
 		</field>
-		<field type="password" variable="regards.config.dam.regards.jpa.instance.datasource.password">
+		<field type="password"
+			variable="regards.config.dam.regards.jpa.instance.datasource.password">
 			<spec>
-				<pwd id="databaseconfigpanel.dam.regards.jpa.instance.datasource.password.label" size="15" set="${regards.config.dam.regards.jpa.instance.datasource.password}" />
+				<pwd
+					id="databaseconfigpanel.dam.regards.jpa.instance.datasource.password.label"
+					size="15"
+					set="${regards.config.dam.regards.jpa.instance.datasource.password}" />
 			</spec>
 		</field>
-		<field type="text" variable="regards.config.dam.regards.jpa.multitenant.tenants.url.1">
-			<spec id="databaseconfigpanel.dam.regards.jpa.multitenant.tenants.url.1.label" size="15" set="${regards.config.dam.regards.jpa.multitenant.tenants.url.1}" />
+		<field type="text"
+			variable="regards.config.dam.regards.jpa.multitenant.tenants.url.1">
+			<spec
+				id="databaseconfigpanel.dam.regards.jpa.multitenant.tenants.url.1.label"
+				size="15" set="${regards.config.dam.regards.jpa.multitenant.tenants.url.1}" />
 		</field>
-		<field type="text" variable="regards.config.dam.regards.jpa.multitenant.tenants.user.name.1">
-			<spec id="databaseconfigpanel.dam.regards.jpa.multitenant.tenants.user.name.1.label" size="15" set="${regards.config.dam.regards.jpa.multitenant.tenants.user.name.1}" />
+		<field type="text"
+			variable="regards.config.dam.regards.jpa.multitenant.tenants.user.name.1">
+			<spec
+				id="databaseconfigpanel.dam.regards.jpa.multitenant.tenants.user.name.1.label"
+				size="15"
+				set="${regards.config.dam.regards.jpa.multitenant.tenants.user.name.1}" />
 		</field>
-		<field type="password" variable="regards.config.dam.regards.jpa.multitenant.tenants.password.1">
+		<field type="password"
+			variable="regards.config.dam.regards.jpa.multitenant.tenants.password.1">
 			<spec>
-				<pwd id="databaseconfigpanel.dam.regards.jpa.multitenant.tenants.password.1.label" size="15" set="${regards.config.dam.regards.jpa.multitenant.tenants.password.1}" />
+				<pwd
+					id="databaseconfigpanel.dam.regards.jpa.multitenant.tenants.password.1.label"
+					size="15"
+					set="${regards.config.dam.regards.jpa.multitenant.tenants.password.1}" />
 			</spec>
 		</field>
-		<field type="space"/>
-		<field type="divider"/>
-		<field type="space"/>
-		<field type="text" variable="regards.config.access.instance.regards.jpa.instance.datasource.url">
-			<spec id="databaseconfigpanel.access.instance.regards.jpa.instance.datasource.url.label" size="15" set="${regards.config.access.instance.regards.jpa.instance.datasource.url}" />
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+		<field type="text"
+			variable="regards.config.access.instance.regards.jpa.instance.datasource.url">
+			<spec
+				id="databaseconfigpanel.access.instance.regards.jpa.instance.datasource.url.label"
+				size="15"
+				set="${regards.config.access.instance.regards.jpa.instance.datasource.url}" />
 		</field>
-		<field type="text" variable="regards.config.access.instance.regards.jpa.instance.datasource.user.name">
-			<spec id="databaseconfigpanel.access.instance.regards.jpa.instance.datasource.user.name.label" size="15" set="${regards.config.access.instance.regards.jpa.instance.datasource.user.name}" />
+		<field type="text"
+			variable="regards.config.access.instance.regards.jpa.instance.datasource.user.name">
+			<spec
+				id="databaseconfigpanel.access.instance.regards.jpa.instance.datasource.user.name.label"
+				size="15"
+				set="${regards.config.access.instance.regards.jpa.instance.datasource.user.name}" />
 		</field>
-		<field type="password" variable="regards.config.access.instance.regards.jpa.instance.datasource.password">
+		<field type="password"
+			variable="regards.config.access.instance.regards.jpa.instance.datasource.password">
 			<spec>
-				<pwd id="databaseconfigpanel.access.instance.regards.jpa.instance.datasource.password.label" size="15" set="${regards.config.access.instance.regards.jpa.instance.datasource.password}" />
+				<pwd
+					id="databaseconfigpanel.access.instance.regards.jpa.instance.datasource.password.label"
+					size="15"
+					set="${regards.config.access.instance.regards.jpa.instance.datasource.password}" />
 			</spec>
 		</field>
-		<field type="space"/>
-		<field type="divider"/>
-		<field type="space"/>
-		<field type="text" variable="regards.config.access.project.regards.jpa.instance.datasource.url">
-			<spec id="databaseconfigpanel.access.project.regards.jpa.instance.datasource.url.label" size="15" set="${regards.config.access.project.regards.jpa.instance.datasource.url}" />
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+		<field type="text"
+			variable="regards.config.access.project.regards.jpa.instance.datasource.url">
+			<spec
+				id="databaseconfigpanel.access.project.regards.jpa.instance.datasource.url.label"
+				size="15"
+				set="${regards.config.access.project.regards.jpa.instance.datasource.url}" />
 		</field>
-		<field type="text" variable="regards.config.access.project.regards.jpa.instance.datasource.user.name">
-			<spec id="databaseconfigpanel.access.project.regards.jpa.instance.datasource.user.name.label" size="15" set="${regards.config.access.project.regards.jpa.instance.datasource.user.name}" />
+		<field type="text"
+			variable="regards.config.access.project.regards.jpa.instance.datasource.user.name">
+			<spec
+				id="databaseconfigpanel.access.project.regards.jpa.instance.datasource.user.name.label"
+				size="15"
+				set="${regards.config.access.project.regards.jpa.instance.datasource.user.name}" />
 		</field>
-		<field type="password" variable="regards.config.access.project.regards.jpa.instance.datasource.password">
+		<field type="password"
+			variable="regards.config.access.project.regards.jpa.instance.datasource.password">
 			<spec>
-				<pwd id="databaseconfigpanel.access.project.regards.jpa.instance.datasource.password.label" size="15" set="${regards.config.access.project.regards.jpa.instance.datasource.password}" />
+				<pwd
+					id="databaseconfigpanel.access.project.regards.jpa.instance.datasource.password.label"
+					size="15"
+					set="${regards.config.access.project.regards.jpa.instance.datasource.password}" />
 			</spec>
 		</field>
-		<field type="text" variable="regards.config.access.project.regards.jpa.multitenant.tenants.url.1">
-			<spec id="databaseconfigpanel.access.project.regards.jpa.multitenant.tenants.url.1.label" size="15" set="${regards.config.access.project.regards.jpa.multitenant.tenants.url.1}" />
+		<field type="text"
+			variable="regards.config.access.project.regards.jpa.multitenant.tenants.url.1">
+			<spec
+				id="databaseconfigpanel.access.project.regards.jpa.multitenant.tenants.url.1.label"
+				size="15"
+				set="${regards.config.access.project.regards.jpa.multitenant.tenants.url.1}" />
 		</field>
-		<field type="text" variable="regards.config.access.project.regards.jpa.multitenant.tenants.user.name.1">
-			<spec id="databaseconfigpanel.access.project.regards.jpa.multitenant.tenants.user.name.1.label" size="15" set="${regards.config.access.project.regards.jpa.multitenant.tenants.user.name.1}" />
+		<field type="text"
+			variable="regards.config.access.project.regards.jpa.multitenant.tenants.user.name.1">
+			<spec
+				id="databaseconfigpanel.access.project.regards.jpa.multitenant.tenants.user.name.1.label"
+				size="15"
+				set="${regards.config.access.project.regards.jpa.multitenant.tenants.user.name.1}" />
 		</field>
-		<field type="password" variable="regards.config.access.project.regards.jpa.multitenant.tenants.password.1">
+		<field type="password"
+			variable="regards.config.access.project.regards.jpa.multitenant.tenants.password.1">
 			<spec>
-				<pwd id="databaseconfigpanel.access.project.regards.jpa.multitenant.tenants.password.1.label" size="15" set="${regards.config.access.project.regards.jpa.multitenant.tenants.password.1}" />
+				<pwd
+					id="databaseconfigpanel.access.project.regards.jpa.multitenant.tenants.password.1.label"
+					size="15"
+					set="${regards.config.access.project.regards.jpa.multitenant.tenants.password.1}" />
 			</spec>
 		</field>
 	</panel>
 
 	<panel id="RegistryConfigPanel">
-		<field id="registry.configpanel.title.label"
-			type="title" />
+		<field id="registry.configpanel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="1"
 			variable="microservice.registry.count">
 			<spec>
@@ -342,9 +460,9 @@
 					<field type="text" variable="microservice.registry.uri">
 						<spec id="registry.configpanel.host.label" size="15"
 							set="${microservice.registry.uri}" />
-						<!-- TODO GBN : Faire un validator correcte -->
-						<!-- <validator class="com.izforge.izpack.panels.userinput.validator.HostAddressValidator" -->
-						<!-- id="validator.host.error.label"/> -->
+						<validator
+							class="com.izforge.izpack.panels.userinput.validator.HostAddressValidator"
+							id="validator.host.error.label" />
 					</field>
 				</col>
 				<col>
@@ -363,8 +481,7 @@
 	</panel>
 
 	<panel id="GatewayConfigPanel">
-		<field id="gateway.configpanel.title.label"
-			type="title" />
+		<field id="gateway.configpanel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="1"
 			variable="microservice.gateway.count">
 			<spec>
@@ -377,7 +494,7 @@
 				<col>
 					<field type="text" variable="microservice.gateway.port">
 						<spec id="gateway.configpanel.port.label" size="15"
-							set="${microservice.gateway.port}"/>
+							set="${microservice.gateway.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
@@ -389,8 +506,7 @@
 	</panel>
 
 	<panel id="AdminConfigPanel">
-		<field id="admin.configpanel.title.label"
-			type="title" />
+		<field id="admin.configpanel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="50"
 			variable="microservice.admin.count">
 			<spec>
@@ -403,7 +519,7 @@
 				<col>
 					<field type="text" variable="microservice.admin.port">
 						<spec id="admin.configpanel.port.label" size="15"
-							set="${microservice.admin.port}"/>
+							set="${microservice.admin.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
@@ -415,10 +531,8 @@
 	</panel>
 
 	<panel id="DamConfigPanel">
-		<field id="dam.configpanel.title.label"
-			type="title" />
-		<field type="custom" minRow="1" maxRow="50"
-			variable="microservice.dam.count">
+		<field id="dam.configpanel.title.label" type="title" />
+		<field type="custom" minRow="1" maxRow="50" variable="microservice.dam.count">
 			<spec>
 				<col>
 					<field type="text" variable="microservice.dam.uri">
@@ -429,7 +543,7 @@
 				<col>
 					<field type="text" variable="microservice.dam.port">
 						<spec id="dam.configpanel.port.label" size="15"
-							set="${microservice.dam.port}"/>
+							set="${microservice.dam.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
@@ -441,8 +555,7 @@
 	</panel>
 
 	<panel id="CatalogConfigPanel">
-		<field id="catalog.configpanel.title.label"
-			type="title" />
+		<field id="catalog.configpanel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="50"
 			variable="microservice.catalog.count">
 			<spec>
@@ -455,7 +568,7 @@
 				<col>
 					<field type="text" variable="microservice.catalog.port">
 						<spec id="catalog.configpanel.port.label" size="15"
-							set="${microservice.catalog.port}"/>
+							set="${microservice.catalog.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
@@ -467,8 +580,7 @@
 	</panel>
 
 	<panel id="AccessInstanceConfigPanel">
-		<field id="access-instance.configpanel.title.label"
-			type="title" />
+		<field id="access-instance.configpanel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="50"
 			variable="microservice.access-instance.count">
 			<spec>
@@ -481,7 +593,7 @@
 				<col>
 					<field type="text" variable="microservice.access-instance.port">
 						<spec id="access-instance.configpanel.port.label" size="15"
-							set="${microservice.access-instance.port}"/>
+							set="${microservice.access-instance.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
@@ -493,8 +605,7 @@
 	</panel>
 
 	<panel id="AccessProjectConfigPanel">
-		<field id="access-project.configpanel.title.label"
-			type="title" />
+		<field id="access-project.configpanel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="50"
 			variable="microservice.access-project.count">
 			<spec>
@@ -507,7 +618,7 @@
 				<col>
 					<field type="text" variable="microservice.access-project.port">
 						<spec id="access-project.configpanel.port.label" size="15"
-							set="${microservice.access-project.port}"/>
+							set="${microservice.access-project.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">

@@ -1,25 +1,28 @@
 #!/usr/bin/env groovy
 
-def cli = new CliBuilder(usage: 'install_registry.groovy [-h] -i <regards install directory> [-n <microservice id>] -t <microservice type>')
-// Create the list of options.
+def cli = new CliBuilder(usage: 'get_microservice_info.groovy [-h] -i <regards install directory> [-n <microservice id>] -t <microservice type>')
+
+// Define the list of options
 cli.with {
   h longOpt: 'help', 'Show usage information'
-  i longOpt: 'regards-installdir', args: 1, argName: 'installdir', 'regards install directory'
+  i longOpt: 'regards-installdir', args: 1, argName: 'installdir', 'regards install directory', required: true
   n longOpt: 'regards-microservice-id', args: 1, argName: 'microservice-id', 'microservice id'
-  t longOpt: 'regards-microservice-type', args: 1, argName: 'microservice-type', 'microservice type'
+  t longOpt: 'regards-microservice-type', args: 1, argName: 'microservice-type', 'microservice type', required: true
 }
 
+// Retrieve options
 def options = cli.parse(args)
-if (!options) {
-  return
-}
+
+// End if options are incorrect
+if (!options) return
+
 // Show usage text when -h or --help option is used.
 if (options.h) {
   cli.usage()
   return
 }
 
-// TODO GBN : Faire la lecture précise des paramètres et notamment les asserts pour vérifier les paramètres 
+// Parse options 
 String regardsInstallDir = options.i;
 String microserviceType = options.t;
 
