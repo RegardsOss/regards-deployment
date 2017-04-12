@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Created by yFiles for HTML 1.3.0.6-->
+<graphml xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://www.yworks.com/xml/schema/graphml.html/1.0/ygraphml.xsd " xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:x="http://www.yworks.com/xml/yfiles-common/markup/2.0" xmlns:y="http://www.yworks.com/xml/yfiles-common/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:yjs="http://www.yworks.com/xml/yfiles-for-html/1.0/xaml" xmlns:wpfbridge="http://www.yworks.com/xml/yfiles-for-html/1.0/wpfbridge">
+	<key id="d0" for="all" attr.name="UserTags" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/UserTags"/>
+	<key id="d1" for="node" attr.name="NodeLabels" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/NodeLabels"/>
+	<key id="d2" for="node" attr.name="NodeGeometry" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/NodeGeometry"/>
+	<key id="d3" for="node" attr.name="NodeStyle" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/NodeStyle"/>
+	<key id="d4" for="node" attr.type="boolean" attr.name="Expanded" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/folding/Expanded">
+		<default>true</default>
+	</key>
+	<key id="d5" for="node" attr.name="NodeViewState" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/folding/1.1/NodeViewState"/>
+	<key id="d6" for="edge" attr.name="EdgeLabels" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/EdgeLabels"/>
+	<key id="d7" for="edge" attr.name="EdgeGeometry" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/EdgeGeometry"/>
+	<key id="d8" for="edge" attr.name="EdgeStyle" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/EdgeStyle"/>
+	<key id="d9" for="edge" attr.name="EdgeViewState" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/folding/1.1/EdgeViewState"/>
+	<key id="d10" for="port" attr.name="PortLocationParameter" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/PortLocationParameter">
+		<default>
+			<x:Static member="yjs:NodeScaledPortLocationModel.NODE_CENTER_ANCHORED"/>
+		</default>
+	</key>
+	<key id="d11" for="port" attr.name="PortStyle" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/PortStyle">
+		<default>
+			<x:Static member="y:VoidPortStyle.INSTANCE"/>
+		</default>
+	</key>
+	<key id="d12" for="port" attr.name="PortViewState" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/folding/1.1/PortViewState"/>
+	<key id="d13" attr.name="SharedData" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/SharedData"/>
+	<data key="d13">
+		<y:SharedData>
+			<y:Json x:Key="1">{}</y:Json>
+			<wpfbridge:SolidColorBrush x:Key="2" color="#006E4717"/>
+			<wpfbridge:SolidColorBrush x:Key="3" color="#FF00A6FF"/>
+			<wpfbridge:SolidColorBrush x:Key="4" color="#FF0099FF"/>
+		</y:SharedData>
+	</data>
+	<graph id="G" edgedefault="directed">
+		<node id="n0">
+			<data key="d0">
+				<y:GraphMLReference resourceKey="1"/>
+			</data>
+			<data key="d2">
+				<y:RectD x="-301.5175925925925" y="-6.92685185185195" width="217.5" height="208.33333333333331"/>
+			</data>
+			<data key="d3">
+				<yjs:ShapeNodeStyle brush="#FFFBFBFB" shape="ELLIPSE">
+					<yjs:ShapeNodeStyle.pen>
+						<wpfbridge:Pen brush="#26.4000000" dashCap="SQUARE"/>
+					</yjs:ShapeNodeStyle.pen>
+				</yjs:ShapeNodeStyle>
+			</data>
+			<graph id="n0:" edgedefault="directed">
+				<node id="n0::n0">
+					<data key="d0">
+						<y:GraphMLReference resourceKey="1"/>
+					</data>
+					<data key="d2">
+						<y:RectD x="-207.7675925925925" y="82.23981481481471" width="30" height="30"/>
+					</data>
+					<data key="d3">
+						<yjs:ShapeNodeStyle brush="{y:GraphMLReference 2}" shape="ELLIPSE">
+							<yjs:ShapeNodeStyle.pen>
+								<wpfbridge:Pen brush="{y:GraphMLReference 3}" thickness="2"/>
+							</yjs:ShapeNodeStyle.pen>
+						</yjs:ShapeNodeStyle>
+					</data>
+					<graph id="n0::n0:" edgedefault="directed"/>
+					<port name="p0"/>
+					<port name="p1"/>
+					<port name="p2"/>
+					<port name="p3"/>
+					<port name="p4"/>
+				</node>
+				<node id="n0::n1">
+					<data key="d0">
+						<y:GraphMLReference resourceKey="1"/>
+					</data>
+					<data key="d2">
+						<y:RectD x="-207.7675925925925" y="23.906481481481364" width="30" height="30"/>
+					</data>
+					<data key="d3">
+						<yjs:ShapeNodeStyle brush="{y:GraphMLReference 2}" shape="ELLIPSE">
+							<yjs:ShapeNodeStyle.pen>
+								<wpfbridge:Pen brush="{y:GraphMLReference 3}" thickness="2"/>
+							</yjs:ShapeNodeStyle.pen>
+						</yjs:ShapeNodeStyle>
+					</data>
+					<graph id="n0::n1:" edgedefault="directed"/>
+					<port name="p0"/>
+				</node>
+				<node id="n0::n2">
+					<data key="d0">
+						<y:GraphMLReference resourceKey="1"/>
+					</data>
+					<data key="d2">
+						<y:RectD x="-145.6842592592592" y="67.23981481481474" width="30" height="30"/>
+					</data>
+					<data key="d3">
+						<yjs:ShapeNodeStyle brush="{y:GraphMLReference 2}" shape="ELLIPSE">
+							<yjs:ShapeNodeStyle.pen>
+								<wpfbridge:Pen brush="{y:GraphMLReference 3}" thickness="2"/>
+							</yjs:ShapeNodeStyle.pen>
+						</yjs:ShapeNodeStyle>
+					</data>
+					<graph id="n0::n2:" edgedefault="directed"/>
+					<port name="p0"/>
+				</node>
+				<node id="n0::n3">
+					<data key="d0">
+						<y:GraphMLReference resourceKey="1"/>
+					</data>
+					<data key="d2">
+						<y:RectD x="-177.7675925925925" y="141.40648148148136" width="30" height="30"/>
+					</data>
+					<data key="d3">
+						<yjs:ShapeNodeStyle brush="{y:GraphMLReference 2}" shape="ELLIPSE">
+							<yjs:ShapeNodeStyle.pen>
+								<wpfbridge:Pen brush="{y:GraphMLReference 3}" thickness="2"/>
+							</yjs:ShapeNodeStyle.pen>
+						</yjs:ShapeNodeStyle>
+					</data>
+					<graph id="n0::n3:" edgedefault="directed"/>
+					<port name="p0"/>
+				</node>
+				<node id="n0::n4">
+					<data key="d0">
+						<y:GraphMLReference resourceKey="1"/>
+					</data>
+					<data key="d2">
+						<y:RectD x="-260.6842592592592" y="127.23981481481474" width="30" height="30"/>
+					</data>
+					<data key="d3">
+						<yjs:ShapeNodeStyle brush="{y:GraphMLReference 2}" shape="ELLIPSE">
+							<yjs:ShapeNodeStyle.pen>
+								<wpfbridge:Pen brush="{y:GraphMLReference 3}" thickness="2"/>
+							</yjs:ShapeNodeStyle.pen>
+						</yjs:ShapeNodeStyle>
+					</data>
+					<graph id="n0::n4:" edgedefault="directed"/>
+					<port name="p0"/>
+				</node>
+				<node id="n0::n5">
+					<data key="d0">
+						<y:GraphMLReference resourceKey="1"/>
+					</data>
+					<data key="d2">
+						<y:RectD x="-266.51759259259256" y="61.406481481481364" width="30" height="30"/>
+					</data>
+					<data key="d3">
+						<yjs:ShapeNodeStyle brush="{y:GraphMLReference 2}" shape="ELLIPSE">
+							<yjs:ShapeNodeStyle.pen>
+								<wpfbridge:Pen brush="{y:GraphMLReference 3}" thickness="2"/>
+							</yjs:ShapeNodeStyle.pen>
+						</yjs:ShapeNodeStyle>
+					</data>
+					<graph id="n0::n5:" edgedefault="directed"/>
+					<port name="p0"/>
+				</node>
+				<edge id="n0::e0" source="n0::n1" target="n0::n0" sourceport="p0" targetport="p0">
+					<data key="d8">
+						<yjs:PolylineEdgeStyle>
+							<yjs:PolylineEdgeStyle.pen>
+								<wpfbridge:Pen brush="{y:GraphMLReference 4}" thickness="2"/>
+							</yjs:PolylineEdgeStyle.pen>
+						</yjs:PolylineEdgeStyle>
+					</data>
+				</edge>
+				<edge id="n0::e1" source="n0::n2" target="n0::n0" sourceport="p0" targetport="p1">
+					<data key="d8">
+						<yjs:PolylineEdgeStyle>
+							<yjs:PolylineEdgeStyle.pen>
+								<wpfbridge:Pen brush="{y:GraphMLReference 4}" thickness="2"/>
+							</yjs:PolylineEdgeStyle.pen>
+						</yjs:PolylineEdgeStyle>
+					</data>
+				</edge>
+				<edge id="n0::e2" source="n0::n3" target="n0::n0" sourceport="p0" targetport="p2">
+					<data key="d8">
+						<yjs:PolylineEdgeStyle>
+							<yjs:PolylineEdgeStyle.pen>
+								<wpfbridge:Pen brush="{y:GraphMLReference 4}" thickness="2"/>
+							</yjs:PolylineEdgeStyle.pen>
+						</yjs:PolylineEdgeStyle>
+					</data>
+				</edge>
+				<edge id="n0::e3" source="n0::n4" target="n0::n0" sourceport="p0" targetport="p3">
+					<data key="d8">
+						<yjs:PolylineEdgeStyle>
+							<yjs:PolylineEdgeStyle.pen>
+								<wpfbridge:Pen brush="{y:GraphMLReference 4}" thickness="2"/>
+							</yjs:PolylineEdgeStyle.pen>
+						</yjs:PolylineEdgeStyle>
+					</data>
+				</edge>
+				<edge id="n0::e4" source="n0::n5" target="n0::n0" sourceport="p0" targetport="p4">
+					<data key="d8">
+						<yjs:PolylineEdgeStyle>
+							<yjs:PolylineEdgeStyle.pen>
+								<wpfbridge:Pen brush="{y:GraphMLReference 4}" thickness="2"/>
+							</yjs:PolylineEdgeStyle.pen>
+						</yjs:PolylineEdgeStyle>
+					</data>
+				</edge>
+			</graph>
+		</node>
+	</graph>
+</graphml>
