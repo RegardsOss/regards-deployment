@@ -347,7 +347,6 @@
 	</panels>
 
 	<packs>
-		<!-- ####################################################################################################### -->
 		<pack name="core" required="yes">
 			<description>REGARDS Core installation</description>
 
@@ -384,7 +383,6 @@
 
 		</pack>
 
-		<!-- ####################################################################################################### -->
 		<pack name="frontend" required="no" condition="isFrontendSelected">
 			<description>REGARDS Frontend service installation</description>
 
@@ -422,9 +420,8 @@
 			</executable>
 		</pack>
 
-		<!-- ####################################################################################################### -->
 		<pack name="coreMicroservices" required="no"
-			condition="mustInstallConf || mustInstallRegistry || mustInstallGateway || mustInstallAdmin || mustInstallDam mustInstallCatalog || mustInstallAccess">
+			condition="mustInstallConf">
 			<description>REGARDS Core microservices installation</description>
 
 			<file targetdir="$INSTALL_PATH/REGARDS/config" src="config/bootstrap.properties"
@@ -434,7 +431,6 @@
 				targetfile="$INSTALL_PATH/REGARDS/config/bootstrap.properties" />
 		</pack>
 
-		<!-- ####################################################################################################### -->
 		<pack name="conf" required="no" condition="mustInstallConf">
 			<description>REGARDS Configuration service installation</description>
 
@@ -475,7 +471,6 @@
 			</executable>
 		</pack>
 
-		<!-- ####################################################################################################### -->
 		<pack name="registry" required="no" condition="mustInstallRegistry">
 			<description>REGARDS Registry service installation</description>
 
@@ -506,7 +501,6 @@
 			</executable>
 		</pack>
 
-		<!-- ####################################################################################################### -->
 		<pack name="gateway" required="no" condition="mustInstallGateway">
 			<description>REGARDS Gateway service installation</description>
 
@@ -537,7 +531,6 @@
 			</executable>
 		</pack>
 
-		<!-- ####################################################################################################### -->
 		<pack name="admin" required="no" condition="mustInstallAdmin">
 			<description>REGARDS Administration service installation</description>
 
@@ -568,7 +561,6 @@
 			</executable>
 		</pack>
 
-		<!-- ####################################################################################################### -->
 		<pack name="dam" required="no" condition="mustInstallDam">
 			<description>REGARDS Data Management service installation</description>
 
@@ -599,7 +591,6 @@
 			</executable>
 		</pack>
 
-		<!-- ####################################################################################################### -->
 		<pack name="catalog" required="no" condition="mustInstallCatalog">
 			<description>REGARDS Catalog service installation</description>
 
@@ -630,7 +621,6 @@
 			</executable>
 		</pack>
 
-		<!-- ####################################################################################################### -->
 		<pack name="access" required="no" condition="mustInstallAccess">
 			<description>REGARDS Access service installation</description>
 
