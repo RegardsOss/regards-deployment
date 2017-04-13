@@ -382,7 +382,7 @@
 			</executable>
 
 		</pack>
-
+		<!--
 		<pack name="frontend" required="no" condition="isFrontendSelected">
 			<description>REGARDS Frontend service installation</description>
 
@@ -664,6 +664,7 @@
 				</args>
 			</executable>
 		</pack>
+		-->
 	</packs>
 
 </izpack:installation>
