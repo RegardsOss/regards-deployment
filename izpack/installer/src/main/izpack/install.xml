@@ -43,21 +43,18 @@
 		<modifier key="headingBackgroundColor" value="0x00ffffff" />
 		<modifier key="headingPanelCounter" value="text" />
 		<modifier key="headingPanelCounterPos" value="inHeading" />
-		<!-- Show the splashScreen for a minimum of 3000 milliseconds -->
 		<modifier key="useSplashScreen" value="3000" />
 	</guiprefs>
 
 	<resources>
 		<res id="InfoPanel.info" src="doc/readme.txt" parse="yes" />
 		<res id="LicencePanel.licence" src="legal/License.txt" />
-
-		<!--Define the splash screen image as a reading just like a heading image -->
 		<res id="Splash.image" src="images/splash.jpg" />
 		<res id="userInputSpec.xml" src="userInputSpec.xml" parse="yes"
 			type="xml" />
 		<res id="ProcessPanel.Spec.xml" src="ProcessPanel.Spec.xml" parse="yes"
 			type="xml" />
-		<res id="userInputLang.xml_eng" src="userInputLang.xml_eng" />
+		<res id="userInputLang.xml_eng" src="i18n/userInputLang.xml_eng" />
 	</resources>
 
 	<jar src="custom/regards-izpack-panels.jar" stage="install" />
@@ -179,40 +176,43 @@
 		<variable name="microservice.access-project.port" value="9990" />
 
 		<!-- Internal Izpack variables -->
+		<variable name="installation.type" value="full" />
 		<variable name="security.level.selected" value="normal" />
 		<variable name="frontend.selected" value="true" />
-		<variable name="microservices.selected" value="true" />
 		<variable name="registry.selected" value="false" />
-		<variable name="conf.selected" value="false" />
 		<variable name="gateway.selected" value="false" />
-		<variable name="microservices.admin.selected" value="false" />
-		<variable name="microservices.dam.selected" value="false" />
-		<variable name="microservices.catalog.selected" value="false" />
-		<variable name="microservices.access.selected" value="false" />
-		<variable name="microservices.storage.selected" value="false" />
+		<variable name="admin.selected" value="false" />
+		<variable name="dam.selected" value="false" />
+		<variable name="catalog.selected" value="false" />
+		<variable name="access.selected" value="false" />
+		<variable name="storage.selected" value="false" />
 	</dynamicvariables>
 
 	<conditions>
+		<condition type="variable" id="fullInstallation">
+			<name>installation.type</name>
+			<value>full</value>
+		</condition>
+		<condition type="variable" id="addInstallation">
+			<name>installation.type</name>
+			<value>add</value>
+		</condition>
+
 		<condition type="variable" id="isSecurityEnforced">
 			<name>security.level.selected</name>
 			<value>enforce</value>
 		</condition>
+
 		<condition type="variable" id="isFrontendSelected">
 			<name>frontend.selected</name>
 			<value>true</value>
 		</condition>
-		<condition type="variable" id="isMicroservicesSelected">
-			<name>microservices.selected</name>
-			<value>true</value>
-		</condition>
-		<condition type="variable" id="isConfSelected">
-			<name>conf.selected</name>
-			<value>true</value>
-		</condition>
-		<condition type="variable" id="isConfNotSelected">
-			<name>conf.selected</name>
-			<value>false</value>
-		</condition>
+		<!-- <condition type="variable" id="isMicroservicesSelected"> <name>microservices.selected</name> 
+			<value>true</value> </condition> -->
+		<!-- <condition type="variable" id="isConfSelected"> <name>izpack.selected.conf</name> 
+			<value>true</value> </condition> -->
+		<!-- <condition type="variable" id="isConfNotSelected"> <name>conf.selected</name> 
+			<value>false</value> </condition> -->
 		<condition type="variable" id="isRegistrySelected">
 			<name>registry.selected</name>
 			<value>true</value>
@@ -221,64 +221,67 @@
 			<name>gateway.selected</name>
 			<value>true</value>
 		</condition>
-		<condition type="variable" id="isMicroservicesAdminSelected">
-			<name>microservices.admin.selected</name>
+		<condition type="variable" id="isAdminSelected">
+			<name>admin.selected</name>
 			<value>true</value>
 		</condition>
-		<condition type="variable" id="isMicroservicesDataManagementSelected">
-			<name>microservices.dam.selected</name>
+		<condition type="variable" id="isDamSelected">
+			<name>dam.selected</name>
 			<value>true</value>
 		</condition>
-		<condition type="variable" id="isMicroservicesCatalogSelected">
-			<name>microservices.catalog.selected</name>
+		<condition type="variable" id="isCatalogSelected">
+			<name>catalog.selected</name>
 			<value>true</value>
 		</condition>
-		<condition type="variable" id="isMicroservicesAccessSelected">
-			<name>microservices.access.selected</name>
+		<condition type="variable" id="isAccessSelected">
+			<name>access.selected</name>
 			<value>true</value>
 		</condition>
-		<condition type="variable" id="isMicroservicesStorageSelected">
-			<name>microservices.storage.selected</name>
+		<condition type="variable" id="isStorageSelected">
+			<name>storage.selected</name>
 			<value>true</value>
 		</condition>
-		<condition type="and" id="mustInstallConf">
-			<condition type="ref" refid="isMicroservicesSelected" />
-			<condition type="ref" refid="isConfSelected" />
+
+
+		<!-- <condition type="and" id="mustConfigureConfServerAccess"> <condition 
+			type="ref" refid="isMicroservicesSelected" /> <condition type="ref" refid="isConfNotSelected" 
+			/> </condition> -->
+
+		<condition type="or" id="mustInstallFrontend">
+			<condition type="ref" refid="fullInstallation" />
+			<condition type="ref" refid="isFrontendSelected" />
 		</condition>
-		<condition type="and" id="mustConfigureConfServerAccess">
-			<condition type="ref" refid="isMicroservicesSelected" />
-			<condition type="ref" refid="isConfNotSelected" />
-		</condition>
-		<condition type="and" id="mustInstallRegistry">
-			<condition type="ref" refid="isMicroservicesSelected" />
+		<condition type="or" id="mustInstallRegistry">
+			<condition type="ref" refid="fullInstallation" />
 			<condition type="ref" refid="isRegistrySelected" />
 		</condition>
-		<condition type="and" id="mustInstallGateway">
-			<condition type="ref" refid="isMicroservicesSelected" />
+		<condition type="or" id="mustInstallGateway">
+			<condition type="ref" refid="fullInstallation" />
 			<condition type="ref" refid="isGatewaySelected" />
 		</condition>
-		<condition type="and" id="mustInstallAdmin">
-			<condition type="ref" refid="isMicroservicesSelected" />
-			<condition type="ref" refid="isMicroservicesAdminSelected" />
+		<condition type="or" id="mustInstallAdmin">
+			<condition type="ref" refid="fullInstallation" />
+			<condition type="ref" refid="isAdminSelected" />
 		</condition>
-		<condition type="and" id="mustInstallDam">
-			<condition type="ref" refid="isMicroservicesSelected" />
-			<condition type="ref" refid="isMicroservicesDataManagementSelected" />
+		<condition type="or" id="mustInstallDam">
+			<condition type="ref" refid="fullInstallation" />
+			<condition type="ref" refid="isDamSelected" />
 		</condition>
-		<condition type="and" id="mustInstallCatalog">
-			<condition type="ref" refid="isMicroservicesSelected" />
-			<condition type="ref" refid="isMicroservicesCatalogSelected" />
+		<condition type="or" id="mustInstallCatalog">
+			<condition type="ref" refid="fullInstallation" />
+			<condition type="ref" refid="isCatalogSelected" />
 		</condition>
-		<condition type="and" id="mustInstallAccess">
-			<condition type="ref" refid="isMicroservicesSelected" />
-			<condition type="ref" refid="isMicroservicesAccessSelected" />
+		<condition type="or" id="mustInstallAccess">
+			<condition type="ref" refid="fullInstallation" />
+			<condition type="ref" refid="isAccessSelected" />
 		</condition>
+		<!-- 
 		<condition type="and" id="mustConfigureRabbitmq">
-			<condition type="ref" refid="isMicroservicesSelected" />
+			<condition type="ref" refid="fullInstallation" />
 		</condition>
-		<condition type="and" id="mustConfigureDatabase">
-			<condition type="ref" refid="mustInstallConf" />
-		</condition>
+		 -->
+		<!-- <condition type="and" id="mustConfigureDatabase"> <condition type="ref" 
+			refid="mustInstallConf" /> </condition> -->
 	</conditions>
 
 	<panels>
@@ -288,54 +291,55 @@
 		<panel classname="UserInputPanel" id="SelectSecurityLevelPanel" />
 		<panel classname="UserInputPanel" id="ConfigSecurityMicroservicesPanel"
 			condition="isSecurityEnforced" />
-		<panel classname="UserInputPanel" id="SelectComponentsPanel" />
-		<panel classname="UserInputPanel" id="FrontendConfigPanel"
-			condition="isFrontendSelected">
+		<panel classname="UserInputPanel" id="SelectInstallationTypePanel" />
+		<panel classname="UserInputPanel" id="SelectComponentsPanel"
+			condition="addInstallation" />
+		<panel classname="UserInputPanel" id="FrontendPanel"
+			condition="mustInstallFrontend">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorFrontendPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="RabbitmqConfigPanel"
-			condition="mustConfigureRabbitmq" />
-		<panel classname="UserInputPanel" id="DataBaseConfigPanel"
-			condition="mustConfigureDatabase" />
-		<!-- CommonConfigPanel is not necessary if conf service is selected -->
-		<panel classname="UserInputPanel" id="CommonConfigPanel"
-			condition="mustConfigureConfServerAccess" />
-		<panel classname="UserInputPanel" id="ConfConfigPanel"
-			condition="mustInstallConf">
+		<!-- TODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODO
+		<panel classname="UserInputPanel" id="LinkToExistingConfigPannel"
+			condition="addInstallation">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorConfPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="RegistryConfigPanel"
+		 TODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODO-->
+		<panel classname="UserInputPanel" id="RabbitmqPanel"
+			condition="fullInstallation" />
+		<!-- <panel classname="UserInputPanel" id="CommonConfigPanel" condition="mustConfigureConfServerAccess" 
+			/> -->
+		<panel classname="UserInputPanel" id="RegistryPanel"
 			condition="mustInstallRegistry">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorRegistryPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="GatewayConfigPanel"
+		<panel classname="UserInputPanel" id="GatewayPanel"
 			condition="mustInstallGateway">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorGatewayPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="AdminConfigPanel"
+		<panel classname="UserInputPanel" id="AdminPanel"
 			condition="mustInstallAdmin">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAdminPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="DamConfigPanel" condition="mustInstallDam">
+		<panel classname="UserInputPanel" id="DamPanel" condition="mustInstallDam">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorDamPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="CatalogConfigPanel"
+		<panel classname="UserInputPanel" id="CatalogPanel"
 			condition="mustInstallCatalog">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorCatalogPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="AccessInstanceConfigPanel"
+		<panel classname="UserInputPanel" id="AccessInstancePanel"
 			condition="mustInstallAccess">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAccessInstancePanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="AccessProjectConfigPanel"
+		<panel classname="UserInputPanel" id="AccessProjectPanel"
 			condition="mustInstallAccess">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAccessProjectPanel" />
@@ -347,14 +351,15 @@
 	</panels>
 
 	<packs>
-		<pack name="core" required="yes">
-			<description>REGARDS Core installation</description>
 
+		<pack name="Core" required="true" preselected="true" hidden="true">
+			<description>Core installation. Required for any component.</description>
 			<file targetdir="$INSTALL_PATH" src="doc/readme.txt" override="true" />
 			<file targetdir="$INSTALL_PATH" src="legal/License.txt"
 				override="true" />
-
 			<file targetdir="$INSTALL_PATH/REGARDS/config" src="config/system.properties"
+				override="true" />
+			<file targetdir="$INSTALL_PATH/REGARDS/config" src="config/bootstrap.properties"
 				override="true" />
 			<fileset dir="bin/" targetdir="$INSTALL_PATH/REGARDS/bin"
 				override="true">
@@ -372,299 +377,142 @@
 				override="true">
 				<include name="*.jar" />
 			</fileset>
-
 			<parsable type="javaprop"
 				targetfile="$INSTALL_PATH/REGARDS/config/system.properties" />
-
+			<parsable type="javaprop"
+				targetfile="$INSTALL_PATH/REGARDS/config/bootstrap.properties" />
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/bin" includes="*" />
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
-
-		</pack>
-		<!--
-		<pack name="frontend" required="no" condition="isFrontendSelected">
-			<description>REGARDS Frontend service installation</description>
-
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-frontend.*ar" />
-			</fileset>
-			<fileset dir="sbin/frontend/" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true">
-				<include name="*" />
-			</fileset>
-			<fileset dir="config/static" targetdir="$INSTALL_PATH/REGARDS/www"
-				override="true">
-				<include name="**/*" />
-			</fileset>
-
-			<parsable type="plain">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/www" includes="**/*.js" />
-			</parsable>
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="frontend" />
-					<arg value="-c" />
-					<arg value="${microservice.frontend.microserviceList}" />
-				</args>
-			</executable>
 		</pack>
 
-		<pack name="coreMicroservices" required="no"
-			condition="mustInstallConf">
-			<description>REGARDS Core microservices installation</description>
+		<!-- <pack name="CoreMicroservices" required="false" condition="atLeastOneMicroserviceSelected"> 
+			<description>REGARDS Core microservices installation</description> <file 
+			targetdir="$INSTALL_PATH/REGARDS/config" src="config/bootstrap.properties" 
+			override="true" /> <parsable type="javaprop" targetfile="$INSTALL_PATH/REGARDS/config/bootstrap.properties" 
+			/> </pack> -->
 
-			<file targetdir="$INSTALL_PATH/REGARDS/config" src="config/bootstrap.properties"
-				override="true" />
-
-			<parsable type="javaprop"
-				targetfile="$INSTALL_PATH/REGARDS/config/bootstrap.properties" />
+		<pack name="frontend" required="false" preselected="true">
+			<description>Web application serving the frontend</description>
+			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> 
+				<include name="bootstrap-frontend.*ar" /> </fileset> <fileset dir="sbin/frontend/" 
+				targetdir="$INSTALL_PATH/REGARDS/sbin" override="true"> <include name="*" 
+				/> </fileset> <fileset dir="config/static" targetdir="$INSTALL_PATH/REGARDS/www" 
+				override="true"> <include name="**/*" /> </fileset> <parsable type="plain"> 
+				<fileset targetdir="$INSTALL_PATH/REGARDS/www" includes="**/*.js" /> </parsable> 
+				<executable type="bin" stage="never" keep="true"> <fileset targetdir="$INSTALL_PATH/REGARDS/sbin" 
+				includes="*" /> </executable> <executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="frontend" /> <arg value="-c" /> <arg value="${microservice.frontend.microserviceList}" 
+				/> </args> </executable> -->
 		</pack>
 
-		<pack name="conf" required="no" condition="mustInstallConf">
-			<description>REGARDS Configuration service installation</description>
-
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-config.jar" />
-			</fileset>
-			<fileset dir="sbin/conf/" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true">
-				<include name="*" />
-			</fileset>
-			<fileset dir="config/BOOT-INF/classes/regards" targetdir="$INSTALL_PATH/REGARDS/config/regards"
-				override="true">
-				<include name="*" />
-			</fileset>
-
-			<parsable type="javaprop">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/config/regards">
-					<include name="*.properties" />
-				</fileset>
-			</parsable>
-
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="conf" />
-					<arg value="-c" />
-					<arg value="${microservice.conf.microserviceList}" />
-				</args>
-			</executable>
+		<pack name="conf" required="false" preselected="true" hidden="true"
+			condition="fullInstallation">
+			<description>Microservice providing configuration to any other microservice</description>
+			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> 
+				<include name="bootstrap-config.jar" /> </fileset> <fileset dir="sbin/conf/" 
+				targetdir="$INSTALL_PATH/REGARDS/sbin" override="true"> <include name="*" 
+				/> </fileset> <fileset dir="config/BOOT-INF/classes/regards" targetdir="$INSTALL_PATH/REGARDS/config/regards" 
+				override="true"> <include name="*" /> </fileset> <parsable type="javaprop"> 
+				<fileset targetdir="$INSTALL_PATH/REGARDS/config/regards"> <include name="*.properties" 
+				/> </fileset> </parsable> <executable type="bin" stage="never" keep="true"> 
+				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" /> </executable> 
+				<executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="conf" /> <arg value="-c" /> <arg value="${microservice.conf.microserviceList}" 
+				/> </args> </executable> -->
 		</pack>
 
-		<pack name="registry" required="no" condition="mustInstallRegistry">
-			<description>REGARDS Registry service installation</description>
-
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-registry.jar" />
-			</fileset>
-			<fileset dir="sbin/registry" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true">
-				<include name="*" />
-			</fileset>
-
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="registry" />
-					<arg value="-c" />
-					<arg value="${microservice.registry.microserviceList}" />
-				</args>
-			</executable>
+		<pack name="registry" required="false" preselected="true">
+			<description>Microservice registring other microservices in the cloud and handling load balancing</description>
+			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> 
+				<include name="bootstrap-registry.jar" /> </fileset> <fileset dir="sbin/registry" 
+				targetdir="$INSTALL_PATH/REGARDS/sbin" override="true"> <include name="*" 
+				/> </fileset> <executable type="bin" stage="never" keep="true"> <fileset 
+				targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" /> </executable> <executable 
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="registry" /> <arg value="-c" /> <arg value="${microservice.registry.microserviceList}" 
+				/> </args> </executable> -->
 		</pack>
 
-		<pack name="gateway" required="no" condition="mustInstallGateway">
-			<description>REGARDS Gateway service installation</description>
-
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-gateway.jar" />
-			</fileset>
-			<fileset dir="sbin/gateway" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true">
-				<include name="*" />
-			</fileset>
-
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="gateway" />
-					<arg value="-c" />
-					<arg value="${microservice.gateway.microserviceList}" />
-				</args>
-			</executable>
+		<pack name="gateway" required="false" preselected="true">
+			<description>Gateway between clients and all microservices</description>
+			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> 
+				<include name="bootstrap-gateway.jar" /> </fileset> <fileset dir="sbin/gateway" 
+				targetdir="$INSTALL_PATH/REGARDS/sbin" override="true"> <include name="*" 
+				/> </fileset> <executable type="bin" stage="never" keep="true"> <fileset 
+				targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" /> </executable> <executable 
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="gateway" /> <arg value="-c" /> <arg value="${microservice.gateway.microserviceList}" 
+				/> </args> </executable> -->
 		</pack>
 
-		<pack name="admin" required="no" condition="mustInstallAdmin">
-			<description>REGARDS Administration service installation</description>
-
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-administration.jar" />
-			</fileset>
-			<fileset dir="sbin/admin" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true">
-				<include name="*" />
-			</fileset>
-
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="admin" />
-					<arg value="-c" />
-					<arg value="${microservice.admin.microserviceList}" />
-				</args>
-			</executable>
+		<pack name="admin" required="false" preselected="true">
+			<description>Microservice handling system's administration</description>
+			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> 
+				<include name="bootstrap-administration.jar" /> </fileset> <fileset dir="sbin/admin" 
+				targetdir="$INSTALL_PATH/REGARDS/sbin" override="true"> <include name="*" 
+				/> </fileset> <executable type="bin" stage="never" keep="true"> <fileset 
+				targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" /> </executable> <executable 
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="admin" /> <arg value="-c" /> <arg value="${microservice.admin.microserviceList}" 
+				/> </args> </executable> -->
 		</pack>
 
-		<pack name="dam" required="no" condition="mustInstallDam">
+		<pack name="dam" required="false" preselected="true">
 			<description>REGARDS Data Management service installation</description>
-
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-dam.jar" />
-			</fileset>
-			<fileset dir="sbin/dam" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true">
-				<include name="*" />
-			</fileset>
-
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="dam" />
-					<arg value="-c" />
-					<arg value="${microservice.dam.microserviceList}" />
-				</args>
-			</executable>
+			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> 
+				<include name="bootstrap-dam.jar" /> </fileset> <fileset dir="sbin/dam" targetdir="$INSTALL_PATH/REGARDS/sbin" 
+				override="true"> <include name="*" /> </fileset> <executable type="bin" stage="never" 
+				keep="true"> <fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" 
+				/> </executable> <executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="dam" /> <arg value="-c" /> <arg value="${microservice.dam.microserviceList}" 
+				/> </args> </executable> -->
 		</pack>
 
-		<pack name="catalog" required="no" condition="mustInstallCatalog">
+		<pack name="catalog" required="false" preselected="true">
 			<description>REGARDS Catalog service installation</description>
-
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-catalog.jar" />
-			</fileset>
-			<fileset dir="sbin/catalog" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true">
-				<include name="*" />
-			</fileset>
-
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="catalog" />
-					<arg value="-c" />
-					<arg value="${microservice.catalog.microserviceList}" />
-				</args>
-			</executable>
+			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> 
+				<include name="bootstrap-catalog.jar" /> </fileset> <fileset dir="sbin/catalog" 
+				targetdir="$INSTALL_PATH/REGARDS/sbin" override="true"> <include name="*" 
+				/> </fileset> <executable type="bin" stage="never" keep="true"> <fileset 
+				targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" /> </executable> <executable 
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="catalog" /> <arg value="-c" /> <arg value="${microservice.catalog.microserviceList}" 
+				/> </args> </executable> -->
 		</pack>
 
-		<pack name="access" required="no" condition="mustInstallAccess">
+		<pack name="access" required="false" preselected="true">
 			<description>REGARDS Access service installation</description>
-
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-access-instance.jar" />
-				<include name="bootstrap-access-project.jar" />
-			</fileset>
-			<fileset dir="sbin/access" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true">
-				<include name="*" />
-			</fileset>
-
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="access-instance" />
-					<arg value="-c" />
-					<arg value="${microservice.access-instance.microserviceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="access-project" />
-					<arg value="-c" />
-					<arg value="${microservice.access-project.microserviceList}" />
-				</args>
-			</executable>
+			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> 
+				<include name="bootstrap-access-instance.jar" /> <include name="bootstrap-access-project.jar" 
+				/> </fileset> <fileset dir="sbin/access" targetdir="$INSTALL_PATH/REGARDS/sbin" 
+				override="true"> <include name="*" /> </fileset> <executable type="bin" stage="never" 
+				keep="true"> <fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" 
+				/> </executable> <executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="access-instance" /> <arg value="-c" /> <arg value="${microservice.access-instance.microserviceList}" 
+				/> </args> </executable> <executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="access-project" /> <arg value="-c" /> <arg value="${microservice.access-project.microserviceList}" 
+				/> </args> </executable> -->
 		</pack>
-		-->
 	</packs>
 
 </izpack:installation>

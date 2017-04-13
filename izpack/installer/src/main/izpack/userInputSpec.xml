@@ -4,6 +4,18 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:izpack="http://izpack.org/schema/userinput"
 	xsi:schemaLocation="http://izpack.org/schema/userinput http://izpack.org/schema/5.0/izpack-userinput-5.0.xsd">
 
+	<panel id="SelectInstallationTypePanel">
+		<field id="selectinstallationtypepannel.title.label" type="title" />
+		<field type="radio" variable="installation.type">
+			<spec>
+				<choice id="selectinstallationtypepannel.radio.full.label"
+					value="full" set="true" />
+				<choice id="selectinstallationtypepannel.radio.add.label"
+					value="add" />
+			</spec>
+		</field>
+	</panel>
+
 	<panel id="SelectSecurityLevelPanel">
 		<field id="selectsecuritylevelpanel.title.label" type="title" />
 		<field type="radio" variable="security.level.selected">
@@ -39,20 +51,23 @@
 		<field id="selectsecuritylevelpanel.title.label" type="divider"
 			align="top" />
 		<field type="space" />
-		<field type="text" variable="regards.config.regards.microservices.regards.group" id="configsecuritylevelpanel.exec.group.label">
+		<field type="text" variable="regards.config.regards.microservices.regards.group"
+			id="configsecuritylevelpanel.exec.group.label">
 			<spec size="15" id="configsecuritylevelpanel.regards.group.label"
 				set="${regards.config.regards.microservices.regards.group}" />
 		</field>
-		<field type="text" variable="regards.config.regards.microservices.exec.group" id="configsecuritylevelpanel.exec.group.label">
+		<field type="text" variable="regards.config.regards.microservices.exec.group"
+			id="configsecuritylevelpanel.exec.group.label">
 			<spec size="15" id="configsecuritylevelpanel.exec.group.label"
 				set="${regards.config.regards.microservices.exec.group}" />
 		</field>
-		<field type="text" variable="regards.config.regards.microservices.admin.group" id="configsecuritylevelpanel.exec.group.label"
-			size="35">
+		<field type="text" variable="regards.config.regards.microservices.admin.group"
+			id="configsecuritylevelpanel.exec.group.label" size="35">
 			<spec size="15" id="configsecuritylevelpanel.admin.group.label"
 				set="${regards.config.regards.microservices.admin.group}" />
 		</field>
-		<field type="text" variable="regards.config.regards.microservices.runtime.group" id="configsecuritylevelpanel.exec.group.label">
+		<field type="text" variable="regards.config.regards.microservices.runtime.group"
+			id="configsecuritylevelpanel.exec.group.label">
 			<spec size="15" id="configsecuritylevelpanel.runtime.group.label"
 				set="${regards.config.regards.microservices.runtime.group}" />
 		</field>
@@ -62,56 +77,60 @@
 		<field id="selectcomponentspanel.title.label" type="title" />
 		<field type="check" variable="frontend.selected">
 			<spec id="selectcomponentspanel.frontend.label" true="true"
-				false="false" />
+				false="false" set="false" />
 		</field>
+		<!-- 
 		<field type="check" variable="microservices.selected">
 			<spec id="selectcomponentspanel.microservices.label" true="true"
 				false="false" />
 		</field>
+		 -->
+		 <!-- 
 		<field type="check" variable="conf.selected">
 			<spec id="selectmicroservicespanel.config.label" true="true"
 				false="false" set="true" />
 		</field>
+		 -->
 		<field type="check" variable="registry.selected">
 			<spec id="selectmicroservicespanel.registry.label" true="true"
-				false="false" set="true" />
+				false="false" set="false" />
 		</field>
 		<field type="check" variable="gateway.selected">
 			<spec id="selectmicroservicespanel.gateway.label" true="true"
-				false="false" set="true" />
+				false="false" set="false" />
 		</field>
-		<field type="check" variable="microservices.admin.selected">
+		<field type="check" variable="admin.selected">
 			<spec id="selectmicroservicespanel.admin.label" true="true"
-				false="false" set="true" />
+				false="false" set="false" />
 		</field>
-		<field type="check" variable="microservices.dam.selected">
+		<field type="check" variable="dam.selected">
 			<spec id="selectmicroservicespanel.dam.label" true="true" false="false"
-				set="true" />
+				set="false" />
 		</field>
-		<field type="check" variable="microservices.catalog.selected">
+		<field type="check" variable="catalog.selected">
 			<spec id="selectmicroservicespanel.catalog.label" true="true"
-				false="false" set="true" />
+				false="false" set="false" />
 		</field>
-		<field type="check" variable="microservices.access.selected">
+		<field type="check" variable="access.selected">
 			<spec id="selectmicroservicespanel.access.label" true="true"
-				false="false" set="true" />
+				false="false" set="false" />
 		</field>
 	</panel>
 
-	<panel id="FrontendConfigPanel">
-		<field id="frontend.configpanel.title.label" type="title" />
+	<panel id="FrontendPanel">
+		<field id="frontendpanel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="1"
 			variable="microservice.frontend.count">
 			<spec>
 				<col>
 					<field type="text" variable="microservice.frontend.uri">
-						<spec id="frontend.configpanel.host.label" size="15"
+						<spec id="frontendpanel.host.label" size="15"
 							set="${microservice.frontend.uri}" />
 					</field>
 				</col>
 				<col>
 					<field type="text" variable="microservice.frontend.port">
-						<spec id="frontend.configpanel.port.label" size="15"
+						<spec id="frontendpanel.port.label" size="15"
 							set="${microservice.frontend.port}">
 						</spec>
 						<validator
@@ -123,11 +142,11 @@
 			</spec>
 		</field>
 		<field type="text" variable="regards.config.cloud.gateway.uri">
-			<spec id="frontend.configpanel.gateway.address.label" size="15"
+			<spec id="host.label" size="15"
 				set="${regards.config.cloud.gateway.uri}" />
 		</field>
 		<field type="text" variable="regards.config.cloud.gateway.port">
-			<spec id="frontend.configpanel.gateway.port.label" size="15"
+			<spec id="port.label" size="15"
 				set="${regards.config.cloud.gateway.port}" />
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
@@ -135,8 +154,8 @@
 		</field>
 	</panel>
 
-	<panel id="RabbitmqConfigPanel">
-		<field id="rabbitmqconfigpanel.title.label" type="title" />
+	<panel id="RabbitmqPanel">
+		<field id="rabbitmqpanel.title.label" type="title" />
 		<field type="text" variable="regards.config.spring.rabbitmq.host">
 			<spec id="rabbitmqconfigpanel.rabbitmq.host.label" size="15"
 				set="${regards.config.spring.rabbitmq.host}" />
@@ -171,6 +190,7 @@
 		</field>
 	</panel>
 
+	<!-- 
 	<panel id="CommonConfigPanel">
 		<field id="commonconfigpanel.title.label" type="title" />
 		<field type="text" variable="regards.config.cloud.config.address">
@@ -185,20 +205,45 @@
 				id="validator.port.error.label" />
 		</field>
 	</panel>
+	 -->
 
-	<panel id="ConfConfigPanel">
-		<field id="conf.configpanel.title.label" type="title" />
+	<panel id="LinkToExistingConfigPannel">
+		<field id="linktoexistingconfigpanel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="1" variable="microservice.conf.count">
 			<spec>
 				<col>
 					<field type="text" variable="regards.config.cloud.config.address">
-						<spec id="conf.configpanel.host.label" size="15"
+						<spec id="linktoexistingconfigpanel.host.label" size="15"
 							set="${regards.config.cloud.config.address}" />
 					</field>
 				</col>
 				<col>
 					<field type="text" variable="regards.config.cloud.config.port">
-						<spec id="conf.configpanel.port.label" size="15"
+						<spec id="linktoexistingconfigpanel.port.label" size="15"
+							set="${regards.config.cloud.config.port}" />
+						<validator
+							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							id="validator.port.error.label">
+						</validator>
+					</field>
+				</col>
+			</spec>
+		</field>
+	</panel>
+	
+	<panel id="ConfigPanel">
+		<field id="configpanel.title.label" type="title" />
+		<field type="custom" minRow="1" maxRow="1" variable="microservice.conf.count">
+			<spec>
+				<col>
+					<field type="text" variable="regards.config.cloud.config.address">
+						<spec id="configpanel.host.label" size="15"
+							set="${regards.config.cloud.config.address}" />
+					</field>
+				</col>
+				<col>
+					<field type="text" variable="regards.config.cloud.config.port">
+						<spec id="configpanel.port.label" size="15"
 							set="${regards.config.cloud.config.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
@@ -223,7 +268,8 @@
 		</field>
 	</panel>
 
-	<panel id="DataBaseConfigPanel">
+	<!-- 
+	<panel id="DataBasePanel">
 		<field id="databaseconfigpanel.title.label" type="title" />
 		<field type="space" />
 		<field type="text"
@@ -294,11 +340,6 @@
 					id="databaseconfigpanel.admin.regards.jpa.multitenant.tenants.password.1.label"
 					size="15"
 					set="${regards.config.admin.regards.jpa.multitenant.tenants.password.1}" />
-
-				<!-- TODO GBN : Faire des doubles validations de mdp ? -->
-				<!-- <validator -->
-				<!-- class="com.izforge.izpack.panels.userinput.validator.PasswordEqualityValidator" -->
-				<!-- txt="Both versions of the password must match" /> -->
 			</spec>
 		</field>
 		<field type="space" />
@@ -379,9 +420,9 @@
 			</spec>
 		</field>
 	</panel>
-
-	<panel id="RegistryConfigPanel">
-		<field id="registry.configpanel.title.label" type="title" />
+ 	-->
+	<panel id="RegistryPanel">
+		<field id="registrypanel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="1"
 			variable="microservice.registry.count">
 			<spec>
@@ -409,8 +450,8 @@
 		</field>
 	</panel>
 
-	<panel id="GatewayConfigPanel">
-		<field id="gateway.configpanel.title.label" type="title" />
+	<panel id="GatewayPanel">
+		<field id="gatewaypanel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="1"
 			variable="microservice.gateway.count">
 			<spec>
@@ -434,20 +475,20 @@
 		</field>
 	</panel>
 
-	<panel id="AdminConfigPanel">
-		<field id="admin.configpanel.title.label" type="title" />
+	<panel id="AdminPanel">
+		<field id="adminpanel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="50"
 			variable="microservice.admin.count">
 			<spec>
 				<col>
 					<field type="text" variable="microservice.admin.uri">
-						<spec id="admin.configpanel.host.label" size="15"
+						<spec id="adminpanel.host.label" size="15"
 							set="${microservice.admin.uri}" />
 					</field>
 				</col>
 				<col>
 					<field type="text" variable="microservice.admin.port">
-						<spec id="admin.configpanel.port.label" size="15"
+						<spec id="adminpanel.port.label" size="15"
 							set="${microservice.admin.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
@@ -459,19 +500,19 @@
 		</field>
 	</panel>
 
-	<panel id="DamConfigPanel">
-		<field id="dam.configpanel.title.label" type="title" />
+	<panel id="DamPanel">
+		<field id="dampanel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="50" variable="microservice.dam.count">
 			<spec>
 				<col>
 					<field type="text" variable="microservice.dam.uri">
-						<spec id="dam.configpanel.host.label" size="15"
+						<spec id="dampanel.host.label" size="15"
 							set="${microservice.dam.uri}" />
 					</field>
 				</col>
 				<col>
 					<field type="text" variable="microservice.dam.port">
-						<spec id="dam.configpanel.port.label" size="15"
+						<spec id="dampanel.port.label" size="15"
 							set="${microservice.dam.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
@@ -483,20 +524,20 @@
 		</field>
 	</panel>
 
-	<panel id="CatalogConfigPanel">
-		<field id="catalog.configpanel.title.label" type="title" />
+	<panel id="CatalogPanel">
+		<field id="catalogpanel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="50"
 			variable="microservice.catalog.count">
 			<spec>
 				<col>
 					<field type="text" variable="microservice.catalog.uri">
-						<spec id="catalog.configpanel.host.label" size="15"
+						<spec id="catalogpanel.host.label" size="15"
 							set="${microservice.catalog.uri}" />
 					</field>
 				</col>
 				<col>
 					<field type="text" variable="microservice.catalog.port">
-						<spec id="catalog.configpanel.port.label" size="15"
+						<spec id="catalogpanel.port.label" size="15"
 							set="${microservice.catalog.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
@@ -508,20 +549,20 @@
 		</field>
 	</panel>
 
-	<panel id="AccessInstanceConfigPanel">
-		<field id="access-instance.configpanel.title.label" type="title" />
+	<panel id="AccessInstancePanel">
+		<field id="accessinstancegpanel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="50"
 			variable="microservice.access-instance.count">
 			<spec>
 				<col>
 					<field type="text" variable="microservice.access-instance.uri">
-						<spec id="access-instance.configpanel.host.label" size="15"
+						<spec id="accessinstancepanel.host.label" size="15"
 							set="${microservice.access-instance.uri}" />
 					</field>
 				</col>
 				<col>
 					<field type="text" variable="microservice.access-instance.port">
-						<spec id="access-instance.configpanel.port.label" size="15"
+						<spec id="accessinstancepanel.port.label" size="15"
 							set="${microservice.access-instance.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
@@ -533,20 +574,20 @@
 		</field>
 	</panel>
 
-	<panel id="AccessProjectConfigPanel">
-		<field id="access-project.configpanel.title.label" type="title" />
+	<panel id="AccessProjectPanel">
+		<field id="accessprojectpanel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="50"
 			variable="microservice.access-project.count">
 			<spec>
 				<col>
 					<field type="text" variable="microservice.access-project.uri">
-						<spec id="access-project.configpanel.host.label" size="15"
+						<spec id="accessprojectpanel.host.label" size="15"
 							set="${microservice.access-project.uri}" />
 					</field>
 				</col>
 				<col>
 					<field type="text" variable="microservice.access-project.port">
-						<spec id="access-project.configpanel.port.label" size="15"
+						<spec id="accessprojectpanel.port.label" size="15"
 							set="${microservice.access-project.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"

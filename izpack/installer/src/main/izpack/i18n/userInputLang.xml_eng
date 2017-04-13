@@ -4,6 +4,10 @@
 	xmlns:izpack="http://izpack.org/schema/langpack" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://izpack.org/schema/langpack http://izpack.org/schema/5.0/izpack-langpack-5.0.xsd">
 	
+	<str id="selectinstallationtypepannel.title.label" txt="Choose your installation type" />
+	<str id="selectinstallationtypepannel.radio.full.label" txt="Install all REGARDS components" />
+	<str id="selectinstallationtypepannel.radio.add.label" txt="Add components to an existing installation" />
+	
 	<str id="selectsecuritylevelpanel.title.label" txt="Select REGARDS security level" />
 	<str id="selectsecuritylevelpanel.normal.label" txt="Normal" />
 	<str id="selectsecuritylevelpanel.enforce.label" txt="Enforce" />
@@ -27,40 +31,42 @@
 
 	<str id="selectcomponentspanel.title.label" txt="Which components would you want to install?" />
 	<str id="selectcomponentspanel.frontend.label" txt="Frontend" />
-	<str id="selectcomponentspanel.microservices.label" txt="Microservices" />
-	<str id="selectmicroservicespanel.config.label" txt="Cloud Config Server" />
-	<str id="selectmicroservicespanel.registry.label" txt="Registry Server" />
+	<str id="selectmicroservicespanel.config.label" txt="Configuration" />
+	<str id="selectmicroservicespanel.registry.label" txt="Registry" />
 	<str id="selectmicroservicespanel.gateway.label" txt="Gateway" />
-	<str id="selectmicroservicespanel.admin.label" txt="Microservice Admin" />
-	<str id="selectmicroservicespanel.dam.label" txt="Microservice Data Management" />
-	<str id="selectmicroservicespanel.catalog.label" txt="Microservice Catalog" />
-	<str id="selectmicroservicespanel.access.label" txt="Microservice Access" />
-	<str id="selectmicroservicespanel.storage.label" txt="Microservice Storage" />
+	<str id="selectmicroservicespanel.admin.label" txt="Administration" />
+	<str id="selectmicroservicespanel.dam.label" txt="Data Management" />
+	<str id="selectmicroservicespanel.catalog.label" txt="Catalog" />
+	<str id="selectmicroservicespanel.access.label" txt="Access" />
+	<str id="selectmicroservicespanel.storage.label" txt="Storage" />
 
-	<str id="frontend.configpanel.title.label" txt="REGARDS Frontend Server configuration" />
-	<str id="frontend.configpanel.host.label" txt="Frontend Web serveur host:" />
-	<str id="frontend.configpanel.port.label" txt="Frontend config Web serveur host:" />
-	<str id="frontend.configpanel.gateway.address.label" txt="Gateway Web serveur host:" />
-	<str id="frontend.configpanel.gateway.port.label" txt="Gateway Web serveur port:" />
+	<str id="frontendpanel.title.label" txt="REGARDS Frontend Server configuration" />
+	<str id="frontendpanel.host.label" txt="Frontend Web serveur host:" />
+	<str id="frontendpanel.port.label" txt="Frontend config Web serveur host:" />
+	<str id="frontendpanel.gateway.address.label" txt="Gateway Web serveur host:" />
+	<str id="frontendpanel.gateway.port.label" txt="Gateway Web serveur port:" />
 
+	<!-- 
 	<str id="commonconfigpanel.title.label" txt="REGARDS Common configuration" />
 	<str id="commonconfigpanel.config.address.label" txt="Cloud config Web serveur host:" />
 	<str id="commonconfigpanel.config.port.label" txt="Cloud config Web serveur port:" />
+	 -->
 
-	<str id="rabbitmqconfigpanel.title.label" txt="Message Broker configuration" />
-	<str id="rabbitmqconfigpanel.rabbitmq.host.label" txt="Message Broker host:" />
-	<str id="rabbitmqconfigpanel.rabbitmq.port.label" txt="Message Broker port:" />
-	<str id="rabbitmqconfigpanel.rabbitmq.username.label" txt="Message Broker username:" />
-	<str id="rabbitmqconfigpanel.rabbitmq.password.label" txt="Message Broker password:" />
-	<str id="rabbitmqconfigpanel.amqp.management.host.label" txt="Message Broker management host:" />
-	<str id="rabbitmqconfigpanel.amqp.management.port.label" txt="Message Broker management port:" />
+	<str id="rabbitmqpanel.title.label" txt="Message Broker configuration" />
+	<str id="rabbitmqpanel.rabbitmq.host.label" txt="Message Broker host:" />
+	<str id="rabbitmqpanel.rabbitmq.port.label" txt="Message Broker port:" />
+	<str id="rabbitmqpanel.rabbitmq.username.label" txt="Message Broker username:" />
+	<str id="rabbitmqpanel.rabbitmq.password.label" txt="Message Broker password:" />
+	<str id="rabbitmqpanel.amqp.management.host.label" txt="Message Broker management host:" />
+	<str id="rabbitmqpanel.amqp.management.port.label" txt="Message Broker management port:" />
 
-	<str id="conf.configpanel.title.label" txt="REGARDS Cloud conf Server configuration" />
-	<str id="conf.configpanel.host.label" txt="Cloud config Web serveur host:" />
-	<str id="conf.configpanel.port.label" txt="Cloud config Web serveur port:" />
-	<str id="conf.configpanel.admin.regards.accounts.root.user.login.label" txt="Cloud config admin login:" />
-	<str id="conf.configpanel.admin.regards.accounts.root.user.password.label" txt="Cloud config admin password:" />
+	<str id="configpanel.title.label" txt="REGARDS Cloud conf Server configuration" />
+	<str id="configpanel.host.label" txt="Cloud config Web serveur host:" />
+	<str id="configpanel.port.label" txt="Cloud config Web serveur port:" />
+	<str id="configpanel.admin.regards.accounts.root.user.login.label" txt="Cloud config admin login:" />
+	<str id="configpanel.admin.regards.accounts.root.user.password.label" txt="Cloud config admin password:" />
 	
+	<!-- 
 	<str id="databaseconfigpanel.title.label" txt="REGARDS Datasources configuration" />
 	<str id="databaseconfigpanel.gateway.regards.jpa.instance.datasource.url.label" txt="Gateway datasource instance url:" />
 	<str id="databaseconfigpanel.gateway.regards.jpa.instance.datasource.user.name.label" txt="Gateway datasource instance user:" />
@@ -89,36 +95,46 @@
 	<str id="databaseconfigpanel.access.project.regards.jpa.multitenant.tenants.url.1.label" txt="Access Project datasource first tenant url:" />
 	<str id="databaseconfigpanel.access.project.regards.jpa.multitenant.tenants.user.name.1.label" txt="Access Project datasource first tenant user:" />
 	<str id="databaseconfigpanel.access.project.regards.jpa.multitenant.tenants.password.1.label" txt="Access Project datasource first tenant password:" />
-	
-	<str id="registry.configpanel.title.label" txt="REGARDS Registry Server configuration" />
-	<str id="registry.configpanel.host.label" txt="Registry Web serveur host:" />
-	<str id="registry.configpanel.port.label" txt="Registry Web serveur port:" />
+	 -->
+	 
+	<str id="registrypanel.title.label" txt="REGARDS Registry Server configuration" />
+	<str id="registrypanel.host.label" txt="Registry Web serveur host:" />
+	<str id="registrypanel.port.label" txt="Registry Web serveur port:" />
 
-	<str id="gateway.configpanel.title.label" txt="REGARDS Gateway Server configuration" />
-	<str id="gateway.configpanel.host.label" txt="Gateway Web serveur host:" />
-	<str id="gateway.configpanel.port.label" txt="Gateway Web serveur port:" />
+	<str id="gatewaypanel.title.label" txt="REGARDS Gateway Server configuration" />
+	<str id="gatewaypanel.host.label" txt="Gateway Web serveur host:" />
+	<str id="gatewaypanel.port.label" txt="Gateway Web serveur port:" />
 
-	<str id="admin.configpanel.title.label" txt="REGARDS Administration Server configuration" />
-	<str id="admin.configpanel.host.label" txt="Administration Web serveur host:" />
-	<str id="admin.configpanel.port.label" txt="Administration Web serveur port:" />
+	<str id="adminpanel.title.label" txt="REGARDS Administration Server configuration" />
+	<str id="adminpanel.host.label" txt="Administration Web serveur host:" />
+	<str id="adminpanel.port.label" txt="Administration Web serveur port:" />
 
-	<str id="dam.configpanel.title.label" txt="REGARDS Data Management Server configuration" />
-	<str id="dam.configpanel.host.label" txt="Data Management Web serveur host:" />
-	<str id="dam.configpanel.port.label" txt="Data Management Web serveur port:" />
+	<str id="dampanel.title.label" txt="REGARDS Data Management Server configuration" />
+	<str id="dampanel.host.label" txt="Data Management Web serveur host:" />
+	<str id="dampanel.port.label" txt="Data Management Web serveur port:" />
 
-	<str id="catalog.configpanel.title.label" txt="REGARDS Catalog Server configuration" />
-	<str id="catalog.configpanel.host.label" txt="Catalog Web serveur host:" />
-	<str id="catalog.configpanel.port.label" txt="Catalog Web serveur port:" />
+	<str id="catalogpanel.title.label" txt="REGARDS Catalog Server configuration" />
+	<str id="catalogpanel.host.label" txt="Catalog Web serveur host:" />
+	<str id="catalogpanel.port.label" txt="Catalog Web serveur port:" />
 
-	<str id="access-instance.configpanel.title.label" txt="REGARDS Instance Access Server configuration" />
-	<str id="access-instance.configpanel.host.label" txt="Instance Access Web serveur host:" />
-	<str id="access-instance.configpanel.port.label" txt="Instance Access Web serveur port:" />
+	<str id="accessinstancepanel.title.label" txt="REGARDS Instance Access Server configuration" />
+	<str id="accessinstancepanel.host.label" txt="Instance Access Web serveur host:" />
+	<str id="accessinstancepanel.port.label" txt="Instance Access Web serveur port:" />
 
-	<str id="access-project.configpanel.title.label" txt="REGARDS Project Access Server configuration" />
-	<str id="access-project.configpanel.host.label" txt="Project Access Web serveur host:" />
-	<str id="access-project.configpanel.port.label" txt="Project Access Web serveur port:" />
+	<str id="accessprojectpanel.title.label" txt="REGARDS Project Access Server configuration" />
+	<str id="accessprojectpanel.host.label" txt="Project Access Web serveur host:" />
+	<str id="accessprojectpanel.port.label" txt="Project Access Web serveur port:" />
 
 	<str id="validator.host.error.label" txt="Invalid host format!" />
 	<str id="validator.port.error.label" txt="Invalid port format!" />
+	
+	<str id="InstallationGroupPanel.group.Full" txt="Install all system" />
+	<str id="InstallationGroupPanel.description.Full"
+		txt="All REGARDS components will be installed. This includes all microservices and the frontent." />
+	<str id="InstallationGroupPanel.group.Add" txt="Add components" />
+	<str id="InstallationGroupPanel.description.Add" txt="Fichiers d'exemples" />
+
+	<str id="host.label" txt="Host:" />
+	<str id="port.label" txt="Port:" />
 
 </izpack:langpack>
