@@ -278,6 +278,58 @@
 					set="${regards.config.admin.regards.accounts.root.user.password}" />
 			</spec>
 		</field>
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+		<field type="staticText" align="left" id="instance.database.label" bold="true" />
+		<field type="text"
+			variable="regards.config.admin.regards.jpa.instance.datasource.url">
+			<spec
+				id="url.label"
+				size="15" set="${regards.config.admin.regards.jpa.instance.datasource.url}" />
+		</field>
+		<field type="text"
+			variable="regards.config.admin.regards.jpa.instance.datasource.user.name">
+			<spec
+				id="username.label"
+				size="15"
+				set="${regards.config.admin.regards.jpa.instance.datasource.user.name}" />
+		</field>
+		<field type="password"
+			variable="regards.config.admin.regards.jpa.instance.datasource.password">
+			<spec>
+				<pwd
+					id="password.label"
+					size="15"
+					set="${regards.config.admin.regards.jpa.instance.datasource.password}" />
+			</spec>
+		</field>
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+		<field type="staticText" align="left" id="first.project.database.label" bold="true" />
+		<field type="text"
+			variable="regards.config.admin.regards.jpa.multitenant.tenants.url.1">
+			<spec
+				id="url.label"
+				size="15" set="${regards.config.admin.regards.jpa.multitenant.tenants.url.1}" />
+		</field>
+		<field type="text"
+			variable="regards.config.admin.regards.jpa.multitenant.tenants.user.name.1">
+			<spec
+				id="username.label"
+				size="15"
+				set="${regards.config.admin.regards.jpa.multitenant.tenants.user.name.1}" />
+		</field>
+		<field type="password"
+			variable="regards.config.admin.regards.jpa.multitenant.tenants.password.1">
+			<spec>
+				<pwd
+					id="password.label"
+					size="15"
+					set="${regards.config.admin.regards.jpa.multitenant.tenants.password.1}" />
+			</spec>
+		</field>
 	</panel>
 
 	<panel id="AccountsPanel">
@@ -302,6 +354,32 @@
 						</validator>
 					</field>
 				</col>
+			</spec>
+		</field>
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+		<field type="staticText" align="left" id="first.project.database.label" bold="true" />
+		<field type="text"
+			variable="regards.config.dam.regards.jpa.multitenant.tenants.url.1">
+			<spec
+				id="url.label"
+				size="15" set="${regards.config.dam.regards.jpa.multitenant.tenants.url.1}" />
+		</field>
+		<field type="text"
+			variable="regards.config.dam.regards.jpa.multitenant.tenants.user.name.1">
+			<spec
+				id="username.label"
+				size="15"
+				set="${regards.config.dam.regards.jpa.multitenant.tenants.user.name.1}" />
+		</field>
+		<field type="password"
+			variable="regards.config.dam.regards.jpa.multitenant.tenants.password.1">
+			<spec>
+				<pwd
+					id="password.label"
+					size="15"
+					set="${regards.config.dam.regards.jpa.multitenant.tenants.password.1}" />
 			</spec>
 		</field>
 	</panel>
@@ -348,6 +426,33 @@
 				</col>
 			</spec>
 		</field>
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+		<field type="staticText" align="left" id="instance.database.label" bold="true" />
+		<field type="text"
+			variable="regards.config.access.instance.regards.jpa.instance.datasource.url">
+			<spec
+				id="url.label"
+				size="15"
+				set="${regards.config.access.instance.regards.jpa.instance.datasource.url}" />
+		</field>
+		<field type="text"
+			variable="regards.config.access.instance.regards.jpa.instance.datasource.user.name">
+			<spec
+				id="username.label"
+				size="15"
+				set="${regards.config.access.instance.regards.jpa.instance.datasource.user.name}" />
+		</field>
+		<field type="password"
+			variable="regards.config.access.instance.regards.jpa.instance.datasource.password">
+			<spec>
+				<pwd
+					id="password.label"
+					size="15"
+					set="${regards.config.access.instance.regards.jpa.instance.datasource.password}" />
+			</spec>
+		</field>
 	</panel>
 
 	<panel id="AccessProjectPanel">
@@ -368,6 +473,33 @@
 						</validator>
 					</field>
 				</col>
+			</spec>
+		</field>
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+		<field type="staticText" align="left" id="first.project.database.label" bold="true" />
+		<field type="text"
+			variable="regards.config.access.project.regards.jpa.multitenant.tenants.url.1">
+			<spec
+				id="url.label"
+				size="15"
+				set="${regards.config.access.project.regards.jpa.multitenant.tenants.url.1}" />
+		</field>
+		<field type="text"
+			variable="regards.config.access.project.regards.jpa.multitenant.tenants.user.name.1">
+			<spec
+				id="username.label"
+				size="15"
+				set="${regards.config.access.project.regards.jpa.multitenant.tenants.user.name.1}" />
+		</field>
+		<field type="password"
+			variable="regards.config.access.project.regards.jpa.multitenant.tenants.password.1">
+			<spec>
+				<pwd
+					id="password.label"
+					size="15"
+					set="${regards.config.access.project.regards.jpa.multitenant.tenants.password.1}" />
 			</spec>
 		</field>
 	</panel>
