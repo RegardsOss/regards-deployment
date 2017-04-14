@@ -302,10 +302,10 @@
 		<panel classname="LicencePanel" />
 		<panel classname="TargetPanel" />
 		<panel classname="UserInputPanel" id="SelectSecurityLevelPanel" />
-		<panel classname="UserInputPanel" id="ConfigSecurityMicroservicesPanel"	condition="isSecurityEnforced" />
+		<panel classname="UserInputPanel" id="ConfigSecurityPanel"	condition="isSecurityEnforced" />
 		<panel classname="UserInputPanel" id="SelectInstallationTypePanel" />
 		<panel classname="UserInputPanel" id="SelectComponentsPanel" condition="addInstallation" />
-		<panel classname="UserInputPanel" id="LinkToExistingConfigPannel" condition="atLeastOneMiscroserviceSelected" />
+		<panel classname="UserInputPanel" id="LinkToExistingConfigPanel" condition="atLeastOneMiscroserviceSelected" />
 		<panel classname="UserInputPanel" id="ProjectPanel" condition="fullInstallation" />
 		<panel classname="UserInputPanel" id="ConfigPanel" condition="fullInstallation" />
 		<panel classname="UserInputPanel" id="RegistryPanel" condition="mustInstallRegistry" />

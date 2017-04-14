@@ -4,73 +4,85 @@
 	xmlns:izpack="http://izpack.org/schema/langpack" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://izpack.org/schema/langpack http://izpack.org/schema/5.0/izpack-langpack-5.0.xsd">
 
-	<str id="selectinstallationtypepannel.title.label" txt="Choose your installation type" />
-	<str id="selectinstallationtypepannel.radio.full.label" txt="Install all REGARDS components" />
-	<str id="selectinstallationtypepannel.radio.add.label" txt="Add components to an existing installation" />
+	<!-- Common -->
+	<str id="host.label" txt="Host:" />
+	<str id="port.label" txt="Port:" />
+	<str id="username.label" txt="Username:" />
+	<str id="password.label" txt="Password:" />
 
-	<str id="selectsecuritylevelpanel.title.label" txt="Select REGARDS security level" />
-	<str id="selectsecuritylevelpanel.normal.label" txt="Normal" />
-	<str id="selectsecuritylevelpanel.enforce.label" txt="Enforce" />
-	<str id="selectsecuritylevelpanel.enforce.description.1.label"
+	<!-- SelectInstallationTypePanel -->
+	<str id="selectinstallationtype.panel.title.label" txt="Choose your installation type" />
+	<str id="selectinstallationtype.panel.radio.full.label" txt="Install all REGARDS components" />
+	<str id="selectinstallationtype.panel.radio.add.label" txt="Add components to an existing installation" />
+	
+	<!-- Select SecurityLevelPanel -->
+	<str id="selectsecuritylevel.panel.title.label" txt="Select REGARDS security level" />
+	<str id="selectsecuritylevel.panel.normal.label" txt="Normal" />
+	<str id="selectsecuritylevel.panel.enforce.label" txt="Enforce" />
+	<str id="selectsecuritylevel.panel.enforce.description.1.label"
 		txt="If you choose Enforce Level, some requirements must be respected (values will could be customized by next panels) :" />
-	<str id="selectsecuritylevelpanel.enforce.description.2.label"
+	<str id="selectsecuritylevel.panel.enforce.description.2.label"
 		txt="	* Groups REGARDS, EXEC, ADMIN and RUNTIME must exist and owned by this install user for installation." />
-	<str id="selectsecuritylevelpanel.enforce.description.3.label"
+	<str id="selectsecuritylevel.panel.enforce.description.3.label"
 		txt="	* Groups REGARDS, EXEC, RUNTIME must owned by the exec user (used to run microservices)." />
-	<str id="selectsecuritylevelpanel.enforce.description.4.label"
+	<str id="selectsecuritylevel.panel.enforce.description.4.label"
 		txt="	* Groups REGARDS, ADMIN and RUNTIME must owned by the admin user (used to administrate)." />
-	<str id="selectsecuritylevelpanel.enforce.description.5.label" txt="	* User EXEC will have to exist to run microservices." />
+	<str id="selectsecuritylevel.panel.enforce.description.5.label" txt="	* User EXEC will have to exist to run microservices." />
 
-	<str id="projectpanel.title.label" txt="What is the first project to add to REGARDS?" />
-	<str id="projectpanel.project.label" txt="Name:" />
-
-	<str id="configsecuritylevelpanel.title.label" txt="Security customization" />
-	<str id="configsecuritylevelpanel.exec.user.label" txt="Exec user" />
-	<str id="configsecuritylevelpanel.exec.user.tooltip" txt="User used to run microservices" />
-	<str id="configsecuritylevelpanel.regards.group.label" txt="Regards group" />
-	<str id="configsecuritylevelpanel.regards.group.tooltip" txt="Group used to protected access to regards componant" />
-	<str id="configsecuritylevelpanel.exec.group.label" txt="Exec group" />
-	<str id="configsecuritylevelpanel.exec.group.tooltip" txt="Group used to protected access to exec binaries" />
-	<str id="configsecuritylevelpanel.admin.group.label" txt="Admin group" />
-	<str id="configsecuritylevelpanel.admin.group.tooltip" txt="Group used to restrict access to admin functionalities" />
-	<str id="configsecuritylevelpanel.runtime.group.label" txt="Runtime group" />
-	<str id="configsecuritylevelpanel.runtime.group.tooltip"
+	<!-- ProjectPanel -->
+	<str id="project.panel.title.label" txt="What is the first project to add to REGARDS?" />
+	<str id="project.panel.project.label" txt="Name:" />
+	
+	<!-- ConfigSecurityLevelPanel -->
+	<str id="configsecuritylevel.panel.title.label" txt="Security customization" />
+	<str id="configsecuritylevel.panel.exec.user.label" txt="Exec user" />
+	<str id="configsecuritylevel.panel.exec.user.tooltip" txt="User used to run microservices" />
+	<str id="configsecuritylevel.panel.regards.group.label" txt="Regards group" />
+	<str id="configsecuritylevel.panel.regards.group.tooltip" txt="Group used to protected access to regards componant" />
+	<str id="configsecuritylevel.panel.exec.group.label" txt="Exec group" />
+	<str id="configsecuritylevel.panel.exec.group.tooltip" txt="Group used to protected access to exec binaries" />
+	<str id="configsecuritylevel.panel.admin.group.label" txt="Admin group" />
+	<str id="configsecuritylevel.panel.admin.group.tooltip" txt="Group used to restrict access to admin functionalities" />
+	<str id="configsecuritylevel.panel.runtime.group.label" txt="Runtime group" />
+	<str id="configsecuritylevel.panel.runtime.group.tooltip"
 		txt="Group used to shared files between exec and admin profiles" />
 
-	<str id="selectcomponentspanel.title.label" txt="Which components would you want to install?" />
-	<str id="selectcomponentspanel.frontend.label" txt="Frontend" />
-	<str id="selectmicroservicespanel.config.label" txt="Configuration" />
-	<str id="selectmicroservicespanel.registry.label" txt="Registry" />
-	<str id="selectmicroservicespanel.gateway.label" txt="Gateway" />
-	<str id="selectmicroservicespanel.admin.label" txt="Administration" />
-	<str id="selectmicroservicespanel.dam.label" txt="Data Management" />
-	<str id="selectmicroservicespanel.catalog.label" txt="Catalog" />
-	<str id="selectmicroservicespanel.access.label" txt="Access" />
-	<str id="selectmicroservicespanel.storage.label" txt="Storage" />
+	<!-- SelectComponentsPanel -->
+	<str id="selectcomponents.panel.title.label" txt="Which components would you want to install?" />
+	<str id="selectcomponents.panel.frontend.label" txt="Frontend" />
+	<str id="selectcomponents.panel.config.label" txt="Configuration" />
+	<str id="selectcomponents.panel.registry.label" txt="Registry" />
+	<str id="selectcomponents.panel.gateway.label" txt="Gateway" />
+	<str id="selectcomponents.panel.admin.label" txt="Administration" />
+	<str id="selectcomponents.panel.dam.label" txt="Data Management" />
+	<str id="selectcomponents.panel.catalog.label" txt="Catalog" />
+	<str id="selectcomponents.panel.access.label" txt="Access" />
+	<str id="selectcomponents.panel.storage.label" txt="Storage" />
+	
+	<!-- LinkToExistingConfigPanel -->
+	<str id="linktoexistingconfig.panel.title.label" txt="Connect to an existing installation" />
 
-	<str id="frontendpanel.title.label" txt="Frontend Server" />
-	<str id="frontendpanel.host.label" txt="Frontend Web serveur host:" />
-	<str id="frontendpanel.port.label" txt="Frontend config Web serveur host:" />
-	<str id="frontendpanel.gateway.address.label" txt="Gateway Web serveur host:" />
-	<str id="frontendpanel.gateway.port.label" txt="Gateway Web serveur port:" />
-
+	<!-- FrontendPanel -->
+	<str id="frontend.panel.title.label" txt="Frontend Server" />
+	<str id="frontend.panel.gateway.address.label" txt="Gateway Web server host:" />
+	<str id="frontend.panel.gateway.port.label" txt="Gateway Web server port:" />
+                     
 	<!-- <str id="commonconfigpanel.title.label" txt="REGARDS Common configuration" 
 		/> <str id="commonconfigpanel.config.address.label" txt="Cloud config Web 
 		serveur host:" /> <str id="commonconfigpanel.config.port.label" txt="Cloud 
 		config Web serveur port:" /> -->
-
-	<str id="rabbitmqpanel.title.label" txt="Message Broker configuration" />
-	<str id="rabbitmqpanel.rabbitmq.host.label" txt="Message Broker host:" />
-	<str id="rabbitmqpanel.rabbitmq.port.label" txt="Message Broker port:" />
-	<str id="rabbitmqpanel.rabbitmq.username.label" txt="Message Broker username:" />
-	<str id="rabbitmqpanel.rabbitmq.password.label" txt="Message Broker password:" />
-	<str id="rabbitmqpanel.amqp.management.host.label" txt="Message Broker management host:" />
-	<str id="rabbitmqpanel.amqp.management.port.label" txt="Message Broker management port:" />
-
-	<str id="configpanel.title.label" txt="Configuration microservice" />
-	<str id="configpanel.host.label" txt="Cloud config Web serveur host:" />
-	<str id="configpanel.port.label" txt="Cloud config Web serveur port:" />
-
+	
+	<!-- RabbitmqPanel -->
+	<str id="rabbitmq.panel.title.label" txt="Message Broker configuration" />
+	<str id="rabbitmq.panel.rabbitmq.host.label" txt="RabbitMQ host:" />
+	<str id="rabbitmq.panel.rabbitmq.port.label" txt="RabbitMQ port:" />
+	<str id="rabbitmq.panel.rabbitmq.username.label" txt="RabbitMQ username:" />
+	<str id="rabbitmq.panel.rabbitmq.password.label" txt="RabbitMQ password:" />
+	<str id="rabbitmq.panel.amqp.management.host.label" txt="AMQP host:" />
+	<str id="rabbitmq.panel.amqp.management.port.label" txt="AMQP port:" />
+	
+	<!-- ConfigPanel -->
+	<str id="config.panel.title.label" txt="Configuration microservice" />
 
 	<!-- <str id="databaseconfigpanel.title.label" txt="REGARDS Datasources 
 		configuration" /> <str id="databaseconfigpanel.gateway.regards.jpa.instance.datasource.url.label" 
@@ -101,47 +113,35 @@
 		txt="Access Project datasource first tenant url:" /> <str id="databaseconfigpanel.access.project.regards.jpa.multitenant.tenants.user.name.1.label" 
 		txt="Access Project datasource first tenant user:" /> <str id="databaseconfigpanel.access.project.regards.jpa.multitenant.tenants.password.1.label" 
 		txt="Access Project datasource first tenant password:" /> -->
-
-	<str id="registrypanel.title.label" txt="Registry microservice" />
-	<str id="registrypanel.host.label" txt="Registry Web serveur host:" />
-	<str id="registrypanel.port.label" txt="Registry Web serveur port:" />
-
-	<str id="gatewaypanel.title.label" txt="Gateway microservice" />
-	<str id="gatewaypanel.host.label" txt="Gateway Web serveur host:" />
-	<str id="gatewaypanel.port.label" txt="Gateway Web serveur port:" />
-
-	<str id="adminpanel.title.label" txt="Administration microservice" />
-	<str id="adminpanel.root.user.login.label" txt="Instance admin login:" />
-	<str id="adminpanel.root.user.password.label" txt="Instance admin password:" />
 	
-	<str id="accountspanel.title.label" txt="Which rules should follow the user accounts?" />
+	<!-- RegistryPanel -->
+	<str id="registry.panel.title.label" txt="Registry microservice" />
 
-	<str id="dampanel.title.label" txt="Data Management microservice" />
-	<str id="dampanel.host.label" txt="Data Management Web serveur host:" />
-	<str id="dampanel.port.label" txt="Data Management Web serveur port:" />
+	<!-- GatewayPanel -->
+	<str id="gateway.panel.title.label" txt="Gateway microservice" />
+	
+	<!-- AdminPanel -->
+	<str id="admin.panel.title.label" txt="Administration microservice" />
+	<str id="admin.panel.root.user.login.label" txt="Instance admin login:" />
+	<str id="admin.panel.root.user.password.label" txt="Instance admin password:" />
+	
+	<!-- AccountsPanel -->
+	<str id="accounts.panel.title.label" txt="Which rules should follow the user accounts?" />
+	
+	<!-- DamPanel -->
+	<str id="dam.panel.title.label" txt="Data Management microservice" />
 
-	<str id="catalogpanel.title.label" txt="Catalog microservice" />
-	<str id="catalogpanel.host.label" txt="Catalog Web serveur host:" />
-	<str id="catalogpanel.port.label" txt="Catalog Web serveur port:" />
+	<!-- CatalogPanel -->
+	<str id="catalog.panel.title.label" txt="Catalog microservice" />
 
-	<str id="accessinstancepanel.title.label" txt="REGARDS Instance Access Server configuration" />
-	<str id="accessinstancepanel.host.label" txt="Instance Access Web serveur host:" />
-	<str id="accessinstancepanel.port.label" txt="Instance Access Web serveur port:" />
+	<!-- AccessInstancePanel -->
+	<str id="access-instance.panel.title.label" txt="Access Instance microservice" />
 
-	<str id="accessprojectpanel.title.label" txt="REGARDS Project Access Server configuration" />
-	<str id="accessprojectpanel.host.label" txt="Project Access Web serveur host:" />
-	<str id="accessprojectpanel.port.label" txt="Project Access Web serveur port:" />
-
+	<!-- AccessProjectPanel -->
+	<str id="access-project.panel.title.label" txt="Access Project microservice" />
+	
+	<!-- Validators -->
 	<str id="validator.host.error.label" txt="Invalid host format!" />
-	<str id="validator.port.error.label" txt="Invalid port format!" />
-
-	<str id="InstallationGroupPanel.group.Full" txt="Install all system" />
-	<str id="InstallationGroupPanel.description.Full"
-		txt="All REGARDS components will be installed. This includes all microservices and the frontent." />
-	<str id="InstallationGroupPanel.group.Add" txt="Add components" />
-	<str id="InstallationGroupPanel.description.Add" txt="Fichiers d'exemples" />
-
-	<str id="host.label" txt="Host:" />
-	<str id="port.label" txt="Port:" />
+	<str id="validator.port.error.label" txt="Invalid port format or the port is already in use" />
 
 </izpack:langpack>
