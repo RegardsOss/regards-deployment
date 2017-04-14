@@ -70,24 +70,65 @@
 
 		<!-- Common -->
 		<variable name="project" value="Default" />
-		<variable name="regards.config.cloud.config.address" value="localhost" />
-		<variable name="regards.config.cloud.config.port" value="8888" />
-		<variable name="regards.config.cloud.gateway.uri" value="localhost" />
-		<variable name="regards.config.cloud.gateway.port" value="8000" />
 
 		<!-- Config microservice -->
+		<variable name="config.count" value="0" /> <!-- TODO: Don't think we can have multiple -->
+		<variable name="regards.config.cloud.config.address" value="localhost" />
+		<variable name="regards.config.cloud.config.port" value="8888" />
+		
+		<!-- Registry microservice -->
+		<variable name="registry.count" value="0" />
+		<variable name="regards.config.cloud.registry.host" value="localhost" />
+		<variable name="regards.config.cloud.registry.port" value="8761" />
+		
+		<!-- Gateway microservice -->
+		<variable name="regards.config.cloud.gateway.uri" value="localhost" />
+		<variable name="regards.config.cloud.gateway.port" value="8000" />
+		<variable name="gateway.count" value="0" />
+		<variable name="gateway.host" value="localhost" />
+		<variable name="gateway.port" value="8000" />
+		
+		<!-- Message broker -->		
 		<variable name="regards.config.spring.rabbitmq.host" value="localhost" />
 		<variable name="regards.config.spring.rabbitmq.port" value="5672" />
 		<variable name="regards.config.spring.rabbitmq.username" value="guest" />
 		<variable name="regards.config.spring.rabbitmq.password" value="guest" />
 		<variable name="regards.config.regards.amqp.management.host" value="localhost" />
 		<variable name="regards.config.regards.amqp.management.port" value="15672" />
+		
+		<!-- Admin microservice -->
+		<variable name="admin.count" value="0" />
+		<variable name="admin.host" value="localhost" />
+		<variable name="admin.port" value="8777" />
 		<variable name="regards.config.admin.regards.accounts.root.user.login" value="regards-admin@c-s.fr" />
 		<variable name="regards.config.admin.regards.accounts.root.user.password" value="root_admin" />
-
-		<!-- Registry microservice -->
-		<variable name="regards.config.cloud.registry.host" value="localhost" />
-		<variable name="regards.config.cloud.registry.port" value="8761" />
+		<!-- TODO db -->
+		<!-- accounts -->
+		
+		<!-- Dam Microservice -->
+		<variable name="dam.count" value="0" />
+		<variable name="dam.host" value="localhost" />
+		<variable name="dam.port" value="8080" />
+		
+		<!-- Catalog microservice -->
+		<variable name="catalog.count" value="0" />
+		<variable name="catalog.host" value="localhost" />
+		<variable name="catalog.port" value="4444" />
+		
+		<!-- Access Instance microservice -->
+		<variable name="access-instance.count" value="0" />
+		<variable name="access-instance.host" value="localhost" />
+		<variable name="access-instance.port" value="8990" />
+		
+		<!-- Access Project microservice -->
+		<variable name="access-project.count" value="0" />
+		<variable name="access-project.host" value="localhost" />
+		<variable name="access-project.port" value="9990" />
+		
+		<!-- Frontend -->
+		<variable name="frontend.count" value="0" />
+		<variable name="frontend.host" value="localhost" />
+		<variable name="frontend.port" value="3333" />
 		
 		<!-- Config database microservice -->
 		<variable
@@ -142,34 +183,9 @@
 			name="regards.config.access.project.regards.jpa.multitenant.tenants.password.1"
 			value="rs_access_projet_tenant0_pwd" />
 
-		<!-- Internal variables -->
-		<variable name="microservice.frontend.count" value="0" />
-		<variable name="microservice.frontend.uri" value="localhost" />
-		<variable name="microservice.frontend.port" value="3333" />
-		<variable name="microservice.conf.count" value="0" />
-		<variable name="registry.count" value="0" />
-		<variable name="microservice.gateway.count" value="0" />
-		<variable name="microservice.gateway.uri" value="localhost" />
-		<variable name="microservice.gateway.port" value="8000" />
-		<variable name="microservice.admin.count" value="0" />
-		<variable name="microservice.admin.uri" value="localhost" />
-		<variable name="microservice.admin.port" value="8777" />
-		<variable name="microservice.dam.count" value="0" />
-		<variable name="microservice.dam.uri" value="localhost" />
-		<variable name="microservice.dam.port" value="8080" />
-		<variable name="microservice.catalog.count" value="0" />
-		<variable name="microservice.catalog.uri" value="localhost" />
-		<variable name="microservice.catalog.port" value="4444" />
-		<variable name="microservice.access-instance.count" value="0" />
-		<variable name="microservice.access-instance.uri" value="localhost" />
-		<variable name="microservice.access-instance.port" value="8990" />
-		<variable name="microservice.access-project.count" value="0" />
-		<variable name="microservice.access-project.uri" value="localhost" />
-		<variable name="microservice.access-project.port" value="9990" />
-
-		<!-- Internal Izpack variables -->
+		<!-- Internal variables for workflow management -->
 		<variable name="installation.type" value="full" />
-		<variable name="security.level.selected" value="normal" />
+		<variable name="security.level" value="normal" />
 		<variable name="frontend.selected" value="true" />
 		<variable name="registry.selected" value="false" />
 		<variable name="gateway.selected" value="false" />
@@ -182,7 +198,7 @@
 
 	<conditions>
 		<condition type="variable" id="isSecurityEnforced">
-			<name>security.level.selected</name>
+			<name>security.level</name>
 			<value>enforce</value>
 		</condition>
 		<condition type="variable" id="fullInstallation">

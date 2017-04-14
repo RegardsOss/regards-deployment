@@ -6,7 +6,7 @@
 
 	<panel id="SelectSecurityLevelPanel">
 		<field id="selectsecuritylevelpanel.title.label" type="title" />
-		<field type="radio" variable="security.level.selected">
+		<field type="radio" variable="security.level">
 			<spec>
 				<choice id="selectsecuritylevelpanel.normal.label" value="normal"
 					set="true" />
@@ -102,7 +102,7 @@
 		</field>
 	</panel><panel id="LinkToExistingConfigPannel">
 		<field id="linktoexistingconfigpanel.title.label" type="title" />
-		<field type="custom" minRow="1" maxRow="1" variable="microservice.conf.count">
+		<field type="custom" minRow="1" maxRow="1" variable="config.count">
 			<spec>
 				<col>
 					<field type="text" variable="regards.config.cloud.config.address">
@@ -127,7 +127,7 @@
 
 	<panel id="ConfigPanel">
 		<field id="configpanel.title.label" type="title" />
-		<field type="custom" minRow="1" maxRow="1" variable="microservice.conf.count">
+		<field type="custom" minRow="1" maxRow="1" variable="config.count">
 			<spec>
 				<col>
 					<field type="text" variable="regards.config.cloud.config.address">
@@ -270,18 +270,18 @@
 	<panel id="GatewayPanel">
 		<field id="gatewaypanel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="1"
-			variable="microservice.gateway.count">
+			variable="gateway.count">
 			<spec>
 				<col>
-					<field type="text" variable="microservice.gateway.uri">
-						<spec id="gateway.configpanel.host.label" size="15"
-							set="${microservice.gateway.uri}" />
+					<field type="text" variable="gateway.host">
+						<spec id="host.label" size="15"
+							set="${gateway.host}" />
 					</field>
 				</col>
 				<col>
-					<field type="text" variable="microservice.gateway.port">
-						<spec id="gateway.configpanel.port.label" size="15"
-							set="${microservice.gateway.port}" />
+					<field type="text" variable="gateway.port">
+						<spec id="port.label" size="15"
+							set="${gateway.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
@@ -331,16 +331,16 @@
 	<panel id="AdminPanel">
 		<field id="adminpanel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="50"
-			variable="microservice.admin.count">
+			variable="admin.count">
 			<spec>
 				<col>
-					<field type="text" variable="microservice.admin.uri">
-						<spec id="host.label" size="15" set="${microservice.admin.uri}" />
+					<field type="text" variable="admin.host">
+						<spec id="host.label" size="15" set="${admin.host}" />
 					</field>
 				</col>
 				<col>
-					<field type="text" variable="microservice.admin.port">
-						<spec id="port.label" size="15" set="${microservice.admin.port}" />
+					<field type="text" variable="admin.port">
+						<spec id="port.label" size="15" set="${admin.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
@@ -369,17 +369,17 @@
 
 	<panel id="DamPanel">
 		<field id="dampanel.title.label" type="title" />
-		<field type="custom" minRow="1" maxRow="50" variable="microservice.dam.count">
+		<field type="custom" minRow="1" maxRow="50" variable="dam.count">
 			<spec>
 				<col>
-					<field type="text" variable="microservice.dam.uri">
-						<spec id="dampanel.host.label" size="15" set="${microservice.dam.uri}" />
+					<field type="text" variable="dam.host">
+						<spec id="dampanel.host.label" size="15" set="${dam.host}" />
 					</field>
 				</col>
 				<col>
-					<field type="text" variable="microservice.dam.port">
+					<field type="text" variable="dam.port">
 						<spec id="dampanel.port.label" size="15"
-							set="${microservice.dam.port}" />
+							set="${dam.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
@@ -393,18 +393,18 @@
 	<panel id="CatalogPanel">
 		<field id="catalogpanel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="50"
-			variable="microservice.catalog.count">
+			variable="catalog.count">
 			<spec>
 				<col>
-					<field type="text" variable="microservice.catalog.uri">
+					<field type="text" variable="catalog.host">
 						<spec id="catalogpanel.host.label" size="15"
-							set="${microservice.catalog.uri}" />
+							set="${catalog.host}" />
 					</field>
 				</col>
 				<col>
-					<field type="text" variable="microservice.catalog.port">
+					<field type="text" variable="catalog.port">
 						<spec id="catalogpanel.port.label" size="15"
-							set="${microservice.catalog.port}" />
+							set="${catalog.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
@@ -418,18 +418,18 @@
 	<panel id="AccessInstancePanel">
 		<field id="accessinstancegpanel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="50"
-			variable="microservice.access-instance.count">
+			variable="access-instance.count">
 			<spec>
 				<col>
-					<field type="text" variable="microservice.access-instance.uri">
+					<field type="text" variable="access-instance.host">
 						<spec id="accessinstancepanel.host.label" size="15"
-							set="${microservice.access-instance.uri}" />
+							set="${access-instance.host}" />
 					</field>
 				</col>
 				<col>
-					<field type="text" variable="microservice.access-instance.port">
+					<field type="text" variable="access-instance.port">
 						<spec id="accessinstancepanel.port.label" size="15"
-							set="${microservice.access-instance.port}" />
+							set="${access-instance.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
@@ -443,18 +443,18 @@
 	<panel id="AccessProjectPanel">
 		<field id="accessprojectpanel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="50"
-			variable="microservice.access-project.count">
+			variable="access-project.count">
 			<spec>
 				<col>
-					<field type="text" variable="microservice.access-project.uri">
+					<field type="text" variable="access-project.host">
 						<spec id="accessprojectpanel.host.label" size="15"
-							set="${microservice.access-project.uri}" />
+							set="${access-project.host}" />
 					</field>
 				</col>
 				<col>
-					<field type="text" variable="microservice.access-project.port">
+					<field type="text" variable="access-project.port">
 						<spec id="accessprojectpanel.port.label" size="15"
-							set="${microservice.access-project.port}" />
+							set="${access-project.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
@@ -469,18 +469,18 @@
 	<panel id="FrontendPanel">
 		<field id="frontendpanel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="1"
-			variable="microservice.frontend.count">
+			variable="frontend.count">
 			<spec>
 				<col>
-					<field type="text" variable="microservice.frontend.uri">
+					<field type="text" variable="frontend.host">
 						<spec id="frontendpanel.host.label" size="15"
-							set="${microservice.frontend.uri}" />
+							set="${frontend.host}" />
 					</field>
 				</col>
 				<col>
-					<field type="text" variable="microservice.frontend.port">
+					<field type="text" variable="frontend.port">
 						<spec id="frontendpanel.port.label" size="15"
-							set="${microservice.frontend.port}">
+							set="${frontend.port}">
 						</spec>
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
