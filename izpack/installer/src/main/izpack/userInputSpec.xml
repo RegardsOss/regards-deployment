@@ -330,6 +330,45 @@
 
 	<panel id="AccountsPanel">
 		<field id="accounts.panel.title.label" type="title" />
+		<field type="staticText" align="left" id="accounts.panel.accounts.label" bold="true" />
+		<field type="text"
+			variable="regards.accounts.validity.duration">
+			<spec
+				id="accounts.panel.accounts.validity.duration.label"
+				size="3" set="${regards.accounts.validity.duration}" />
+		</field>
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+		<field type="staticText" align="left" id="accounts.panel.passwords.label" bold="true" />
+		<field type="text"
+			variable="regards.config.admin.accounts.password.regex">
+			<spec
+				id="accounts.panel.regex.label"
+				size="15" set="${regards.config.admin.accounts.password.regex}" />
+		</field>
+		<field type="text"
+			variable="regards.config.admin.accounts.password.rules">
+			<spec
+				id="accounts.panel.password.rules.label"
+				size="30" set="${regards.config.admin.accounts.password.rules}" />
+		</field>
+		<field type="text"
+			variable="regards.config.admin.accounts.password.validity.duration">
+			<spec
+				id="accounts.panel.password.validity.duration.label"
+				size="3" set="${regards.config.admin.accounts.password.validity.duration}" />
+		</field>
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+		<field type="staticText" align="left" id="accounts.panel.connecting.label" bold="true" />
+		<field type="text"
+			variable="regards.config.admin.accounts.failed.authentication.max">
+			<spec
+				id="accounts.panel.failed.authentication.max.label"
+				size="3" set="${regards.config.admin.accounts.failed.authentication.max}" />
+		</field>
 	</panel>
 
 	<panel id="DamPanel">

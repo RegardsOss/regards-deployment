@@ -93,21 +93,17 @@
 	<str id="admin.panel.title.label" txt="Administration microservice" />
 	<str id="admin.panel.root.user.login.label" txt="Instance admin login:" />
 	<str id="admin.panel.root.user.password.label" txt="Instance admin password:" />
-	<str id="admin.panel.regards.jpa.instance.datasource.url.label"
-		txt="Instance database url:" />
-	<str id="admin.panel.regards.jpa.instance.datasource.user.name.label"
-		txt="Instance database user:" />
-	<str id="admin.panel.regards.jpa.instance.datasource.password.label"
-		txt="Instance database password:" />
-	<str id="admin.panel.regards.jpa.multitenant.tenants.url.1.label"
-		txt="First project's database url:" />
-	<str id="admin.panel.regards.jpa.multitenant.tenants.user.name.1.label"
-		txt="First project's database user:" />
-	<str id="admin.panel.regards.jpa.multitenant.tenants.password.1.label"
-		txt="First project's database password:" />
 
 	<!-- AccountsPanel -->
 	<str id="accounts.panel.title.label" txt="Which rules should follow the user accounts?" />
+	<str id="accounts.panel.accounts.label" txt="Accounts" />
+	<str id="accounts.panel.accounts.validity.duration.label" txt="Period of validity (days)" />
+	<str id="accounts.panel.passwords.label" txt="Passwords" />
+	<str id="accounts.panel.regex.label" txt="Must match the regex" />
+	<str id="accounts.panel.password.rules.label" txt="Or else users will receive the message" />
+	<str id="accounts.panel.password.validity.duration.label" txt="Period of validity (days)" />
+	<str id="accounts.panel.connecting.label" txt="When connecting" />
+	<str id="accounts.panel.failed.authentication.max.label" txt="Number of attemps before locking the account" />
 
 	<!-- DamPanel -->
 	<str id="dam.panel.title.label" txt="Data Management microservice" />

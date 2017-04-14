@@ -138,7 +138,17 @@
 		<variable
 			name="regards.config.admin.regards.jpa.multitenant.tenants.password.1"
 			value="rs_admin_tenant0_pwd" />
-		<!-- accounts -->
+
+		<!-- AccountPanel -->
+		<variable name="regards.accounts.validity.duration" value="30" />
+		<variable name="regards.config.admin.accounts.password.regex"
+			value="[a-z0-9]*" />
+		<variable name="regards.config.admin.accounts.password.rules"
+			value="Password should contain letters or numbers" />
+		<variable name="regards.config.admin.accounts.password.validity.duration"
+			value="350" />
+		<variable name="regards.config.admin.accounts.failed.authentication.max"
+			value="5" />
 
 		<!-- Dam Microservice -->
 		<variable name="dam.count" value="0" />
@@ -190,7 +200,7 @@
 		<variable name="frontend.count" value="0" />
 		<variable name="frontend.host" value="localhost" />
 		<variable name="frontend.port" value="3333" />
-		
+
 		<!-- Internal variables for workflow management -->
 		<variable name="installation.type" value="full" />
 		<variable name="security.level" value="normal" />
@@ -249,7 +259,7 @@
 			<name>storage.selected</name>
 			<value>true</value>
 		</condition>
-		
+
 		<condition type="or" id="atLeastOneMiscroserviceSelected">
 			<condition type="ref" refid="isRegistrySelected" />
 			<condition type="ref" refid="isGatewaySelected" />
