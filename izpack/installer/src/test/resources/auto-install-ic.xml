@@ -112,7 +112,7 @@
 			value="rs_access_projet_tenant0_user" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="ConfConfigPanel">
+		id="ConfigPanel">
 		<entry key="regards.config.cloud.config.port.1" value="8888" />
 		<entry key="regards.config.admin.regards.accounts.root.user.login"
 			value="regards-admin@c-s.fr" />
@@ -122,43 +122,43 @@
 		<entry key="microservice.conf.count" value="1" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="RegistryConfigPanel">
-		<entry key="microservice.registry.count" value="1" />
-		<entry key="regards.config.cloud.config.host.1" value="localhost" />
-		<entry key="microservice.registry.port.1" value="8761" />
+		id="RegistryPanel">
+		<entry key="registry.count" value="1" />
+		<entry key="regards.config.cloud.registry.host.1" value="localhost" />
+		<entry key="regards.config.cloud.registry.port.1" value="8761" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="GatewayConfigPanel">
+		id="GatewayPanel">
 		<entry key="microservice.gateway.port.1" value="8000" />
 		<entry key="microservice.gateway.uri.1" value="localhost" />
 		<entry key="microservice.gateway.count" value="1" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="AdminConfigPanel">
+		id="AdminPanel">
 		<entry key="microservice.admin.count" value="1" />
 		<entry key="microservice.admin.uri.1" value="localhost" />
 		<entry key="microservice.admin.port.1" value="8777" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="DamConfigPanel">
+		id="DamPanel">
 		<entry key="microservice.dam.uri.1" value="localhost" />
 		<entry key="microservice.dam.count" value="1" />
 		<entry key="microservice.dam.port.1" value="8080" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="CatalogConfigPanel">
+		id="CatalogPanel">
 		<entry key="microservice.catalog.count" value="1" />
 		<entry key="microservice.catalog.uri.1" value="localhost" />
 		<entry key="microservice.catalog.port.1" value="4444" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="AccessInstanceConfigPanel">
+		id="AccessInstancePanel">
 		<entry key="microservice.access-instance.port.1" value="8990" />
 		<entry key="microservice.access-instance.uri.1" value="localhost" />
 		<entry key="microservice.access-instance.count" value="1" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="AccessProjectConfigPanel">
+		id="AccessProjectPanel">
 		<entry key="microservice.access-project.uri.1" value="localhost" />
 		<entry key="microservice.access-project.count" value="1" />
 		<entry key="microservice.access-project.port.1" value="9990" />

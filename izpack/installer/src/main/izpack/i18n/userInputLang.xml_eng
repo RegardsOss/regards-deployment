@@ -3,19 +3,26 @@
 <izpack:langpack version="5.0"
 	xmlns:izpack="http://izpack.org/schema/langpack" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://izpack.org/schema/langpack http://izpack.org/schema/5.0/izpack-langpack-5.0.xsd">
-	
+
 	<str id="selectinstallationtypepannel.title.label" txt="Choose your installation type" />
 	<str id="selectinstallationtypepannel.radio.full.label" txt="Install all REGARDS components" />
 	<str id="selectinstallationtypepannel.radio.add.label" txt="Add components to an existing installation" />
-	
+
 	<str id="selectsecuritylevelpanel.title.label" txt="Select REGARDS security level" />
 	<str id="selectsecuritylevelpanel.normal.label" txt="Normal" />
 	<str id="selectsecuritylevelpanel.enforce.label" txt="Enforce" />
-	<str id="selectsecuritylevelpanel.enforce.description.1.label" txt="If you choose Enforce Level, some requirements must be respected (values will could be customized by next panels) :"/>
-	<str id="selectsecuritylevelpanel.enforce.description.2.label" txt="	* Groups REGARDS, EXEC, ADMIN and RUNTIME must exist and owned by this install user for installation."/>
-	<str id="selectsecuritylevelpanel.enforce.description.3.label" txt="	* Groups REGARDS, EXEC, RUNTIME must owned by the exec user (used to run microservices)."/>
-	<str id="selectsecuritylevelpanel.enforce.description.4.label" txt="	* Groups REGARDS, ADMIN and RUNTIME must owned by the admin user (used to administrate)."/>
-	<str id="selectsecuritylevelpanel.enforce.description.5.label" txt="	* User EXEC will have to exist to run microservices."/>
+	<str id="selectsecuritylevelpanel.enforce.description.1.label"
+		txt="If you choose Enforce Level, some requirements must be respected (values will could be customized by next panels) :" />
+	<str id="selectsecuritylevelpanel.enforce.description.2.label"
+		txt="	* Groups REGARDS, EXEC, ADMIN and RUNTIME must exist and owned by this install user for installation." />
+	<str id="selectsecuritylevelpanel.enforce.description.3.label"
+		txt="	* Groups REGARDS, EXEC, RUNTIME must owned by the exec user (used to run microservices)." />
+	<str id="selectsecuritylevelpanel.enforce.description.4.label"
+		txt="	* Groups REGARDS, ADMIN and RUNTIME must owned by the admin user (used to administrate)." />
+	<str id="selectsecuritylevelpanel.enforce.description.5.label" txt="	* User EXEC will have to exist to run microservices." />
+
+	<str id="projectpanel.title.label" txt="What is the first project to add to REGARDS?" />
+	<str id="projectpanel.project.label" txt="Name:" />
 
 	<str id="configsecuritylevelpanel.title.label" txt="Security customization" />
 	<str id="configsecuritylevelpanel.exec.user.label" txt="Exec user" />
@@ -27,7 +34,8 @@
 	<str id="configsecuritylevelpanel.admin.group.label" txt="Admin group" />
 	<str id="configsecuritylevelpanel.admin.group.tooltip" txt="Group used to restrict access to admin functionalities" />
 	<str id="configsecuritylevelpanel.runtime.group.label" txt="Runtime group" />
-	<str id="configsecuritylevelpanel.runtime.group.tooltip" txt="Group used to shared files between exec and admin profiles" />
+	<str id="configsecuritylevelpanel.runtime.group.tooltip"
+		txt="Group used to shared files between exec and admin profiles" />
 
 	<str id="selectcomponentspanel.title.label" txt="Which components would you want to install?" />
 	<str id="selectcomponentspanel.frontend.label" txt="Frontend" />
@@ -40,17 +48,16 @@
 	<str id="selectmicroservicespanel.access.label" txt="Access" />
 	<str id="selectmicroservicespanel.storage.label" txt="Storage" />
 
-	<str id="frontendpanel.title.label" txt="REGARDS Frontend Server configuration" />
+	<str id="frontendpanel.title.label" txt="Frontend Server" />
 	<str id="frontendpanel.host.label" txt="Frontend Web serveur host:" />
 	<str id="frontendpanel.port.label" txt="Frontend config Web serveur host:" />
 	<str id="frontendpanel.gateway.address.label" txt="Gateway Web serveur host:" />
 	<str id="frontendpanel.gateway.port.label" txt="Gateway Web serveur port:" />
 
-	<!-- 
-	<str id="commonconfigpanel.title.label" txt="REGARDS Common configuration" />
-	<str id="commonconfigpanel.config.address.label" txt="Cloud config Web serveur host:" />
-	<str id="commonconfigpanel.config.port.label" txt="Cloud config Web serveur port:" />
-	 -->
+	<!-- <str id="commonconfigpanel.title.label" txt="REGARDS Common configuration" 
+		/> <str id="commonconfigpanel.config.address.label" txt="Cloud config Web 
+		serveur host:" /> <str id="commonconfigpanel.config.port.label" txt="Cloud 
+		config Web serveur port:" /> -->
 
 	<str id="rabbitmqpanel.title.label" txt="Message Broker configuration" />
 	<str id="rabbitmqpanel.rabbitmq.host.label" txt="Message Broker host:" />
@@ -60,60 +67,60 @@
 	<str id="rabbitmqpanel.amqp.management.host.label" txt="Message Broker management host:" />
 	<str id="rabbitmqpanel.amqp.management.port.label" txt="Message Broker management port:" />
 
-	<str id="configpanel.title.label" txt="REGARDS Cloud conf Server configuration" />
+	<str id="configpanel.title.label" txt="Configuration microservice" />
 	<str id="configpanel.host.label" txt="Cloud config Web serveur host:" />
 	<str id="configpanel.port.label" txt="Cloud config Web serveur port:" />
-	<str id="configpanel.admin.regards.accounts.root.user.login.label" txt="Cloud config admin login:" />
-	<str id="configpanel.admin.regards.accounts.root.user.password.label" txt="Cloud config admin password:" />
-	
-	<!-- 
-	<str id="databaseconfigpanel.title.label" txt="REGARDS Datasources configuration" />
-	<str id="databaseconfigpanel.gateway.regards.jpa.instance.datasource.url.label" txt="Gateway datasource instance url:" />
-	<str id="databaseconfigpanel.gateway.regards.jpa.instance.datasource.user.name.label" txt="Gateway datasource instance user:" />
-	<str id="databaseconfigpanel.gateway.regards.jpa.instance.datasource.password.label" txt="Gateway datasource instance password:" />
-	<str id="databaseconfigpanel.gateway.regards.jpa.multitenant.tenants.url.1.label" txt="Gateway datasource first tenant url:" />
-	<str id="databaseconfigpanel.gateway.regards.jpa.multitenant.tenants.user.name.1.label" txt="Gateway datasource first tenant user:" />
-	<str id="databaseconfigpanel.gateway.regards.jpa.multitenant.tenants.password.1.label" txt="Gateway datasource first tenant password:" />
-	<str id="databaseconfigpanel.admin.regards.jpa.instance.datasource.url.label" txt="Administration datasource instance url:" />
-	<str id="databaseconfigpanel.admin.regards.jpa.instance.datasource.user.name.label" txt="Administration datasource instance user:" />
-	<str id="databaseconfigpanel.admin.regards.jpa.instance.datasource.password.label" txt="Administration datasource instance password:" />
-	<str id="databaseconfigpanel.admin.regards.jpa.multitenant.tenants.url.1.label" txt="Administration datasource first tenant url:" />
-	<str id="databaseconfigpanel.admin.regards.jpa.multitenant.tenants.user.name.1.label" txt="Administration datasource first tenant user:" />
-	<str id="databaseconfigpanel.admin.regards.jpa.multitenant.tenants.password.1.label" txt="Administration datasource first tenant password:" />
-	<str id="databaseconfigpanel.dam.regards.jpa.instance.datasource.url.label" txt="DataManagement datasource instance url:" />
-	<str id="databaseconfigpanel.dam.regards.jpa.instance.datasource.user.name.label" txt="DataManagement datasource instance user:" />
-	<str id="databaseconfigpanel.dam.regards.jpa.instance.datasource.password.label" txt="DataManagement datasource instance password:" />
-	<str id="databaseconfigpanel.dam.regards.jpa.multitenant.tenants.url.1.label" txt="DataManagement datasource first tenant url:" />
-	<str id="databaseconfigpanel.dam.regards.jpa.multitenant.tenants.user.name.1.label" txt="DataManagement datasource first tenant user:" />
-	<str id="databaseconfigpanel.dam.regards.jpa.multitenant.tenants.password.1.label" txt="DataManagement datasource first tenant password:" />
-	<str id="databaseconfigpanel.access.instance.regards.jpa.instance.datasource.url.label" txt="Access Instance datasource instance url:" />
-	<str id="databaseconfigpanel.access.instance.regards.jpa.instance.datasource.user.name.label" txt="Access Instance datasource instance user:" />
-	<str id="databaseconfigpanel.access.instance.regards.jpa.instance.datasource.password.label" txt="Access Instance datasource instance password:" />
-	<str id="databaseconfigpanel.access.project.regards.jpa.instance.datasource.url.label" txt="Access Project datasource instance url:" />
-	<str id="databaseconfigpanel.access.project.regards.jpa.instance.datasource.user.name.label" txt="Access Project datasource instance user:" />
-	<str id="databaseconfigpanel.access.project.regards.jpa.instance.datasource.password.label" txt="Access Project datasource instance password:" />
-	<str id="databaseconfigpanel.access.project.regards.jpa.multitenant.tenants.url.1.label" txt="Access Project datasource first tenant url:" />
-	<str id="databaseconfigpanel.access.project.regards.jpa.multitenant.tenants.user.name.1.label" txt="Access Project datasource first tenant user:" />
-	<str id="databaseconfigpanel.access.project.regards.jpa.multitenant.tenants.password.1.label" txt="Access Project datasource first tenant password:" />
-	 -->
-	 
-	<str id="registrypanel.title.label" txt="REGARDS Registry Server configuration" />
+
+
+	<!-- <str id="databaseconfigpanel.title.label" txt="REGARDS Datasources 
+		configuration" /> <str id="databaseconfigpanel.gateway.regards.jpa.instance.datasource.url.label" 
+		txt="Gateway datasource instance url:" /> <str id="databaseconfigpanel.gateway.regards.jpa.instance.datasource.user.name.label" 
+		txt="Gateway datasource instance user:" /> <str id="databaseconfigpanel.gateway.regards.jpa.instance.datasource.password.label" 
+		txt="Gateway datasource instance password:" /> <str id="databaseconfigpanel.gateway.regards.jpa.multitenant.tenants.url.1.label" 
+		txt="Gateway datasource first tenant url:" /> <str id="databaseconfigpanel.gateway.regards.jpa.multitenant.tenants.user.name.1.label" 
+		txt="Gateway datasource first tenant user:" /> <str id="databaseconfigpanel.gateway.regards.jpa.multitenant.tenants.password.1.label" 
+		txt="Gateway datasource first tenant password:" /> <str id="databaseconfigpanel.admin.regards.jpa.instance.datasource.url.label" 
+		txt="Administration datasource instance url:" /> <str id="databaseconfigpanel.admin.regards.jpa.instance.datasource.user.name.label" 
+		txt="Administration datasource instance user:" /> <str id="databaseconfigpanel.admin.regards.jpa.instance.datasource.password.label" 
+		txt="Administration datasource instance password:" /> <str id="databaseconfigpanel.admin.regards.jpa.multitenant.tenants.url.1.label" 
+		txt="Administration datasource first tenant url:" /> <str id="databaseconfigpanel.admin.regards.jpa.multitenant.tenants.user.name.1.label" 
+		txt="Administration datasource first tenant user:" /> <str id="databaseconfigpanel.admin.regards.jpa.multitenant.tenants.password.1.label" 
+		txt="Administration datasource first tenant password:" /> <str id="databaseconfigpanel.dam.regards.jpa.instance.datasource.url.label" 
+		txt="DataManagement datasource instance url:" /> <str id="databaseconfigpanel.dam.regards.jpa.instance.datasource.user.name.label" 
+		txt="DataManagement datasource instance user:" /> <str id="databaseconfigpanel.dam.regards.jpa.instance.datasource.password.label" 
+		txt="DataManagement datasource instance password:" /> <str id="databaseconfigpanel.dam.regards.jpa.multitenant.tenants.url.1.label" 
+		txt="DataManagement datasource first tenant url:" /> <str id="databaseconfigpanel.dam.regards.jpa.multitenant.tenants.user.name.1.label" 
+		txt="DataManagement datasource first tenant user:" /> <str id="databaseconfigpanel.dam.regards.jpa.multitenant.tenants.password.1.label" 
+		txt="DataManagement datasource first tenant password:" /> <str id="databaseconfigpanel.access.instance.regards.jpa.instance.datasource.url.label" 
+		txt="Access Instance datasource instance url:" /> <str id="databaseconfigpanel.access.instance.regards.jpa.instance.datasource.user.name.label" 
+		txt="Access Instance datasource instance user:" /> <str id="databaseconfigpanel.access.instance.regards.jpa.instance.datasource.password.label" 
+		txt="Access Instance datasource instance password:" /> <str id="databaseconfigpanel.access.project.regards.jpa.instance.datasource.url.label" 
+		txt="Access Project datasource instance url:" /> <str id="databaseconfigpanel.access.project.regards.jpa.instance.datasource.user.name.label" 
+		txt="Access Project datasource instance user:" /> <str id="databaseconfigpanel.access.project.regards.jpa.instance.datasource.password.label" 
+		txt="Access Project datasource instance password:" /> <str id="databaseconfigpanel.access.project.regards.jpa.multitenant.tenants.url.1.label" 
+		txt="Access Project datasource first tenant url:" /> <str id="databaseconfigpanel.access.project.regards.jpa.multitenant.tenants.user.name.1.label" 
+		txt="Access Project datasource first tenant user:" /> <str id="databaseconfigpanel.access.project.regards.jpa.multitenant.tenants.password.1.label" 
+		txt="Access Project datasource first tenant password:" /> -->
+
+	<str id="registrypanel.title.label" txt="Registry microservice" />
 	<str id="registrypanel.host.label" txt="Registry Web serveur host:" />
 	<str id="registrypanel.port.label" txt="Registry Web serveur port:" />
 
-	<str id="gatewaypanel.title.label" txt="REGARDS Gateway Server configuration" />
+	<str id="gatewaypanel.title.label" txt="Gateway microservice" />
 	<str id="gatewaypanel.host.label" txt="Gateway Web serveur host:" />
 	<str id="gatewaypanel.port.label" txt="Gateway Web serveur port:" />
 
-	<str id="adminpanel.title.label" txt="REGARDS Administration Server configuration" />
-	<str id="adminpanel.host.label" txt="Administration Web serveur host:" />
-	<str id="adminpanel.port.label" txt="Administration Web serveur port:" />
+	<str id="adminpanel.title.label" txt="Administration microservice" />
+	<str id="adminpanel.root.user.login.label" txt="Instance admin login:" />
+	<str id="adminpanel.root.user.password.label" txt="Instance admin password:" />
+	
+	<str id="accountspanel.title.label" txt="Which rules should follow the user accounts?" />
 
-	<str id="dampanel.title.label" txt="REGARDS Data Management Server configuration" />
+	<str id="dampanel.title.label" txt="Data Management microservice" />
 	<str id="dampanel.host.label" txt="Data Management Web serveur host:" />
 	<str id="dampanel.port.label" txt="Data Management Web serveur port:" />
 
-	<str id="catalogpanel.title.label" txt="REGARDS Catalog Server configuration" />
+	<str id="catalogpanel.title.label" txt="Catalog microservice" />
 	<str id="catalogpanel.host.label" txt="Catalog Web serveur host:" />
 	<str id="catalogpanel.port.label" txt="Catalog Web serveur port:" />
 
@@ -127,7 +134,7 @@
 
 	<str id="validator.host.error.label" txt="Invalid host format!" />
 	<str id="validator.port.error.label" txt="Invalid port format!" />
-	
+
 	<str id="InstallationGroupPanel.group.Full" txt="Install all system" />
 	<str id="InstallationGroupPanel.description.Full"
 		txt="All REGARDS components will be installed. This includes all microservices and the frontent." />
