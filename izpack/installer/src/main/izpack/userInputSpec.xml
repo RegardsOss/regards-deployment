@@ -78,10 +78,6 @@
 			<spec id="selectcomponents.panel.frontend.label" true="true"
 				false="false" set="false" />
 		</field>
-		<!-- <field type="check" variable="microservices.selected"> <spec id="selectcomponents.panel.microservices.label" 
-			true="true" false="false" /> </field> -->
-		<!-- <field type="check" variable="conf.selected"> <spec id="selectmicroservicespanel.config.label" 
-			true="true" false="false" set="true" /> </field> -->
 		<field type="check" variable="registry.selected">
 			<spec id="selectcomponents.panel.registry.label" true="true"
 				false="false" set="false" />

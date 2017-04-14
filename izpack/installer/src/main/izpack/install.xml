@@ -62,11 +62,16 @@
 
 	<dynamicvariables>
 		<!-- Security -->
-		<variable name="regards.config.regards.microservices.exec.user"	value="regards" />
-		<variable name="regards.config.regards.microservices.regards.group" value="regards" />
-		<variable name="regards.config.regards.microservices.exec.group" value="rsexec" />
-		<variable name="regards.config.regards.microservices.admin.group" value="rsadmin" />
-		<variable name="regards.config.regards.microservices.runtime.group"	value="rsrun" />
+		<variable name="regards.config.regards.microservices.exec.user"
+			value="regards" />
+		<variable name="regards.config.regards.microservices.regards.group"
+			value="regards" />
+		<variable name="regards.config.regards.microservices.exec.group"
+			value="rsexec" />
+		<variable name="regards.config.regards.microservices.admin.group"
+			value="rsadmin" />
+		<variable name="regards.config.regards.microservices.runtime.group"
+			value="rsrun" />
 
 		<!-- Common -->
 		<variable name="project" value="Default" />
@@ -75,12 +80,12 @@
 		<variable name="config.count" value="0" /> <!-- TODO: Don't think we can have multiple -->
 		<variable name="regards.config.cloud.config.address" value="localhost" />
 		<variable name="regards.config.cloud.config.port" value="8888" />
-		
+
 		<!-- Registry microservice -->
 		<variable name="registry.count" value="0" />
 		<variable name="regards.config.cloud.registry.host" value="localhost" />
 		<variable name="regards.config.cloud.registry.port" value="8761" />
-		
+
 		<!-- Gateway microservice -->
 		<variable name="regards.config.cloud.gateway.uri" value="localhost" />
 		<variable name="regards.config.cloud.gateway.port" value="8000" />
@@ -96,51 +101,27 @@
 		<variable
 			name="regards.config.gateway.regards.jpa.multitenant.tenants.password.1"
 			value="rs_gateway_tenant0_pwd" />
-		
-		<!-- Message broker -->		
+
+		<!-- Message broker -->
 		<variable name="regards.config.spring.rabbitmq.host" value="localhost" />
 		<variable name="regards.config.spring.rabbitmq.port" value="5672" />
-		<variable name="regards.config.spring.rabbitmq.username" value="guest" />
-		<variable name="regards.config.spring.rabbitmq.password" value="guest" />
-		<variable name="regards.config.regards.amqp.management.host" value="localhost" />
-		<variable name="regards.config.regards.amqp.management.port" value="15672" />
-		
+		<variable name="regards.config.spring.rabbitmq.username"
+			value="guest" />
+		<variable name="regards.config.spring.rabbitmq.password"
+			value="guest" />
+		<variable name="regards.config.regards.amqp.management.host"
+			value="localhost" />
+		<variable name="regards.config.regards.amqp.management.port"
+			value="15672" />
+
 		<!-- Admin microservice -->
 		<variable name="admin.count" value="0" />
 		<variable name="admin.host" value="localhost" />
 		<variable name="admin.port" value="8777" />
-		<variable name="regards.config.admin.regards.accounts.root.user.login" value="regards-admin@c-s.fr" />
-		<variable name="regards.config.admin.regards.accounts.root.user.password" value="root_admin" />
-		<!-- TODO db -->
-		<!-- accounts -->
-		
-		<!-- Dam Microservice -->
-		<variable name="dam.count" value="0" />
-		<variable name="dam.host" value="localhost" />
-		<variable name="dam.port" value="8080" />
-		
-		<!-- Catalog microservice -->
-		<variable name="catalog.count" value="0" />
-		<variable name="catalog.host" value="localhost" />
-		<variable name="catalog.port" value="4444" />
-		
-		<!-- Access Instance microservice -->
-		<variable name="access-instance.count" value="0" />
-		<variable name="access-instance.host" value="localhost" />
-		<variable name="access-instance.port" value="8990" />
-		
-		<!-- Access Project microservice -->
-		<variable name="access-project.count" value="0" />
-		<variable name="access-project.host" value="localhost" />
-		<variable name="access-project.port" value="9990" />
-		
-		<!-- Frontend -->
-		<variable name="frontend.count" value="0" />
-		<variable name="frontend.host" value="localhost" />
-		<variable name="frontend.port" value="3333" />
-		
-		<!-- Config database microservice -->
-
+		<variable name="regards.config.admin.regards.accounts.root.user.login"
+			value="regards-admin@c-s.fr" />
+		<variable name="regards.config.admin.regards.accounts.root.user.password"
+			value="root_admin" />
 		<variable name="regards.config.admin.regards.jpa.instance.datasource.url"
 			value="localhost:5432/rs_admin_instance" />
 		<variable
@@ -157,6 +138,12 @@
 		<variable
 			name="regards.config.admin.regards.jpa.multitenant.tenants.password.1"
 			value="rs_admin_tenant0_pwd" />
+		<!-- accounts -->
+
+		<!-- Dam Microservice -->
+		<variable name="dam.count" value="0" />
+		<variable name="dam.host" value="localhost" />
+		<variable name="dam.port" value="8080" />
 		<variable name="regards.config.dam.regards.jpa.multitenant.tenants.url.1"
 			value="localhost:5432/rs_dam_tenant0" />
 		<variable
@@ -165,6 +152,16 @@
 		<variable
 			name="regards.config.dam.regards.jpa.multitenant.tenants.password.1"
 			value="rs_dam_tenant0_pwd" />
+
+		<!-- Catalog microservice -->
+		<variable name="catalog.count" value="0" />
+		<variable name="catalog.host" value="localhost" />
+		<variable name="catalog.port" value="4444" />
+
+		<!-- Access Instance microservice -->
+		<variable name="access-instance.count" value="0" />
+		<variable name="access-instance.host" value="localhost" />
+		<variable name="access-instance.port" value="8990" />
 		<variable
 			name="regards.config.access.instance.regards.jpa.instance.datasource.url"
 			value="localhost:5432/rs_acces_instance" />
@@ -174,6 +171,11 @@
 		<variable
 			name="regards.config.access.instance.regards.jpa.instance.datasource.password"
 			value="rs_acces_pwd" />
+
+		<!-- Access Project microservice -->
+		<variable name="access-project.count" value="0" />
+		<variable name="access-project.host" value="localhost" />
+		<variable name="access-project.port" value="9990" />
 		<variable
 			name="regards.config.access.project.regards.jpa.multitenant.tenants.url.1"
 			value="localhost:5432/rs_access_projet_tenant0" />
@@ -184,6 +186,11 @@
 			name="regards.config.access.project.regards.jpa.multitenant.tenants.password.1"
 			value="rs_access_projet_tenant0_pwd" />
 
+		<!-- Frontend -->
+		<variable name="frontend.count" value="0" />
+		<variable name="frontend.host" value="localhost" />
+		<variable name="frontend.port" value="3333" />
+		
 		<!-- Internal variables for workflow management -->
 		<variable name="installation.type" value="full" />
 		<variable name="security.level" value="normal" />
@@ -210,13 +217,6 @@
 			<name>installation.type</name>
 			<value>add</value>
 		</condition>
-		
-		<!-- <condition type="variable" id="isMicroservicesSelected"> <name>microservices.selected</name> 
-			<value>true</value> </condition> -->
-		<!-- <condition type="variable" id="isConfSelected"> <name>izpack.selected.conf</name> 
-			<value>true</value> </condition> -->
-		<!-- <condition type="variable" id="isConfNotSelected"> <name>conf.selected</name> 
-			<value>false</value> </condition> -->
 		<condition type="variable" id="isFrontendSelected">
 			<name>frontend.selected</name>
 			<value>true</value>
@@ -249,11 +249,7 @@
 			<name>storage.selected</name>
 			<value>true</value>
 		</condition>
-
-
-		<!-- <condition type="and" id="mustConfigureConfServerAccess"> <condition 
-			type="ref" refid="isMicroservicesSelected" /> <condition type="ref" refid="isConfNotSelected" 
-			/> </condition> -->
+		
 		<condition type="or" id="atLeastOneMiscroserviceSelected">
 			<condition type="ref" refid="isRegistrySelected" />
 			<condition type="ref" refid="isGatewaySelected" />
@@ -263,7 +259,7 @@
 			<condition type="ref" refid="isAccessSelected" />
 			<condition type="ref" refid="isStorageSelected" />
 		</condition>
-		
+
 		<condition type="or" id="mustInstallFrontend">
 			<condition type="ref" refid="fullInstallation" />
 			<condition type="ref" refid="isFrontendSelected" />
@@ -292,10 +288,6 @@
 			<condition type="ref" refid="fullInstallation" />
 			<condition type="ref" refid="isAccessSelected" />
 		</condition>
-		<!-- <condition type="and" id="mustConfigureRabbitmq"> <condition type="ref" 
-			refid="fullInstallation" /> </condition> -->
-		<!-- <condition type="and" id="mustConfigureDatabase"> <condition type="ref" 
-			refid="mustInstallConf" /> </condition> -->
 	</conditions>
 
 	<panels>
@@ -303,10 +295,13 @@
 		<panel classname="LicencePanel" />
 		<panel classname="TargetPanel" />
 		<panel classname="UserInputPanel" id="SelectSecurityLevelPanel" />
-		<panel classname="UserInputPanel" id="ConfigSecurityPanel"	condition="isSecurityEnforced" />
+		<panel classname="UserInputPanel" id="ConfigSecurityPanel"
+			condition="isSecurityEnforced" />
 		<panel classname="UserInputPanel" id="SelectInstallationTypePanel" />
-		<panel classname="UserInputPanel" id="SelectComponentsPanel" condition="addInstallation" />
-		<panel classname="UserInputPanel" id="LinkToExistingConfigPanel" condition="atLeastOneMiscroserviceSelected" />
+		<panel classname="UserInputPanel" id="SelectComponentsPanel"
+			condition="addInstallation" />
+		<panel classname="UserInputPanel" id="LinkToExistingConfigPanel"
+			condition="atLeastOneMiscroserviceSelected" />
 		<panel classname="UserInputPanel" id="ProjectPanel" condition="fullInstallation" />
 		<panel classname="UserInputPanel" id="ConfigPanel" condition="fullInstallation" />
 		<panel classname="UserInputPanel" id="RegistryPanel" condition="mustInstallRegistry" />
@@ -316,15 +311,18 @@
 		<panel classname="UserInputPanel" id="AccountsPanel" condition="mustInstallAdmin" />
 		<panel classname="UserInputPanel" id="DamPanel" condition="mustInstallDam" />
 		<panel classname="UserInputPanel" id="CatalogPanel" condition="mustInstallCatalog" />
-		<panel classname="UserInputPanel" id="AccessInstancePanel" condition="mustInstallAccess" />
-		<panel classname="UserInputPanel" id="AccessProjectPanel" condition="mustInstallAccess" />
+		<panel classname="UserInputPanel" id="AccessInstancePanel"
+			condition="mustInstallAccess" />
+		<panel classname="UserInputPanel" id="AccessProjectPanel"
+			condition="mustInstallAccess" />
 		<panel classname="UserInputPanel" id="FrontendPanel" condition="mustInstallFrontend" />
 		<panel classname="SummaryPanel" />
 		<panel classname="InstallPanel" />
 		<panel classname="ProcessPanel" />
 		<panel classname="FinishPanel" />
 	</panels>
-	<!-- <validator classname="fr.cnes.regards.deployment.izpack.validator.ValidatorFrontendPanel" />  -->
+	<!-- <validator classname="fr.cnes.regards.deployment.izpack.validator.ValidatorFrontendPanel" 
+		/> -->
 
 	<packs>
 
