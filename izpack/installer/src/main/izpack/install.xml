@@ -87,6 +87,15 @@
 		<variable name="gateway.count" value="0" />
 		<variable name="gateway.host" value="localhost" />
 		<variable name="gateway.port" value="8000" />
+		<variable
+			name="regards.config.gateway.regards.jpa.multitenant.tenants.url.1"
+			value="localhost:5432/rs_gateway_tenant0" />
+		<variable
+			name="regards.config.gateway.regards.jpa.multitenant.tenants.user.name.1"
+			value="rs_gateway_tenant0_user" />
+		<variable
+			name="regards.config.gateway.regards.jpa.multitenant.tenants.password.1"
+			value="rs_gateway_tenant0_pwd" />
 		
 		<!-- Message broker -->		
 		<variable name="regards.config.spring.rabbitmq.host" value="localhost" />
@@ -131,15 +140,7 @@
 		<variable name="frontend.port" value="3333" />
 		
 		<!-- Config database microservice -->
-		<variable
-			name="regards.config.gateway.regards.jpa.multitenant.tenants.url.1"
-			value="localhost:5432/rs_gateway_tenant0" />
-		<variable
-			name="regards.config.gateway.regards.jpa.multitenant.tenants.user.name.1"
-			value="rs_gateway_tenant0_user" />
-		<variable
-			name="regards.config.gateway.regards.jpa.multitenant.tenants.password.1"
-			value="rs_gateway_tenant0_pwd" />
+
 		<variable name="regards.config.admin.regards.jpa.instance.datasource.url"
 			value="localhost:5432/rs_admin_instance" />
 		<variable

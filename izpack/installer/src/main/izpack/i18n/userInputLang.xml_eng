@@ -7,15 +7,17 @@
 	<!-- Common -->
 	<str id="host.label" txt="Host:" />
 	<str id="port.label" txt="Port:" />
+	<str id="url.label" txt="Url:" />
 	<str id="username.label" txt="Username:" />
 	<str id="password.label" txt="Password:" />
+	<str id="first.project.database.label" txt="First project's database" />
 
 	<!-- SelectInstallationTypePanel -->
 	<str id="selectinstallationtype.panel.title.label" txt="Choose your installation type" />
 	<str id="selectinstallationtype.panel.radio.full.label" txt="Install all REGARDS components" />
 	<str id="selectinstallationtype.panel.radio.add.label" txt="Add components to an existing installation" />
-	
-	<!-- Select SecurityLevelPanel -->
+
+	<!-- SelectSecurityLevelPanel -->
 	<str id="selectsecuritylevel.panel.title.label" txt="Select REGARDS security level" />
 	<str id="selectsecuritylevel.panel.normal.label" txt="Normal" />
 	<str id="selectsecuritylevel.panel.enforce.label" txt="Enforce" />
@@ -27,12 +29,13 @@
 		txt="	* Groups REGARDS, EXEC, RUNTIME must owned by the exec user (used to run microservices)." />
 	<str id="selectsecuritylevel.panel.enforce.description.4.label"
 		txt="	* Groups REGARDS, ADMIN and RUNTIME must owned by the admin user (used to administrate)." />
-	<str id="selectsecuritylevel.panel.enforce.description.5.label" txt="	* User EXEC will have to exist to run microservices." />
+	<str id="selectsecuritylevel.panel.enforce.description.5.label"
+		txt="	* User EXEC will have to exist to run microservices." />
 
 	<!-- ProjectPanel -->
 	<str id="project.panel.title.label" txt="What is the first project to add to REGARDS?" />
 	<str id="project.panel.project.label" txt="Name:" />
-	
+
 	<!-- ConfigSecurityLevelPanel -->
 	<str id="configsecuritylevel.panel.title.label" txt="Security customization" />
 	<str id="configsecuritylevel.panel.exec.user.label" txt="Exec user" />
@@ -58,7 +61,7 @@
 	<str id="selectcomponents.panel.catalog.label" txt="Catalog" />
 	<str id="selectcomponents.panel.access.label" txt="Access" />
 	<str id="selectcomponents.panel.storage.label" txt="Storage" />
-	
+
 	<!-- LinkToExistingConfigPanel -->
 	<str id="linktoexistingconfig.panel.title.label" txt="Connect to an existing installation" />
 
@@ -66,12 +69,7 @@
 	<str id="frontend.panel.title.label" txt="Frontend Server" />
 	<str id="frontend.panel.gateway.address.label" txt="Gateway Web server host:" />
 	<str id="frontend.panel.gateway.port.label" txt="Gateway Web server port:" />
-                     
-	<!-- <str id="commonconfigpanel.title.label" txt="REGARDS Common configuration" 
-		/> <str id="commonconfigpanel.config.address.label" txt="Cloud config Web 
-		serveur host:" /> <str id="commonconfigpanel.config.port.label" txt="Cloud 
-		config Web serveur port:" /> -->
-	
+
 	<!-- RabbitmqPanel -->
 	<str id="rabbitmq.panel.title.label" txt="Message Broker configuration" />
 	<str id="rabbitmq.panel.rabbitmq.host.label" txt="RabbitMQ host:" />
@@ -80,54 +78,36 @@
 	<str id="rabbitmq.panel.rabbitmq.password.label" txt="RabbitMQ password:" />
 	<str id="rabbitmq.panel.amqp.management.host.label" txt="AMQP host:" />
 	<str id="rabbitmq.panel.amqp.management.port.label" txt="AMQP port:" />
-	
+
 	<!-- ConfigPanel -->
 	<str id="config.panel.title.label" txt="Configuration microservice" />
 
-	<!-- <str id="databaseconfigpanel.title.label" txt="REGARDS Datasources 
-		configuration" /> <str id="databaseconfigpanel.gateway.regards.jpa.instance.datasource.url.label" 
-		txt="Gateway datasource instance url:" /> <str id="databaseconfigpanel.gateway.regards.jpa.instance.datasource.user.name.label" 
-		txt="Gateway datasource instance user:" /> <str id="databaseconfigpanel.gateway.regards.jpa.instance.datasource.password.label" 
-		txt="Gateway datasource instance password:" /> <str id="databaseconfigpanel.gateway.regards.jpa.multitenant.tenants.url.1.label" 
-		txt="Gateway datasource first tenant url:" /> <str id="databaseconfigpanel.gateway.regards.jpa.multitenant.tenants.user.name.1.label" 
-		txt="Gateway datasource first tenant user:" /> <str id="databaseconfigpanel.gateway.regards.jpa.multitenant.tenants.password.1.label" 
-		txt="Gateway datasource first tenant password:" /> <str id="databaseconfigpanel.admin.regards.jpa.instance.datasource.url.label" 
-		txt="Administration datasource instance url:" /> <str id="databaseconfigpanel.admin.regards.jpa.instance.datasource.user.name.label" 
-		txt="Administration datasource instance user:" /> <str id="databaseconfigpanel.admin.regards.jpa.instance.datasource.password.label" 
-		txt="Administration datasource instance password:" /> <str id="databaseconfigpanel.admin.regards.jpa.multitenant.tenants.url.1.label" 
-		txt="Administration datasource first tenant url:" /> <str id="databaseconfigpanel.admin.regards.jpa.multitenant.tenants.user.name.1.label" 
-		txt="Administration datasource first tenant user:" /> <str id="databaseconfigpanel.admin.regards.jpa.multitenant.tenants.password.1.label" 
-		txt="Administration datasource first tenant password:" /> <str id="databaseconfigpanel.dam.regards.jpa.instance.datasource.url.label" 
-		txt="DataManagement datasource instance url:" /> <str id="databaseconfigpanel.dam.regards.jpa.instance.datasource.user.name.label" 
-		txt="DataManagement datasource instance user:" /> <str id="databaseconfigpanel.dam.regards.jpa.instance.datasource.password.label" 
-		txt="DataManagement datasource instance password:" /> <str id="databaseconfigpanel.dam.regards.jpa.multitenant.tenants.url.1.label" 
-		txt="DataManagement datasource first tenant url:" /> <str id="databaseconfigpanel.dam.regards.jpa.multitenant.tenants.user.name.1.label" 
-		txt="DataManagement datasource first tenant user:" /> <str id="databaseconfigpanel.dam.regards.jpa.multitenant.tenants.password.1.label" 
-		txt="DataManagement datasource first tenant password:" /> <str id="databaseconfigpanel.access.instance.regards.jpa.instance.datasource.url.label" 
-		txt="Access Instance datasource instance url:" /> <str id="databaseconfigpanel.access.instance.regards.jpa.instance.datasource.user.name.label" 
-		txt="Access Instance datasource instance user:" /> <str id="databaseconfigpanel.access.instance.regards.jpa.instance.datasource.password.label" 
-		txt="Access Instance datasource instance password:" /> <str id="databaseconfigpanel.access.project.regards.jpa.instance.datasource.url.label" 
-		txt="Access Project datasource instance url:" /> <str id="databaseconfigpanel.access.project.regards.jpa.instance.datasource.user.name.label" 
-		txt="Access Project datasource instance user:" /> <str id="databaseconfigpanel.access.project.regards.jpa.instance.datasource.password.label" 
-		txt="Access Project datasource instance password:" /> <str id="databaseconfigpanel.access.project.regards.jpa.multitenant.tenants.url.1.label" 
-		txt="Access Project datasource first tenant url:" /> <str id="databaseconfigpanel.access.project.regards.jpa.multitenant.tenants.user.name.1.label" 
-		txt="Access Project datasource first tenant user:" /> <str id="databaseconfigpanel.access.project.regards.jpa.multitenant.tenants.password.1.label" 
-		txt="Access Project datasource first tenant password:" /> -->
-	
 	<!-- RegistryPanel -->
 	<str id="registry.panel.title.label" txt="Registry microservice" />
 
 	<!-- GatewayPanel -->
 	<str id="gateway.panel.title.label" txt="Gateway microservice" />
-	
+
 	<!-- AdminPanel -->
 	<str id="admin.panel.title.label" txt="Administration microservice" />
 	<str id="admin.panel.root.user.login.label" txt="Instance admin login:" />
 	<str id="admin.panel.root.user.password.label" txt="Instance admin password:" />
-	
+	<str id="admin.panel.regards.jpa.instance.datasource.url.label"
+		txt="Instance database url:" />
+	<str id="admin.panel.regards.jpa.instance.datasource.user.name.label"
+		txt="Instance database user:" />
+	<str id="admin.panel.regards.jpa.instance.datasource.password.label"
+		txt="Instance database password:" />
+	<str id="admin.panel.regards.jpa.multitenant.tenants.url.1.label"
+		txt="First project's database url:" />
+	<str id="admin.panel.regards.jpa.multitenant.tenants.user.name.1.label"
+		txt="First project's database user:" />
+	<str id="admin.panel.regards.jpa.multitenant.tenants.password.1.label"
+		txt="First project's database password:" />
+
 	<!-- AccountsPanel -->
 	<str id="accounts.panel.title.label" txt="Which rules should follow the user accounts?" />
-	
+
 	<!-- DamPanel -->
 	<str id="dam.panel.title.label" txt="Data Management microservice" />
 
@@ -139,7 +119,7 @@
 
 	<!-- AccessProjectPanel -->
 	<str id="access-project.panel.title.label" txt="Access Project microservice" />
-	
+
 	<!-- Validators -->
 	<str id="validator.host.error.label" txt="Invalid host format!" />
 	<str id="validator.port.error.label" txt="Invalid port format or the port is already in use" />
