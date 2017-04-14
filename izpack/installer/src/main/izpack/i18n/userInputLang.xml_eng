@@ -10,6 +10,7 @@
 	<str id="url.label" txt="Url:" />
 	<str id="username.label" txt="Username:" />
 	<str id="password.label" txt="Password:" />
+	<str id="instance.database.label" txt="Cross projects database" />
 	<str id="first.project.database.label" txt="First project's database" />
 
 	<!-- SelectInstallationTypePanel -->
