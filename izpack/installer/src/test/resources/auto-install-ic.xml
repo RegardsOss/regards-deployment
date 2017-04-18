@@ -51,8 +51,14 @@
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="GatewayPanel">
 		<entry key="gateway.count" value="1" />
-		<entry key="regards.config.cloud.gateway.uri.1" value="localhost" />
-		<entry key="regards.config.cloud.gateway.port.1" value="8000" />
+		<entry key="gateway.host.1" value="localhost" />
+		<entry key="gateway.port.1" value="8000" />
+	</com.izforge.izpack.panels.userinput.UserInputPanel>
+	<com.izforge.izpack.panels.userinput.UserInputPanel
+		id="AuthenticationPanel">
+		<entry key="authentication.count" value="1" />
+		<entry key="authentication.host.1" value="localhost" />
+		<entry key="authentication.port.1" value="8000" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="RabbitmqConfigPanel">
@@ -93,8 +99,8 @@
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="DamPanel">
-		<entry key="dam.host.1" value="localhost" />
 		<entry key="dam.count" value="1" />
+		<entry key="dam.host.1" value="localhost" />
 		<entry key="dam.port.1" value="8080" />
 		<entry key="regards.config.dam.regards.jpa.multitenant.tenants.url.1"
 			value="localhost:5432/rs_dam_tenant0" />
@@ -142,11 +148,11 @@
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="FrontendConfigPanel">
-		<entry key="regards.config.cloud.gateway.uri" value="localhost" />
-		<entry key="regards.config.cloud.gateway.port" value="8000" />
 		<entry key="frontend.count" value="1" />
 		<entry key="frontend.host.1" value="localhost" />
 		<entry key="frontend.port.1" value="3333" />
+		<entry key="regards.config.cloud.gateway.uri" value="localhost" />
+		<entry key="regards.config.cloud.gateway.port" value="8000" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.summary.SummaryPanel
 		id="SummaryPanel_20" />

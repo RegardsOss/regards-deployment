@@ -61,7 +61,8 @@
 								bootstrap-access-project,
 								bootstrap-dam,
 								bootstrap-storage,
-								bootstrap-frontend
+								bootstrap-frontend,
+								bootstrap-authentication
 							</includeArtifactIds>
 						</configuration>
 					</execution>
@@ -206,6 +207,12 @@
 			<groupId>fr.cnes.regards.deployment</groupId>
 			<artifactId>regards-izpack-utils</artifactId>
 			<version>${regards.izpack.utils.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>
+				fr.cnes.regards.microservices.authentication
+			</groupId>
+			<artifactId>bootstrap-authentication</artifactId>
 		</dependency>
 	</dependencies>
 	

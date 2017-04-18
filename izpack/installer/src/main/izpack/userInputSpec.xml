@@ -86,6 +86,10 @@
 			<spec id="selectcomponents.panel.gateway.label" true="true"
 				false="false" set="false" />
 		</field>
+		<field type="check" variable="authentication.selected">
+			<spec id="selectcomponents.panel.authentication.label" true="true"
+				false="false" set="false" />
+		</field>
 		<field type="check" variable="admin.selected">
 			<spec id="selectcomponents.panel.admin.label" true="true" false="false"
 				set="false" />
@@ -189,13 +193,35 @@
 		<field type="custom" minRow="1" maxRow="1" variable="gateway.count">
 			<spec>
 				<col>
-					<field type="text" variable="regards.config.cloud.gateway.uri">
-						<spec id="host.label" size="15" set="${regards.config.cloud.gateway.uri}" />
+					<field type="text" variable="gateway.host">
+						<spec id="host.label" size="15" set="${gateway.host}" />
 					</field>
 				</col>
 				<col>
-					<field type="text" variable="regards.config.cloud.gateway.port">
-						<spec id="port.label" size="15" set="${regards.config.cloud.gateway.port}" />
+					<field type="text" variable="gateway.port">
+						<spec id="port.label" size="15" set="${gateway.port}" />
+						<validator
+							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							id="validator.port.error.label">
+						</validator>
+					</field>
+				</col>
+			</spec>
+		</field>
+	</panel>
+
+	<panel id="AuthenticationPanel">
+		<field id="authentication.panel.title.label" type="title" />
+		<field type="custom" minRow="1" maxRow="50" variable="authentication.count">
+			<spec>
+				<col>
+					<field type="text" variable="authentication.host">
+						<spec id="host.label" size="15" set="${authentication.host}" />
+					</field>
+				</col>
+				<col>
+					<field type="text" variable="authentication.port">
+						<spec id="port.label" size="15" set="${authentication.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
