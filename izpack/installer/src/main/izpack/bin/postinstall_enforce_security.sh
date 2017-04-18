@@ -94,11 +94,11 @@ then
   chmod 0640 "${ROOT_DIR}/"*.jar
 fi
 
-# Dirs shared throw rw by admin and exec users
+# Dirs shared through rw by admin and exec users
 chown -R :${RUNTIME_REGARDS_GROUP} "${ROOT_DIR}"/{run,logs}
 chmod 2770 "${ROOT_DIR}"/{run,logs}
 
-# Files shared throw rw by admin and exec users
+# Files shared through rw by admin and exec users
 find "${ROOT_DIR}"/{run,logs} -type f -exec chmod 0660 {} \;
 
 # Dirs shared by admin (rw) and exec (ro) users
@@ -108,30 +108,30 @@ find "${ROOT_DIR}"/config -type d -exec chmod 2775 {} \;
 # Files shared by admin (rw) and exec (ro) users
 find "${ROOT_DIR}"/config -type f -exec chmod 0664 {} \;
 
-# Dirs acceded throw rx by exec users
+# Dirs acceded through rx by exec users
 chown -R :${RUNTIME_REGARDS_GROUP} "${ROOT_DIR}"/bin
 chmod 0750 "${ROOT_DIR}"/bin
 
-# Files acceded throw rx by exec users
+# Files acceded through rx by exec users
 if ls "${ROOT_DIR}"/bin/* > /dev/null 2>&1
 then
   chmod 0750 "${ROOT_DIR}"/bin/*
 fi
 
-# Dirs acceded throw rx by root users
+# Dirs acceded through rx by root users
 chmod 0700 "${ROOT_DIR}"/sbin
 
-# Files acceded throw rx by exec users
+# Files acceded through rx by exec users
 if ls "${ROOT_DIR}"/sbin/* > /dev/null 2>&1
 then
   chmod 0700 "${ROOT_DIR}"/sbin/*
 fi
 
-# Dirs acceded throw ro by exec users
+# Dirs acceded through ro by exec users
 chown -R :${RUNTIME_REGARDS_GROUP} "${ROOT_DIR}"/lib
 chmod 0750 "${ROOT_DIR}"/lib
 
-# Files acceded throw ro by exec users
+# Files acceded through ro by exec users
 if ls "${ROOT_DIR}"/lib/* > /dev/null 2>&1
 then
   chmod 0640 "${ROOT_DIR}"/lib/*
