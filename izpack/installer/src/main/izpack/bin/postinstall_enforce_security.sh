@@ -60,12 +60,12 @@ typeset -r EXEC_REGARDS_GROUP=$(read_config "${CONFIGURATION_FILE}" "regards.mic
 typeset -r ADMIN_REGARDS_GROUP=$(read_config "${CONFIGURATION_FILE}" "regards.microservices.admin.group")
 typeset -r RUNTIME_REGARDS_GROUP=$(read_config "${CONFIGURATION_FILE}" "regards.microservices.runtime.group")
 
-# Two type of users must existed
+# Two types of users must exist
 # * Admin owned GLOBAL_REGARDS_GROUP, ADMIN_REGARDS_GROUP, RUNTIME_REGARDS_GROUP use to administer REGARDS
 # * Exec owned GLOBAL_REGARDS_GROUP, EXEC_REGARDS_GROUP, RUNTIME_REGARDS_GROUP use to run REGARDS services
 #
 # GLOBAL_REGARDS_GROUP group is used to filter the first directory and ensure that user can access to the regards subtree.
-# RUNTIME_REGARDS_GROUP is used to shared access between admin and exec users.
+# RUNTIME_REGARDS_GROUP is used to share access between admin and exec users.
 
 
 # Root install dir

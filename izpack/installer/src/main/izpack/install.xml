@@ -371,12 +371,6 @@
 			</executable>
 		</pack>
 
-		<!-- <pack name="CoreMicroservices" required="false" condition="atLeastOneMicroserviceSelected"> 
-			<description>REGARDS Core microservices installation</description> <file 
-			targetdir="$INSTALL_PATH/REGARDS/config" src="config/bootstrap.properties" 
-			override="true" /> <parsable type="javaprop" targetfile="$INSTALL_PATH/REGARDS/config/bootstrap.properties" 
-			/> </pack> -->
-
 		<pack name="frontend" required="false" preselected="true">
 			<description>Web application serving the frontend</description>
 			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> 
