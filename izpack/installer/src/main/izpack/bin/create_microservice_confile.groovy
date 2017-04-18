@@ -42,6 +42,6 @@ println "Xml input configuration : " + xmlConfig;
 
 // Microservice Registry Configuration file
 Path registryFilePath = Paths.get(regardsInstallDir, "config/" + microserviceType + "_config.xml");
-Class.forName("fr.cnes.regards.deployment.izpack.utils.MicroserviceConfigListAccessor", true, urlLoader).writeToFile(xmlConfig, registryFilePath);
+Class.forName("fr.cnes.regards.deployment.izpack.utils.ComponentConfigListAccessor", true, urlLoader).writeToFile(xmlConfig, registryFilePath);
 
 System.exit(0);
