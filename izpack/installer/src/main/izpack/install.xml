@@ -198,6 +198,7 @@
 		<variable name="frontend.count" value="0" />
 		<variable name="frontend.host" value="localhost" />
 		<variable name="frontend.port" value="3333" />
+		<variable name="regards.frontend.www.path" value="$INSTALL_PATH/REGARDS/www" />
 
 		<!-- Internal variables for workflow management -->
 		<variable name="installation.type" value="full" />
@@ -374,9 +375,9 @@
 			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> 
 				<include name="bootstrap-frontend.*ar" /> </fileset> <fileset dir="sbin/frontend/" 
 				targetdir="$INSTALL_PATH/REGARDS/sbin" override="true"> <include name="*" 
-				/> </fileset> <fileset dir="config/static" targetdir="$INSTALL_PATH/REGARDS/www" 
+				/> </fileset> <fileset dir="config/static" targetdir="${regards.frontend.www.path}" 
 				override="true"> <include name="**/*" /> </fileset> <parsable type="plain"> 
-				<fileset targetdir="$INSTALL_PATH/REGARDS/www" includes="**/*.js" /> </parsable> 
+				<fileset targetdir="${regards.frontend.www.path}" includes="**/*.js" /> </parsable> 
 				<executable type="bin" stage="never" keep="true"> <fileset targetdir="$INSTALL_PATH/REGARDS/sbin" 
 				includes="*" /> </executable> <executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy" 
 				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
