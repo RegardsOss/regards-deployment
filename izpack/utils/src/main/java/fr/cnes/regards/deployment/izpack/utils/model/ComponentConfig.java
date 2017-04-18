@@ -6,14 +6,13 @@ package fr.cnes.regards.deployment.izpack.utils.model;
 import javax.xml.bind.annotation.XmlAttribute;
 
 /**
- * Class MicroserviceConfig
- *
- * Contains a microservice configuration.
+ * Contains a component configuration.
  *
  * @author Guillaume Barthe de Montmejan
+ * @author Xavier-Alexandre Brochard
  * @since 1.0.0
  */
-public class MicroserviceConfig {
+public class ComponentConfig {
 
     /**
      * id field.
@@ -105,6 +104,6 @@ public class MicroserviceConfig {
      */
     @Override
     public String toString() {
-        return "MicroserviceConfig [id=" + id + ", host=" + host + ", port=" + port + "]";
+        return "ComponentConfig [id=" + id + ", host=" + host + ", port=" + port + "]";
     }
 }

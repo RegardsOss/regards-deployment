@@ -9,17 +9,25 @@ import java.nio.file.Path;
 
 import javax.xml.bind.JAXB;
 
-import fr.cnes.regards.deployment.izpack.utils.model.MicroserviceConfigList;
+import fr.cnes.regards.deployment.izpack.utils.model.ComponentConfigList;
 
 /**
- * Class MicroserviceConfigListAccessor
+ * Class ComponentConfigListAccessor
  *
- * Read or write MicroserviceConfigList POJO in different XML format (File, String, ...).
+ * Read or write ComponentConfigList POJO in different XML format (File, String, ...).
  *
  * @author Guillaume Barthe de Montmejan
+ * @author Xavier-Alexandre Brochard
  * @since 1.0.0
  */
-public final class MicroserviceConfigListAccessor {
+public final class ComponentConfigListAccessor {
+
+    /**
+     * Private contructor in order to hide the default one
+     */
+    private ComponentConfigListAccessor() {
+        super();
+    }
 
     /**
      * Read XML String and write into a file
@@ -31,34 +39,34 @@ public final class MicroserviceConfigListAccessor {
      * @since 1.0.0
      */
     public static void writeToFile(String xmlString, Path outputXmlFile) {
-        MicroserviceConfigList microserviceConfigList = readFromString(xmlString);
-        JAXB.marshal(microserviceConfigList, outputXmlFile.toFile());
+        ComponentConfigList componentConfigList = readFromString(xmlString);
+        JAXB.marshal(componentConfigList, outputXmlFile.toFile());
     }
 
     /**
      * Write the POJO into a file
      *
-     * @param microserviceConfigList
+     * @param componentConfigList
      *            input POJO
      * @param outputXmlFile
      *            output file path
      * @since 1.0.0
      */
-    public static void writeToFile(MicroserviceConfigList microserviceConfigList, Path outputXmlFile) {
-        JAXB.marshal(microserviceConfigList, outputXmlFile.toFile());
+    public static void writeToFile(ComponentConfigList componentConfigList, Path outputXmlFile) {
+        JAXB.marshal(componentConfigList, outputXmlFile.toFile());
     }
 
     /**
      * Write the POJO to XML String
      *
-     * @param microserviceConfigList
+     * @param componentConfigList
      *            input POJO
      * @return output XML String
      * @since 1.0.0
      */
-    public static String writeToString(MicroserviceConfigList microserviceConfigList) {
+    public static String writeToString(ComponentConfigList componentConfigList) {
         StringWriter sw = new StringWriter();
-        JAXB.marshal(microserviceConfigList, sw);
+        JAXB.marshal(componentConfigList, sw);
 
         return sw.toString();
     }
@@ -71,11 +79,11 @@ public final class MicroserviceConfigListAccessor {
      * @return output POJO
      * @since 1.0.0
      */
-    public static MicroserviceConfigList readFromString(String xmlString) {
-        MicroserviceConfigList result;
+    public static ComponentConfigList readFromString(String xmlString) {
+        ComponentConfigList result;
         StringReader sr = new StringReader(xmlString);
 
-        result = JAXB.unmarshal(sr, MicroserviceConfigList.class);
+        result = JAXB.unmarshal(sr, ComponentConfigList.class);
         return result;
     }
 
@@ -86,10 +94,10 @@ public final class MicroserviceConfigListAccessor {
      * @return output POJO
      * @since 1.0.0
      */
-    public static MicroserviceConfigList readFromFile(Path inputXmlFile) {
-        MicroserviceConfigList result;
+    public static ComponentConfigList readFromFile(Path inputXmlFile) {
+        ComponentConfigList result;
 
-        result = JAXB.unmarshal(inputXmlFile.toFile(), MicroserviceConfigList.class);
+        result = JAXB.unmarshal(inputXmlFile.toFile(), ComponentConfigList.class);
         return result;
     }
 }

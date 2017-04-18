@@ -9,10 +9,13 @@ package fr.cnes.regards.deployment.izpack.validator;
  * @author Xavier-Alexandre Brochard
  * @since 1.0.0
  */
-public class ValidatorAuthenticationPanel extends ValidatorMicroserviceList {
+public class ValidatorAuthenticationPanel extends ValidatorInstanceList {
 
+    /**
+     * Default constructor
+     */
     public ValidatorAuthenticationPanel() {
-        microServiceIdentifier = "authentication";
-        microServiceCountIdentifier = microServiceIdentifier;
+        componentIdentifier = "authentication";
+        componentCountIdentifier = componentIdentifier;
     }
 }
