@@ -87,11 +87,9 @@
 		<variable name="regards.config.cloud.registry.port" value="8761" />
 
 		<!-- Gateway microservice -->
+		<variable name="gateway.count" value="0" />
 		<variable name="regards.config.cloud.gateway.uri" value="localhost" />
 		<variable name="regards.config.cloud.gateway.port" value="8000" />
-		<variable name="gateway.count" value="0" />
-		<variable name="gateway.host" value="localhost" />
-		<variable name="gateway.port" value="8000" />
 		<variable
 			name="regards.config.gateway.regards.jpa.multitenant.tenants.url.1"
 			value="localhost:5432/rs_gateway_tenant0" />

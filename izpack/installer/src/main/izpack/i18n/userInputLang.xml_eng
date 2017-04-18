@@ -68,8 +68,7 @@
 
 	<!-- FrontendPanel -->
 	<str id="frontend.panel.title.label" txt="Frontend Server" />
-	<str id="frontend.panel.gateway.address.label" txt="Gateway Web server host:" />
-	<str id="frontend.panel.gateway.port.label" txt="Gateway Web server port:" />
+	<str id="frontend.panel.gateway.label" txt="Gateway" />
 
 	<!-- RabbitmqPanel -->
 	<str id="rabbitmq.panel.title.label" txt="Message Broker configuration" />

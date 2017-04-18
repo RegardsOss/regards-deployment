@@ -189,13 +189,13 @@
 		<field type="custom" minRow="1" maxRow="1" variable="gateway.count">
 			<spec>
 				<col>
-					<field type="text" variable="gateway.host">
-						<spec id="host.label" size="15" set="${gateway.host}" />
+					<field type="text" variable="regards.config.cloud.gateway.uri">
+						<spec id="host.label" size="15" set="${regards.config.cloud.gateway.uri}" />
 					</field>
 				</col>
 				<col>
-					<field type="text" variable="gateway.port">
-						<spec id="port.label" size="15" set="${gateway.port}" />
+					<field type="text" variable="regards.config.cloud.gateway.port">
+						<spec id="port.label" size="15" set="${regards.config.cloud.gateway.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
@@ -560,13 +560,15 @@
 				</col>
 			</spec>
 		</field>
-		<field type="text" variable="regards.config.cloud.gateway.uri">
-			<spec id="frontend.panel.gateway.address.label" size="15"
-				set="${regards.config.cloud.gateway.uri}" />
+		<field type="space" conditionid="!mustInstallGateway"/>
+		<field type="divider" conditionid="!mustInstallGateway"/>
+		<field type="space" conditionid="!mustInstallGateway"/>
+		<field type="staticText" align="left" id="frontend.panel.gateway.label" bold="true" conditionid="!mustInstallGateway"/>
+		<field type="text" variable="regards.config.cloud.gateway.uri" conditionid="!mustInstallGateway">
+			<spec id="host.label" size="15" set="${regards.config.cloud.gateway.uri}" />
 		</field>
-		<field type="text" variable="regards.config.cloud.gateway.port">
-			<spec id="frontend.panel.gateway.port.label" size="15"
-				set="${regards.config.cloud.gateway.port}" />
+		<field type="text" variable="regards.config.cloud.gateway.port" conditionid="!mustInstallGateway">
+			<spec id="port.label" size="15" set="${regards.config.cloud.gateway.port}" />
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 				id="validator.port.error.label" />
