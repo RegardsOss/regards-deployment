@@ -76,18 +76,20 @@
 		<!-- Common -->
 		<variable name="project" value="Default" />
 
-		<!-- Config microservice -->
+		<!-- Config -->
 		<variable name="config.count" value="0" /> <!-- TODO: Don't think we can have multiple -->
 		<variable name="regards.config.cloud.config.address" value="localhost" />
 		<variable name="regards.config.cloud.config.port" value="8888" />
 
-		<!-- Registry microservice -->
+		<!-- Registry -->
 		<variable name="registry.count" value="0" />
 		<variable name="regards.config.cloud.registry.host" value="localhost" />
 		<variable name="regards.config.cloud.registry.port" value="8761" />
 
-		<!-- Gateway microservice -->
+		<!-- Gateway -->
 		<variable name="gateway.count" value="0" />
+		<variable name="gateway.host" value="localhost" />
+		<variable name="gateway.port" value="8000" />
 		<variable name="regards.config.cloud.gateway.uri" value="localhost" />
 		<variable name="regards.config.cloud.gateway.port" value="8000" />
 		<variable
@@ -99,6 +101,11 @@
 		<variable
 			name="regards.config.gateway.regards.jpa.multitenant.tenants.password.1"
 			value="rs_gateway_tenant0_pwd" />
+
+		<!-- Authentication -->
+		<variable name="authentication.count" value="0" />
+		<variable name="authentication.host" value="localhost" />
+		<variable name="authentication.port" value="8889" />
 
 		<!-- Message broker -->
 		<variable name="regards.config.spring.rabbitmq.host" value="localhost" />
@@ -112,7 +119,7 @@
 		<variable name="regards.config.regards.amqp.management.port"
 			value="15672" />
 
-		<!-- Admin microservice -->
+		<!-- Admin -->
 		<variable name="admin.count" value="0" />
 		<variable name="admin.host" value="localhost" />
 		<variable name="admin.port" value="8777" />
@@ -148,7 +155,7 @@
 		<variable name="regards.config.admin.accounts.failed.authentication.max"
 			value="5" />
 
-		<!-- Dam Microservice -->
+		<!-- DAM -->
 		<variable name="dam.count" value="0" />
 		<variable name="dam.host" value="localhost" />
 		<variable name="dam.port" value="8080" />
@@ -161,12 +168,12 @@
 			name="regards.config.dam.regards.jpa.multitenant.tenants.password.1"
 			value="rs_dam_tenant0_pwd" />
 
-		<!-- Catalog microservice -->
+		<!-- Catalog -->
 		<variable name="catalog.count" value="0" />
 		<variable name="catalog.host" value="localhost" />
 		<variable name="catalog.port" value="4444" />
 
-		<!-- Access Instance microservice -->
+		<!-- Access Instance -->
 		<variable name="access-instance.count" value="0" />
 		<variable name="access-instance.host" value="localhost" />
 		<variable name="access-instance.port" value="8990" />
@@ -180,7 +187,7 @@
 			name="regards.config.access.instance.regards.jpa.instance.datasource.password"
 			value="rs_acces_pwd" />
 
-		<!-- Access Project microservice -->
+		<!-- Access Project -->
 		<variable name="access-project.count" value="0" />
 		<variable name="access-project.host" value="localhost" />
 		<variable name="access-project.port" value="9990" />
@@ -206,6 +213,7 @@
 		<variable name="frontend.selected" value="true" />
 		<variable name="registry.selected" value="false" />
 		<variable name="gateway.selected" value="false" />
+		<variable name="authentication.selected" value="false" />
 		<variable name="admin.selected" value="false" />
 		<variable name="dam.selected" value="false" />
 		<variable name="catalog.selected" value="false" />
@@ -238,6 +246,10 @@
 			<name>gateway.selected</name>
 			<value>true</value>
 		</condition>
+		<condition type="variable" id="isAuthenticationSelected">
+			<name>authentication.selected</name>
+			<value>true</value>
+		</condition>
 		<condition type="variable" id="isAdminSelected">
 			<name>admin.selected</name>
 			<value>true</value>
@@ -262,6 +274,7 @@
 		<condition type="or" id="atLeastOneMiscroserviceSelected">
 			<condition type="ref" refid="isRegistrySelected" />
 			<condition type="ref" refid="isGatewaySelected" />
+			<condition type="ref" refid="isAuthenticationSelected" />
 			<condition type="ref" refid="isAdminSelected" />
 			<condition type="ref" refid="isDamSelected" />
 			<condition type="ref" refid="isCatalogSelected" />
@@ -280,6 +293,10 @@
 		<condition type="or" id="mustInstallGateway">
 			<condition type="ref" refid="fullInstallation" />
 			<condition type="ref" refid="isGatewaySelected" />
+		</condition>
+		<condition type="or" id="mustInstallAuthentication">
+			<condition type="ref" refid="fullInstallation" />
+			<condition type="ref" refid="isAuthenticationSelected" />
 		</condition>
 		<condition type="or" id="mustInstallAdmin">
 			<condition type="ref" refid="fullInstallation" />
@@ -315,6 +332,8 @@
 		<panel classname="UserInputPanel" id="ConfigPanel" condition="fullInstallation" />
 		<panel classname="UserInputPanel" id="RegistryPanel" condition="mustInstallRegistry" />
 		<panel classname="UserInputPanel" id="GatewayPanel" condition="mustInstallGateway" />
+		<panel classname="UserInputPanel" id="AuthenticationPanel"
+			condition="mustInstallAuthentication" />
 		<panel classname="UserInputPanel" id="RabbitmqPanel" condition="fullInstallation" />
 		<panel classname="UserInputPanel" id="AdminPanel" condition="mustInstallAdmin" />
 		<panel classname="UserInputPanel" id="AccountsPanel" condition="mustInstallAdmin" />
@@ -429,6 +448,20 @@
 				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
 				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
 				/> <arg value="gateway" /> <arg value="-c" /> <arg value="${microservice.gateway.microserviceList}" 
+				/> </args> </executable> -->
+		</pack>
+
+		<pack name="authentication" required="false" preselected="true">
+			<description>Microservice dedicated to users' authentication</description>
+			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> 
+				<include name="bootstrap-authentication.jar" /> </fileset> <fileset dir="sbin/authentication" 
+				targetdir="$INSTALL_PATH/REGARDS/sbin" override="true"> <include name="*" 
+				/> </fileset> <executable type="bin" stage="never" keep="true"> <fileset 
+				targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" /> </executable> <executable 
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="authentication" /> <arg value="-c" /> <arg value="${authentication.instanceList}" 
 				/> </args> </executable> -->
 		</pack>
 

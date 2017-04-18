@@ -57,6 +57,7 @@
 	<str id="selectcomponents.panel.config.label" txt="Configuration" />
 	<str id="selectcomponents.panel.registry.label" txt="Registry" />
 	<str id="selectcomponents.panel.gateway.label" txt="Gateway" />
+	<str id="selectcomponents.panel.authentication.label" txt="Authentication" />
 	<str id="selectcomponents.panel.admin.label" txt="Administration" />
 	<str id="selectcomponents.panel.dam.label" txt="Data Management" />
 	<str id="selectcomponents.panel.catalog.label" txt="Catalog" />
@@ -87,6 +88,9 @@
 
 	<!-- GatewayPanel -->
 	<str id="gateway.panel.title.label" txt="Gateway microservice" />
+	
+	<!-- AuthenticationPanel -->
+	<str id="authentication.panel.title.label" txt="Authentication microservice" />
 
 	<!-- AdminPanel -->
 	<str id="admin.panel.title.label" txt="Administration microservice" />
