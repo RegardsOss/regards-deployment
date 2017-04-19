@@ -17,7 +17,7 @@ public class ValidatorRegistryPanel extends ValidatorInstanceList {
      * Default constructor
      */
     public ValidatorRegistryPanel() {
-        componentIdentifier = "registry";
-        componentCountIdentifier = componentIdentifier;
+        componentIdentifier = "regards.config.cloud.registry";
+        componentCountIdentifier = "registry";
     }
 }

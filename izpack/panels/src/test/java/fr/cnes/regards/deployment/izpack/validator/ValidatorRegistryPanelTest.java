@@ -34,13 +34,14 @@ public class ValidatorRegistryPanelTest {
 
         Variables variables = new DefaultVariables();
         Platform platform = new Platform(Name.LINUX, System.getProperty("os.version"));
-        final String MICROSERVICE_IDENTIFIER = "registry";
+        final String MICROSERVICE_IDENTIFIER = "regards.config.cloud.registry";
+        final String MICROSERVICE_COUNT_IDENTIFIER = "registry";
 
         // Set Test Values
-        final String count = MICROSERVICE_IDENTIFIER + ".count";
+        final String count = MICROSERVICE_COUNT_IDENTIFIER + ".count";
         final String uriName = MICROSERVICE_IDENTIFIER + ".host";
         final String portName = MICROSERVICE_IDENTIFIER + ".port";
-        final String componentListName = MICROSERVICE_IDENTIFIER + ".instanceList";
+        final String componentListName = MICROSERVICE_COUNT_IDENTIFIER + ".instanceList";
 
         InstallData installData = new InstallData(variables, platform);
         variables.set(count, "2");

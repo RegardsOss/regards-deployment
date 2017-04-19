@@ -44,6 +44,7 @@
 		<modifier key="headingPanelCounter" value="text" />
 		<modifier key="headingPanelCounterPos" value="inHeading" />
 		<modifier key="useSplashScreen" value="3000" />
+		<modifier key="showDebugWindow" value="true" />
 	</guiprefs>
 
 	<resources>
@@ -330,27 +331,52 @@
 			condition="atLeastOneMiscroserviceSelected" />
 		<panel classname="UserInputPanel" id="ProjectPanel" condition="fullInstallation" />
 		<panel classname="UserInputPanel" id="ConfigPanel" condition="fullInstallation" />
-		<panel classname="UserInputPanel" id="RegistryPanel" condition="mustInstallRegistry" />
-		<panel classname="UserInputPanel" id="GatewayPanel" condition="mustInstallGateway" />
+		<panel classname="UserInputPanel" id="RegistryPanel" condition="mustInstallRegistry">
+			<validator
+				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorRegistryPanel" />
+		</panel>
+		<panel classname="UserInputPanel" id="GatewayPanel" condition="mustInstallGateway">
+			<validator
+				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorGatewayPanel" />
+		</panel>
 		<panel classname="UserInputPanel" id="AuthenticationPanel"
-			condition="mustInstallAuthentication" />
+			condition="mustInstallAuthentication">
+			<validator
+				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAuthenticationPanel" />
+		</panel>
 		<panel classname="UserInputPanel" id="RabbitmqPanel" condition="fullInstallation" />
-		<panel classname="UserInputPanel" id="AdminPanel" condition="mustInstallAdmin" />
+		<panel classname="UserInputPanel" id="AdminPanel" condition="mustInstallAdmin">
+			<validator
+				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAdminPanel" />
+		</panel>
 		<panel classname="UserInputPanel" id="AccountsPanel" condition="mustInstallAdmin" />
-		<panel classname="UserInputPanel" id="DamPanel" condition="mustInstallDam" />
-		<panel classname="UserInputPanel" id="CatalogPanel" condition="mustInstallCatalog" />
+		<panel classname="UserInputPanel" id="DamPanel" condition="mustInstallDam">
+			<validator
+				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorDamPanel" />
+		</panel>
+		<panel classname="UserInputPanel" id="CatalogPanel" condition="mustInstallCatalog">
+			<validator
+				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorCatalogPanel" />
+		</panel>
 		<panel classname="UserInputPanel" id="AccessInstancePanel"
-			condition="mustInstallAccess" />
+			condition="mustInstallAccess">
+			<validator
+				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAccessInstancePanel" />
+		</panel>
 		<panel classname="UserInputPanel" id="AccessProjectPanel"
-			condition="mustInstallAccess" />
-		<panel classname="UserInputPanel" id="FrontendPanel" condition="mustInstallFrontend" />
+			condition="mustInstallAccess">
+			<validator
+				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAccessProjectPanel" />
+		</panel>
+		<panel classname="UserInputPanel" id="FrontendPanel" condition="mustInstallFrontend">
+			<validator
+				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorFrontendPanel" />
+		</panel>
 		<panel classname="SummaryPanel" />
 		<panel classname="InstallPanel" />
 		<panel classname="ProcessPanel" />
 		<panel classname="FinishPanel" />
 	</panels>
-	<!-- <validator classname="fr.cnes.regards.deployment.izpack.validator.ValidatorFrontendPanel" 
-		/> -->
 
 	<packs>
 
