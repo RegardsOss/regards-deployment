@@ -19,6 +19,7 @@
 
 	<locale>
 		<langpack iso3="eng" />
+		<langpack iso3="fra" />
 	</locale>
 
 	<logging>
@@ -55,7 +56,9 @@
 			type="xml" />
 		<res id="ProcessPanel.Spec.xml" src="ProcessPanel.Spec.xml" parse="yes"
 			type="xml" />
+		<res id="CustomLangPack.xml_fra" src="i18n/CustomLangPack.xml_fra" />
 		<res id="userInputLang.xml_eng" src="i18n/userInputLang.xml_eng" />
+		<res id="userInputLang.xml_fra" src="i18n/userInputLang.xml_fra" />
 	</resources>
 
 	<jar src="custom/regards-izpack-panels.jar" stage="install" />

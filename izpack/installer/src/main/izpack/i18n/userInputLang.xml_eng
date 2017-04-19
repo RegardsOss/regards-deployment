@@ -10,12 +10,13 @@
 	<str id="url.label" txt="Url:" />
 	<str id="username.label" txt="Username:" />
 	<str id="password.label" txt="Password:" />
+	<str id="email.label" txt="Email:" />
 	<str id="instance.database.label" txt="Cross projects database" />
 	<str id="first.project.database.label" txt="First project's database" />
 
 	<!-- SelectInstallationTypePanel -->
-	<str id="selectinstallationtype.panel.title.label" txt="Choose your installation type" />
-	<str id="selectinstallationtype.panel.radio.full.label" txt="Install all REGARDS components" />
+	<str id="selectinstallationtype.panel.title.label" txt="How do you want to install REGARDS?" />
+	<str id="selectinstallationtype.panel.radio.full.label" txt="Install all components" />
 	<str id="selectinstallationtype.panel.radio.add.label" txt="Add components to an existing installation" />
 
 	<!-- SelectSecurityLevelPanel -->
@@ -25,11 +26,11 @@
 	<str id="selectsecuritylevel.panel.enforce.description.1.label"
 		txt="If you choose Enforce Level, some requirements must be respected (values will could be customized by next panels) :" />
 	<str id="selectsecuritylevel.panel.enforce.description.2.label"
-		txt="	* Groups REGARDS, EXEC, ADMIN and RUNTIME must exist and owned by this install user for installation." />
+		txt="	* The current user must be in groups REGARDS, EXEC, ADMIN and RUNTIME" />
 	<str id="selectsecuritylevel.panel.enforce.description.3.label"
-		txt="	* Groups REGARDS, EXEC, RUNTIME must owned by the exec user (used to run microservices)." />
+		txt="	* Groups REGARDS, EXEC, RUNTIME must be owned by the exec user (used to run microservices)." />
 	<str id="selectsecuritylevel.panel.enforce.description.4.label"
-		txt="	* Groups REGARDS, ADMIN and RUNTIME must owned by the admin user (used to administrate)." />
+		txt="	* Groups REGARDS, ADMIN and RUNTIME must be owned by the admin user (used to administrate)." />
 	<str id="selectsecuritylevel.panel.enforce.description.5.label"
 		txt="	* User EXEC will have to exist to run microservices." />
 
@@ -72,14 +73,9 @@
 	<str id="frontend.panel.gateway.label" txt="Gateway" />
 
 	<!-- RabbitmqPanel -->
-	<str id="rabbitmq.panel.title.label" txt="Message Broker configuration" />
-	<str id="rabbitmq.panel.rabbitmq.host.label" txt="RabbitMQ host:" />
-	<str id="rabbitmq.panel.rabbitmq.port.label" txt="RabbitMQ port:" />
-	<str id="rabbitmq.panel.rabbitmq.username.label" txt="RabbitMQ username:" />
-	<str id="rabbitmq.panel.rabbitmq.password.label" txt="RabbitMQ password:" />
-	<str id="rabbitmq.panel.amqp.management.host.label" txt="AMQP host:" />
-	<str id="rabbitmq.panel.amqp.management.port.label" txt="AMQP port:" />
-
+	<str id="rabbitmq.panel.title.label" txt="Message borker configuration" />
+	<str id="rabbitmq.panel.rabbitmq.label" txt="RabbitMQ" />
+	<str id="rabbitmq.panel.amqp.label" txt="AMQP" />
 	<!-- ConfigPanel -->
 	<str id="config.panel.title.label" txt="Configuration microservice" />
 
@@ -88,14 +84,13 @@
 
 	<!-- GatewayPanel -->
 	<str id="gateway.panel.title.label" txt="Gateway microservice" />
-	
+
 	<!-- AuthenticationPanel -->
 	<str id="authentication.panel.title.label" txt="Authentication microservice" />
 
 	<!-- AdminPanel -->
 	<str id="admin.panel.title.label" txt="Administration microservice" />
-	<str id="admin.panel.root.user.login.label" txt="Instance admin login:" />
-	<str id="admin.panel.root.user.password.label" txt="Instance admin password:" />
+	<str id="admin.panel.root.user.label" txt="Instance admin" />
 
 	<!-- AccountsPanel -->
 	<str id="accounts.panel.title.label" txt="Which rules should follow the user accounts?" />

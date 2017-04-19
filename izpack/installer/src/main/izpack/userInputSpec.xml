@@ -61,7 +61,7 @@
 	</panel>
 
 	<panel id="SelectInstallationTypePanel">
-		<field id="selectinstallationtype.pnnel.title.label" type="title" />
+		<field id="selectinstallationtype.panel.title.label" type="title" />
 		<field type="radio" variable="installation.type">
 			<spec>
 				<choice id="selectinstallationtype.panel.radio.full.label"
@@ -234,33 +234,38 @@
 
 	<panel id="RabbitmqPanel">
 		<field id="rabbitmq.panel.title.label" type="title" />
+		<field type="staticText" align="left" id="rabbitmq.panel.rabbitmq.label" bold="true" />
 		<field type="text" variable="regards.config.spring.rabbitmq.host">
-			<spec id="rabbitmq.panel.rabbitmq.host.label" size="15"
+			<spec id="host.label" size="15"
 				set="${regards.config.spring.rabbitmq.host}" />
 		</field>
 		<field type="text" variable="regards.config.spring.rabbitmq.port">
-			<spec id="rabbitmq.panel.rabbitmq.port.label" size="15"
+			<spec id="port.label" size="15"
 				set="${regards.config.spring.rabbitmq.port}" />
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 				id="validator.port.error.label" />
 		</field>
 		<field type="text" variable="regards.config.spring.rabbitmq.username">
-			<spec id="rabbitmq.panel.rabbitmq.username.label" size="15"
+			<spec id="username.label" size="15"
 				set="${regards.config.spring.rabbitmq.username}" />
 		</field>
 		<field type="password" variable="regards.config.spring.rabbitmq.password">
 			<spec>
-				<pwd id="rabbitmq.panel.rabbitmq.password.label" size="15"
+				<pwd id="password.label" size="15"
 					set="${regards.config.spring.rabbitmq.password}" />
 			</spec>
 		</field>
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+		<field type="staticText" align="left" id="rabbitmq.panel.amqp.label" bold="true" />
 		<field type="text" variable="regards.config.regards.amqp.management.host">
-			<spec id="rabbitmq.panel.amqp.management.host.label" size="15"
+			<spec id="host.label" size="15"
 				set="${regards.config.regards.amqp.management.host}" />
 		</field>
 		<field type="text" variable="regards.config.regards.amqp.management.port">
-			<spec id="rabbitmq.panel.amqp.management.port.label" size="15"
+			<spec id="port.label" size="15"
 				set="${regards.config.regards.amqp.management.port}" />
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
@@ -288,15 +293,19 @@
 				</col>
 			</spec>
 		</field>
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+		<field type="staticText" align="left" id="admin.panel.root.user.label" bold="true" />
 		<field type="text"
 			variable="regards.config.admin.regards.accounts.root.user.login">
-			<spec id="admin.panel.root.user.login.label" size="15"
+			<spec id="email.label" size="15"
 				set="${regards.config.admin.regards.accounts.root.user.login}" />
 		</field>
 		<field type="password"
 			variable="regards.config.admin.regards.accounts.root.user.password">
 			<spec>
-				<pwd id="admin.panel.root.user.password.label" size="15"
+				<pwd id="password.label" size="15"
 					set="${regards.config.admin.regards.accounts.root.user.password}" />
 			</spec>
 		</field>
