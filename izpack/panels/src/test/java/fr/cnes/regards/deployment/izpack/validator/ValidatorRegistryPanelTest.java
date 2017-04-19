@@ -19,6 +19,7 @@ import com.izforge.izpack.util.Platform.Name;
  * Test class for ValidatorRegistryPanel.
  *
  * @author Guillaume Barthe de Montmejan
+ * @author Xavier-Alexandre Brochard
  * @since 1.0.0
  */
 public class ValidatorRegistryPanelTest {
@@ -26,20 +27,21 @@ public class ValidatorRegistryPanelTest {
     @Test
     public void testValidateData() {
         final String EXPECTED_VALUE = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-                + "<microserviceConfigList>\n" + "    <microserviceConfig id=\"0\">\n"
-                + "        <host>localhost</host>\n" + "        <port>3456</port>\n" + "    </microserviceConfig>\n"
-                + "    <microserviceConfig id=\"1\">\n" + "        <host>127.0.0.1</host>\n"
-                + "        <port>3457</port>\n" + "    </microserviceConfig>\n" + "</microserviceConfigList>\n";
+                + "<componentConfigList>\n" + "    <componentConfig id=\"0\">\n" + "        <host>localhost</host>\n"
+                + "        <port>3456</port>\n" + "    </componentConfig>\n" + "    <componentConfig id=\"1\">\n"
+                + "        <host>127.0.0.1</host>\n" + "        <port>3457</port>\n" + "    </componentConfig>\n"
+                + "</componentConfigList>\n";
 
         Variables variables = new DefaultVariables();
         Platform platform = new Platform(Name.LINUX, System.getProperty("os.version"));
-        final String MICROSERVICE_IDENTIFIER = "registry";
+        final String MICROSERVICE_IDENTIFIER = "regards.config.cloud.registry";
+        final String MICROSERVICE_COUNT_IDENTIFIER = "registry";
 
         // Set Test Values
-        final String count = "microservice." + MICROSERVICE_IDENTIFIER + ".count";
-        final String uriName = "microservice." + MICROSERVICE_IDENTIFIER + ".uri";
-        final String portName = "microservice." + MICROSERVICE_IDENTIFIER + ".port";
-        final String microserviceListName = "microservice." + MICROSERVICE_IDENTIFIER + ".microserviceList";
+        final String count = MICROSERVICE_COUNT_IDENTIFIER + ".count";
+        final String uriName = MICROSERVICE_IDENTIFIER + ".host";
+        final String portName = MICROSERVICE_IDENTIFIER + ".port";
+        final String componentListName = MICROSERVICE_COUNT_IDENTIFIER + ".instanceList";
 
         InstallData installData = new InstallData(variables, platform);
         variables.set(count, "2");
@@ -54,7 +56,7 @@ public class ValidatorRegistryPanelTest {
         Assert.assertEquals(status, Status.OK);
 
         // Check transformation
-        String valueOfMicroserviceListName = installData.getVariable(microserviceListName);
-        Assert.assertEquals(EXPECTED_VALUE, valueOfMicroserviceListName);
+        String valueOfComponentListName = installData.getVariable(componentListName);
+        Assert.assertEquals(EXPECTED_VALUE, valueOfComponentListName);
     }
 }

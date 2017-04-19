@@ -11,10 +11,13 @@ package fr.cnes.regards.deployment.izpack.validator;
  * @author Guillaume Barthe de Montmejan
  * @since 1.0.0
  */
-public class ValidatorRegistryPanel extends ValidatorMicroserviceList {
+public class ValidatorRegistryPanel extends ValidatorInstanceList {
 
-	public ValidatorRegistryPanel() {
-		microServiceIdentifier = "microservice.registry";
-		microServiceCountIdentifier = microServiceIdentifier;
-	}
+    /**
+     * Default constructor
+     */
+    public ValidatorRegistryPanel() {
+        componentIdentifier = "regards.config.cloud.registry";
+        componentCountIdentifier = "registry";
+    }
 }

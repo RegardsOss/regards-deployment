@@ -11,10 +11,13 @@ package fr.cnes.regards.deployment.izpack.validator;
  * @author Guillaume Barthe de Montmejan
  * @since 1.0.0
  */
-public class ValidatorGatewayPanel extends ValidatorMicroserviceList {
+public class ValidatorGatewayPanel extends ValidatorInstanceList {
 
-	public ValidatorGatewayPanel() {
-		microServiceIdentifier = "microservice.gateway";
-		microServiceCountIdentifier = microServiceIdentifier;
-	}
+    /**
+     * Default constructor
+     */
+    public ValidatorGatewayPanel() {
+        componentIdentifier = "gateway";
+        componentCountIdentifier = componentIdentifier;
+    }
 }
