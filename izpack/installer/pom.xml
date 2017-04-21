@@ -31,49 +31,6 @@
 			</resource>
 		</resources>
 		<plugins>
-
-
-
-			<plugin>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>create-staging-area</id>
-						<phase>process-resources</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<tasks>
-								<copy todir="${izpack.staging.dir}">
-									<fileset dir="${basedir}/src/main/izpack" />
-								</copy>
-								<mkdir dir="${izpack.staging.dir}/microservices" />
-							</tasks>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
@@ -124,7 +81,7 @@
 					<execution>
 						<!-- copy izpack custom (custom panels, etc.) jars to izpack staging 
 							custom -->
-						<id>copy-izpack-panelss-dependencies</id>
+						<id>copy-izpack-panels-dependencies</id>
 						<phase>prepare-package</phase>
 						<goals>
 							<goal>copy-dependencies</goal>
