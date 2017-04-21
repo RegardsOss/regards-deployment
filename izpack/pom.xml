@@ -10,7 +10,7 @@
 	
 	<parent>
 		<groupId>fr.cnes.regards.deployment</groupId>
-		<artifactId>regards-deployment</artifactId>
+		<artifactId>rs-deployment</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
