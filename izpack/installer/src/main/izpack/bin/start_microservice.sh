@@ -84,7 +84,9 @@ do
   then
     printf >&2 "Starting ${MICROSERVICE_TYPE} type on \"${microservices_infos_t[host]}:${microservices_infos_t[port]}\" ...\n"
     log_file="${ROOT_DIR}"/logs/"${MICROSERVICE_TYPE}-id${microservices_infos_t[id]}".log
-
+	touch ${log_file}
+	chmod g+r ${log_file}
+	
     java -jar -Dserver.address="${microservices_infos_t[host]}" -Dserver.port="${microservices_infos_t[port]}" ${lib_exec_java} > "${log_file}" 2>&1 &
     pid=$!
 
