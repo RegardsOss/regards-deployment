@@ -1,161 +1,110 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- LICENSE_PLACEHOLDER -->
 <AutomatedInstallation langpack="fra">
-	<com.izforge.izpack.panels.hello.HelloPanel
-		id="HelloPanel_0" />
-	<com.izforge.izpack.panels.licence.LicencePanel
-		id="LicencePanel_1" />
-	<com.izforge.izpack.panels.target.TargetPanel
-		id="TargetPanel_2">
-		<installpath>/opt/regards/regards-ic/</installpath>
-	</com.izforge.izpack.panels.target.TargetPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="SelectSecurityLevelPanel">
-		<entry key="security.level" value="normal" />
-	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="SelectInstallationTypePanel">
-		<entry key="installation.type" value="full" />
-	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="ProjectPanel">
-		<entry key="project" value="Default" />
-	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="ConfigPanel">
-		<entry key="config.count" value="1" />
-		<entry key="regards.config.cloud.config.port.1" value="8888" />
-		<entry key="regards.config.cloud.config.address.1" value="localhost" />
-	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="RegistryPanel">
-		<entry key="registry.count" value="2" />
-		<entry key="regards.config.cloud.registry.port.2" value="8762" />
-		<entry key="regards.config.cloud.registry.port.1" value="8761" />
-		<entry key="regards.config.cloud.registry.host.1" value="localhost" />
-		<entry key="regards.config.cloud.registry.host.2" value="localhost" />
-	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="GatewayPanel">
-		<entry key="gateway.port.1" value="8000" />
-		<entry key="gateway.host.3" value="localhost" />
-		<entry key="gateway.host.2" value="localhost" />
-		<entry key="gateway.port.2" value="8001" />
-		<entry key="gateway.host.1" value="localhost" />
-		<entry key="gateway.port.3" value="8002" />
-		<entry key="gateway.count" value="3" />
-	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="AuthenticationPanel">
-		<entry key="authentication.count" value="1" />
-		<entry key="authentication.port.1" value="8889" />
-		<entry key="authentication.host.1" value="localhost" />
-	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="RabbitmqPanel">
-		<entry key="regards.config.spring.rabbitmq.host" value="localhost" />
-		<entry key="regards.config.spring.rabbitmq.password" value="" />
-		<entry key="regards.config.regards.amqp.management.host" value="localhost" />
-		<entry key="regards.config.spring.rabbitmq.username" value="guest" />
-		<entry key="regards.config.regards.amqp.management.port" value="15672" />
-		<entry key="regards.config.spring.rabbitmq.port" value="5672" />
-	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="AdminPanel">
-		<entry key="regards.config.admin.regards.accounts.root.user.login"
-			value="regards-admin@c-s.fr" />
-		<entry key="regards.config.admin.regards.accounts.root.user.password"
-			value="" />
-		<entry key="admin.count" value="1" />
-		<entry key="regards.config.admin.regards.jpa.instance.datasource.password"
-			value="" />
-		<entry key="admin.host.1" value="localhost" />
-		<entry key="regards.config.admin.regards.jpa.instance.datasource.url"
-			value="localhost:5432/rs_admin_instance" />
-		<entry key="regards.config.admin.regards.jpa.multitenant.tenants.url.1"
-			value="localhost:5432/rs_admin_tenant0" />
-		<entry
-			key="regards.config.admin.regards.jpa.multitenant.tenants.password.1"
-			value="" />
-		<entry
-			key="regards.config.admin.regards.jpa.instance.datasource.user.name"
-			value="rs_admin_user" />
-		<entry
-			key="regards.config.admin.regards.jpa.multitenant.tenants.user.name.1"
-			value="rs_admin_tenant0_user" />
-		<entry key="admin.port.1" value="8777" />
-	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="AccountsPanel">
-		<entry key="regards.config.admin.accounts.password.regex" value="[a-z0-9]*" />
-		<entry key="regards.config.admin.accounts.failed.authentication.max"
-			value="5" />
-		<entry key="regards.config.admin.accounts.password.rules" value="Password should contain letters or numbers" />
-		<entry key="regards.config.admin.accounts.password.validity.duration"
-			value="350" />
-		<entry key="regards.accounts.validity.duration" value="30" />
-	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="DamPanel">
-		<entry key="regards.config.dam.regards.jpa.multitenant.tenants.url.1"
-			value="localhost:5432/rs_dam_tenant0" />
-		<entry key="regards.config.dam.regards.jpa.multitenant.tenants.password.1"
-			value="" />
-		<entry key="dam.count" value="1" />
-		<entry key="dam.host.1" value="localhost" />
-		<entry key="dam.port.1" value="8080" />
-		<entry
-			key="regards.config.dam.regards.jpa.multitenant.tenants.user.name.1"
-			value="rs_dam_tenant0_user" />
-	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="CatalogPanel">
-		<entry key="catalog.count" value="1" />
-		<entry key="catalog.port.1" value="4444" />
-		<entry key="catalog.host.1" value="localhost" />
-	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="AccessInstancePanel">
-		<entry key="access-instance.port.1" value="8990" />
-		<entry
-			key="regards.config.access.instance.regards.jpa.instance.datasource.user.name"
-			value="rs_acces_user" />
-		<entry
-			key="regards.config.access.instance.regards.jpa.instance.datasource.url"
-			value="localhost:5432/rs_acces_instance" />
-		<entry key="access-instance.host.1" value="localhost" />
-		<entry
-			key="regards.config.access.instance.regards.jpa.instance.datasource.password"
-			value="" />
-		<entry key="access-instance.count" value="1" />
-	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="AccessProjectPanel">
-		<entry
-			key="regards.config.access.project.regards.jpa.multitenant.tenants.user.name.1"
-			value="rs_access_projet_tenant0_user" />
-		<entry key="access-project.host.1" value="localhost" />
-		<entry
-			key="regards.config.access.project.regards.jpa.multitenant.tenants.url.1"
-			value="localhost:5432/rs_access_projet_tenant0" />
-		<entry key="access-project.count" value="1" />
-		<entry key="access-project.port.1" value="9990" />
-		<entry
-			key="regards.config.access.project.regards.jpa.multitenant.tenants.password.1"
-			value="" />
-	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="FrontendPanel">
-		<entry key="frontend.host.1" value="localhost" />
-		<entry key="frontend.count" value="1" />
-		<entry key="frontend.port.1" value="3333" />
-	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.summary.SummaryPanel
-		id="SummaryPanel_21" />
-	<com.izforge.izpack.panels.install.InstallPanel
-		id="InstallPanel_22" />
-	<com.izforge.izpack.panels.process.ProcessPanel
-		id="ProcessPanel_23" />
-	<com.izforge.izpack.panels.finish.FinishPanel
-		id="FinishPanel_24" />
+<com.izforge.izpack.panels.hello.HelloPanel id="HelloPanel_0"/>
+<com.izforge.izpack.panels.licence.LicencePanel id="LicencePanel_1"/>
+<com.izforge.izpack.panels.target.TargetPanel id="TargetPanel_2">
+<installpath>/opt/regards/regards-ic</installpath>
+</com.izforge.izpack.panels.target.TargetPanel>
+<com.izforge.izpack.panels.userinput.UserInputPanel id="SelectSecurityLevelPanel">
+<entry key="security.level" value="enforce"/>
+</com.izforge.izpack.panels.userinput.UserInputPanel>
+<com.izforge.izpack.panels.userinput.UserInputPanel id="ConfigSecurityPanel">
+<entry key="regards.config.regards.microservices.admin.group" value="rsadmin"/>
+<entry key="regards.config.regards.microservices.regards.group" value="regards"/>
+<entry key="regards.config.regards.microservices.runtime.group" value="rsrun"/>
+<entry key="regards.config.regards.microservices.exec.user" value="regards"/>
+<entry key="regards.config.regards.microservices.exec.group" value="rsexec"/>
+</com.izforge.izpack.panels.userinput.UserInputPanel>
+<com.izforge.izpack.panels.userinput.UserInputPanel id="SelectInstallationTypePanel">
+<entry key="installation.type" value="full"/>
+</com.izforge.izpack.panels.userinput.UserInputPanel>
+<com.izforge.izpack.panels.userinput.UserInputPanel id="ProjectPanel">
+<entry key="project" value="Default"/>
+</com.izforge.izpack.panels.userinput.UserInputPanel>
+<com.izforge.izpack.panels.userinput.UserInputPanel id="ConfigPanel">
+<entry key="config.count" value="1"/>
+<entry key="regards.config.cloud.config.port.1" value="8888"/>
+<entry key="regards.config.cloud.config.address.1" value="localhost"/>
+</com.izforge.izpack.panels.userinput.UserInputPanel>
+<com.izforge.izpack.panels.userinput.UserInputPanel id="RegistryPanel">
+<entry key="registry.count" value="1"/>
+<entry key="regards.config.cloud.registry.port.1" value="8761"/>
+<entry key="regards.config.cloud.registry.host.1" value="localhost"/>
+</com.izforge.izpack.panels.userinput.UserInputPanel>
+<com.izforge.izpack.panels.userinput.UserInputPanel id="GatewayPanel">
+<entry key="gateway.port.1" value="8000"/>
+<entry key="gateway.host.1" value="localhost"/>
+<entry key="gateway.count" value="1"/>
+</com.izforge.izpack.panels.userinput.UserInputPanel>
+<com.izforge.izpack.panels.userinput.UserInputPanel id="AuthenticationPanel">
+<entry key="authentication.count" value="1"/>
+<entry key="authentication.port.1" value="8889"/>
+<entry key="authentication.host.1" value="localhost"/>
+</com.izforge.izpack.panels.userinput.UserInputPanel>
+<com.izforge.izpack.panels.userinput.UserInputPanel id="RabbitmqPanel">
+<entry key="regards.config.spring.rabbitmq.host" value="localhost"/>
+<entry key="regards.config.spring.rabbitmq.password" value=""/>
+<entry key="regards.config.regards.amqp.management.host" value="localhost"/>
+<entry key="regards.config.spring.rabbitmq.username" value="guest"/>
+<entry key="regards.config.regards.amqp.management.port" value="15672"/>
+<entry key="regards.config.spring.rabbitmq.port" value="5672"/>
+</com.izforge.izpack.panels.userinput.UserInputPanel>
+<com.izforge.izpack.panels.userinput.UserInputPanel id="AdminPanel">
+<entry key="regards.config.admin.regards.accounts.root.user.login" value="regards-admin@c-s.fr"/>
+<entry key="regards.config.admin.regards.accounts.root.user.password" value=""/>
+<entry key="admin.count" value="1"/>
+<entry key="regards.config.admin.regards.jpa.instance.datasource.password" value=""/>
+<entry key="admin.host.1" value="localhost"/>
+<entry key="regards.config.admin.regards.jpa.instance.datasource.url" value="localhost:5432/rs_admin_instance"/>
+<entry key="regards.config.admin.regards.jpa.multitenant.tenants.url.1" value="localhost:5432/rs_admin_tenant0"/>
+<entry key="regards.config.admin.regards.jpa.multitenant.tenants.password.1" value=""/>
+<entry key="regards.config.admin.regards.jpa.instance.datasource.user.name" value="rs_admin_user"/>
+<entry key="regards.config.admin.regards.jpa.multitenant.tenants.user.name.1" value="rs_admin_tenant0_user"/>
+<entry key="admin.port.1" value="8777"/>
+</com.izforge.izpack.panels.userinput.UserInputPanel>
+<com.izforge.izpack.panels.userinput.UserInputPanel id="AccountsPanel">
+<entry key="regards.config.admin.accounts.password.regex" value="[a-z0-9]*"/>
+<entry key="regards.config.admin.accounts.failed.authentication.max" value="5"/>
+<entry key="regards.config.admin.accounts.password.rules" value="Password should contain letters or numbers"/>
+<entry key="regards.config.admin.accounts.password.validity.duration" value="350"/>
+<entry key="regards.accounts.validity.duration" value="30"/>
+</com.izforge.izpack.panels.userinput.UserInputPanel>
+<com.izforge.izpack.panels.userinput.UserInputPanel id="DamPanel">
+<entry key="regards.config.dam.regards.jpa.multitenant.tenants.url.1" value="localhost:5432/rs_dam_tenant0"/>
+<entry key="regards.config.dam.regards.jpa.multitenant.tenants.password.1" value=""/>
+<entry key="dam.count" value="1"/>
+<entry key="dam.host.1" value="localhost"/>
+<entry key="dam.port.1" value="8080"/>
+<entry key="regards.config.dam.regards.jpa.multitenant.tenants.user.name.1" value="rs_dam_tenant0_user"/>
+</com.izforge.izpack.panels.userinput.UserInputPanel>
+<com.izforge.izpack.panels.userinput.UserInputPanel id="CatalogPanel">
+<entry key="catalog.count" value="1"/>
+<entry key="catalog.port.1" value="4444"/>
+<entry key="catalog.host.1" value="localhost"/>
+</com.izforge.izpack.panels.userinput.UserInputPanel>
+<com.izforge.izpack.panels.userinput.UserInputPanel id="AccessInstancePanel">
+<entry key="access-instance.port.1" value="8990"/>
+<entry key="regards.config.access.instance.regards.jpa.instance.datasource.user.name" value="rs_acces_user"/>
+<entry key="regards.config.access.instance.regards.jpa.instance.datasource.url" value="localhost:5432/rs_acces_instance"/>
+<entry key="access-instance.host.1" value="localhost"/>
+<entry key="regards.config.access.instance.regards.jpa.instance.datasource.password" value=""/>
+<entry key="access-instance.count" value="1"/>
+</com.izforge.izpack.panels.userinput.UserInputPanel>
+<com.izforge.izpack.panels.userinput.UserInputPanel id="AccessProjectPanel">
+<entry key="regards.config.access.project.regards.jpa.multitenant.tenants.user.name.1" value="rs_access_projet_tenant0_user"/>
+<entry key="access-project.host.1" value="localhost"/>
+<entry key="regards.config.access.project.regards.jpa.multitenant.tenants.url.1" value="localhost:5432/rs_access_projet_tenant0"/>
+<entry key="access-project.count" value="1"/>
+<entry key="access-project.port.1" value="9990"/>
+<entry key="regards.config.access.project.regards.jpa.multitenant.tenants.password.1" value=""/>
+</com.izforge.izpack.panels.userinput.UserInputPanel>
+<com.izforge.izpack.panels.userinput.UserInputPanel id="FrontendPanel">
+<entry key="frontend.host.1" value="localhost"/>
+<entry key="frontend.count" value="1"/>
+<entry key="frontend.port.1" value="3333"/>
+</com.izforge.izpack.panels.userinput.UserInputPanel>
+<com.izforge.izpack.panels.summary.SummaryPanel id="SummaryPanel_21"/>
+<com.izforge.izpack.panels.install.InstallPanel id="InstallPanel_22"/>
+<com.izforge.izpack.panels.process.ProcessPanel id="ProcessPanel_23"/>
+<com.izforge.izpack.panels.finish.FinishPanel id="FinishPanel_24"/>
 </AutomatedInstallation>

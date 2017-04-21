@@ -40,13 +40,13 @@ import fr.cnes.regards.deployment.izpack.utils.model.ComponentConfigList;
 
 // Microservice Registry Configuration file
 Path registryFilePath = Paths.get(regardsInstallDir, "config/" + microserviceType + "_config.xml");
-MicroserviceConfigList microserviceConfigList = MicroserviceConfigListAccessor.readFromFile(registryFilePath);
+ComponentConfigList componentConfigList = ComponentConfigListAccessor.readFromFile(registryFilePath);
 
 if (idIsSet) {
-  println microserviceConfigList.get(id).toString();
+  println componentConfigList.get(id).toString();
 }
 else {
-  println microserviceConfigList.toString();
+  println componentConfigList.toString();
 }
 
 System.exit(0);

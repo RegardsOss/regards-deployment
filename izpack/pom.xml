@@ -4,13 +4,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>regards-izpack</artifactId>
+	<artifactId>izpack</artifactId>
 	<description>REGARDS Izpack deployment</description>
 	<packaging>pom</packaging>
 	
 	<parent>
 		<groupId>fr.cnes.regards.deployment</groupId>
-		<artifactId>regards-deployment</artifactId>
+		<artifactId>rs-deployment</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
