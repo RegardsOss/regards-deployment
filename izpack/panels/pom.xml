@@ -4,12 +4,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>regards-izpack-panels</artifactId>
+	<artifactId>panels</artifactId>
 	<description>Custom Regards Panels for Izpack Installer</description>
 
 	<parent>
 		<groupId>fr.cnes.regards.deployment</groupId>
-		<artifactId>regards-izpack</artifactId>
+		<artifactId>izpack</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
