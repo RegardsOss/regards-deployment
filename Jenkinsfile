@@ -16,6 +16,7 @@ pipeline {
             }
         }
         stage('Build') {
+        	// Création des paquetages pour le déploiement
             steps {
                 sh 'mvn -U -P delivery clean package org.jacoco:jacoco-maven-plugin:0.7.7.201606060606:prepare-agent sonar:sonar -fae -Dsonar.jacoco.reportPath=${WORKSPACE}/jacoco-ut.exec -Dsonar.jacoco.itReportPath=${WORKSPACE}/jacoco-it.exec' 
             }
@@ -26,6 +27,7 @@ pipeline {
             }
         }
         stage('Install') {
+        	// Installation continue sur la VM regard-ic (172.26.47.95)
             steps {
             	// Retour au SNAPSHOT
 				// Les VM-Cli ne marchent pas sur centos 7 (pb perl ou ?). Tant que ce n'est pas résolu,
