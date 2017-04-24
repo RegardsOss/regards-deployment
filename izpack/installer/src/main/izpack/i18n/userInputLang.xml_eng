@@ -13,6 +13,7 @@
 	<str id="email.label" txt="Email:" />
 	<str id="instance.database.label" txt="Cross projects database" />
 	<str id="first.project.database.label" txt="First project's database" />
+	<str id="cluster.label" txt="Cluster" />
 
 	<!-- SelectInstallationTypePanel -->
 	<str id="selectinstallationtype.panel.title.label" txt="How do you want to install REGARDS?" />
@@ -105,6 +106,7 @@
 
 	<!-- DamPanel -->
 	<str id="dam.panel.title.label" txt="Data Management microservice" />
+	<str id="dam.panel.elasticsearch.label" txt="Elasticsearch" />
 
 	<!-- CatalogPanel -->
 	<str id="catalog.panel.title.label" txt="Catalog microservice" />

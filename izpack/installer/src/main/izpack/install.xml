@@ -171,6 +171,11 @@
 		<variable
 			name="regards.config.dam.regards.jpa.multitenant.tenants.password.1"
 			value="rs_dam_tenant0_pwd" />
+		<variable name="regards.config.elasticsearch.address" value="" />
+		<variable name="regards.config.elasticsearch.host" value="localhost" />
+		<variable name="regards.config.elasticsearch.cluster.name"
+			value="regards" />
+		<variable name="regards.config.elasticsearch.tcp.port" value="9300" />
 
 		<!-- Catalog -->
 		<variable name="catalog.count" value="0" />

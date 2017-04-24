@@ -129,6 +129,10 @@
 		<entry
 			key="regards.config.dam.regards.jpa.multitenant.tenants.user.name.1"
 			value="rs_dam_tenant0_user" />
+		<entry key="regards.config.elasticsearch.address" value="" />
+		<entry key="regards.config.elasticsearch.host" value="localhost" />
+		<entry key="regards.config.elasticsearch.cluster.name" value="regards" />
+		<entry key="regards.config.elasticsearch.tcp.port" value="9300" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="CatalogPanel">
