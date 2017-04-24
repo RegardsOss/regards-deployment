@@ -15,21 +15,30 @@ pipeline {
                 ''' 
             }
         }
-        
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'mvn -Dmaven.test.failure.ignore=true install' 
+                sh 'mvn -U -P delivery clean package org.jacoco:jacoco-maven-plugin:0.7.7.201606060606:prepare-agent sonar:sonar -fae -Dsonar.jacoco.reportPath=${WORKSPACE}/jacoco-ut.exec -Dsonar.jacoco.itReportPath=${WORKSPACE}/jacoco-it.exec' 
             }
             post {
                 success {
-                    junit 'target/surefire-reports/**/*.xml' 
+                    junit '**/target/surefire-reports/*.xml, **/target/failsafe-reports/*.xml' 
                 }
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
+            }
+        }
+        stage('Install') {
+            steps {
+                echo 'Install..'
+            }
+        }
+        stage('Start') {
+            steps {
+                echo 'Starting..'
             }
         }
         stage('Deploy') {
