@@ -27,7 +27,9 @@ pipeline {
         }
         stage('Install') {
             steps {
-                echo 'Restoring the VM to SNPASHOT'
+            	// Retour au SNAPSHOT
+				// Les VM-Cli ne marchent pas sur centos 7 (pb perl ou ?). Tant que ce n'est pas résolu,
+				// utilisation de la VM-IC SAG comme passerelle
 				sh 'ssh jenkins@172.26.46.49 "/opt/vmshell/bin/vmoperation --vmname regard-ic --operation revert"'
 				sh 'ssh jenkins@172.26.46.49 "/opt/vmshell/bin/vmoperation --vmname regard-ic --ipaddress 172.26.47.95 --operation poweron"'
 				sh 'ssh -t rsins@172.26.47.95 "set -xe && \
