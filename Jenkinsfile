@@ -30,12 +30,12 @@ pipeline {
                 echo 'Restoring the VM to SNPASHOT'
 				sh 'ssh jenkins@172.26.46.49 "/opt/vmshell/bin/vmoperation --vmname regard-ic --operation revert"'
 				sh 'ssh jenkins@172.26.46.49 "/opt/vmshell/bin/vmoperation --vmname regard-ic --ipaddress 172.26.47.95 --operation poweron"'
-				sh 'ssh -t rsins@172.26.47.95 "set -xe'
-				sh 'mkdir -p LIVRAISON'
-				sh 'cd LIVRAISON'
-				sh 'scp jenkins@172.26.46.158:workspace/rs-deployment/izpack/installer/target/REGARDS-OSS-Installer.jar .'
-				sh 'scp jenkins@172.26.46.158:workspace/rs-deployment/izpack/installer/src/test/resources/auto-install-ic.xml .'
-				sh 'java -jar REGARDS-OSS-Installer.jar auto-install-ic.xml"'
+				sh ssh -t rsins@172.26.47.95 "set -xe && \
+					mkdir -p LIVRAISON && \
+					cd LIVRAISON && \
+					scp jenkins@172.26.46.158:workspace/rs-deployment/izpack/installer/target/REGARDS-OSS-Installer.jar . && \
+					scp jenkins@172.26.46.158:workspace/rs-deployment/izpack/installer/src/test/resources/auto-install-ic.xml . && \
+					java -jar REGARDS-OSS-Installer.jar auto-install-ic.xml"'
             }
         }
         stage('Start') {
