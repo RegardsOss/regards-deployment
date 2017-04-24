@@ -136,24 +136,16 @@
 				<artifactId>izpack-maven-plugin</artifactId>
 				<version>${maven.izpack.version}</version>
 				<extensions>true</extensions>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>izpack</goal>
-						</goals>
-						<configuration>
-							<!-- base for relative paths in izpack descriptor -->
-							<attach>false</attach>
-							<kind>standard</kind>
-							<descriptorEncoding>UTF-8</descriptorEncoding>
-							<baseDir>${izpack.staging.dir}</baseDir>
-							<finalName>REGARDS-OSS-Installer</finalName>
-							<mkdirs>true</mkdirs>
-							<installFile>${basedir}/src/main/izpack/install.xml</installFile>
-						</configuration>
-					</execution>
-				</executions>
+				<configuration>
+					<!-- base for relative paths in izpack descriptor -->
+					<attach>false</attach>
+					<kind>standard</kind>
+					<descriptorEncoding>UTF-8</descriptorEncoding>
+					<baseDir>${izpack.staging.dir}</baseDir>
+					<finalName>REGARDS-OSS-Installer</finalName>
+					<mkdirs>true</mkdirs>
+					<installFile>${basedir}/src/main/izpack/install.xml</installFile>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
