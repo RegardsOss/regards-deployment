@@ -78,7 +78,7 @@
 			value="rsrun" />
 
 		<!-- Common -->
-		<variable name="project" value="Default" />
+		<variable name="regards.config.first.project" value="project1" />
 
 		<!-- Config -->
 		<variable name="config.count" value="0" /> <!-- TODO: Don't think we can have multiple -->
@@ -171,6 +171,11 @@
 		<variable
 			name="regards.config.dam.regards.jpa.multitenant.tenants.password.1"
 			value="rs_dam_tenant0_pwd" />
+		<variable name="regards.config.elasticsearch.address" value="" />
+		<variable name="regards.config.elasticsearch.host" value="localhost" />
+		<variable name="regards.config.elasticsearch.cluster.name"
+			value="regards" />
+		<variable name="regards.config.elasticsearch.tcp.port" value="9300" />
 
 		<!-- Catalog -->
 		<variable name="catalog.count" value="0" />

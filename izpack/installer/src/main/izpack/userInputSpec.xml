@@ -134,8 +134,8 @@
 
 	<panel id="ProjectPanel">
 		<field id="project.panel.title.label" type="title" />
-		<field type="text" variable="project" size="35">
-			<spec size="15" id="project.panel.project.label" set="Default" />
+		<field type="text" variable="regards.config.first.project" size="35">
+			<spec size="15" id="project.panel.project.label" set="project1" />
 		</field>
 	</panel>
 
@@ -234,7 +234,8 @@
 
 	<panel id="RabbitmqPanel">
 		<field id="rabbitmq.panel.title.label" type="title" />
-		<field type="staticText" align="left" id="rabbitmq.panel.rabbitmq.label" bold="true" />
+		<field type="staticText" align="left" id="rabbitmq.panel.rabbitmq.label"
+			bold="true" />
 		<field type="text" variable="regards.config.spring.rabbitmq.host">
 			<spec id="host.label" size="15"
 				set="${regards.config.spring.rabbitmq.host}" />
@@ -259,7 +260,8 @@
 		<field type="space" />
 		<field type="divider" />
 		<field type="space" />
-		<field type="staticText" align="left" id="rabbitmq.panel.amqp.label" bold="true" />
+		<field type="staticText" align="left" id="rabbitmq.panel.amqp.label"
+			bold="true" />
 		<field type="text" variable="regards.config.regards.amqp.management.host">
 			<spec id="host.label" size="15"
 				set="${regards.config.regards.amqp.management.host}" />
@@ -296,7 +298,8 @@
 		<field type="space" />
 		<field type="divider" />
 		<field type="space" />
-		<field type="staticText" align="left" id="admin.panel.root.user.label" bold="true" />
+		<field type="staticText" align="left" id="admin.panel.root.user.label"
+			bold="true" />
 		<field type="text"
 			variable="regards.config.admin.regards.accounts.root.user.login">
 			<spec id="email.label" size="15"
@@ -312,52 +315,44 @@
 		<field type="space" />
 		<field type="divider" />
 		<field type="space" />
-		<field type="staticText" align="left" id="instance.database.label" bold="true" />
+		<field type="staticText" align="left" id="instance.database.label"
+			bold="true" />
 		<field type="text"
 			variable="regards.config.admin.regards.jpa.instance.datasource.url">
-			<spec
-				id="url.label"
-				size="15" set="${regards.config.admin.regards.jpa.instance.datasource.url}" />
+			<spec id="url.label" size="15"
+				set="${regards.config.admin.regards.jpa.instance.datasource.url}" />
 		</field>
 		<field type="text"
 			variable="regards.config.admin.regards.jpa.instance.datasource.user.name">
-			<spec
-				id="username.label"
-				size="15"
+			<spec id="username.label" size="15"
 				set="${regards.config.admin.regards.jpa.instance.datasource.user.name}" />
 		</field>
 		<field type="password"
 			variable="regards.config.admin.regards.jpa.instance.datasource.password">
 			<spec>
-				<pwd
-					id="password.label"
-					size="15"
+				<pwd id="password.label" size="15"
 					set="${regards.config.admin.regards.jpa.instance.datasource.password}" />
 			</spec>
 		</field>
 		<field type="space" />
 		<field type="divider" />
 		<field type="space" />
-		<field type="staticText" align="left" id="first.project.database.label" bold="true" />
+		<field type="staticText" align="left" id="first.project.database.label"
+			bold="true" />
 		<field type="text"
 			variable="regards.config.admin.regards.jpa.multitenant.tenants.url.1">
-			<spec
-				id="url.label"
-				size="15" set="${regards.config.admin.regards.jpa.multitenant.tenants.url.1}" />
+			<spec id="url.label" size="15"
+				set="${regards.config.admin.regards.jpa.multitenant.tenants.url.1}" />
 		</field>
 		<field type="text"
 			variable="regards.config.admin.regards.jpa.multitenant.tenants.user.name.1">
-			<spec
-				id="username.label"
-				size="15"
+			<spec id="username.label" size="15"
 				set="${regards.config.admin.regards.jpa.multitenant.tenants.user.name.1}" />
 		</field>
 		<field type="password"
 			variable="regards.config.admin.regards.jpa.multitenant.tenants.password.1">
 			<spec>
-				<pwd
-					id="password.label"
-					size="15"
+				<pwd id="password.label" size="15"
 					set="${regards.config.admin.regards.jpa.multitenant.tenants.password.1}" />
 			</spec>
 		</field>
@@ -365,44 +360,39 @@
 
 	<panel id="AccountsPanel">
 		<field id="accounts.panel.title.label" type="title" />
-		<field type="staticText" align="left" id="accounts.panel.accounts.label" bold="true" />
-		<field type="text"
-			variable="regards.accounts.validity.duration">
-			<spec
-				id="accounts.panel.accounts.validity.duration.label"
-				size="3" set="${regards.accounts.validity.duration}" />
+		<field type="staticText" align="left" id="accounts.panel.accounts.label"
+			bold="true" />
+		<field type="text" variable="regards.accounts.validity.duration">
+			<spec id="accounts.panel.accounts.validity.duration.label" size="3"
+				set="${regards.accounts.validity.duration}" />
 		</field>
 		<field type="space" />
 		<field type="divider" />
 		<field type="space" />
-		<field type="staticText" align="left" id="accounts.panel.passwords.label" bold="true" />
-		<field type="text"
-			variable="regards.config.admin.accounts.password.regex">
-			<spec
-				id="accounts.panel.regex.label"
-				size="15" set="${regards.config.admin.accounts.password.regex}" />
+		<field type="staticText" align="left" id="accounts.panel.passwords.label"
+			bold="true" />
+		<field type="text" variable="regards.config.admin.accounts.password.regex">
+			<spec id="accounts.panel.regex.label" size="15"
+				set="${regards.config.admin.accounts.password.regex}" />
 		</field>
-		<field type="text"
-			variable="regards.config.admin.accounts.password.rules">
-			<spec
-				id="accounts.panel.password.rules.label"
-				size="30" set="${regards.config.admin.accounts.password.rules}" />
+		<field type="text" variable="regards.config.admin.accounts.password.rules">
+			<spec id="accounts.panel.password.rules.label" size="30"
+				set="${regards.config.admin.accounts.password.rules}" />
 		</field>
 		<field type="text"
 			variable="regards.config.admin.accounts.password.validity.duration">
-			<spec
-				id="accounts.panel.password.validity.duration.label"
-				size="3" set="${regards.config.admin.accounts.password.validity.duration}" />
+			<spec id="accounts.panel.password.validity.duration.label" size="3"
+				set="${regards.config.admin.accounts.password.validity.duration}" />
 		</field>
 		<field type="space" />
 		<field type="divider" />
 		<field type="space" />
-		<field type="staticText" align="left" id="accounts.panel.connecting.label" bold="true" />
+		<field type="staticText" align="left" id="accounts.panel.connecting.label"
+			bold="true" />
 		<field type="text"
 			variable="regards.config.admin.accounts.failed.authentication.max">
-			<spec
-				id="accounts.panel.failed.authentication.max.label"
-				size="3" set="${regards.config.admin.accounts.failed.authentication.max}" />
+			<spec id="accounts.panel.failed.authentication.max.label" size="3"
+				set="${regards.config.admin.accounts.failed.authentication.max}" />
 		</field>
 	</panel>
 
@@ -429,28 +419,41 @@
 		<field type="space" />
 		<field type="divider" />
 		<field type="space" />
-		<field type="staticText" align="left" id="first.project.database.label" bold="true" />
+		<field type="staticText" align="left" id="first.project.database.label"
+			bold="true" />
 		<field type="text"
 			variable="regards.config.dam.regards.jpa.multitenant.tenants.url.1">
-			<spec
-				id="url.label"
-				size="15" set="${regards.config.dam.regards.jpa.multitenant.tenants.url.1}" />
+			<spec id="url.label" size="15"
+				set="${regards.config.dam.regards.jpa.multitenant.tenants.url.1}" />
 		</field>
 		<field type="text"
 			variable="regards.config.dam.regards.jpa.multitenant.tenants.user.name.1">
-			<spec
-				id="username.label"
-				size="15"
+			<spec id="username.label" size="15"
 				set="${regards.config.dam.regards.jpa.multitenant.tenants.user.name.1}" />
 		</field>
 		<field type="password"
 			variable="regards.config.dam.regards.jpa.multitenant.tenants.password.1">
 			<spec>
-				<pwd
-					id="password.label"
-					size="15"
+				<pwd id="password.label" size="15"
 					set="${regards.config.dam.regards.jpa.multitenant.tenants.password.1}" />
 			</spec>
+		</field>
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+		<field type="staticText" align="left" id="dam.panel.elasticsearch.label"
+			bold="true" />
+		<field type="text" variable="regards.config.elasticsearch.host">
+			<spec id="host.label" size="15"
+				set="${regards.config.elasticsearch.host}" />
+		</field>
+		<field type="text" variable="regards.config.elasticsearch.cluster.name">
+			<spec id="cluster.label" size="15"
+				set="${regards.config.elasticsearch.cluster.name}" />
+		</field>
+		<field type="text" variable="regards.config.elasticsearch.tcp.port">
+			<spec id="port.label" size="15"
+				set="${regards.config.elasticsearch.tcp.port}" />
 		</field>
 	</panel>
 
@@ -499,27 +502,22 @@
 		<field type="space" />
 		<field type="divider" />
 		<field type="space" />
-		<field type="staticText" align="left" id="instance.database.label" bold="true" />
+		<field type="staticText" align="left" id="instance.database.label"
+			bold="true" />
 		<field type="text"
 			variable="regards.config.access.instance.regards.jpa.instance.datasource.url">
-			<spec
-				id="url.label"
-				size="15"
+			<spec id="url.label" size="15"
 				set="${regards.config.access.instance.regards.jpa.instance.datasource.url}" />
 		</field>
 		<field type="text"
 			variable="regards.config.access.instance.regards.jpa.instance.datasource.user.name">
-			<spec
-				id="username.label"
-				size="15"
+			<spec id="username.label" size="15"
 				set="${regards.config.access.instance.regards.jpa.instance.datasource.user.name}" />
 		</field>
 		<field type="password"
 			variable="regards.config.access.instance.regards.jpa.instance.datasource.password">
 			<spec>
-				<pwd
-					id="password.label"
-					size="15"
+				<pwd id="password.label" size="15"
 					set="${regards.config.access.instance.regards.jpa.instance.datasource.password}" />
 			</spec>
 		</field>
@@ -548,27 +546,22 @@
 		<field type="space" />
 		<field type="divider" />
 		<field type="space" />
-		<field type="staticText" align="left" id="first.project.database.label" bold="true" />
+		<field type="staticText" align="left" id="first.project.database.label"
+			bold="true" />
 		<field type="text"
 			variable="regards.config.access.project.regards.jpa.multitenant.tenants.url.1">
-			<spec
-				id="url.label"
-				size="15"
+			<spec id="url.label" size="15"
 				set="${regards.config.access.project.regards.jpa.multitenant.tenants.url.1}" />
 		</field>
 		<field type="text"
 			variable="regards.config.access.project.regards.jpa.multitenant.tenants.user.name.1">
-			<spec
-				id="username.label"
-				size="15"
+			<spec id="username.label" size="15"
 				set="${regards.config.access.project.regards.jpa.multitenant.tenants.user.name.1}" />
 		</field>
 		<field type="password"
 			variable="regards.config.access.project.regards.jpa.multitenant.tenants.password.1">
 			<spec>
-				<pwd
-					id="password.label"
-					size="15"
+				<pwd id="password.label" size="15"
 					set="${regards.config.access.project.regards.jpa.multitenant.tenants.password.1}" />
 			</spec>
 		</field>
@@ -595,15 +588,19 @@
 				</col>
 			</spec>
 		</field>
-		<field type="space" conditionid="!mustInstallGateway"/>
-		<field type="divider" conditionid="!mustInstallGateway"/>
-		<field type="space" conditionid="!mustInstallGateway"/>
-		<field type="staticText" align="left" id="frontend.panel.gateway.label" bold="true" conditionid="!mustInstallGateway"/>
-		<field type="text" variable="regards.config.cloud.gateway.uri" conditionid="!mustInstallGateway">
+		<field type="space" conditionid="!mustInstallGateway" />
+		<field type="divider" conditionid="!mustInstallGateway" />
+		<field type="space" conditionid="!mustInstallGateway" />
+		<field type="staticText" align="left" id="frontend.panel.gateway.label"
+			bold="true" conditionid="!mustInstallGateway" />
+		<field type="text" variable="regards.config.cloud.gateway.uri"
+			conditionid="!mustInstallGateway">
 			<spec id="host.label" size="15" set="${regards.config.cloud.gateway.uri}" />
 		</field>
-		<field type="text" variable="regards.config.cloud.gateway.port" conditionid="!mustInstallGateway">
-			<spec id="port.label" size="15" set="${regards.config.cloud.gateway.port}" />
+		<field type="text" variable="regards.config.cloud.gateway.port"
+			conditionid="!mustInstallGateway">
+			<spec id="port.label" size="15"
+				set="${regards.config.cloud.gateway.port}" />
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 				id="validator.port.error.label" />

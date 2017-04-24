@@ -13,8 +13,9 @@
 	<str id="email.label" txt="Email:" />
 	<str id="instance.database.label" txt="Base de données transverse" />
 	<str id="first.project.database.label" txt="Base de données du premier projet" />
-    <str id="UserInputPanel.custom.swing.buttonlabel.add" txt="Ajouter"/>
-    <str id="UserInputPanel.custom.swing.buttonlabel.remove" txt="Retirer"/>
+	<str id="UserInputPanel.custom.swing.buttonlabel.add" txt="Ajouter" />
+	<str id="UserInputPanel.custom.swing.buttonlabel.remove" txt="Retirer" />
+	<str id="cluster.label" txt="Cluster" />
 
 	<!-- SelectInstallationTypePanel -->
 	<str id="selectinstallationtype.panel.title.label" txt="Comment voulez-vous installer REGARDS?" />
@@ -49,7 +50,8 @@
 	<str id="configsecuritylevel.panel.exec.group.label" txt="Groupe Exec" />
 	<str id="configsecuritylevel.panel.exec.group.tooltip" txt="Sert à protéger l'accès aux binaires d'exécution" />
 	<str id="configsecuritylevel.panel.admin.group.label" txt="Groupe Admin" />
-	<str id="configsecuritylevel.panel.admin.group.tooltip" txt="Sert à retreindre l'accès aux fonctionnalités d'administration" />
+	<str id="configsecuritylevel.panel.admin.group.tooltip"
+		txt="Sert à retreindre l'accès aux fonctionnalités d'administration" />
 	<str id="configsecuritylevel.panel.runtime.group.label" txt="Groupe Runtime" />
 	<str id="configsecuritylevel.panel.runtime.group.tooltip"
 		txt="Permet de partager les fichier entre les profils exec et admin" />
@@ -87,7 +89,7 @@
 
 	<!-- GatewayPanel -->
 	<str id="gateway.panel.title.label" txt="Microservice Gateway" />
-	
+
 	<!-- AuthenticationPanel -->
 	<str id="authentication.panel.title.label" txt="Microservice Authentication" />
 
@@ -108,7 +110,8 @@
 
 	<!-- DamPanel -->
 	<str id="dam.panel.title.label" txt="Microservice Data Management" />
-
+	<str id="dam.panel.elasticsearch.label" txt="Elasticsearch" />
+	
 	<!-- CatalogPanel -->
 	<str id="catalog.panel.title.label" txt="Microservice Catalog" />
 
@@ -120,6 +123,7 @@
 
 	<!-- Validators -->
 	<str id="validator.host.error.label" txt="Le host est invalide" />
-	<str id="validator.port.error.label" txt="Le port est invalide ou bien déjà utilisé par un autre application" />
+	<str id="validator.port.error.label"
+		txt="Le port est invalide ou bien déjà utilisé par un autre application" />
 
 </izpack:langpack>
