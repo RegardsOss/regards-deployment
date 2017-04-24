@@ -134,8 +134,8 @@
 
 	<panel id="ProjectPanel">
 		<field id="project.panel.title.label" type="title" />
-		<field type="text" variable="project" size="35">
-			<spec size="15" id="project.panel.project.label" set="Default" />
+		<field type="text" variable="regards.config.first.project" size="35">
+			<spec size="15" id="project.panel.project.label" set="project1" />
 		</field>
 	</panel>
 

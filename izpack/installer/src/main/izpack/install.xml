@@ -78,7 +78,7 @@
 			value="rsrun" />
 
 		<!-- Common -->
-		<variable name="project" value="Default" />
+		<variable name="regards.config.first.project" value="project1" />
 
 		<!-- Config -->
 		<variable name="config.count" value="0" /> <!-- TODO: Don't think we can have multiple -->
