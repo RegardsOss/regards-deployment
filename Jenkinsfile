@@ -17,7 +17,6 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo 'Building..'
                 sh 'mvn -U -P delivery clean package org.jacoco:jacoco-maven-plugin:0.7.7.201606060606:prepare-agent sonar:sonar -fae -Dsonar.jacoco.reportPath=${WORKSPACE}/jacoco-ut.exec -Dsonar.jacoco.itReportPath=${WORKSPACE}/jacoco-it.exec' 
             }
             post {
@@ -26,14 +25,22 @@ pipeline {
                 }
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
         stage('Install') {
             steps {
-                echo 'Install..'
+                echo 'Restoring the VM to SNPASHOT'
+                /**
+                 * Retour au SNAPSHOT
+				 * Les VM-Cli ne marchent pas sur centos 7 (pb perl ou ?). Tant que ce n'est pas résolu,
+				 * utilisation de la VM-IC SAG comme passerelle
+				 */
+				ssh jenkins@172.26.46.49 "/opt/vmshell/bin/vmoperation --vmname regard-ic --operation revert"
+				ssh jenkins@172.26.46.49 "/opt/vmshell/bin/vmoperation --vmname regard-ic --ipaddress 172.26.47.95 --operation poweron"
+				ssh -t rsins@172.26.47.95 "set -xe && \
+				mkdir -p LIVRAISON && \
+				cd LIVRAISON && \
+				scp jenkins@172.26.46.158:workspace/rs-deployment/izpack/installer/target/REGARDS-OSS-Installer.jar . && \
+				scp jenkins@172.26.46.158:workspace/rs-deployment/izpack/installer/src/test/resources/auto-install-ic.xml . && \
+				java -jar REGARDS-OSS-Installer.jar auto-install-ic.xml"
             }
         }
         stage('Start') {
