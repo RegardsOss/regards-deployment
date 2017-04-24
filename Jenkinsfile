@@ -40,12 +40,7 @@ pipeline {
         }
         stage('Start') {
             steps {
-                echo 'Starting..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh start"
             }
         }
     }
