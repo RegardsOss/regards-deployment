@@ -90,7 +90,7 @@
 							<outputDirectory>${izpack.staging.dir}/custom</outputDirectory>
 							<excludeTransitive>false</excludeTransitive>
 							<stripVersion>true</stripVersion>
-							<includeArtifactIds>regards-izpack-panels,regards-izpack-utils</includeArtifactIds>
+							<includeArtifactIds>panels,utils</includeArtifactIds>
 							<!-- IMPORTANT: this causes *only* our custom panels to be copied -->
 						</configuration>
 					</execution>
@@ -192,20 +192,20 @@
 			<type>war</type>
 		</dependency>
 		<dependency>
-			<groupId>fr.cnes.regards.deployment</groupId>
-			<artifactId>regards-izpack-panels</artifactId>
-			<version>${regards.izpack.panels.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>fr.cnes.regards.deployment</groupId>
-			<artifactId>regards-izpack-utils</artifactId>
-			<version>${regards.izpack.utils.version}</version>
-		</dependency>
-		<dependency>
 			<groupId>
 				fr.cnes.regards.microservices.authentication
 			</groupId>
 			<artifactId>bootstrap-authentication</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>fr.cnes.regards.deployment</groupId>
+			<artifactId>panels</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.cnes.regards.deployment</groupId>
+			<artifactId>utils</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 

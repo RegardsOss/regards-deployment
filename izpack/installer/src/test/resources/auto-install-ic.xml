@@ -36,10 +36,10 @@
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="ConfigPanel">
 		<entry key="config.count" value="2" />
-		<entry key="regards.config.cloud.config.address.1" value="localhost" />
-		<entry key="regards.config.cloud.config.port.1" value="8888" />
-		<entry key="regards.config.cloud.config.address.2" value="localhost" />
-		<entry key="regards.config.cloud.config.port.2" value="8889" />
+		<entry key="config.host.1" value="localhost" />
+		<entry key="config.port.1" value="8888" />
+		<entry key="config.host.2" value="localhost" />
+		<entry key="config.port.2" value="8889" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="RegistryPanel">

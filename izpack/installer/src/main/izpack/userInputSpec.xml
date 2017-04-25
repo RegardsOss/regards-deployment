@@ -113,15 +113,15 @@
 		<field type="custom" minRow="1" maxRow="1" variable="config.count">
 			<spec>
 				<col>
-					<field type="text" variable="regards.config.cloud.config.address">
+					<field type="text" variable="config.host">
 						<spec id="host.label" size="15"
-							set="${regards.config.cloud.config.address}" />
+							set="${config.host}" />
 					</field>
 				</col>
 				<col>
-					<field type="text" variable="regards.config.cloud.config.port">
+					<field type="text" variable="config.port">
 						<spec id="port.label" size="15"
-							set="${regards.config.cloud.config.port}" />
+							set="${config.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
@@ -144,15 +144,15 @@
 		<field type="custom" minRow="1" maxRow="1" variable="config.count">
 			<spec>
 				<col>
-					<field type="text" variable="regards.config.cloud.config.address">
+					<field type="text" variable="config.host">
 						<spec id="host.label" size="15"
-							set="${regards.config.cloud.config.address}" />
+							set="${config.host}" />
 					</field>
 				</col>
 				<col>
-					<field type="text" variable="regards.config.cloud.config.port">
+					<field type="text" variable="config.port">
 						<spec id="port.label" size="15"
-							set="${regards.config.cloud.config.port}" />
+							set="${config.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">

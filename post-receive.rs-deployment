@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# tells jenkins to build any job that would poll https://thor.si.c-s.fr/git/rs-deployment
+curl -XGET http://172.26.46.158:8080/git/notifyCommit?url=https://thor.si.c-s.fr/git/rs-deployment
