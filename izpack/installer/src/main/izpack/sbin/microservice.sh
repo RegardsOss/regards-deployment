@@ -76,6 +76,7 @@ case  "${COMMAND}" in
     ;;
   status)
     su "${EXEC_REGARDS_USER}" -s /bin/bash -c "\"${ROOT_DIR}\"/bin/status_microservice.sh -t \"${MICROSERVICE_TYPE}\""
+    exit $? 
     ;;
   stop)
     su "${EXEC_REGARDS_USER}" -s /bin/bash -c "\"${ROOT_DIR}\"/bin/stop_microservice.sh -t \"${MICROSERVICE_TYPE}\""

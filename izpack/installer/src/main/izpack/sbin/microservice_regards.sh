@@ -76,6 +76,7 @@ then
   if [ -e "${ROOT_DIR}/sbin/microservice_${MICROSERVICE_TYPE}.sh" ]
   then
     "${ROOT_DIR}"/sbin/microservice.sh -t "${MICROSERVICE_TYPE}" "$@"
+    exit $?
   fi
 # If no type was passed, perform the command on all components
 else

@@ -70,19 +70,24 @@ cd "${ROOT_DIR}"
 typeset pid pid_file lib_exec_java
 lib_exec_java=$(get_lib_exec_java "${ROOT_DIR}/bootstrap-${MICROSERVICE_TYPE}")
 
-printf "${microservices_infos}\n" | while read line
-do
-  typeset -A microservices_infos_t
-  microservices_infos_t[id]=$(extract_field "${line}" "id")
+printf "${microservices_infos}\n" | \
+{
+  all_instances_running=0
+  while read line
+  do
+    typeset -A microservices_infos_t
+    microservices_infos_t[id]=$(extract_field "${line}" "id")
 
-  pid_file="$(get_pid_file_name "${ROOT_DIR}" "${MICROSERVICE_TYPE}" "${microservices_infos_t[id]}")"
+    pid_file="$(get_pid_file_name "${ROOT_DIR}" "${MICROSERVICE_TYPE}" "${microservices_infos_t[id]}")"
 
-  # Check if microservice is already started
-  if ! is_microservice_running "${pid_file}" "${lib_exec_java}" "${MICROSERVICE_TYPE}" "${microservices_infos_t[id]}"
-  then
-    printf >&2 "Microservice \"${MICROSERVICE_TYPE}\" type id \"${microservices_infos_t[id]}\" is not running.\n"
-  fi
-done
+    # Check if microservice is already started
+    if ! is_microservice_running "${pid_file}" "${lib_exec_java}" "${MICROSERVICE_TYPE}" "${microservices_infos_t[id]}"
+    then
+      printf >&2 "Microservice \"${MICROSERVICE_TYPE}\" type id \"${microservices_infos_t[id]}\" is not running.\n"
+      let all_instances_running=-1
+    fi
+  done
+  exit ${all_instances_running}
+} # encapsulation of the while loop in "{}" allows to perfom exit after while has finished with value of all_instances_running
 
 exit 0
-
