@@ -5,8 +5,9 @@
  */
 
 /**
- * Declaratve Jenkinsfile. The language is Groovy
- * Contains the definition of a Jenkins Pipeline and is checked into source control.
+ * Declaratve Jenkinsfile. The language is Groovy.
+ * Contains the definition of a Jenkins Pipeline, is checked into source control
+ * and is expected to be the single source of truth.
  *
  * @author Xavier-Alexandre Brochard
  * @see https://jenkins.io/doc/book/pipeline/jenkinsfile/
@@ -50,7 +51,7 @@ pipeline {
         sh 'ssh jenkins@172.26.46.49 "/opt/vmshell/bin/vmoperation --vmname regard-ic --ipaddress 172.26.47.95 --operation poweron"'
         // Deploy installer to a LIVRAISON folder
         sh 'ssh -t rsins@172.26.47.95 "mkdir -p LIVRAISON"'
-        sh 'scp izpack/installer/src/target/REGARDS-OSS-Installer.jar rsins@172.26.47.95:LIVRAISON'
+        sh 'scp izpack/installer/target/REGARDS-OSS-Installer.jar rsins@172.26.47.95:LIVRAISON'
         sh 'scp izpack/installer/src/test/resources/auto-install-ic.xml rsins@172.26.47.95:LIVRAISON'
       }
     }
