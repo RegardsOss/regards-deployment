@@ -35,6 +35,11 @@ pipeline {
         // -U : force maven to update snapshots each time (default : once an hour, makes no sense in CI).
         sh 'mvn -V -U -P delivery clean package org.jacoco:jacoco-maven-plugin:0.7.7.201606060606:prepare-agent sonar:sonar -fae -Dsonar.jacoco.reportPath=${WORKSPACE}/jacoco-ut.exec -Dsonar.jacoco.itReportPath=${WORKSPACE}/jacoco-it.exec'
       }
+      post {
+        success {
+          junit '**/target/surefire-reports/*.xml, **/target/failsafe-reports/*.xml'
+        }
+      }
     }
     stage('Deploy') {
       steps {
