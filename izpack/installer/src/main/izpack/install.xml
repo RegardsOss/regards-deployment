@@ -61,8 +61,8 @@
 		<res id="userInputLang.xml_fra" src="i18n/userInputLang.xml_fra" />
 	</resources>
 
-	<jar src="custom/regards-izpack-panels.jar" stage="install" />
-	<jar src="custom/regards-izpack-utils.jar" stage="install" />
+	<jar src="custom/panels.jar" stage="install" />
+	<jar src="custom/utils.jar" stage="install" />
 
 	<dynamicvariables>
 		<!-- Security -->
@@ -82,8 +82,8 @@
 
 		<!-- Config -->
 		<variable name="config.count" value="0" /> <!-- TODO: Don't think we can have multiple -->
-		<variable name="regards.config.cloud.config.address" value="localhost" />
-		<variable name="regards.config.cloud.config.port" value="8888" />
+		<variable name="config.host" value="localhost" />
+		<variable name="config.port" value="8888" />
 
 		<!-- Registry -->
 		<variable name="registry.count" value="0" />
@@ -338,7 +338,10 @@
 		<panel classname="UserInputPanel" id="LinkToExistingConfigPanel"
 			condition="atLeastOneMiscroserviceSelected" />
 		<panel classname="UserInputPanel" id="ProjectPanel" condition="fullInstallation" />
-		<panel classname="UserInputPanel" id="ConfigPanel" condition="fullInstallation" />
+		<panel classname="UserInputPanel" id="ConfigPanel" condition="fullInstallation">
+			<validator
+				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorConfigPanel" />
+		</panel>
 		<panel classname="UserInputPanel" id="RegistryPanel" condition="mustInstallRegistry">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorRegistryPanel" />
@@ -401,10 +404,10 @@
 				override="true">
 				<include name="*" />
 			</fileset>
-			<fileset dir="sbin/" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true">
-				<include name="*" />
-			</fileset>
+			<file src="sbin/microservice.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true" />
+			<file src="sbin/microservice_regards.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true" />
 			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS/lib"
 				override="true">
 				<include name="*" />
@@ -429,10 +432,8 @@
 				override="true">
 				<include name="bootstrap-frontend.*ar" />
 			</fileset>
-			<fileset dir="sbin/frontend/" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true">
-				<include name="*" />
-			</fileset>
+			<file src="sbin/microservice_frontend.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true" />
 			<fileset dir="config/static" targetdir="${regards.frontend.www.path}"
 				override="true">
 				<include name="**/*" />
@@ -458,22 +459,40 @@
 			</executable>
 		</pack>
 
-		<pack name="conf" required="false" preselected="true" hidden="true"
+		<pack name="config" required="false" preselected="true" hidden="true"
 			condition="fullInstallation">
 			<description>Microservice providing configuration to any other microservice</description>
-			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> 
-				<include name="bootstrap-config.jar" /> </fileset> <fileset dir="sbin/conf/" 
-				targetdir="$INSTALL_PATH/REGARDS/sbin" override="true"> <include name="*" 
-				/> </fileset> <fileset dir="config/BOOT-INF/classes/regards" targetdir="$INSTALL_PATH/REGARDS/config/regards" 
-				override="true"> <include name="*" /> </fileset> <parsable type="javaprop"> 
-				<fileset targetdir="$INSTALL_PATH/REGARDS/config/regards"> <include name="*.properties" 
-				/> </fileset> </parsable> <executable type="bin" stage="never" keep="true"> 
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" /> </executable> 
-				<executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy" 
-				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
-				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
-				/> <arg value="conf" /> <arg value="-c" /> <arg value="${microservice.conf.microserviceList}" 
-				/> </args> </executable> -->
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+				override="true">
+				<include name="bootstrap-config.jar" />
+			</fileset>
+			<file src="sbin/microservice_config.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true" />
+			<fileset dir="config/BOOT-INF/classes/regards" targetdir="$INSTALL_PATH/REGARDS/config/regards"
+				override="true">
+				<include name="*" />
+			</fileset>
+			<parsable type="javaprop">
+				<fileset targetdir="$INSTALL_PATH/REGARDS/config/regards">
+					<include name="*.properties" />
+				</fileset>
+			</parsable>
+			<executable type="bin" stage="never" keep="true">
+				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
+			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="config" />
+					<arg value="-c" />
+					<arg value="${config.instanceList}" />
+				</args>
+			</executable>
 		</pack>
 
 		<pack name="registry" required="false" preselected="true">
@@ -482,10 +501,8 @@
 				override="true">
 				<include name="bootstrap-registry.jar" />
 			</fileset>
-			<fileset dir="sbin/registry" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true">
-				<include name="*" />
-			</fileset>
+			<file src="sbin/microservice_registry.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true" />
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
@@ -510,10 +527,8 @@
 				override="true">
 				<include name="bootstrap-gateway.jar" />
 			</fileset>
-			<fileset dir="sbin/gateway" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true">
-				<include name="*" />
-			</fileset>
+			<file src="sbin/microservice_gateway.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true" />
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
@@ -538,10 +553,8 @@
 				override="true">
 				<include name="bootstrap-authentication.jar" />
 			</fileset>
-			<fileset dir="sbin/authentication" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true">
-				<include name="*" />
-			</fileset>
+			<file src="sbin/microservice_authentication.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true" />
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
@@ -566,10 +579,8 @@
 				override="true">
 				<include name="bootstrap-administration.jar" />
 			</fileset>
-			<fileset dir="sbin/admin" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true">
-				<include name="*" />
-			</fileset>
+			<file src="sbin/microservice_admin.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true" />
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
@@ -594,10 +605,8 @@
 				override="true">
 				<include name="bootstrap-dam.jar" />
 			</fileset>
-			<fileset dir="sbin/dam" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true">
-				<include name="*" />
-			</fileset>
+			<file src="sbin/microservice_dam.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true" />
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
@@ -622,10 +631,8 @@
 				override="true">
 				<include name="bootstrap-catalog.jar" />
 			</fileset>
-			<fileset dir="sbin/catalog" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true">
-				<include name="*" />
-			</fileset>
+			<file src="sbin/microservice_catalog.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true" />
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
@@ -651,10 +658,10 @@
 				<include name="bootstrap-access-instance.jar" />
 				<include name="bootstrap-access-project.jar" />
 			</fileset>
-			<fileset dir="sbin/access" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true">
-				<include name="*" />
-			</fileset>
+			<file src="sbin/microservice_access-instance.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true" />
+			<file src="sbin/microservice_access-project.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true" />
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>

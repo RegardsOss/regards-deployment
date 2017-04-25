@@ -53,6 +53,6 @@ then
   usage ${PROCESSUS_NAME}
 fi
 
-exec "${ROOT_DIR}"/sbin/microservice.sh -t conf "$@"
+exec "${ROOT_DIR}"/sbin/microservice.sh -t config "$@"
 
 exit 0

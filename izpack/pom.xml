@@ -22,8 +22,8 @@
 	</properties>
 
 	<modules>
-		<module>installer</module>
 		<module>panels</module>
 		<module>utils</module>
+		<module>installer</module>
 	</modules>
 </project>

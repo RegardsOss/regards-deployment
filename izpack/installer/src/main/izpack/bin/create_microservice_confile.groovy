@@ -25,7 +25,7 @@ if (options.h) {
 // Parse options 
 String regardsInstallDir = options.i;
 String xmlConfig = options.c;
-String microserviceType = options.t;
+String componentType = options.t;
 
 import java.nio.file.Paths;
 import java.nio.file.Path;
@@ -35,13 +35,13 @@ urlLoader.addURL((Paths.get(regardsInstallDir, "lib/regards-izpack-utils.jar").t
 println "ClassLoader :"
 urlLoader.URLs.each{ println it }
 
-println "Creation of Registry microservice configuration file"
+println "Creation of " + componentType + " configuration file"
 
 // Print Config input
 println "Xml input configuration : " + xmlConfig;
 
-// Microservice Registry Configuration file
-Path registryFilePath = Paths.get(regardsInstallDir, "config/" + microserviceType + "_config.xml");
-Class.forName("fr.cnes.regards.deployment.izpack.utils.ComponentConfigListAccessor", true, urlLoader).writeToFile(xmlConfig, registryFilePath);
+// Component configuration file
+Path componentFilePath = Paths.get(regardsInstallDir, "config/" + componentType + "_config.xml");
+Class.forName("fr.cnes.regards.deployment.izpack.utils.ComponentConfigListAccessor", true, urlLoader).writeToFile(xmlConfig, componentFilePath);
 
 System.exit(0);
