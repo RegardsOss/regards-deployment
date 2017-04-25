@@ -71,11 +71,12 @@ service_type_list="frontend access-project access-instance catalog dam gateway a
 esac
 
 # If the microservice type was passed as argument
-if [ -z "${MICROSERVICE_TYPE}" ]
+if [ ! -z "${MICROSERVICE_TYPE}" ]
 then
-  if [ -e "${ROOT_DIR}/sbin/microservice_${service_type}.sh" ]
+  if [ -e "${ROOT_DIR}/sbin/microservice_${MICROSERVICE_TYPE}.sh" ]
   then
-    "${ROOT_DIR}"/sbin/microservice.sh -t "${service_type}" "$@"
+    "${ROOT_DIR}"/sbin/microservice.sh -t "${MICROSERVICE_TYPE}" "$@"
+  fi
 # If no type was passed, perform the command on all components
 else
   typeset service_type
