@@ -35,19 +35,15 @@
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="ConfigPanel">
-		<entry key="config.count" value="2" />
+		<entry key="config.count" value="1" />
 		<entry key="config.host.1" value="localhost" />
 		<entry key="config.port.1" value="8888" />
-		<entry key="config.host.2" value="localhost" />
-		<entry key="config.port.2" value="8889" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="RegistryPanel">
-		<entry key="registry.count" value="2" />
+		<entry key="registry.count" value="1" />
 		<entry key="regards.config.cloud.registry.port.1" value="8761" />
 		<entry key="regards.config.cloud.registry.host.1" value="localhost" />
-		<entry key="regards.config.cloud.registry.port.2" value="8762" />
-		<entry key="regards.config.cloud.registry.host.2" value="localhost" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="GatewayPanel">
@@ -55,9 +51,7 @@
 		<entry key="gateway.host.1" value="localhost" />
 		<entry key="gateway.port.2" value="8001" />
 		<entry key="gateway.host.2" value="localhost" />
-		<entry key="gateway.port.3" value="8002" />
-		<entry key="gateway.host.3" value="localhost" />
-		<entry key="gateway.count" value="3" />
+		<entry key="gateway.count" value="2" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="AuthenticationPanel">
@@ -119,13 +113,11 @@
 			value="localhost:5432/rs_dam_tenant0" />
 		<entry key="regards.config.dam.regards.jpa.multitenant.tenants.password.1"
 			value="" />
-		<entry key="dam.count" value="3" />
+		<entry key="dam.count" value="2" />
 		<entry key="dam.host.1" value="localhost" />
 		<entry key="dam.port.1" value="8080" />
 		<entry key="dam.host.2" value="localhost" />
 		<entry key="dam.port.2" value="8081" />
-		<entry key="dam.host.3" value="localhost" />
-		<entry key="dam.port.3" value="8082" />
 		<entry
 			key="regards.config.dam.regards.jpa.multitenant.tenants.user.name.1"
 			value="rs_dam_tenant0_user" />

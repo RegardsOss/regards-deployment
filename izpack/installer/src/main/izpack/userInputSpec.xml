@@ -165,7 +165,7 @@
 
 	<panel id="RegistryPanel">
 		<field id="registry.panel.title.label" type="title" />
-		<field type="custom" minRow="1" maxRow="50" variable="registry.count">
+		<field type="custom" minRow="1" maxRow="1" variable="registry.count">
 			<spec>
 				<col>
 					<field type="text" variable="regards.config.cloud.registry.host">
