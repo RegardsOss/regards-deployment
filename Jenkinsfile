@@ -57,20 +57,18 @@ pipeline {
     }
     stage('Start') {
       steps {
-        parallel(
-          one: {
-            echo "I'm on the first branch!"
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh start"'
-          },
-          two: {
-            echo "I'm on the second branch!"
-          },
-          three: {
-            echo "I'm on the third branch!"
-            echo "But you probably guessed that already."
-          })
+        parallel(one: {
+          echo "I'm on the first branch!"
+          sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh start"'
+         },
+         two: {
+           echo "I'm on the second branch!"
+         },
+         three: {
+           echo "I'm on the third branch!"
+           echo "But you probably guessed that already."
+         })
         }
       }
     }
   }
-}
