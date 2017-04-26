@@ -27,7 +27,7 @@
 	<str id="selectsecuritylevel.panel.normal.label" txt="Standard" />
 	<str id="selectsecuritylevel.panel.enforce.label" txt="Renforcée" />
 	<str id="selectsecuritylevel.panel.enforce.description.1.label"
-		txt="Si vous choisissez Renforcée, vous devez respecter les prérequis système suivants:" />
+		txt="Si vous choisissez Renforcée, les système doit respecter les prérequis suivants:" />
 	<str id="selectsecuritylevel.panel.enforce.description.2.label"
 		txt="	* L'utilisateur actuel doit faire partie des groupes REGARDS, EXEC, ADMIN et RUNTIME" />
 	<str id="selectsecuritylevel.panel.enforce.description.3.label"
