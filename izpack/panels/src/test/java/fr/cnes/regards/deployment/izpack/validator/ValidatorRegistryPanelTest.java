@@ -14,9 +14,7 @@ import com.izforge.izpack.util.Platform;
 import com.izforge.izpack.util.Platform.Name;
 
 /**
- * Class ValidatorRegistryPanelTest
- *
- * Test class for ValidatorRegistryPanel.
+ * Test class for {@link ValidatorRegistryPanel}.
  *
  * @author Guillaume Barthe de Montmejan
  * @author Xavier-Alexandre Brochard
@@ -26,12 +24,19 @@ public class ValidatorRegistryPanelTest {
 
     @Test
     public void testValidateData() {
+        // @formatter:off
         final String EXPECTED_VALUE = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-                + "<componentConfigList>\n" + "    <componentConfig id=\"0\">\n" + "        <host>localhost</host>\n"
-                + "        <port>3456</port>\n" + "    </componentConfig>\n" + "    <componentConfig id=\"1\">\n"
-                + "        <host>127.0.0.1</host>\n" + "        <port>3457</port>\n" + "    </componentConfig>\n"
+                + "<componentConfigList>\n"
+                + "    <componentConfig id=\"0\">\n"
+                + "        <host>localhost</host>\n"
+                + "        <port>3456</port>\n"
+                + "    </componentConfig>\n"
+                + "    <componentConfig id=\"1\">\n"
+                + "        <host>127.0.0.1</host>\n"
+                + "        <port>3457</port>\n"
+                + "    </componentConfig>\n"
                 + "</componentConfigList>\n";
-
+        // @formatter:on
         Variables variables = new DefaultVariables();
         Platform platform = new Platform(Name.LINUX, System.getProperty("os.version"));
         final String MICROSERVICE_IDENTIFIER = "regards.config.cloud.registry";

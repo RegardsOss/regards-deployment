@@ -61,8 +61,7 @@ public abstract class ValidatorInstanceList implements DataValidator {
         }
         // Set result in a new variable
         // Careful, if you use an existing one, it's doesn't work.
-        installData.setVariable(microserviceListName,
-                                ComponentConfigListAccessor.writeToString(componentConfigList));
+        installData.setVariable(microserviceListName, ComponentConfigListAccessor.writeToString(componentConfigList));
 
         return Status.OK;
     }

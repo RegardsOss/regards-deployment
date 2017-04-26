@@ -382,6 +382,7 @@
 		<panel classname="UserInputPanel" id="FrontendPanel" condition="mustInstallFrontend">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorFrontendPanel" />
+				
 		</panel>
 		<panel classname="SummaryPanel" />
 		<panel classname="InstallPanel" />
