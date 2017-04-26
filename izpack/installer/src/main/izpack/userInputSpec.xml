@@ -24,8 +24,6 @@
 			id="selectsecuritylevel.panel.enforce.description.3.label" bold="false" />
 		<field type="staticText" align="left"
 			id="selectsecuritylevel.panel.enforce.description.4.label" bold="false" />
-		<field type="staticText" align="left"
-			id="selectsecuritylevel.panel.enforce.description.5.label" bold="false" />
 	</panel>
 
 	<panel id="ConfigSecurityPanel">

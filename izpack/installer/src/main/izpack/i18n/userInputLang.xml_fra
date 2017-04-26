@@ -23,19 +23,17 @@
 	<str id="selectinstallationtype.panel.radio.add.label" txt="Ajouter des composants à une installation existante" />
 
 	<!-- SelectSecurityLevelPanel -->
-	<str id="selectsecuritylevel.panel.title.label" txt="Quels droits système voulez-vous utiliser?" />
-	<str id="selectsecuritylevel.panel.normal.label" txt="Standards" />
-	<str id="selectsecuritylevel.panel.enforce.label" txt="Personnalisés" />
+	<str id="selectsecuritylevel.panel.title.label" txt="Quelle sécurité système voulez-vous utiliser?" />
+	<str id="selectsecuritylevel.panel.normal.label" txt="Standard" />
+	<str id="selectsecuritylevel.panel.enforce.label" txt="Renforcée" />
 	<str id="selectsecuritylevel.panel.enforce.description.1.label"
-		txt="Si vous choisissez Personnalisé, les prérequis système suivants doivent être respectés:" />
+		txt="Si vous choisissez Renforcée, vous devez respecter les prérequis système suivants:" />
 	<str id="selectsecuritylevel.panel.enforce.description.2.label"
 		txt="	* L'utilisateur actuel doit faire partie des groupes REGARDS, EXEC, ADMIN et RUNTIME" />
 	<str id="selectsecuritylevel.panel.enforce.description.3.label"
-		txt="	* L'utilisateur qui lancera les microservices doit faire partie des groupes REGARDS, EXEC et RUNTIME" />
+		txt="	* L'utilisateur EXEC qui lancera les microservices doit exister et faire partie des groupes REGARDS, EXEC et RUNTIME" />
 	<str id="selectsecuritylevel.panel.enforce.description.4.label"
 		txt="	* L'administrateur devra faire partie des groupes REGARDS, ADMIN et RUNTIME" />
-	<str id="selectsecuritylevel.panel.enforce.description.5.label"
-		txt="	* Un utilisateur EXEC devra être créé pour lancer les microservices" />
 
 	<!-- ProjectPanel -->
 	<str id="project.panel.title.label" txt="Quel est le premier projet à ajouter?" />

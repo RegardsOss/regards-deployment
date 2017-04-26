@@ -21,19 +21,17 @@
 	<str id="selectinstallationtype.panel.radio.add.label" txt="Add components to an existing installation" />
 
 	<!-- SelectSecurityLevelPanel -->
-	<str id="selectsecuritylevel.panel.title.label" txt="Select REGARDS security level" />
+	<str id="selectsecuritylevel.panel.title.label" txt="What system security do you want to use?" />
 	<str id="selectsecuritylevel.panel.normal.label" txt="Normal" />
-	<str id="selectsecuritylevel.panel.enforce.label" txt="Enforce" />
+	<str id="selectsecuritylevel.panel.enforce.label" txt="Enhanced" />
 	<str id="selectsecuritylevel.panel.enforce.description.1.label"
-		txt="If you choose Enforce Level, some requirements must be respected (values will could be customized by next panels) :" />
+		txt="In Enhanced Level, the system must comply with following requirements:" />
 	<str id="selectsecuritylevel.panel.enforce.description.2.label"
 		txt="	* The current user must be in groups REGARDS, EXEC, ADMIN and RUNTIME" />
 	<str id="selectsecuritylevel.panel.enforce.description.3.label"
-		txt="	* Groups REGARDS, EXEC, RUNTIME must be owned by the exec user (used to run microservices)." />
+		txt="	* EXEC user, used to run components, must exist and have groups REGARDS, EXEC and RUNTIME" />
 	<str id="selectsecuritylevel.panel.enforce.description.4.label"
-		txt="	* Groups REGARDS, ADMIN and RUNTIME must be owned by the admin user (used to administrate)." />
-	<str id="selectsecuritylevel.panel.enforce.description.5.label"
-		txt="	* User EXEC will have to exist to run microservices." />
+		txt="	* The admin user must have groups REGARDS, ADMIN and RUNTIME" />
 
 	<!-- ProjectPanel -->
 	<str id="project.panel.title.label" txt="What is the first project to add to REGARDS?" />
@@ -44,9 +42,9 @@
 	<str id="configsecuritylevel.panel.exec.user.label" txt="Exec user" />
 	<str id="configsecuritylevel.panel.exec.user.tooltip" txt="User used to run microservices" />
 	<str id="configsecuritylevel.panel.regards.group.label" txt="Regards group" />
-	<str id="configsecuritylevel.panel.regards.group.tooltip" txt="Group used to protected access to regards componant" />
+	<str id="configsecuritylevel.panel.regards.group.tooltip" txt="Group used to protect access to regards componant" />
 	<str id="configsecuritylevel.panel.exec.group.label" txt="Exec group" />
-	<str id="configsecuritylevel.panel.exec.group.tooltip" txt="Group used to protected access to exec binaries" />
+	<str id="configsecuritylevel.panel.exec.group.tooltip" txt="Group used to protect access to exec binaries" />
 	<str id="configsecuritylevel.panel.admin.group.label" txt="Admin group" />
 	<str id="configsecuritylevel.panel.admin.group.tooltip" txt="Group used to restrict access to admin functionalities" />
 	<str id="configsecuritylevel.panel.runtime.group.label" txt="Runtime group" />
