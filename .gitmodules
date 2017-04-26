@@ -1,0 +1,3 @@
+[submodule "izpack/installer/src/main/izpack/lib/wait-for-it"]
+	path = izpack/installer/src/main/izpack/lib/wait-for-it
+	url = https://github.com/iturgeon/wait-for-it.git
