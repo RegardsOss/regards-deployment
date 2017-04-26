@@ -75,7 +75,7 @@
 						</goals>
 						<configuration>
 							<outputDirectory>${izpack.staging.dir}/utils</outputDirectory>
-							<includeArtifactIds>regards-izpack-utils</includeArtifactIds>
+							<includeArtifactIds>utils</includeArtifactIds>
 						</configuration>
 					</execution>
 					<execution>

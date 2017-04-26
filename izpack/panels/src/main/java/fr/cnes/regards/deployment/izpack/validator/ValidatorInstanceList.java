@@ -6,7 +6,7 @@ package fr.cnes.regards.deployment.izpack.validator;
 import com.izforge.izpack.api.data.InstallData;
 import com.izforge.izpack.api.installer.DataValidator;
 
-import fr.cnes.regards.deployment.izpack.utils.ComponentConfigListAccessor;
+import fr.cnes.regards.deployment.izpack.utils.XmlAccessor;
 import fr.cnes.regards.deployment.izpack.utils.model.ComponentConfig;
 import fr.cnes.regards.deployment.izpack.utils.model.ComponentConfigList;
 
@@ -61,7 +61,7 @@ public abstract class ValidatorInstanceList implements DataValidator {
         }
         // Set result in a new variable
         // Careful, if you use an existing one, it doesn't work.
-        installData.setVariable(microserviceListName, ComponentConfigListAccessor.writeToString(componentConfigList));
+        installData.setVariable(microserviceListName, XmlAccessor.writeToString(componentConfigList));
 
         return Status.OK;
     }

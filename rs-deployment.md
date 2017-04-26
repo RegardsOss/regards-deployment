@@ -15,4 +15,4 @@ Requirements for development:
 Izpack
 ------
 To run installation with Izpack package, run :
-```java -jar regards-izpack-installer.jar```
+```java -jar installer.jar```

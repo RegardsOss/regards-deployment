@@ -36,13 +36,6 @@ public class ComponentConfig {
     private int port;
 
     /**
-     * waitRuleList field.
-     *
-     * @since 1.0.0
-     */
-    private WaitRuleList waitRuleList = new WaitRuleList();
-
-    /**
      * Get method.
      *
      * @since 1.0.0
@@ -104,30 +97,6 @@ public class ComponentConfig {
     }
 
     /**
-     * @return the waitRules
-     */
-    public WaitRuleList getWaitRuleList() {
-        return waitRuleList;
-    }
-
-    /**
-     * @param pWaitRuleList the waitRules to set
-     */
-    public void setWaitRuleList(WaitRuleList pWaitRuleList) {
-        waitRuleList = pWaitRuleList;
-    }
-
-    /**
-     * Add wait rule
-     * @param pWaitRule
-     * @return
-     * @see java.util.List#add(java.lang.Object)
-     */
-    public void addWaitRule(WaitRule pWaitRule) {
-        waitRuleList.add(pWaitRule);
-    }
-
-    /**
      * Methode surchargee
      *
      * @see java.lang.Object#toString()
@@ -135,7 +104,7 @@ public class ComponentConfig {
      */
     @Override
     public String toString() {
-        return "ComponentConfig [id=" + id + ", host=" + host + ", port=" + port + ", waitRules=" + waitRuleList + "]";
+        return "ComponentConfig [id=" + id + ", host=" + host + ", port=" + port + "]";
     }
 
 }

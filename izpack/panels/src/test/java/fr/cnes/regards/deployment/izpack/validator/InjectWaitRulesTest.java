@@ -20,66 +20,34 @@ import com.izforge.izpack.util.Platform.Name;
  * @author Xavier-Alexandre Brochard
  * @since 1.0.0
  */
-public class ValidatorWaitsTest {
+public class InjectWaitRulesTest {
 
     @Test
     public void testValidateData() {
         // @formatter:off
         final String EXPECTED_VALUE = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-                + "<componentConfigList>\n"
-                + "    <componentConfig id=\"0\">\n"
+                + "<waitRuleList>\n"
+                + "    <waitRule>\n"
                 + "        <host>localhost</host>\n"
-                + "        <port>3456</port>\n"
-                + "        <waitRuleList>\n"
-                + "            <waitRule>\n"
-                + "                <host>localhost</host>\n"
-                + "                <port>1111</port>\n"
-                + "                <timeout>30</timeout>\n"
-                + "            </waitRule>\n"
-                + "            <waitRule>\n"
-                + "                <host>127.0.0.1</host>\n"
-                + "                <port>2222</port>\n"
-                + "                <timeout>30</timeout>\n"
-                + "            </waitRule>\n"
-                + "            <waitRule>\n"
-                + "                <host>localhost</host>\n"
-                + "                <port>3333</port>\n"
-                + "                <timeout>90</timeout>\n"
-                + "            </waitRule>\n"
-                + "            <waitRule>\n"
-                + "                <host>127.0.0.1</host>\n"
-                + "                <port>3333</port>\n"
-                + "                <timeout>90</timeout>\n"
-                + "            </waitRule>\n"
-                + "        </waitRuleList>\n"
-                + "    </componentConfig>\n"
-                + "    <componentConfig id=\"1\">\n"
+                + "        <port>3333</port>\n"
+                + "        <timeout>90</timeout>\n"
+                + "    </waitRule>\n"
+                + "    <waitRule>\n"
                 + "        <host>127.0.0.1</host>\n"
-                + "        <port>3457</port>\n"
-                + "        <waitRuleList>\n"
-                + "            <waitRule>\n"
-                + "                <host>localhost</host>\n"
-                + "                <port>1111</port>\n"
-                + "                <timeout>30</timeout>\n"
-                + "            </waitRule>\n"
-                + "            <waitRule>\n"
-                + "                <host>127.0.0.1</host>\n"
-                + "                <port>2222</port>\n"
-                + "                <timeout>30</timeout>\n"
-                + "            </waitRule>\n"
-                + "            <waitRule>\n"
-                + "                <host>localhost</host>\n"
-                + "                <port>3333</port>\n"
-                + "                <timeout>90</timeout>\n"
-                + "            </waitRule>\n"
-                + "            <waitRule>\n"
-                + "                <host>127.0.0.1</host>\n"
-                + "                <port>3333</port>\n"
-                + "                <timeout>90</timeout>\n"
-                + "            </waitRule>\n"
-                + "        </waitRuleList>\n"
-                + "    </componentConfig>\n"
-                + "</componentConfigList>\n";
+                + "        <port>3333</port>\n"
+                + "        <timeout>90</timeout>\n"
+                + "    </waitRule>\n"
+                + "    <waitRule>\n"
+                + "        <host>localhost</host>\n"
+                + "        <port>1111</port>\n"
+                + "        <timeout>30</timeout>\n"
+                + "    </waitRule>\n"
+                + "    <waitRule>\n"
+                + "        <host>127.0.0.1</host>\n"
+                + "        <port>2222</port>\n"
+                + "        <timeout>30</timeout>\n"
+                + "    </waitRule>\n"
+                + "</waitRuleList>\n";
         // @formatter:on
         Variables variables = new DefaultVariables();
         Platform platform = new Platform(Name.LINUX, System.getProperty("os.version"));
@@ -90,7 +58,8 @@ public class ValidatorWaitsTest {
         final String count = MICROSERVICE_COUNT_IDENTIFIER + ".count";
         final String uriName = MICROSERVICE_IDENTIFIER + ".host";
         final String portName = MICROSERVICE_IDENTIFIER + ".port";
-        final String componentListName = MICROSERVICE_COUNT_IDENTIFIER + ".instanceList";
+        final String componentListName = MICROSERVICE_IDENTIFIER + InjectWaitRules.INSTANCE_LIST_SUFFIX;
+        final String waitRuleListName = MICROSERVICE_IDENTIFIER + InjectWaitRules.WAIT_RULE_LIST_SUFFIX;
 
         InstallData installData = new InstallData(variables, platform);
         variables.set(count, "2");
@@ -139,7 +108,7 @@ public class ValidatorWaitsTest {
         Assert.assertEquals(status, Status.OK);
 
         // Check transformation
-        String valueOfComponentListName = installData.getVariable(componentListName);
+        String valueOfComponentListName = installData.getVariable(waitRuleListName);
         Assert.assertEquals(EXPECTED_VALUE, valueOfComponentListName);
     }
 }

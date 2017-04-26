@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<waitRuleList>
+	<waitRule>
+		<host>localhost</host>
+		<port>1111</port>
+		<timeout>30</timeout>
+	</waitRule>
+	<waitRule>
+		<host>localhost</host>
+		<port>2222</port>
+		<timeout>90</timeout>
+	</waitRule>
+</waitRuleList>

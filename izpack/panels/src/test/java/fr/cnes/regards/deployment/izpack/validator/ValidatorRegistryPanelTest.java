@@ -30,12 +30,10 @@ public class ValidatorRegistryPanelTest {
                 + "    <componentConfig id=\"0\">\n"
                 + "        <host>localhost</host>\n"
                 + "        <port>3456</port>\n"
-                + "        <waitRuleList/>\n"
                 + "    </componentConfig>\n"
                 + "    <componentConfig id=\"1\">\n"
                 + "        <host>127.0.0.1</host>\n"
                 + "        <port>3457</port>\n"
-                + "        <waitRuleList/>\n"
                 + "    </componentConfig>\n"
                 + "</componentConfigList>\n";
         // @formatter:on

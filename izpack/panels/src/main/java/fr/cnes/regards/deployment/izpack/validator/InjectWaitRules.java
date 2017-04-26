@@ -3,16 +3,16 @@
  */
 package fr.cnes.regards.deployment.izpack.validator;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.HashMap;
+import java.util.Map;
 
-import com.google.common.collect.ImmutableTable;
 import com.izforge.izpack.api.data.InstallData;
 import com.izforge.izpack.api.installer.DataValidator;
 
-import fr.cnes.regards.deployment.izpack.utils.ComponentConfigListAccessor;
+import fr.cnes.regards.deployment.izpack.utils.XmlAccessor;
 import fr.cnes.regards.deployment.izpack.utils.model.ComponentConfigList;
 import fr.cnes.regards.deployment.izpack.utils.model.WaitRule;
+import fr.cnes.regards.deployment.izpack.utils.model.WaitRuleList;
 
 /**
  * This class  does not perform validation, but is a way to hack into the Izpack {@link InstallData}<br>
@@ -25,57 +25,81 @@ public class InjectWaitRules implements DataValidator {
     /**
      * Suffix of variables ".instanceList" on the install data
      */
-    private static final String INSTANCE_LIST_SUFFIX = ".instanceList";
+    public static final String INSTANCE_LIST_SUFFIX = ".instanceList";
 
     /**
-     * Logger
+     * Suffix of variables ".waitRuleList" on the install data
      */
-    public static final Logger LOGGER = LoggerFactory.getLogger(InjectWaitRules.class);
+    public static final String WAIT_RULE_LIST_SUFFIX = ".waitRuleList";
 
     /**
-     * Store the wait rules here.
-     * First entry of the table is the current component<br>
-     * Second entry is a component to which the first is supposed to wait before booting<br>
-     * Thrid
+     * Define here which  component needs to wait for which other.
+     * For example:
+     * We want to tell "Componen catalog needs to wait for
+     * - component config with 30s timeout
+     * - and component registry with 90s timeout
+     * to be sarted before starting itself
+     *
+     * We will add an entry like this to the map: 'catalog' => {
+     *                                                          'config' => 30,
+     *                                                          'registry' => 30
+     *                                                         }
      */
-    // @formatter:off
-    private static final ImmutableTable<ComponentType, ComponentType, Integer> WAIT_RULES = new ImmutableTable.Builder<ComponentType, ComponentType, Integer>()
-        .put(ComponentType.REGISTRY, ComponentType.CONFIG, 90)
-        .put(ComponentType.ADMIN, ComponentType.CONFIG, 30)
-        .put(ComponentType.ADMIN, ComponentType.REGISTRY, 90)
-        .put(ComponentType.DAM, ComponentType.CONFIG, 30)
-        .put(ComponentType.DAM, ComponentType.REGISTRY, 90)
-        .put(ComponentType.DAM, ComponentType.ADMIN, 330)
-        .put(ComponentType.CATALOG, ComponentType.CONFIG, 30)
-        .put(ComponentType.CATALOG, ComponentType.REGISTRY, 90)
-        .put(ComponentType.CATALOG, ComponentType.ADMIN, 330)
-        .put(ComponentType.ACCESS_INSTANCE, ComponentType.CONFIG, 30)
-        .put(ComponentType.ACCESS_INSTANCE, ComponentType.REGISTRY, 90)
-        .put(ComponentType.ACCESS_INSTANCE, ComponentType.ADMIN, 330)
-        .put(ComponentType.ACCESS_PROJECT, ComponentType.CONFIG, 30)
-        .put(ComponentType.ACCESS_PROJECT, ComponentType.REGISTRY, 90)
-        .put(ComponentType.ACCESS_PROJECT, ComponentType.ADMIN, 330)
-        .build();
-    // @formatter:on
+    private static final Map<ComponentType, Map<ComponentType, Integer>> WAIT_RULES;
+    static {
+        WAIT_RULES = new HashMap<ComponentType, Map<ComponentType, Integer>>();
+
+        Map<ComponentType, Integer> registryWaitList = new HashMap<>();
+        registryWaitList.put(ComponentType.CONFIG, 90);
+        WAIT_RULES.put(ComponentType.REGISTRY, registryWaitList);
+
+        Map<ComponentType, Integer> adminWaitList = new HashMap<>();
+        adminWaitList.put(ComponentType.CONFIG, 30);
+        adminWaitList.put(ComponentType.REGISTRY, 90);
+        WAIT_RULES.put(ComponentType.ADMIN, adminWaitList);
+
+        Map<ComponentType, Integer> authenticationWaitList = new HashMap<>();
+        authenticationWaitList.put(ComponentType.CONFIG, 30);
+        authenticationWaitList.put(ComponentType.REGISTRY, 90);
+        authenticationWaitList.put(ComponentType.ADMIN, 330);
+        WAIT_RULES.put(ComponentType.AUTHENTICATION, authenticationWaitList);
+
+        Map<ComponentType, Integer> catalogWaitList = new HashMap<>();
+        catalogWaitList.put(ComponentType.CONFIG, 30);
+        catalogWaitList.put(ComponentType.REGISTRY, 90);
+        catalogWaitList.put(ComponentType.ADMIN, 330);
+        WAIT_RULES.put(ComponentType.CATALOG, catalogWaitList);
+
+        Map<ComponentType, Integer> accessInstanceWaitList = new HashMap<>();
+        accessInstanceWaitList.put(ComponentType.CONFIG, 30);
+        accessInstanceWaitList.put(ComponentType.REGISTRY, 90);
+        accessInstanceWaitList.put(ComponentType.ADMIN, 330);
+        WAIT_RULES.put(ComponentType.ACCESS_INSTANCE, accessInstanceWaitList);
+
+        Map<ComponentType, Integer> accessProjectWaitList = new HashMap<>();
+        accessProjectWaitList.put(ComponentType.CONFIG, 30);
+        accessProjectWaitList.put(ComponentType.REGISTRY, 90);
+        accessProjectWaitList.put(ComponentType.ADMIN, 330);
+        WAIT_RULES.put(ComponentType.ACCESS_PROJECT, accessProjectWaitList);
+    }
 
     @Override
     public Status validateData(InstallData installData) {
+        WAIT_RULES.forEach((currentType, waitedMap) -> {
+            String currentTypeAsString = currentType.getType();
+            WaitRuleList waitRuleList = new WaitRuleList();
 
-        WAIT_RULES.cellSet().forEach(cell -> {
-            try {
-                ComponentConfigList currentComponentConfigList = ComponentConfigListAccessor
-                        .readFromString(installData.getVariable(cell.getRowKey().getType() + INSTANCE_LIST_SUFFIX));
-                ComponentConfigList waitedComponentConfigList = ComponentConfigListAccessor
-                        .readFromString(installData.getVariable(cell.getColumnKey().getType() + INSTANCE_LIST_SUFFIX));
+            waitedMap.forEach((waitedType, timeout) -> {
+                String waitedTypeAsString = waitedType.getType();
+                ComponentConfigList waitedComponentConfigList = XmlAccessor
+                        .readFromString(installData.getVariable(waitedTypeAsString + INSTANCE_LIST_SUFFIX),
+                                        ComponentConfigList.class);
+                waitedComponentConfigList.getItems().stream().map(item -> new WaitRule(item, timeout))
+                        .forEach(waitRuleList::add);
+            });
 
-                waitedComponentConfigList.getItems().stream().map(item -> new WaitRule(item, cell.getValue()))
-                        .forEach(currentComponentConfigList::addWaitRule);
-
-                installData.setVariable(cell.getRowKey().getType() + INSTANCE_LIST_SUFFIX,
-                                        ComponentConfigListAccessor.writeToString(currentComponentConfigList));
-            } catch (Exception e) {
-                LOGGER.info("Cell not found, ok, silently failing", e);
-            }
+            installData.setVariable(currentTypeAsString + WAIT_RULE_LIST_SUFFIX,
+                                    XmlAccessor.writeToString(waitRuleList));
         });
 
         return Status.OK;

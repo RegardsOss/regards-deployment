@@ -14,19 +14,19 @@ import org.junit.Test;
 import fr.cnes.regards.deployment.izpack.utils.model.ComponentConfigList;
 
 /**
- * Tests for class ComponentConfigListAccessor.
+ * Tests for class {@link XmlAccessor}
  *
  * @author CS
  * @since 1.0.0
  */
-public class ComponentConfigAccessorTest {
+public class XmlAccessorTest {
 
     @Test
     public void testReadFromStringWriteToFile() {
         Path outputFile = Paths.get("target/componentConfig.xml");
         Path expendedFile = Paths.get("test/context/expected/testReadFromStringWriteToFile.xml");
         // @formatter:off
-        ComponentConfigList componentConfigList = ComponentConfigListAccessor
+        ComponentConfigList componentConfigList = XmlAccessor
                 .readFromString("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
                         + "<componentConfigList>\n"
                         + "    <componentConfig id=\"0\">\n"
@@ -39,9 +39,9 @@ public class ComponentConfigAccessorTest {
                         + "        <port>7777</port>\n"
                         + "       <waitRuleList/>\n"
                         + "    </componentConfig>\n"
-                        + "</componentConfigList>\n");
+                        + "</componentConfigList>\n", ComponentConfigList.class);
         // @formatter:on
-        ComponentConfigListAccessor.writeToFile(componentConfigList, outputFile);
+        XmlAccessor.writeToFile(componentConfigList, outputFile);
         try {
             Assert.assertEquals("The files differ!", FileUtils.readFileToString(outputFile.toFile(), "utf-8"),
                                 FileUtils.readFileToString(expendedFile.toFile(), "utf-8"));
@@ -59,18 +59,16 @@ public class ComponentConfigAccessorTest {
                 + "    <componentConfig id=\"0\">\n"
                 + "        <host>localhost3</host>\n"
                 + "        <port>7778</port>\n"
-                + "        <waitRuleList/>\n"
                 + "    </componentConfig>\n"
                 + "    <componentConfig id=\"1\">\n"
                 + "        <host>localhost4</host>\n"
                 + "        <port>7779</port>\n"
-                + "        <waitRuleList/>\n"
                 + "    </componentConfig>\n"
                 + "</componentConfigList>\n";
         // @formatter:on
 
         // @formatter:off
-        ComponentConfigList componentConfigList = ComponentConfigListAccessor
+        ComponentConfigList componentConfigList = XmlAccessor
                 .readFromString("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
                         + "<componentConfigList>\n"
                         + "    <componentConfig id=\"0\">\n"
@@ -81,19 +79,19 @@ public class ComponentConfigAccessorTest {
                         + "        <host>localhost4</host>\n"
                         + "        <port>7779</port>\n"
                         + "    </componentConfig>\n"
-                        + "</componentConfigList>\n");
+                        + "</componentConfigList>\n", ComponentConfigList.class);
         // @formatter:on
 
-        String pojoString = ComponentConfigListAccessor.writeToString(componentConfigList);
+        String pojoString = XmlAccessor.writeToString(componentConfigList);
         Assert.assertEquals(EXPECTED_VALUE, pojoString);
     }
 
     @Test
     public void testReadFromFile() {
-        final String EXPECTED_VALUE = "ComponentConfig [id=55, host=localhost, port=7776, waitRules=WaitRuleList [items=[WaitRule [host=localhost, port=1111, timeout=30], WaitRule [host=localhost, port=2222, timeout=90]]]]\n"
-                + "ComponentConfig [id=56, host=localhost1, port=7777, waitRules=WaitRuleList [items=[WaitRule [host=localhost, port=1111, timeout=30], WaitRule [host=localhost, port=2222, timeout=90]]]]";
-        ComponentConfigList componentConfigList = ComponentConfigListAccessor
-                .readFromFile(Paths.get("test/context/incoming/componentConfig.xml"));
+        final String EXPECTED_VALUE = "ComponentConfig [id=55, host=localhost, port=7776]\n"
+                + "ComponentConfig [id=56, host=localhost1, port=7777]";
+        ComponentConfigList componentConfigList = XmlAccessor
+                .readFromFile(Paths.get("test/context/incoming/componentConfig.xml"), ComponentConfigList.class);
 
         String componentConfigListString = componentConfigList.toString();
         Assert.assertEquals(EXPECTED_VALUE, componentConfigListString);
@@ -104,7 +102,7 @@ public class ComponentConfigAccessorTest {
         Path outputFile = Paths.get("target/componentConfigFromString.xml");
         Path expendedFile = Paths.get("test/context/expected/testReadFromStringWriteToString.xml");
         // @formatter:off
-        ComponentConfigListAccessor.writeToFile("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
+        XmlAccessor.writeToFile("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
                 + "<componentConfigList>\n"
                 + "    <componentConfig id=\"0\">\n"
                 + "        <host>localhost5</host>\n"
@@ -114,7 +112,7 @@ public class ComponentConfigAccessorTest {
                 + "        <host>localhost6</host>\n"
                 + "        <port>7781</port>\n"
                 + "    </componentConfig>\n"
-                + "</componentConfigList>\n", outputFile);
+                + "</componentConfigList>\n", outputFile, ComponentConfigList.class);
         // @formatter:on
 
         try {
