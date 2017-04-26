@@ -32,10 +32,12 @@ public class ComponentConfigAccessorTest {
                         + "    <componentConfig id=\"0\">\n"
                         + "        <host>localhost</host>\n"
                         + "        <port>7776</port>\n"
+                        + "        <waitRuleList/>\n"
                         + "    </componentConfig>\n"
                         + "    <componentConfig id=\"1\">\n"
                         + "        <host>localhost1</host>\n"
                         + "        <port>7777</port>\n"
+                        + "       <waitRuleList/>\n"
                         + "    </componentConfig>\n"
                         + "</componentConfigList>\n");
         // @formatter:on
@@ -57,10 +59,12 @@ public class ComponentConfigAccessorTest {
                 + "    <componentConfig id=\"0\">\n"
                 + "        <host>localhost3</host>\n"
                 + "        <port>7778</port>\n"
+                + "        <waitRuleList/>\n"
                 + "    </componentConfig>\n"
                 + "    <componentConfig id=\"1\">\n"
                 + "        <host>localhost4</host>\n"
                 + "        <port>7779</port>\n"
+                + "        <waitRuleList/>\n"
                 + "    </componentConfig>\n"
                 + "</componentConfigList>\n";
         // @formatter:on
@@ -86,8 +90,8 @@ public class ComponentConfigAccessorTest {
 
     @Test
     public void testReadFromFile() {
-        final String EXPECTED_VALUE = "ComponentConfig [id=55, host=localhost, port=7776]\n"
-                + "ComponentConfig [id=56, host=localhost1, port=7777]";
+        final String EXPECTED_VALUE = "ComponentConfig [id=55, host=localhost, port=7776, waitRules=WaitRuleList [items=[WaitRule [host=localhost, port=1111, timeout=30], WaitRule [host=localhost, port=2222, timeout=90]]]]\n"
+                + "ComponentConfig [id=56, host=localhost1, port=7777, waitRules=WaitRuleList [items=[WaitRule [host=localhost, port=1111, timeout=30], WaitRule [host=localhost, port=2222, timeout=90]]]]";
         ComponentConfigList componentConfigList = ComponentConfigListAccessor
                 .readFromFile(Paths.get("test/context/incoming/componentConfig.xml"));
 

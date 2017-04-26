@@ -57,6 +57,13 @@ public class ComponentConfigList {
     }
 
     /**
+     * @return the items
+     */
+    public List<ComponentConfig> getItems() {
+        return items;
+    }
+
+    /**
      * Methode surchargee
      *
      * @see java.lang.Object#toString()
@@ -77,4 +84,15 @@ public class ComponentConfigList {
         }
         return builder.toString();
     }
+
+    /**
+     * Add a wait rule to all items
+     *
+     * @param pWaitRule the wait rule to add
+     * @return void
+     */
+    public void addWaitRule(WaitRule pWaitRule) {
+        items.forEach(item -> item.addWaitRule(pWaitRule));
+    }
+
 }
