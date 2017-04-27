@@ -49,9 +49,7 @@
 		id="GatewayPanel">
 		<entry key="gateway.port.1" value="8000" />
 		<entry key="gateway.host.1" value="localhost" />
-		<entry key="gateway.port.2" value="8001" />
-		<entry key="gateway.host.2" value="localhost" />
-		<entry key="gateway.count" value="2" />
+		<entry key="gateway.count" value="1" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="AuthenticationPanel">
