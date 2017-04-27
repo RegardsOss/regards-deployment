@@ -64,7 +64,7 @@ fi
 . "${FUNCTIONS_FILE}"
 
 # Load wait-for-it
-typeset WAIT_FOR_IT_FILE="${ROOT_DIR}"/lib/wait-for-it/wait-for-it.sh
+typeset WAIT_FOR_IT_FILE="${ROOT_DIR}"/lib/wait-for-it.sh
 if [ ! -r "${WAIT_FOR_IT_FILE}" ]
 then
   printf >&2 "ERROR : Library file \"${WAIT_FOR_IT_FILE}\" must be readable.\n"
