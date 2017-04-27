@@ -12,6 +12,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import fr.cnes.regards.deployment.izpack.utils.model.ComponentConfigList;
+import fr.cnes.regards.deployment.izpack.utils.model.WaitRuleList;
 
 /**
  * Tests for class {@link XmlAccessor}
@@ -87,7 +88,7 @@ public class XmlAccessorTest {
     }
 
     @Test
-    public void testReadFromFile() {
+    public void testReadFromFile_WithComponentConfig() {
         final String EXPECTED_VALUE = "ComponentConfig [id=55, host=localhost, port=7776]\n"
                 + "ComponentConfig [id=56, host=localhost1, port=7777]";
         ComponentConfigList componentConfigList = XmlAccessor
@@ -95,6 +96,17 @@ public class XmlAccessorTest {
 
         String componentConfigListString = componentConfigList.toString();
         Assert.assertEquals(EXPECTED_VALUE, componentConfigListString);
+    }
+
+    @Test
+    public void testReadFromFile_WithWaitRule() {
+        final String EXPECTED_VALUE = "WaitRule [host=localhost, port=1111, timeout=30]\n"
+                + "WaitRule [host=localhost, port=2222, timeout=90]";
+        WaitRuleList waitRuleList = XmlAccessor.readFromFile(Paths.get("test/context/incoming/waitRuleList.xml"),
+                                                             WaitRuleList.class);
+
+        String waitRuleListString = waitRuleList.toString();
+        Assert.assertEquals(EXPECTED_VALUE, waitRuleListString);
     }
 
     @Test

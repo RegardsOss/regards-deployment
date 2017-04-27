@@ -44,12 +44,24 @@ public class WaitRuleList {
         return items;
     }
 
-    /* (non-Javadoc)
+    /**
      * @see java.lang.Object#toString()
+     * @since 1.0.0
      */
     @Override
     public String toString() {
-        return "WaitRuleList [items=" + items + "]";
+        StringBuilder builder = new StringBuilder();
+        boolean isNotFirst = false;
+        for (WaitRule waitRule : items) {
+            if (isNotFirst) {
+                builder.append("\n");
+            } else {
+                isNotFirst = true;
+            }
+
+            builder.append(waitRule.toString());
+        }
+        return builder.toString();
     }
 
 }
