@@ -18,7 +18,7 @@ function extract_field
     # Warning, if expr result="0" the return code is 0 even if they have no error
     if [ "${fct_result}" != "0" ]
     then
-      printf >&2 "ERROR : Pattern \"${FCT_FIELD_ID}\" not founded in \"${FCT_FORMATTED_STRING}\".\n"
+      printf >&2 "ERROR : Pattern \"${FCT_FIELD_ID}\" not found in \"${FCT_FORMATTED_STRING}\".\n"
       exit 1
     fi
   fi
@@ -32,7 +32,7 @@ function get_pid_file_name
   typeset -r FCT_ROOT_DIR="$1"
   typeset -r FCT_MICROSERVICE_TYPE="$2"
   typeset -r FCT_MICROSERVICE_ID="$3"
-  
+
   printf "${FCT_ROOT_DIR}/run/${FCT_MICROSERVICE_TYPE}-id${FCT_MICROSERVICE_ID}.pid"
 }
 
@@ -42,7 +42,7 @@ function get_microservice_info
   typeset -r FCT_ROOT_DIR="$1"
   typeset -r FCT_MICROSERVICE_TYPE="$2"
   typeset -r FCT_MICROSERVICE_ID="$3"
-  
+
   typeset fct_microservices_infos
 
   export CLASSPATH="${FCT_ROOT_DIR}"/lib/utils.jar
@@ -57,7 +57,7 @@ function get_microservice_info
   else
     fct_microservices_infos="$(get_microservice_info.groovy -t "${FCT_MICROSERVICE_TYPE}" -i "${FCT_ROOT_DIR}")"
   fi
-  
+
   printf "${fct_microservices_infos}"
 }
 
@@ -68,7 +68,7 @@ function is_microservice_running
   typeset -r FCT_LIB_EXEC_JAVA="$2"
   typeset -r FCT_MICROSERVICE_TYPE="$3"
   typeset -r FCT_MICROSERVICE_ID="$4"
-  
+
   typeset fct_pid
 
   if [ -e "${FCT_PID_FILE}" ]
@@ -129,4 +129,18 @@ function read_config
     exit 1
   fi
   eval eval echo "${search_value}"
+}
+
+# read_component_wait_rule_list ################################################
+function read_component_wait_rule_list
+{
+  typeset -r FCT_ROOT_DIR="$1"
+  typeset -r FCT_MICROSERVICE_TYPE="$2"
+
+  typeset fct_read_component_wait_rule_list
+
+  export CLASSPATH="${FCT_ROOT_DIR}"/lib/utils.jar
+  fct_read_component_wait_rule_list="$(read_component_wait_rule_list.groovy -i "${FCT_ROOT_DIR}" -t "${FCT_MICROSERVICE_TYPE}")"
+
+  printf "${fct_read_component_wait_rule_list}"
 }

@@ -32,7 +32,6 @@ import fr.cnes.regards.deployment.izpack.utils.model.WaitRuleList;
 
 // Path the xml file to read
 Path waitRuleListFile = Paths.get(installDir, "config/" + componentType + "_wait_rule_list.xml");
-println "waitRuleListFile :" + waitRuleListFile
 WaitRuleList waitRuleList = XmlAccessor.readFromFile(waitRuleListFile, WaitRuleList.class);
 
 println waitRuleList.toString();

@@ -63,12 +63,31 @@ then
 fi
 . "${FUNCTIONS_FILE}"
 
+# Load wait-for-it
+typeset WAIT_FOR_IT_FILE="${ROOT_DIR}"/lib/wait-for-it/wait-for-it.sh
+if [ ! -r "${WAIT_FOR_IT_FILE}" ]
+then
+  printf >&2 "ERROR : Library file \"${WAIT_FOR_IT_FILE}\" must be readable.\n"
+  exit 1
+fi
+. "${WAIT_FOR_IT_FILE}"
+
+
 # Read configurations
 typeset microservices_infos
 microservices_infos=$(get_microservice_info "${ROOT_DIR}" "${MICROSERVICE_TYPE}" "${MICROSERVICE_ID}")
 
 # Read wait rules
-
+typeset wait_rule_list
+typeset -A wait_rule_list_t
+wait_rule_list=$(read_component_wait_rule_list "${ROOT_DIR}" "${MICROSERVICE_TYPE}")
+printf "${wait_rule_list}\n" | while read line
+do
+  wait_rule_list_t[host]=$(extract_field "${line}" "host")
+  wait_rule_list_t[port]=$(extract_field "${line}" "port")
+  wait_rule_list_t[timeout]=$(extract_field "${line}" "timeout")
+  $(wait-for-it "${wait_rule_list_t[host]}":"${wait_rule_list_t[port]}" -t "${wait_rule_list_t[timeout]}")
+done
 
 cd "${ROOT_DIR}"
 typeset log_file pid pid_file lib_exec_java
