@@ -64,6 +64,12 @@ public class InjectWaitRules implements DataValidator {
         authenticationWaitList.put(ComponentType.ADMIN, 330);
         WAIT_RULES.put(ComponentType.AUTHENTICATION, authenticationWaitList);
 
+        Map<ComponentType, Integer> damWaitList = new HashMap<>();
+        damWaitList.put(ComponentType.CONFIG, 30);
+        damWaitList.put(ComponentType.REGISTRY, 90);
+        damWaitList.put(ComponentType.ADMIN, 330);
+        WAIT_RULES.put(ComponentType.DAM, damWaitList);
+
         Map<ComponentType, Integer> catalogWaitList = new HashMap<>();
         catalogWaitList.put(ComponentType.CONFIG, 30);
         catalogWaitList.put(ComponentType.REGISTRY, 90);

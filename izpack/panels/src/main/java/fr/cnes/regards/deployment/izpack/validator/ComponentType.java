@@ -12,7 +12,7 @@ public enum ComponentType {
     REGISTRY("registry"),
     GATEWAY("gateway"),
     ADMIN("admin"),
-    AUTHENTICATION("autenttication"),
+    AUTHENTICATION("authentication"),
     DAM("dam"),
     CATALOG("catalog"),
     ACCESS_INSTANCE("access-instance"),

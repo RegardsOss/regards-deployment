@@ -382,7 +382,7 @@
 		<panel classname="UserInputPanel" id="FrontendPanel" condition="mustInstallFrontend">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorFrontendPanel" />
-				<!--  MUST BE THE LAST VALIDATOR IN ORDER TO MAKE SURE ALL DATA IS OK -->
+			<!-- MUST BE THE LAST VALIDATOR IN ORDER TO MAKE SURE ALL DATA IS OK -->
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.InjectWaitRules" />
 		</panel>
@@ -522,6 +522,19 @@
 					<arg value="${registry.instanceList}" />
 				</args>
 			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="registry" />
+					<arg value="-w" />
+					<arg value="${registry.waitRuleList}" />
+				</args>
+			</executable>
 		</pack>
 
 		<pack name="gateway" required="false" preselected="true">
@@ -574,6 +587,19 @@
 					<arg value="${authentication.instanceList}" />
 				</args>
 			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="authentication" />
+					<arg value="-w" />
+					<arg value="${authentication.waitRuleList}" />
+				</args>
+			</executable>
 		</pack>
 
 		<pack name="admin" required="false" preselected="true">
@@ -598,6 +624,19 @@
 					<arg value="admin" />
 					<arg value="-c" />
 					<arg value="${admin.instanceList}" />
+				</args>
+			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="admin" />
+					<arg value="-w" />
+					<arg value="${admin.waitRuleList}" />
 				</args>
 			</executable>
 		</pack>
@@ -626,6 +665,19 @@
 					<arg value="${dam.instanceList}" />
 				</args>
 			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="dam" />
+					<arg value="-w" />
+					<arg value="${dam.waitRuleList}" />
+				</args>
+			</executable>
 		</pack>
 
 		<pack name="catalog" required="false" preselected="true">
@@ -650,6 +702,19 @@
 					<arg value="catalog" />
 					<arg value="-c" />
 					<arg value="${catalog.instanceList}" />
+				</args>
+			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="catalog" />
+					<arg value="-w" />
+					<arg value="${catalog.waitRuleList}" />
 				</args>
 			</executable>
 		</pack>
@@ -682,6 +747,19 @@
 				</args>
 			</executable>
 			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="access-instance" />
+					<arg value="-w" />
+					<arg value="${access-instance.waitRuleList}" />
+				</args>
+			</executable>
+			<executable
 				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
 				type="bin" stage="postinstall" failure="abort" keep="true">
 				<os family="unix" />
@@ -692,6 +770,19 @@
 					<arg value="access-project" />
 					<arg value="-c" />
 					<arg value="${access-project.instanceList}" />
+				</args>
+			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="access-project" />
+					<arg value="-w" />
+					<arg value="${access-project.waitRuleList}" />
 				</args>
 			</executable>
 		</pack>
