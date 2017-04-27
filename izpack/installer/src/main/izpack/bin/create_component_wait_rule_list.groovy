@@ -41,7 +41,7 @@ println "Creation of " + componentType + " wait rules file"
 println "Xml input wait rules : " + xmlWaitRules;
 
 // Component configuration file
-Path componentFilePath = Paths.get(regardsInstallDir, "config/" + componentType + "_wait_rules.xml");
+Path componentFilePath = Paths.get(regardsInstallDir, "config/" + componentType + "_wait_rule_list.xml");
 def cWaitRuleList = Class.forName("fr.cnes.regards.deployment.izpack.utils.model.WaitRuleList", true, urlLoader);
 def cXmlAccessor = Class.forName("fr.cnes.regards.deployment.izpack.utils.XmlAccessor", true, urlLoader);
 cXmlAccessor.writeToFile(xmlWaitRules, componentFilePath, cWaitRuleList);
