@@ -45,7 +45,7 @@ function get_microservice_info
   
   typeset fct_microservices_infos
 
-  export CLASSPATH="${FCT_ROOT_DIR}"/lib/regards-izpack-utils.jar
+  export CLASSPATH="${FCT_ROOT_DIR}"/lib/utils.jar
   if [ -n "${FCT_MICROSERVICE_ID}" ]
   then
     fct_microservices_infos="$(get_microservice_info.groovy -n "${FCT_MICROSERVICE_ID}" -t "${FCT_MICROSERVICE_TYPE}" -i "${FCT_ROOT_DIR}")"

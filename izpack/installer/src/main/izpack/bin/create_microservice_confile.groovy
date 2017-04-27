@@ -22,7 +22,7 @@ if (options.h) {
   return
 }
 
-// Parse options 
+// Parse options
 String regardsInstallDir = options.i;
 String xmlConfig = options.c;
 String componentType = options.t;
@@ -31,7 +31,7 @@ import java.nio.file.Paths;
 import java.nio.file.Path;
 
 def urlLoader = new GroovyClassLoader();
-urlLoader.addURL((Paths.get(regardsInstallDir, "lib/regards-izpack-utils.jar").toUri().toURL()));
+urlLoader.addURL((Paths.get(regardsInstallDir, "lib/utils.jar").toUri().toURL()));
 println "ClassLoader :"
 urlLoader.URLs.each{ println it }
 
@@ -42,6 +42,8 @@ println "Xml input configuration : " + xmlConfig;
 
 // Component configuration file
 Path componentFilePath = Paths.get(regardsInstallDir, "config/" + componentType + "_config.xml");
-Class.forName("fr.cnes.regards.deployment.izpack.utils.ComponentConfigListAccessor", true, urlLoader).writeToFile(xmlConfig, componentFilePath);
+def cComponentConfigList = Class.forName("fr.cnes.regards.deployment.izpack.utils.model.ComponentConfigList", true, urlLoader);
+def cXmlAccessor = Class.forName("fr.cnes.regards.deployment.izpack.utils.XmlAccessor", true, urlLoader);
+cXmlAccessor.writeToFile(xmlConfig, componentFilePath, cComponentConfigList);
 
 System.exit(0);
