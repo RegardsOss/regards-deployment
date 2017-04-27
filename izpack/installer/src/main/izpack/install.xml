@@ -496,6 +496,19 @@
 					<arg value="${config.instanceList}" />
 				</args>
 			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="config" />
+					<arg value="-w" />
+					<arg value="${config.waitRuleList}" />
+				</args>
+			</executable>
 		</pack>
 
 		<pack name="registry" required="false" preselected="true">

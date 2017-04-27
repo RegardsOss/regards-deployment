@@ -49,6 +49,9 @@ public class InjectWaitRules implements DataValidator {
     static {
         WAIT_RULES = new HashMap<ComponentType, Map<ComponentType, Integer>>();
 
+        Map<ComponentType, Integer> configWaitList = new HashMap<>();
+        WAIT_RULES.put(ComponentType.CONFIG, configWaitList);
+
         Map<ComponentType, Integer> registryWaitList = new HashMap<>();
         registryWaitList.put(ComponentType.CONFIG, 90);
         WAIT_RULES.put(ComponentType.REGISTRY, registryWaitList);

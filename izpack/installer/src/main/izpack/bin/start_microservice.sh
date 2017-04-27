@@ -70,8 +70,7 @@ then
   printf >&2 "ERROR : Library file \"${WAIT_FOR_IT_FILE}\" must be readable.\n"
   exit 1
 fi
-. "${WAIT_FOR_IT_FILE}"
-
+# . "${WAIT_FOR_IT_FILE}"
 
 # Read configurations
 typeset microservices_infos
@@ -86,7 +85,8 @@ do
   wait_rule_list_t[host]=$(extract_field "${line}" "host")
   wait_rule_list_t[port]=$(extract_field "${line}" "port")
   wait_rule_list_t[timeout]=$(extract_field "${line}" "timeout")
-  $(wait-for-it "${wait_rule_list_t[host]}":"${wait_rule_list_t[port]}" -t "${wait_rule_list_t[timeout]}")
+  sh ../lib/wait-for-it.sh ${wait_rule_list_t[host]}:${wait_rule_list_t[port]} -t ${wait_rule_list_t[timeout]}
+  # $(wait-for-it "${wait_rule_list_t[host]}":"${wait_rule_list_t[port]}" -t "${wait_rule_list_t[timeout]}")
 done
 
 cd "${ROOT_DIR}"
