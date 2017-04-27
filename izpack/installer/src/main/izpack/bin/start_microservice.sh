@@ -82,11 +82,14 @@ typeset -A wait_rule_list_t
 wait_rule_list=$(read_component_wait_rule_list "${ROOT_DIR}" "${MICROSERVICE_TYPE}")
 printf "${wait_rule_list}\n" | while read line
 do
-  wait_rule_list_t[host]=$(extract_field "${line}" "host")
-  wait_rule_list_t[port]=$(extract_field "${line}" "port")
-  wait_rule_list_t[timeout]=$(extract_field "${line}" "timeout")
-  sh ../lib/wait-for-it.sh ${wait_rule_list_t[host]}:${wait_rule_list_t[port]} -t ${wait_rule_list_t[timeout]}
-  # $(wait-for-it "${wait_rule_list_t[host]}":"${wait_rule_list_t[port]}" -t "${wait_rule_list_t[timeout]}")
+  if [ ! -z "${line}" ]
+  then
+    wait_rule_list_t[host]=$(extract_field "${line}" "host")
+    wait_rule_list_t[port]=$(extract_field "${line}" "port")
+    wait_rule_list_t[timeout]=$(extract_field "${line}" "timeout")
+    sh ../lib/wait-for-it.sh ${wait_rule_list_t[host]}:${wait_rule_list_t[port]} -t ${wait_rule_list_t[timeout]}
+    # $(wait-for-it "${wait_rule_list_t[host]}":"${wait_rule_list_t[port]}" -t "${wait_rule_list_t[timeout]}")
+  fi
 done
 
 cd "${ROOT_DIR}"
