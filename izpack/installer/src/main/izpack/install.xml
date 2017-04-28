@@ -460,6 +460,19 @@
 					<arg value="${frontend.instanceList}" />
 				</args>
 			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="frontend" />
+					<arg value="-w" />
+					<arg value="${frontend.waitRuleList}" />
+				</args>
+			</executable>
 		</pack>
 
 		<pack name="config" required="false" preselected="true" hidden="true"
@@ -572,6 +585,19 @@
 					<arg value="gateway" />
 					<arg value="-c" />
 					<arg value="${gateway.instanceList}" />
+				</args>
+			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="gateway" />
+					<arg value="-w" />
+					<arg value="${gateway.waitRuleList}" />
 				</args>
 			</executable>
 		</pack>
