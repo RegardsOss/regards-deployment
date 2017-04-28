@@ -56,6 +56,12 @@ public class InjectWaitRules implements DataValidator {
         registryWaitList.put(ComponentType.CONFIG, 90);
         WAIT_RULES.put(ComponentType.REGISTRY, registryWaitList);
 
+        Map<ComponentType, Integer> gatewayWaitList = new HashMap<>();
+        gatewayWaitList.put(ComponentType.CONFIG, 30);
+        gatewayWaitList.put(ComponentType.REGISTRY, 90);
+        gatewayWaitList.put(ComponentType.ADMIN, 330);
+        WAIT_RULES.put(ComponentType.GATEWAY, gatewayWaitList);
+
         Map<ComponentType, Integer> adminWaitList = new HashMap<>();
         adminWaitList.put(ComponentType.CONFIG, 30);
         adminWaitList.put(ComponentType.REGISTRY, 90);
@@ -90,6 +96,9 @@ public class InjectWaitRules implements DataValidator {
         accessProjectWaitList.put(ComponentType.REGISTRY, 90);
         accessProjectWaitList.put(ComponentType.ADMIN, 330);
         WAIT_RULES.put(ComponentType.ACCESS_PROJECT, accessProjectWaitList);
+
+        Map<ComponentType, Integer> frontendWaitList = new HashMap<>();
+        WAIT_RULES.put(ComponentType.FRONTEND, frontendWaitList);
     }
 
     @Override
