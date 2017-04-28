@@ -144,3 +144,18 @@ function read_component_wait_rule_list
 
   printf "${fct_read_component_wait_rule_list}"
 }
+
+function wait_for_it
+{
+  typeset -r FCT_ROOT_DIR="$1"
+  typeset -r PORT="$2"
+  typeset -r TIMEOUT="$3"
+
+  typeset fct_wait_for_it
+  #fct_wait_for_it="$("${FCT_ROOT_DIR}"/lib/wait-for-it.sh "${HOST}":"${PORT}" -t "${TIMEOUT}")"
+  #printf "${fct_wait_for_it}"
+  #
+  printf "/bin/sh ${FCT_ROOT_DIR}/lib/wait-for-it.sh ${HOST}:${PORT} -t ${TIMEOUT}"
+}
+
+#function
