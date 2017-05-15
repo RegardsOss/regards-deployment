@@ -64,8 +64,8 @@
 			<spec>
 				<choice id="selectinstallationtype.panel.radio.full.label"
 					value="full" set="true" />
-				<choice id="selectinstallationtype.panel.radio.add.label"
-					value="add" />
+				<choice id="selectinstallationtype.panel.radio.cloud.label"
+					value="cloud" />
 			</spec>
 		</field>
 	</panel>
@@ -76,6 +76,14 @@
 			<spec id="selectcomponents.panel.frontend.label" true="true"
 				false="false" set="false" />
 		</field>
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+		<field type="staticText" align="left" id="selectcomponents.panel.core.label" bold="true" />
+		<field type="check" variable="config.selected">
+			<spec id="selectcomponents.panel.config.label" true="true"
+				false="false" set="false" />
+		</field>
 		<field type="check" variable="registry.selected">
 			<spec id="selectcomponents.panel.registry.label" true="true"
 				false="false" set="false" />
@@ -84,6 +92,10 @@
 			<spec id="selectcomponents.panel.gateway.label" true="true"
 				false="false" set="false" />
 		</field>
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+		<field type="staticText" align="left" id="selectcomponents.panel.microservices.label" bold="true" />
 		<field type="check" variable="authentication.selected">
 			<spec id="selectcomponents.panel.authentication.label" true="true"
 				false="false" set="false" />

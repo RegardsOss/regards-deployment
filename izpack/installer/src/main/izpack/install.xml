@@ -219,7 +219,8 @@
 		<!-- Internal variables for workflow management -->
 		<variable name="installation.type" value="full" />
 		<variable name="security.level" value="normal" />
-		<variable name="frontend.selected" value="true" />
+		<variable name="frontend.selected" value="false" />
+		<variable name="config.selected" value="false" />
 		<variable name="registry.selected" value="false" />
 		<variable name="gateway.selected" value="false" />
 		<variable name="authentication.selected" value="false" />
@@ -239,12 +240,16 @@
 			<name>installation.type</name>
 			<value>full</value>
 		</condition>
-		<condition type="variable" id="addInstallation">
+		<condition type="variable" id="cloudInstallation">
 			<name>installation.type</name>
-			<value>add</value>
+			<value>cloud</value>
 		</condition>
 		<condition type="variable" id="isFrontendSelected">
 			<name>frontend.selected</name>
+			<value>true</value>
+		</condition>
+		<condition type="variable" id="isConfigSelected">
+			<name>config.selected</name>
 			<value>true</value>
 		</condition>
 		<condition type="variable" id="isRegistrySelected">
@@ -280,7 +285,7 @@
 			<value>true</value>
 		</condition>
 
-		<condition type="or" id="atLeastOneMiscroserviceSelected">
+		<condition type="or" id="mustConnectToExistingConfig">
 			<condition type="ref" refid="isRegistrySelected" />
 			<condition type="ref" refid="isGatewaySelected" />
 			<condition type="ref" refid="isAuthenticationSelected" />
@@ -294,6 +299,10 @@
 		<condition type="or" id="mustInstallFrontend">
 			<condition type="ref" refid="fullInstallation" />
 			<condition type="ref" refid="isFrontendSelected" />
+		</condition>
+		<condition type="or" id="mustInstallConfig">
+			<condition type="ref" refid="fullInstallation" />
+			<condition type="ref" refid="isConfigSelected" />
 		</condition>
 		<condition type="or" id="mustInstallRegistry">
 			<condition type="ref" refid="fullInstallation" />
@@ -334,11 +343,11 @@
 			condition="isSecurityEnforced" />
 		<panel classname="UserInputPanel" id="SelectInstallationTypePanel" />
 		<panel classname="UserInputPanel" id="SelectComponentsPanel"
-			condition="addInstallation" />
+			condition="cloudInstallation" />
 		<panel classname="UserInputPanel" id="LinkToExistingConfigPanel"
-			condition="atLeastOneMiscroserviceSelected" />
-		<panel classname="UserInputPanel" id="ProjectPanel" condition="fullInstallation" />
-		<panel classname="UserInputPanel" id="ConfigPanel" condition="fullInstallation">
+			condition="mustConnectToExistingConfig" />
+		<panel classname="UserInputPanel" id="ProjectPanel" condition="mustInstallConfig" />
+		<panel classname="UserInputPanel" id="ConfigPanel" condition="mustInstallConfig">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorConfigPanel" />
 		</panel>
@@ -475,8 +484,7 @@
 			</executable>
 		</pack>
 
-		<pack name="config" required="false" preselected="true" hidden="true"
-			condition="fullInstallation">
+		<pack name="config" required="false" preselected="true">
 			<description>Microservice providing configuration to any other microservice</description>
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
