@@ -70,7 +70,9 @@ microservices_infos=$(get_microservice_info "${ROOT_DIR}" "${MICROSERVICE_TYPE}"
 cd "${ROOT_DIR}"
 typeset log_file pid pid_file lib_exec_java
 lib_exec_java=$(get_lib_exec_java "${ROOT_DIR}/bootstrap-${MICROSERVICE_TYPE}")
-
+bold=$(tput bold)
+normal=$(tput sgr0)
+	
 printf "${microservices_infos}\n" | while read line
 do
   typeset -A microservices_infos_t
@@ -83,7 +85,7 @@ do
   # Check if microservice is already started
   if ! is_microservice_running "${pid_file}" "${lib_exec_java}" "${MICROSERVICE_TYPE}" "${microservices_infos_t[id]}"
   then
-    printf >&2 "Starting ${MICROSERVICE_TYPE} type on \"${microservices_infos_t[host]}:${microservices_infos_t[port]}\" ...\n"
+    printf >&2 "${bold}Starting ${MICROSERVICE_TYPE} type on \"${microservices_infos_t[host]}:${microservices_infos_t[port]}\" ...${normal}\n"
     # Wait for other components
     typeset wait_rule_list
     typeset -A wait_rule_list_t
@@ -106,6 +108,7 @@ do
     pid=$!
 
     echo "${pid}" > "${pid_file}"
+	printf >&2 "\n"
   fi
 done
 
