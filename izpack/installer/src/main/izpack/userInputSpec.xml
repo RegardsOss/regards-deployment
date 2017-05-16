@@ -79,7 +79,8 @@
 		<field type="space" />
 		<field type="divider" />
 		<field type="space" />
-		<field type="staticText" align="left" id="selectcomponents.panel.core.label" bold="true" />
+		<field type="staticText" align="left"
+			id="selectcomponents.panel.core.label" bold="true" />
 		<field type="check" variable="config.selected">
 			<spec id="selectcomponents.panel.config.label" true="true"
 				false="false" set="false" />
@@ -95,7 +96,8 @@
 		<field type="space" />
 		<field type="divider" />
 		<field type="space" />
-		<field type="staticText" align="left" id="selectcomponents.panel.microservices.label" bold="true" />
+		<field type="staticText" align="left"
+			id="selectcomponents.panel.microservices.label" bold="true" />
 		<field type="check" variable="authentication.selected">
 			<spec id="selectcomponents.panel.authentication.label" true="true"
 				false="false" set="false" />
@@ -108,7 +110,7 @@
 			<spec id="selectcomponents.panel.dam.label" true="true" false="false"
 				set="false" />
 		</field>
-		<field type="check" variable="catalog.selected">
+		<field type="check" variable="izpack.selected.catalog">
 			<spec id="selectcomponents.panel.catalog.label" true="true"
 				false="false" set="false" />
 		</field>
@@ -124,14 +126,12 @@
 			<spec>
 				<col>
 					<field type="text" variable="config.host">
-						<spec id="host.label" size="15"
-							set="${config.host}" />
+						<spec id="host.label" size="15" set="${config.host}" />
 					</field>
 				</col>
 				<col>
 					<field type="text" variable="config.port">
-						<spec id="port.label" size="15"
-							set="${config.port}" />
+						<spec id="port.label" size="15" set="${config.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
@@ -155,14 +155,12 @@
 			<spec>
 				<col>
 					<field type="text" variable="config.host">
-						<spec id="host.label" size="15"
-							set="${config.host}" />
+						<spec id="host.label" size="15" set="${config.host}" />
 					</field>
 				</col>
 				<col>
 					<field type="text" variable="config.port">
-						<spec id="port.label" size="15"
-							set="${config.port}" />
+						<spec id="port.label" size="15" set="${config.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">

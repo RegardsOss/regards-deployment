@@ -3,6 +3,8 @@
  */
 package fr.cnes.regards.deployment.izpack.validator;
 
+import fr.cnes.regards.deployment.izpack.utils.model.ComponentType;
+
 /**
  * Class ValidatorCatalogPanel
  *
@@ -11,13 +13,13 @@ package fr.cnes.regards.deployment.izpack.validator;
  * @author Guillaume Barthe de Montmejan
  * @since 1.0.0
  */
-public class ValidatorCatalogPanel extends ValidatorInstanceList {
+public class ValidatorCatalogPanel extends InjectDataValidator {
 
     /**
      * Default constructor
      */
     public ValidatorCatalogPanel() {
-        componentIdentifier = "catalog";
-        componentCountIdentifier = componentIdentifier;
+        type = ComponentType.CATALOG;
+        entryKey = type.getName();
     }
 }

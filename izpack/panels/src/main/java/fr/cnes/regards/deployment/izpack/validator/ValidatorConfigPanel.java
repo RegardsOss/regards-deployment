@@ -3,6 +3,8 @@
  */
 package fr.cnes.regards.deployment.izpack.validator;
 
+import fr.cnes.regards.deployment.izpack.utils.model.ComponentType;
+
 /**
  * Validator for config panel.
  *
@@ -10,13 +12,13 @@ package fr.cnes.regards.deployment.izpack.validator;
  * @author Xavier-Alexandre Brochard
  * @since 1.0.0
  */
-public class ValidatorConfigPanel extends ValidatorInstanceList {
+public class ValidatorConfigPanel extends InjectDataValidator {
 
     /**
      * Default constructor
      */
     public ValidatorConfigPanel() {
-        componentIdentifier = "config";
-        componentCountIdentifier = componentIdentifier;
+        type = ComponentType.CONFIG;
+        entryKey = type.getName();
     }
 }

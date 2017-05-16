@@ -3,6 +3,8 @@
  */
 package fr.cnes.regards.deployment.izpack.validator;
 
+import fr.cnes.regards.deployment.izpack.utils.model.ComponentType;
+
 /**
  * Class ValidatorDamPanel
  *
@@ -11,13 +13,13 @@ package fr.cnes.regards.deployment.izpack.validator;
  * @author Guillaume Barthe de Montmejan
  * @since 1.0.0
  */
-public class ValidatorDamPanel extends ValidatorInstanceList {
+public class ValidatorDamPanel extends InjectDataValidator {
 
     /**
      * Default constructor
      */
     public ValidatorDamPanel() {
-        componentIdentifier = "dam";
-        componentCountIdentifier = componentIdentifier;
+        type = ComponentType.DAM;
+        entryKey = type.getName();
     }
 }

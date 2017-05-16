@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- LICENSE_PLACEHOLDER -->
+<izpack:installation version="5.0"
+	xmlns:izpack="http://izpack.org/schema/installation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://izpack.org/schema/installation http://izpack.org/schema/5.0/izpack-installation-5.0.xsd">
+
+	<packs>
+
+		<pack name="catalog" required="false" preselected="false" installGroups="cloud">
+			<description>REGARDS Catalog service installation</description>
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+				override="true">
+				<include name="bootstrap-catalog.jar" />
+			</fileset>
+			<file src="sbin/microservice_catalog.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true" />
+			<executable type="bin" stage="never" keep="true">
+				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
+			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="catalog" />
+					<arg value="-c" />
+					<arg value="${catalog.instanceList}" />
+				</args>
+			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="catalog" />
+					<arg value="-w" />
+					<arg value="${catalog.waitRuleList}" />
+				</args>
+			</executable>
+		</pack>
+	</packs>
+
+</izpack:installation>

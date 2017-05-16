@@ -338,6 +338,8 @@
 		<panel classname="HelloPanel" />
 		<panel classname="LicencePanel" />
 		<panel classname="TargetPanel" />
+		<panel classname="InstallationGroupPanel"/>
+        <panel classname="PacksPanel"/>
 		<panel classname="UserInputPanel" id="SelectSecurityLevelPanel" />
 		<panel classname="UserInputPanel" id="ConfigSecurityPanel"
 			condition="isSecurityEnforced" />
@@ -351,6 +353,7 @@
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorConfigPanel" />
 		</panel>
+		<panel classname="UserInputPanel" id="RabbitmqPanel" condition="mustInstallConfig" />
 		<panel classname="UserInputPanel" id="RegistryPanel" condition="mustInstallRegistry">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorRegistryPanel" />
@@ -364,7 +367,6 @@
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAuthenticationPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="RabbitmqPanel" condition="fullInstallation" />
 		<panel classname="UserInputPanel" id="AdminPanel" condition="mustInstallAdmin">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAdminPanel" />
@@ -391,9 +393,6 @@
 		<panel classname="UserInputPanel" id="FrontendPanel" condition="mustInstallFrontend">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorFrontendPanel" />
-			<!-- MUST BE THE LAST VALIDATOR IN ORDER TO MAKE SURE ALL DATA IS OK -->
-			<validator
-				classname="fr.cnes.regards.deployment.izpack.validator.InjectWaitRules" />
 		</panel>
 		<panel classname="SummaryPanel" />
 		<panel classname="InstallPanel" />
@@ -404,7 +403,8 @@
 	<packs>
 
 		<pack name="Core" required="true" preselected="true" hidden="true">
-			<description>Core installation. Required for any component.</description>
+			<description>Core installation. Required for any component.
+			</description>
 			<file targetdir="$INSTALL_PATH" src="doc/readme.txt" override="true" />
 			<file targetdir="$INSTALL_PATH" src="legal/License.txt"
 				override="true" />
@@ -485,7 +485,8 @@
 		</pack>
 
 		<pack name="config" required="false" preselected="true">
-			<description>Microservice providing configuration to any other microservice</description>
+			<description>Microservice providing configuration to any other
+				microservice</description>
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-config.jar" />
@@ -533,7 +534,8 @@
 		</pack>
 
 		<pack name="registry" required="false" preselected="true">
-			<description>Microservice registring other microservices in the cloud and handling load balancing</description>
+			<description>Microservice registering other microservices in the
+				cloud and handling load balancing</description>
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-registry.jar" />
@@ -572,7 +574,8 @@
 		</pack>
 
 		<pack name="gateway" required="false" preselected="true">
-			<description>Gateway between clients and all microservices</description>
+			<description>Gateway between clients and all microservices
+			</description>
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-gateway.jar" />
@@ -611,7 +614,8 @@
 		</pack>
 
 		<pack name="authentication" required="false" preselected="true">
-			<description>Microservice dedicated to users' authentication</description>
+			<description>Microservice dedicated to users' authentication
+			</description>
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-authentication.jar" />
@@ -650,7 +654,8 @@
 		</pack>
 
 		<pack name="admin" required="false" preselected="true">
-			<description>Microservice handling system's administration</description>
+			<description>Microservice handling system's administration
+			</description>
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-administration.jar" />
@@ -689,7 +694,8 @@
 		</pack>
 
 		<pack name="dam" required="false" preselected="true">
-			<description>REGARDS Data Management service installation</description>
+			<description>REGARDS Data Management service installation
+			</description>
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-dam.jar" />
@@ -727,44 +733,7 @@
 			</executable>
 		</pack>
 
-		<pack name="catalog" required="false" preselected="true">
-			<description>REGARDS Catalog service installation</description>
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-catalog.jar" />
-			</fileset>
-			<file src="sbin/microservice_catalog.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="catalog" />
-					<arg value="-c" />
-					<arg value="${catalog.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="catalog" />
-					<arg value="-w" />
-					<arg value="${catalog.waitRuleList}" />
-				</args>
-			</executable>
-		</pack>
+		<refpackset dir="packs/" includes="*.xml"/>
 
 		<pack name="access" required="false" preselected="true">
 			<description>REGARDS Access service installation</description>
