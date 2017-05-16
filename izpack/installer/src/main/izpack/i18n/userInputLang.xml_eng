@@ -22,7 +22,7 @@
 
 	<!-- SelectSecurityLevelPanel -->
 	<str id="selectsecuritylevel.panel.title.label" txt="What system security do you want to use?" />
-	<str id="selectsecuritylevel.panel.normal.label" txt="Standard" />
+	<str id="selectsecuritylevel.panel.normal.label" txt="Normal" />
 	<str id="selectsecuritylevel.panel.enforce.label" txt="Enhanced" />
 	<str id="selectsecuritylevel.panel.enforce.description.1.label"
 		txt="In Enhanced Level, the system must comply with following requirements:" />
