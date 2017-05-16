@@ -117,15 +117,14 @@ public class WaitRulesInjector implements InstallDataInjector {
     @Override
     public void inject(InstallData pInstallData) {
         WaitRuleList waitRuleList = new WaitRuleList();
-
         WAIT_RULES.get(type).forEach((waitedType, timeout) -> {
-            String waitedTypeAsString = waitedType.getName(); // The type of component we should be waiting for
-            Boolean isWaitedTypeBeingInstalled = Boolean
-                    .parseBoolean(pInstallData.getVariable(waitedTypeAsString + ".selected")); // Is the compoentn we are waiting for is being installed?
-            // Only wait for a component which is being installed
-            if (isWaitedTypeBeingInstalled) {
+            String waitedPack = waitedType.getName(); // The type of component we should be waiting for
+            Boolean isWaitedPackBeingInstalled = pInstallData.getSelectedPacks().stream()
+                    .anyMatch(pack -> pack.getName().equals(waitedPack)); // Is the component/pack we are waiting for is being installed?
+            // Only wait for a component/pack which is being installed
+            if (isWaitedPackBeingInstalled) {
                 ComponentConfigList waitedComponentConfigList = XmlAccessor
-                        .readFromString(pInstallData.getVariable(waitedTypeAsString + INSTANCE_LIST_SUFFIX),
+                        .readFromString(pInstallData.getVariable(waitedPack + INSTANCE_LIST_SUFFIX),
                                         ComponentConfigList.class);
                 waitedComponentConfigList.getItems().stream().map(item -> new WaitRule(item, timeout))
                         .forEach(waitRuleList::add);

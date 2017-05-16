@@ -3,10 +3,14 @@
  */
 package fr.cnes.regards.deployment.izpack.validator.injector;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
 
 import com.izforge.izpack.api.data.InstallData;
+import com.izforge.izpack.api.data.Pack;
 import com.izforge.izpack.api.data.Variables;
 import com.izforge.izpack.core.data.DefaultVariables;
 import com.izforge.izpack.util.Platform;
@@ -69,8 +73,16 @@ public class WaitRulesInjectorTest {
         variables.set(portName + ".1", "3456");
         variables.set(uriName + ".2", "127.0.0.1");
         variables.set(portName + ".2", "3457");
-        variables.set("config.selected", "true");
-        variables.set("registry.selected", "true");
+
+        List<Pack> selectedPacks = new ArrayList<>();
+        selectedPacks
+                .add(new Pack("config", portName, uriName, null, null, true, true, false, waitRuleListName, false, 0));
+        selectedPacks.add(new Pack("registry", portName, uriName, null, null, true, true, false, waitRuleListName,
+                false, 0));
+        installData.setSelectedPacks(selectedPacks);
+
+        //        variables.set("izpack.selected.config", "true");
+        //        variables.set("izpack.selected.registry", "true");
         // @formatter:off
         variables.set(componentListName, "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
                 + "<componentConfigList>\n"

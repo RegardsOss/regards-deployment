@@ -8,4 +8,8 @@
     <str id="UserInputPanel.custom.swing.buttonlabel.add" txt="Ajouter"/>
     <str id="UserInputPanel.custom.swing.buttonlabel.remove" txt="Retirer"/>
 
+	<!-- Packs -->
+	<str id="core" txt="Noyau de l'application" />
+	<str id="core.description" txt="Noyau de l'application" />
+
 </izpack:langpack>

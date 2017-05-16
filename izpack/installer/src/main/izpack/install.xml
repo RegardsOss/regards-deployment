@@ -219,16 +219,7 @@
 		<!-- Internal variables for workflow management -->
 		<variable name="installation.type" value="full" />
 		<variable name="security.level" value="normal" />
-		<variable name="frontend.selected" value="false" />
-		<variable name="config.selected" value="false" />
-		<variable name="registry.selected" value="false" />
-		<variable name="gateway.selected" value="false" />
-		<variable name="authentication.selected" value="false" />
-		<variable name="admin.selected" value="false" />
-		<variable name="dam.selected" value="false" />
-		<variable name="catalog.selected" value="false" />
-		<variable name="access.selected" value="false" />
-		<variable name="storage.selected" value="false" />
+
 	</dynamicvariables>
 
 	<conditions>
@@ -236,161 +227,67 @@
 			<name>security.level</name>
 			<value>enforce</value>
 		</condition>
-		<condition type="variable" id="fullInstallation">
-			<name>installation.type</name>
-			<value>full</value>
-		</condition>
-		<condition type="variable" id="cloudInstallation">
-			<name>installation.type</name>
-			<value>cloud</value>
-		</condition>
-		<condition type="variable" id="isFrontendSelected">
-			<name>frontend.selected</name>
-			<value>true</value>
-		</condition>
-		<condition type="variable" id="isConfigSelected">
-			<name>config.selected</name>
-			<value>true</value>
-		</condition>
-		<condition type="variable" id="isRegistrySelected">
-			<name>registry.selected</name>
-			<value>true</value>
-		</condition>
-		<condition type="variable" id="isGatewaySelected">
-			<name>gateway.selected</name>
-			<value>true</value>
-		</condition>
-		<condition type="variable" id="isAuthenticationSelected">
-			<name>authentication.selected</name>
-			<value>true</value>
-		</condition>
-		<condition type="variable" id="isAdminSelected">
-			<name>admin.selected</name>
-			<value>true</value>
-		</condition>
-		<condition type="variable" id="isDamSelected">
-			<name>dam.selected</name>
-			<value>true</value>
-		</condition>
-		<condition type="variable" id="isCatalogSelected">
-			<name>catalog.selected</name>
-			<value>true</value>
-		</condition>
-		<condition type="variable" id="isAccessSelected">
-			<name>access.selected</name>
-			<value>true</value>
-		</condition>
-		<condition type="variable" id="isStorageSelected">
-			<name>storage.selected</name>
-			<value>true</value>
-		</condition>
 
-		<condition type="or" id="mustConnectToExistingConfig">
-			<condition type="ref" refid="isRegistrySelected" />
-			<condition type="ref" refid="isGatewaySelected" />
-			<condition type="ref" refid="isAuthenticationSelected" />
-			<condition type="ref" refid="isAdminSelected" />
-			<condition type="ref" refid="isDamSelected" />
-			<condition type="ref" refid="isCatalogSelected" />
-			<condition type="ref" refid="isAccessSelected" />
-			<condition type="ref" refid="isStorageSelected" />
-		</condition>
 
-		<condition type="or" id="mustInstallFrontend">
-			<condition type="ref" refid="fullInstallation" />
-			<condition type="ref" refid="isFrontendSelected" />
-		</condition>
-		<condition type="or" id="mustInstallConfig">
-			<condition type="ref" refid="fullInstallation" />
-			<condition type="ref" refid="isConfigSelected" />
-		</condition>
-		<condition type="or" id="mustInstallRegistry">
-			<condition type="ref" refid="fullInstallation" />
-			<condition type="ref" refid="isRegistrySelected" />
-		</condition>
-		<condition type="or" id="mustInstallGateway">
-			<condition type="ref" refid="fullInstallation" />
-			<condition type="ref" refid="isGatewaySelected" />
-		</condition>
-		<condition type="or" id="mustInstallAuthentication">
-			<condition type="ref" refid="fullInstallation" />
-			<condition type="ref" refid="isAuthenticationSelected" />
-		</condition>
-		<condition type="or" id="mustInstallAdmin">
-			<condition type="ref" refid="fullInstallation" />
-			<condition type="ref" refid="isAdminSelected" />
-		</condition>
-		<condition type="or" id="mustInstallDam">
-			<condition type="ref" refid="fullInstallation" />
-			<condition type="ref" refid="isDamSelected" />
-		</condition>
-		<condition type="or" id="mustInstallCatalog">
-			<condition type="ref" refid="fullInstallation" />
-			<condition type="ref" refid="isCatalogSelected" />
-		</condition>
-		<condition type="or" id="mustInstallAccess">
-			<condition type="ref" refid="fullInstallation" />
-			<condition type="ref" refid="isAccessSelected" />
-		</condition>
 	</conditions>
 
 	<panels>
 		<panel classname="HelloPanel" />
 		<panel classname="LicencePanel" />
 		<panel classname="TargetPanel" />
-		<panel classname="InstallationGroupPanel"/>
-        <panel classname="PacksPanel"/>
+		<panel classname="PacksPanel" />
 		<panel classname="UserInputPanel" id="SelectSecurityLevelPanel" />
 		<panel classname="UserInputPanel" id="ConfigSecurityPanel"
 			condition="isSecurityEnforced" />
-		<panel classname="UserInputPanel" id="SelectInstallationTypePanel" />
-		<panel classname="UserInputPanel" id="SelectComponentsPanel"
-			condition="cloudInstallation" />
+		<!-- <panel classname="UserInputPanel" id="SelectInstallationTypePanel" 
+			/> -->
+		<!-- <panel classname="UserInputPanel" id="SelectComponentsPanel" condition="cloudInstallation" 
+			/> -->
 		<panel classname="UserInputPanel" id="LinkToExistingConfigPanel"
-			condition="mustConnectToExistingConfig" />
-		<panel classname="UserInputPanel" id="ProjectPanel" condition="mustInstallConfig" />
-		<panel classname="UserInputPanel" id="ConfigPanel" condition="mustInstallConfig">
+			condition="!izpack.selected.config" />
+		<panel classname="UserInputPanel" id="ProjectPanel" condition="izpack.selected.config" />
+		<panel classname="UserInputPanel" id="ConfigPanel" condition="izpack.selected.config">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorConfigPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="RabbitmqPanel" condition="mustInstallConfig" />
-		<panel classname="UserInputPanel" id="RegistryPanel" condition="mustInstallRegistry">
+		<panel classname="UserInputPanel" id="RabbitmqPanel" condition="izpack.selected.config" />
+		<panel classname="UserInputPanel" id="RegistryPanel" condition="izpack.selected.registry">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorRegistryPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="GatewayPanel" condition="mustInstallGateway">
+		<panel classname="UserInputPanel" id="GatewayPanel" condition="izpack.selected.gateway">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorGatewayPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="AuthenticationPanel"
-			condition="mustInstallAuthentication">
-			<validator
-				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAuthenticationPanel" />
-		</panel>
-		<panel classname="UserInputPanel" id="AdminPanel" condition="mustInstallAdmin">
+		<panel classname="UserInputPanel" id="AdminPanel" condition="izpack.selected.admin">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAdminPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="AccountsPanel" condition="mustInstallAdmin" />
-		<panel classname="UserInputPanel" id="DamPanel" condition="mustInstallDam">
+		<panel classname="UserInputPanel" id="AccountsPanel" condition="izpack.selected.admin" />
+		<panel classname="UserInputPanel" id="AuthenticationPanel"
+			condition="izpack.selected.authentication">
+			<validator
+				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAuthenticationPanel" />
+		</panel>
+		<panel classname="UserInputPanel" id="DamPanel" condition="izpack.selected.dam">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorDamPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="CatalogPanel" condition="mustInstallCatalog">
+		<panel classname="UserInputPanel" id="CatalogPanel" condition="izpack.selected.catalog">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorCatalogPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="AccessInstancePanel"
-			condition="mustInstallAccess">
+			condition="izpack.selected.access">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAccessInstancePanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="AccessProjectPanel"
-			condition="mustInstallAccess">
+			condition="izpack.selected.access">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAccessProjectPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="FrontendPanel" condition="mustInstallFrontend">
+		<panel classname="UserInputPanel" id="FrontendPanel" condition="izpack.selected.frontend">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorFrontendPanel" />
 		</panel>
@@ -401,8 +298,9 @@
 	</panels>
 
 	<packs>
-
-		<pack name="Core" required="true" preselected="true" hidden="true">
+		<!-- Pack names of components MUST match the ComponentType enum -->
+		<!-- /!\ Mind the order of the packs -->
+		<pack name="core" required="true">
 			<description>Core installation. Required for any component.
 			</description>
 			<file targetdir="$INSTALL_PATH" src="doc/readme.txt" override="true" />
@@ -438,55 +336,10 @@
 			</executable>
 		</pack>
 
-		<pack name="frontend" required="false" preselected="true">
-			<description>Web application serving the frontend</description>
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-frontend.*ar" />
-			</fileset>
-			<file src="sbin/microservice_frontend.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<fileset dir="config/static" targetdir="${regards.frontend.www.path}"
-				override="true">
-				<include name="**/*" />
-			</fileset>
-			<parsable type="plain">
-				<fileset targetdir="${regards.frontend.www.path}" includes="**/*.js" />
-			</parsable>
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="frontend" />
-					<arg value="-c" />
-					<arg value="${frontend.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="frontend" />
-					<arg value="-w" />
-					<arg value="${frontend.waitRuleList}" />
-				</args>
-			</executable>
-		</pack>
-
 		<pack name="config" required="false" preselected="true">
 			<description>Microservice providing configuration to any other
-				microservice</description>
+				microservice
+			</description>
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-config.jar" />
@@ -535,7 +388,8 @@
 
 		<pack name="registry" required="false" preselected="true">
 			<description>Microservice registering other microservices in the
-				cloud and handling load balancing</description>
+				cloud and handling load balancing
+			</description>
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-registry.jar" />
@@ -613,46 +467,6 @@
 			</executable>
 		</pack>
 
-		<pack name="authentication" required="false" preselected="true">
-			<description>Microservice dedicated to users' authentication
-			</description>
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-authentication.jar" />
-			</fileset>
-			<file src="sbin/microservice_authentication.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="authentication" />
-					<arg value="-c" />
-					<arg value="${authentication.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="authentication" />
-					<arg value="-w" />
-					<arg value="${authentication.waitRuleList}" />
-				</args>
-			</executable>
-		</pack>
-
 		<pack name="admin" required="false" preselected="true">
 			<description>Microservice handling system's administration
 			</description>
@@ -689,6 +503,46 @@
 					<arg value="admin" />
 					<arg value="-w" />
 					<arg value="${admin.waitRuleList}" />
+				</args>
+			</executable>
+		</pack>
+
+		<pack name="authentication" required="false" preselected="true">
+			<description>Microservice dedicated to users' authentication
+			</description>
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+				override="true">
+				<include name="bootstrap-authentication.jar" />
+			</fileset>
+			<file src="sbin/microservice_authentication.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true" />
+			<executable type="bin" stage="never" keep="true">
+				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
+			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="authentication" />
+					<arg value="-c" />
+					<arg value="${authentication.instanceList}" />
+				</args>
+			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="authentication" />
+					<arg value="-w" />
+					<arg value="${authentication.waitRuleList}" />
 				</args>
 			</executable>
 		</pack>
@@ -733,7 +587,44 @@
 			</executable>
 		</pack>
 
-		<refpackset dir="packs/" includes="*.xml"/>
+		<pack name="catalog" required="false" preselected="true">
+			<description>REGARDS Catalog service installation</description>
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+				override="true">
+				<include name="bootstrap-catalog.jar" />
+			</fileset>
+			<file src="sbin/microservice_catalog.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true" />
+			<executable type="bin" stage="never" keep="true">
+				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
+			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="catalog" />
+					<arg value="-c" />
+					<arg value="${catalog.instanceList}" />
+				</args>
+			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="catalog" />
+					<arg value="-w" />
+					<arg value="${catalog.waitRuleList}" />
+				</args>
+			</executable>
+		</pack>
 
 		<pack name="access" required="false" preselected="true">
 			<description>REGARDS Access service installation</description>
@@ -802,6 +693,53 @@
 				</args>
 			</executable>
 		</pack>
+
+		<pack name="frontend" required="false" preselected="true">
+			<description>Web application serving the frontend</description>
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+				override="true">
+				<include name="bootstrap-frontend.*ar" />
+			</fileset>
+			<file src="sbin/microservice_frontend.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true" />
+			<fileset dir="config/static" targetdir="${regards.frontend.www.path}"
+				override="true">
+				<include name="**/*" />
+			</fileset>
+			<parsable type="plain">
+				<fileset targetdir="${regards.frontend.www.path}" includes="**/*.js" />
+			</parsable>
+			<executable type="bin" stage="never" keep="true">
+				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
+			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="frontend" />
+					<arg value="-c" />
+					<arg value="${frontend.instanceList}" />
+				</args>
+			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="frontend" />
+					<arg value="-w" />
+					<arg value="${frontend.waitRuleList}" />
+				</args>
+			</executable>
+		</pack>
+
 	</packs>
 
 </izpack:installation>

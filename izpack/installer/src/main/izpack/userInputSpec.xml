@@ -596,17 +596,17 @@
 				</col>
 			</spec>
 		</field>
-		<field type="space" conditionid="!mustInstallGateway" />
-		<field type="divider" conditionid="!mustInstallGateway" />
-		<field type="space" conditionid="!mustInstallGateway" />
+		<field type="space" conditionid="!izpack.selected.gateway" />
+		<field type="divider" conditionid="!izpack.selected.gateway" />
+		<field type="space" conditionid="!izpack.selected.gateway" />
 		<field type="staticText" align="left" id="frontend.panel.gateway.label"
-			bold="true" conditionid="!mustInstallGateway" />
+			bold="true" conditionid="!izpack.selected.gateway" />
 		<field type="text" variable="regards.config.cloud.gateway.uri"
-			conditionid="!mustInstallGateway">
+			conditionid="!izpack.selected.gateway">
 			<spec id="host.label" size="15" set="${regards.config.cloud.gateway.uri}" />
 		</field>
 		<field type="text" variable="regards.config.cloud.gateway.port"
-			conditionid="!mustInstallGateway">
+			conditionid="!izpack.selected.gateway">
 			<spec id="port.label" size="15"
 				set="${regards.config.cloud.gateway.port}" />
 			<validator
