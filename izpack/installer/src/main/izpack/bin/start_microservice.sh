@@ -110,5 +110,4 @@ do
   fi
 done
 
-printf >&2 "\n"
 exit 0

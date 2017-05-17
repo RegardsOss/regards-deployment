@@ -227,6 +227,32 @@
 			<name>security.level</name>
 			<value>enforce</value>
 		</condition>
+		<condition type="or" id="atLeastOneBackendPackSelected">
+			<condition type="packselection" id="configSelected">
+				<name>config</name>
+			</condition>
+			<condition type="packselection" id="registrySelected">
+				<name>registry</name>
+			</condition>
+			<condition type="packselection" id="gatewaySelected">
+				<name>gateway</name>
+			</condition>
+			<condition type="packselection" id="adminSelected">
+				<name>admin</name>
+			</condition>
+			<condition type="packselection" id="authenticationSelected">
+				<name>authentication</name>
+			</condition>
+			<condition type="packselection" id="damSelected">
+				<name>dam</name>
+			</condition>
+			<condition type="packselection" id="catalogSelected">
+				<name>catalog</name>
+			</condition>
+			<condition type="packselection" id="accessSelected">
+				<name>access</name>
+			</condition>
+		</condition>
 	</conditions>
 
 	<panels>
@@ -244,7 +270,7 @@
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorConfigPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="RabbitmqPanel" condition="izpack.selected.config" />
+		<panel classname="UserInputPanel" id="RabbitmqPanel" condition="atLeastOneBackendPackSelected" />
 		<panel classname="UserInputPanel" id="RegistryPanel" condition="izpack.selected.registry">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorRegistryPanel" />
