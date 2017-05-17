@@ -125,5 +125,8 @@
 	<str id="validator.host.error.label" txt="Le host est invalide" />
 	<str id="validator.port.error.label"
 		txt="Le port est invalide ou bien déjà utilisé par un autre application" />
+	<str id="validator.notempty.username.label" txt="Renseignez l'utilisateur pour continuer" />
+	<str id="validator.notempty.password.label" txt="Renseignez le mot de passe pour continuer" />
+	<str id="validator.notempty.email.label" txt="Renseignez l'email pour continuer" />
 
 </izpack:langpack>

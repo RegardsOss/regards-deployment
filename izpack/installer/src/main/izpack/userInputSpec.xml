@@ -258,12 +258,18 @@
 		<field type="text" variable="regards.config.spring.rabbitmq.username">
 			<spec id="username.label" size="15"
 				set="${regards.config.spring.rabbitmq.username}" />
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.username.label" />
 		</field>
 		<field type="password" variable="regards.config.spring.rabbitmq.password">
 			<spec>
 				<pwd id="password.label" size="15"
 					set="${regards.config.spring.rabbitmq.password}" />
 			</spec>
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.password.label" />
 		</field>
 		<field type="space" />
 		<field type="divider" />
@@ -312,6 +318,9 @@
 			variable="regards.config.admin.regards.accounts.root.user.login">
 			<spec id="email.label" size="15"
 				set="${regards.config.admin.regards.accounts.root.user.login}" />
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.email.label" />
 		</field>
 		<field type="password"
 			variable="regards.config.admin.regards.accounts.root.user.password">
@@ -319,6 +328,9 @@
 				<pwd id="password.label" size="15"
 					set="${regards.config.admin.regards.accounts.root.user.password}" />
 			</spec>
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.password.label" />
 		</field>
 		<field type="space" />
 		<field type="divider" />
@@ -334,6 +346,9 @@
 			variable="regards.config.admin.regards.jpa.instance.datasource.user.name">
 			<spec id="username.label" size="15"
 				set="${regards.config.admin.regards.jpa.instance.datasource.user.name}" />
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.username.label" />
 		</field>
 		<field type="password"
 			variable="regards.config.admin.regards.jpa.instance.datasource.password">
@@ -341,6 +356,9 @@
 				<pwd id="password.label" size="15"
 					set="${regards.config.admin.regards.jpa.instance.datasource.password}" />
 			</spec>
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.password.label" />
 		</field>
 		<field type="space" />
 		<field type="divider" />
@@ -356,6 +374,9 @@
 			variable="regards.config.admin.regards.jpa.multitenant.tenants.user.name.1">
 			<spec id="username.label" size="15"
 				set="${regards.config.admin.regards.jpa.multitenant.tenants.user.name.1}" />
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.username.label" />
 		</field>
 		<field type="password"
 			variable="regards.config.admin.regards.jpa.multitenant.tenants.password.1">
@@ -363,6 +384,9 @@
 				<pwd id="password.label" size="15"
 					set="${regards.config.admin.regards.jpa.multitenant.tenants.password.1}" />
 			</spec>
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.password.label" />
 		</field>
 	</panel>
 
@@ -438,6 +462,9 @@
 			variable="regards.config.dam.regards.jpa.multitenant.tenants.user.name.1">
 			<spec id="username.label" size="15"
 				set="${regards.config.dam.regards.jpa.multitenant.tenants.user.name.1}" />
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.username.label" />
 		</field>
 		<field type="password"
 			variable="regards.config.dam.regards.jpa.multitenant.tenants.password.1">
@@ -445,6 +472,9 @@
 				<pwd id="password.label" size="15"
 					set="${regards.config.dam.regards.jpa.multitenant.tenants.password.1}" />
 			</spec>
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.password.label" />
 		</field>
 		<field type="space" />
 		<field type="divider" />
@@ -521,6 +551,9 @@
 			variable="regards.config.access.instance.regards.jpa.instance.datasource.user.name">
 			<spec id="username.label" size="15"
 				set="${regards.config.access.instance.regards.jpa.instance.datasource.user.name}" />
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.username.label" />
 		</field>
 		<field type="password"
 			variable="regards.config.access.instance.regards.jpa.instance.datasource.password">
@@ -528,6 +561,9 @@
 				<pwd id="password.label" size="15"
 					set="${regards.config.access.instance.regards.jpa.instance.datasource.password}" />
 			</spec>
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.password.label" />
 		</field>
 	</panel>
 
@@ -565,6 +601,9 @@
 			variable="regards.config.access.project.regards.jpa.multitenant.tenants.user.name.1">
 			<spec id="username.label" size="15"
 				set="${regards.config.access.project.regards.jpa.multitenant.tenants.user.name.1}" />
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.username.label" />
 		</field>
 		<field type="password"
 			variable="regards.config.access.project.regards.jpa.multitenant.tenants.password.1">
@@ -572,6 +611,9 @@
 				<pwd id="password.label" size="15"
 					set="${regards.config.access.project.regards.jpa.multitenant.tenants.password.1}" />
 			</spec>
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.password.label" />
 		</field>
 	</panel>
 

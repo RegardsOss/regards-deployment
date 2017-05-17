@@ -115,9 +115,9 @@
 		<variable name="regards.config.spring.rabbitmq.host" value="localhost" />
 		<variable name="regards.config.spring.rabbitmq.port" value="5672" />
 		<variable name="regards.config.spring.rabbitmq.username"
-			value="guest" />
+			value="" />
 		<variable name="regards.config.spring.rabbitmq.password"
-			value="guest" />
+			value="" />
 		<variable name="regards.config.regards.amqp.management.host"
 			value="localhost" />
 		<variable name="regards.config.regards.amqp.management.port"
@@ -128,25 +128,25 @@
 		<variable name="admin.host" value="localhost" />
 		<variable name="admin.port" value="8777" />
 		<variable name="regards.config.admin.regards.accounts.root.user.login"
-			value="regards-admin@c-s.fr" />
+			value="" />
 		<variable name="regards.config.admin.regards.accounts.root.user.password"
-			value="root_admin" />
+			value="" />
 		<variable name="regards.config.admin.regards.jpa.instance.datasource.url"
 			value="localhost:5432/rs_admin_instance" />
 		<variable
 			name="regards.config.admin.regards.jpa.instance.datasource.user.name"
-			value="rs_admin_user" />
+			value="" />
 		<variable
 			name="regards.config.admin.regards.jpa.instance.datasource.password"
-			value="rs_admin_pwd" />
+			value="" />
 		<variable name="regards.config.admin.regards.jpa.multitenant.tenants.url.1"
 			value="localhost:5432/rs_admin_tenant0" />
 		<variable
 			name="regards.config.admin.regards.jpa.multitenant.tenants.user.name.1"
-			value="rs_admin_tenant0_user" />
+			value="" />
 		<variable
 			name="regards.config.admin.regards.jpa.multitenant.tenants.password.1"
-			value="rs_admin_tenant0_pwd" />
+			value="" />
 
 		<!-- AccountPanel -->
 		<variable name="regards.accounts.validity.duration" value="30" />
@@ -167,10 +167,10 @@
 			value="localhost:5432/rs_dam_tenant0" />
 		<variable
 			name="regards.config.dam.regards.jpa.multitenant.tenants.user.name.1"
-			value="rs_dam_tenant0_user" />
+			value="" />
 		<variable
 			name="regards.config.dam.regards.jpa.multitenant.tenants.password.1"
-			value="rs_dam_tenant0_pwd" />
+			value="" />
 		<variable name="regards.config.elasticsearch.address" value="" />
 		<variable name="regards.config.elasticsearch.host" value="localhost" />
 		<variable name="regards.config.elasticsearch.cluster.name"
@@ -191,10 +191,10 @@
 			value="localhost:5432/rs_acces_instance" />
 		<variable
 			name="regards.config.access.instance.regards.jpa.instance.datasource.user.name"
-			value="rs_acces_user" />
+			value="" />
 		<variable
 			name="regards.config.access.instance.regards.jpa.instance.datasource.password"
-			value="rs_acces_pwd" />
+			value="" />
 
 		<!-- Access Project -->
 		<variable name="access-project.count" value="0" />
@@ -205,10 +205,10 @@
 			value="localhost:5432/rs_access_projet_tenant0" />
 		<variable
 			name="regards.config.access.project.regards.jpa.multitenant.tenants.user.name.1"
-			value="rs_access_projet_tenant0_user" />
+			value="" />
 		<variable
 			name="regards.config.access.project.regards.jpa.multitenant.tenants.password.1"
-			value="rs_access_projet_tenant0_pwd" />
+			value="" />
 
 		<!-- Frontend -->
 		<variable name="frontend.count" value="0" />
@@ -239,10 +239,6 @@
 		<panel classname="UserInputPanel" id="SelectSecurityLevelPanel" />
 		<panel classname="UserInputPanel" id="ConfigSecurityPanel"
 			condition="isSecurityEnforced" />
-		<!-- <panel classname="UserInputPanel" id="SelectInstallationTypePanel" 
-			/> -->
-		<!-- <panel classname="UserInputPanel" id="SelectComponentsPanel" condition="cloudInstallation" 
-			/> -->
 		<panel classname="UserInputPanel" id="LinkToExistingConfigPanel"
 			condition="!izpack.selected.config" />
 		<panel classname="UserInputPanel" id="ProjectPanel" condition="izpack.selected.config" />

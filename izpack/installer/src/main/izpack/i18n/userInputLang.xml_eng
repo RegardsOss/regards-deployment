@@ -118,7 +118,10 @@
 	<str id="access-project.panel.title.label" txt="Access Project microservice" />
 
 	<!-- Validators -->
-	<str id="validator.host.error.label" txt="Invalid host format!" />
+	<str id="validator.host.error.label" txt="Invalid host format" />
 	<str id="validator.port.error.label" txt="Invalid port format or the port is already in use" />
+	<str id="validator.notempty.username.label" txt="Fill the username to continue" />
+	<str id="validator.notempty.password.label" txt="Fill the password to continue" />
+	<str id="validator.notempty.email.label" txt="Fill the email to continue" />
 
 </izpack:langpack>
