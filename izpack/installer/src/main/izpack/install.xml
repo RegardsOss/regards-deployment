@@ -227,8 +227,6 @@
 			<name>security.level</name>
 			<value>enforce</value>
 		</condition>
-
-
 	</conditions>
 
 	<panels>

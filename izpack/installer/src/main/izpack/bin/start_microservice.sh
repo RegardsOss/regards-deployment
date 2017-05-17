@@ -83,6 +83,7 @@ do
   # Check if microservice is already started
   if ! is_microservice_running "${pid_file}" "${lib_exec_java}" "${MICROSERVICE_TYPE}" "${microservices_infos_t[id]}"
   then
+	printf >&2 "\n"
     printf >&2 "Starting ${MICROSERVICE_TYPE} type on \"${microservices_infos_t[host]}:${microservices_infos_t[port]}\" ...\n"
     # Wait for other components
     typeset wait_rule_list
@@ -109,4 +110,5 @@ do
   fi
 done
 
+printf >&2 "\n"
 exit 0
