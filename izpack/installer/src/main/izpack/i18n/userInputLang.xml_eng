@@ -17,8 +17,8 @@
 
 	<!-- SelectInstallationTypePanel -->
 	<str id="selectinstallationtype.panel.title.label" txt="How do you want to install REGARDS?" />
-	<str id="selectinstallationtype.panel.radio.full.label" txt="Install all components" />
-	<str id="selectinstallationtype.panel.radio.add.label" txt="Add components to an existing installation" />
+	<str id="selectinstallationtype.panel.radio.full.label" txt="Monolithic installation - All components will be installed" />
+	<str id="selectinstallationtype.panel.radio.cloud.label" txt="Cloud installation - Select the components you want to install" />
 
 	<!-- SelectSecurityLevelPanel -->
 	<str id="selectsecuritylevel.panel.title.label" txt="What system security do you want to use?" />
@@ -54,9 +54,11 @@
 	<!-- SelectComponentsPanel -->
 	<str id="selectcomponents.panel.title.label" txt="Which components would you want to install?" />
 	<str id="selectcomponents.panel.frontend.label" txt="Frontend" />
+	<str id="selectcomponents.panel.core.label" txt="Core" />
 	<str id="selectcomponents.panel.config.label" txt="Configuration" />
 	<str id="selectcomponents.panel.registry.label" txt="Registry" />
 	<str id="selectcomponents.panel.gateway.label" txt="Gateway" />
+	<str id="selectcomponents.panel.microservices.label" txt="Microservices" />
 	<str id="selectcomponents.panel.authentication.label" txt="Authentication" />
 	<str id="selectcomponents.panel.admin.label" txt="Administration" />
 	<str id="selectcomponents.panel.dam.label" txt="Data Management" />
@@ -65,7 +67,7 @@
 	<str id="selectcomponents.panel.storage.label" txt="Storage" />
 
 	<!-- LinkToExistingConfigPanel -->
-	<str id="linktoexistingconfig.panel.title.label" txt="Connect to an existing installation" />
+	<str id="linktoexistingconfig.panel.title.label" txt="Where is the Configuration server?" />
 
 	<!-- FrontendPanel -->
 	<str id="frontend.panel.title.label" txt="Frontend Server" />
@@ -116,7 +118,10 @@
 	<str id="access-project.panel.title.label" txt="Access Project microservice" />
 
 	<!-- Validators -->
-	<str id="validator.host.error.label" txt="Invalid host format!" />
+	<str id="validator.host.error.label" txt="Invalid host format" />
 	<str id="validator.port.error.label" txt="Invalid port format or the port is already in use" />
+	<str id="validator.notempty.username.label" txt="Fill the username to continue" />
+	<str id="validator.notempty.password.label" txt="Fill the password to continue" />
+	<str id="validator.notempty.email.label" txt="Fill the email to continue" />
 
 </izpack:langpack>

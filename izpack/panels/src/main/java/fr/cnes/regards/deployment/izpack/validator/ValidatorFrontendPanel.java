@@ -3,6 +3,8 @@
  */
 package fr.cnes.regards.deployment.izpack.validator;
 
+import fr.cnes.regards.deployment.izpack.utils.model.ComponentType;
+
 /**
  * Class ValidatorFrontendPanel
  *
@@ -11,13 +13,13 @@ package fr.cnes.regards.deployment.izpack.validator;
  * @author Guillaume Barthe de Montmejan
  * @since 1.0.0
  */
-public class ValidatorFrontendPanel extends ValidatorInstanceList {
+public class ValidatorFrontendPanel extends InjectDataValidator {
 
     /**
      * Default constructor
      */
     public ValidatorFrontendPanel() {
-        componentIdentifier = "frontend";
-        componentCountIdentifier = componentIdentifier;
+        type = ComponentType.FRONTEND;
+        entryKey = type.getName();
     }
 }

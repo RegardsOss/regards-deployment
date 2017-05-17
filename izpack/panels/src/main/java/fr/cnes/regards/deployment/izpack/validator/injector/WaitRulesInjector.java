@@ -1,26 +1,29 @@
 /*
  * LICENSE_PLACEHOLDER
  */
-package fr.cnes.regards.deployment.izpack.validator;
+package fr.cnes.regards.deployment.izpack.validator.injector;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import com.izforge.izpack.api.data.InstallData;
-import com.izforge.izpack.api.installer.DataValidator;
 
 import fr.cnes.regards.deployment.izpack.utils.XmlAccessor;
 import fr.cnes.regards.deployment.izpack.utils.model.ComponentConfigList;
+import fr.cnes.regards.deployment.izpack.utils.model.ComponentType;
 import fr.cnes.regards.deployment.izpack.utils.model.WaitRule;
 import fr.cnes.regards.deployment.izpack.utils.model.WaitRuleList;
 
 /**
- * This class  does not perform validation, but is a way to hack into the Izpack {@link InstallData}<br>
- * in order to manually inject the waited components to each component configuration.
- *
+ * Injects the list of wait rules of a component into the installation data.
  * @author Xavier-Alexandre Brochard
  */
-public class InjectWaitRules implements DataValidator {
+public class WaitRulesInjector implements InstallDataInjector {
+
+    /**
+     * Type
+     */
+    private final ComponentType type;
 
     /**
      * Suffix of variables ".instanceList" on the install data
@@ -100,44 +103,35 @@ public class InjectWaitRules implements DataValidator {
         WAIT_RULES.put(ComponentType.FRONTEND, frontendWaitList);
     }
 
-    @Override
-    public Status validateData(InstallData installData) {
-        WAIT_RULES.forEach((currentType, waitedMap) -> {
-            String currentTypeAsString = currentType.getType();
-            WaitRuleList waitRuleList = new WaitRuleList();
+    /**
+     * @param pType
+     */
+    public WaitRulesInjector(ComponentType pType) {
+        super();
+        type = pType;
+    }
 
-            waitedMap.forEach((waitedType, timeout) -> {
-                String waitedTypeAsString = waitedType.getType();
+    /* (non-Javadoc)
+     * @see fr.cnes.regards.deployment.izpack.validator.InstallDataInjector#inject(com.izforge.izpack.api.data.InstallData)
+     */
+    @Override
+    public void inject(InstallData pInstallData) {
+        WaitRuleList waitRuleList = new WaitRuleList();
+        WAIT_RULES.get(type).forEach((waitedType, timeout) -> {
+            String waitedPack = waitedType.getName(); // The type of component we should be waiting for
+            Boolean isWaitedPackBeingInstalled = pInstallData.getSelectedPacks().stream()
+                    .anyMatch(pack -> pack.getName().equals(waitedPack)); // Is the component/pack we are waiting for is being installed?
+            // Only wait for a component/pack which is being installed
+            if (isWaitedPackBeingInstalled) {
                 ComponentConfigList waitedComponentConfigList = XmlAccessor
-                        .readFromString(installData.getVariable(waitedTypeAsString + INSTANCE_LIST_SUFFIX),
+                        .readFromString(pInstallData.getVariable(waitedPack + INSTANCE_LIST_SUFFIX),
                                         ComponentConfigList.class);
                 waitedComponentConfigList.getItems().stream().map(item -> new WaitRule(item, timeout))
                         .forEach(waitRuleList::add);
-            });
-
-            installData.setVariable(currentTypeAsString + WAIT_RULE_LIST_SUFFIX,
-                                    XmlAccessor.writeToString(waitRuleList));
+            }
         });
 
-        return Status.OK;
-    }
-
-    @Override
-    public String getErrorMessageId() {
-        // Not necessary, status is always OK.
-        return null;
-    }
-
-    @Override
-    public String getWarningMessageId() {
-        // Not necessary, status is always OK.
-        return null;
-    }
-
-    @Override
-    public boolean getDefaultAnswer() {
-        // Not necessary, status is always OK.
-        return false;
+        pInstallData.setVariable(type.getName() + WAIT_RULE_LIST_SUFFIX, XmlAccessor.writeToString(waitRuleList));
     }
 
 }

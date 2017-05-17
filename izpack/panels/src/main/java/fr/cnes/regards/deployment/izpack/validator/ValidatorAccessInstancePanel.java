@@ -3,6 +3,8 @@
  */
 package fr.cnes.regards.deployment.izpack.validator;
 
+import fr.cnes.regards.deployment.izpack.utils.model.ComponentType;
+
 /**
  * Class ValidatorAccessInstancePanel
  *
@@ -11,13 +13,13 @@ package fr.cnes.regards.deployment.izpack.validator;
  * @author Guillaume Barthe de Montmejan
  * @since 1.0.0
  */
-public class ValidatorAccessInstancePanel extends ValidatorInstanceList {
+public class ValidatorAccessInstancePanel extends InjectDataValidator {
 
     /**
      * Default constructor
      */
     public ValidatorAccessInstancePanel() {
-        componentIdentifier = "access-instance";
-        componentCountIdentifier = componentIdentifier;
+        type = ComponentType.ACCESS_INSTANCE;
+        entryKey = type.getName();
     }
 }

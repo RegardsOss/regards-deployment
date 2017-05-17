@@ -19,8 +19,8 @@
 
 	<!-- SelectInstallationTypePanel -->
 	<str id="selectinstallationtype.panel.title.label" txt="Comment voulez-vous installer REGARDS?" />
-	<str id="selectinstallationtype.panel.radio.full.label" txt="Installer tous les composants" />
-	<str id="selectinstallationtype.panel.radio.add.label" txt="Ajouter des composants à une installation existante" />
+	<str id="selectinstallationtype.panel.radio.full.label" txt="Installation monolithique - Tous les composants seront installés" />
+	<str id="selectinstallationtype.panel.radio.cloud.label" txt="Installation cloud - Choisissez les composants à installer" />
 
 	<!-- SelectSecurityLevelPanel -->
 	<str id="selectsecuritylevel.panel.title.label" txt="Quelle sécurité système voulez-vous utiliser?" />
@@ -57,9 +57,11 @@
 	<!-- SelectComponentsPanel -->
 	<str id="selectcomponents.panel.title.label" txt="Quels composants souhaitez-vous installer?" />
 	<str id="selectcomponents.panel.frontend.label" txt="Frontend" />
+	<str id="selectcomponents.panel.core.label" txt="Core" />
 	<str id="selectcomponents.panel.config.label" txt="Configuration" />
 	<str id="selectcomponents.panel.registry.label" txt="Registry" />
 	<str id="selectcomponents.panel.gateway.label" txt="Gateway" />
+	<str id="selectcomponents.panel.microservices.label" txt="Microservices" />
 	<str id="selectcomponents.panel.authentication.label" txt="Authentication" />
 	<str id="selectcomponents.panel.admin.label" txt="Administration" />
 	<str id="selectcomponents.panel.dam.label" txt="Data Management" />
@@ -68,7 +70,7 @@
 	<str id="selectcomponents.panel.storage.label" txt="Storage" />
 
 	<!-- LinkToExistingConfigPanel -->
-	<str id="linktoexistingconfig.panel.title.label" txt="Où se trouve cette installation?" />
+	<str id="linktoexistingconfig.panel.title.label" txt="Où se trouve le serveur de Configuration?" />
 
 	<!-- FrontendPanel -->
 	<str id="frontend.panel.title.label" txt="Serveur Frontend" />
@@ -109,7 +111,7 @@
 	<!-- DamPanel -->
 	<str id="dam.panel.title.label" txt="Microservice Data Management" />
 	<str id="dam.panel.elasticsearch.label" txt="Elasticsearch" />
-	
+
 	<!-- CatalogPanel -->
 	<str id="catalog.panel.title.label" txt="Microservice Catalog" />
 
@@ -123,5 +125,8 @@
 	<str id="validator.host.error.label" txt="Le host est invalide" />
 	<str id="validator.port.error.label"
 		txt="Le port est invalide ou bien déjà utilisé par un autre application" />
+	<str id="validator.notempty.username.label" txt="Renseignez l'utilisateur pour continuer" />
+	<str id="validator.notempty.password.label" txt="Renseignez le mot de passe pour continuer" />
+	<str id="validator.notempty.email.label" txt="Renseignez l'email pour continuer" />
 
 </izpack:langpack>

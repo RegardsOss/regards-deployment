@@ -1,7 +1,7 @@
 /*
  * LICENSE_PLACEHOLDER
  */
-package fr.cnes.regards.deployment.izpack.validator;
+package fr.cnes.regards.deployment.izpack.utils.model;
 
 /**
  *
@@ -22,20 +22,20 @@ public enum ComponentType {
     /**
      * Type
      */
-    private final String type;
+    private final String name;
 
     /**
-     * @param pType
+     * @param pName
      */
-    private ComponentType(String pType) {
-        type = pType;
+    private ComponentType(String pName) {
+        name = pName;
     }
 
     /**
-     * @return the type
+     * @return the name
      */
-    public String getType() {
-        return type;
+    public String getName() {
+        return name;
     }
 
 }
