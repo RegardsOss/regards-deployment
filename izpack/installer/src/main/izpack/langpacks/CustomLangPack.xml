@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!-- LICENSE_PLACEHOLDER -->
+<izpack:langpack version="5.0"
+	xmlns:izpack="http://izpack.org/schema/langpack" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://izpack.org/schema/langpack http://izpack.org/schema/5.0/izpack-langpack-5.0.xsd">
+
+	<str id="pokedex.button" txt="Pokedex button" />
+	<str id="pokedex.working" txt="Pokedex working" />
+	<str id="pokedex.error" txt="Pokedex error" />
+	<str id="error" txt="Error" />
+	
+	<str id="connection.tester.test" txt="Test" />
+	<str id="connection.tester.success" txt="The database is live" />
+	<str id="connection.tester.fail" txt="Could not contact the database" />
+	<str id="error" txt="Error" />
+
+</izpack:langpack>

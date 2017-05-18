@@ -35,8 +35,8 @@ if (options.n) {
 
 import java.nio.file.Paths;
 import java.nio.file.Path;
-import fr.cnes.regards.deployment.izpack.utils.ComponentConfigListAccessor;
-import fr.cnes.regards.deployment.izpack.utils.model.ComponentConfigList;
+import fr.cnes.regards.deployment.izpack.custom.xml.ComponentConfigListAccessor;
+import fr.cnes.regards.deployment.izpack.custom.model.ComponentConfigList;
 
 // Microservice Registry Configuration file
 Path registryFilePath = Paths.get(regardsInstallDir, "config/" + microserviceType + "_config.xml");

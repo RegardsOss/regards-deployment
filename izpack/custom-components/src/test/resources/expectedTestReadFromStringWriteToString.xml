@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<componentConfigList>
+    <componentConfig id="0">
+        <host>localhost5</host>
+        <port>7780</port>
+    </componentConfig>
+    <componentConfig id="1">
+        <host>localhost6</host>
+        <port>7781</port>
+    </componentConfig>
+</componentConfigList>

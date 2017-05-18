@@ -27,8 +27,8 @@ String componentType = options.t;
 
 import java.nio.file.Paths;
 import java.nio.file.Path;
-import fr.cnes.regards.deployment.izpack.utils.XmlAccessor;
-import fr.cnes.regards.deployment.izpack.utils.model.WaitRuleList;
+import fr.cnes.regards.deployment.izpack.custom.xml.XmlAccessor;
+import fr.cnes.regards.deployment.izpack.custom.model.WaitRuleList;
 
 // Path the xml file to read
 Path waitRuleListFile = Paths.get(installDir, "config/" + componentType + "_wait_rule_list.xml");

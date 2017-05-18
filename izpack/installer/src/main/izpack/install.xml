@@ -2,11 +2,11 @@
 <!-- LICENSE_PLACEHOLDER -->
 <izpack:installation version="5.0"
 	xmlns:izpack="http://izpack.org/schema/installation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://izpack.org/schema/installation http://izpack.org/schema/5.0/izpack-installation-5.0.xsd">
+	xsi:schemaLocation="http://izpack.org/schema/installation http://izpack.org/schema/installation/izpack-installation-5.0.xsd">
 
 	<info>
 		<appname>REGARDS</appname>
-		<appversion>@{regards.izpack.panels.version}</appversion>
+		<appversion>@{regards.izpack.installer.version}</appversion>
 		<appsubpath>regards</appsubpath>
 		<javaversion>@{java.version}</javaversion>
 		<requiresjdk>no</requiresjdk>
@@ -48,6 +48,8 @@
 		<modifier key="showDebugWindow" value="true" />
 	</guiprefs>
 
+	<jar src="custom/custom-components.jar" />
+
 	<resources>
 		<res id="InfoPanel.info" src="doc/readme.txt" parse="yes" />
 		<res id="LicencePanel.licence" src="legal/License.txt" />
@@ -56,13 +58,11 @@
 			type="xml" />
 		<res id="ProcessPanel.Spec.xml" src="ProcessPanel.Spec.xml" parse="yes"
 			type="xml" />
-		<res id="CustomLangPack.xml_fra" src="i18n/CustomLangPack.xml_fra" />
-		<res id="userInputLang.xml_eng" src="i18n/userInputLang.xml_eng" />
-		<res id="userInputLang.xml_fra" src="i18n/userInputLang.xml_fra" />
+		<res id="CustomLangPack.xml" src="langpacks/CustomLangPack.xml" />
+		<res id="CustomLangPack.xml_fra" src="langpacks/CustomLangPack.xml_fra" />
+		<res id="userInputLang.xml_eng" src="langpacks/userInputLang.xml_eng" />
+		<res id="userInputLang.xml_fra" src="langpacks/userInputLang.xml_fra" />
 	</resources>
-
-	<jar src="custom/panels.jar" stage="install" />
-	<jar src="custom/utils.jar" stage="install" />
 
 	<dynamicvariables>
 		<!-- Security -->
@@ -268,48 +268,49 @@
 		<panel classname="UserInputPanel" id="ProjectPanel" condition="izpack.selected.config" />
 		<panel classname="UserInputPanel" id="ConfigPanel" condition="izpack.selected.config">
 			<validator
-				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorConfigPanel" />
+				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorConfigPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="RabbitmqPanel" condition="atLeastOneBackendPackSelected" />
+		<panel classname="UserInputPanel" id="RabbitmqPanel"
+			condition="atLeastOneBackendPackSelected" />
 		<panel classname="UserInputPanel" id="RegistryPanel" condition="izpack.selected.registry">
 			<validator
-				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorRegistryPanel" />
+				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorRegistryPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="GatewayPanel" condition="izpack.selected.gateway">
 			<validator
-				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorGatewayPanel" />
+				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorGatewayPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="AdminPanel" condition="izpack.selected.admin">
 			<validator
-				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAdminPanel" />
+				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAdminPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="AccountsPanel" condition="izpack.selected.admin" />
 		<panel classname="UserInputPanel" id="AuthenticationPanel"
 			condition="izpack.selected.authentication">
 			<validator
-				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAuthenticationPanel" />
+				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAuthenticationPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="DamPanel" condition="izpack.selected.dam">
 			<validator
-				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorDamPanel" />
+				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorDamPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="CatalogPanel" condition="izpack.selected.catalog">
 			<validator
-				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorCatalogPanel" />
+				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorCatalogPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="AccessInstancePanel"
 			condition="izpack.selected.access">
 			<validator
-				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAccessInstancePanel" />
+				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAccessInstancePanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="AccessProjectPanel"
 			condition="izpack.selected.access">
 			<validator
-				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAccessProjectPanel" />
+				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAccessProjectPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="FrontendPanel" condition="izpack.selected.frontend">
 			<validator
-				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorFrontendPanel" />
+				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorFrontendPanel" />
 		</panel>
 		<panel classname="SummaryPanel" />
 		<panel classname="InstallPanel" />
@@ -321,8 +322,7 @@
 		<!-- Pack names of components MUST match the ComponentType enum -->
 		<!-- /!\ Mind the order of the packs -->
 		<pack name="core" required="true">
-			<description>Core installation. Required for any component.
-			</description>
+			<description>Core installation. Required for any component.</description>
 			<file targetdir="$INSTALL_PATH" src="doc/readme.txt" override="true" />
 			<file targetdir="$INSTALL_PATH" src="legal/License.txt"
 				override="true" />
@@ -342,7 +342,7 @@
 				override="true">
 				<include name="*" />
 			</fileset>
-			<fileset dir="utils/" targetdir="$INSTALL_PATH/REGARDS/lib"
+			<fileset dir="custom" targetdir="$INSTALL_PATH/REGARDS/lib"
 				override="true">
 				<include name="*.jar" />
 			</fileset>
@@ -358,8 +358,7 @@
 
 		<pack name="config" required="false" preselected="true">
 			<description>Microservice providing configuration to any other
-				microservice
-			</description>
+				microservice</description>
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-config.jar" />

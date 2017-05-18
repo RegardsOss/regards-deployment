@@ -31,7 +31,7 @@ import java.nio.file.Paths;
 import java.nio.file.Path;
 
 def urlLoader = new GroovyClassLoader();
-urlLoader.addURL((Paths.get(regardsInstallDir, "lib/utils.jar").toUri().toURL()));
+urlLoader.addURL((Paths.get(regardsInstallDir, "lib/custom-components.jar").toUri().toURL()));
 println "ClassLoader :"
 urlLoader.URLs.each{ println it }
 
@@ -42,8 +42,8 @@ println "Xml input configuration : " + xmlConfig;
 
 // Component configuration file
 Path componentFilePath = Paths.get(regardsInstallDir, "config/" + componentType + "_config.xml");
-def cComponentConfigList = Class.forName("fr.cnes.regards.deployment.izpack.utils.model.ComponentConfigList", true, urlLoader);
-def cXmlAccessor = Class.forName("fr.cnes.regards.deployment.izpack.utils.XmlAccessor", true, urlLoader);
+def cComponentConfigList = Class.forName("fr.cnes.regards.deployment.izpack.custom.model.ComponentConfigList", true, urlLoader);
+def cXmlAccessor = Class.forName("fr.cnes.regards.deployment.izpack.custom.xml.XmlAccessor", true, urlLoader);
 cXmlAccessor.writeToFile(xmlConfig, componentFilePath, cComponentConfigList);
 
 System.exit(0);

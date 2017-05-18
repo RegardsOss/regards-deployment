@@ -5,6 +5,19 @@
 	xsi:schemaLocation="http://izpack.org/schema/userinput http://izpack.org/schema/5.0/izpack-userinput-5.0.xsd">
 
 	<panel id="SelectSecurityLevelPanel">
+
+
+
+		<field type="button" id="pokedex.query">
+			<spec id="pokedex.button" successMsg="pokedex.working">
+				<run class="fr.cnes.regards.deployment.izpack.custom.actions.PokemonConnectionTest">
+					<msg id="pokedex.error" name="error" />
+				</run>
+			</spec>
+		</field>
+
+
+
 		<field id="selectsecuritylevel.panel.title.label" type="title" />
 		<field type="radio" variable="security.level">
 			<spec>
@@ -67,56 +80,6 @@
 				<choice id="selectinstallationtype.panel.radio.cloud.label"
 					value="cloud" />
 			</spec>
-		</field>
-	</panel>
-
-	<panel id="SelectComponentsPanel">
-		<field id="selectcomponents.panel.title.label" type="title" />
-		<field type="check" variable="frontend.selected">
-			<spec id="selectcomponents.panel.frontend.label" true="true"
-				false="false" set="false" />
-		</field>
-		<field type="space" />
-		<field type="divider" />
-		<field type="space" />
-		<field type="staticText" align="left"
-			id="selectcomponents.panel.core.label" bold="true" />
-		<field type="check" variable="config.selected">
-			<spec id="selectcomponents.panel.config.label" true="true"
-				false="false" set="false" />
-		</field>
-		<field type="check" variable="registry.selected">
-			<spec id="selectcomponents.panel.registry.label" true="true"
-				false="false" set="false" />
-		</field>
-		<field type="check" variable="gateway.selected">
-			<spec id="selectcomponents.panel.gateway.label" true="true"
-				false="false" set="false" />
-		</field>
-		<field type="space" />
-		<field type="divider" />
-		<field type="space" />
-		<field type="staticText" align="left"
-			id="selectcomponents.panel.microservices.label" bold="true" />
-		<field type="check" variable="authentication.selected">
-			<spec id="selectcomponents.panel.authentication.label" true="true"
-				false="false" set="false" />
-		</field>
-		<field type="check" variable="admin.selected">
-			<spec id="selectcomponents.panel.admin.label" true="true" false="false"
-				set="false" />
-		</field>
-		<field type="check" variable="dam.selected">
-			<spec id="selectcomponents.panel.dam.label" true="true" false="false"
-				set="false" />
-		</field>
-		<field type="check" variable="izpack.selected.catalog">
-			<spec id="selectcomponents.panel.catalog.label" true="true"
-				false="false" set="false" />
-		</field>
-		<field type="check" variable="access.selected">
-			<spec id="selectcomponents.panel.access.label" true="true"
-				false="false" set="false" />
 		</field>
 	</panel>
 
@@ -564,6 +527,13 @@
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
 				id="validator.notempty.password.label" />
+		</field>
+		<field type="button" id="pokedex.query">
+			<spec id="connection.tester.test" successMsg="connection.tester.sucess">
+				<run class="fr.cnes.regards.deployment.izpack.custom.actions.AccessInstanceJdbcConnectionTester">
+					<msg id="connection.tester.fail" name="error" />
+				</run>
+			</spec>
 		</field>
 	</panel>
 

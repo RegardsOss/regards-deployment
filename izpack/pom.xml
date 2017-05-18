@@ -16,14 +16,12 @@
 	</parent>
 
 	<properties>
-		<maven.izpack.version>5.1.0</maven.izpack.version>
-		<regards.izpack.panels.version>${project.version}</regards.izpack.panels.version>
-		<regards.izpack.utils.version>${project.version}</regards.izpack.utils.version>
+		<izpack.version>5.1.0</izpack.version>
+		<regards.izpack.installer.version>${project.version}</regards.izpack.installer.version>
 	</properties>
 
 	<modules>
-		<module>panels</module>
-		<module>utils</module>
 		<module>installer</module>
+		<module>custom-components</module>
 	</modules>
 </project>
