@@ -23,7 +23,7 @@
 	<str id="components.gateway" txt="Gateway" />
 	<str id="components.authentication" txt="Authentication" />
 	<str id="components.admin" txt="Administration" />
-	<str id="components.admin.instance" txt="Administration isntance" />
+	<str id="components.admin.instance" txt="Administration instance" />
 	<str id="components.admin.project" txt="Administration projet" />
 	<str id="components.dam" txt="Data Management" />
 	<str id="components.catalog" txt="Catalog" />
@@ -53,8 +53,7 @@
 		txt="	* L'administrateur devra faire partie des groupes REGARDS, ADMIN et RUNTIME" />
 
 	<!-- ProjectPanel -->
-	<str id="project.panel.title.label"
-		txt="Quel est le premier projet que nous devrions ajouter à REGARS?" />
+	<str id="project.panel.title.label" txt="Quel est le premier projet que nous devrions ajouter?" />
 	<str id="project.panel.project.label" txt="Nom:" />
 
 	<!-- ConfigSecurityLevelPanel -->

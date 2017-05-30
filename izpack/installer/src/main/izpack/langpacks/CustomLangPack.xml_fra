@@ -10,7 +10,7 @@
 
 	<str id="connection.tester.test" txt="Tester" />
 	<str id="connection.tester.success" txt="La base de données est active" />
-	<str id="connection.tester.fail" txt="La base de données ne répond pas" />
+	<str id="connection.tester.fail" txt="La base de données ne répond pas. Vérifiez le host, le port et le schéma" />
 	<str id="error" txt="Error" />
 
 </izpack:langpack>

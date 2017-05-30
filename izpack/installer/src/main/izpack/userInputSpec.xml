@@ -31,7 +31,7 @@
 		<field id="configsecuritylevel.panel.title.label" type="title" />
 		<field type="text" variable="regards.config.regards.microservices.exec.user">
 			<spec size="15" id="configsecuritylevel.panel.exec.user.label"
-				set="${regards.config.regards.microservices.exec.user}" />
+				default="${regards.config.regards.microservices.exec.user}" />
 		</field>
 		<field type="space" />
 		<field id="selectsecuritylevel.panel.title.label" type="divider"
@@ -40,22 +40,22 @@
 		<field type="text" variable="regards.config.regards.microservices.regards.group"
 			id="configsecuritylevel.panel.exec.group.label">
 			<spec size="15" id="configsecuritylevel.panel.regards.group.label"
-				set="${regards.config.regards.microservices.regards.group}" />
+				default="${regards.config.regards.microservices.regards.group}" />
 		</field>
 		<field type="text" variable="regards.config.regards.microservices.exec.group"
 			id="configsecuritylevel.panel.exec.group.label">
 			<spec size="15" id="configsecuritylevel.panel.exec.group.label"
-				set="${regards.config.regards.microservices.exec.group}" />
+				default="${regards.config.regards.microservices.exec.group}" />
 		</field>
 		<field type="text" variable="regards.config.regards.microservices.admin.group"
 			id="configsecuritylevel.panel.exec.group.label" size="35">
 			<spec size="15" id="configsecuritylevel.panel.admin.group.label"
-				set="${regards.config.regards.microservices.admin.group}" />
+				default="${regards.config.regards.microservices.admin.group}" />
 		</field>
 		<field type="text" variable="regards.config.regards.microservices.runtime.group"
 			id="configsecuritylevel.panel.exec.group.label">
 			<spec size="15" id="configsecuritylevel.panel.runtime.group.label"
-				set="${regards.config.regards.microservices.runtime.group}" />
+				default="${regards.config.regards.microservices.runtime.group}" />
 		</field>
 	</panel>
 
@@ -77,12 +77,12 @@
 			<spec>
 				<col>
 					<field type="text" variable="config.host">
-						<spec id="host.label" size="15" set="${config.host}" />
+						<spec id="host.label" size="15" default="${config.host}" />
 					</field>
 				</col>
 				<col>
 					<field type="text" variable="config.port">
-						<spec id="port.label" size="15" set="${config.port}" />
+						<spec id="port.label" size="15" default="${config.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
@@ -96,7 +96,7 @@
 	<panel id="ProjectPanel">
 		<field id="project.panel.title.label" type="title" />
 		<field type="text" variable="regards.config.first.project" size="35">
-			<spec size="15" id="project.panel.project.label" set="project1" />
+			<spec size="15" id="project.panel.project.label" default="project1" />
 		</field>
 	</panel>
 
@@ -106,12 +106,12 @@
 			<spec>
 				<col>
 					<field type="text" variable="config.host">
-						<spec id="host.label" size="15" set="${config.host}" />
+						<spec id="host.label" size="15" default="${config.host}" />
 					</field>
 				</col>
 				<col>
 					<field type="text" variable="config.port">
-						<spec id="port.label" size="15" set="${config.port}" />
+						<spec id="port.label" size="15" default="${config.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
@@ -129,13 +129,13 @@
 				<col>
 					<field type="text" variable="regards.config.cloud.registry.host">
 						<spec id="host.label" size="15"
-							set="${regards.config.cloud.registry.host}" />
+							default="${regards.config.cloud.registry.host}" />
 					</field>
 				</col>
 				<col>
 					<field type="text" variable="regards.config.cloud.registry.port">
 						<spec id="port.label" size="15"
-							set="${regards.config.cloud.registry.port}">
+							default="${regards.config.cloud.registry.port}">
 						</spec>
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
@@ -153,12 +153,12 @@
 			<spec>
 				<col>
 					<field type="text" variable="gateway.host">
-						<spec id="host.label" size="15" set="${gateway.host}" />
+						<spec id="host.label" size="15" default="${gateway.host}" />
 					</field>
 				</col>
 				<col>
 					<field type="text" variable="gateway.port">
-						<spec id="port.label" size="15" set="${gateway.port}" />
+						<spec id="port.label" size="15" default="${gateway.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
@@ -171,30 +171,29 @@
 
 	<panel id="RabbitmqPanel">
 		<field id="rabbitmq.panel.title.label" type="title" />
-		<field type="staticText" align="left" id="rabbitmq.panel.rabbitmq.label"
+		<field type="staticText" id="rabbitmq.panel.rabbitmq.label"
 			bold="true" />
 		<field type="text" variable="regards.config.spring.rabbitmq.host">
 			<spec id="host.label" size="15"
-				set="${regards.config.spring.rabbitmq.host}" />
+				default="${regards.config.spring.rabbitmq.host}" />
 		</field>
 		<field type="text" variable="regards.config.spring.rabbitmq.port">
 			<spec id="port.label" size="15"
-				set="${regards.config.spring.rabbitmq.port}" />
+				default="${regards.config.spring.rabbitmq.port}" />
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 				id="validator.port.error.label" />
 		</field>
 		<field type="text" variable="regards.config.spring.rabbitmq.username">
 			<spec id="username.label" size="15"
-				set="${regards.config.spring.rabbitmq.username}" />
+				default="${regards.config.spring.rabbitmq.username}" />
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
 				id="validator.notempty.username.label" />
 		</field>
 		<field type="password" variable="regards.config.spring.rabbitmq.password">
 			<spec>
-				<pwd id="password.label" size="15"
-					set="${regards.config.spring.rabbitmq.password}" />
+				<pwd id="password.label" size="15" />
 			</spec>
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
@@ -203,15 +202,14 @@
 		<field type="space" />
 		<field type="divider" />
 		<field type="space" />
-		<field type="staticText" align="left" id="rabbitmq.panel.amqp.label"
-			bold="true" />
+		<field type="staticText" id="rabbitmq.panel.amqp.label" bold="true" />
 		<field type="text" variable="regards.config.regards.amqp.management.host">
 			<spec id="host.label" size="15"
-				set="${regards.config.regards.amqp.management.host}" />
+				default="${regards.config.regards.amqp.management.host}" />
 		</field>
 		<field type="text" variable="regards.config.regards.amqp.management.port">
 			<spec id="port.label" size="15"
-				set="${regards.config.regards.amqp.management.port}" />
+				default="${regards.config.regards.amqp.management.port}" />
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 				id="validator.port.error.label" />
@@ -224,12 +222,12 @@
 			<spec>
 				<col>
 					<field type="text" variable="admin.host">
-						<spec id="host.label" size="15" set="${admin.host}" />
+						<spec id="host.label" size="15" default="${admin.host}" />
 					</field>
 				</col>
 				<col>
 					<field type="text" variable="admin.port">
-						<spec id="port.label" size="15" set="${admin.port}" />
+						<spec id="port.label" size="15" default="${admin.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
@@ -238,15 +236,16 @@
 				</col>
 			</spec>
 		</field>
+
 		<field type="space" />
 		<field type="divider" />
 		<field type="space" />
-		<field type="staticText" align="left" id="admin.panel.root.user.label"
-			bold="true" />
+
+		<field type="staticText" id="admin.panel.root.user.label" />
 		<field type="text"
 			variable="regards.config.admin.regards.accounts.root.user.login">
 			<spec id="email.label" size="15"
-				set="${regards.config.admin.regards.accounts.root.user.login}" />
+				default="${regards.config.admin.regards.accounts.root.user.login}" />
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
 				id="validator.notempty.email.label" />
@@ -254,27 +253,26 @@
 		<field type="password"
 			variable="regards.config.admin.regards.accounts.root.user.password">
 			<spec>
-				<pwd id="password.label" size="15"
-					set="${regards.config.admin.regards.accounts.root.user.password}" />
+				<pwd id="password.label" size="15" />
 			</spec>
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
 				id="validator.notempty.password.label" />
 		</field>
+
 		<field type="space" />
 		<field type="divider" />
 		<field type="space" />
-		<field type="staticText" align="left" id="instance.database.label"
-			bold="true" />
-		<field type="text"
+
+		<field type="staticText" id="instance.database.label" bold="true" />
+		<field type="rule"
 			variable="regards.config.admin.regards.jpa.instance.datasource.url">
-			<spec id="url.label" size="15"
-				set="${regards.config.admin.regards.jpa.instance.datasource.url}" />
+			<spec default="${regards.config.admin.regards.jpa.instance.datasource.url}"
+				id="url.label" layout="O:15:U : N:5:U / O:15:U" resultFormat="displayFormat" />
 		</field>
 		<field type="text"
 			variable="regards.config.admin.regards.jpa.instance.datasource.user.name">
-			<spec id="username.label" size="15"
-				set="${regards.config.admin.regards.jpa.instance.datasource.user.name}" />
+			<spec id="username.label" size="15" />
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
 				id="validator.notempty.username.label" />
@@ -282,27 +280,26 @@
 		<field type="password"
 			variable="regards.config.admin.regards.jpa.instance.datasource.password">
 			<spec>
-				<pwd id="password.label" size="15"
-					set="${regards.config.admin.regards.jpa.instance.datasource.password}" />
+				<pwd id="password.label" size="15" />
 			</spec>
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
 				id="validator.notempty.password.label" />
 		</field>
+
 		<field type="space" />
 		<field type="divider" />
 		<field type="space" />
-		<field type="staticText" align="left" id="first.project.database.label"
-			bold="true" />
-		<field type="text"
+
+		<field type="staticText" id="first.project.database.label" bold="true" />
+		<field type="rule"
 			variable="regards.config.admin.regards.jpa.multitenant.tenants.url.1">
-			<spec id="url.label" size="15"
-				set="${regards.config.admin.regards.jpa.multitenant.tenants.url.1}" />
+			<spec default="${regards.config.admin.regards.jpa.multitenant.tenants.url.1}"
+				id="url.label" layout="O:15:U : N:5:U / O:15:U" resultFormat="displayFormat" />
 		</field>
 		<field type="text"
 			variable="regards.config.admin.regards.jpa.multitenant.tenants.user.name.1">
-			<spec id="username.label" size="15"
-				set="${regards.config.admin.regards.jpa.multitenant.tenants.user.name.1}" />
+			<spec id="username.label" size="15" />
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
 				id="validator.notempty.username.label" />
@@ -310,8 +307,7 @@
 		<field type="password"
 			variable="regards.config.admin.regards.jpa.multitenant.tenants.password.1">
 			<spec>
-				<pwd id="password.label" size="15"
-					set="${regards.config.admin.regards.jpa.multitenant.tenants.password.1}" />
+				<pwd id="password.label" size="15" />
 			</spec>
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
@@ -321,39 +317,39 @@
 
 	<panel id="AccountsPanel">
 		<field id="accounts.panel.title.label" type="title" />
-		<field type="staticText" align="left" id="accounts.panel.accounts.label"
+		<field type="staticText" id="accounts.panel.accounts.label"
 			bold="true" />
 		<field type="text" variable="regards.accounts.validity.duration">
 			<spec id="accounts.panel.accounts.validity.duration.label" size="3"
-				set="${regards.accounts.validity.duration}" />
+				default="${regards.accounts.validity.duration}" />
 		</field>
 		<field type="space" />
 		<field type="divider" />
 		<field type="space" />
-		<field type="staticText" align="left" id="accounts.panel.passwords.label"
+		<field type="staticText" id="accounts.panel.passwords.label"
 			bold="true" />
 		<field type="text" variable="regards.config.admin.accounts.password.regex">
 			<spec id="accounts.panel.regex.label" size="15"
-				set="${regards.config.admin.accounts.password.regex}" />
+				default="${regards.config.admin.accounts.password.regex}" />
 		</field>
 		<field type="text" variable="regards.config.admin.accounts.password.rules">
 			<spec id="accounts.panel.password.rules.label" size="30"
-				set="${regards.config.admin.accounts.password.rules}" />
+				default="${regards.config.admin.accounts.password.rules}" />
 		</field>
 		<field type="text"
 			variable="regards.config.admin.accounts.password.validity.duration">
 			<spec id="accounts.panel.password.validity.duration.label" size="3"
-				set="${regards.config.admin.accounts.password.validity.duration}" />
+				default="${regards.config.admin.accounts.password.validity.duration}" />
 		</field>
 		<field type="space" />
 		<field type="divider" />
 		<field type="space" />
-		<field type="staticText" align="left" id="accounts.panel.connecting.label"
+		<field type="staticText" id="accounts.panel.connecting.label"
 			bold="true" />
 		<field type="text"
 			variable="regards.config.admin.accounts.failed.authentication.max">
 			<spec id="accounts.panel.failed.authentication.max.label" size="3"
-				set="${regards.config.admin.accounts.failed.authentication.max}" />
+				default="${regards.config.admin.accounts.failed.authentication.max}" />
 		</field>
 	</panel>
 
@@ -363,12 +359,12 @@
 			<spec>
 				<col>
 					<field type="text" variable="authentication.host">
-						<spec id="host.label" size="15" set="${authentication.host}" />
+						<spec id="host.label" size="15" default="${authentication.host}" />
 					</field>
 				</col>
 				<col>
 					<field type="text" variable="authentication.port">
-						<spec id="port.label" size="15" set="${authentication.port}" />
+						<spec id="port.label" size="15" default="${authentication.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
@@ -380,17 +376,16 @@
 		<field type="space" />
 		<field type="divider" />
 		<field type="space" />
-		<field type="staticText" align="left" id="first.project.database.label"
-			bold="true" />
-		<field type="text"
+		<field type="staticText" id="first.project.database.label" />
+		<field type="rule"
 			variable="regards.config.gateway.regards.jpa.multitenant.tenants.url.1">
-			<spec id="url.label" size="15"
-				set="${regards.config.gateway.regards.jpa.multitenant.tenants.url.1}" />
+			<spec
+				default="${regards.config.gateway.regards.jpa.multitenant.tenants.url.1}"
+				id="url.label" layout="O:15:U : N:5:U / O:15:U" resultFormat="displayFormat" />
 		</field>
 		<field type="text"
 			variable="regards.config.gateway.regards.jpa.multitenant.tenants.user.name.1">
-			<spec id="username.label" size="15"
-				set="${regards.config.gateway.regards.jpa.multitenant.tenants.user.name.1}" />
+			<spec id="username.label" size="15" />
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
 				id="validator.notempty.username.label" />
@@ -398,8 +393,7 @@
 		<field type="password"
 			variable="regards.config.gateway.regards.jpa.multitenant.tenants.password.1">
 			<spec>
-				<pwd id="password.label" size="15"
-					set="${regards.config.gateway.regards.jpa.multitenant.tenants.password.1}" />
+				<pwd id="password.label" size="15" />
 			</spec>
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
@@ -413,12 +407,12 @@
 			<spec>
 				<col>
 					<field type="text" variable="dam.host">
-						<spec id="host.label" size="15" set="${dam.host}" />
+						<spec id="host.label" size="15" default="${dam.host}" />
 					</field>
 				</col>
 				<col>
 					<field type="text" variable="dam.port">
-						<spec id="port.label" size="15" set="${dam.port}" />
+						<spec id="port.label" size="15" default="${dam.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
@@ -427,20 +421,20 @@
 				</col>
 			</spec>
 		</field>
+
 		<field type="space" />
 		<field type="divider" />
 		<field type="space" />
-		<field type="staticText" align="left" id="first.project.database.label"
-			bold="true" />
-		<field type="text"
+
+		<field type="staticText" id="first.project.database.label" bold="true" />
+		<field type="rule"
 			variable="regards.config.dam.regards.jpa.multitenant.tenants.url.1">
-			<spec id="url.label" size="15"
-				set="${regards.config.dam.regards.jpa.multitenant.tenants.url.1}" />
+			<spec default="${regards.config.dam.regards.jpa.multitenant.tenants.url.1}"
+				id="url.label" layout="O:15:U : N:5:U / O:15:U" resultFormat="displayFormat" />
 		</field>
 		<field type="text"
 			variable="regards.config.dam.regards.jpa.multitenant.tenants.user.name.1">
-			<spec id="username.label" size="15"
-				set="${regards.config.dam.regards.jpa.multitenant.tenants.user.name.1}" />
+			<spec id="username.label" size="15" />
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
 				id="validator.notempty.username.label" />
@@ -448,29 +442,30 @@
 		<field type="password"
 			variable="regards.config.dam.regards.jpa.multitenant.tenants.password.1">
 			<spec>
-				<pwd id="password.label" size="15"
-					set="${regards.config.dam.regards.jpa.multitenant.tenants.password.1}" />
+				<pwd id="password.label" size="15" />
 			</spec>
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
 				id="validator.notempty.password.label" />
 		</field>
+
 		<field type="space" />
 		<field type="divider" />
 		<field type="space" />
-		<field type="staticText" align="left" id="dam.panel.elasticsearch.label"
+
+		<field type="staticText" id="dam.panel.elasticsearch.label"
 			bold="true" />
 		<field type="text" variable="regards.config.elasticsearch.host">
 			<spec id="host.label" size="15"
-				set="${regards.config.elasticsearch.host}" />
+				default="${regards.config.elasticsearch.host}" />
 		</field>
 		<field type="text" variable="regards.config.elasticsearch.cluster.name">
 			<spec id="cluster.label" size="15"
-				set="${regards.config.elasticsearch.cluster.name}" />
+				default="${regards.config.elasticsearch.cluster.name}" />
 		</field>
 		<field type="text" variable="regards.config.elasticsearch.tcp.port">
 			<spec id="port.label" size="15"
-				set="${regards.config.elasticsearch.tcp.port}" />
+				default="${regards.config.elasticsearch.tcp.port}" />
 		</field>
 	</panel>
 
@@ -480,12 +475,12 @@
 			<spec>
 				<col>
 					<field type="text" variable="catalog.host">
-						<spec id="host.label" size="15" set="${catalog.host}" />
+						<spec id="host.label" size="15" default="${catalog.host}" />
 					</field>
 				</col>
 				<col>
 					<field type="text" variable="catalog.port">
-						<spec id="port.label" size="15" set="${catalog.port}" />
+						<spec id="port.label" size="15" default="${catalog.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
@@ -494,20 +489,21 @@
 				</col>
 			</spec>
 		</field>
+
 		<field type="space" />
 		<field type="divider" />
 		<field type="space" />
-		<field type="staticText" align="left" id="first.project.database.label"
-			bold="true" />
-		<field type="text"
+
+		<field type="staticText" id="first.project.database.label" bold="true" />
+		<field type="rule"
 			variable="regards.config.catalog.regards.jpa.multitenant.tenants.url.1">
-			<spec id="url.label" size="15"
-				set="${regards.config.catalog.regards.jpa.multitenant.tenants.url.1}" />
+			<spec
+				default="${regards.config.catalog.regards.jpa.multitenant.tenants.url.1}"
+				id="url.label" layout="O:15:U : N:5:U / O:15:U" resultFormat="displayFormat" />
 		</field>
 		<field type="text"
 			variable="regards.config.catalog.regards.jpa.multitenant.tenants.user.name.1">
-			<spec id="username.label" size="15"
-				set="${regards.config.catalog.regards.jpa.multitenant.tenants.user.name.1}" />
+			<spec id="username.label" size="15" />
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
 				id="validator.notempty.username.label" />
@@ -515,8 +511,7 @@
 		<field type="password"
 			variable="regards.config.catalog.regards.jpa.multitenant.tenants.password.1">
 			<spec>
-				<pwd id="password.label" size="15"
-					set="${regards.config.catalog.regards.jpa.multitenant.tenants.password.1}" />
+				<pwd id="password.label" size="15" />
 			</spec>
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
@@ -530,12 +525,12 @@
 			<spec>
 				<col>
 					<field type="text" variable="access-instance.host">
-						<spec id="host.label" size="15" set="${access-instance.host}" />
+						<spec id="host.label" size="15" default="${access-instance.host}" />
 					</field>
 				</col>
 				<col>
 					<field type="text" variable="access-instance.port">
-						<spec id="port.label" size="15" set="${access-instance.port}" />
+						<spec id="port.label" size="15" default="${access-instance.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
@@ -544,20 +539,21 @@
 				</col>
 			</spec>
 		</field>
+
 		<field type="space" />
 		<field type="divider" />
 		<field type="space" />
-		<field type="staticText" align="left" id="instance.database.label"
-			bold="true" />
-		<field type="text"
+
+		<field type="staticText" id="instance.database.label" bold="true" />
+		<field type="rule"
 			variable="regards.config.access.instance.regards.jpa.instance.datasource.url">
-			<spec id="url.label" size="15"
-				set="${regards.config.access.instance.regards.jpa.instance.datasource.url}" />
+			<spec
+				default="${regards.config.access.instance.regards.jpa.instance.datasource.url}"
+				id="url.label" layout="O:15:U : N:5:U / O:15:U" resultFormat="displayFormat" />
 		</field>
 		<field type="text"
 			variable="regards.config.access.instance.regards.jpa.instance.datasource.user.name">
-			<spec id="username.label" size="15"
-				set="${regards.config.access.instance.regards.jpa.instance.datasource.user.name}" />
+			<spec id="username.label" size="15" />
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
 				id="validator.notempty.username.label" />
@@ -565,8 +561,7 @@
 		<field type="password"
 			variable="regards.config.access.instance.regards.jpa.instance.datasource.password">
 			<spec>
-				<pwd id="password.label" size="15"
-					set="${regards.config.access.instance.regards.jpa.instance.datasource.password}" />
+				<pwd id="password.label" size="15" />
 			</spec>
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
@@ -580,12 +575,12 @@
 			<spec>
 				<col>
 					<field type="text" variable="access-project.host">
-						<spec id="host.label" size="15" set="${access-project.host}" />
+						<spec id="host.label" size="15" default="${access-project.host}" />
 					</field>
 				</col>
 				<col>
 					<field type="text" variable="access-project.port">
-						<spec id="port.label" size="15" set="${access-project.port}" />
+						<spec id="port.label" size="15" default="${access-project.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label">
@@ -594,20 +589,21 @@
 				</col>
 			</spec>
 		</field>
+
 		<field type="space" />
 		<field type="divider" />
 		<field type="space" />
-		<field type="staticText" align="left" id="first.project.database.label"
-			bold="true" />
-		<field type="text"
+
+		<field type="staticText" id="first.project.database.label" bold="true" />
+		<field type="rule"
 			variable="regards.config.access.project.regards.jpa.multitenant.tenants.url.1">
-			<spec id="url.label" size="15"
-				set="${regards.config.access.project.regards.jpa.multitenant.tenants.url.1}" />
+			<spec
+				default="${regards.config.access.project.regards.jpa.multitenant.tenants.url.1}"
+				id="url.label" layout="O:15:U : N:5:U / O:15:U" resultFormat="displayFormat" />
 		</field>
 		<field type="text"
 			variable="regards.config.access.project.regards.jpa.multitenant.tenants.user.name.1">
-			<spec id="username.label" size="15"
-				set="${regards.config.access.project.regards.jpa.multitenant.tenants.user.name.1}" />
+			<spec id="username.label" size="15" />
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
 				id="validator.notempty.username.label" />
@@ -615,8 +611,7 @@
 		<field type="password"
 			variable="regards.config.access.project.regards.jpa.multitenant.tenants.password.1">
 			<spec>
-				<pwd id="password.label" size="15"
-					set="${regards.config.access.project.regards.jpa.multitenant.tenants.password.1}" />
+				<pwd id="password.label" size="15" />
 			</spec>
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
@@ -630,12 +625,12 @@
 			<spec>
 				<col>
 					<field type="text" variable="frontend.host">
-						<spec id="host.label" size="15" set="${frontend.host}" />
+						<spec id="host.label" size="15" default="${frontend.host}" />
 					</field>
 				</col>
 				<col>
 					<field type="text" variable="frontend.port">
-						<spec id="port.label" size="15" set="${frontend.port}">
+						<spec id="port.label" size="15" default="${frontend.port}">
 						</spec>
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
@@ -648,16 +643,16 @@
 		<field type="space" conditionid="!izpack.selected.gateway" />
 		<field type="divider" conditionid="!izpack.selected.gateway" />
 		<field type="space" conditionid="!izpack.selected.gateway" />
-		<field type="staticText" align="left" id="frontend.panel.gateway.label"
-			bold="true" conditionid="!izpack.selected.gateway" />
+		<field type="staticText" id="frontend.panel.gateway.label" bold="true"
+			conditionid="!izpack.selected.gateway" />
 		<field type="text" variable="regards.config.cloud.gateway.uri"
 			conditionid="!izpack.selected.gateway">
-			<spec id="host.label" size="15" set="${regards.config.cloud.gateway.uri}" />
+			<spec id="host.label" size="15" default="${regards.config.cloud.gateway.uri}" />
 		</field>
 		<field type="text" variable="regards.config.cloud.gateway.port"
 			conditionid="!izpack.selected.gateway">
 			<spec id="port.label" size="15"
-				set="${regards.config.cloud.gateway.port}" />
+				default="${regards.config.cloud.gateway.port}" />
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 				id="validator.port.error.label" />
@@ -722,7 +717,7 @@
 				</run>
 			</spec>
 		</field>
-		
+
 		<field type="button" conditionid="izpack.selected.access" id="components.access.project">
 			<spec id="connection.tester.test" successMsg="connection.tester.success">
 				<run
@@ -738,41 +733,41 @@
 	<!-- <panel id="FrontendPanel"> -->
 	<!-- <field txt="REGARDS Frontend configuration" type="title" /> -->
 	<!-- <field type="text" variable="frontend.port"> -->
-	<!-- <spec txt="Frontend Web serveur port:" size="15" set="${frontend.port}" 
+	<!-- <spec txt="Frontend Web serveur port:" size="15" default="${frontend.port}" 
 		/> -->
 	<!-- </field> -->
 	<!-- <field type="text" variable="registry.host"> -->
 	<!-- <spec txt="Gateway server adress:" size="15" -->
-	<!-- set="https://localhost:${gateway.port}" /> -->
+	<!-- default="https://localhost:${gateway.port}" /> -->
 	<!-- </field> -->
 	<!-- </panel> -->
 
 	<!-- <panel id="gateway.panel"> -->
 	<!-- <field txt="REGARDS Gateway configuration" type="title" /> -->
 	<!-- <field type="text" variable="gateway.port"> -->
-	<!-- <spec txt="Gateway Web serveur port:" size="15" set="${gateway.port}" 
+	<!-- <spec txt="Gateway Web serveur port:" size="15" default="${gateway.port}" 
 		/> -->
 	<!-- </field> -->
-	<!-- <field type="staticText" align="left" -->
+	<!-- <field type="staticText" -->
 	<!-- txt="Select authentication plugins : " /> -->
 	<!-- <field type="check" variable="gateway.auth.plugin.ldap"> -->
 	<!-- <spec txt="LDAP Authentication Plugin" true="true" false="false" -->
-	<!-- set="${gateway.auth.plugin.ldap}" /> -->
+	<!-- default="${gateway.auth.plugin.ldap}" /> -->
 	<!-- </field> -->
 	<!-- <field type="check" variable="gateway.auth.plugin.ldap"> -->
 	<!-- <spec txt="Active Directory Authentication Plugin" true="true" -->
-	<!-- false="false" set="${gateway.auth.plugin.ldap}" /> -->
+	<!-- false="false" default="${gateway.auth.plugin.ldap}" /> -->
 	<!-- </field> -->
 	<!-- <field type="check" variable="gateway.auth.plugin.ldap"> -->
 	<!-- <spec txt="Shibboleth Authentication Plugin" true="true" false="false" -->
-	<!-- set="${gateway.auth.plugin.ldap}" /> -->
+	<!-- default="${gateway.auth.plugin.ldap}" /> -->
 	<!-- </field> -->
 	<!-- </panel> -->
 
 	<!-- <panel id="ArchivalStoragePanel"> -->
 	<!-- <field txt="Archival Storage configuration" type="title" /> -->
 	<!-- <field type="text" variable="pgsql.user"> -->
-	<!-- <spec txt="Number of instance to install:" size="5" set="0" /> -->
+	<!-- <spec txt="Number of instance to install:" size="5" default="0" /> -->
 	<!-- </field> -->
 	<!-- <field type="radio" variable="radioSelection"> -->
 	<!-- <description -->
@@ -782,13 +777,12 @@
 	<!-- <choice txt="No" value="2 selected" /> -->
 	<!-- </spec> -->
 	<!-- </field> -->
-	<!-- <field type="staticText" align="left" txt="Select plugins to install 
-		: " /> -->
+	<!-- <field type="staticText" txt="Select plugins to install : " /> -->
 	<!-- <field type="check" variable="ms.administration"> -->
-	<!-- <spec txt="STAF" true="true" false="false" set="false" /> -->
+	<!-- <spec txt="STAF" true="true" false="false" default="false" /> -->
 	<!-- </field> -->
 	<!-- <field type="check" variable="ms.ingest"> -->
-	<!-- <spec txt="Local disk" true="true" false="false" set="false" /> -->
+	<!-- <spec txt="Local disk" true="true" false="false" default="false" /> -->
 	<!-- </field> -->
 	<!-- </panel> -->
 </izpack:userinput>

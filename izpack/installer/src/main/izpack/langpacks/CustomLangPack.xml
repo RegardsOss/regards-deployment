@@ -6,7 +6,7 @@
 	
 	<str id="connection.tester.test" txt="Test" />
 	<str id="connection.tester.success" txt="The database is live" />
-	<str id="connection.tester.fail" txt="Could not contact the database" />
+	<str id="connection.tester.fail" txt="Could not contact the database. Check the host, port and schema" />
 	<str id="error" txt="Error" />
 
 </izpack:langpack>

@@ -51,7 +51,7 @@
 		txt="	* The admin user must have groups REGARDS, ADMIN and RUNTIME" />
 
 	<!-- ProjectPanel -->
-	<str id="project.panel.title.label" txt="What is the first project we should add to REGARDS?" />
+	<str id="project.panel.title.label" txt="What is the first project we should add?" />
 	<str id="project.panel.project.label" txt="Name:" />
 
 	<!-- ConfigSecurityLevelPanel -->
@@ -125,7 +125,8 @@
 
 	<!-- CheckJdbcConnectionsPanel -->
 	<str id="check.jdbc.connections.panel.title" txt="Check the databases you configured" />
-	<str id="check.jdbc.connections.panel.detail" txt="Perform this quick check to ensure you databases are properly configured. However you can finish the installation even if they are not." />
+	<str id="check.jdbc.connections.panel.detail"
+		txt="Perform this quick check to ensure you databases are properly configured. However you can finish the installation even if they are not." />
 
 	<!-- Validators -->
 	<str id="validator.host.error.label" txt="Invalid host format" />
