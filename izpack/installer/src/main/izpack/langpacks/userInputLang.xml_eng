@@ -14,14 +14,15 @@
 	<str id="instance.database.label" txt="Cross projects database" />
 	<str id="first.project.database.label" txt="First project's database" />
 	<str id="cluster.label" txt="Cluster" />
-	<str id="components.panel.frontend.label" txt="Frontend" />
-	<str id="components.panel.core.label" txt="Core" />
-	<str id="components.config.label" txt="Configuration" />
-	<str id="components.registry.label" txt="Registry" />
-	<str id="components.gateway.label" txt="Gateway" />
-	<str id="components.microservices.label" txt="Microservices" />
+	<str id="components.frontend" txt="Frontend" />
+	<str id="components.core" txt="Core" />
+	<str id="components.config" txt="Configuration" />
+	<str id="components.registry" txt="Registry" />
+	<str id="components.gateway" txt="Gateway" />
 	<str id="components.authentication.label" txt="Authentication" />
 	<str id="components.admin.label" txt="Administration" />
+	<str id="components.admin.instance" txt="Administration isntance" />
+	<str id="components.admin.project" txt="Administration project" />
 	<str id="components.dam.label" txt="Data Management" />
 	<str id="components.catalog.label" txt="Catalog" />
 	<str id="components.access.label" txt="Access" />
@@ -123,8 +124,8 @@
 	<str id="access-project.panel.title.label" txt="Access Project microservice" />
 
 	<!-- CheckJdbcConnectionsPanel -->
-	<str id="check.jdbc.connections.panel.title.label" txt="Check the databases you configured" />
-	<str id="check.jdbc.connections.panel.detail.label" txt="Perform this quick check to ensure you databases are properly configured. However you can finish the installation even if they are not." />
+	<str id="check.jdbc.connections.panel.title" txt="Check the databases you configured" />
+	<str id="check.jdbc.connections.panel.detail" txt="Perform this quick check to ensure you databases are properly configured. However you can finish the installation even if they are not." />
 
 	<!-- Validators -->
 	<str id="validator.host.error.label" txt="Invalid host format" />

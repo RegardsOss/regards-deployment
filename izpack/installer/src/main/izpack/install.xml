@@ -103,20 +103,6 @@
 		<variable name="gateway.port" value="8000" />
 		<variable name="regards.config.cloud.gateway.uri" value="localhost" />
 		<variable name="regards.config.cloud.gateway.port" value="8000" />
-		<variable
-			name="regards.config.gateway.regards.jpa.multitenant.tenants.url.1"
-			value="localhost:5432/rs_gateway_tenant0" />
-		<variable
-			name="regards.config.gateway.regards.jpa.multitenant.tenants.user.name.1"
-			value="rs_gateway_tenant0_user" />
-		<variable
-			name="regards.config.gateway.regards.jpa.multitenant.tenants.password.1"
-			value="rs_gateway_tenant0_pwd" />
-
-		<!-- Authentication -->
-		<variable name="authentication.count" value="0" />
-		<variable name="authentication.host" value="localhost" />
-		<variable name="authentication.port" value="8889" />
 
 		<!-- Message broker -->
 		<variable name="regards.config.spring.rabbitmq.host" value="localhost" />
@@ -166,6 +152,20 @@
 		<variable name="regards.config.admin.accounts.failed.authentication.max"
 			value="5" />
 
+		<!-- Authentication -->
+		<variable name="authentication.count" value="0" />
+		<variable name="authentication.host" value="localhost" />
+		<variable name="authentication.port" value="8889" />
+		<variable
+			name="regards.config.gateway.regards.jpa.multitenant.tenants.url.1"
+			value="localhost:5432/rs_gateway_tenant0" />
+		<variable
+			name="regards.config.gateway.regards.jpa.multitenant.tenants.user.name.1"
+			value="rs_gateway_tenant0_user" />
+		<variable
+			name="regards.config.gateway.regards.jpa.multitenant.tenants.password.1"
+			value="rs_gateway_tenant0_pwd" />
+
 		<!-- DAM -->
 		<variable name="dam.count" value="0" />
 		<variable name="dam.host" value="localhost" />
@@ -188,6 +188,15 @@
 		<variable name="catalog.count" value="0" />
 		<variable name="catalog.host" value="localhost" />
 		<variable name="catalog.port" value="4444" />
+		<variable
+			name="regards.config.catalog.regards.jpa.multitenant.tenants.url.1"
+			value="localhost:5432/rs_catalog_tenant0" />
+		<variable
+			name="regards.config.catalog.regards.jpa.multitenant.tenants.user.name.1"
+			value="" />
+		<variable
+			name="regards.config.catalog.regards.jpa.multitenant.tenants.password.1"
+			value="" />
 
 		<!-- Access Instance -->
 		<variable name="access-instance.count" value="0" />
@@ -330,461 +339,201 @@
 		<!-- Pack names of components MUST match the ComponentType enum -->
 		<!-- /!\ Mind the order of the packs -->
 		<pack name="core" required="true">
-			<description>Core installation. Required for any component.</description>
-		<!-- 
-			<file targetdir="$INSTALL_PATH" src="doc/readme.txt" override="true" />
-			<file targetdir="$INSTALL_PATH" src="legal/License.txt"
-				override="true" />
-			<file targetdir="$INSTALL_PATH/REGARDS/config" src="config/system.properties"
-				override="true" />
-			<file targetdir="$INSTALL_PATH/REGARDS/config" src="config/bootstrap.properties"
-				override="true" />
-			<fileset dir="bin/" targetdir="$INSTALL_PATH/REGARDS/bin"
-				override="true">
-				<include name="*" />
-			</fileset>
-			<file src="sbin/microservice.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<file src="sbin/microservice_regards.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS/lib"
-				override="true">
-				<include name="*" />
-			</fileset>
-			<fileset dir="custom" targetdir="$INSTALL_PATH/REGARDS/lib"
-				override="true">
-				<include name="*.jar" />
-			</fileset>
-			<parsable type="javaprop"
-				targetfile="$INSTALL_PATH/REGARDS/config/system.properties" />
-			<parsable type="javaprop"
-				targetfile="$INSTALL_PATH/REGARDS/config/bootstrap.properties" />
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/bin" includes="*" />
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			 -->
+			<description>Core installation. Required for any component.
+			</description>
+			<!-- <file targetdir="$INSTALL_PATH" src="doc/readme.txt" override="true" 
+				/> <file targetdir="$INSTALL_PATH" src="legal/License.txt" override="true" 
+				/> <file targetdir="$INSTALL_PATH/REGARDS/config" src="config/system.properties" 
+				override="true" /> <file targetdir="$INSTALL_PATH/REGARDS/config" src="config/bootstrap.properties" 
+				override="true" /> <fileset dir="bin/" targetdir="$INSTALL_PATH/REGARDS/bin" 
+				override="true"> <include name="*" /> </fileset> <file src="sbin/microservice.sh" 
+				targetdir="$INSTALL_PATH/REGARDS/sbin" override="true" /> <file src="sbin/microservice_regards.sh" 
+				targetdir="$INSTALL_PATH/REGARDS/sbin" override="true" /> <fileset dir="lib/" 
+				targetdir="$INSTALL_PATH/REGARDS/lib" override="true"> <include name="*" 
+				/> </fileset> <fileset dir="custom" targetdir="$INSTALL_PATH/REGARDS/lib" 
+				override="true"> <include name="*.jar" /> </fileset> <parsable type="javaprop" 
+				targetfile="$INSTALL_PATH/REGARDS/config/system.properties" /> <parsable 
+				type="javaprop" targetfile="$INSTALL_PATH/REGARDS/config/bootstrap.properties" 
+				/> <executable type="bin" stage="never" keep="true"> <fileset targetdir="$INSTALL_PATH/REGARDS/bin" 
+				includes="*" /> <fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" 
+				/> </executable> -->
 		</pack>
 
 		<pack name="config" required="false" preselected="true">
 			<description>Microservice providing configuration to any other
-				microservice</description>
-		<!-- 
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-config.jar" />
-			</fileset>
-			<file src="sbin/microservice_config.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<fileset dir="config/BOOT-INF/classes/regards" targetdir="$INSTALL_PATH/REGARDS/config/regards"
-				override="true">
-				<include name="*" />
-			</fileset>
-			<parsable type="javaprop">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/config/regards">
-					<include name="*.properties" />
-				</fileset>
-			</parsable>
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="config" />
-					<arg value="-c" />
-					<arg value="${config.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="config" />
-					<arg value="-w" />
-					<arg value="${config.waitRuleList}" />
-				</args>
-			</executable>
-			 -->
+				microservice
+			</description>
+			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> 
+				<include name="bootstrap-config.jar" /> </fileset> <file src="sbin/microservice_config.sh" 
+				targetdir="$INSTALL_PATH/REGARDS/sbin" override="true" /> <fileset dir="config/BOOT-INF/classes/regards" 
+				targetdir="$INSTALL_PATH/REGARDS/config/regards" override="true"> <include 
+				name="*" /> </fileset> <parsable type="javaprop"> <fileset targetdir="$INSTALL_PATH/REGARDS/config/regards"> 
+				<include name="*.properties" /> </fileset> </parsable> <executable type="bin" 
+				stage="never" keep="true"> <fileset targetdir="$INSTALL_PATH/REGARDS/sbin" 
+				includes="*" /> </executable> <executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="config" /> <arg value="-c" /> <arg value="${config.instanceList}" 
+				/> </args> </executable> <executable targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="config" /> <arg value="-w" /> <arg value="${config.waitRuleList}" 
+				/> </args> </executable> -->
 		</pack>
 
 		<pack name="registry" required="false" preselected="true">
 			<description>Microservice registering other microservices in the
 				cloud and handling load balancing
 			</description>
-		<!-- 
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-registry.jar" />
-			</fileset>
-			<file src="sbin/microservice_registry.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="registry" />
-					<arg value="-c" />
-					<arg value="${registry.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="registry" />
-					<arg value="-w" />
-					<arg value="${registry.waitRuleList}" />
-				</args>
-			</executable>
-			 -->
+			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> 
+				<include name="bootstrap-registry.jar" /> </fileset> <file src="sbin/microservice_registry.sh" 
+				targetdir="$INSTALL_PATH/REGARDS/sbin" override="true" /> <executable type="bin" 
+				stage="never" keep="true"> <fileset targetdir="$INSTALL_PATH/REGARDS/sbin" 
+				includes="*" /> </executable> <executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="registry" /> <arg value="-c" /> <arg value="${registry.instanceList}" 
+				/> </args> </executable> <executable targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="registry" /> <arg value="-w" /> <arg value="${registry.waitRuleList}" 
+				/> </args> </executable> -->
 		</pack>
 
 		<pack name="gateway" required="false" preselected="true">
 			<description>Gateway between clients and all microservices
 			</description>
-		 <!-- 
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-gateway.jar" />
-			</fileset>
-			<file src="sbin/microservice_gateway.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="gateway" />
-					<arg value="-c" />
-					<arg value="${gateway.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="gateway" />
-					<arg value="-w" />
-					<arg value="${gateway.waitRuleList}" />
-				</args>
-			</executable>
-			-->
+			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> 
+				<include name="bootstrap-gateway.jar" /> </fileset> <file src="sbin/microservice_gateway.sh" 
+				targetdir="$INSTALL_PATH/REGARDS/sbin" override="true" /> <executable type="bin" 
+				stage="never" keep="true"> <fileset targetdir="$INSTALL_PATH/REGARDS/sbin" 
+				includes="*" /> </executable> <executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="gateway" /> <arg value="-c" /> <arg value="${gateway.instanceList}" 
+				/> </args> </executable> <executable targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="gateway" /> <arg value="-w" /> <arg value="${gateway.waitRuleList}" 
+				/> </args> </executable> -->
 		</pack>
 
 		<pack name="admin" required="false" preselected="true">
 			<description>Microservice handling system's administration
 			</description>
-			<!-- 
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-administration.jar" />
-			</fileset>
-			<file src="sbin/microservice_admin.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="admin" />
-					<arg value="-c" />
-					<arg value="${admin.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="admin" />
-					<arg value="-w" />
-					<arg value="${admin.waitRuleList}" />
-				</args>
-			</executable>
-			 -->
+			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> 
+				<include name="bootstrap-administration.jar" /> </fileset> <file src="sbin/microservice_admin.sh" 
+				targetdir="$INSTALL_PATH/REGARDS/sbin" override="true" /> <executable type="bin" 
+				stage="never" keep="true"> <fileset targetdir="$INSTALL_PATH/REGARDS/sbin" 
+				includes="*" /> </executable> <executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="admin" /> <arg value="-c" /> <arg value="${admin.instanceList}" 
+				/> </args> </executable> <executable targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="admin" /> <arg value="-w" /> <arg value="${admin.waitRuleList}" 
+				/> </args> </executable> -->
 		</pack>
 
 		<pack name="authentication" required="false" preselected="true">
 			<description>Microservice dedicated to users' authentication
 			</description>
-			<!-- 
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-authentication.jar" />
-			</fileset>
-			<file src="sbin/microservice_authentication.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="authentication" />
-					<arg value="-c" />
-					<arg value="${authentication.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="authentication" />
-					<arg value="-w" />
-					<arg value="${authentication.waitRuleList}" />
-				</args>
-			</executable>
-			 -->
+			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> 
+				<include name="bootstrap-authentication.jar" /> </fileset> <file src="sbin/microservice_authentication.sh" 
+				targetdir="$INSTALL_PATH/REGARDS/sbin" override="true" /> <executable type="bin" 
+				stage="never" keep="true"> <fileset targetdir="$INSTALL_PATH/REGARDS/sbin" 
+				includes="*" /> </executable> <executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="authentication" /> <arg value="-c" /> <arg value="${authentication.instanceList}" 
+				/> </args> </executable> <executable targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="authentication" /> <arg value="-w" /> <arg value="${authentication.waitRuleList}" 
+				/> </args> </executable> -->
 		</pack>
 
 		<pack name="dam" required="false" preselected="true">
 			<description>REGARDS Data Management service installation
 			</description>
-			<!-- 
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-dam.jar" />
-			</fileset>
-			<file src="sbin/microservice_dam.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="dam" />
-					<arg value="-c" />
-					<arg value="${dam.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="dam" />
-					<arg value="-w" />
-					<arg value="${dam.waitRuleList}" />
-				</args>
-			</executable>
-			 -->
+			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> 
+				<include name="bootstrap-dam.jar" /> </fileset> <file src="sbin/microservice_dam.sh" 
+				targetdir="$INSTALL_PATH/REGARDS/sbin" override="true" /> <executable type="bin" 
+				stage="never" keep="true"> <fileset targetdir="$INSTALL_PATH/REGARDS/sbin" 
+				includes="*" /> </executable> <executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="dam" /> <arg value="-c" /> <arg value="${dam.instanceList}" 
+				/> </args> </executable> <executable targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="dam" /> <arg value="-w" /> <arg value="${dam.waitRuleList}" 
+				/> </args> </executable> -->
 		</pack>
 
 		<pack name="catalog" required="false" preselected="true">
 			<description>REGARDS Catalog service installation</description>
-			 <!-- 
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-catalog.jar" />
-			</fileset>
-			<file src="sbin/microservice_catalog.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="catalog" />
-					<arg value="-c" />
-					<arg value="${catalog.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="catalog" />
-					<arg value="-w" />
-					<arg value="${catalog.waitRuleList}" />
-				</args>
-			</executable>
-			 -->
+			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> 
+				<include name="bootstrap-catalog.jar" /> </fileset> <file src="sbin/microservice_catalog.sh" 
+				targetdir="$INSTALL_PATH/REGARDS/sbin" override="true" /> <executable type="bin" 
+				stage="never" keep="true"> <fileset targetdir="$INSTALL_PATH/REGARDS/sbin" 
+				includes="*" /> </executable> <executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="catalog" /> <arg value="-c" /> <arg value="${catalog.instanceList}" 
+				/> </args> </executable> <executable targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="catalog" /> <arg value="-w" /> <arg value="${catalog.waitRuleList}" 
+				/> </args> </executable> -->
 		</pack>
 
 		<pack name="access" required="false" preselected="true">
 			<description>REGARDS Access service installation</description>
-			<!-- 
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-access-instance.jar" />
-				<include name="bootstrap-access-project.jar" />
-			</fileset>
-			<file src="sbin/microservice_access-instance.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<file src="sbin/microservice_access-project.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="access-instance" />
-					<arg value="-c" />
-					<arg value="${access-instance.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="access-instance" />
-					<arg value="-w" />
-					<arg value="${access-instance.waitRuleList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="access-project" />
-					<arg value="-c" />
-					<arg value="${access-project.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="access-project" />
-					<arg value="-w" />
-					<arg value="${access-project.waitRuleList}" />
-				</args>
-			</executable>
-			 -->
+			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> 
+				<include name="bootstrap-access-instance.jar" /> <include name="bootstrap-access-project.jar" 
+				/> </fileset> <file src="sbin/microservice_access-instance.sh" targetdir="$INSTALL_PATH/REGARDS/sbin" 
+				override="true" /> <file src="sbin/microservice_access-project.sh" targetdir="$INSTALL_PATH/REGARDS/sbin" 
+				override="true" /> <executable type="bin" stage="never" keep="true"> <fileset 
+				targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" /> </executable> <executable 
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="access-instance" /> <arg value="-c" /> <arg value="${access-instance.instanceList}" 
+				/> </args> </executable> <executable targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="access-instance" /> <arg value="-w" /> <arg value="${access-instance.waitRuleList}" 
+				/> </args> </executable> <executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="access-project" /> <arg value="-c" /> <arg value="${access-project.instanceList}" 
+				/> </args> </executable> <executable targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="access-project" /> <arg value="-w" /> <arg value="${access-project.waitRuleList}" 
+				/> </args> </executable> -->
 		</pack>
 
 		<pack name="frontend" required="false" preselected="true">
 			<description>Web application serving the frontend</description>
-			 <!-- 
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-frontend.*ar" />
-			</fileset>
-			<file src="sbin/microservice_frontend.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<fileset dir="config/static" targetdir="${regards.frontend.www.path}"
-				override="true">
-				<include name="**/*" />
-			</fileset>
-			<parsable type="plain">
-				<fileset targetdir="${regards.frontend.www.path}" includes="**/*.js" />
-			</parsable>
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="frontend" />
-					<arg value="-c" />
-					<arg value="${frontend.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="frontend" />
-					<arg value="-w" />
-					<arg value="${frontend.waitRuleList}" />
-				</args>
-			</executable>
-			 -->
+			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS" override="true"> 
+				<include name="bootstrap-frontend.*ar" /> </fileset> <file src="sbin/microservice_frontend.sh" 
+				targetdir="$INSTALL_PATH/REGARDS/sbin" override="true" /> <fileset dir="config/static" 
+				targetdir="${regards.frontend.www.path}" override="true"> <include name="**/*" 
+				/> </fileset> <parsable type="plain"> <fileset targetdir="${regards.frontend.www.path}" 
+				includes="**/*.js" /> </parsable> <executable type="bin" stage="never" keep="true"> 
+				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" /> </executable> 
+				<executable targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="frontend" /> <arg value="-c" /> <arg value="${frontend.instanceList}" 
+				/> </args> </executable> <executable targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy" 
+				type="bin" stage="postinstall" failure="abort" keep="true"> <os family="unix" 
+				/> <args> <arg value="-i" /> <arg value="$INSTALL_PATH/REGARDS" /> <arg value="-t" 
+				/> <arg value="frontend" /> <arg value="-w" /> <arg value="${frontend.waitRuleList}" 
+				/> </args> </executable> -->
 		</pack>
 
 	</packs>

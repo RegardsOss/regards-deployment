@@ -169,28 +169,6 @@
 		</field>
 	</panel>
 
-	<panel id="AuthenticationPanel">
-		<field id="authentication.panel.title.label" type="title" />
-		<field type="custom" minRow="1" maxRow="50" variable="authentication.count">
-			<spec>
-				<col>
-					<field type="text" variable="authentication.host">
-						<spec id="host.label" size="15" set="${authentication.host}" />
-					</field>
-				</col>
-				<col>
-					<field type="text" variable="authentication.port">
-						<spec id="port.label" size="15" set="${authentication.port}" />
-						<validator
-							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
-							id="validator.port.error.label">
-						</validator>
-					</field>
-				</col>
-			</spec>
-		</field>
-	</panel>
-
 	<panel id="RabbitmqPanel">
 		<field id="rabbitmq.panel.title.label" type="title" />
 		<field type="staticText" align="left" id="rabbitmq.panel.rabbitmq.label"
@@ -379,6 +357,56 @@
 		</field>
 	</panel>
 
+	<panel id="AuthenticationPanel">
+		<field id="authentication.panel.title.label" type="title" />
+		<field type="custom" minRow="1" maxRow="50" variable="authentication.count">
+			<spec>
+				<col>
+					<field type="text" variable="authentication.host">
+						<spec id="host.label" size="15" set="${authentication.host}" />
+					</field>
+				</col>
+				<col>
+					<field type="text" variable="authentication.port">
+						<spec id="port.label" size="15" set="${authentication.port}" />
+						<validator
+							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							id="validator.port.error.label">
+						</validator>
+					</field>
+				</col>
+			</spec>
+		</field>
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+		<field type="staticText" align="left" id="first.project.database.label"
+			bold="true" />
+		<field type="text"
+			variable="regards.config.gateway.regards.jpa.multitenant.tenants.url.1">
+			<spec id="url.label" size="15"
+				set="${regards.config.gateway.regards.jpa.multitenant.tenants.url.1}" />
+		</field>
+		<field type="text"
+			variable="regards.config.gateway.regards.jpa.multitenant.tenants.user.name.1">
+			<spec id="username.label" size="15"
+				set="${regards.config.gateway.regards.jpa.multitenant.tenants.user.name.1}" />
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.username.label" />
+		</field>
+		<field type="password"
+			variable="regards.config.gateway.regards.jpa.multitenant.tenants.password.1">
+			<spec>
+				<pwd id="password.label" size="15"
+					set="${regards.config.gateway.regards.jpa.multitenant.tenants.password.1}" />
+			</spec>
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.password.label" />
+		</field>
+	</panel>
+
 	<panel id="DamPanel">
 		<field id="dam.panel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="50" variable="dam.count">
@@ -465,6 +493,34 @@
 					</field>
 				</col>
 			</spec>
+		</field>
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+		<field type="staticText" align="left" id="first.project.database.label"
+			bold="true" />
+		<field type="text"
+			variable="regards.config.catalog.regards.jpa.multitenant.tenants.url.1">
+			<spec id="url.label" size="15"
+				set="${regards.config.catalog.regards.jpa.multitenant.tenants.url.1}" />
+		</field>
+		<field type="text"
+			variable="regards.config.catalog.regards.jpa.multitenant.tenants.user.name.1">
+			<spec id="username.label" size="15"
+				set="${regards.config.catalog.regards.jpa.multitenant.tenants.user.name.1}" />
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.username.label" />
+		</field>
+		<field type="password"
+			variable="regards.config.catalog.regards.jpa.multitenant.tenants.password.1">
+			<spec>
+				<pwd id="password.label" size="15"
+					set="${regards.config.catalog.regards.jpa.multitenant.tenants.password.1}" />
+			</spec>
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.password.label" />
 		</field>
 	</panel>
 
@@ -609,10 +665,56 @@
 	</panel>
 
 	<panel id="CheckJdbcConnectionsPanel">
-		<field id="check.jdbc.connections.panel.title.label" type="title" />
-		<field id="check.jdbc.connections.panel.detail.label" type="staticText" />
+		<field id="check.jdbc.connections.panel.title" type="title" />
+		<field id="check.jdbc.connections.panel.detail" type="staticText" />
 
-		<field type="button" conditionid="izpack.selected.access" id="components.access.instance.label">
+		<field type="button" conditionid="izpack.selected.authentication"
+			id="components.authentication">
+			<spec id="connection.tester.test" successMsg="connection.tester.success">
+				<run
+					class="fr.cnes.regards.deployment.izpack.custom.button.AuthenticationJdbcConnectionTester">
+					<msg id="connection.tester.fail" name="error" />
+				</run>
+			</spec>
+		</field>
+
+		<field type="button" conditionid="izpack.selected.admin" id="components.admin.instance">
+			<spec id="connection.tester.test" successMsg="connection.tester.success">
+				<run
+					class="fr.cnes.regards.deployment.izpack.custom.button.AdminInstanceJdbcConnectionTester">
+					<msg id="connection.tester.fail" name="error" />
+				</run>
+			</spec>
+		</field>
+
+		<field type="button" conditionid="izpack.selected.admin" id="components.admin.project">
+			<spec id="connection.tester.test" successMsg="connection.tester.success">
+				<run
+					class="fr.cnes.regards.deployment.izpack.custom.button.AdminProjectJdbcConnectionTester">
+					<msg id="connection.tester.fail" name="error" />
+				</run>
+			</spec>
+		</field>
+
+		<field type="button" conditionid="izpack.selected.dam" id="components.dam">
+			<spec id="connection.tester.test" successMsg="connection.tester.success">
+				<run
+					class="fr.cnes.regards.deployment.izpack.custom.button.DamJdbcConnectionTester">
+					<msg id="connection.tester.fail" name="error" />
+				</run>
+			</spec>
+		</field>
+
+		<field type="button" conditionid="izpack.selected.catalog" id="components.catalog">
+			<spec id="connection.tester.test" successMsg="connection.tester.success">
+				<run
+					class="fr.cnes.regards.deployment.izpack.custom.button.CatalogJdbcConnectionTester">
+					<msg id="connection.tester.fail" name="error" />
+				</run>
+			</spec>
+		</field>
+
+		<field type="button" conditionid="izpack.selected.access" id="components.access.instance">
 			<spec id="connection.tester.test" successMsg="connection.tester.success">
 				<run
 					class="fr.cnes.regards.deployment.izpack.custom.button.AccessInstanceJdbcConnectionTester">
@@ -620,12 +722,15 @@
 				</run>
 			</spec>
 		</field>
-
-
-
-
-
-
+		
+		<field type="button" conditionid="izpack.selected.access" id="components.access.project">
+			<spec id="connection.tester.test" successMsg="connection.tester.success">
+				<run
+					class="fr.cnes.regards.deployment.izpack.custom.button.AccessProjectJdbcConnectionTester">
+					<msg id="connection.tester.fail" name="error" />
+				</run>
+			</spec>
+		</field>
 
 	</panel>
 

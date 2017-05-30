@@ -12,7 +12,6 @@ import com.izforge.izpack.api.handler.Prompt;
 import com.izforge.izpack.panels.userinput.action.ButtonAction;
 import com.izforge.izpack.util.Console;
 
-import fr.cnes.regards.deployment.izpack.custom.model.ComponentType;
 import fr.cnes.regards.deployment.izpack.custom.model.JdbcConnectionModel;
 import fr.cnes.regards.deployment.izpack.custom.model.PostgreSqlJdbcConnectionModel;
 
@@ -47,7 +46,7 @@ public abstract class JdbcConnectionTester extends ButtonAction {
     /**
      * @param pInstallData
      */
-    public JdbcConnectionTester(ComponentType pType, InstallData pInstallData) {
+    public JdbcConnectionTester(InstallData pInstallData) {
         super(pInstallData);
     }
 
