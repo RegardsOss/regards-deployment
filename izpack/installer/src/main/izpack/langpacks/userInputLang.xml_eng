@@ -14,11 +14,27 @@
 	<str id="instance.database.label" txt="Cross projects database" />
 	<str id="first.project.database.label" txt="First project's database" />
 	<str id="cluster.label" txt="Cluster" />
+	<str id="components.panel.frontend.label" txt="Frontend" />
+	<str id="components.panel.core.label" txt="Core" />
+	<str id="components.config.label" txt="Configuration" />
+	<str id="components.registry.label" txt="Registry" />
+	<str id="components.gateway.label" txt="Gateway" />
+	<str id="components.microservices.label" txt="Microservices" />
+	<str id="components.authentication.label" txt="Authentication" />
+	<str id="components.admin.label" txt="Administration" />
+	<str id="components.dam.label" txt="Data Management" />
+	<str id="components.catalog.label" txt="Catalog" />
+	<str id="components.access.label" txt="Access" />
+	<str id="components.access.instance.label" txt="Access instance" />
+	<str id="components.access.project.label" txt="Access project" />
+	<str id="components.storage.label" txt="Storage" />
 
 	<!-- SelectInstallationTypePanel -->
 	<str id="selectinstallationtype.panel.title.label" txt="How do you want to install REGARDS?" />
-	<str id="selectinstallationtype.panel.radio.full.label" txt="Monolithic installation - All components will be installed" />
-	<str id="selectinstallationtype.panel.radio.cloud.label" txt="Cloud installation - Select the components you want to install" />
+	<str id="selectinstallationtype.panel.radio.full.label"
+		txt="Monolithic installation - All components will be installed" />
+	<str id="selectinstallationtype.panel.radio.cloud.label"
+		txt="Cloud installation - Select the components you want to install" />
 
 	<!-- SelectSecurityLevelPanel -->
 	<str id="selectsecuritylevel.panel.title.label" txt="What system security do you want to use?" />
@@ -53,18 +69,6 @@
 
 	<!-- SelectComponentsPanel -->
 	<str id="selectcomponents.panel.title.label" txt="Which components would you want to install?" />
-	<str id="selectcomponents.panel.frontend.label" txt="Frontend" />
-	<str id="selectcomponents.panel.core.label" txt="Core" />
-	<str id="selectcomponents.panel.config.label" txt="Configuration" />
-	<str id="selectcomponents.panel.registry.label" txt="Registry" />
-	<str id="selectcomponents.panel.gateway.label" txt="Gateway" />
-	<str id="selectcomponents.panel.microservices.label" txt="Microservices" />
-	<str id="selectcomponents.panel.authentication.label" txt="Authentication" />
-	<str id="selectcomponents.panel.admin.label" txt="Administration" />
-	<str id="selectcomponents.panel.dam.label" txt="Data Management" />
-	<str id="selectcomponents.panel.catalog.label" txt="Catalog" />
-	<str id="selectcomponents.panel.access.label" txt="Access" />
-	<str id="selectcomponents.panel.storage.label" txt="Storage" />
 
 	<!-- LinkToExistingConfigPanel -->
 	<str id="linktoexistingconfig.panel.title.label" txt="Where is the Configuration server?" />
@@ -77,6 +81,7 @@
 	<str id="rabbitmq.panel.title.label" txt="Message borker configuration" />
 	<str id="rabbitmq.panel.rabbitmq.label" txt="RabbitMQ" />
 	<str id="rabbitmq.panel.amqp.label" txt="AMQP" />
+
 	<!-- ConfigPanel -->
 	<str id="config.panel.title.label" txt="Configuration microservice" />
 
@@ -116,6 +121,10 @@
 
 	<!-- AccessProjectPanel -->
 	<str id="access-project.panel.title.label" txt="Access Project microservice" />
+
+	<!-- CheckJdbcConnectionsPanel -->
+	<str id="check.jdbc.connections.panel.title.label" txt="Check the databases you configured" />
+	<str id="check.jdbc.connections.panel.detail.label" txt="Perform this quick check to ensure you databases are properly configured. However you can finish the installation even if they are not." />
 
 	<!-- Validators -->
 	<str id="validator.host.error.label" txt="Invalid host format" />

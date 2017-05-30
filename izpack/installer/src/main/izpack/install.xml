@@ -48,7 +48,10 @@
 		<modifier key="showDebugWindow" value="true" />
 	</guiprefs>
 
+	<!-- Custom panels, buttons, ... -->
 	<jar src="custom/custom-components.jar" />
+	<!-- JDBC database drivers -->
+	<jar src="lib/postgresql-42.1.1.jre7.jar" />
 
 	<resources>
 		<res id="InfoPanel.info" src="doc/readme.txt" parse="yes" />
@@ -60,9 +63,13 @@
 			type="xml" />
 		<res id="CustomLangPack.xml" src="langpacks/CustomLangPack.xml" />
 		<res id="CustomLangPack.xml_fra" src="langpacks/CustomLangPack.xml_fra" />
-		<res id="userInputLang.xml_eng" src="langpacks/userInputLang.xml_eng" />
+		<res id="userInputLang.xml" src="langpacks/userInputLang.xml_eng" />
 		<res id="userInputLang.xml_fra" src="langpacks/userInputLang.xml_fra" />
 	</resources>
+
+	<variables>
+		<variable name="db.count" value="10" />
+	</variables>
 
 	<dynamicvariables>
 		<!-- Security -->
@@ -312,6 +319,7 @@
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorFrontendPanel" />
 		</panel>
+		<panel classname="UserInputPanel" id="CheckJdbcConnectionsPanel" />
 		<panel classname="SummaryPanel" />
 		<panel classname="InstallPanel" />
 		<panel classname="ProcessPanel" />
@@ -323,6 +331,7 @@
 		<!-- /!\ Mind the order of the packs -->
 		<pack name="core" required="true">
 			<description>Core installation. Required for any component.</description>
+		<!-- 
 			<file targetdir="$INSTALL_PATH" src="doc/readme.txt" override="true" />
 			<file targetdir="$INSTALL_PATH" src="legal/License.txt"
 				override="true" />
@@ -354,11 +363,13 @@
 				<fileset targetdir="$INSTALL_PATH/REGARDS/bin" includes="*" />
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
+			 -->
 		</pack>
 
 		<pack name="config" required="false" preselected="true">
 			<description>Microservice providing configuration to any other
 				microservice</description>
+		<!-- 
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-config.jar" />
@@ -403,12 +414,14 @@
 					<arg value="${config.waitRuleList}" />
 				</args>
 			</executable>
+			 -->
 		</pack>
 
 		<pack name="registry" required="false" preselected="true">
 			<description>Microservice registering other microservices in the
 				cloud and handling load balancing
 			</description>
+		<!-- 
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-registry.jar" />
@@ -444,11 +457,13 @@
 					<arg value="${registry.waitRuleList}" />
 				</args>
 			</executable>
+			 -->
 		</pack>
 
 		<pack name="gateway" required="false" preselected="true">
 			<description>Gateway between clients and all microservices
 			</description>
+		 <!-- 
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-gateway.jar" />
@@ -484,11 +499,13 @@
 					<arg value="${gateway.waitRuleList}" />
 				</args>
 			</executable>
+			-->
 		</pack>
 
 		<pack name="admin" required="false" preselected="true">
 			<description>Microservice handling system's administration
 			</description>
+			<!-- 
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-administration.jar" />
@@ -524,11 +541,13 @@
 					<arg value="${admin.waitRuleList}" />
 				</args>
 			</executable>
+			 -->
 		</pack>
 
 		<pack name="authentication" required="false" preselected="true">
 			<description>Microservice dedicated to users' authentication
 			</description>
+			<!-- 
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-authentication.jar" />
@@ -564,11 +583,13 @@
 					<arg value="${authentication.waitRuleList}" />
 				</args>
 			</executable>
+			 -->
 		</pack>
 
 		<pack name="dam" required="false" preselected="true">
 			<description>REGARDS Data Management service installation
 			</description>
+			<!-- 
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-dam.jar" />
@@ -604,10 +625,12 @@
 					<arg value="${dam.waitRuleList}" />
 				</args>
 			</executable>
+			 -->
 		</pack>
 
 		<pack name="catalog" required="false" preselected="true">
 			<description>REGARDS Catalog service installation</description>
+			 <!-- 
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-catalog.jar" />
@@ -643,10 +666,12 @@
 					<arg value="${catalog.waitRuleList}" />
 				</args>
 			</executable>
+			 -->
 		</pack>
 
 		<pack name="access" required="false" preselected="true">
 			<description>REGARDS Access service installation</description>
+			<!-- 
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-access-instance.jar" />
@@ -711,10 +736,12 @@
 					<arg value="${access-project.waitRuleList}" />
 				</args>
 			</executable>
+			 -->
 		</pack>
 
 		<pack name="frontend" required="false" preselected="true">
 			<description>Web application serving the frontend</description>
+			 <!-- 
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-frontend.*ar" />
@@ -757,6 +784,7 @@
 					<arg value="${frontend.waitRuleList}" />
 				</args>
 			</executable>
+			 -->
 		</pack>
 
 	</packs>

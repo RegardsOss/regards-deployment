@@ -5,4 +5,4 @@
  * 
  * @author Xavier-Alexandre Brochard
  */
-package fr.cnes.regards.deployment.izpack.custom.actions;
+package fr.cnes.regards.deployment.izpack.custom.button;

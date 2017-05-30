@@ -16,11 +16,27 @@
 	<str id="UserInputPanel.custom.swing.buttonlabel.add" txt="Ajouter" />
 	<str id="UserInputPanel.custom.swing.buttonlabel.remove" txt="Retirer" />
 	<str id="cluster.label" txt="Cluster" />
+	<str id="components.frontend.label" txt="Frontend" />
+	<str id="components.core.label" txt="Core" />
+	<str id="components.config.label" txt="Configuration" />
+	<str id="components.registry.label" txt="Registry" />
+	<str id="components.gateway.label" txt="Gateway" />
+	<str id="components.microservices.label" txt="Microservices" />
+	<str id="components.authentication.label" txt="Authentication" />
+	<str id="components.admin.label" txt="Administration" />
+	<str id="components.dam.label" txt="Data Management" />
+	<str id="components.catalog.label" txt="Catalog" />
+	<str id="components.access.label" txt="Access" />
+	<str id="components.access.instance.label" txt="Access instance" />
+	<str id="components.access.project.label" txt="Access projet" />
+	<str id="components.storage.label" txt="Storage" />
 
 	<!-- SelectInstallationTypePanel -->
 	<str id="selectinstallationtype.panel.title.label" txt="Comment voulez-vous installer REGARDS?" />
-	<str id="selectinstallationtype.panel.radio.full.label" txt="Installation monolithique - Tous les composants seront installés" />
-	<str id="selectinstallationtype.panel.radio.cloud.label" txt="Installation cloud - Choisissez les composants à installer" />
+	<str id="selectinstallationtype.panel.radio.full.label"
+		txt="Installation monolithique - Tous les composants seront installés" />
+	<str id="selectinstallationtype.panel.radio.cloud.label"
+		txt="Installation cloud - Choisissez les composants à installer" />
 
 	<!-- SelectSecurityLevelPanel -->
 	<str id="selectsecuritylevel.panel.title.label" txt="Quelle sécurité système voulez-vous utiliser?" />
@@ -36,7 +52,8 @@
 		txt="	* L'administrateur devra faire partie des groupes REGARDS, ADMIN et RUNTIME" />
 
 	<!-- ProjectPanel -->
-	<str id="project.panel.title.label" txt="Quel est le premier projet que nous devrions ajouter à REGARS?" />
+	<str id="project.panel.title.label"
+		txt="Quel est le premier projet que nous devrions ajouter à REGARS?" />
 	<str id="project.panel.project.label" txt="Nom:" />
 
 	<!-- ConfigSecurityLevelPanel -->
@@ -56,18 +73,6 @@
 
 	<!-- SelectComponentsPanel -->
 	<str id="selectcomponents.panel.title.label" txt="Quels composants souhaitez-vous installer?" />
-	<str id="selectcomponents.panel.frontend.label" txt="Frontend" />
-	<str id="selectcomponents.panel.core.label" txt="Core" />
-	<str id="selectcomponents.panel.config.label" txt="Configuration" />
-	<str id="selectcomponents.panel.registry.label" txt="Registry" />
-	<str id="selectcomponents.panel.gateway.label" txt="Gateway" />
-	<str id="selectcomponents.panel.microservices.label" txt="Microservices" />
-	<str id="selectcomponents.panel.authentication.label" txt="Authentication" />
-	<str id="selectcomponents.panel.admin.label" txt="Administration" />
-	<str id="selectcomponents.panel.dam.label" txt="Data Management" />
-	<str id="selectcomponents.panel.catalog.label" txt="Catalog" />
-	<str id="selectcomponents.panel.access.label" txt="Access" />
-	<str id="selectcomponents.panel.storage.label" txt="Storage" />
 
 	<!-- LinkToExistingConfigPanel -->
 	<str id="linktoexistingconfig.panel.title.label" txt="Où se trouve le serveur de Configuration?" />
@@ -120,6 +125,11 @@
 
 	<!-- AccessProjectPanel -->
 	<str id="access-project.panel.title.label" txt="Microservice Access Project" />
+
+	<!-- CheckJdbcConnectionsPanel -->
+	<str id="check.jdbc.connections.panel.title.label" txt="Vérification des bases de données" />
+	<str id="check.jdbc.connections.panel.detail.label"
+		txt="Effectuez cette vérification rapide pour vous assurer que vos bases sont correctement configurées. Vous pouvez toutefois terminer l'installation sans que cela soit le cas." />
 
 	<!-- Validators -->
 	<str id="validator.host.error.label" txt="Le host est invalide" />

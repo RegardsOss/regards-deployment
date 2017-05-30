@@ -6,18 +6,6 @@
 
 	<panel id="SelectSecurityLevelPanel">
 
-
-
-		<field type="button" id="pokedex.query">
-			<spec id="pokedex.button" successMsg="pokedex.working">
-				<run class="fr.cnes.regards.deployment.izpack.custom.actions.PokemonConnectionTest">
-					<msg id="pokedex.error" name="error" />
-				</run>
-			</spec>
-		</field>
-
-
-
 		<field id="selectsecuritylevel.panel.title.label" type="title" />
 		<field type="radio" variable="security.level">
 			<spec>
@@ -528,13 +516,6 @@
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
 				id="validator.notempty.password.label" />
 		</field>
-		<field type="button" id="pokedex.query">
-			<spec id="connection.tester.test" successMsg="connection.tester.sucess">
-				<run class="fr.cnes.regards.deployment.izpack.custom.actions.AccessInstanceJdbcConnectionTester">
-					<msg id="connection.tester.fail" name="error" />
-				</run>
-			</spec>
-		</field>
 	</panel>
 
 	<panel id="AccessProjectPanel">
@@ -625,6 +606,27 @@
 				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 				id="validator.port.error.label" />
 		</field>
+	</panel>
+
+	<panel id="CheckJdbcConnectionsPanel">
+		<field id="check.jdbc.connections.panel.title.label" type="title" />
+		<field id="check.jdbc.connections.panel.detail.label" type="staticText" />
+
+		<field type="button" conditionid="izpack.selected.access" id="components.access.instance.label">
+			<spec id="connection.tester.test" successMsg="connection.tester.success">
+				<run
+					class="fr.cnes.regards.deployment.izpack.custom.button.AccessInstanceJdbcConnectionTester">
+					<msg id="connection.tester.fail" name="error" />
+				</run>
+			</spec>
+		</field>
+
+
+
+
+
+
+
 	</panel>
 
 	<!-- TODO GBN : Finir les config -->

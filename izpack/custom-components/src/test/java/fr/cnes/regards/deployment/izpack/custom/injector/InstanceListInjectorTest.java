@@ -10,6 +10,7 @@ import com.izforge.izpack.api.data.InstallData;
 
 import fr.cnes.regards.deployment.izpack.custom.injector.InstanceListInjector;
 import fr.cnes.regards.deployment.izpack.custom.model.ComponentType;
+import fr.cnes.regards.deployment.izpack.custom.utils.DummyInstallDataFactory;
 
 /**
  * Test class for {@link InstanceListInjector}.
@@ -37,7 +38,7 @@ public class InstanceListInjectorTest {
         // @formatter:on
         ComponentType type = ComponentType.REGISTRY;
         String entryKey = "regards.config.cloud.registry";
-        InstallData installData = InjectorTestUtils.buildDummyInstallData(type);
+        InstallData installData = DummyInstallDataFactory.buildWithRegistry(type);
 
         InstanceListInjector injector = new InstanceListInjector(type, entryKey);
         injector.inject(installData);

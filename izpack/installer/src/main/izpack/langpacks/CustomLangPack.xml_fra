@@ -8,11 +8,6 @@
 	<str id="UserInputPanel.custom.swing.buttonlabel.add" txt="Ajouter" />
 	<str id="UserInputPanel.custom.swing.buttonlabel.remove" txt="Retirer" />
 
-	<str id="pokedex.button" txt="Pokedex button" />
-	<str id="pokedex.working" txt="Pokedex working" />
-	<str id="pokedex.error" txt="Pokedex error" />
-	<str id="error" txt="Error" />
-	
 	<str id="connection.tester.test" txt="Tester" />
 	<str id="connection.tester.success" txt="La base de données est active" />
 	<str id="connection.tester.fail" txt="La base de données ne répond pas" />
