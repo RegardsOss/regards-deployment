@@ -26,25 +26,14 @@
 		<log-file pattern="regards_install.log" append="false" level="ALL" />
 	</logging>
 
-	<guiprefs width="800" height="600" resizable="no">
-		<laf name="looks">
-			<os family="unix" />
-			<os family="windows" />
-			<os family="mac" />
-			<param name="variant" value="plastic" />
-		</laf>
-		<modifier key="useButtonIcons" value="no" />
-		<modifier key="useLabelIcons" value="no" />
-		<modifier key="labelGap" value="2" />
-		<modifier key="layoutAnchor" value="NORTHWEST" />
-		<modifier key="useHeadingPanel" value="yes" />
-		<modifier key="headingImageOnLeft" value="yes" />
-		<modifier key="headingLineCount" value="1" />
-		<modifier key="headingFontSize" value="1.5" />
-		<modifier key="headingBackgroundColor" value="0x00ffffff" />
-		<modifier key="headingPanelCounter" value="text" />
-		<modifier key="headingPanelCounterPos" value="inHeading" />
+	<guiprefs width="800" height="800" resizable="no">
 		<modifier key="useSplashScreen" value="3000" />
+		<modifier key="useHeadingPanel" value="yes" />
+		<modifier key="headingBackgroundColor" value="0x00193b50" />
+		<modifier key="headingPanelCounter" value="progressbar" />
+		<modifier key="headingPanelCounterPos" value="inNavigationPanel" />
+		<modifier key="headingImageOnLeft" value="yes" />
+		<modifier key="headingImageBorderSize" value="0" />
 		<modifier key="showDebugWindow" value="true" />
 	</guiprefs>
 
@@ -54,9 +43,10 @@
 	<jar src="lib/postgresql-42.1.1.jre7.jar" />
 
 	<resources>
+		<res id="Splash.image" src="images/splash.jpg" />
+		<res id="Heading.image" src="images/heading.png" />
 		<res id="InfoPanel.info" src="doc/readme.txt" parse="yes" />
 		<res id="LicencePanel.licence" src="legal/License.txt" />
-		<res id="Splash.image" src="images/splash.jpg" />
 		<res id="userInputSpec.xml" src="userInputSpec.xml" parse="yes"
 			type="xml" />
 		<res id="ProcessPanel.Spec.xml" src="ProcessPanel.Spec.xml" parse="yes"
