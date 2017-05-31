@@ -229,31 +229,46 @@
 			<name>security.level</name>
 			<value>enforce</value>
 		</condition>
-		<condition type="or" id="atLeastOneBackendPackSelected">
-			<condition type="packselection" id="configSelected">
-				<name>config</name>
-			</condition>
-			<condition type="packselection" id="registrySelected">
-				<name>registry</name>
-			</condition>
-			<condition type="packselection" id="gatewaySelected">
-				<name>gateway</name>
-			</condition>
-			<condition type="packselection" id="adminSelected">
-				<name>admin</name>
-			</condition>
-			<condition type="packselection" id="authenticationSelected">
-				<name>authentication</name>
-			</condition>
-			<condition type="packselection" id="damSelected">
-				<name>dam</name>
-			</condition>
-			<condition type="packselection" id="catalogSelected">
-				<name>catalog</name>
-			</condition>
-			<condition type="packselection" id="accessSelected">
-				<name>access</name>
-			</condition>
+		<condition type="packselection" id="selected.config">
+			<name>config</name>
+		</condition>
+		<condition type="packselection" id="selected.registry">
+			<name>registry</name>
+		</condition>
+		<condition type="packselection" id="selected.gateway">
+			<name>gateway</name>
+		</condition>
+		<condition type="packselection" id="selected.admin">
+			<name>admin</name>
+		</condition>
+		<condition type="packselection" id="selected.authentication">
+			<name>authentication</name>
+		</condition>
+		<condition type="packselection" id="selected.dam">
+			<name>dam</name>
+		</condition>
+		<condition type="packselection" id="selected.catalog">
+			<name>catalog</name>
+		</condition>
+		<condition type="packselection" id="selected.access">
+			<name>access</name>
+		</condition>
+		<condition type="or" id="at.least.one.backend.pack.selected">
+			<condition type="ref" refid="selected.config" />
+			<condition type="ref" refid="selected.registry" />
+			<condition type="ref" refid="selected.gateway" />
+			<condition type="ref" refid="selected.admin" />
+			<condition type="ref" refid="selected.authentication" />
+			<condition type="ref" refid="selected.dam" />
+			<condition type="ref" refid="selected.catalog" />
+			<condition type="ref" refid="selected.access" />
+		</condition>
+		<condition type="or" id="at.least.one.db.configured">
+			<condition type="ref" refid="selected.admin" />
+			<condition type="ref" refid="selected.authentication" />
+			<condition type="ref" refid="selected.dam" />
+			<condition type="ref" refid="selected.catalog" />
+			<condition type="ref" refid="selected.access" />
 		</condition>
 	</conditions>
 
@@ -273,7 +288,7 @@
 				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorConfigPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="RabbitmqPanel"
-			condition="atLeastOneBackendPackSelected" />
+			condition="at.least.one.backend.pack.selected" />
 		<panel classname="UserInputPanel" id="RegistryPanel" condition="izpack.selected.registry">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorRegistryPanel" />
@@ -314,7 +329,8 @@
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorFrontendPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="CheckJdbcConnectionsPanel" />
+		<panel classname="UserInputPanel" id="CheckJdbcConnectionsPanel"
+			condition="at.least.one.db.configured" />
 		<panel classname="SummaryPanel" />
 		<panel classname="InstallPanel" />
 		<panel classname="ProcessPanel" />
