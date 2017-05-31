@@ -23,8 +23,12 @@ import java.nio.file.Paths;
 import java.nio.file.Path;
 import java.nio.file.Files;
 
-// Create working dirs
-Files.createDirectory(Paths.get("logs"));
-Files.createDirectory(Paths.get("run"));
+// Create working dirs if they do not exist
+if(!Files.exists(Paths.get("logs"))) {
+	Files.createDirectory(Paths.get("logs"));
+}
+if(!Files.exists(Paths.get("run"))) {
+	Files.createDirectory(Paths.get("run"));
+}
 
 System.exit(0);
