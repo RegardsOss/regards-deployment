@@ -108,30 +108,30 @@ find "${ROOT_DIR}"/config -type d -exec chmod 2775 {} \;
 # Files shared by admin (rw) and exec (ro) users
 find "${ROOT_DIR}"/config -type f -exec chmod 0664 {} \;
 
-# Dirs acceded through rx by exec users
+# Dirs accessed through rx by exec users
 chown -R :${RUNTIME_REGARDS_GROUP} "${ROOT_DIR}"/bin
 chmod 0750 "${ROOT_DIR}"/bin
 
-# Files acceded through rx by exec users
+# Files accessed through rx by exec users
 if ls "${ROOT_DIR}"/bin/* > /dev/null 2>&1
 then
   chmod 0750 "${ROOT_DIR}"/bin/*
 fi
 
-# Dirs acceded through rx by root users
+# Dirs accessed through rx by root users
 chmod 0700 "${ROOT_DIR}"/sbin
 
-# Files acceded through rx by exec users
+# Files accessed through rx by exec users
 if ls "${ROOT_DIR}"/sbin/* > /dev/null 2>&1
 then
   chmod 0700 "${ROOT_DIR}"/sbin/*
 fi
 
-# Dirs acceded through ro by exec users
+# Dirs accessed through ro by exec users
 chown -R :${RUNTIME_REGARDS_GROUP} "${ROOT_DIR}"/lib
 chmod 0750 "${ROOT_DIR}"/lib
 
-# Files acceded through ro by exec users
+# Files accessed through ro by exec users
 if ls "${ROOT_DIR}"/lib/* > /dev/null 2>&1
 then
   chmod 0640 "${ROOT_DIR}"/lib/*

@@ -2,11 +2,11 @@
 <!-- LICENSE_PLACEHOLDER -->
 <izpack:installation version="5.0"
 	xmlns:izpack="http://izpack.org/schema/installation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://izpack.org/schema/installation http://izpack.org/schema/5.0/izpack-installation-5.0.xsd">
+	xsi:schemaLocation="http://izpack.org/schema/installation http://izpack.org/schema/installation/izpack-installation-5.0.xsd">
 
 	<info>
 		<appname>REGARDS</appname>
-		<appversion>@{regards.izpack.panels.version}</appversion>
+		<appversion>@{regards.izpack.installer.version}</appversion>
 		<appsubpath>regards</appsubpath>
 		<javaversion>@{java.version}</javaversion>
 		<requiresjdk>no</requiresjdk>
@@ -26,45 +26,38 @@
 		<log-file pattern="regards_install.log" append="false" level="ALL" />
 	</logging>
 
-	<guiprefs width="800" height="600" resizable="no">
-		<laf name="looks">
-			<os family="unix" />
-			<os family="windows" />
-			<os family="mac" />
-			<param name="variant" value="plastic" />
-		</laf>
-		<modifier key="useButtonIcons" value="no" />
-		<modifier key="useLabelIcons" value="no" />
-		<modifier key="labelGap" value="2" />
-		<modifier key="layoutAnchor" value="NORTHWEST" />
-		<modifier key="useHeadingPanel" value="yes" />
-		<modifier key="headingImageOnLeft" value="yes" />
-		<modifier key="headingLineCount" value="1" />
-		<modifier key="headingFontSize" value="1.5" />
-		<modifier key="headingBackgroundColor" value="0x00ffffff" />
-		<modifier key="headingPanelCounter" value="text" />
-		<modifier key="headingPanelCounterPos" value="inHeading" />
+	<guiprefs width="800" height="800" resizable="no">
 		<modifier key="useSplashScreen" value="3000" />
+		<modifier key="useHeadingPanel" value="yes" />
+		<modifier key="headingBackgroundColor" value="0x00193b50" />
+		<modifier key="headingPanelCounter" value="progressbar" />
+		<modifier key="headingPanelCounterPos" value="inNavigationPanel" />
+		<modifier key="headingImageOnLeft" value="yes" />
+		<modifier key="headingImageBorderSize" value="0" />
 		<modifier key="showDebugWindow" value="true" />
 	</guiprefs>
 
+	<!-- Custom panels, buttons, ... -->
+	<jar src="custom/custom-components.jar" />
+	<!-- JDBC database drivers -->
+	<jar src="lib/postgresql-42.1.1.jre7.jar" />
+
 	<resources>
+		<res id="Splash.image" src="images/splash.jpg" />
+		<res id="Heading.image" src="images/heading.png" />
 		<res id="InfoPanel.info" src="doc/readme.txt" parse="yes" />
 		<res id="LicencePanel.licence" src="legal/License.txt" />
-		<res id="Splash.image" src="images/splash.jpg" />
 		<res id="userInputSpec.xml" src="userInputSpec.xml" parse="yes"
 			type="xml" />
 		<res id="ProcessPanel.Spec.xml" src="ProcessPanel.Spec.xml" parse="yes"
 			type="xml" />
-		<res id="CustomLangPack.xml_fra" src="i18n/CustomLangPack.xml_fra" />
-		<res id="userInputLang.xml_eng" src="i18n/userInputLang.xml_eng" />
-		<res id="userInputLang.xml_fra" src="i18n/userInputLang.xml_fra" />
+		<res id="CustomLangPack.xml" src="langpacks/CustomLangPack.xml" />
+		<res id="CustomLangPack.xml_fra" src="langpacks/CustomLangPack.xml_fra" />
+		<res id="userInputLang.xml" src="langpacks/userInputLang.xml_eng" />
+		<res id="userInputLang.xml_fra" src="langpacks/userInputLang.xml_fra" />
 	</resources>
 
-	<jar src="custom/panels.jar" stage="install" />
-	<jar src="custom/utils.jar" stage="install" />
-
-	<dynamicvariables>
+	<variables>
 		<!-- Security -->
 		<variable name="regards.config.regards.microservices.exec.user"
 			value="regards" />
@@ -96,20 +89,6 @@
 		<variable name="gateway.port" value="8000" />
 		<variable name="regards.config.cloud.gateway.uri" value="localhost" />
 		<variable name="regards.config.cloud.gateway.port" value="8000" />
-		<variable
-			name="regards.config.gateway.regards.jpa.multitenant.tenants.url.1"
-			value="localhost:5432/rs_gateway_tenant0" />
-		<variable
-			name="regards.config.gateway.regards.jpa.multitenant.tenants.user.name.1"
-			value="rs_gateway_tenant0_user" />
-		<variable
-			name="regards.config.gateway.regards.jpa.multitenant.tenants.password.1"
-			value="rs_gateway_tenant0_pwd" />
-
-		<!-- Authentication -->
-		<variable name="authentication.count" value="0" />
-		<variable name="authentication.host" value="localhost" />
-		<variable name="authentication.port" value="8889" />
 
 		<!-- Message broker -->
 		<variable name="regards.config.spring.rabbitmq.host" value="localhost" />
@@ -159,6 +138,20 @@
 		<variable name="regards.config.admin.accounts.failed.authentication.max"
 			value="5" />
 
+		<!-- Authentication -->
+		<variable name="authentication.count" value="0" />
+		<variable name="authentication.host" value="localhost" />
+		<variable name="authentication.port" value="8889" />
+		<variable
+			name="regards.config.gateway.regards.jpa.multitenant.tenants.url.1"
+			value="localhost:5432/rs_gateway_tenant0" />
+		<variable
+			name="regards.config.gateway.regards.jpa.multitenant.tenants.user.name.1"
+			value="" />
+		<variable
+			name="regards.config.gateway.regards.jpa.multitenant.tenants.password.1"
+			value="" />
+
 		<!-- DAM -->
 		<variable name="dam.count" value="0" />
 		<variable name="dam.host" value="localhost" />
@@ -181,6 +174,15 @@
 		<variable name="catalog.count" value="0" />
 		<variable name="catalog.host" value="localhost" />
 		<variable name="catalog.port" value="4444" />
+		<variable
+			name="regards.config.catalog.regards.jpa.multitenant.tenants.url.1"
+			value="localhost:5432/rs_catalog_tenant0" />
+		<variable
+			name="regards.config.catalog.regards.jpa.multitenant.tenants.user.name.1"
+			value="" />
+		<variable
+			name="regards.config.catalog.regards.jpa.multitenant.tenants.password.1"
+			value="" />
 
 		<!-- Access Instance -->
 		<variable name="access-instance.count" value="0" />
@@ -188,7 +190,7 @@
 		<variable name="access-instance.port" value="8990" />
 		<variable
 			name="regards.config.access.instance.regards.jpa.instance.datasource.url"
-			value="localhost:5432/rs_acces_instance" />
+			value="localhost:5432/rs_access_instance" />
 		<variable
 			name="regards.config.access.instance.regards.jpa.instance.datasource.user.name"
 			value="" />
@@ -202,7 +204,7 @@
 		<variable name="access-project.port" value="9990" />
 		<variable
 			name="regards.config.access.project.regards.jpa.multitenant.tenants.url.1"
-			value="localhost:5432/rs_access_projet_tenant0" />
+			value="localhost:5432/rs_access_tenant0" />
 		<variable
 			name="regards.config.access.project.regards.jpa.multitenant.tenants.user.name.1"
 			value="" />
@@ -220,15 +222,39 @@
 		<variable name="installation.type" value="full" />
 		<variable name="security.level" value="normal" />
 
-	</dynamicvariables>
+	</variables>
 
 	<conditions>
 		<condition type="variable" id="isSecurityEnforced">
 			<name>security.level</name>
 			<value>enforce</value>
 		</condition>
-
-
+		<condition type="or" id="atLeastOneBackendPackSelected">
+			<condition type="packselection" id="configSelected">
+				<name>config</name>
+			</condition>
+			<condition type="packselection" id="registrySelected">
+				<name>registry</name>
+			</condition>
+			<condition type="packselection" id="gatewaySelected">
+				<name>gateway</name>
+			</condition>
+			<condition type="packselection" id="adminSelected">
+				<name>admin</name>
+			</condition>
+			<condition type="packselection" id="authenticationSelected">
+				<name>authentication</name>
+			</condition>
+			<condition type="packselection" id="damSelected">
+				<name>dam</name>
+			</condition>
+			<condition type="packselection" id="catalogSelected">
+				<name>catalog</name>
+			</condition>
+			<condition type="packselection" id="accessSelected">
+				<name>access</name>
+			</condition>
+		</condition>
 	</conditions>
 
 	<panels>
@@ -244,49 +270,51 @@
 		<panel classname="UserInputPanel" id="ProjectPanel" condition="izpack.selected.config" />
 		<panel classname="UserInputPanel" id="ConfigPanel" condition="izpack.selected.config">
 			<validator
-				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorConfigPanel" />
+				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorConfigPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="RabbitmqPanel" condition="izpack.selected.config" />
+		<panel classname="UserInputPanel" id="RabbitmqPanel"
+			condition="atLeastOneBackendPackSelected" />
 		<panel classname="UserInputPanel" id="RegistryPanel" condition="izpack.selected.registry">
 			<validator
-				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorRegistryPanel" />
+				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorRegistryPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="GatewayPanel" condition="izpack.selected.gateway">
 			<validator
-				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorGatewayPanel" />
+				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorGatewayPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="AdminPanel" condition="izpack.selected.admin">
 			<validator
-				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAdminPanel" />
+				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAdminPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="AccountsPanel" condition="izpack.selected.admin" />
 		<panel classname="UserInputPanel" id="AuthenticationPanel"
 			condition="izpack.selected.authentication">
 			<validator
-				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAuthenticationPanel" />
+				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAuthenticationPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="DamPanel" condition="izpack.selected.dam">
 			<validator
-				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorDamPanel" />
+				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorDamPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="CatalogPanel" condition="izpack.selected.catalog">
 			<validator
-				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorCatalogPanel" />
+				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorCatalogPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="AccessInstancePanel"
 			condition="izpack.selected.access">
 			<validator
-				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAccessInstancePanel" />
+				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAccessInstancePanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="AccessProjectPanel"
 			condition="izpack.selected.access">
 			<validator
-				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorAccessProjectPanel" />
+				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAccessProjectPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="FrontendPanel" condition="izpack.selected.frontend">
 			<validator
-				classname="fr.cnes.regards.deployment.izpack.validator.ValidatorFrontendPanel" />
+				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorFrontendPanel" />
 		</panel>
+		<panel classname="UserInputPanel" id="CheckJdbcConnectionsPanel" />
 		<panel classname="SummaryPanel" />
 		<panel classname="InstallPanel" />
 		<panel classname="ProcessPanel" />
@@ -318,7 +346,7 @@
 				override="true">
 				<include name="*" />
 			</fileset>
-			<fileset dir="utils/" targetdir="$INSTALL_PATH/REGARDS/lib"
+			<fileset dir="custom" targetdir="$INSTALL_PATH/REGARDS/lib"
 				override="true">
 				<include name="*.jar" />
 			</fileset>

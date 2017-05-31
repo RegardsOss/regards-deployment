@@ -31,7 +31,7 @@ import java.nio.file.Paths;
 import java.nio.file.Path;
 
 def urlLoader = new GroovyClassLoader();
-urlLoader.addURL((Paths.get(regardsInstallDir, "lib/utils.jar").toUri().toURL()));
+urlLoader.addURL((Paths.get(regardsInstallDir, "lib/custom-components.jar").toUri().toURL()));
 println "ClassLoader :"
 urlLoader.URLs.each{ println it }
 
@@ -42,8 +42,8 @@ println "Xml input wait rules : " + xmlWaitRules;
 
 // Component configuration file
 Path componentFilePath = Paths.get(regardsInstallDir, "config/" + componentType + "_wait_rule_list.xml");
-def cWaitRuleList = Class.forName("fr.cnes.regards.deployment.izpack.utils.model.WaitRuleList", true, urlLoader);
-def cXmlAccessor = Class.forName("fr.cnes.regards.deployment.izpack.utils.XmlAccessor", true, urlLoader);
+def cWaitRuleList = Class.forName("fr.cnes.regards.deployment.izpack.custom.model.WaitRuleList", true, urlLoader);
+def cXmlAccessor = Class.forName("fr.cnes.regards.deployment.izpack.custom.xml.XmlAccessor", true, urlLoader);
 cXmlAccessor.writeToFile(xmlWaitRules, componentFilePath, cWaitRuleList);
 
 System.exit(0);

@@ -8,7 +8,7 @@
 	<description>Deployment with Izpack</description>
 
 	<!-- Launch IzPack automatically -->
-	<packaging>izpack-jar</packaging>
+	<packaging>jar</packaging>
 
 	<parent>
 		<groupId>fr.cnes.regards.deployment</groupId>
@@ -18,21 +18,40 @@
 	</parent>
 
 	<properties>
-		<izpack.staging.dir>${project.build.directory}/staging</izpack.staging.dir>
+		<staging.dir>${project.build.directory}/staging</staging.dir>
 		<temp.dir.filtering>target/config-to-filter</temp.dir.filtering>
+		<custom.components.version>1.0.0-SNAPSHOT</custom.components.version>
 	</properties>
 
 	<build>
 		<defaultGoal>package</defaultGoal>
-		<resources>
-			<resource>
-				<directory>src/main/izpack</directory>
-				<targetPath>../staging</targetPath>
-			</resource>
-		</resources>
+		<finalName>REGARDS-OSS-Installer</finalName>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${staging.dir}</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src/main/izpack</directory>
+									<includes>
+										<include>**/*</include>
+									</includes>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
 				<artifactId>maven-dependency-plugin</artifactId>
 				<configuration>
 					<excludeTransitive>false</excludeTransitive>
@@ -50,7 +69,7 @@
 							<goal>copy-dependencies</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${izpack.staging.dir}/microservices</outputDirectory>
+							<outputDirectory>${staging.dir}/microservices</outputDirectory>
 							<includeArtifactIds>
 								bootstrap-config,
 								bootstrap-registry,
@@ -67,31 +86,19 @@
 						</configuration>
 					</execution>
 					<execution>
-						<!-- copy tools -->
-						<id>copy-izpack-utils-dependencies</id>
+						<id>copy-izpack-dependencies</id>
 						<phase>prepare-package</phase>
 						<goals>
 							<goal>copy-dependencies</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${izpack.staging.dir}/utils</outputDirectory>
-							<includeArtifactIds>utils</includeArtifactIds>
-						</configuration>
-					</execution>
-					<execution>
-						<!-- copy izpack custom (custom panels, etc.) jars to izpack staging 
-							custom -->
-						<id>copy-izpack-panels-dependencies</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>copy-dependencies</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${izpack.staging.dir}/custom</outputDirectory>
-							<excludeTransitive>false</excludeTransitive>
 							<stripVersion>true</stripVersion>
-							<includeArtifactIds>panels,utils</includeArtifactIds>
-							<!-- IMPORTANT: this causes *only* our custom panels to be copied -->
+							<overWriteIfNewer>true</overWriteIfNewer>
+							<overWriteReleases>true</overWriteReleases>
+							<excludeTransitive>false</excludeTransitive>
+							<overWriteSnapshots>true</overWriteSnapshots>
+							<outputDirectory>${staging.dir}/custom</outputDirectory>
+							<includeArtifactIds>custom-components</includeArtifactIds>
 						</configuration>
 					</execution>
 					<execution>
@@ -134,21 +141,32 @@
 			<plugin>
 				<groupId>org.codehaus.izpack</groupId>
 				<artifactId>izpack-maven-plugin</artifactId>
-				<version>${maven.izpack.version}</version>
-				<extensions>true</extensions>
-				<configuration>
-					<!-- base for relative paths in izpack descriptor -->
-					<attach>false</attach>
-					<kind>standard</kind>
-					<descriptorEncoding>UTF-8</descriptorEncoding>
-					<baseDir>${izpack.staging.dir}</baseDir>
-					<finalName>REGARDS-OSS-Installer</finalName>
-					<mkdirs>true</mkdirs>
-					<installFile>${basedir}/src/main/izpack/install.xml</installFile>
-				</configuration>
+				<version>${izpack.version}</version>
+				<executions>
+					<execution>
+						<id>standard-installer</id>
+						<phase>package</phase>
+						<goals>
+							<goal>izpack</goal>
+						</goals>
+						<configuration>
+							<baseDir>${staging.dir}</baseDir>
+							<mkdirs>true</mkdirs>
+							<installFile>${staging.dir}/install.xml</installFile>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>fr.cnes.regards.deployment</groupId>
+						<artifactId>custom-components</artifactId>
+						<version>${custom.components.version}</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>
+
 	<dependencies>
 		<dependency>
 			<groupId>fr.cnes.regards.cloud</groupId>
@@ -199,13 +217,8 @@
 		</dependency>
 		<dependency>
 			<groupId>fr.cnes.regards.deployment</groupId>
-			<artifactId>panels</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>fr.cnes.regards.deployment</groupId>
-			<artifactId>utils</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
+			<artifactId>custom-components</artifactId>
+			<version>${custom.components.version}</version>
 		</dependency>
 	</dependencies>
 
@@ -231,7 +244,7 @@
 									<goal>copy-resources</goal>
 								</goals>
 								<configuration>
-									<outputDirectory>${izpack.staging.dir}/config</outputDirectory>
+									<outputDirectory>${staging.dir}/config</outputDirectory>
 									<resources>
 										<resource>
 											<directory>${temp.dir.filtering}</directory>

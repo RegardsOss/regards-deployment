@@ -45,7 +45,7 @@ function get_microservice_info
 
   typeset fct_microservices_infos
 
-  export CLASSPATH="${FCT_ROOT_DIR}"/lib/utils.jar
+export CLASSPATH="${FCT_ROOT_DIR}"/lib/custom-components.jar
   if [ -n "${FCT_MICROSERVICE_ID}" ]
   then
     fct_microservices_infos="$(get_microservice_info.groovy -n "${FCT_MICROSERVICE_ID}" -t "${FCT_MICROSERVICE_TYPE}" -i "${FCT_ROOT_DIR}")"
@@ -139,7 +139,7 @@ function read_component_wait_rule_list
 
   typeset fct_read_component_wait_rule_list
 
-  export CLASSPATH="${FCT_ROOT_DIR}"/lib/utils.jar
+export CLASSPATH="${FCT_ROOT_DIR}"/lib/custom-components.jar
   fct_read_component_wait_rule_list="$(read_component_wait_rule_list.groovy -i "${FCT_ROOT_DIR}" -t "${FCT_MICROSERVICE_TYPE}")"
 
   printf "${fct_read_component_wait_rule_list}"

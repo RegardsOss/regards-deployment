@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!-- LICENSE_PLACEHOLDER -->
+<izpack:langpack version="5.0"
+	xmlns:izpack="http://izpack.org/schema/langpack" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://izpack.org/schema/langpack http://izpack.org/schema/5.0/izpack-langpack-5.0.xsd">
+
+	<!-- Common -->
+	<str id="host.label" txt="Host:" />
+	<str id="port.label" txt="Port:" />
+	<str id="url.label" txt="Url:" />
+	<str id="username.label" txt="Utilisateur:" />
+	<str id="password.label" txt="Mot de passe:" />
+	<str id="email.label" txt="Email:" />
+	<str id="instance.database.label" txt="Base de données transverse" />
+	<str id="first.project.database.label" txt="Base de données du premier projet" />
+	<str id="UserInputPanel.custom.swing.buttonlabel.add" txt="Ajouter" />
+	<str id="UserInputPanel.custom.swing.buttonlabel.remove" txt="Retirer" />
+	<str id="cluster.label" txt="Cluster" />
+	<str id="components.frontend" txt="Frontend" />
+	<str id="components.core" txt="Core" />
+	<str id="components.config" txt="Configuration" />
+	<str id="components.registry" txt="Registry" />
+	<str id="components.gateway" txt="Gateway" />
+	<str id="components.authentication" txt="Authentication" />
+	<str id="components.admin" txt="Administration" />
+	<str id="components.admin.instance" txt="Administration instance" />
+	<str id="components.admin.project" txt="Administration projet" />
+	<str id="components.dam" txt="Data Management" />
+	<str id="components.catalog" txt="Catalog" />
+	<str id="components.access" txt="Access" />
+	<str id="components.access.instance" txt="Access instance" />
+	<str id="components.access.project" txt="Access projet" />
+	<str id="components.storage" txt="Storage" />
+
+	<!-- SelectInstallationTypePanel -->
+	<str id="selectinstallationtype.panel.title.label" txt="Comment voulez-vous installer REGARDS?" />
+	<str id="selectinstallationtype.panel.radio.full.label"
+		txt="Installation monolithique - Tous les composants seront installés" />
+	<str id="selectinstallationtype.panel.radio.cloud.label"
+		txt="Installation cloud - Choisissez les composants à installer" />
+
+	<!-- SelectSecurityLevelPanel -->
+	<str id="selectsecuritylevel.panel.title.label" txt="Quelle sécurité système voulez-vous utiliser?" />
+	<str id="selectsecuritylevel.panel.normal.label" txt="Standard" />
+	<str id="selectsecuritylevel.panel.enforce.label" txt="Renforcée" />
+	<str id="selectsecuritylevel.panel.enforce.description.1.label"
+		txt="Si vous choisissez Renforcée, les système doit respecter les prérequis suivants:" />
+	<str id="selectsecuritylevel.panel.enforce.description.2.label"
+		txt="	* L'utilisateur actuel doit faire partie des groupes REGARDS, EXEC, ADMIN et RUNTIME" />
+	<str id="selectsecuritylevel.panel.enforce.description.3.label"
+		txt="	* L'utilisateur EXEC qui lancera les microservices doit exister et faire partie des groupes REGARDS, EXEC et RUNTIME" />
+	<str id="selectsecuritylevel.panel.enforce.description.4.label"
+		txt="	* L'administrateur devra faire partie des groupes REGARDS, ADMIN et RUNTIME" />
+
+	<!-- ProjectPanel -->
+	<str id="project.panel.title.label" txt="Quel est le premier projet que nous devrions ajouter?" />
+	<str id="project.panel.project.label" txt="Nom:" />
+
+	<!-- ConfigSecurityLevelPanel -->
+	<str id="configsecuritylevel.panel.title.label" txt="Personnaliser les droits" />
+	<str id="configsecuritylevel.panel.exec.user.label" txt="Utilisateur Exec" />
+	<str id="configsecuritylevel.panel.exec.user.tooltip" txt="Utilisateur chargé de démarrer les microservices" />
+	<str id="configsecuritylevel.panel.regards.group.label" txt="Groupe Regards" />
+	<str id="configsecuritylevel.panel.regards.group.tooltip" txt="Sert à protéger l'accès aux composants du système" />
+	<str id="configsecuritylevel.panel.exec.group.label" txt="Groupe Exec" />
+	<str id="configsecuritylevel.panel.exec.group.tooltip" txt="Sert à protéger l'accès aux binaires d'exécution" />
+	<str id="configsecuritylevel.panel.admin.group.label" txt="Groupe Admin" />
+	<str id="configsecuritylevel.panel.admin.group.tooltip"
+		txt="Sert à retreindre l'accès aux fonctionnalités d'administration" />
+	<str id="configsecuritylevel.panel.runtime.group.label" txt="Groupe Runtime" />
+	<str id="configsecuritylevel.panel.runtime.group.tooltip"
+		txt="Permet de partager les fichier entre les profils exec et admin" />
+
+	<!-- SelectComponentsPanel -->
+	<str id="selectcomponents.panel.title.label" txt="Quels composants souhaitez-vous installer?" />
+
+	<!-- LinkToExistingConfigPanel -->
+	<str id="linktoexistingconfig.panel.title.label" txt="Où se trouve le serveur de Configuration?" />
+
+	<!-- FrontendPanel -->
+	<str id="frontend.panel.title.label" txt="Serveur Frontend" />
+	<str id="frontend.panel.gateway.label" txt="Gateway" />
+
+	<!-- RabbitmqPanel -->
+	<str id="rabbitmq.panel.title.label" txt="Configuration du bus d'événements" />
+	<str id="rabbitmq.panel.rabbitmq.label" txt="RabbitMQ" />
+	<str id="rabbitmq.panel.amqp.label" txt="AMQP" />
+
+	<!-- ConfigPanel -->
+	<str id="config.panel.title.label" txt="Microservice Config" />
+
+	<!-- RegistryPanel -->
+	<str id="registry.panel.title.label" txt="Microservice Registry" />
+
+	<!-- GatewayPanel -->
+	<str id="gateway.panel.title.label" txt="Microservice Gateway" />
+
+	<!-- AuthenticationPanel -->
+	<str id="authentication.panel.title.label" txt="Microservice Authentication" />
+
+	<!-- AdminPanel -->
+	<str id="admin.panel.title.label" txt="Microservice Administration" />
+	<str id="admin.panel.root.user.label" txt="Administrateur d'instance" />
+
+	<!-- AccountsPanel -->
+	<str id="accounts.panel.title.label" txt="Quelles règles doivent suivre les comptes utilisateurs?" />
+	<str id="accounts.panel.accounts.label" txt="Compte" />
+	<str id="accounts.panel.accounts.validity.duration.label" txt="Durée de validité (jours)" />
+	<str id="accounts.panel.passwords.label" txt="Mots de passe" />
+	<str id="accounts.panel.regex.label" txt="Doivent suivre la regex" />
+	<str id="accounts.panel.password.rules.label" txt="Sinon les utilisateurs recevront le message" />
+	<str id="accounts.panel.password.validity.duration.label" txt="Durée de validité (jours)" />
+	<str id="accounts.panel.connecting.label" txt="A la connexion" />
+	<str id="accounts.panel.failed.authentication.max.label" txt="Tentatives avant verrouillage du compte" />
+
+	<!-- DamPanel -->
+	<str id="dam.panel.title.label" txt="Microservice Data Management" />
+	<str id="dam.panel.elasticsearch.label" txt="Elasticsearch" />
+
+	<!-- CatalogPanel -->
+	<str id="catalog.panel.title.label" txt="Microservice Catalog" />
+
+	<!-- AccessInstancePanel -->
+	<str id="access-instance.panel.title.label" txt="Microservice Access Instance" />
+
+	<!-- AccessProjectPanel -->
+	<str id="access-project.panel.title.label" txt="Microservice Access Project" />
+
+	<!-- CheckJdbcConnectionsPanel -->
+	<str id="check.jdbc.connections.panel.title" txt="Vérification des bases de données" />
+	<str id="check.jdbc.connections.panel.detail"
+		txt="Effectuez cette vérification rapide pour vous assurer que vos bases sont correctement configurées. Vous pouvez toutefois terminer l'installation sans que cela soit le cas." />
+
+	<!-- Validators -->
+	<str id="validator.host.error.label" txt="Le host est invalide" />
+	<str id="validator.port.error.label"
+		txt="Le port est invalide ou bien déjà utilisé par un autre application" />
+	<str id="validator.notempty.username.label" txt="Renseignez l'utilisateur pour continuer" />
+	<str id="validator.notempty.password.label" txt="Renseignez le mot de passe pour continuer" />
+	<str id="validator.notempty.email.label" txt="Renseignez l'email pour continuer" />
+
+</izpack:langpack>
