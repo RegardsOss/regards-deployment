@@ -110,6 +110,10 @@
 	<str id="accounts.panel.connecting.label" txt="When connecting" />
 	<str id="accounts.panel.failed.authentication.max.label" txt="Number of attemps before locking the account" />
 
+	<!-- SmtpPanel -->
+	<str id="smtp.panel.title" txt="SMTP Configuration" />
+	<str id="smtp.panel.detail" txt="REGARDS keeps you in touch via emails. You can provide a specific SMTP server or leave the default one." />
+
 	<!-- DamPanel -->
 	<str id="dam.panel.title.label" txt="Data Management microservice" />
 	<str id="dam.panel.elasticsearch.label" txt="Elasticsearch" />

@@ -113,6 +113,10 @@
 	<str id="accounts.panel.connecting.label" txt="A la connexion" />
 	<str id="accounts.panel.failed.authentication.max.label" txt="Tentatives avant verrouillage du compte" />
 
+	<!-- SmtpPanel -->
+	<str id="smtp.panel.title" txt="Configuration du SMTP" />
+	<str id="smtp.panel.detail" txt="REGARDS reste en contact avec vous par email. Vous pouvez utiliser un serveur SMTP spécifique ou bien laisser celui par défaut." />
+
 	<!-- DamPanel -->
 	<str id="dam.panel.title.label" txt="Microservice Data Management" />
 	<str id="dam.panel.elasticsearch.label" txt="Elasticsearch" />
