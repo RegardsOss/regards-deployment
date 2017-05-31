@@ -353,6 +353,25 @@
 		</field>
 	</panel>
 
+	<panel id="SmtpPanel">
+		<field id="smtp.panel.title" type="title" />
+		<field id="smtp.panel.detail" type="staticText" />
+		<field type="text" variable="spring.mail.host">
+			<spec id="host.label" size="15" default="${spring.mail.host}" />
+		</field>
+		<field type="text" variable="spring.mail.port">
+			<spec id="port.label" size="5" default="${spring.mail.port}" />
+		</field>
+		<field type="text" variable="spring.mail.username">
+			<spec id="username.label" size="15" />
+		</field>
+		<field type="password" variable="spring.mail.password">
+			<spec>
+				<pwd id="password.label" size="15" />
+			</spec>
+		</field>
+	</panel>
+
 	<panel id="AuthenticationPanel">
 		<field id="authentication.panel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="50" variable="authentication.count">

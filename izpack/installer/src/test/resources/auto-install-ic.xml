@@ -107,6 +107,13 @@
 		<entry key="regards.accounts.validity.duration" value="30" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
+		id="SmtpPanel">
+		<entry key="spring.mail.host" value="messagerie.si.c-s.fr" />
+		<entry key="spring.mail.port" value="25" />
+		<entry key="spring.mail.username" value="" />
+		<entry key="spring.mail.password" value="" />
+	</com.izforge.izpack.panels.userinput.UserInputPanel>
+	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="AuthenticationPanel">
 		<entry key="authentication.count" value="2" />
 		<entry key="regards.config.gateway.regards.jpa.multitenant.tenants.url.1"

@@ -101,6 +101,12 @@
 			value="localhost" />
 		<variable name="regards.config.regards.amqp.management.port"
 			value="15672" />
+			
+		<!-- SMTP -->
+		<variable name="spring.mail.host" value="messagerie.si.c-s.fr" />
+		<variable name="spring.mail.port" value="25" />
+		<variable name="spring.mail.username" value="" />
+		<variable name="spring.mail.password" value="" />
 
 		<!-- Admin -->
 		<variable name="admin.count" value="0" />
@@ -302,6 +308,7 @@
 				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAdminPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="AccountsPanel" condition="izpack.selected.admin" />
+		<panel classname="UserInputPanel" id="SmtpPanel" condition="izpack.selected.admin" />
 		<panel classname="UserInputPanel" id="AuthenticationPanel"
 			condition="izpack.selected.authentication">
 			<validator
