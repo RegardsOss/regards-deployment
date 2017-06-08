@@ -203,9 +203,6 @@
 		<field type="text" variable="regards.config.regards.amqp.management.port">
 			<spec id="port.label" size="15"
 				default="${regards.config.regards.amqp.management.port}" />
-			<validator
-				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
-				id="validator.port.error.label" />
 		</field>
 	</panel>
 
@@ -665,9 +662,6 @@
 			conditionid="!izpack.selected.gateway">
 			<spec id="port.label" size="15"
 				default="${regards.config.cloud.gateway.port}" />
-			<validator
-				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
-				id="validator.port.error.label" />
 		</field>
 	</panel>
 
