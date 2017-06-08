@@ -83,10 +83,6 @@
 				<col>
 					<field type="text" variable="config.port">
 						<spec id="port.label" size="15" default="${config.port}" />
-						<validator
-							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
-							id="validator.port.error.label">
-						</validator>
 					</field>
 				</col>
 			</spec>
