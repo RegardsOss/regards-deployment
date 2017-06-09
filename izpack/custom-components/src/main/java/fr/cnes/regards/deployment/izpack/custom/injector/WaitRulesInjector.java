@@ -38,10 +38,10 @@ public class WaitRulesInjector implements InstallDataInjector {
     /**
      * Define here which  component needs to wait for which other.
      * For example:
-     * We want to tell "Componen catalog needs to wait for
+     * We want to tell "Component catalog needs to wait for
      * - component config with 30s timeout
      * - and component registry with 90s timeout
-     * to be sarted before starting itself
+     * to be started before starting itself
      *
      * We will add an entry like this to the map: 'catalog' => {
      *                                                          'config' => 30,
@@ -82,9 +82,7 @@ public class WaitRulesInjector implements InstallDataInjector {
         WAIT_RULES.put(ComponentType.DAM, damWaitList);
 
         Map<ComponentType, Integer> catalogWaitList = new HashMap<>();
-        catalogWaitList.put(ComponentType.CONFIG, 30);
-        catalogWaitList.put(ComponentType.REGISTRY, 90);
-        catalogWaitList.put(ComponentType.ADMIN, 330);
+        catalogWaitList.put(ComponentType.DAM, 90);
         WAIT_RULES.put(ComponentType.CATALOG, catalogWaitList);
 
         Map<ComponentType, Integer> accessInstanceWaitList = new HashMap<>();
