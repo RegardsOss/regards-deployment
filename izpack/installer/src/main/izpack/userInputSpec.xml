@@ -83,10 +83,6 @@
 				<col>
 					<field type="text" variable="config.port">
 						<spec id="port.label" size="15" default="${config.port}" />
-						<validator
-							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
-							id="validator.port.error.label">
-						</validator>
 					</field>
 				</col>
 			</spec>
@@ -180,9 +176,6 @@
 		<field type="text" variable="regards.config.spring.rabbitmq.port">
 			<spec id="port.label" size="15"
 				default="${regards.config.spring.rabbitmq.port}" />
-			<validator
-				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
-				id="validator.port.error.label" />
 		</field>
 		<field type="text" variable="regards.config.spring.rabbitmq.username">
 			<spec id="username.label" size="15"
@@ -210,9 +203,6 @@
 		<field type="text" variable="regards.config.regards.amqp.management.port">
 			<spec id="port.label" size="15"
 				default="${regards.config.regards.amqp.management.port}" />
-			<validator
-				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
-				id="validator.port.error.label" />
 		</field>
 	</panel>
 
@@ -672,9 +662,6 @@
 			conditionid="!izpack.selected.gateway">
 			<spec id="port.label" size="15"
 				default="${regards.config.cloud.gateway.port}" />
-			<validator
-				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
-				id="validator.port.error.label" />
 		</field>
 	</panel>
 
