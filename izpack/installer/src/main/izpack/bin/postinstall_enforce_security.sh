@@ -94,13 +94,6 @@ then
   chmod 0640 "${ROOT_DIR}/"*.jar
 fi
 
-# Dirs shared through rw by admin and exec users
-chown -R :${RUNTIME_REGARDS_GROUP} "${ROOT_DIR}"/{run,logs}
-chmod 2770 "${ROOT_DIR}"/{run,logs}
-
-# Files shared through rw by admin and exec users
-find "${ROOT_DIR}"/{run,logs} -type f -exec chmod 0660 {} \;
-
 # Dirs shared by admin (rw) and exec (ro) users
 chown -R :${ADMIN_REGARDS_GROUP} "${ROOT_DIR}"/config
 find "${ROOT_DIR}"/config -type d -exec chmod 2775 {} \;
@@ -144,5 +137,12 @@ then
   find "${ROOT_DIR}"/www -type d -exec chmod 2775 {} \;
   find "${ROOT_DIR}"/www -type f -exec chmod 0664 {} \;
 fi
+
+# Dirs shared through rw by admin and exec users
+chown -R :${RUNTIME_REGARDS_GROUP} "${ROOT_DIR}"/{run,logs}
+chmod 2770 "${ROOT_DIR}"/{run,logs}
+
+# Files shared through rw by admin and exec users
+find "${ROOT_DIR}"/{run,logs} -type f -exec chmod 0660 {} \;
 
 exit 0
