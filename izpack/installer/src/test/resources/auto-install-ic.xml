@@ -71,12 +71,13 @@
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="AdminPanel">
+		<entry key="admin.host.1" value="0.0.0.0" />
+		<entry key="admin.port.1" value="8777" />
+		<entry key="admin.count" value="1" />
 		<entry key="regards.config.admin.regards.accounts.root.user.login"
 			value="regards-admin@c-s.fr" />
 		<entry key="regards.config.admin.regards.accounts.root.user.password"
 			value="root_admin" />
-		<entry key="admin.count" value="1" />
-		<entry key="admin.host.1" value="localhost" />
 		<entry key="regards.config.admin.regards.jpa.instance.datasource.url"
 			value="172.26.47.52:5432/rs_admin_instance" />
 		<entry key="regards.config.admin.regards.jpa.multitenant.tenants.url.1"
@@ -92,7 +93,6 @@
 		<entry
 			key="regards.config.admin.regards.jpa.multitenant.tenants.password.1"
 			value="azertyuiop123456789" />
-		<entry key="admin.port.1" value="8777" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="AccountsPanel">
@@ -173,19 +173,18 @@
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="AccessProjectPanel">
-		<entry key="access-project.host.1" value="localhost" />
+		<entry key="access-project.host.1" value="0.0.0.0" />
 		<entry key="access-project.port.1" value="9990" />
+		<entry key="access-project.count" value="1" />
 		<entry
 			key="regards.config.access.project.regards.jpa.multitenant.tenants.user.name.1"
 			value="azertyuiop123456789" />
 		<entry
 			key="regards.config.access.project.regards.jpa.multitenant.tenants.password.1"
 			value="azertyuiop123456789" />
-		
 		<entry
 			key="regards.config.access.project.regards.jpa.multitenant.tenants.url.1"
 			value="172.26.47.52:5432/rs_access_tenant0" />
-		<entry key="access-project.count" value="1" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="CheckJdbcConnectionsPanel" />
