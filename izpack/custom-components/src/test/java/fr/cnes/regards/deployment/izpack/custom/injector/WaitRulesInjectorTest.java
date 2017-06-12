@@ -35,13 +35,13 @@ public class WaitRulesInjectorTest {
                 + "    <waitRule>\n"
                 + "        <host>localhost</host>\n"
                 + "        <port>1111</port>\n"
-                + "        <timeout>30</timeout>\n"
+                + "        <timeout>60</timeout>\n"
                 + "    </waitRule>\n";
         String EXPECTED_VALUE_1 = ""
                 + "    <waitRule>\n"
                 + "        <host>127.0.0.1</host>\n"
                 + "        <port>2222</port>\n"
-                + "        <timeout>30</timeout>\n"
+                + "        <timeout>60</timeout>\n"
                 + "    </waitRule>\n";
         String EXPECTED_VALUE_2 = ""
                 + "    <waitRule>\n"
