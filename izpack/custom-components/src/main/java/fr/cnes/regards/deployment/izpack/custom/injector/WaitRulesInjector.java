@@ -56,29 +56,29 @@ public class WaitRulesInjector implements InstallDataInjector {
         WAIT_RULES.put(ComponentType.CONFIG, configWaitList);
 
         Map<ComponentType, Integer> registryWaitList = new HashMap<>();
-        registryWaitList.put(ComponentType.CONFIG, 30);
+        registryWaitList.put(ComponentType.CONFIG, 60);
         WAIT_RULES.put(ComponentType.REGISTRY, registryWaitList);
 
         Map<ComponentType, Integer> gatewayWaitList = new HashMap<>();
-        gatewayWaitList.put(ComponentType.CONFIG, 30);
+        gatewayWaitList.put(ComponentType.CONFIG, 60);
         gatewayWaitList.put(ComponentType.REGISTRY, 90);
         WAIT_RULES.put(ComponentType.GATEWAY, gatewayWaitList);
 
         Map<ComponentType, Integer> adminWaitList = new HashMap<>();
-        adminWaitList.put(ComponentType.CONFIG, 30);
+        adminWaitList.put(ComponentType.CONFIG, 60);
         adminWaitList.put(ComponentType.REGISTRY, 90);
         WAIT_RULES.put(ComponentType.ADMIN, adminWaitList);
 
         Map<ComponentType, Integer> authenticationWaitList = new HashMap<>();
-        authenticationWaitList.put(ComponentType.CONFIG, 30);
+        authenticationWaitList.put(ComponentType.CONFIG, 60);
         authenticationWaitList.put(ComponentType.REGISTRY, 90);
         authenticationWaitList.put(ComponentType.ADMIN, 330);
         WAIT_RULES.put(ComponentType.AUTHENTICATION, authenticationWaitList);
 
         Map<ComponentType, Integer> damWaitList = new HashMap<>();
-        damWaitList.put(ComponentType.CONFIG, 30);
+        damWaitList.put(ComponentType.CONFIG, 60);
         damWaitList.put(ComponentType.REGISTRY, 90);
-        damWaitList.put(ComponentType.ADMIN, 330);
+        damWaitList.put(ComponentType.ADMIN, 90);
         WAIT_RULES.put(ComponentType.DAM, damWaitList);
 
         Map<ComponentType, Integer> catalogWaitList = new HashMap<>();
@@ -86,15 +86,15 @@ public class WaitRulesInjector implements InstallDataInjector {
         WAIT_RULES.put(ComponentType.CATALOG, catalogWaitList);
 
         Map<ComponentType, Integer> accessInstanceWaitList = new HashMap<>();
-        accessInstanceWaitList.put(ComponentType.CONFIG, 30);
+        accessInstanceWaitList.put(ComponentType.CONFIG, 60);
         accessInstanceWaitList.put(ComponentType.REGISTRY, 90);
-        accessInstanceWaitList.put(ComponentType.ADMIN, 330);
+        accessInstanceWaitList.put(ComponentType.ADMIN, 90);
         WAIT_RULES.put(ComponentType.ACCESS_INSTANCE, accessInstanceWaitList);
 
         Map<ComponentType, Integer> accessProjectWaitList = new HashMap<>();
         accessProjectWaitList.put(ComponentType.CONFIG, 30);
         accessProjectWaitList.put(ComponentType.REGISTRY, 90);
-        accessProjectWaitList.put(ComponentType.ADMIN, 330);
+        accessProjectWaitList.put(ComponentType.ADMIN, 90);
         WAIT_RULES.put(ComponentType.ACCESS_PROJECT, accessProjectWaitList);
 
         Map<ComponentType, Integer> frontendWaitList = new HashMap<>();
