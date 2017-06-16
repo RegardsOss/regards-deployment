@@ -36,6 +36,13 @@ public class ComponentConfig {
     private int port;
 
     /**
+     * Xmx field.
+     *
+     * @since 1.0.0
+     */
+    private String xmx;
+
+    /**
      * Get method.
      *
      * @since 1.0.0
@@ -61,6 +68,15 @@ public class ComponentConfig {
     @XmlAttribute
     public int getId() {
         return id;
+    }
+
+    /**
+     * Get xmx.
+     *
+     * @since 1.0.0
+     */
+    public String getXmx() {
+        return xmx;
     }
 
     /**
@@ -97,6 +113,17 @@ public class ComponentConfig {
     }
 
     /**
+     * Set method.
+     *
+     * @param xmx
+     *            the xmx to set
+     * @since 1.0.0
+     */
+    public void setXmx(String xmx) {
+        this.xmx = xmx;
+    }
+
+    /**
      * Methode surchargee
      *
      * @see java.lang.Object#toString()
@@ -104,7 +131,7 @@ public class ComponentConfig {
      */
     @Override
     public String toString() {
-        return "ComponentConfig [id=" + id + ", host=" + host + ", port=" + port + "]";
+        return "ComponentConfig [id=" + id + ", host=" + host + ", port=" + port + ", xmx=" + xmx + "]";
     }
 
 }

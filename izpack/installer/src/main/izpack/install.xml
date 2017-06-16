@@ -75,18 +75,21 @@
 
 		<!-- Config -->
 		<variable name="config.count" value="0" /> <!-- TODO: Don't think we can have multiple -->
-		<variable name="config.host" value="localhost" />
+		<variable name="config.host" value="0.0.0.0" />
 		<variable name="config.port" value="8888" />
+		<variable name="config.xmx" value="128m" />
 
 		<!-- Registry -->
 		<variable name="registry.count" value="0" />
-		<variable name="regards.config.cloud.registry.host" value="localhost" />
+		<variable name="regards.config.cloud.registry.host" value="0.0.0.0" />
 		<variable name="regards.config.cloud.registry.port" value="8761" />
+		<variable name="regards.config.cloud.registry.xmx" value="128m" />
 
 		<!-- Gateway -->
 		<variable name="gateway.count" value="0" />
-		<variable name="gateway.host" value="localhost" />
+		<variable name="gateway.host" value="0.0.0.0" />
 		<variable name="gateway.port" value="8000" />
+		<variable name="gateway.xmx" value="128m" />
 		<variable name="regards.config.cloud.gateway.uri" value="localhost" />
 		<variable name="regards.config.cloud.gateway.port" value="8000" />
 
@@ -101,7 +104,7 @@
 			value="localhost" />
 		<variable name="regards.config.regards.amqp.management.port"
 			value="15672" />
-			
+
 		<!-- SMTP -->
 		<variable name="spring.mail.host" value="messagerie.si.c-s.fr" />
 		<variable name="spring.mail.port" value="25" />
@@ -110,8 +113,9 @@
 
 		<!-- Admin -->
 		<variable name="admin.count" value="0" />
-		<variable name="admin.host" value="localhost" />
+		<variable name="admin.host" value="0.0.0.0" />
 		<variable name="admin.port" value="8777" />
+		<variable name="admin.xmx" value="300m" />
 		<variable name="regards.config.admin.regards.accounts.root.user.login"
 			value="" />
 		<variable name="regards.config.admin.regards.accounts.root.user.password"
@@ -146,8 +150,9 @@
 
 		<!-- Authentication -->
 		<variable name="authentication.count" value="0" />
-		<variable name="authentication.host" value="localhost" />
+		<variable name="authentication.host" value="0.0.0.0" />
 		<variable name="authentication.port" value="8889" />
+		<variable name="authentication.xmx" value="128m" />
 		<variable
 			name="regards.config.gateway.regards.jpa.multitenant.tenants.url.1"
 			value="localhost:5432/rs_gateway_tenant0" />
@@ -160,8 +165,9 @@
 
 		<!-- DAM -->
 		<variable name="dam.count" value="0" />
-		<variable name="dam.host" value="localhost" />
+		<variable name="dam.host" value="0.0.0.0" />
 		<variable name="dam.port" value="8080" />
+		<variable name="dam.xmx" value="1500m" />
 		<variable name="regards.config.dam.regards.jpa.multitenant.tenants.url.1"
 			value="localhost:5432/rs_dam_tenant0" />
 		<variable
@@ -178,8 +184,9 @@
 
 		<!-- Catalog -->
 		<variable name="catalog.count" value="0" />
-		<variable name="catalog.host" value="localhost" />
+		<variable name="catalog.host" value="0.0.0.0" />
 		<variable name="catalog.port" value="4444" />
+		<variable name="catalog.xmx" value="1g" />
 		<variable
 			name="regards.config.catalog.regards.jpa.multitenant.tenants.url.1"
 			value="localhost:5432/rs_catalog_tenant0" />
@@ -192,8 +199,9 @@
 
 		<!-- Access Instance -->
 		<variable name="access-instance.count" value="0" />
-		<variable name="access-instance.host" value="localhost" />
+		<variable name="access-instance.host" value="0.0.0.0" />
 		<variable name="access-instance.port" value="8990" />
+		<variable name="access-instance.xmx" value="128m" />
 		<variable
 			name="regards.config.access.instance.regards.jpa.instance.datasource.url"
 			value="localhost:5432/rs_access_instance" />
@@ -206,8 +214,9 @@
 
 		<!-- Access Project -->
 		<variable name="access-project.count" value="0" />
-		<variable name="access-project.host" value="localhost" />
+		<variable name="access-project.host" value="0.0.0.0" />
 		<variable name="access-project.port" value="9990" />
+		<variable name="access-project.xmx" value="300m" />
 		<variable
 			name="regards.config.access.project.regards.jpa.multitenant.tenants.url.1"
 			value="localhost:5432/rs_access_tenant0" />
@@ -275,6 +284,10 @@
 			<condition type="ref" refid="selected.dam" />
 			<condition type="ref" refid="selected.catalog" />
 			<condition type="ref" refid="selected.access" />
+		</condition>
+		<condition type="variable" id="isHidden">
+			<name>security.level</name>
+			<value>enforce</value>
 		</condition>
 	</conditions>
 

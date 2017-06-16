@@ -33,11 +33,13 @@ public class XmlAccessorTest {
                         + "    <componentConfig id=\"0\">\n"
                         + "        <host>localhost</host>\n"
                         + "        <port>7776</port>\n"
+                        + "        <xmx>128m</xmx>\n"
                         + "        <waitRuleList/>\n"
                         + "    </componentConfig>\n"
                         + "    <componentConfig id=\"1\">\n"
                         + "        <host>localhost1</host>\n"
                         + "        <port>7777</port>\n"
+                        + "        <xmx>333m</xmx>\n"
                         + "       <waitRuleList/>\n"
                         + "    </componentConfig>\n"
                         + "</componentConfigList>\n", ComponentConfigList.class);
@@ -60,10 +62,12 @@ public class XmlAccessorTest {
                 + "    <componentConfig id=\"0\">\n"
                 + "        <host>localhost3</host>\n"
                 + "        <port>7778</port>\n"
+                + "        <xmx>123m</xmx>\n"
                 + "    </componentConfig>\n"
                 + "    <componentConfig id=\"1\">\n"
                 + "        <host>localhost4</host>\n"
                 + "        <port>7779</port>\n"
+                + "        <xmx>456m</xmx>\n"
                 + "    </componentConfig>\n"
                 + "</componentConfigList>\n";
         // @formatter:on
@@ -75,10 +79,12 @@ public class XmlAccessorTest {
                         + "    <componentConfig id=\"0\">\n"
                         + "        <host>localhost3</host>\n"
                         + "        <port>7778</port>\n"
+                        + "        <xmx>123m</xmx>\n"
                         + "    </componentConfig>\n"
                         + "    <componentConfig id=\"1\">\n"
                         + "        <host>localhost4</host>\n"
                         + "        <port>7779</port>\n"
+                        + "        <xmx>456m</xmx>\n"
                         + "    </componentConfig>\n"
                         + "</componentConfigList>\n", ComponentConfigList.class);
         // @formatter:on
@@ -89,8 +95,8 @@ public class XmlAccessorTest {
 
     @Test
     public void testReadFromFile_WithComponentConfig() {
-        final String EXPECTED_VALUE = "ComponentConfig [id=55, host=localhost, port=7776]\n"
-                + "ComponentConfig [id=56, host=localhost1, port=7777]";
+        final String EXPECTED_VALUE = "ComponentConfig [id=55, host=localhost, port=7776, xmx=1234]\n"
+                + "ComponentConfig [id=56, host=localhost1, port=7777, xmx=5678]";
         ComponentConfigList componentConfigList = XmlAccessor
                 .readFromFile(Paths.get("src/test/resources/incomingComponentConfig.xml"), ComponentConfigList.class);
 
@@ -119,10 +125,12 @@ public class XmlAccessorTest {
                 + "    <componentConfig id=\"0\">\n"
                 + "        <host>localhost5</host>\n"
                 + "        <port>7780</port>\n"
+                + "        <xmx>512m</xmx>\n"
                 + "    </componentConfig>\n"
                 + "    <componentConfig id=\"1\">\n"
                 + "        <host>localhost6</host>\n"
                 + "        <port>7781</port>\n"
+                + "        <xmx>733m</xmx>\n"
                 + "    </componentConfig>\n"
                 + "</componentConfigList>\n", outputFile, ComponentConfigList.class);
         // @formatter:on

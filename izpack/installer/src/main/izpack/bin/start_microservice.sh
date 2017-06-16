@@ -77,6 +77,7 @@ do
   microservices_infos_t[id]=$(extract_field "${line}" "id")
   microservices_infos_t[host]=$(extract_field "${line}" "host")
   microservices_infos_t[port]=$(extract_field "${line}" "port")
+  microservices_infos_t[xmx]=$(extract_field "${line}" "xmx")
 
   pid_file="$(get_pid_file_name "${ROOT_DIR}" "${MICROSERVICE_TYPE}" "${microservices_infos_t[id]}")"
 
@@ -96,14 +97,15 @@ do
         wait_rule_list_t[host]=$(extract_field "${line}" "host")
         wait_rule_list_t[port]=$(extract_field "${line}" "port")
         wait_rule_list_t[timeout]=$(extract_field "${line}" "timeout")
-        exec "${ROOT_DIR}"/bin/wait-for-it.sh ${wait_rule_list_t[host]}:${wait_rule_list_t[port]} -t ${wait_rule_list_t[timeout]}
+        "${ROOT_DIR}"/bin/wait-for-it.sh ${wait_rule_list_t[host]}:${wait_rule_list_t[port]} -t ${wait_rule_list_t[timeout]}
       fi
     done
+    
     log_file="${ROOT_DIR}"/logs/"${MICROSERVICE_TYPE}-id${microservices_infos_t[id]}".log
     touch ${log_file}
     chmod g+r ${log_file}
 
-    java -jar -Dserver.address="${microservices_infos_t[host]}" -Dserver.port="${microservices_infos_t[port]}" ${lib_exec_java} > "${log_file}" 2>&1 &
+    java -Xms${microservices_infos_t[xmx]} -Xmx${microservices_infos_t[xmx]} -jar -Dserver.address="0.0.0.0"  -Dserver.port="${microservices_infos_t[port]}" ${lib_exec_java} > "${log_file}" 2>&1 &
     pid=$!
 
     echo "${pid}" > "${pid_file}"

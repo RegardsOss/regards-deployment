@@ -8,7 +8,6 @@ import org.junit.Test;
 
 import com.izforge.izpack.api.data.InstallData;
 
-import fr.cnes.regards.deployment.izpack.custom.injector.InstanceListInjector;
 import fr.cnes.regards.deployment.izpack.custom.model.ComponentType;
 import fr.cnes.regards.deployment.izpack.custom.utils.DummyInstallDataFactory;
 
@@ -29,10 +28,12 @@ public class InstanceListInjectorTest {
                 + "    <componentConfig id=\"0\">\n"
                 + "        <host>localhost</host>\n"
                 + "        <port>3456</port>\n"
+                + "        <xmx>9876m</xmx>\n"
                 + "    </componentConfig>\n"
                 + "    <componentConfig id=\"1\">\n"
                 + "        <host>127.0.0.1</host>\n"
                 + "        <port>3457</port>\n"
+                + "        <xmx>5432m</xmx>\n"
                 + "    </componentConfig>\n"
                 + "</componentConfigList>\n";
         // @formatter:on

@@ -3,6 +3,7 @@
 	<componentConfig id="55">
 		<host>localhost</host>
 		<port>7776</port>
+		<xmx>1234</xmx>
 		<waitRuleList>
 			<waitRule>
 				<host>localhost</host>
@@ -19,6 +20,7 @@
 	<componentConfig id="56">
 		<host>localhost1</host>
 		<port>7777</port>
+		<xmx>5678</xmx>
 		<waitRuleList>
 			<waitRule>
 				<host>localhost</host>

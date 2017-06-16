@@ -7,6 +7,7 @@
 	<!-- Common -->
 	<str id="host.label" txt="Host:" />
 	<str id="port.label" txt="Port:" />
+	<str id="xmx.label" txt="Max heap size:" />
 	<str id="url.label" txt="Url:" />
 	<str id="username.label" txt="Username:" />
 	<str id="password.label" txt="Password:" />

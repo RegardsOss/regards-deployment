@@ -3,9 +3,11 @@
     <componentConfig id="0">
         <host>localhost</host>
         <port>7776</port>
+        <xmx>128m</xmx>
     </componentConfig>
     <componentConfig id="1">
         <host>localhost1</host>
         <port>7777</port>
+        <xmx>333m</xmx>
     </componentConfig>
 </componentConfigList>

@@ -51,6 +51,7 @@ public class InstanceListInjector implements InstallDataInjector {
         final String count = type.getName() + ".count";
         final String uriName = entryKey + ".host";
         final String portName = entryKey + ".port";
+        final String xmxName = entryKey + ".xmx";
         final String microserviceListName = type.getName() + ".instanceList";
 
         String countAsString = pInstallData.getVariable(count);
@@ -62,10 +63,12 @@ public class InstanceListInjector implements InstallDataInjector {
             ComponentConfig componentConfig = new ComponentConfig();
             String uri = pInstallData.getVariable(uriName + "." + i);
             int port = Integer.parseInt(pInstallData.getVariable(portName + "." + i));
+            String xmx = pInstallData.getVariable(xmxName);
 
             componentConfig.setHost(uri);
             componentConfig.setPort(port);
             componentConfig.setId(i - 1);
+            componentConfig.setXmx(xmx);
 
             componentConfigList.add(componentConfig);
         }
