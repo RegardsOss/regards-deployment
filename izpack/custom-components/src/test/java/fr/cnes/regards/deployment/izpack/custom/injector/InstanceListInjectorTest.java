@@ -28,7 +28,7 @@ public class InstanceListInjectorTest {
                 + "    <componentConfig id=\"0\">\n"
                 + "        <host>localhost</host>\n"
                 + "        <port>3456</port>\n"
-                + "        <xmx>9876m</xmx>\n"
+                + "        <xmx>5432m</xmx>\n"
                 + "    </componentConfig>\n"
                 + "    <componentConfig id=\"1\">\n"
                 + "        <host>127.0.0.1</host>\n"

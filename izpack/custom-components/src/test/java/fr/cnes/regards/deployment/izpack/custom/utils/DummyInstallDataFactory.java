@@ -44,10 +44,10 @@ public class DummyInstallDataFactory {
         variables.set(count, "2");
         variables.set(uriName + ".1", "localhost");
         variables.set(portName + ".1", "3456");
-        variables.set(xmxName + ".1", "9876m");
         variables.set(uriName + ".2", "127.0.0.1");
         variables.set(portName + ".2", "3457");
-        variables.set(xmxName + ".2", "5432m");
+        
+        variables.set(xmxName, "5432m");
 
         return installData;
     }
