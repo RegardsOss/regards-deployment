@@ -22,7 +22,7 @@
 	<str id="components.gateway" txt="Gateway" />
 	<str id="components.authentication.label" txt="Authentication" />
 	<str id="components.admin.label" txt="Administration" />
-	<str id="components.admin.instance" txt="Administration isntance" />
+	<str id="components.admin.instance" txt="Administration instance" />
 	<str id="components.admin.project" txt="Administration project" />
 	<str id="components.dam.label" txt="Data Management" />
 	<str id="components.catalog.label" txt="Catalog" />

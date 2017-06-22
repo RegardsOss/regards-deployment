@@ -19,7 +19,7 @@
 		<pack index="6" name="dam" selected="true" />
 		<pack index="7" name="catalog" selected="true" />
 		<pack index="8" name="access" selected="true" />
-		<pack index="9" name="frontend" selected="false" />
+		<pack index="9" name="frontend" selected="true" />
 	</com.izforge.izpack.panels.packs.PacksPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="SelectSecurityLevelPanel">
@@ -185,6 +185,11 @@
 		<entry
 			key="regards.config.access.project.regards.jpa.multitenant.tenants.url.1"
 			value="172.26.47.52:5432/rs_access_tenant0" />
+	</com.izforge.izpack.panels.userinput.UserInputPanel>
+	<com.izforge.izpack.panels.userinput.UserInputPanel id="FrontendPanel">
+		<entry key="frontend.host.1" value="localhost"/>
+		<entry key="frontend.count" value="1"/>
+		<entry key="frontend.port.1" value="3333"/>
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="CheckJdbcConnectionsPanel" />
