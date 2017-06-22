@@ -231,6 +231,7 @@
 		<variable name="frontend.count" value="0" />
 		<variable name="frontend.host" value="localhost" />
 		<variable name="frontend.port" value="3333" />
+		<variable name="frontend.xmx" value="1g" />
 		<variable name="regards.frontend.www.path" value="$INSTALL_PATH/REGARDS/www" />
 
 		<!-- Internal variables for workflow management -->
