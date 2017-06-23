@@ -133,7 +133,7 @@
 								</artifactItem>
 							</artifactItems>
 							<outputDirectory>${temp.dir.filtering}</outputDirectory>
-							<includes>static/conf/**/*,static/plugins/**/*,static/img/**/*</includes>
+							<includes>static/conf/**/*,static/plugins/**/*,static/img/**/*,static/html/**/*</includes>
 						</configuration>
 					</execution>
 				</executions>

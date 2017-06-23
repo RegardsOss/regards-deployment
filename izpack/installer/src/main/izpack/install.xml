@@ -232,7 +232,6 @@
 		<variable name="frontend.host" value="localhost" />
 		<variable name="frontend.port" value="3333" />
 		<variable name="frontend.xmx" value="1g" />
-		<variable name="regards.frontend.www.path" value="$INSTALL_PATH/REGARDS/www" />
 
 		<!-- Internal variables for workflow management -->
 		<variable name="installation.type" value="full" />
@@ -761,14 +760,14 @@
 				override="true">
 				<include name="bootstrap-frontend.*ar" />
 			</fileset>
-			<file src="sbin/microservice_frontend.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<fileset dir="config/static" targetdir="${regards.frontend.www.path}"
+			<fileset dir="config/static" targetdir="$INSTALL_PATH/REGARDS/www"
 				override="true">
 				<include name="**/*" />
 			</fileset>
+			<file src="sbin/microservice_frontend.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true" />
 			<parsable type="plain">
-				<fileset targetdir="${regards.frontend.www.path}" includes="**/*.js" />
+				<fileset targetdir="$INSTALL_PATH/REGARDS/www" includes="**/*.js" />
 			</parsable>
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
