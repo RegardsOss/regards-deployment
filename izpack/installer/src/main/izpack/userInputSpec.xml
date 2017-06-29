@@ -649,17 +649,14 @@
 				</col>
 			</spec>
 		</field>
-		<field type="space" conditionid="!izpack.selected.gateway" />
-		<field type="divider" conditionid="!izpack.selected.gateway" />
-		<field type="space" conditionid="!izpack.selected.gateway" />
-		<field type="staticText" id="frontend.panel.gateway.label" bold="true"
-			conditionid="!izpack.selected.gateway" />
-		<field type="text" variable="regards.config.cloud.gateway.uri"
-			conditionid="!izpack.selected.gateway">
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+		<field type="staticText" id="frontend.panel.gateway.label" bold="true" />
+		<field type="text" variable="regards.config.cloud.gateway.uri">
 			<spec id="host.label" size="15" default="${regards.config.cloud.gateway.uri}" />
 		</field>
-		<field type="text" variable="regards.config.cloud.gateway.port"
-			conditionid="!izpack.selected.gateway">
+		<field type="text" variable="regards.config.cloud.gateway.port">
 			<spec id="port.label" size="15"
 				default="${regards.config.cloud.gateway.port}" />
 		</field>
