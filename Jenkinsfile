@@ -42,8 +42,44 @@ pipeline {
         }
       }
     }
-    stage('Deploy') {
+    stage('Stop') {
       steps {
+        parallel(
+          config: {
+            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t config stop"'
+          },
+          registry: {
+            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t registry stop"'
+          },
+          admin: {
+            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t admin stop"'
+          },
+          gateway: {
+            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t gateway stop"'
+          },
+          dam: {
+            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t dam stop"'
+          },
+          catalog: {
+            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t catalog stop"'
+          },
+          acessinstance: {
+            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t access-instance stop"'
+          },
+          accessproject: {
+            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t access-project stop"'
+          },
+          authentication: {
+            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t authentication stop"'
+          },
+          frontend: {
+            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t frontend stop"'
+          }
+        )
+      }
+    }
+    stage('Clean') {
+    	steps {
         // Retour au SNAPSHOT
         // Les VM-Cli ne marchent pas sur centos 7 (pb perl ou ?). Tant que ce n'est pas résolu,
         // utilisation de la VM-IC SAG comme passerelle
@@ -51,6 +87,12 @@ pipeline {
         //sh 'ssh jenkins@172.26.46.49 "/opt/vmshell/bin/vmoperation --vmname regard-ic --ipaddress 172.26.47.95 --operation poweron"'
         // Delete a previous LIVRAISON folder
         sh 'ssh -t rsins@172.26.47.95 "rm -rf LIVRAISON"'
+        // Delete the previous installation
+        sh 'ssh -t rsins@172.26.47.95 "rm -rf /opt/regards/regards-ic/*"'
+      }
+    }
+    stage('Deploy') {
+      steps {
         // Deploy installer to a LIVRAISON folder
         sh 'ssh -t rsins@172.26.47.95 "mkdir -p LIVRAISON"'
         sh 'scp izpack/installer/target/REGARDS-OSS-Installer.jar rsins@172.26.47.95:LIVRAISON'
@@ -60,8 +102,6 @@ pipeline {
     stage('Install') {
       // Installation continue sur la VM regard-ic (172.26.47.95)
       steps {
-        // Delete a previous installation
-        sh 'ssh -t rsins@172.26.47.95 "rm -rf /opt/regards/regards-ic/*"'
         // The installation
         sh 'ssh -t rsins@172.26.47.95 "cd LIVRAISON && java -jar REGARDS-OSS-Installer.jar auto-install-ic.xml"'
       }
@@ -104,45 +144,8 @@ pipeline {
           frontend: {
             sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t frontend status"'
           }
-          
         )
       }
     }  
-    stage('Stop') {
-      steps {
-        parallel(
-          config: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t config stop"'
-          },
-          registry: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t registry stop"'
-          },
-          admin: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t admin stop"'
-          },
-          gateway: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t gateway stop"'
-          },
-          dam: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t dam stop"'
-          },
-          catalog: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t catalog stop"'
-          },
-          acessinstance: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t access-instance stop"'
-          },
-          accessproject: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t access-project stop"'
-          },
-          authentication: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t authentication stop"'
-          },
-          frontend: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t frontend stop"'
-          }
-        )
-      }
-    }
   }
 }
