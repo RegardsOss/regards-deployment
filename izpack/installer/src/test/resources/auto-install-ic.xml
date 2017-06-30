@@ -45,7 +45,7 @@
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="ConfigPanel">
 		<entry key="config.host.1" value="0.0.0.0" />
-		<entry key="config.port.1" value="8888" />
+		<entry key="config.port.1" value="9031" />
 		<entry key="config.count" value="1" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
@@ -60,19 +60,19 @@
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="RegistryPanel">
 		<entry key="regards.config.cloud.registry.host.1" value="0.0.0.0" />
-		<entry key="regards.config.cloud.registry.port.1" value="8761" />
+		<entry key="regards.config.cloud.registry.port.1" value="9032" />
 		<entry key="registry.count" value="1" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="GatewayPanel">
 		<entry key="gateway.host.1" value="0.0.0.0" />
-		<entry key="gateway.port.1" value="8000" />
+		<entry key="gateway.port.1" value="9030" />
 		<entry key="gateway.count" value="1" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="AdminPanel">
 		<entry key="admin.host.1" value="0.0.0.0" />
-		<entry key="admin.port.1" value="8777" />
+		<entry key="admin.port.1" value="9033" />
 		<entry key="admin.count" value="1" />
 		<entry key="regards.config.admin.regards.accounts.root.user.login"
 			value="regards-admin@c-s.fr" />
@@ -114,7 +114,7 @@
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="AuthenticationPanel">
 		<entry key="authentication.host.1" value="0.0.0.0" />
-		<entry key="authentication.port.1" value="8889" />
+		<entry key="authentication.port.1" value="9034" />
 		<entry key="authentication.count" value="1" />
 		<entry key="regards.config.gateway.regards.jpa.multitenant.tenants.url.1"
 			value="172.26.47.52:5432/rs_gateway_tenant0" />
@@ -128,7 +128,7 @@
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="DamPanel">
 		<entry key="dam.host.1" value="0.0.0.0" />
-		<entry key="dam.port.1" value="8080" />
+		<entry key="dam.port.1" value="9035" />
 		<entry key="dam.count" value="1" />
 		<entry key="regards.config.dam.regards.jpa.multitenant.tenants.url.1"
 			value="172.26.47.52:5432/rs_dam_tenant0" />
@@ -145,7 +145,7 @@
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="CatalogPanel">
 		<entry key="catalog.host.1" value="0.0.0.0" />
-		<entry key="catalog.port.1" value="4444" />
+		<entry key="catalog.port.1" value="9036" />
 		<entry key="catalog.count" value="1" />
 		<entry key="regards.config.catalog.regards.jpa.multitenant.tenants.url.1"
 			value="172.26.47.52:5432/rs_catalog_tenant0" />
@@ -159,7 +159,7 @@
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="AccessInstancePanel">
 		<entry key="access-instance.host.1" value="0.0.0.0" />
-		<entry key="access-instance.port.1" value="8990" />
+		<entry key="access-instance.port.1" value="9040" />
 		<entry key="access-instance.count" value="1" />
 		<entry
 			key="regards.config.access.instance.regards.jpa.instance.datasource.user.name"
@@ -174,7 +174,7 @@
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="AccessProjectPanel">
 		<entry key="access-project.host.1" value="0.0.0.0" />
-		<entry key="access-project.port.1" value="9990" />
+		<entry key="access-project.port.1" value="9041" />
 		<entry key="access-project.count" value="1" />
 		<entry
 			key="regards.config.access.project.regards.jpa.multitenant.tenants.user.name.1"
@@ -189,9 +189,9 @@
 	<com.izforge.izpack.panels.userinput.UserInputPanel id="FrontendPanel">
 		<entry key="frontend.host.1" value="localhost"/>
 		<entry key="frontend.count" value="1"/>
-		<entry key="frontend.port.1" value="3333"/>
+		<entry key="frontend.port.1" value="80"/>
 		<entry key="regards.config.cloud.gateway.uri" value="172.26.47.95"/>
-		<entry key="regards.config.cloud.gateway.port" value="8000"/>
+		<entry key="regards.config.cloud.gateway.port" value="9030"/>
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="CheckJdbcConnectionsPanel" />
