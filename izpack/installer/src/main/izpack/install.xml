@@ -231,7 +231,7 @@
 		<variable name="frontend.count" value="0" />
 		<variable name="frontend.host" value="localhost" />
 		<variable name="frontend.port" value="3333" />
-		<variable name="frontend.xmx" value="1g" />
+		<variable name="frontend.xmx" value="256m" />
 
 		<!-- Internal variables for workflow management -->
 		<variable name="installation.type" value="full" />
