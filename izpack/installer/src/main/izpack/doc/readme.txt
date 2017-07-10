@@ -1,1 +1,0 @@
-This project contains all packages/scripts for developping the REGARDS installer.
