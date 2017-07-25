@@ -20,16 +20,16 @@
 	<str id="components.config" txt="Configuration" />
 	<str id="components.registry" txt="Registry" />
 	<str id="components.gateway" txt="Gateway" />
-	<str id="components.authentication.label" txt="Authentication" />
-	<str id="components.admin.label" txt="Administration" />
+	<str id="components.authentication" txt="Authentication" />
+	<str id="components.admin" txt="Administration" />
 	<str id="components.admin.instance" txt="Administration instance" />
 	<str id="components.admin.project" txt="Administration project" />
-	<str id="components.dam.label" txt="Data Management" />
-	<str id="components.catalog.label" txt="Catalog" />
-	<str id="components.access.label" txt="Access" />
-	<str id="components.access.instance.label" txt="Access instance" />
-	<str id="components.access.project.label" txt="Access project" />
-	<str id="components.storage.label" txt="Storage" />
+	<str id="components.dam" txt="Data Management" />
+	<str id="components.catalog" txt="Catalog" />
+	<str id="components.access" txt="Access" />
+	<str id="components.access.instance" txt="Access instance" />
+	<str id="components.access.project" txt="Access project" />
+	<str id="components.storage" txt="Storage" />
 
 	<!-- SelectInstallationTypePanel -->
 	<str id="selectinstallationtype.panel.title.label" txt="How do you want to install REGARDS?" />
