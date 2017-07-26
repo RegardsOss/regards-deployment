@@ -37,7 +37,7 @@
 	<properties>
 		<staging.dir>${project.build.directory}/staging</staging.dir>
 		<temp.dir.filtering>target/config-to-filter</temp.dir.filtering>
-		<custom.components.version>1.0.0-SNAPSHOT</custom.components.version>
+		<custom.components.version>2.0.0-SNAPSHOT</custom.components.version>
 	</properties>
 
 	<build>
@@ -230,7 +230,6 @@
 		<dependency>
 			<groupId>fr.cnes.regards.deployment</groupId>
 			<artifactId>custom-components</artifactId>
-			<version>${custom.components.version}</version>
 		</dependency>
 	</dependencies>
 
