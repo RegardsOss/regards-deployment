@@ -32,6 +32,8 @@
 	<str id="components.access.instance" txt="Access instance" />
 	<str id="components.access.project" txt="Access projet" />
 	<str id="components.storage" txt="Storage" />
+	<str id="protocol.http" txt="http" />
+	<str id="protocol.https" txt="https" />
 
 	<!-- SelectInstallationTypePanel -->
 	<str id="selectinstallationtype.panel.title.label" txt="Comment voulez-vous installer REGARDS?" />
@@ -130,7 +132,7 @@
 
 	<!-- AccessProjectPanel -->
 	<str id="access-project.panel.title.label" txt="Microservice Access Project" />
-
+	
 	<!-- CheckJdbcConnectionsPanel -->
 	<str id="check.jdbc.connections.panel.title" txt="Vérification des bases de données" />
 	<str id="check.jdbc.connections.panel.detail"

@@ -107,8 +107,6 @@
 		<variable name="gateway.host" value="0.0.0.0" />
 		<variable name="gateway.port" value="8000" />
 		<variable name="gateway.xmx" value="128m" />
-		<variable name="regards.config.cloud.gateway.uri" value="localhost" />
-		<variable name="regards.config.cloud.gateway.port" value="8000" />
 
 		<!-- Message broker -->
 		<variable name="regards.config.spring.rabbitmq.host" value="localhost" />
@@ -249,6 +247,7 @@
 		<variable name="frontend.host" value="localhost" />
 		<variable name="frontend.port" value="3333" />
 		<variable name="frontend.xmx" value="256m" />
+		<variable name="regards.config.cloud.gateway.url" value="http://localhost:8000" />
 
 		<!-- Internal variables for workflow management -->
 		<variable name="installation.type" value="full" />
