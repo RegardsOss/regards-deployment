@@ -30,6 +30,8 @@
 	<str id="components.access.instance" txt="Access instance" />
 	<str id="components.access.project" txt="Access project" />
 	<str id="components.storage" txt="Storage" />
+	<str id="protocol.http" txt="http" />
+	<str id="protocol.https" txt="https" />
 
 	<!-- SelectInstallationTypePanel -->
 	<str id="selectinstallationtype.panel.title.label" txt="How do you want to install REGARDS?" />
