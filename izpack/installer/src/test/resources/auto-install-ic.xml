@@ -96,7 +96,7 @@
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="AccountsPanel">
-		<entry key="regards.config.admin.accounts.password.regex" value="[a-z0-9]*" />
+		<entry key="regards.config.admin.accounts.password.regex" value="^[a-z\d_@!%:=,\/.\-+]{5,16}$" />
 		<entry key="regards.config.admin.accounts.failed.authentication.max"
 			value="5" />
 		<entry key="regards.config.admin.accounts.password.rules" value="Password should contain letters or numbers" />
