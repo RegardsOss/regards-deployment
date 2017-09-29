@@ -162,10 +162,8 @@ mvn install -DskipTests
 
 cd ..
 git clone https://thor.si.c-s.fr/git/rs-frontend
-cd rs-frontend/frontend-webapp/src/main/webapp/
-npm run bootstrap
-npm install
-npm build:production
+cd rs-frontend
+mvn install -DskipTests
 
 7/ Build installer
 __________________

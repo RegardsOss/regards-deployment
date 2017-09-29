@@ -198,7 +198,7 @@
 					<dependency>
 						<groupId>fr.cnes.regards.deployment</groupId>
 						<artifactId>custom-components</artifactId>
-						<version>${custom.components.version}</version>
+						<version>${project.version}</version>
 					</dependency>
 				</dependencies>
 			</plugin>
