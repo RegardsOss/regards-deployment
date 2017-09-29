@@ -39,7 +39,7 @@ pipeline {
         sh '''
           echo "PATH = ${PATH}"
           echo "M2_HOME = ${M2_HOME}"
-          export MAVEN_M2=~/.m2
+          export "MAVEN_M2=~/.m2"
         '''
       }
     }
