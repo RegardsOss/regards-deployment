@@ -39,7 +39,6 @@ pipeline {
         sh '''
           echo "PATH = ${PATH}"
           echo "M2_HOME = ${M2_HOME}"
-          export "MAVEN_M2=~/.m2"
         '''
       }
     }
@@ -50,10 +49,7 @@ pipeline {
         // -V : strongly recommended in CI, will display the JDK and Maven versions in use.
         //      Very useful to be quickly sure the selected versions were the ones you think.
         // -U : force maven to update snapshots each time (default : once an hour, makes no sense in CI).
-        sh '''
-        	echo "MAVEN_M2 = ${MAVEN_M2}"
-        ''' 
-        sh 'mvn -V -U -P delivery,CI clean package org.jacoco:jacoco-maven-plugin:0.7.7.201606060606:prepare-agent sonar:sonar -fae -Dsonar.jacoco.reportPath=${WORKSPACE}/jacoco-ut.exec -Dsonar.jacoco.itReportPath=${WORKSPACE}/jacoco-it.exec'
+        sh 'export MAVEN_M2=~/.m2 && mvn -V -U -P delivery,CI clean package org.jacoco:jacoco-maven-plugin:0.7.7.201606060606:prepare-agent sonar:sonar -fae -Dsonar.jacoco.reportPath=${WORKSPACE}/jacoco-ut.exec -Dsonar.jacoco.itReportPath=${WORKSPACE}/jacoco-it.exec'
       }
       post {
         success {
