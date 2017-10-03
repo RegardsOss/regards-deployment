@@ -34,6 +34,7 @@ public class ValidatorAdminPanel extends AbstractInjectDataValidator {
      * Default constructor
      */
     public ValidatorAdminPanel() {
+        super();
         type = ComponentType.ADMIN;
         entryKey = type.getName();
     }

@@ -34,6 +34,7 @@ public class ValidatorFrontendPanel extends AbstractInjectDataValidator {
      * Default constructor
      */
     public ValidatorFrontendPanel() {
+        super();
         type = ComponentType.FRONTEND;
         entryKey = type.getName();
     }

@@ -60,14 +60,6 @@ public class AmqpConnectionTester extends ButtonAction {
      */
     public static final String PASSWORD_VARIABLE = "regards.config.spring.rabbitmq.password";
 
-    private String hostName;
-
-    private String portNumber;
-
-    private String userName;
-
-    private String password;
-
     /**
      * @param installData
      */
@@ -77,10 +69,10 @@ public class AmqpConnectionTester extends ButtonAction {
 
     @Override
     public boolean execute() {
-        hostName = installData.getVariable(HOST_VARIABLE);
-        portNumber = installData.getVariable(PORT_VARIABLE);
-        userName = installData.getVariable(USERNAME_VARIABLE);
-        password = installData.getVariable(PASSWORD_VARIABLE);
+        String hostName = installData.getVariable(HOST_VARIABLE);
+        String portNumber = installData.getVariable(PORT_VARIABLE);
+        String userName = installData.getVariable(USERNAME_VARIABLE);
+        String password = installData.getVariable(PASSWORD_VARIABLE);
 
         Connection conn = null;
         ConnectionFactory factory = new ConnectionFactory();
@@ -92,7 +84,7 @@ public class AmqpConnectionTester extends ButtonAction {
         try {
             conn = factory.newConnection();
             return (conn.isOpen());
-        } catch (IOException | TimeoutException e) {
+        } catch (IOException | TimeoutException e) { // NOSONAR
             System.out
                     .println("Connection Failed to Amqp : " + hostName + "(" + portNumber + ") for user : " + userName);
             e.printStackTrace();
@@ -101,9 +93,8 @@ public class AmqpConnectionTester extends ButtonAction {
             if (conn != null) {
                 try {
                     conn.close();
-                } catch (IOException e) {
+                } catch (IOException e) { // NOSONAR
                     e.printStackTrace();
-                    return false;
                 }
             }
         }

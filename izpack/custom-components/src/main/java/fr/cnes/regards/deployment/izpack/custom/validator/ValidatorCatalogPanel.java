@@ -34,6 +34,7 @@ public class ValidatorCatalogPanel extends AbstractInjectDataValidator {
      * Default constructor
      */
     public ValidatorCatalogPanel() {
+        super();
         type = ComponentType.CATALOG;
         entryKey = type.getName();
     }

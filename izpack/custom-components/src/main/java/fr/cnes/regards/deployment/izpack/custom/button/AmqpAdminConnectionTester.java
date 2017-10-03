@@ -48,16 +48,12 @@ public class AmqpAdminConnectionTester extends ButtonAction {
     /**
      * The name of the ADMIN HOST variable in the install data
      */
-    public final static String HOST_ADMIN__VARIABLE = "regards.config.regards.amqp.management.host";
+    public static final String HOST_ADMIN_VARIABLE = "regards.config.regards.amqp.management.host";
 
     /**
      * The name of the ADMIN PORT variable in the install data
      */
-    public final static String PORT_ADMIN_VARIABLE = "regards.config.regards.amqp.management.port";
-
-    private String hostNameAdmin;
-
-    private String portNumberAdmin;
+    public static final String PORT_ADMIN_VARIABLE = "regards.config.regards.amqp.management.port";
 
     /**
      * @param installData
@@ -68,8 +64,8 @@ public class AmqpAdminConnectionTester extends ButtonAction {
 
     @Override
     public boolean execute() {
-        hostNameAdmin = installData.getVariable(HOST_ADMIN__VARIABLE);
-        portNumberAdmin = installData.getVariable(PORT_ADMIN_VARIABLE);
+        String hostNameAdmin = installData.getVariable(HOST_ADMIN_VARIABLE);
+        String portNumberAdmin = installData.getVariable(PORT_ADMIN_VARIABLE);
 
         URL url;
         try {
@@ -96,7 +92,7 @@ public class AmqpAdminConnectionTester extends ButtonAction {
             }
             in.close();
 
-        } catch (IOException e) {
+        } catch (IOException e) { // NOSONAR
             System.out.println("Connection Failed! Check output console");
             e.printStackTrace();
             return false;

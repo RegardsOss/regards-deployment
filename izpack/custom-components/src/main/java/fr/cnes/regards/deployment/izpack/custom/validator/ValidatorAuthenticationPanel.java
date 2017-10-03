@@ -32,6 +32,7 @@ public class ValidatorAuthenticationPanel extends AbstractInjectDataValidator {
      * Default constructor
      */
     public ValidatorAuthenticationPanel() {
+        super();
         type = ComponentType.AUTHENTICATION;
         entryKey = type.getName();
     }

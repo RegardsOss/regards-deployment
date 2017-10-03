@@ -34,6 +34,7 @@ public class ValidatorDamPanel extends AbstractInjectDataValidator {
      * Default constructor
      */
     public ValidatorDamPanel() {
+        super();
         type = ComponentType.DAM;
         entryKey = type.getName();
     }

@@ -33,6 +33,7 @@ public class ValidatorConfigPanel extends AbstractInjectDataValidator {
      * Default constructor
      */
     public ValidatorConfigPanel() {
+        super();
         type = ComponentType.CONFIG;
         entryKey = type.getName();
     }

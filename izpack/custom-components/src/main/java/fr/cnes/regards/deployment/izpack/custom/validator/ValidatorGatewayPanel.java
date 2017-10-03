@@ -34,6 +34,7 @@ public class ValidatorGatewayPanel extends AbstractInjectDataValidator {
      * Default constructor
      */
     public ValidatorGatewayPanel() {
+        super();
         type = ComponentType.GATEWAY;
         entryKey = type.getName();
     }

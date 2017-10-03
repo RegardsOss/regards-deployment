@@ -34,6 +34,7 @@ public class ValidatorAccessProjectPanel extends AbstractInjectDataValidator {
      * Default constructor
      */
     public ValidatorAccessProjectPanel() {
+        super();
         type = ComponentType.ACCESS_PROJECT;
         entryKey = type.getName();
     }

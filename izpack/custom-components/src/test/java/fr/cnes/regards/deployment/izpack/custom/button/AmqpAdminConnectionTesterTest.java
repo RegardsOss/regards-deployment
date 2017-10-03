@@ -60,7 +60,7 @@ public class AmqpAdminConnectionTesterTest {
 
     @Test
     public final void testExecute() {
-        variables.set(AmqpAdminConnectionTester.HOST_ADMIN__VARIABLE, HOST_VALUE);
+        variables.set(AmqpAdminConnectionTester.HOST_ADMIN_VARIABLE, HOST_VALUE);
         variables.set(AmqpAdminConnectionTester.PORT_ADMIN_VARIABLE, PORT_VALUE);
 
         Assert.assertTrue(launchTest());
@@ -68,7 +68,7 @@ public class AmqpAdminConnectionTesterTest {
 
     @Test
     public final void testExecuteWrongHost() {
-        variables.set(AmqpAdminConnectionTester.HOST_ADMIN__VARIABLE, "10.11.1.10");
+        variables.set(AmqpAdminConnectionTester.HOST_ADMIN_VARIABLE, "10.11.1.10");
         variables.set(AmqpAdminConnectionTester.PORT_ADMIN_VARIABLE, PORT_VALUE);
 
         Assert.assertFalse(launchTest());
@@ -76,7 +76,7 @@ public class AmqpAdminConnectionTesterTest {
 
     @Test
     public final void testExecuteWrongPort() {
-        variables.set(AmqpAdminConnectionTester.HOST_ADMIN__VARIABLE, HOST_VALUE);
+        variables.set(AmqpAdminConnectionTester.HOST_ADMIN_VARIABLE, HOST_VALUE);
         variables.set(AmqpAdminConnectionTester.PORT_ADMIN_VARIABLE, "9250");
 
         Assert.assertFalse(launchTest());

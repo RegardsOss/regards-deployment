@@ -34,6 +34,7 @@ public class ValidatorRegistryPanel extends AbstractInjectDataValidator {
      * Default constructor
      */
     public ValidatorRegistryPanel() {
+        super();
         type = ComponentType.REGISTRY;
         entryKey = "regards.config.cloud.registry";
     }
