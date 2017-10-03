@@ -1,0 +1,104 @@
+/*
+ * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ *
+ * This file is part of REGARDS.
+ *
+ * REGARDS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * REGARDS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with REGARDS. If not, see <http://www.gnu.org/licenses/>.
+ */
+package fr.cnes.regards.deployment.izpack.custom.button;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.izforge.izpack.api.data.InstallData;
+import com.izforge.izpack.api.data.Variables;
+import com.izforge.izpack.core.data.DefaultVariables;
+import com.izforge.izpack.util.Platform;
+import com.izforge.izpack.util.Platform.Name;
+
+/**
+ * Unit test for {@link ElasticsearchConnectionTester}
+ *
+ * @author Christophe Mertz
+ */
+public class ElasticsearchConnectionTesterTest {
+
+    private static final Logger LOG = LoggerFactory.getLogger(ElasticsearchConnectionTesterTest.class);
+
+    private final static String HOST_VALUE = "172.26.47.52";
+
+    private final static String PORT_VALUE = "9300";
+
+    private final static String CLUSTER_VALUE = "regards";
+
+    private static final Variables variables = new DefaultVariables();
+
+    private static final Platform platform = new Platform(Name.LINUX, System.getProperty("os.version"));
+
+    private final static InstallData installData = new com.izforge.izpack.installer.data.InstallData(variables,
+            platform);
+
+    @Before
+    public void init() {
+        variables.refresh();
+    }
+
+    private boolean launchTest() {
+        ElasticsearchConnectionTester tester = new ElasticsearchConnectionTester(installData);
+
+        // Perform test
+        return tester.execute();
+    }
+
+    @Test
+    public final void testExecute() {
+        variables.set(ElasticsearchConnectionTester.HOST_VARIABLE, HOST_VALUE);
+        variables.set(ElasticsearchConnectionTester.PORT_VARIABLE, PORT_VALUE);
+        variables.set(ElasticsearchConnectionTester.CLUSTER_VARIABLE, CLUSTER_VALUE);
+
+        Assert.assertTrue(launchTest());
+    }
+
+    @Test
+    public final void testExecuteWrongHost() {
+        variables.set(ElasticsearchConnectionTester.HOST_VARIABLE, "10.11.1.10");
+        variables.set(ElasticsearchConnectionTester.PORT_VARIABLE, PORT_VALUE);
+        variables.set(ElasticsearchConnectionTester.CLUSTER_VARIABLE, CLUSTER_VALUE);
+
+        Assert.assertFalse(launchTest());
+    }
+
+    @Test
+    public final void testExecuteWrongPort() {
+        variables.set(ElasticsearchConnectionTester.HOST_VARIABLE, HOST_VALUE);
+        variables.set(ElasticsearchConnectionTester.PORT_VARIABLE, "9250");
+        variables.set(ElasticsearchConnectionTester.CLUSTER_VARIABLE, CLUSTER_VALUE);
+
+        Assert.assertFalse(launchTest());
+    }
+
+    
+    @Test
+    public final void testExecuteWrongCluster() {
+        variables.set(ElasticsearchConnectionTester.HOST_VARIABLE, HOST_VALUE);
+        variables.set(ElasticsearchConnectionTester.PORT_VARIABLE, PORT_VALUE);
+        variables.set(ElasticsearchConnectionTester.CLUSTER_VARIABLE, "regard");
+
+        Assert.assertFalse(launchTest());
+    }
+
+}

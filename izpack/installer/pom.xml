@@ -110,16 +110,7 @@
 						<configuration>
 							<outputDirectory>${staging.dir}/microservices</outputDirectory>
 							<includeArtifactIds>
-								bootstrap-config,
-								bootstrap-registry,
-								bootstrap-gateway,
-								bootstrap-administration,
-								bootstrap-catalog,
-								bootstrap-access-instance,
-								bootstrap-access-project,
-								bootstrap-dam,
-								bootstrap-frontend,
-								bootstrap-authentication
+								bootstrap-dam
 							</includeArtifactIds>
 						</configuration>
 					</execution>
@@ -252,6 +243,11 @@
 		<dependency>
 			<groupId>fr.cnes.regards.deployment</groupId>
 			<artifactId>custom-components</artifactId>
+		</dependency>
+		<dependency>
+    		<groupId>org.elasticsearch</groupId>
+    		<artifactId>elasticsearch</artifactId>
+    		<version>5.1.1</version>
 		</dependency>
 	</dependencies>
 

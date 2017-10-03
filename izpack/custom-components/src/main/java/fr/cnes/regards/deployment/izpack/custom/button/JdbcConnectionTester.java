@@ -34,7 +34,6 @@ import fr.cnes.regards.deployment.izpack.custom.model.PostgreSqlJdbcConnectionMo
  * When the corresponding button is clicked, it attemps to verify the connection to the database.
  *
  * @author Xavier-Alexandre Brochard
- * @author m.gond
  */
 public abstract class JdbcConnectionTester extends ButtonAction {
 
@@ -59,15 +58,12 @@ public abstract class JdbcConnectionTester extends ButtonAction {
     protected String passwordVariable;
 
     /**
-     * @param pInstallData
+     * @param installData
      */
-    public JdbcConnectionTester(InstallData pInstallData) {
-        super(pInstallData);
+    public JdbcConnectionTester(InstallData installData) {
+        super(installData);
     }
 
-    /* (non-Javadoc)
-     * @see com.izforge.izpack.panels.userinput.action.ButtonAction#execute()
-     */
     @Override
     public boolean execute() {
         String url = installData.getVariable(urlVariable);
@@ -102,25 +98,17 @@ public abstract class JdbcConnectionTester extends ButtonAction {
 
     }
 
-    /* (non-Javadoc)
-     * @see com.izforge.izpack.panels.userinput.action.ButtonAction#execute(com.izforge.izpack.util.Console)
-     */
-    @Override
-    public boolean execute(Console pConsole) {
+    public boolean execute(Console console) {
         if (!execute()) {
-            pConsole.println(messages.get(ERROR));
+            console.println(messages.get(ERROR));
             return false;
         }
         return true;
     }
 
-    /* (non-Javadoc)
-     * @see com.izforge.izpack.panels.userinput.action.ButtonAction#execute(com.izforge.izpack.api.handler.Prompt)
-     */
-    @Override
-    public boolean execute(Prompt pPrompt) {
+    public boolean execute(Prompt prompt) {
         if (!execute()) {
-            pPrompt.warn(messages.get(ERROR));
+            prompt.warn(messages.get(ERROR));
             return false;
         }
         return true;

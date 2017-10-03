@@ -22,8 +22,10 @@
 	xsi:schemaLocation="http://izpack.org/schema/langpack http://izpack.org/schema/5.0/izpack-langpack-5.0.xsd">
 	
 	<str id="connection.tester.test" txt="Test" />
-	<str id="connection.tester.success" txt="The database is live" />
-	<str id="connection.tester.fail" txt="Could not contact the database. Check the host, port and schema" />
+	<str id="connection.tester.success" txt="The connection is alive" />
+	<str id="connection.tester.fail" txt="The connection is failed. Check his parameters" />
+	<str id="elasticsearch.tester.success" txt="Elasticsearch is alive" />
+	<str id="elasticsearch.tester.fail" txt="Elasticsearch id done. Check his parameters" />
 	<str id="error" txt="Error" />
 
 </izpack:langpack>

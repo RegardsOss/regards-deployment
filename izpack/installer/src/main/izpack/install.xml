@@ -54,10 +54,43 @@
 		<modifier key="showDebugWindow" value="true" />
 	</guiprefs>
 
-	<!-- Custom panels, buttons, ... -->
+	<!-- Regards custom panels, buttons, validator ... -->
 	<jar src="custom/custom-components.jar" />
+	
 	<!-- JDBC database drivers -->
 	<jar src="lib/postgresql-42.1.1.jre7.jar" />
+	
+	<!-- Elasticsearch transport drivers -->
+	<jar src="lib/elasticsearch-5.1.1.jar" />
+	<jar src="lib/hppc-0.7.1.jar" />
+	<jar src="lib/httpclient-4.5.3.jar" />
+	<jar src="lib/log4j-api-2.9.1.jar" />
+	<jar src="lib/jackson-core-2.8.1.jar" />
+	<jar src="lib/joda-time-2.7.jar" />
+	<jar src="lib/lang-mustache-client-5.1.1.jar" />
+	<jar src="lib/lucene-analyzers-common-6.3.0.jar" />
+	<jar src="lib/lucene-backward-codecs-6.3.0.jar" />
+	<jar src="lib/lucene-core-6.3.0.jar" />
+	<jar src="lib/lucene-grouping-6.3.0.jar" />
+	<jar src="lib/lucene-highlighter-6.3.0.jar" />
+	<jar src="lib/lucene-join-6.3.0.jar" />
+	<jar src="lib/lucene-memory-6.3.0.jar" />
+	<jar src="lib/lucene-queries-6.3.0.jar" />
+	<jar src="lib/lucene-suggest-6.3.0.jar" />
+	<jar src="lib/lucene-misc-6.3.0.jar" />
+	<jar src="lib/lucene-queryparser-6.3.0.jar" />
+	<jar src="lib/lucene-sandbox-6.3.0.jar" />
+	<jar src="lib/lucene-spatial-6.3.0.jar" />
+	<jar src="lib/lucene-spatial-extras-6.3.0.jar" />
+	<jar src="lib/lucene-spatial3d-6.3.0.jar" />
+	<jar src="lib/netty-3.10.6.Final.jar" />
+	<jar src="lib/netty-all-4.1.16.Final.jar" />
+	<jar src="lib/percolator-client-5.1.1.jar" />
+	<jar src="lib/reindex-client-5.1.1.jar" />
+	<jar src="lib/t-digest-3.0.jar" />
+	<jar src="lib/transport-5.1.1.jar" />
+	<jar src="lib/transport-netty3-client-5.1.1.jar" />
+	<jar src="lib/transport-netty4-client-5.1.1.jar" />
 
 	<resources>
 		<res id="Splash.image" src="images/splash.jpg" />
