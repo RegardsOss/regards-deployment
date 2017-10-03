@@ -18,25 +18,22 @@
  */
 package fr.cnes.regards.deployment.izpack.custom.button;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-
-import org.elasticsearch.client.transport.TransportClient;
-import org.elasticsearch.common.settings.Settings;
-import org.elasticsearch.common.transport.InetSocketTransportAddress;
-import org.elasticsearch.transport.client.PreBuiltTransportClient;
+import java.io.IOException;
+import java.util.concurrent.TimeoutException;
 
 import com.izforge.izpack.api.data.InstallData;
 import com.izforge.izpack.api.handler.Prompt;
 import com.izforge.izpack.panels.userinput.action.ButtonAction;
 import com.izforge.izpack.util.Console;
+import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.ConnectionFactory;
 
 /**
  * When the corresponding button is clicked, it attemps to verify the connection to Elasticsearch
  *
  * @author Christophe Mertz
  */
-public class ElasticsearchConnectionTester extends ButtonAction {
+public class AmqpConnectionTester extends ButtonAction {
 
     /**
      * Message
@@ -46,62 +43,68 @@ public class ElasticsearchConnectionTester extends ButtonAction {
     /**
      * The name of the HOST variable in the install data
      */
-    public static final String HOST_VARIABLE = "regards.config.elasticsearch.host";
+    public static final String HOST_VARIABLE = "regards.config.spring.rabbitmq.host";
 
     /**
      * The name of the PORT variable in the install data
      */
-    public static final String PORT_VARIABLE = "regards.config.elasticsearch.tcp.port";
+    public static final String PORT_VARIABLE = "regards.config.spring.rabbitmq.port";
 
     /**
-     * The name of the CLUSTER variable in the install data
+     * The name of the USER_NAME variable in the install data
      */
-    public static final String CLUSTER_VARIABLE = "regards.config.elasticsearch.cluster.name";
+    public static final String USERNAME_VARIABLE = "regards.config.spring.rabbitmq.username";
 
-    private String host;
+    /**
+     * The name of the PASSWORD variable in the install data
+     */
+    public static final String PASSWORD_VARIABLE = "regards.config.spring.rabbitmq.password";
 
-    private String port;
+    private String hostName;
 
-    private String cluster;
+    private String portNumber;
 
-    private TransportClient client;
+    private String userName;
+
+    private String password;
 
     /**
      * @param installData
      */
-    public ElasticsearchConnectionTester(InstallData installData) {
+    public AmqpConnectionTester(InstallData installData) {
         super(installData);
-    }
-
-    @SuppressWarnings("resource")
-    private void createTransportClient() throws UnknownHostException {
-        Settings settings = Settings.EMPTY;
-
-        if (cluster != null) {
-            settings = Settings.builder().put("cluster.name", cluster).build();
-        }
-
-        client = new PreBuiltTransportClient(settings)
-                .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName(host), Integer.valueOf(port)));
     }
 
     @Override
     public boolean execute() {
-        host = installData.getVariable(HOST_VARIABLE);
-        port = installData.getVariable(PORT_VARIABLE);
-        cluster = installData.getVariable(CLUSTER_VARIABLE);
+        hostName = installData.getVariable(HOST_VARIABLE);
+        portNumber = installData.getVariable(PORT_VARIABLE);
+        userName = installData.getVariable(USERNAME_VARIABLE);
+        password = installData.getVariable(PASSWORD_VARIABLE);
 
+        Connection conn = null;
+        ConnectionFactory factory = new ConnectionFactory();
+        factory.setUsername(userName);
+        factory.setPassword(password);
+        factory.setVirtualHost("/");
+        factory.setHost(hostName);
+        factory.setPort(Integer.valueOf(portNumber));
         try {
-            createTransportClient();
-            return !client.connectedNodes().isEmpty();
-        } catch (UnknownHostException e) {  // NOSONAR
-            System.out.println("Connection Failed to Elasticsearch : " + host + "(" + port + ") for cluster : "
-                    + cluster);
+            conn = factory.newConnection();
+            return (conn.isOpen());
+        } catch (IOException | TimeoutException e) {
+            System.out
+                    .println("Connection Failed to Amqp : " + hostName + "(" + portNumber + ") for user : " + userName);
             e.printStackTrace();
             return false;
         } finally {
-            if (client != null) {
-                client.close();
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return false;
+                }
             }
         }
     }

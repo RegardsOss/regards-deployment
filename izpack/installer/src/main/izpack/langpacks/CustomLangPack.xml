@@ -25,7 +25,12 @@
 	<str id="connection.tester.success" txt="The connection is alive" />
 	<str id="connection.tester.fail" txt="The connection is failed. Check his parameters" />
 	<str id="elasticsearch.tester.success" txt="Elasticsearch is alive" />
-	<str id="elasticsearch.tester.fail" txt="Elasticsearch id done. Check his parameters" />
+	<str id="elasticsearch.tester.fail" txt="Elasticsearch is failed. Check his parameters" />
+	<str id="rabbit.tester.success" txt="RabbitMQ is alive" />
+	<str id="rabbit.tester.fail" txt="RabbitMQ is failed. Check his parameters" />
+	<str id="rabbit.management.tester.success" txt="RabbitMQ management is alive" />
+	<str id="rabbit.management.tester.fail" txt="RabbitMQ management is failed. Check his parameters" />
+	
 	<str id="error" txt="Error" />
 
 </izpack:langpack>

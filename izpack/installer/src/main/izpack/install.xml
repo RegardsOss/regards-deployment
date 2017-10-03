@@ -91,6 +91,8 @@
 	<jar src="lib/transport-netty3-client-5.1.1.jar" />
 	<jar src="lib/transport-netty4-client-5.1.1.jar" />
 	<jar src="lib/t-digest-3.0.jar" />
+	
+	<jar src="lib/amqp-client-3.6.3.jar" />
 
 	<resources>
 		<res id="Splash.image" src="images/splash.jpg" />

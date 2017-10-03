@@ -20,7 +20,7 @@ package fr.cnes.regards.deployment.izpack.custom.button;
 
 import com.izforge.izpack.api.data.InstallData;
 
-public class AccessProjectJdbcConnectionTester extends JdbcConnectionTester {
+public class AccessProjectJdbcConnectionTester extends AbstractJdbcConnectionTester {
 
     public AccessProjectJdbcConnectionTester(InstallData pInstallData) {
         super(pInstallData);

@@ -21,8 +21,6 @@ package fr.cnes.regards.deployment.izpack.custom.button;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.izforge.izpack.api.data.InstallData;
 import com.izforge.izpack.api.data.Variables;
@@ -31,17 +29,19 @@ import com.izforge.izpack.util.Platform;
 import com.izforge.izpack.util.Platform.Name;
 
 /**
- * Unit test for {@link ElasticsearchConnectionTester}
+ * Unit test for {@link AmqpConnectionTester}
  *
  * @author Christophe Mertz
  */
-public class ElasticsearchConnectionTesterTest {
+public class AmqpConnectionTesterTest {
 
     private final static String HOST_VALUE = "172.26.47.52";
 
-    private final static String PORT_VALUE = "9300";
+    private final static String PORT_VALUE = "5672";
 
-    private final static String CLUSTER_VALUE = "regards";
+    private final static String USERNAME = "guest";
+
+    private final static String PASSWORD = "guest";
 
     private static final Variables variables = new DefaultVariables();
 
@@ -56,7 +56,7 @@ public class ElasticsearchConnectionTesterTest {
     }
 
     private boolean launchTest() {
-        ElasticsearchConnectionTester tester = new ElasticsearchConnectionTester(installData);
+        AmqpConnectionTester tester = new AmqpConnectionTester(installData);
 
         // Perform test
         return tester.execute();
@@ -64,37 +64,40 @@ public class ElasticsearchConnectionTesterTest {
 
     @Test
     public final void testExecute() {
-        variables.set(ElasticsearchConnectionTester.HOST_VARIABLE, HOST_VALUE);
-        variables.set(ElasticsearchConnectionTester.PORT_VARIABLE, PORT_VALUE);
-        variables.set(ElasticsearchConnectionTester.CLUSTER_VARIABLE, CLUSTER_VALUE);
+        variables.set(AmqpConnectionTester.HOST_VARIABLE, HOST_VALUE);
+        variables.set(AmqpConnectionTester.PORT_VARIABLE, PORT_VALUE);
+        variables.set(AmqpConnectionTester.USERNAME_VARIABLE, USERNAME);
+        variables.set(AmqpConnectionTester.PASSWORD_VARIABLE, PASSWORD);
 
         Assert.assertTrue(launchTest());
     }
 
     @Test
     public final void testExecuteWrongHost() {
-        variables.set(ElasticsearchConnectionTester.HOST_VARIABLE, "10.11.1.10");
-        variables.set(ElasticsearchConnectionTester.PORT_VARIABLE, PORT_VALUE);
-        variables.set(ElasticsearchConnectionTester.CLUSTER_VARIABLE, CLUSTER_VALUE);
+        variables.set(AmqpConnectionTester.HOST_VARIABLE, "10.11.1.10");
+        variables.set(AmqpConnectionTester.PORT_VARIABLE, PORT_VALUE);
+        variables.set(AmqpConnectionTester.USERNAME_VARIABLE, USERNAME);
+        variables.set(AmqpConnectionTester.PASSWORD_VARIABLE, PASSWORD);
 
         Assert.assertFalse(launchTest());
     }
 
     @Test
     public final void testExecuteWrongPort() {
-        variables.set(ElasticsearchConnectionTester.HOST_VARIABLE, HOST_VALUE);
-        variables.set(ElasticsearchConnectionTester.PORT_VARIABLE, "9250");
-        variables.set(ElasticsearchConnectionTester.CLUSTER_VARIABLE, CLUSTER_VALUE);
+        variables.set(AmqpConnectionTester.HOST_VARIABLE, HOST_VALUE);
+        variables.set(AmqpConnectionTester.PORT_VARIABLE, "9250");
+        variables.set(AmqpConnectionTester.USERNAME_VARIABLE, USERNAME);
+        variables.set(AmqpConnectionTester.PASSWORD_VARIABLE, PASSWORD);
 
         Assert.assertFalse(launchTest());
     }
 
-    
     @Test
-    public final void testExecuteWrongCluster() {
-        variables.set(ElasticsearchConnectionTester.HOST_VARIABLE, HOST_VALUE);
-        variables.set(ElasticsearchConnectionTester.PORT_VARIABLE, PORT_VALUE);
-        variables.set(ElasticsearchConnectionTester.CLUSTER_VARIABLE, "regard");
+    public final void testExecuteWrongAuthentication() {
+        variables.set(AmqpConnectionTester.HOST_VARIABLE, HOST_VALUE);
+        variables.set(AmqpConnectionTester.PORT_VARIABLE, PORT_VALUE);
+        variables.set(AmqpConnectionTester.USERNAME_VARIABLE, USERNAME);
+        variables.set(AmqpConnectionTester.PASSWORD_VARIABLE, "hello");
 
         Assert.assertFalse(launchTest());
     }

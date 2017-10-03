@@ -31,11 +31,12 @@ import fr.cnes.regards.deployment.izpack.custom.model.JdbcConnectionModel;
 import fr.cnes.regards.deployment.izpack.custom.model.PostgreSqlJdbcConnectionModel;
 
 /**
- * When the corresponding button is clicked, it attemps to verify the connection to the database.
+ * When the corresponding button is clicked, it attempts to verify the connection to the database.
  *
  * @author Xavier-Alexandre Brochard
+ * @author Christophe Mertz
  */
-public abstract class JdbcConnectionTester extends ButtonAction {
+public abstract class AbstractJdbcConnectionTester extends ButtonAction {
 
     /**
      * Message
@@ -60,7 +61,7 @@ public abstract class JdbcConnectionTester extends ButtonAction {
     /**
      * @param installData
      */
-    public JdbcConnectionTester(InstallData installData) {
+    public AbstractJdbcConnectionTester(InstallData installData) {
         super(installData);
     }
 
@@ -73,7 +74,7 @@ public abstract class JdbcConnectionTester extends ButtonAction {
 
         try {
             Class.forName(jdbcModel.getDriverClassName());
-        } catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) { // NOSONAR
             System.out.println("Where is your PostgreSQL JDBC Driver? " + "You may need to include in a library");
             e.printStackTrace();
             return false;
@@ -83,14 +84,9 @@ public abstract class JdbcConnectionTester extends ButtonAction {
 
         try (Connection connection = DriverManager.getConnection(jdbcModel.getJdbcString(), jdbcModel.getUser(),
                                                                  jdbcModel.getPassword())) {
-            if (connection != null) {
-                System.out.println("Successfully connected to the database");
-                return true;
-            } else {
-                System.out.println("Failed to make connection");
-                return false;
-            }
-        } catch (SQLException e) {
+            System.out.println("Successfully connected to the database");
+            return true;
+        } catch (SQLException e) { // NOSONAR
             System.out.println("Connection Failed! Check output console");
             e.printStackTrace();
             return false;

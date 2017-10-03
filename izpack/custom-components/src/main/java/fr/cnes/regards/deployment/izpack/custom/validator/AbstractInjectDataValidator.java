@@ -30,8 +30,9 @@ import fr.cnes.regards.deployment.izpack.custom.model.ComponentType;
  * in order to manually inject additional data (like the hosts and ports of all instances of a component) into the install data.
  *
  * @author Xavier-Alexandre Brochard
+ * @author Christophe Mertz
  */
-public abstract class InjectDataValidator implements DataValidator {
+public abstract class AbstractInjectDataValidator implements DataValidator {
 
     /**
      * Validated component type
@@ -53,19 +54,16 @@ public abstract class InjectDataValidator implements DataValidator {
 
     @Override
     public String getErrorMessageId() {
-        // Not necessary, status is always OK.
-        return null;
+        return "";
     }
 
     @Override
     public String getWarningMessageId() {
-        // Not necessary, status is always OK.
-        return null;
+        return "";
     }
 
     @Override
     public boolean getDefaultAnswer() {
-        // Not necessary, status is always OK.
         return false;
     }
 

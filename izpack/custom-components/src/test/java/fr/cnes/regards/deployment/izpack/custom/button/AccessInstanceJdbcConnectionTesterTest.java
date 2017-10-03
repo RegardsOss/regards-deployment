@@ -33,7 +33,7 @@ import fr.cnes.regards.deployment.izpack.custom.utils.DummyInstallDataFactory;
 public class AccessInstanceJdbcConnectionTesterTest {
 
     /**
-     * Test method for {@link fr.cnes.regards.deployment.izpack.custom.button.JdbcConnectionTester#execute()}.
+     * Test method for {@link fr.cnes.regards.deployment.izpack.custom.button.AbstractJdbcConnectionTester#execute()}.
      */
     @Test
     public final void testExecute() {
@@ -49,7 +49,7 @@ public class AccessInstanceJdbcConnectionTesterTest {
     }
 
     /**
-     * Test method for {@link fr.cnes.regards.deployment.izpack.custom.button.JdbcConnectionTester#execute()}.
+     * Test method for {@link fr.cnes.regards.deployment.izpack.custom.button.AbstractJdbcConnectionTester#execute()}.
      */
     @Test
     public final void testExecute_wrongUrl() {
@@ -65,7 +65,7 @@ public class AccessInstanceJdbcConnectionTesterTest {
     }
 
     /**
-     * Test method for {@link fr.cnes.regards.deployment.izpack.custom.button.JdbcConnectionTester#execute()}.
+     * Test method for {@link fr.cnes.regards.deployment.izpack.custom.button.AbstractJdbcConnectionTester#execute()}.
      */
     @Test
     public final void testExecute_wrongUser() {
@@ -81,7 +81,7 @@ public class AccessInstanceJdbcConnectionTesterTest {
     }
 
     /**
-     * Test method for {@link fr.cnes.regards.deployment.izpack.custom.button.JdbcConnectionTester#execute()}.
+     * Test method for {@link fr.cnes.regards.deployment.izpack.custom.button.AbstractJdbcConnectionTester#execute()}.
      */
     @Test
     public final void testExecute_wrongPassword() {

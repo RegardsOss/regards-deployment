@@ -26,6 +26,8 @@
 	<str id="connection.tester.fail" txt="La connexion ne répond pas. Vérifiez ses paramètres" />
 	<str id="elasticsearch.tester.success" txt="Elasticsearch est OK" />
 	<str id="elasticsearch.tester.fail" txt="Elasticsearch ne réponds pas. Vérifiez ses paramètres" />
+	<str id="rabbit.tester.success" txt="RabbitMQ est OK" />
+	<str id="rabbit.tester.fail" txt="RabbitMQ ne réponds pas. Vérifiez ses paramètres" />
 	<str id="error" txt="Error" />
 
 </izpack:langpack>

@@ -755,6 +755,24 @@
 			</spec>
 		</field>
 		
+		<field type="button" id="components.rabbit.test">
+			<spec id="connection.tester.test" successMsg="rabbit.tester.success">
+				<run
+					class="fr.cnes.regards.deployment.izpack.custom.button.AmqpConnectionTester">
+					<msg id="rabbit.tester.fail" name="error" />
+				</run>
+			</spec>
+		</field>
+		
+		<field type="button" id="components.rabbit.management.test">
+			<spec id="connection.tester.test" successMsg="rabbit.tester.success">
+				<run
+					class="fr.cnes.regards.deployment.izpack.custom.button.AmqpAdminConnectionTester">
+					<msg id="rabbit.tester.fail" name="error" />
+				</run>
+			</spec>
+		</field>
+		
 
 	</panel>
 

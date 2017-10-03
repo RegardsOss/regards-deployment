@@ -27,7 +27,7 @@ import fr.cnes.regards.deployment.izpack.custom.model.ComponentType;
  * @author Xavier-Alexandre Brochard
  * @since 1.0.0
  */
-public class ValidatorConfigPanel extends InjectDataValidator {
+public class ValidatorConfigPanel extends AbstractInjectDataValidator {
 
     /**
      * Default constructor
