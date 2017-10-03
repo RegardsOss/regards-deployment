@@ -18,12 +18,7 @@
  */
 package fr.cnes.regards.deployment.izpack.custom.button;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.InetAddress;
-import java.net.URL;
 import java.net.UnknownHostException;
 
 import org.elasticsearch.client.transport.TransportClient;
@@ -47,12 +42,6 @@ public class ElasticsearchConnectionTester extends ButtonAction {
      * Message
      */
     private static final String ERROR = "error";
-
-    private static final String PROTOCOL = "http://";
-
-    private static final String SEPARATOR = ":";
-
-    private static final String QUOTE = "\"";
 
     /**
      * The name of the HOST variable in the install data
@@ -84,17 +73,17 @@ public class ElasticsearchConnectionTester extends ButtonAction {
         super(installData);
     }
 
-        @SuppressWarnings("resource")
-        private void createTransportClient() throws UnknownHostException {
-            Settings settings = Settings.EMPTY;
-    
-            if (cluster != null) {
-                settings = Settings.builder().put("cluster.name", cluster).build();
-            }
-    
-            client = new PreBuiltTransportClient(settings)
-                    .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName(host), new Integer(port)));
+    @SuppressWarnings("resource")
+    private void createTransportClient() throws UnknownHostException {
+        Settings settings = Settings.EMPTY;
+
+        if (cluster != null) {
+            settings = Settings.builder().put("cluster.name", cluster).build();
         }
+
+        client = new PreBuiltTransportClient(settings)
+                .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName(host), new Integer(port)));
+    }
 
     @Override
     public boolean execute() {
@@ -115,42 +104,6 @@ public class ElasticsearchConnectionTester extends ButtonAction {
                 client.close();
             }
         }
-
-
-//                StringBuilder result = new StringBuilder();
-//                URL url;
-//                try {
-//                    result.append(PROTOCOL);
-//                    result.append(host);
-//                    result.append(SEPARATOR);
-//                    result.append(port);
-//        
-//                    url = new URL(result.toString());
-//        
-//                    HttpURLConnection con = (HttpURLConnection) url.openConnection();
-//                    con.setRequestProperty("Content-Type", "application/json");
-//                    con.setRequestMethod("GET");
-//                    con.setConnectTimeout(500);
-//                    con.setReadTimeout(500);
-//        
-//                    int status = con.getResponseCode();
-//        
-//                    try (BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))) {
-//                        String inputLine;
-//                        StringBuffer content = new StringBuffer();
-//                        while ((inputLine = in.readLine()) != null) {
-//                            content.append(inputLine);
-//                        }
-//        
-//                        return content.toString().contains(QUOTE + cluster + QUOTE);
-//                    }
-//                } catch (IOException e) {
-//                    System.out.println("Connection Failed to " + result.toString());
-//                    e.printStackTrace();
-//                    return false;
-//                }
-
-
     }
 
     public boolean execute(Console console) {

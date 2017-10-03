@@ -110,7 +110,16 @@
 						<configuration>
 							<outputDirectory>${staging.dir}/microservices</outputDirectory>
 							<includeArtifactIds>
-								bootstrap-dam
+								bootstrap-config,
+								bootstrap-registry,
+								bootstrap-gateway,
+								bootstrap-administration,
+								bootstrap-catalog,
+								bootstrap-access-instance,
+								bootstrap-access-project,
+								bootstrap-dam,
+								bootstrap-frontend,
+								bootstrap-authentication
 							</includeArtifactIds>
 						</configuration>
 					</execution>

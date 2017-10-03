@@ -135,7 +135,7 @@
 	<!-- CheckJdbcConnectionsPanel -->
 	<str id="check.jdbc.connections.panel.title" txt="Vérification des connexions configurées" />
 	<str id="check.jdbc.connections.panel.detail"
-		txt="Effectuez cette vérification rapide pour vous assurer que vos bases sont correctement configurées. Vous pouvez toutefois terminer l'installation sans que cela soit le cas." />
+		txt="Effectuez cette vérification rapide pour vous assurer que vos connexions sont correctement configurées. Vous pouvez toutefois terminer l'installation sans que cela soit le cas." />
 
 	<!-- Validators -->
 	<str id="validator.host.error.label" txt="Le host est invalide" />

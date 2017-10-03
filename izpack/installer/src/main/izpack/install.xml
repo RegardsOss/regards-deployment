@@ -75,10 +75,10 @@
 	<jar src="lib/lucene-highlighter-6.3.0.jar" />
 	<jar src="lib/lucene-join-6.3.0.jar" />
 	<jar src="lib/lucene-memory-6.3.0.jar" />
-	<jar src="lib/lucene-queries-6.3.0.jar" />
-	<jar src="lib/lucene-suggest-6.3.0.jar" />
 	<jar src="lib/lucene-misc-6.3.0.jar" />
+	<jar src="lib/lucene-queries-6.3.0.jar" />
 	<jar src="lib/lucene-queryparser-6.3.0.jar" />
+	<jar src="lib/lucene-suggest-6.3.0.jar" />
 	<jar src="lib/lucene-sandbox-6.3.0.jar" />
 	<jar src="lib/lucene-spatial-6.3.0.jar" />
 	<jar src="lib/lucene-spatial-extras-6.3.0.jar" />
@@ -87,10 +87,10 @@
 	<jar src="lib/netty-all-4.1.16.Final.jar" />
 	<jar src="lib/percolator-client-5.1.1.jar" />
 	<jar src="lib/reindex-client-5.1.1.jar" />
-	<jar src="lib/t-digest-3.0.jar" />
 	<jar src="lib/transport-5.1.1.jar" />
 	<jar src="lib/transport-netty3-client-5.1.1.jar" />
 	<jar src="lib/transport-netty4-client-5.1.1.jar" />
+	<jar src="lib/t-digest-3.0.jar" />
 
 	<resources>
 		<res id="Splash.image" src="images/splash.jpg" />
