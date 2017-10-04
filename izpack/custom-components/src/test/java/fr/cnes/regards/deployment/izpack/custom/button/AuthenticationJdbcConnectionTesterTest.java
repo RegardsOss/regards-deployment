@@ -62,7 +62,7 @@ public class AuthenticationJdbcConnectionTesterTest {
 
     @Test
     public final void testExecute() {
-        variables.set(AuthenticationJdbcConnectionTester.URL_DATASOURCE__VARIABLE, URL);
+        variables.set(AuthenticationJdbcConnectionTester.URL_DATASOURCE_VARIABLE, URL);
         variables.set(AuthenticationJdbcConnectionTester.USERNAME_DATASOURCE_VARIABLE, USER);
         variables.set(AuthenticationJdbcConnectionTester.PASSWORD_DATASOURCE_VARIABLE, PASSWORD);
 
@@ -71,7 +71,7 @@ public class AuthenticationJdbcConnectionTesterTest {
 
     @Test
     public final void testExecuteWrongHost() {
-        variables.set(AuthenticationJdbcConnectionTester.URL_DATASOURCE__VARIABLE, URL+"/hello");
+        variables.set(AuthenticationJdbcConnectionTester.URL_DATASOURCE_VARIABLE, URL+"/hello");
         variables.set(AuthenticationJdbcConnectionTester.USERNAME_DATASOURCE_VARIABLE, USER);
         variables.set(AuthenticationJdbcConnectionTester.PASSWORD_DATASOURCE_VARIABLE, PASSWORD);
 
@@ -80,7 +80,7 @@ public class AuthenticationJdbcConnectionTesterTest {
 
     @Test
     public final void testExecuteWrongPassword() {
-        variables.set(AuthenticationJdbcConnectionTester.URL_DATASOURCE__VARIABLE, URL);
+        variables.set(AuthenticationJdbcConnectionTester.URL_DATASOURCE_VARIABLE, URL);
         variables.set(AuthenticationJdbcConnectionTester.USERNAME_DATASOURCE_VARIABLE, USER);
         variables.set(AuthenticationJdbcConnectionTester.PASSWORD_DATASOURCE_VARIABLE, "dummy");
 
@@ -89,7 +89,7 @@ public class AuthenticationJdbcConnectionTesterTest {
 
     @Test
     public final void testExecuteWrongAuthentication() {
-        variables.set(AuthenticationJdbcConnectionTester.URL_DATASOURCE__VARIABLE, URL);
+        variables.set(AuthenticationJdbcConnectionTester.URL_DATASOURCE_VARIABLE, URL);
         variables.set(AuthenticationJdbcConnectionTester.USERNAME_DATASOURCE_VARIABLE, "unknown");
         variables.set(AuthenticationJdbcConnectionTester.PASSWORD_DATASOURCE_VARIABLE, PASSWORD);
 

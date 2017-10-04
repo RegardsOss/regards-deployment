@@ -80,7 +80,7 @@ public abstract class AbstractJdbcConnectionTester extends ButtonAction {
         try {
             Class.forName(jdbcModel.getDriverClassName());
         } catch (ClassNotFoundException e) {
-            LOGGER.error("Where is your PostgreSQL JDBC Driver? " + "You may need to include in a library");
+            LOGGER.error("Where is your PostgreSQL JDBC Driver? " + "You may need to include in a library", e);
             return false;
         }
 

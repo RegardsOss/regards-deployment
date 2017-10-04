@@ -25,7 +25,7 @@ public class DamJdbcConnectionTester extends AbstractJdbcConnectionTester {
     /**
      * The name of the URL datasource variable in the install data
      */
-    public static final String URL_DATASOURCE__VARIABLE = "regards.config.dam.regards.jpa.multitenant.tenants.url.1";
+    public static final String URL_DATASOURCE_VARIABLE = "regards.config.dam.regards.jpa.multitenant.tenants.url.1";
 
     /**
      * The name of the username datasource variable in the install data
@@ -40,7 +40,7 @@ public class DamJdbcConnectionTester extends AbstractJdbcConnectionTester {
 
     public DamJdbcConnectionTester(InstallData installData) {
         super(installData);
-        urlVariable = URL_DATASOURCE__VARIABLE;
+        urlVariable = URL_DATASOURCE_VARIABLE;
         userVariable = USERNAME_DATASOURCE_VARIABLE;
         passwordVariable = PASSWORD_DATASOURCE_VARIABLE;
     }

@@ -62,7 +62,7 @@ public class CatalogJdbcConnectionTesterTest {
 
     @Test
     public final void testExecute() {
-        variables.set(CatalogJdbcConnectionTester.URL_DATASOURCE__VARIABLE, URL);
+        variables.set(CatalogJdbcConnectionTester.URL_DATASOURCE_VARIABLE, URL);
         variables.set(CatalogJdbcConnectionTester.USERNAME_DATASOURCE_VARIABLE, USER);
         variables.set(CatalogJdbcConnectionTester.PASSWORD_DATASOURCE_VARIABLE, PASSWORD);
 
@@ -71,7 +71,7 @@ public class CatalogJdbcConnectionTesterTest {
 
     @Test
     public final void testExecuteWrongHost() {
-        variables.set(CatalogJdbcConnectionTester.URL_DATASOURCE__VARIABLE, URL+"/hello");
+        variables.set(CatalogJdbcConnectionTester.URL_DATASOURCE_VARIABLE, URL+"/hello");
         variables.set(CatalogJdbcConnectionTester.USERNAME_DATASOURCE_VARIABLE, USER);
         variables.set(CatalogJdbcConnectionTester.PASSWORD_DATASOURCE_VARIABLE, PASSWORD);
 
@@ -80,7 +80,7 @@ public class CatalogJdbcConnectionTesterTest {
 
     @Test
     public final void testExecuteWrongPassword() {
-        variables.set(CatalogJdbcConnectionTester.URL_DATASOURCE__VARIABLE, URL);
+        variables.set(CatalogJdbcConnectionTester.URL_DATASOURCE_VARIABLE, URL);
         variables.set(CatalogJdbcConnectionTester.USERNAME_DATASOURCE_VARIABLE, USER);
         variables.set(CatalogJdbcConnectionTester.PASSWORD_DATASOURCE_VARIABLE, "dummy");
 
@@ -89,7 +89,7 @@ public class CatalogJdbcConnectionTesterTest {
 
     @Test
     public final void testExecuteWrongAuthentication() {
-        variables.set(CatalogJdbcConnectionTester.URL_DATASOURCE__VARIABLE, URL);
+        variables.set(CatalogJdbcConnectionTester.URL_DATASOURCE_VARIABLE, URL);
         variables.set(CatalogJdbcConnectionTester.USERNAME_DATASOURCE_VARIABLE, "unknown");
         variables.set(CatalogJdbcConnectionTester.PASSWORD_DATASOURCE_VARIABLE, PASSWORD);
 

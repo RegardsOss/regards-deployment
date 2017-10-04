@@ -25,7 +25,7 @@ public class AdminInstanceJdbcConnectionTester extends AbstractJdbcConnectionTes
     /**
      * The name of the URL datasource variable in the install data
      */
-    public static final String URL_DATASOURCE__VARIABLE = "regards.config.admin.regards.jpa.instance.datasource.url";
+    public static final String URL_DATASOURCE_VARIABLE = "regards.config.admin.regards.jpa.instance.datasource.url";
 
     /**
      * The name of the username datasource variable in the install data
@@ -39,7 +39,7 @@ public class AdminInstanceJdbcConnectionTester extends AbstractJdbcConnectionTes
 
     public AdminInstanceJdbcConnectionTester(InstallData installData) {
         super(installData);
-        urlVariable = URL_DATASOURCE__VARIABLE;
+        urlVariable = URL_DATASOURCE_VARIABLE;
         userVariable = USERNAME_DATASOURCE_VARIABLE;
         passwordVariable = PASSWORD_DATASOURCE_VARIABLE;
     }

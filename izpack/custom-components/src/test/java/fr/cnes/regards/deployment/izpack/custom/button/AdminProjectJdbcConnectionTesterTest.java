@@ -62,7 +62,7 @@ public class AdminProjectJdbcConnectionTesterTest {
 
     @Test
     public final void testExecute() {
-        variables.set(AdminProjectJdbcConnectionTester.URL_DATASOURCE__VARIABLE, URL);
+        variables.set(AdminProjectJdbcConnectionTester.URL_DATASOURCE_VARIABLE, URL);
         variables.set(AdminProjectJdbcConnectionTester.USERNAME_DATASOURCE_VARIABLE, USER);
         variables.set(AdminProjectJdbcConnectionTester.PASSWORD_DATASOURCE_VARIABLE, PASSWORD);
 
@@ -71,7 +71,7 @@ public class AdminProjectJdbcConnectionTesterTest {
 
     @Test
     public final void testExecuteWrongHost() {
-        variables.set(AdminProjectJdbcConnectionTester.URL_DATASOURCE__VARIABLE, URL+"/hello");
+        variables.set(AdminProjectJdbcConnectionTester.URL_DATASOURCE_VARIABLE, URL+"/hello");
         variables.set(AdminProjectJdbcConnectionTester.USERNAME_DATASOURCE_VARIABLE, USER);
         variables.set(AdminProjectJdbcConnectionTester.PASSWORD_DATASOURCE_VARIABLE, PASSWORD);
 
@@ -80,7 +80,7 @@ public class AdminProjectJdbcConnectionTesterTest {
 
     @Test
     public final void testExecuteWrongPassword() {
-        variables.set(AccessProjectJdbcConnectionTester.URL_DATASOURCE__VARIABLE, URL);
+        variables.set(AccessProjectJdbcConnectionTester.URL_DATASOURCE_VARIABLE, URL);
         variables.set(AccessProjectJdbcConnectionTester.USERNAME_DATASOURCE_VARIABLE, USER);
         variables.set(AccessProjectJdbcConnectionTester.PASSWORD_DATASOURCE_VARIABLE, "dummy");
 
@@ -89,7 +89,7 @@ public class AdminProjectJdbcConnectionTesterTest {
 
     @Test
     public final void testExecuteWrongAuthentication() {
-        variables.set(AdminProjectJdbcConnectionTester.URL_DATASOURCE__VARIABLE, URL);
+        variables.set(AdminProjectJdbcConnectionTester.URL_DATASOURCE_VARIABLE, URL);
         variables.set(AdminProjectJdbcConnectionTester.USERNAME_DATASOURCE_VARIABLE, "unknown");
         variables.set(AdminProjectJdbcConnectionTester.PASSWORD_DATASOURCE_VARIABLE, PASSWORD);
 

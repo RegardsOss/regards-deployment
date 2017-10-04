@@ -62,7 +62,7 @@ public class AccessInstanceJdbcConnectionTesterTest {
 
     @Test
     public final void testExecute() {
-        variables.set(AccessInstanceJdbcConnectionTester.URL_DATASOURCE__VARIABLE, URL);
+        variables.set(AccessInstanceJdbcConnectionTester.URL_DATASOURCE_VARIABLE, URL);
         variables.set(AccessInstanceJdbcConnectionTester.USERNAME_DATASOURCE_VARIABLE, USER);
         variables.set(AccessInstanceJdbcConnectionTester.PASSWORD_DATASOURCE_VARIABLE, PASSWORD);
 
@@ -71,7 +71,7 @@ public class AccessInstanceJdbcConnectionTesterTest {
 
     @Test
     public final void testExecuteWrongHost() {
-        variables.set(AccessInstanceJdbcConnectionTester.URL_DATASOURCE__VARIABLE, URL+"/hello");
+        variables.set(AccessInstanceJdbcConnectionTester.URL_DATASOURCE_VARIABLE, URL+"/hello");
         variables.set(AccessInstanceJdbcConnectionTester.USERNAME_DATASOURCE_VARIABLE, USER);
         variables.set(AccessInstanceJdbcConnectionTester.PASSWORD_DATASOURCE_VARIABLE, PASSWORD);
 
@@ -80,7 +80,7 @@ public class AccessInstanceJdbcConnectionTesterTest {
 
     @Test
     public final void testExecuteWrongPassword() {
-        variables.set(AccessProjectJdbcConnectionTester.URL_DATASOURCE__VARIABLE, URL);
+        variables.set(AccessProjectJdbcConnectionTester.URL_DATASOURCE_VARIABLE, URL);
         variables.set(AccessProjectJdbcConnectionTester.USERNAME_DATASOURCE_VARIABLE, USER);
         variables.set(AccessProjectJdbcConnectionTester.PASSWORD_DATASOURCE_VARIABLE, "dummy");
 
@@ -89,7 +89,7 @@ public class AccessInstanceJdbcConnectionTesterTest {
 
     @Test
     public final void testExecuteWrongAuthentication() {
-        variables.set(AccessInstanceJdbcConnectionTester.URL_DATASOURCE__VARIABLE, URL);
+        variables.set(AccessInstanceJdbcConnectionTester.URL_DATASOURCE_VARIABLE, URL);
         variables.set(AccessInstanceJdbcConnectionTester.USERNAME_DATASOURCE_VARIABLE, "unknown");
         variables.set(AccessInstanceJdbcConnectionTester.PASSWORD_DATASOURCE_VARIABLE, PASSWORD);
 
