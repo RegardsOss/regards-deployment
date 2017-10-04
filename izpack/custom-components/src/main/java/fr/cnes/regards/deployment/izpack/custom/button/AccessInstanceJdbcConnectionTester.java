@@ -22,11 +22,26 @@ import com.izforge.izpack.api.data.InstallData;
 
 public class AccessInstanceJdbcConnectionTester extends AbstractJdbcConnectionTester {
 
-    public AccessInstanceJdbcConnectionTester(InstallData pInstallData) {
-        super(pInstallData);
-        urlVariable = "regards.config.access.instance.regards.jpa.instance.datasource.url";
-        userVariable = "regards.config.access.instance.regards.jpa.instance.datasource.user.name";
-        passwordVariable = "regards.config.access.instance.regards.jpa.instance.datasource.password";
+    /**
+     * The name of the URL datasource variable in the install data
+     */
+    public static final String URL_DATASOURCE__VARIABLE = "regards.config.access.instance.regards.jpa.instance.datasource.url";
+
+    /**
+     * The name of the username datasource variable in the install data
+     */
+    public static final String USERNAME_DATASOURCE_VARIABLE = "regards.config.access.instance.regards.jpa.instance.datasource.user.name";
+
+    /**
+     * The name of the password datasource variable in the install data
+     */
+    public static final String PASSWORD_DATASOURCE_VARIABLE = "regards.config.access.instance.regards.jpa.instance.datasource.password";
+
+    public AccessInstanceJdbcConnectionTester(InstallData installData) {
+        super(installData);
+        urlVariable = URL_DATASOURCE__VARIABLE;
+        userVariable = USERNAME_DATASOURCE_VARIABLE;
+        passwordVariable = PASSWORD_DATASOURCE_VARIABLE;
     }
 
 }

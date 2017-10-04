@@ -29,13 +29,13 @@ import com.izforge.izpack.util.Platform;
 import com.izforge.izpack.util.Platform.Name;
 
 /**
- * Unit test for {@link AccessInstanceJdbcConnectionTester}
+ * Unit test for {@link AccessProjectJdbcConnectionTester}
  *
  * @author Christophe Mertz
  */
-public class AccessInstanceJdbcConnectionTesterTest {
+public class AccessProjectJdbcConnectionTesterTest {
     
-    private static final String URL = "172.26.47.52:5432/rs_access_instance";
+    private static final String URL = "172.26.47.52:5432/rs_admin_instance";
 
     private static final String USER = "azertyuiop123456789";
     
@@ -54,7 +54,7 @@ public class AccessInstanceJdbcConnectionTesterTest {
     }
 
     private boolean launchTest() {
-        AccessInstanceJdbcConnectionTester tester = new AccessInstanceJdbcConnectionTester(installData);
+        AccessProjectJdbcConnectionTester tester = new AccessProjectJdbcConnectionTester(installData);
 
         // Perform test
         return tester.execute();
@@ -62,18 +62,18 @@ public class AccessInstanceJdbcConnectionTesterTest {
 
     @Test
     public final void testExecute() {
-        variables.set(AccessInstanceJdbcConnectionTester.URL_DATASOURCE__VARIABLE, URL);
-        variables.set(AccessInstanceJdbcConnectionTester.USERNAME_DATASOURCE_VARIABLE, USER);
-        variables.set(AccessInstanceJdbcConnectionTester.PASSWORD_DATASOURCE_VARIABLE, PASSWORD);
+        variables.set(AccessProjectJdbcConnectionTester.URL_DATASOURCE__VARIABLE, URL);
+        variables.set(AccessProjectJdbcConnectionTester.USERNAME_DATASOURCE_VARIABLE, USER);
+        variables.set(AccessProjectJdbcConnectionTester.PASSWORD_DATASOURCE_VARIABLE, PASSWORD);
 
         Assert.assertTrue(launchTest());
     }
 
     @Test
     public final void testExecuteWrongHost() {
-        variables.set(AccessInstanceJdbcConnectionTester.URL_DATASOURCE__VARIABLE, URL+"/hello");
-        variables.set(AccessInstanceJdbcConnectionTester.USERNAME_DATASOURCE_VARIABLE, USER);
-        variables.set(AccessInstanceJdbcConnectionTester.PASSWORD_DATASOURCE_VARIABLE, PASSWORD);
+        variables.set(AccessProjectJdbcConnectionTester.URL_DATASOURCE__VARIABLE, URL+"/hello");
+        variables.set(AccessProjectJdbcConnectionTester.USERNAME_DATASOURCE_VARIABLE, USER);
+        variables.set(AccessProjectJdbcConnectionTester.PASSWORD_DATASOURCE_VARIABLE, PASSWORD);
 
         Assert.assertFalse(launchTest());
     }
@@ -89,9 +89,9 @@ public class AccessInstanceJdbcConnectionTesterTest {
 
     @Test
     public final void testExecuteWrongAuthentication() {
-        variables.set(AccessInstanceJdbcConnectionTester.URL_DATASOURCE__VARIABLE, URL);
-        variables.set(AccessInstanceJdbcConnectionTester.USERNAME_DATASOURCE_VARIABLE, "unknown");
-        variables.set(AccessInstanceJdbcConnectionTester.PASSWORD_DATASOURCE_VARIABLE, PASSWORD);
+        variables.set(AccessProjectJdbcConnectionTester.URL_DATASOURCE__VARIABLE, URL);
+        variables.set(AccessProjectJdbcConnectionTester.USERNAME_DATASOURCE_VARIABLE, "unknown");
+        variables.set(AccessProjectJdbcConnectionTester.PASSWORD_DATASOURCE_VARIABLE, PASSWORD);
 
         Assert.assertFalse(launchTest());
     }

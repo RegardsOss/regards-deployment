@@ -21,8 +21,6 @@ package fr.cnes.regards.deployment.izpack.custom.button;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.izforge.izpack.api.data.InstallData;
 import com.izforge.izpack.api.data.Variables;
@@ -89,7 +87,6 @@ public class ElasticsearchConnectionTesterTest {
         Assert.assertFalse(launchTest());
     }
 
-    
     @Test
     public final void testExecuteWrongCluster() {
         variables.set(ElasticsearchConnectionTester.HOST_VARIABLE, HOST_VALUE);
