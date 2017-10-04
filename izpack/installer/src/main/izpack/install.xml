@@ -93,6 +93,11 @@
 	<jar src="lib/t-digest-3.0.jar" />
 	
 	<jar src="lib/amqp-client-3.6.3.jar" />
+	
+	<jar src="lib/slf4j-api-1.7.21.jar" />
+	<jar src="lib/logback-classic-1.1.7.jar" />
+	<jar src="lib/logback-core-1.1.7.jar" />
+	<jar src="lib/log4j-core-2.6.2.jar" />
 
 	<resources>
 		<res id="Splash.image" src="images/splash.jpg" />

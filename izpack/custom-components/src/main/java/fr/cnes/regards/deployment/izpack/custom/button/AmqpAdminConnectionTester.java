@@ -24,6 +24,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.izforge.izpack.api.data.InstallData;
 import com.izforge.izpack.api.handler.Prompt;
 import com.izforge.izpack.panels.userinput.action.ButtonAction;
@@ -35,6 +38,8 @@ import com.izforge.izpack.util.Console;
  * @author Christophe Mertz
  */
 public class AmqpAdminConnectionTester extends ButtonAction {
+    
+    private static final Logger LOGGER = LoggerFactory.getLogger(AmqpAdminConnectionTester.class);
 
     /**
      * Message
@@ -92,9 +97,8 @@ public class AmqpAdminConnectionTester extends ButtonAction {
             }
             in.close();
 
-        } catch (IOException e) { // NOSONAR
-            System.out.println("Connection Failed! Check output console");
-            e.printStackTrace();
+        } catch (IOException e) {
+            LOGGER.error("Connection Failed! Check output console", e);
             return false;
         }
         return true;

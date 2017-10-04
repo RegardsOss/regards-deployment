@@ -21,6 +21,9 @@ package fr.cnes.regards.deployment.izpack.custom.button;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.izforge.izpack.api.data.InstallData;
 import com.izforge.izpack.api.handler.Prompt;
 import com.izforge.izpack.panels.userinput.action.ButtonAction;
@@ -34,6 +37,8 @@ import com.rabbitmq.client.ConnectionFactory;
  * @author Christophe Mertz
  */
 public class AmqpConnectionTester extends ButtonAction {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(AmqpConnectionTester.class);
 
     /**
      * Message
@@ -84,17 +89,15 @@ public class AmqpConnectionTester extends ButtonAction {
         try {
             conn = factory.newConnection();
             return (conn.isOpen());
-        } catch (IOException | TimeoutException e) { // NOSONAR
-            System.out
-                    .println("Connection Failed to Amqp : " + hostName + "(" + portNumber + ") for user : " + userName);
-            e.printStackTrace();
+        } catch (IOException | TimeoutException e) {
+            LOGGER.error("Connection Failed to Amqp : " + hostName + "(" + portNumber + ") for user : " + userName, e);
             return false;
         } finally {
             if (conn != null) {
                 try {
                     conn.close();
-                } catch (IOException e) { // NOSONAR
-                    e.printStackTrace();
+                } catch (IOException e) {
+                    LOGGER.error(e.getMessage(), e);
                 }
             }
         }

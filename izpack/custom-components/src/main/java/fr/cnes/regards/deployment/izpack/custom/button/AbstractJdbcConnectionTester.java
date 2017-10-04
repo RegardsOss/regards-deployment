@@ -22,6 +22,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.izforge.izpack.api.data.InstallData;
 import com.izforge.izpack.api.handler.Prompt;
 import com.izforge.izpack.panels.userinput.action.ButtonAction;
@@ -37,6 +40,8 @@ import fr.cnes.regards.deployment.izpack.custom.model.PostgreSqlJdbcConnectionMo
  * @author Christophe Mertz
  */
 public abstract class AbstractJdbcConnectionTester extends ButtonAction {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(AbstractJdbcConnectionTester.class);
 
     /**
      * Message
@@ -74,21 +79,19 @@ public abstract class AbstractJdbcConnectionTester extends ButtonAction {
 
         try {
             Class.forName(jdbcModel.getDriverClassName());
-        } catch (ClassNotFoundException e) { // NOSONAR
-            System.out.println("Where is your PostgreSQL JDBC Driver? " + "You may need to include in a library");
-            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            LOGGER.error("Where is your PostgreSQL JDBC Driver? " + "You may need to include in a library");
             return false;
         }
 
-        System.out.println("PostgreSQL JDBC Driver Registered!");
+        LOGGER.info("PostgreSQL JDBC Driver Registered!");
 
         try (Connection connection = DriverManager.getConnection(jdbcModel.getJdbcString(), jdbcModel.getUser(),
                                                                  jdbcModel.getPassword())) {
-            System.out.println("Successfully connected to the database");
+            LOGGER.info("Successfully connected to the database");
             return true;
-        } catch (SQLException e) { // NOSONAR
-            System.out.println("Connection Failed! Check output console");
-            e.printStackTrace();
+        } catch (SQLException e) {
+            LOGGER.error("Connection Failed! Check output console", e);
             return false;
         }
 

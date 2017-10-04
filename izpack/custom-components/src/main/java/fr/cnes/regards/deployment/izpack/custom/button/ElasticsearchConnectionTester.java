@@ -25,6 +25,8 @@ import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import org.elasticsearch.transport.client.PreBuiltTransportClient;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.izforge.izpack.api.data.InstallData;
 import com.izforge.izpack.api.handler.Prompt;
@@ -37,6 +39,8 @@ import com.izforge.izpack.util.Console;
  * @author Christophe Mertz
  */
 public class ElasticsearchConnectionTester extends ButtonAction {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ElasticsearchConnectionTester.class);
 
     /**
      * Message
@@ -81,8 +85,8 @@ public class ElasticsearchConnectionTester extends ButtonAction {
             settings = Settings.builder().put("cluster.name", cluster).build();
         }
 
-        client = new PreBuiltTransportClient(settings)
-                .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName(host), Integer.valueOf(port)));
+        client = new PreBuiltTransportClient(settings).addTransportAddress(new InetSocketTransportAddress(
+                InetAddress.getByName(host), Integer.valueOf(port)));
     }
 
     @Override
@@ -94,10 +98,8 @@ public class ElasticsearchConnectionTester extends ButtonAction {
         try {
             createTransportClient();
             return !client.connectedNodes().isEmpty();
-        } catch (UnknownHostException e) {  // NOSONAR
-            System.out.println("Connection Failed to Elasticsearch : " + host + "(" + port + ") for cluster : "
-                    + cluster);
-            e.printStackTrace();
+        } catch (UnknownHostException e) {
+            LOGGER.error("Connection Failed to Elasticsearch : " + host + "(" + port + ") for cluster : " + cluster, e);
             return false;
         } finally {
             if (client != null) {
