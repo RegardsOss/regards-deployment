@@ -462,7 +462,11 @@
 			</fileset>
 			<file src="sbin/microservice_config.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
-			<fileset dir="config/BOOT-INF/classes/regards" targetdir="$INSTALL_PATH/REGARDS/config/regards"
+  			<fileset dir="config/config/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/config"
+				override="true">
+				<include name="logback.xml" />
+			</fileset>
+  			<fileset dir="config/BOOT-INF/classes/regards" targetdir="$INSTALL_PATH/REGARDS/config/regards"
 				override="true">
 				<include name="*" />
 			</fileset>
@@ -512,6 +516,10 @@
 			</fileset>
 			<file src="sbin/microservice_registry.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
+  			<fileset dir="config/registry/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/registry"
+				override="true">
+				<include name="logback.xml" />
+			</fileset>
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
@@ -552,6 +560,10 @@
 			</fileset>
 			<file src="sbin/microservice_gateway.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
+  			<fileset dir="config/gateway/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/gateway"
+				override="true">
+				<include name="logback.xml" />
+			</fileset>
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
@@ -592,6 +604,10 @@
 			</fileset>
 			<file src="sbin/microservice_admin.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
+  			<fileset dir="config/admin/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/admin"
+				override="true">
+				<include name="logback.xml" />
+			</fileset>
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
@@ -632,6 +648,10 @@
 			</fileset>
 			<file src="sbin/microservice_authentication.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
+  			<fileset dir="config/authentication/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/authentication"
+				override="true">
+				<include name="logback.xml" />
+			</fileset>
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
@@ -672,6 +692,10 @@
 			</fileset>
 			<file src="sbin/microservice_dam.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
+  			<fileset dir="config/dam/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/dam"
+				override="true">
+				<include name="logback.xml" />
+			</fileset>
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
@@ -711,6 +735,10 @@
 			</fileset>
 			<file src="sbin/microservice_catalog.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
+  			<fileset dir="config/catalog/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/catalog"
+				override="true">
+				<include name="logback.xml" />
+			</fileset>
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
@@ -753,6 +781,14 @@
 				override="true" />
 			<file src="sbin/microservice_access-project.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
+  			<fileset dir="config/access-instance/BOOT-INF/classes" targetdir="$INSTALL_PATH/REGARDS/config/logback/access-instance"
+				override="true">
+				<include name="logback.xml" />
+			</fileset>
+  			<fileset dir="config/access-project/BOOT-INF/classes" targetdir="$INSTALL_PATH/REGARDS/config/logback/access-projet"
+				override="true">
+				<include name="logback.xml" />
+			</fileset>
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>

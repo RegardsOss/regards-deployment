@@ -68,7 +68,7 @@ typeset microservices_infos
 microservices_infos=$(get_microservice_info "${ROOT_DIR}" "${MICROSERVICE_TYPE}" "${MICROSERVICE_ID}")
 
 cd "${ROOT_DIR}"
-typeset log_file pid pid_file lib_exec_java
+typeset log_file pid pid_file lib_exec_java logback_file
 lib_exec_java=$(get_lib_exec_java "${ROOT_DIR}/bootstrap-${MICROSERVICE_TYPE}")
 
 printf "${microservices_infos}\n" | while read line
@@ -105,11 +105,13 @@ do
     touch ${log_file}
     chmod g+r ${log_file}
 
+    logback_file="${ROOT_DIR}"/config/logback/${MICROSERVICE_TYPE}/logback.xml
+
     if [ ${MICROSERVICE_TYPE} == "frontend" ]
     then
         java -Xms${microservices_infos_t[xmx]} -Xmx${microservices_infos_t[xmx]} -jar -Dserver.address="0.0.0.0"  -Dserver.port="${microservices_infos_t[port]}" ${lib_exec_java} --regards.frontend.www.path=./www > "${log_file}" 2>&1 &
     else
-        java -Xms${microservices_infos_t[xmx]} -Xmx${microservices_infos_t[xmx]} -jar -Dserver.address="0.0.0.0"  -Dserver.port="${microservices_infos_t[port]}" ${lib_exec_java} > "${log_file}" 2>&1 &
+        java -Xms${microservices_infos_t[xmx]} -Xmx${microservices_infos_t[xmx]} -Dserver.address="0.0.0.0" -Dserver.port="${microservices_infos_t[port]}" -jar ${lib_exec_java} -Dlogging.config=${logback_file}  > "${log_file}" 2>&1 &
     fi
     pid=$!
 
