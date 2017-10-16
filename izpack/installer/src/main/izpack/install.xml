@@ -858,8 +858,8 @@
 			</fileset>
 			<file src="sbin/microservice_frontend.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
-			<parsable type="plain">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/www" includes="**/*.js" />
+			<parsable type="plain" encoding="UTF-8">
+				<fileset targetdir="$INSTALL_PATH/REGARDS/www" includes="conf/*.js" />
 			</parsable>
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
