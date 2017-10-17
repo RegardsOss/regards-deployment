@@ -852,7 +852,7 @@
 				override="true">
 				<include name="bootstrap-frontend.*ar" />
 			</fileset>
-			<fileset dir="static" targetdir="$INSTALL_PATH/REGARDS/www"
+			<fileset dir="config/static" targetdir="$INSTALL_PATH/REGARDS/www"
 				override="true">
 				<include name="**/*" />
 			</fileset>
