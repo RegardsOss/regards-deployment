@@ -670,15 +670,13 @@
 		<field type="divider" />
 		<field type="space" />
 		<field type="staticText" id="frontend.panel.gateway.label" bold="true" />
-		<field type="text" variable="regards.config.cloud.gateway.uri">
-			<spec id="host.label" size="15" default="${regards.config.cloud.gateway.uri}" />
-		</field>
-		<field type="text" variable="regards.config.cloud.gateway.port">
-			<spec id="port.label" size="15"
-				default="${regards.config.cloud.gateway.port}" />
+		<field type="rule"
+			variable="regards.config.cloud.gateway.url">
+			<spec default="${regards.config.cloud.gateway.url}"
+				id="url.label" layout="O:5:U :// O:15:U : N:5:U" resultFormat="displayFormat" />
 		</field>
 	</panel>
-
+	
 	<panel id="CheckJdbcConnectionsPanel">
 		<field id="check.jdbc.connections.panel.title" type="title" />
 		<field id="check.jdbc.connections.panel.detail" type="staticText" />
@@ -746,6 +744,35 @@
 				</run>
 			</spec>
 		</field>
+		
+		
+		<field type="button" conditionid="izpack.selected.dam" id="components.dam.elastic">
+			<spec id="connection.tester.test" successMsg="elasticsearch.tester.success">
+				<run
+					class="fr.cnes.regards.deployment.izpack.custom.button.ElasticsearchConnectionTester">
+					<msg id="elasticsearch.tester.fail" name="error" />
+				</run>
+			</spec>
+		</field>
+		
+		<field type="button" id="components.rabbit.test">
+			<spec id="connection.tester.test" successMsg="rabbit.tester.success">
+				<run
+					class="fr.cnes.regards.deployment.izpack.custom.button.AmqpConnectionTester">
+					<msg id="rabbit.tester.fail" name="error" />
+				</run>
+			</spec>
+		</field>
+		
+		<field type="button" id="components.rabbit.management.test">
+			<spec id="connection.tester.test" successMsg="rabbit.tester.success">
+				<run
+					class="fr.cnes.regards.deployment.izpack.custom.button.AmqpAdminConnectionTester">
+					<msg id="rabbit.tester.fail" name="error" />
+				</run>
+			</spec>
+		</field>
+		
 
 	</panel>
 

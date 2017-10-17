@@ -2,8 +2,8 @@
 ______________
 
 Identification                       : Regards
-Date                                 : 2017-07-12
-Version                              : 1.0
+Date                                 : 2017-10-XX
+Version                              : 1.1
 Owner                                : CNES
 Developer                            : CS SI
 Type                                 : Complete
@@ -11,16 +11,16 @@ Project page                         : https://github.com/RegardsOss
 Classification                       : Not Confidential - Opensource GPL V3
 Characteristics                      : Microservice, NetflixOSS, Spring, Java, Javascript, React
 Role/Function                        : Data valorization product
-Reference tag                        : (1.0)
+Reference tag                        : (1.1)
 
 2/ Changes
 ______________
 
-- 1.0 (2017-07-12) : Initial version of Regards
+- 1.1 (2017-10-XX) : Initial version of Regards
 
-	- Bugs fixed :
+	- Bugs fixed : to be completed
 
-	- Known bugs :
+	- Known bugs : to be completed
 
 
 3/ System requirements
@@ -55,13 +55,7 @@ Java Development Kit    |  1.8            |   Oracle                            
 Maven                   |  3.3+           |   Apache Software Foundation                        |
 Groovy                  |  2.4+           |   Apache Software Foundation                        |
 Node.js                 |  6.11.0 LTS     |   Linux Foundation                                  |
-ojdbc6.jar              |  11.2.0.4       |   Oracle                                            |
-orai18n.jar             |  11.2.0.4       |   Oracle                                            |
 .................................................................................................
-
-Licence to accept to download Oracle products :
-- Oracle Technology Network License Agreement
-- Oracle Binary Code License Agreement for the Java SE Platform Products and JavaFX
 
 Apache Software are distributed under Apache License version 2.0.
 
@@ -70,7 +64,7 @@ Apache Software are distributed under Apache License version 2.0.
 __________
 
 1) Backend
-      Access : two microservices Access, one for the instance frontend, one for the project frontend
+	Access : two microservices Access, one for the instance frontend, one for the project frontend
 			Administration : the microservice Administration
 			Catalog : the microservice Catalog
 			Cloud : the components Config, Registry, Gateway and the microservice Authentication
@@ -79,14 +73,13 @@ __________
 			regards : the Maven BOM (Bill of Materials)
 
 2) Client
-      Frontend  : the web interface
+	Frontend  : the web interface
 
 3) Build modules
-	    Deployement : the IzPack installer of Regards
+	Deployement : the IzPack installer of Regards
 
-4)
-			Documentation : the documentation of Regards
-			Tests end-to-end : the test end-to-end of Regards for Selenium
+4) Documentation : the documentation of Regards
+	Tests end-to-end : the test end-to-end of Regards for Selenium
 
 5/ File extensions
 __________________
@@ -114,17 +107,6 @@ __________________
 
 6/ Build
 ________
-
-6.1/ Requirements
-_________________
-
-The Oracle JDBC drivers must be add to the Maven local repository before to build Regards.
-
-mvn install:install-file -Dfile=ojdbc6-11.2.0.4.jar -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0.4 -Dpackaging=jar
-mvn install:install-file -Dfile=orai18n-11.2.0.4.jar -DgroupId=com.oracle -DartifactId=orai18n -Dversion=11.2.0.4 -Dpackaging=jar
-
-6.1/ Build
-__________
 
 git clone https://thor.si.c-s.fr/git/regards
 cd regards
@@ -163,7 +145,7 @@ mvn install -DskipTests
 cd ..
 git clone https://thor.si.c-s.fr/git/rs-frontend
 cd rs-frontend
-mvn install -DskipTests
+mvn install -DskipTests -P delivery
 
 7/ Build installer
 __________________

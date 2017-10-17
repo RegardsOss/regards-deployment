@@ -25,7 +25,10 @@ import java.nio.file.Paths;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import fr.cnes.regards.deployment.izpack.custom.button.AbstractJdbcConnectionTester;
 import fr.cnes.regards.deployment.izpack.custom.model.ComponentConfigList;
 import fr.cnes.regards.deployment.izpack.custom.model.WaitRuleList;
 
@@ -36,6 +39,8 @@ import fr.cnes.regards.deployment.izpack.custom.model.WaitRuleList;
  * @since 1.0.0
  */
 public class XmlAccessorTest {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(XmlAccessorTest.class);
 
     @Test
     public void testReadFromStringWriteToFile() {
@@ -64,8 +69,7 @@ public class XmlAccessorTest {
             Assert.assertEquals("The files differ!", FileUtils.readFileToString(outputFile.toFile(), "utf-8"),
                                 FileUtils.readFileToString(expendedFile.toFile(), "utf-8"));
         } catch (IOException e) {
-            e.printStackTrace();
-            Assert.fail();
+            LOGGER.error(e.getMessage(), e);
         }
     }
 
@@ -154,8 +158,7 @@ public class XmlAccessorTest {
             Assert.assertEquals("The files differ!", FileUtils.readFileToString(outputFile.toFile(), "utf-8"),
                                 FileUtils.readFileToString(expendedFile.toFile(), "utf-8"));
         } catch (IOException e) {
-            e.printStackTrace();
-            Assert.fail();
+            LOGGER.error(e.getMessage(), e);
         }
     }
 }

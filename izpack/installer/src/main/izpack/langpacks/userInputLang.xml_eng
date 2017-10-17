@@ -25,11 +25,16 @@
 	<str id="components.admin.instance" txt="Administration instance" />
 	<str id="components.admin.project" txt="Administration project" />
 	<str id="components.dam" txt="Data Management" />
+	<str id="components.dam.elastic" txt="Elasticsearch" />
+	<str id="components.rabbit.test" txt="RabbitMQ" />
+	<str id="components.rabbit.management.test" txt="RabbitMQ management" />
 	<str id="components.catalog" txt="Catalog" />
 	<str id="components.access" txt="Access" />
 	<str id="components.access.instance" txt="Access instance" />
-	<str id="components.access.project" txt="Access project" />
+	<str id="components.access.project" txt="Access project" />	
 	<str id="components.storage" txt="Storage" />
+	<str id="protocol.http" txt="http" />
+	<str id="protocol.https" txt="https" />
 
 	<!-- SelectInstallationTypePanel -->
 	<str id="selectinstallationtype.panel.title.label" txt="How do you want to install REGARDS?" />
@@ -80,9 +85,9 @@
 	<str id="frontend.panel.gateway.label" txt="Gateway" />
 
 	<!-- RabbitmqPanel -->
-	<str id="rabbitmq.panel.title.label" txt="Message borker configuration" />
+	<str id="rabbitmq.panel.title.label" txt="Message broker configuration" />
 	<str id="rabbitmq.panel.rabbitmq.label" txt="RabbitMQ" />
-	<str id="rabbitmq.panel.amqp.label" txt="AMQP" />
+	<str id="rabbitmq.panel.amqp.label" txt="RabbitMQ management" />
 
 	<!-- ConfigPanel -->
 	<str id="config.panel.title.label" txt="Configuration microservice" />
@@ -129,9 +134,9 @@
 	<str id="access-project.panel.title.label" txt="Access Project microservice" />
 
 	<!-- CheckJdbcConnectionsPanel -->
-	<str id="check.jdbc.connections.panel.title" txt="Check the databases you configured" />
+	<str id="check.jdbc.connections.panel.title" txt="Check the connections you configured" />
 	<str id="check.jdbc.connections.panel.detail"
-		txt="Perform this quick check to ensure you databases are properly configured. However you can finish the installation even if they are not." />
+		txt="Perform this quick check to ensure you connections are properly configured. However you can finish the installation even if they are not." />
 
 	<!-- Validators -->
 	<str id="validator.host.error.label" txt="Invalid host format" />

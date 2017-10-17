@@ -28,12 +28,13 @@ import fr.cnes.regards.deployment.izpack.custom.model.ComponentType;
  * @author Guillaume Barthe de Montmejan
  * @since 1.0.0
  */
-public class ValidatorAdminPanel extends InjectDataValidator {
+public class ValidatorAdminPanel extends AbstractInjectDataValidator {
 
     /**
      * Default constructor
      */
     public ValidatorAdminPanel() {
+        super();
         type = ComponentType.ADMIN;
         entryKey = type.getName();
     }

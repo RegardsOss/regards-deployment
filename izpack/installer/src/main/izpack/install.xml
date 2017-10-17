@@ -54,10 +54,50 @@
 		<modifier key="showDebugWindow" value="true" />
 	</guiprefs>
 
-	<!-- Custom panels, buttons, ... -->
+	<!-- Regards custom panels, buttons, validator ... -->
 	<jar src="custom/custom-components.jar" />
+	
 	<!-- JDBC database drivers -->
 	<jar src="lib/postgresql-42.1.1.jre7.jar" />
+	
+	<!-- Elasticsearch transport drivers -->
+	<jar src="lib/elasticsearch-5.1.1.jar" />
+	<jar src="lib/hppc-0.7.1.jar" />
+	<jar src="lib/httpclient-4.5.3.jar" />
+	<jar src="lib/log4j-api-2.9.1.jar" />
+	<jar src="lib/jackson-core-2.8.1.jar" />
+	<jar src="lib/joda-time-2.7.jar" />
+	<jar src="lib/lang-mustache-client-5.1.1.jar" />
+	<jar src="lib/lucene-analyzers-common-6.3.0.jar" />
+	<jar src="lib/lucene-backward-codecs-6.3.0.jar" />
+	<jar src="lib/lucene-core-6.3.0.jar" />
+	<jar src="lib/lucene-grouping-6.3.0.jar" />
+	<jar src="lib/lucene-highlighter-6.3.0.jar" />
+	<jar src="lib/lucene-join-6.3.0.jar" />
+	<jar src="lib/lucene-memory-6.3.0.jar" />
+	<jar src="lib/lucene-misc-6.3.0.jar" />
+	<jar src="lib/lucene-queries-6.3.0.jar" />
+	<jar src="lib/lucene-queryparser-6.3.0.jar" />
+	<jar src="lib/lucene-suggest-6.3.0.jar" />
+	<jar src="lib/lucene-sandbox-6.3.0.jar" />
+	<jar src="lib/lucene-spatial-6.3.0.jar" />
+	<jar src="lib/lucene-spatial-extras-6.3.0.jar" />
+	<jar src="lib/lucene-spatial3d-6.3.0.jar" />
+	<jar src="lib/netty-3.10.6.Final.jar" />
+	<jar src="lib/netty-all-4.1.16.Final.jar" />
+	<jar src="lib/percolator-client-5.1.1.jar" />
+	<jar src="lib/reindex-client-5.1.1.jar" />
+	<jar src="lib/transport-5.1.1.jar" />
+	<jar src="lib/transport-netty3-client-5.1.1.jar" />
+	<jar src="lib/transport-netty4-client-5.1.1.jar" />
+	<jar src="lib/t-digest-3.0.jar" />
+	
+	<jar src="lib/amqp-client-3.6.3.jar" />
+	
+	<jar src="lib/slf4j-api-1.7.21.jar" />
+	<jar src="lib/logback-classic-1.1.7.jar" />
+	<jar src="lib/logback-core-1.1.7.jar" />
+	<jar src="lib/log4j-core-2.6.2.jar" />
 
 	<resources>
 		<res id="Splash.image" src="images/splash.jpg" />
@@ -107,8 +147,6 @@
 		<variable name="gateway.host" value="0.0.0.0" />
 		<variable name="gateway.port" value="8000" />
 		<variable name="gateway.xmx" value="128m" />
-		<variable name="regards.config.cloud.gateway.uri" value="localhost" />
-		<variable name="regards.config.cloud.gateway.port" value="8000" />
 
 		<!-- Message broker -->
 		<variable name="regards.config.spring.rabbitmq.host" value="localhost" />
@@ -249,6 +287,7 @@
 		<variable name="frontend.host" value="localhost" />
 		<variable name="frontend.port" value="3333" />
 		<variable name="frontend.xmx" value="256m" />
+		<variable name="regards.config.cloud.gateway.url" value="http://localhost:8000" />
 
 		<!-- Internal variables for workflow management -->
 		<variable name="installation.type" value="full" />
@@ -423,7 +462,11 @@
 			</fileset>
 			<file src="sbin/microservice_config.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
-			<fileset dir="config/BOOT-INF/classes/regards" targetdir="$INSTALL_PATH/REGARDS/config/regards"
+  			<fileset dir="config/config/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/config"
+				override="true">
+				<include name="logback.xml" />
+			</fileset>
+  			<fileset dir="config/BOOT-INF/classes/regards" targetdir="$INSTALL_PATH/REGARDS/config/regards"
 				override="true">
 				<include name="*" />
 			</fileset>
@@ -473,6 +516,10 @@
 			</fileset>
 			<file src="sbin/microservice_registry.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
+  			<fileset dir="config/registry/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/registry"
+				override="true">
+				<include name="logback.xml" />
+			</fileset>
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
@@ -513,6 +560,10 @@
 			</fileset>
 			<file src="sbin/microservice_gateway.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
+  			<fileset dir="config/gateway/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/gateway"
+				override="true">
+				<include name="logback.xml" />
+			</fileset>
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
@@ -553,6 +604,10 @@
 			</fileset>
 			<file src="sbin/microservice_admin.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
+  			<fileset dir="config/admin/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/admin"
+				override="true">
+				<include name="logback.xml" />
+			</fileset>
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
@@ -593,6 +648,10 @@
 			</fileset>
 			<file src="sbin/microservice_authentication.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
+  			<fileset dir="config/authentication/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/authentication"
+				override="true">
+				<include name="logback.xml" />
+			</fileset>
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
@@ -633,6 +692,10 @@
 			</fileset>
 			<file src="sbin/microservice_dam.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
+  			<fileset dir="config/dam/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/dam"
+				override="true">
+				<include name="logback.xml" />
+			</fileset>
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
@@ -672,6 +735,10 @@
 			</fileset>
 			<file src="sbin/microservice_catalog.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
+  			<fileset dir="config/catalog/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/catalog"
+				override="true">
+				<include name="logback.xml" />
+			</fileset>
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
@@ -714,6 +781,14 @@
 				override="true" />
 			<file src="sbin/microservice_access-project.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
+  			<fileset dir="config/access-instance/BOOT-INF/classes" targetdir="$INSTALL_PATH/REGARDS/config/logback/access-instance"
+				override="true">
+				<include name="logback.xml" />
+			</fileset>
+  			<fileset dir="config/access-project/BOOT-INF/classes" targetdir="$INSTALL_PATH/REGARDS/config/logback/access-projet"
+				override="true">
+				<include name="logback.xml" />
+			</fileset>
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
@@ -777,14 +852,14 @@
 				override="true">
 				<include name="bootstrap-frontend.*ar" />
 			</fileset>
-			<fileset dir="config/static" targetdir="$INSTALL_PATH/REGARDS/www"
+			<fileset dir="static" targetdir="$INSTALL_PATH/REGARDS/www"
 				override="true">
 				<include name="**/*" />
 			</fileset>
 			<file src="sbin/microservice_frontend.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
-			<parsable type="plain">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/www" includes="**/*.js" />
+			<parsable type="plain" encoding="UTF-8">
+				<fileset targetdir="$INSTALL_PATH/REGARDS/www" includes="conf/*.js" />
 			</parsable>
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />

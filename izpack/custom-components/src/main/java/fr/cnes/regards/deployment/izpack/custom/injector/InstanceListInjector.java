@@ -75,11 +75,12 @@ public class InstanceListInjector implements InstallDataInjector {
         ComponentConfigList componentConfigList = new ComponentConfigList();
         // Concatenate all values in single one formatted
         for (int i = IZPACK_FIRST_INDEX_OF_VARIABLE_LIST; i < nbComponents; i++) {
-            ComponentConfig componentConfig = new ComponentConfig();
+            
             String uri = pInstallData.getVariable(uriName + "." + i);
             int port = Integer.parseInt(pInstallData.getVariable(portName + "." + i));
             String xmx = pInstallData.getVariable(xmxName);
 
+            ComponentConfig componentConfig = new ComponentConfig();
             componentConfig.setHost(uri);
             componentConfig.setPort(port);
             componentConfig.setId(i - 1);

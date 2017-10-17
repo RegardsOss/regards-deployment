@@ -32,18 +32,6 @@ import fr.cnes.regards.deployment.izpack.custom.model.ComponentType;
  */
 public class DummyInstallDataFactory {
 
-    private static final String ACCESS_INSTANCE_DB_URL_VARIABLE_NAME = "regards.config.access.instance.regards.jpa.instance.datasource.url";
-
-    private static final String ACCESS_INSTANCE_DB_URL_VARIABLE_VALUE = "172.26.47.52:5432/rs_access_instance";
-
-    private static final String ACCESS_INSTANCE_DB_USER_VARIABLE_VALUE = "azertyuiop123456789";
-
-    private static final String ACCESS_INSTANCE_DB_USER_VARIABLE_NAME = "regards.config.access.instance.regards.jpa.instance.datasource.user.name";
-
-    private static final String ACCESS_INSTANCE_DB_PASSWORD_VARIABLE_VALUE = "azertyuiop123456789";
-
-    private static final String ACCESS_INSTANCE_DB_PASSWORD_VARIABLE_NAME = "regards.config.access.instance.regards.jpa.instance.datasource.password";
-
     public static InstallData buildWithRegistry(ComponentType pType) {
         Variables variables = new DefaultVariables();
         Platform platform = new Platform(Name.LINUX, System.getProperty("os.version"));
@@ -61,56 +49,8 @@ public class DummyInstallDataFactory {
         variables.set(portName + ".1", "3456");
         variables.set(uriName + ".2", "127.0.0.1");
         variables.set(portName + ".2", "3457");
-        
+
         variables.set(xmxName, "5432m");
-
-        return installData;
-    }
-
-    public static InstallData buildWithAccessInstance() {
-        Variables variables = new DefaultVariables();
-        Platform platform = new Platform(Name.LINUX, System.getProperty("os.version"));
-
-        InstallData installData = new com.izforge.izpack.installer.data.InstallData(variables, platform);
-        variables.set(ACCESS_INSTANCE_DB_URL_VARIABLE_NAME, ACCESS_INSTANCE_DB_URL_VARIABLE_VALUE);
-        variables.set(ACCESS_INSTANCE_DB_USER_VARIABLE_NAME, ACCESS_INSTANCE_DB_USER_VARIABLE_VALUE);
-        variables.set(ACCESS_INSTANCE_DB_PASSWORD_VARIABLE_NAME, ACCESS_INSTANCE_DB_PASSWORD_VARIABLE_VALUE);
-
-        return installData;
-    }
-
-    public static InstallData buildWithAccessInstanceWrongUrl() {
-        Variables variables = new DefaultVariables();
-        Platform platform = new Platform(Name.LINUX, System.getProperty("os.version"));
-
-        InstallData installData = new com.izforge.izpack.installer.data.InstallData(variables, platform);
-        variables.set(ACCESS_INSTANCE_DB_URL_VARIABLE_NAME, "this:is/awrongurl");
-        variables.set(ACCESS_INSTANCE_DB_USER_VARIABLE_NAME, ACCESS_INSTANCE_DB_USER_VARIABLE_VALUE);
-        variables.set(ACCESS_INSTANCE_DB_PASSWORD_VARIABLE_NAME, ACCESS_INSTANCE_DB_PASSWORD_VARIABLE_VALUE);
-
-        return installData;
-    }
-
-    public static InstallData buildWithAccessInstanceWrongUser() {
-        Variables variables = new DefaultVariables();
-        Platform platform = new Platform(Name.LINUX, System.getProperty("os.version"));
-
-        InstallData installData = new com.izforge.izpack.installer.data.InstallData(variables, platform);
-        variables.set(ACCESS_INSTANCE_DB_URL_VARIABLE_NAME, ACCESS_INSTANCE_DB_URL_VARIABLE_VALUE);
-        variables.set(ACCESS_INSTANCE_DB_USER_VARIABLE_NAME, "wrongname");
-        variables.set(ACCESS_INSTANCE_DB_PASSWORD_VARIABLE_NAME, ACCESS_INSTANCE_DB_PASSWORD_VARIABLE_VALUE);
-
-        return installData;
-    }
-
-    public static InstallData buildWithAccessInstanceWrongPassword() {
-        Variables variables = new DefaultVariables();
-        Platform platform = new Platform(Name.LINUX, System.getProperty("os.version"));
-
-        InstallData installData = new com.izforge.izpack.installer.data.InstallData(variables, platform);
-        variables.set(ACCESS_INSTANCE_DB_URL_VARIABLE_NAME, ACCESS_INSTANCE_DB_URL_VARIABLE_VALUE);
-        variables.set(ACCESS_INSTANCE_DB_USER_VARIABLE_NAME, ACCESS_INSTANCE_DB_USER_VARIABLE_VALUE);
-        variables.set(ACCESS_INSTANCE_DB_PASSWORD_VARIABLE_NAME, "wrongpassword");
 
         return installData;
     }

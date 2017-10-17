@@ -20,13 +20,29 @@ package fr.cnes.regards.deployment.izpack.custom.button;
 
 import com.izforge.izpack.api.data.InstallData;
 
-public class DamJdbcConnectionTester extends JdbcConnectionTester {
+public class DamJdbcConnectionTester extends AbstractJdbcConnectionTester {
+    
+    /**
+     * The name of the URL datasource variable in the install data
+     */
+    public static final String URL_DATASOURCE_VARIABLE = "regards.config.dam.regards.jpa.multitenant.tenants.url.1";
 
-    public DamJdbcConnectionTester(InstallData pInstallData) {
-        super(pInstallData);
-        urlVariable = "regards.config.dam.regards.jpa.multitenant.tenants.url.1";
-        userVariable = "regards.config.dam.regards.jpa.multitenant.tenants.user.name.1";
-        passwordVariable = "regards.config.dam.regards.jpa.multitenant.tenants.password.1";
+    /**
+     * The name of the username datasource variable in the install data
+     */
+    public static final String USERNAME_DATASOURCE_VARIABLE = "regards.config.dam.regards.jpa.multitenant.tenants.user.name.1";
+
+    /**
+     * The name of the password datasource variable in the install data
+     */
+    public static final String PASSWORD_DATASOURCE_VARIABLE = "regards.config.dam.regards.jpa.multitenant.tenants.password.1";
+
+
+    public DamJdbcConnectionTester(InstallData installData) {
+        super(installData);
+        urlVariable = URL_DATASOURCE_VARIABLE;
+        userVariable = USERNAME_DATASOURCE_VARIABLE;
+        passwordVariable = PASSWORD_DATASOURCE_VARIABLE;
     }
 
 }

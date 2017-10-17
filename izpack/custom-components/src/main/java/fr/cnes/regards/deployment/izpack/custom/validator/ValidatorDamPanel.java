@@ -28,12 +28,13 @@ import fr.cnes.regards.deployment.izpack.custom.model.ComponentType;
  * @author Guillaume Barthe de Montmejan
  * @since 1.0.0
  */
-public class ValidatorDamPanel extends InjectDataValidator {
+public class ValidatorDamPanel extends AbstractInjectDataValidator {
 
     /**
      * Default constructor
      */
     public ValidatorDamPanel() {
+        super();
         type = ComponentType.DAM;
         entryKey = type.getName();
     }

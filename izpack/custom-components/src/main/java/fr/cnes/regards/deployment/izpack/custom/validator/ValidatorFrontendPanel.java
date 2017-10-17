@@ -28,12 +28,13 @@ import fr.cnes.regards.deployment.izpack.custom.model.ComponentType;
  * @author Guillaume Barthe de Montmejan
  * @since 1.0.0
  */
-public class ValidatorFrontendPanel extends InjectDataValidator {
+public class ValidatorFrontendPanel extends AbstractInjectDataValidator {
 
     /**
      * Default constructor
      */
     public ValidatorFrontendPanel() {
+        super();
         type = ComponentType.FRONTEND;
         entryKey = type.getName();
     }

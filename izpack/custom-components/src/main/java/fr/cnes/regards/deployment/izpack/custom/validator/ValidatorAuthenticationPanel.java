@@ -26,12 +26,13 @@ import fr.cnes.regards.deployment.izpack.custom.model.ComponentType;
  * @author Xavier-Alexandre Brochard
  * @since 1.0.0
  */
-public class ValidatorAuthenticationPanel extends InjectDataValidator {
+public class ValidatorAuthenticationPanel extends AbstractInjectDataValidator {
 
     /**
      * Default constructor
      */
     public ValidatorAuthenticationPanel() {
+        super();
         type = ComponentType.AUTHENTICATION;
         entryKey = type.getName();
     }

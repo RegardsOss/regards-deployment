@@ -22,7 +22,29 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<artifactId>installer</artifactId>
-	<description>Deployment with Izpack</description>
+	
+	<name>Installer</name>
+	<description>Required files describing an Izpack installer</description>
+	<url>https://github.com/RegardsOss/RegardsOss.github.io</url>
+	<inceptionYear>2016</inceptionYear>
+	<licenses>
+		<license>
+			<name>GNU General Public License (GNU GPL)</name>
+			<url>http://www.gnu.org/licenses/gpl.html</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<organization>
+		<name>CNES</name>
+		<url>https://cnes.fr/fr</url>
+	</organization>
+	<developers>
+		<developer>
+			<name>REGARDS Team</name>
+			<organization>CS Systèmes d'Information</organization>
+			<organizationUrl>http://www.c-s.fr</organizationUrl>
+		</developer>
+	</developers>
 
 	<!-- Launch IzPack automatically -->
 	<packaging>jar</packaging>
@@ -30,13 +52,14 @@
 	<parent>
 		<groupId>fr.cnes.regards.deployment</groupId>
 		<artifactId>izpack</artifactId>
-		<version>2.0.0-SNAPSHOT</version>
+		<version>1.1.0-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
 
 	<properties>
 		<staging.dir>${project.build.directory}/staging</staging.dir>
 		<temp.dir.filtering>target/config-to-filter</temp.dir.filtering>
+		<custom.components.version>1.1.0-SNAPSHOT</custom.components.version>
 	</properties>
 
 	<build>
@@ -131,6 +154,159 @@
 							</artifactItems>
 							<outputDirectory>${temp.dir.filtering}</outputDirectory>
 							<includes>BOOT-INF/classes/regards/*.properties</includes>
+						</configuration>
+					</execution>
+					<execution>
+						<id>unpack-logback-config</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>fr.cnes.regards.cloud</groupId>
+									<artifactId>bootstrap-config</artifactId>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${temp.dir.filtering}/config</outputDirectory>
+							<includes>BOOT-INF/classes/logback.xml</includes>
+						</configuration>
+					</execution>
+					<execution>
+						<id>unpack-logback-registry</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>fr.cnes.regards.cloud</groupId>
+									<artifactId>bootstrap-registry</artifactId>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${temp.dir.filtering}/registry</outputDirectory>
+							<includes>BOOT-INF/classes/logback.xml</includes>
+						</configuration>
+					</execution>
+					<execution>
+						<id>unpack-logback-gateway</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>fr.cnes.regards.cloud</groupId>
+									<artifactId>bootstrap-gateway</artifactId>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${temp.dir.filtering}/gateway</outputDirectory>
+							<includes>BOOT-INF/classes/logback.xml</includes>
+						</configuration>
+					</execution>
+					<execution>
+						<id>unpack-logback-admin</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>fr.cnes.regards.microservices.administration</groupId>
+									<artifactId>bootstrap-administration</artifactId>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${temp.dir.filtering}/admin</outputDirectory>
+							<includes>BOOT-INF/classes/logback.xml</includes>
+						</configuration>
+					</execution>
+					<execution>
+						<id>unpack-logback-authentication</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>fr.cnes.regards.microservices.authentication</groupId>
+									<artifactId>bootstrap-authentication</artifactId>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${temp.dir.filtering}/authentication</outputDirectory>
+							<includes>BOOT-INF/classes/logback.xml</includes>
+						</configuration>
+					</execution>
+					<execution>
+						<id>unpack-logback-dam</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>fr.cnes.regards.microservices.dam</groupId>
+									<artifactId>bootstrap-dam</artifactId>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${temp.dir.filtering}/dam</outputDirectory>
+							<includes>BOOT-INF/classes/logback.xml</includes>
+						</configuration>
+					</execution>
+					<execution>
+						<id>unpack-logback-catalog</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>fr.cnes.regards.microservices.catalog</groupId>
+									<artifactId>bootstrap-catalog</artifactId>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${temp.dir.filtering}/catalog</outputDirectory>
+							<includes>BOOT-INF/classes/logback.xml</includes>
+						</configuration>
+					</execution>
+					<execution>
+						<id>unpack-logback-access-projet</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>fr.cnes.regards.microservices.access</groupId>
+									<artifactId>bootstrap-access-project</artifactId>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${temp.dir.filtering}/access-project</outputDirectory>
+							<includes>BOOT-INF/classes/logback.xml</includes>
+						</configuration>
+					</execution>
+					<execution>
+						<id>unpack-logback-access-instance</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>fr.cnes.regards.microservices.access</groupId>
+									<artifactId>bootstrap-access-instance</artifactId>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${temp.dir.filtering}/access-instance</outputDirectory>
+							<includes>BOOT-INF/classes/logback.xml</includes>
 						</configuration>
 					</execution>
 					<execution>
@@ -229,6 +405,11 @@
 		<dependency>
 			<groupId>fr.cnes.regards.deployment</groupId>
 			<artifactId>custom-components</artifactId>
+		</dependency>
+		<dependency>
+    		<groupId>org.elasticsearch</groupId>
+    		<artifactId>elasticsearch</artifactId>
+    		<version>5.1.1</version>
 		</dependency>
 	</dependencies>
 
