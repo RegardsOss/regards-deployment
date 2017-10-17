@@ -145,7 +145,7 @@ mvn install -DskipTests
 cd ..
 git clone https://thor.si.c-s.fr/git/rs-frontend
 cd rs-frontend
-mvn install -DskipTests
+mvn install -DskipTests -P delivery
 
 7/ Build installer
 __________________
