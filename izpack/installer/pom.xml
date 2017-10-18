@@ -152,7 +152,7 @@
 									<artifactId>bootstrap-config</artifactId>
 								</artifactItem>
 							</artifactItems>
-							<outputDirectory>${temp.dir.filtering}</outputDirectory>
+							<outputDirectory>${temp.dir.filtering}/regards</outputDirectory>
 							<includes>BOOT-INF/classes/regards/*.properties</includes>
 						</configuration>
 					</execution>
@@ -323,7 +323,7 @@
 									<type>war</type>
 								</artifactItem>
 							</artifactItems>
-							<outputDirectory>${temp.dir.filtering}</outputDirectory>
+							<outputDirectory>${temp.dir.filtering}/frontend</outputDirectory>
 							<includes>static/conf/**/*,static/plugins/**/*,static/img/**/*,static/html/**/*</includes>
 						</configuration>
 					</execution>
