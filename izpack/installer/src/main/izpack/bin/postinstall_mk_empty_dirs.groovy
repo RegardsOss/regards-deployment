@@ -30,5 +30,8 @@ if(!Files.exists(Paths.get("logs"))) {
 if(!Files.exists(Paths.get("run"))) {
 	Files.createDirectory(Paths.get("run"));
 }
+if(!Files.exists(Paths.get("plugins"))) {
+	Files.createDirectory(Paths.get("plugins"));
+}
 
 System.exit(0);
