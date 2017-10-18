@@ -58,6 +58,11 @@ pipeline {
       }
     }
     stage('Stop') {
+      when {
+			anyOf {
+				branch 'develop_V1.1.0'
+		    }
+	  }
       steps {
         parallel(
           config: {
@@ -94,6 +99,11 @@ pipeline {
       }
     }
     stage('Clean') {
+        when {
+			anyOf {
+				branch 'develop_V1.1.0'
+		    }
+	    }
     	steps {
         // Retour au SNAPSHOT
         // Les VM-Cli ne marchent pas sur centos 7 (pb perl ou ?). Tant que ce n'est pas résolu,
@@ -107,26 +117,46 @@ pipeline {
       }
     }
     stage('Deploy') {
-      steps {
-        // Deploy installer to a LIVRAISON folder
-        sh 'ssh -t rsins@172.26.47.95 "mkdir -p LIVRAISON"'
-        sh 'scp izpack/installer/target/REGARDS-OSS-Installer.jar rsins@172.26.47.95:LIVRAISON'
-        sh 'scp izpack/installer/src/test/resources/auto-install-ic.xml rsins@172.26.47.95:LIVRAISON'
-      }
+	    when {
+			anyOf {
+				branch 'develop_V1.1.0'
+			}
+		}
+	    steps {
+	        // Deploy installer to a LIVRAISON folder
+	        sh 'ssh -t rsins@172.26.47.95 "mkdir -p LIVRAISON"'
+	        sh 'scp izpack/installer/target/REGARDS-OSS-Installer.jar rsins@172.26.47.95:LIVRAISON'
+	        sh 'scp izpack/installer/src/test/resources/auto-install-ic.xml rsins@172.26.47.95:LIVRAISON'
+	    }
     }
     stage('Install') {
       // Installation continue sur la VM regard-ic (172.26.47.95)
-      steps {
-        // The installation
-        sh 'ssh -t rsins@172.26.47.95 "cd LIVRAISON && java -jar REGARDS-OSS-Installer.jar auto-install-ic.xml"'
-      }
+      when {
+			anyOf {
+				branch 'develop_V1.1.0'
+			}
+		}
+        steps {
+        	// The installation
+        	sh 'ssh -t rsins@172.26.47.95 "cd LIVRAISON && java -jar REGARDS-OSS-Installer.jar auto-install-ic.xml"'
+        }
     }
     stage('Start') {
+      when {
+			anyOf {
+				branch 'develop_V1.1.0'
+		    }
+	  }
       steps {
         sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh start"'
       }
     }
     stage('Check') {
+      when {
+			anyOf {
+				branch 'develop_V1.1.0'
+		    }
+	  }
       steps {
         parallel(
           config: {

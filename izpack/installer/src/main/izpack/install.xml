@@ -466,7 +466,7 @@
 				override="true">
 				<include name="logback.xml" />
 			</fileset>
-  			<fileset dir="config/BOOT-INF/classes/regards" targetdir="$INSTALL_PATH/REGARDS/config/regards"
+  			<fileset dir="config/regards/BOOT-INF/classes/regards" targetdir="$INSTALL_PATH/REGARDS/config/regards"
 				override="true">
 				<include name="*" />
 			</fileset>
@@ -852,7 +852,7 @@
 				override="true">
 				<include name="bootstrap-frontend.*ar" />
 			</fileset>
-			<fileset dir="config/static" targetdir="$INSTALL_PATH/REGARDS/www"
+			<fileset dir="config/frontend/static" targetdir="$INSTALL_PATH/REGARDS/www"
 				override="true">
 				<include name="**/*" />
 			</fileset>
