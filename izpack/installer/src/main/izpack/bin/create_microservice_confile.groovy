@@ -29,6 +29,7 @@ String componentType = options.t;
 
 import java.nio.file.Paths;
 import java.nio.file.Path;
+import java.nio.file.Files;
 
 def urlLoader = new GroovyClassLoader();
 urlLoader.addURL((Paths.get(regardsInstallDir, "lib/custom-components.jar").toUri().toURL()));
@@ -45,5 +46,17 @@ Path componentFilePath = Paths.get(regardsInstallDir, "config/" + componentType 
 def cComponentConfigList = Class.forName("fr.cnes.regards.deployment.izpack.custom.model.ComponentConfigList", true, urlLoader);
 def cXmlAccessor = Class.forName("fr.cnes.regards.deployment.izpack.custom.xml.XmlAccessor", true, urlLoader);
 cXmlAccessor.writeToFile(xmlConfig, componentFilePath, cComponentConfigList);
+
+Path pluginPath = Paths.get(regardsInstallDir, "plugins")
+if(!Files.exists(pluginPath)) {
+	Files.createDirectory(pluginPath);
+}
+
+if(!componentType.equals("frontend")) {
+	Path pluginComponentPath = Paths.get(regardsInstallDir, "plugins", componentType)
+	if (!Files.exists(pluginComponentPath)) {
+		Files.createDirectory(pluginComponentPath);
+	}
+}
 
 System.exit(0);
