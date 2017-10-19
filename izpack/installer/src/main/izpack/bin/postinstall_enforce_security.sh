@@ -94,6 +94,11 @@ then
   chmod 0640 "${ROOT_DIR}/"*.jar
 fi
 
+# plugins dir read for execution by exec user
+chown -R :${EXEC_REGARDS_GROUP} "${ROOT_DIR}/"plugins
+find "${ROOT_DIR}"/plugins -type d -exec chmod 0750 {} \;
+find "${ROOT_DIR}"/plugins -type f -exec chmod 0640 {} \;
+
 # Dirs shared by admin (rw) and exec (ro) users
 chown -R :${ADMIN_REGARDS_GROUP} "${ROOT_DIR}"/config
 find "${ROOT_DIR}"/config -type d -exec chmod 2775 {} \;
