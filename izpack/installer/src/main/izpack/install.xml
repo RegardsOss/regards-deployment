@@ -165,6 +165,7 @@
 		<variable name="spring.mail.port" value="25" />
 		<variable name="spring.mail.username" value="" />
 		<variable name="spring.mail.password" value="" />
+		<variable name="spring.mail.sender.no.reply" value="regards@noreply.fr" />
 
 		<!-- Admin -->
 		<variable name="admin.count" value="0" />

@@ -377,6 +377,9 @@
 				<pwd id="password.label" size="15" />
 			</spec>
 		</field>
+		<field type="text" variable="spring.mail.sender.no.reply">
+			<spec id="sender.no.reply" size="30" default="${spring.mail.sender.no.reply}" />
+		</field>
 	</panel>
 
 	<panel id="AuthenticationPanel">
