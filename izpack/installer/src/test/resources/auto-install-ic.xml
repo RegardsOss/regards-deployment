@@ -106,10 +106,11 @@
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="SmtpPanel">
-		<entry key="spring.mail.host" value="messagerie.si.c-s.fr" />
+		<entry key="spring.mail.host" value="192.168.25.192" />
 		<entry key="spring.mail.username" value="" />
 		<entry key="spring.mail.password" value="" />
 		<entry key="spring.mail.port" value="25" />
+		<entry key="spring.mail.sender.no.reply" value="regards@c-s.fr" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="AuthenticationPanel">
