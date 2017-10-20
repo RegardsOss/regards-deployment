@@ -28,7 +28,7 @@
  * @see https://jenkins.io/doc/book/pipeline/jenkinsfile/
  */
 pipeline {
-  agent any
+  agent { label 'unix-integration' }
   tools {
     maven 'Maven 3.3.9'
     jdk 'jdk8'
