@@ -16,7 +16,7 @@ Reference tag                        : (1.1)
 2/ Changes
 ______________
 
-- 1.1 (2017-10-23) : Initial version of Regards
+- 1.1 (2017-10-24) : Initial version of Regards
 
 	- Bugs fixed : 
 		1  : Inscription d'un nouvel utilisateur via l'IhmUser : il ne reçoit pas le mail
