@@ -2,7 +2,7 @@
 ______________
 
 Identification                       : Regards
-Date                                 : 2017-10-XX
+Date                                 : 2017-10-24
 Version                              : 1.1
 Owner                                : CNES
 Developer                            : CS SI
@@ -16,11 +16,55 @@ Reference tag                        : (1.1)
 2/ Changes
 ______________
 
-- 1.1 (2017-10-XX) : Initial version of Regards
+- 1.1 (2017-10-24) : Initial version of Regards
 
-	- Bugs fixed : to be completed
+	- Bugs fixed : 
+		1  : Inscription d'un nouvel utilisateur via l'IhmUser : il ne reçoit pas le mail
+		7  : Création d'un module "search-form"
+		8 : POP-UP d'erreur qui s'ouvre en bas de l'écran des Ihms
+		10 : Le Menu de navigation est vide
+		11 : Snapshot maven
+		12 : Métadonnées dans les pom.xml
+		16 : Problème pour la génération de izPack
+		17 : Les fichiers de logs ne sont pas limités en taille
+		18 : Filtres à facettes dans l'Ihm utilisateur
+		19 : Installation par Izpack
+		23 : Navigation par graphe
+		24 : Reprise de REGARDS aprés un arrêt-relance de la Base de données POstgres
+		25 : Creation de la collection JASON2
+		26 : Initialisation d'un nouveau projet
+		27 : Plugins temporal et two-temporal
+		28 : Ré-initialisation du mot de passe non conforme
+		32 : Le bouton "details" a disparu dans la Navigation par graphe
+		35 : Module home-page
+		37 : Association d'un formulaire de recherche à tous les jeux d'un modèle de jeux de données
+		38 : Ajout d'un plugin IHM
+		39 : Création d'une collection ou d'un jeu de données avec description locale
+		40 : Espace en début et en fin de chaîne de caractéres
+		42 : Remarques sur le look de l'Ihm utilisateur
+		43 : Remise à zéro d'une valeur dans l'Ihm utilisateur
+		47 : Rendu des fichiers Markdown dans Regards
+		49 : Download d'un fichier de données
+		50 : Recherche des entités portant un tag
+		51 : Thumbnail vide dans l'Ihm utilisateur
 
-	- Known bugs : to be completed
+	- Known bugs : 
+		2 : Changement de rôle
+		3 : Remarques sur les IHMs
+		5 : Informations dans la vue des microservices de l'IhmAdmin d'un projet
+		6 : Placer un nouveau module dans un nouveau conteneur
+		13 : IMPORT du modele SSALTO
+		20 : Mots de passe en clair
+		21 : Description openSeach
+		22 : Problème de désérialisation json (subtype)
+		29 : Réponse openSearch n'est pas conforme
+		30 : Utilisation de la pagination de openSearch
+		36 : Utilisation de la BD postgresql pendant l'import depuis une BD oracle
+		41 : Modification d'un modèle de données
+		44 : Composant FontFamily du THEME
+		45 : Fichier Markdown ou PDF contenant la description d'une collection ou d'un jeu
+		46 : Enlever la description markdown d'une collection
+		48 : Remarques Ihm utilisateur
 
 
 3/ System requirements
