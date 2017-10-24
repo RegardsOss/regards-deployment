@@ -130,7 +130,7 @@ mvn install -DskipTests -P delivery
 cd ..
 git clone https://thor.si.c-s.fr/git/rs-dam
 cd rs-dam
-mvn install -DskipTests -P delivery
+mvn clean install -Dmaven.test.skip=true -P delivery
 
 cd ..
 git clone https://thor.si.c-s.fr/git/rs-catalog
