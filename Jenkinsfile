@@ -101,7 +101,7 @@ pipeline {
     stage('Clean') {
         when {
 			anyOf {
-				branch 'develop_V1.1.0'
+				branch 'develop'
 		    }
 	    }
     	steps {
@@ -119,7 +119,7 @@ pipeline {
     stage('Deploy') {
 	    when {
 			anyOf {
-				branch 'develop_V1.1.0'
+				branch 'develop'
 			}
 		}
 	    steps {
@@ -133,7 +133,7 @@ pipeline {
       // Installation continue sur la VM regard-ic (172.26.47.95)
       when {
 			anyOf {
-				branch 'develop_V1.1.0'
+				branch 'develop'
 			}
 		}
         steps {
@@ -144,7 +144,7 @@ pipeline {
     stage('Start') {
       when {
 			anyOf {
-				branch 'develop_V1.1.0'
+				branch 'develop'
 		    }
 	  }
       steps {
@@ -154,7 +154,7 @@ pipeline {
     stage('Check') {
       when {
 			anyOf {
-				branch 'develop_V1.1.0'
+				branch 'develop'
 		    }
 	  }
       steps {
