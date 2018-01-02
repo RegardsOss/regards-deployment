@@ -236,7 +236,7 @@
 		<variable name="regards.config.elasticsearch.host" value="localhost" />
 		<variable name="regards.config.elasticsearch.cluster.name"
 			value="regards" />
-		<variable name="regards.config.elasticsearch.tcp.port" value="9300" />
+		<variable name="regards.config.elasticsearch.http.port" value="9300" />
 
 		<!-- Catalog -->
 		<variable name="catalog.count" value="0" />

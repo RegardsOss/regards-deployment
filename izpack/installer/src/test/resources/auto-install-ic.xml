@@ -135,7 +135,7 @@
 			value="172.26.47.52:5432/rs_dam_tenant0" />
 		<entry key="regards.config.elasticsearch.cluster.name" value="regards" />
 		<entry key="regards.config.elasticsearch.host" value="172.26.47.52" />
-		<entry key="regards.config.elasticsearch.tcp.port" value="9300" />
+		<entry key="regards.config.elasticsearch.http.port" value="9300" />
 		<entry
 			key="regards.config.dam.regards.jpa.multitenant.tenants.user.name.1"
 			value="azertyuiop123456789" />

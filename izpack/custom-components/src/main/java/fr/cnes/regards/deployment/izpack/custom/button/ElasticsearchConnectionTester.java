@@ -55,7 +55,7 @@ public class ElasticsearchConnectionTester extends ButtonAction {
     /**
      * The name of the PORT variable in the install data
      */
-    public static final String PORT_VARIABLE = "regards.config.elasticsearch.tcp.port";
+    public static final String PORT_VARIABLE = "regards.config.elasticsearch.http.port";
 
     /**
      * The name of the CLUSTER variable in the install data
