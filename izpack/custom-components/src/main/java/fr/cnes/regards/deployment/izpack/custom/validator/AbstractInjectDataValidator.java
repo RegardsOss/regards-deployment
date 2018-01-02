@@ -40,7 +40,8 @@ public abstract class AbstractInjectDataValidator implements DataValidator {
     protected ComponentType type;
 
     /**
-     * Key identifiying the component's properties in the install data. Ideally matches the above type, but some exceptions exist.
+     * Key used to identifiy the component's properties in the install data.<br>
+     * Ideally matches the above type, but some exceptions exists.
      */
     protected String entryKey;
 

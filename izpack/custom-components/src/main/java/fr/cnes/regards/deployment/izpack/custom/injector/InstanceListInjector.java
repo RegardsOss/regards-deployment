@@ -27,8 +27,10 @@ import fr.cnes.regards.deployment.izpack.custom.xml.XmlAccessor;
 
 /**
  * Injects the list of instances of a component into the installation data.
+ * 
  * @author Guillaume Barthe de Montmejan
  * @author Xavier-Alexandre Brochard
+ * @author Christophe Mertz
  */
 public class InstanceListInjector implements InstallDataInjector {
 
@@ -49,18 +51,16 @@ public class InstanceListInjector implements InstallDataInjector {
     private static final int IZPACK_FIRST_INDEX_OF_VARIABLE_LIST = 1;
 
     /**
-     * @param pType
-     * @param pEntryKey
+     * Add a new instance
+     * @param newType the instance's {@link ComponentType}
+     * @param newEntryKey the an entry key for this new instance. Ideally matches the above type.
      */
-    public InstanceListInjector(ComponentType pType, String pEntryKey) {
+    public InstanceListInjector(ComponentType newType, String newEntryKey) {
         super();
-        type = pType;
-        entryKey = pEntryKey;
+        type = newType;
+        entryKey = newEntryKey;
     }
 
-    /* (non-Javadoc)
-     * @see fr.cnes.regards.deployment.izpack.custom.InstallDataInjector#inject(com.izforge.izpack.api.data.InstallData)
-     */
     @Override
     public void inject(InstallData pInstallData) {
         final String count = type.getName() + ".count";

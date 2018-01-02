@@ -35,7 +35,7 @@ import com.izforge.izpack.util.Platform.Name;
  */
 public class CatalogJdbcConnectionTesterTest {
     
-    private static final String URL = "172.26.47.52:5432/rs_catalog_tenant0";
+    private static final String URL = "172.26.47.52:5432/rs_gateway_tenant0";
 
     private static final String USER = "azertyuiop123456789";
     

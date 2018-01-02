@@ -19,8 +19,10 @@
 package fr.cnes.regards.deployment.izpack.custom.model;
 
 /**
- *
+ * Enumerates possible values for type of instance
+ * 
  * @author Xavier-Alexandre Brochard
+ * @author Christophe Mertz
  */
 public enum ComponentType {
     CONFIG("config"),
@@ -40,13 +42,16 @@ public enum ComponentType {
     private final String name;
 
     /**
-     * @param pName
+     * Default constructor
+     * 
+     * @param newName the new instance's name
      */
-    private ComponentType(String pName) {
-        name = pName;
+    private ComponentType(String newName) {
+        name = newName;
     }
 
     /**
+     * Get the instance's name
      * @return the name
      */
     public String getName() {
