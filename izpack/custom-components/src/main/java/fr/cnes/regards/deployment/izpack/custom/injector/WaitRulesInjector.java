@@ -19,6 +19,7 @@
 package fr.cnes.regards.deployment.izpack.custom.injector;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.izforge.izpack.api.data.InstallData;
@@ -30,13 +31,15 @@ import fr.cnes.regards.deployment.izpack.custom.model.WaitRuleList;
 import fr.cnes.regards.deployment.izpack.custom.xml.XmlAccessor;
 
 /**
- * Injects the list of wait rules of a component into the installation data.
+ * Injects the {@link List} of wait rules of a component into the installation data.
+ * 
  * @author Xavier-Alexandre Brochard
+ * @author Christophe Mertz
  */
 public class WaitRulesInjector implements InstallDataInjector {
 
     /**
-     * Type
+     * The current {@link ComponentType}
      */
     private final ComponentType type;
 
@@ -64,6 +67,7 @@ public class WaitRulesInjector implements InstallDataInjector {
      *                                                         }
      */
     private static final Map<ComponentType, Map<ComponentType, Integer>> WAIT_RULES;
+
     static {
         WAIT_RULES = new HashMap<ComponentType, Map<ComponentType, Integer>>();
 
@@ -89,6 +93,12 @@ public class WaitRulesInjector implements InstallDataInjector {
         authenticationWaitList.put(ComponentType.REGISTRY, 90);
         authenticationWaitList.put(ComponentType.ADMIN, 330);
         WAIT_RULES.put(ComponentType.AUTHENTICATION, authenticationWaitList);
+
+        Map<ComponentType, Integer> dataProviderWaitList = new HashMap<>();
+        dataProviderWaitList.put(ComponentType.CONFIG, 60);
+        dataProviderWaitList.put(ComponentType.REGISTRY, 90);
+        dataProviderWaitList.put(ComponentType.ADMIN, 240);
+        WAIT_RULES.put(ComponentType.DATAPROVIDER, dataProviderWaitList);
 
         Map<ComponentType, Integer> damWaitList = new HashMap<>();
         damWaitList.put(ComponentType.CONFIG, 60);
@@ -117,34 +127,33 @@ public class WaitRulesInjector implements InstallDataInjector {
     }
 
     /**
-     * @param pType
+     * Constructor
+     * @param newType a {@link ComponentType}
      */
-    public WaitRulesInjector(ComponentType pType) {
+    public WaitRulesInjector(ComponentType newType) {
         super();
-        type = pType;
+        type = newType;
     }
 
-    /* (non-Javadoc)
-     * @see fr.cnes.regards.deployment.izpack.custom.InstallDataInjector#inject(com.izforge.izpack.api.data.InstallData)
-     */
     @Override
-    public void inject(InstallData pInstallData) {
+    public void inject(InstallData installData) {
         WaitRuleList waitRuleList = new WaitRuleList();
         WAIT_RULES.get(type).forEach((waitedType, timeout) -> {
             String waitedPack = waitedType.getName(); // The type of component we should be waiting for
-            Boolean isWaitedPackBeingInstalled = pInstallData.getSelectedPacks().stream()
+            Boolean isWaitedPackBeingInstalled = installData.getSelectedPacks().stream()
                     .anyMatch(pack -> pack.getName().equals(waitedPack)); // Is the component/pack we are waiting for is being installed?
+
             // Only wait for a component/pack which is being installed
             if (isWaitedPackBeingInstalled) {
                 ComponentConfigList waitedComponentConfigList = XmlAccessor
-                        .readFromString(pInstallData.getVariable(waitedPack + INSTANCE_LIST_SUFFIX),
+                        .readFromString(installData.getVariable(waitedPack + INSTANCE_LIST_SUFFIX),
                                         ComponentConfigList.class);
                 waitedComponentConfigList.getItems().stream().map(item -> new WaitRule(item, timeout))
                         .forEach(waitRuleList::add);
             }
         });
 
-        pInstallData.setVariable(type.getName() + WAIT_RULE_LIST_SUFFIX, XmlAccessor.writeToString(waitRuleList));
+        installData.setVariable(type.getName() + WAIT_RULE_LIST_SUFFIX, XmlAccessor.writeToString(waitRuleList));
     }
 
 }

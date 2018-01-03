@@ -16,47 +16,23 @@
  * You should have received a copy of the GNU General Public License
  * along with REGARDS. If not, see <http://www.gnu.org/licenses/>.
  */
-package fr.cnes.regards.deployment.izpack.custom.model;
+package fr.cnes.regards.deployment.izpack.custom.validator;
+
+import fr.cnes.regards.deployment.izpack.custom.model.ComponentType;
 
 /**
- * Enumerates possible values for type of instance
- * 
- * @author Xavier-Alexandre Brochard
+ * Validator for Dataprovider panel.
+ *
  * @author Christophe Mertz
  */
-public enum ComponentType {
-    CONFIG("config"),
-    REGISTRY("registry"),
-    GATEWAY("gateway"),
-    ADMIN("admin"),
-    AUTHENTICATION("authentication"),
-    DAM("dam"),
-    CATALOG("catalog"),
-    ACCESS_INSTANCE("access-instance"),
-    ACCESS_PROJECT("access-project"),
-    DATAPROVIDER("dataprovider"),
-    FRONTEND("frontend");
-
-    /**
-     * Type
-     */
-    private final String name;
+public class ValidatorDataProviderPanel extends AbstractInjectDataValidator {
 
     /**
      * Default constructor
-     * 
-     * @param newName the new instance's name
      */
-    private ComponentType(String newName) {
-        name = newName;
+    public ValidatorDataProviderPanel() {
+        super();
+        type = ComponentType.DATAPROVIDER;
+        entryKey = type.getName();
     }
-
-    /**
-     * Get the instance's name
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
 }

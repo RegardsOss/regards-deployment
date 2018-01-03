@@ -237,6 +237,7 @@
 		<variable name="regards.config.elasticsearch.cluster.name"
 			value="regards" />
 		<variable name="regards.config.elasticsearch.http.port" value="9300" />
+		<variable name="regards.dam.local_storage.path.default.value" value="/tmp/rs-dam" />
 
 		<!-- Catalog -->
 		<variable name="catalog.count" value="0" />
@@ -251,6 +252,21 @@
 			value="" />
 		<variable
 			name="regards.config.catalog.regards.jpa.multitenant.tenants.password.1"
+			value="" />
+
+		<!-- Data provider -->
+		<variable name="dataprovider.count" value="0" />
+		<variable name="dataprovider.host" value="0.0.0.0" />
+		<variable name="dataprovider.port" value="8890" />
+		<variable name="dataprovider.xmx" value="256m" />
+		<variable
+			name="regards.config.dataprovider.regards.jpa.multitenant.tenants.url.1"
+			value="localhost:5432/rs_dataprovider_tenant0" />
+		<variable
+			name="regards.config.dataprovider.regards.jpa.multitenant.tenants.user.name.1"
+			value="" />
+		<variable
+			name="regards.config.dataprovider.regards.jpa.multitenant.tenants.password.1"
 			value="" />
 
 		<!-- Access Instance -->
@@ -282,7 +298,7 @@
 		<variable
 			name="regards.config.access.project.regards.jpa.multitenant.tenants.password.1"
 			value="" />
-
+			
 		<!-- Frontend -->
 		<variable name="frontend.count" value="0" />
 		<variable name="frontend.host" value="localhost" />
@@ -322,6 +338,9 @@
 		<condition type="packselection" id="selected.catalog">
 			<name>catalog</name>
 		</condition>
+		<condition type="packselection" id="selected.dataprovider">
+			<name>dataprovider</name>
+		</condition>
 		<condition type="packselection" id="selected.access">
 			<name>access</name>
 		</condition>
@@ -334,6 +353,7 @@
 			<condition type="ref" refid="selected.dam" />
 			<condition type="ref" refid="selected.catalog" />
 			<condition type="ref" refid="selected.access" />
+			<condition type="ref" refid="selected.dataprovider" />
 		</condition>
 		<condition type="or" id="at.least.one.db.configured">
 			<condition type="ref" refid="selected.admin" />
@@ -341,6 +361,7 @@
 			<condition type="ref" refid="selected.dam" />
 			<condition type="ref" refid="selected.catalog" />
 			<condition type="ref" refid="selected.access" />
+			<condition type="ref" refid="selected.dataprovider" />
 		</condition>
 		<condition type="variable" id="isHidden">
 			<name>security.level</name>
@@ -391,6 +412,10 @@
 		<panel classname="UserInputPanel" id="CatalogPanel" condition="izpack.selected.catalog">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorCatalogPanel" />
+		</panel>
+		<panel classname="UserInputPanel" id="DataProviderPanel" condition="izpack.selected.dataprovider">
+			<validator
+				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorDataProviderPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="AccessInstancePanel"
 			condition="izpack.selected.access">
@@ -767,6 +792,49 @@
 					<arg value="catalog" />
 					<arg value="-w" />
 					<arg value="${catalog.waitRuleList}" />
+				</args>
+			</executable>
+		</pack>
+		
+		<pack name="dataprovider" required="false" preselected="false">
+			<description>Installing the Data provider microservice</description>
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+				override="true">
+				<include name="bootstrap-dataprovider.jar" />
+			</fileset>
+			<file src="sbin/microservice_dataprovider.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true" />
+  			<fileset dir="config/catalog/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/dataprovider"
+				override="true">
+				<include name="logback.xml" />
+			</fileset>
+			<executable type="bin" stage="never" keep="true">
+				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
+			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="dataprovider" />
+					<arg value="-c" />
+					<arg value="${dataprovider.instanceList}" />
+				</args>
+			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="dataprovider" />
+					<arg value="-w" />
+					<arg value="${dataprovider.waitRuleList}" />
 				</args>
 			</executable>
 		</pack>

@@ -26,9 +26,11 @@
 	<str id="components.admin.project" txt="Administration projet" />
 	<str id="components.dam" txt="Data Management" />
 	<str id="components.dam.elastic" txt="Elasticsearch" />
+	<str id="components.dam.local.storage" txt="Dossier local de stockage des documents" />
 	<str id="components.rabbit.test" txt="RabbitMQ" />
 	<str id="components.rabbit.management.test" txt="RabbitMQ management" />
 	<str id="components.catalog" txt="Catalog" />
+	<str id="components.dataprovider" txt="Data provider" />
 	<str id="components.access" txt="Access" />
 	<str id="components.access.instance" txt="Access instance" />
 	<str id="components.access.project" txt="Access projet" />
@@ -128,6 +130,9 @@
 	<!-- CatalogPanel -->
 	<str id="catalog.panel.title.label" txt="Microservice Catalog" />
 
+	<!-- DataProviderPanel -->
+	<str id="dataprovider.panel.title.label" txt="Microservice Fourniture de données" />
+
 	<!-- AccessInstancePanel -->
 	<str id="access-instance.panel.title.label" txt="Microservice Access Instance" />
 
@@ -146,5 +151,8 @@
 	<str id="validator.notempty.username.label" txt="Renseignez l'utilisateur pour continuer" />
 	<str id="validator.notempty.password.label" txt="Renseignez le mot de passe pour continuer" />
 	<str id="validator.notempty.email.label" txt="Renseignez l'email pour continuer" />
+	
+	<str id="UserInputPanel.custom.swing.buttonlabel.add" txt="Hinzufügen"/>
+    <str id="UserInputPanel.custom.swing.buttonlabel.remove" txt="Entfernen"/>
 
 </izpack:langpack>

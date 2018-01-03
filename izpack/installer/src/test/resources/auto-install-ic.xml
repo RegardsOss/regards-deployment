@@ -135,13 +135,13 @@
 			value="172.26.47.52:5432/rs_dam_tenant0" />
 		<entry key="regards.config.elasticsearch.cluster.name" value="regards" />
 		<entry key="regards.config.elasticsearch.host" value="172.26.47.52" />
-		<entry key="regards.config.elasticsearch.http.port" value="9300" />
+		<entry key="regards.config.elasticsearch.http.port" value="9200" />
 		<entry
 			key="regards.config.dam.regards.jpa.multitenant.tenants.user.name.1"
 			value="azertyuiop123456789" />
-		<entry
-			key="regards.config.dam.regards.jpa.multitenant.tenants.password.1"
+		<entry key="regards.config.dam.regards.jpa.multitenant.tenants.password.1"
 			value="azertyuiop123456789" />
+		<entry key="regards.config.dam.regards.local_storage.path" value="/tmp/rs-dam/document" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="CatalogPanel">
@@ -187,11 +187,25 @@
 			key="regards.config.access.project.regards.jpa.multitenant.tenants.url.1"
 			value="172.26.47.52:5432/rs_access_tenant0" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel id="FrontendPanel">
-		<entry key="frontend.host.1" value="localhost"/>
-		<entry key="frontend.count" value="1"/>
-		<entry key="frontend.port.1" value="3333"/>
-		<entry key="regards.config.cloud.gateway.url" value="http://172.26.47.95:80"/>
+	<com.izforge.izpack.panels.userinput.UserInputPanel
+		id="DataProviderPanel">
+		<entry key="dataprovider.host.1" value="0.0.0.0" />
+		<entry key="dataprovider.port.1" value="8890" />
+		<entry key="dataprovider.count" value="1" />
+		<entry key="regards.config.dataprovider.regards.jpa.multitenant.tenants.url.1"
+			value="172.26.47.52:5432/rs_dataprovider_tenant0" />
+		<entry
+			key="regards.config.dataprovider.regards.jpa.multitenant.tenants.user.name.1"
+			value="azertyuiop123456789" />
+		<entry key="regards.config.dataprovider.regards.jpa.multitenant.tenants.password.1"
+			value="azertyuiop123456789" />
+	</com.izforge.izpack.panels.userinput.UserInputPanel>
+	<com.izforge.izpack.panels.userinput.UserInputPanel
+		id="FrontendPanel">
+		<entry key="frontend.host.1" value="localhost" />
+		<entry key="frontend.count" value="1" />
+		<entry key="frontend.port.1" value="3333" />
+		<entry key="regards.config.cloud.gateway.url" value="http://172.26.47.95:80" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="CheckJdbcConnectionsPanel" />

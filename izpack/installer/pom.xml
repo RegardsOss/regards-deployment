@@ -115,6 +115,7 @@
 								bootstrap-gateway,
 								bootstrap-administration,
 								bootstrap-catalog,
+								bootstrap-dataprovider,
 								bootstrap-access-instance,
 								bootstrap-access-project,
 								bootstrap-dam,
@@ -310,6 +311,23 @@
 						</configuration>
 					</execution>
 					<execution>
+						<id>unpack-logback-provider</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>fr.cnes.regards.microservices.dataprovider</groupId>
+									<artifactId>bootstrap-dataprovider</artifactId>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${temp.dir.filtering}/dataprovider</outputDirectory>
+							<includes>BOOT-INF/classes/logback.xml</includes>
+						</configuration>
+					</execution>
+					<execution>
 						<id>unpack-front</id>
 						<phase>generate-sources</phase>
 						<goals>
@@ -407,9 +425,15 @@
 			<artifactId>custom-components</artifactId>
 		</dependency>
 		<dependency>
-    		<groupId>org.elasticsearch</groupId>
-    		<artifactId>elasticsearch</artifactId>
-    		<version>5.1.1</version>
+    			<groupId>org.elasticsearch</groupId>
+    			<artifactId>elasticsearch</artifactId>
+    		</dependency>
+		<dependency>
+			<groupId>
+				fr.cnes.regards.microservices.dataprovider
+			</groupId>
+			<artifactId>bootstrap-dataprovider</artifactId>
+			<version>2.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 
