@@ -448,7 +448,7 @@
 		</field>
 		<field type="text"
 			variable="regards.config.dam.regards.jpa.multitenant.tenants.user.name.1">
-			<spec id="username.label" size="12" />
+			<spec id="username.label" size="15" />
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
 				id="validator.notempty.username.label" />
@@ -456,7 +456,7 @@
 		<field type="password"
 			variable="regards.config.dam.regards.jpa.multitenant.tenants.password.1">
 			<spec>
-				<pwd id="password.label" size="12" />
+				<pwd id="password.label" size="15" />
 			</spec>
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
@@ -470,15 +470,15 @@
 		<field type="staticText" id="dam.panel.elasticsearch.label"
 			bold="true" />
 		<field type="text" variable="regards.config.elasticsearch.host">
-			<spec id="host.label" size="12"
+			<spec id="host.label" size="15"
 				default="${regards.config.elasticsearch.host}" />
 		</field>
 		<field type="text" variable="regards.config.elasticsearch.cluster.name">
-			<spec id="cluster.label" size="12"
+			<spec id="cluster.label" size="15"
 				default="${regards.config.elasticsearch.cluster.name}" />
 		</field>
 		<field type="text" variable="regards.config.elasticsearch.http.port">
-			<spec id="port.label" size="12"
+			<spec id="port.label" size="15"
 				default="${regards.config.elasticsearch.http.port}" />
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.PortValidator"

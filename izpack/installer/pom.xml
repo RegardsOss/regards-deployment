@@ -114,11 +114,10 @@
 								bootstrap-registry,
 								bootstrap-gateway,
 								bootstrap-administration,
-								bootstrap-catalog,
-								bootstrap-dataprovider,
-								bootstrap-access-instance,
-								bootstrap-access-project,
 								bootstrap-dam,
+								bootstrap-catalog,
+								bootstrap-access-instance,
+								bootstrap-access-project,								
 								bootstrap-frontend,
 								bootstrap-authentication
 							</includeArtifactIds>

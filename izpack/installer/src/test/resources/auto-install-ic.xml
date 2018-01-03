@@ -187,6 +187,7 @@
 			key="regards.config.access.project.regards.jpa.multitenant.tenants.url.1"
 			value="172.26.47.52:5432/rs_access_tenant0" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
+<!-- 	
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="DataProviderPanel">
 		<entry key="dataprovider.host.1" value="0.0.0.0" />
@@ -200,7 +201,8 @@
 		<entry key="regards.config.dataprovider.regards.jpa.multitenant.tenants.password.1"
 			value="azertyuiop123456789" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
+ -->
+ 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="FrontendPanel">
 		<entry key="frontend.host.1" value="localhost" />
 		<entry key="frontend.count" value="1" />
