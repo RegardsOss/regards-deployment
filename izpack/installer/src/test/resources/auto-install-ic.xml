@@ -225,11 +225,11 @@
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="CheckJdbcConnectionsPanel" />
 	<com.izforge.izpack.panels.summary.SummaryPanel
-		id="SummaryPanel_23" />
+		id="SummaryPanel_24" />
 	<com.izforge.izpack.panels.install.InstallPanel
-		id="InstallPanel_24" />
+		id="InstallPanel_25" />
 	<com.izforge.izpack.panels.process.ProcessPanel
-		id="ProcessPanel_25" />
+		id="ProcessPanel_26" />
 	<com.izforge.izpack.panels.finish.FinishPanel
-		id="FinishPanel_26" />
+		id="FinishPanel_27" />
 </AutomatedInstallation>
