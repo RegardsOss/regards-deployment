@@ -35,6 +35,9 @@ public enum ComponentType {
     ACCESS_INSTANCE("access-instance"),
     ACCESS_PROJECT("access-project"),
     DATAPROVIDER("dataprovider"),
+    STORAGE("storage"),
+    ORDER("order"),
+    INGEST("ingest"),
     FRONTEND("frontend");
 
     /**

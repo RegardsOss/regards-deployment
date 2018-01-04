@@ -26,11 +26,11 @@
 	<str id="components.admin.project" txt="Administration project" />
 	<str id="components.dam" txt="Data Management" />
 	<str id="components.dam.elastic" txt="Elasticsearch" />
-	<str id="components.dam.local.storage" txt="Documents local storage folder" />
 	<str id="components.rabbit.test" txt="RabbitMQ" />
 	<str id="components.rabbit.management.test" txt="RabbitMQ management" />
 	<str id="components.catalog" txt="Catalog" />
 	<str id="components.dataprovider" txt="Data provider" />
+	<str id="components.storage.cache.directory" txt="Cache directory" />
 	<str id="components.access" txt="Access" />
 	<str id="components.access.instance" txt="Access instance" />
 	<str id="components.access.project" txt="Access project" />	
@@ -121,16 +121,25 @@
 	<!-- SmtpPanel -->
 	<str id="smtp.panel.title" txt="SMTP Configuration" />
 	<str id="smtp.panel.detail" txt="REGARDS keeps you in touch via emails. You can provide a specific SMTP server or leave the default one." />
+	<str id="sender.no.reply" txt="Mail address for no reply" />
 
 	<!-- DamPanel -->
 	<str id="dam.panel.title.label" txt="Data Management microservice" />
 	<str id="dam.panel.elasticsearch.label" txt="Elasticsearch" />
+	<str id="dam.panel.local.storage" txt="Documents local storage folder" />
 
 	<!-- CatalogPanel -->
 	<str id="catalog.panel.title.label" txt="Catalog microservice" />
 
+	<!-- StoragePanel -->
+	<str id="storage.panel.title.label" txt="Storage microservice" />	
+	<str id="storage.panel.cache.directory" txt="Cache directory" />	
+
 	<!-- DataProviderPanel -->
 	<str id="dataprovider.panel.title.label" txt="Data provider microservice" />
+	<str id="dataprovider.panel.waiting.label" txt="Waiting time" />
+	<str id="dataprovider.panel.sip.ingest.delay" txt="For ingestion of new SIPs" />
+	<str id="dataprovider.panel.run.chains.delay" txt="For chains activation" />
 
 	<!-- AccessInstancePanel -->
 	<str id="access-instance.panel.title.label" txt="Access Instance microservice" />

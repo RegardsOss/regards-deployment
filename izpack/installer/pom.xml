@@ -114,6 +114,8 @@
 								bootstrap-registry,
 								bootstrap-gateway,
 								bootstrap-administration,
+								bootstrap-dataprovider,
+								bootstrap-storage,
 								bootstrap-dam,
 								bootstrap-catalog,
 								bootstrap-access-instance,
@@ -433,6 +435,12 @@
 			</groupId>
 			<artifactId>bootstrap-dataprovider</artifactId>
 			<version>2.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>
+				fr.cnes.regards.microservices.storage
+			</groupId>
+			<artifactId>bootstrap-storage</artifactId>
 		</dependency>
 	</dependencies>
 

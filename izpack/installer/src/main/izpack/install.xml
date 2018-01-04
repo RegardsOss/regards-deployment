@@ -56,10 +56,10 @@
 
 	<!-- Regards custom panels, buttons, validator ... -->
 	<jar src="custom/custom-components.jar" />
-	
+
 	<!-- JDBC database drivers -->
 	<jar src="lib/postgresql-42.1.1.jre7.jar" />
-	
+
 	<!-- Elasticsearch transport drivers -->
 	<jar src="lib/elasticsearch-5.1.1.jar" />
 	<jar src="lib/hppc-0.7.1.jar" />
@@ -91,9 +91,9 @@
 	<jar src="lib/transport-netty3-client-5.1.1.jar" />
 	<jar src="lib/transport-netty4-client-5.1.1.jar" />
 	<jar src="lib/t-digest-3.0.jar" />
-	
+
 	<jar src="lib/amqp-client-3.6.3.jar" />
-	
+
 	<jar src="lib/slf4j-api-1.7.21.jar" />
 	<jar src="lib/logback-classic-1.1.7.jar" />
 	<jar src="lib/logback-core-1.1.7.jar" />
@@ -236,8 +236,10 @@
 		<variable name="regards.config.elasticsearch.host" value="localhost" />
 		<variable name="regards.config.elasticsearch.cluster.name"
 			value="regards" />
-		<variable name="regards.config.elasticsearch.http.port" value="9300" />
-		<variable name="regards.dam.local_storage.path.default.value" value="/tmp/rs-dam" />
+		<variable name="regards.config.elasticsearch.http.port"
+			value="9300" />
+		<variable name="regards.dam.local_storage.path.default.value"
+			value="/tmp/rs-dam" />
 
 		<!-- Catalog -->
 		<variable name="catalog.count" value="0" />
@@ -268,6 +270,27 @@
 		<variable
 			name="regards.config.dataprovider.regards.jpa.multitenant.tenants.password.1"
 			value="" />
+		<variable name="regards.acquisition.process.new.sip.ingest.delay.default.value"
+			value="5000" />
+		<variable name="regards.acquisition.process.run.chains.delay.default.value"
+			value="300000" />
+
+		<!-- Storage -->
+		<variable name="storage.count" value="0" />
+		<variable name="storage.host" value="0.0.0.0" />
+		<variable name="storage.port" value="8891" />
+		<variable name="storage.xmx" value="256m" />
+		<variable
+			name="regards.config.storage.regards.jpa.multitenant.tenants.url.1"
+			value="localhost:5432/rs_storage_tenant0" />
+		<variable
+			name="regards.config.storage.regards.jpa.multitenant.tenants.user.name.1"
+			value="" />
+		<variable
+			name="regards.config.storage.regards.jpa.multitenant.tenants.password.1"
+			value="" />
+		<variable name="regards.config.storage.cache.directory.default.value"
+			value="/tmp/rs-storage-cache" />
 
 		<!-- Access Instance -->
 		<variable name="access-instance.count" value="0" />
@@ -298,7 +321,7 @@
 		<variable
 			name="regards.config.access.project.regards.jpa.multitenant.tenants.password.1"
 			value="" />
-			
+
 		<!-- Frontend -->
 		<variable name="frontend.count" value="0" />
 		<variable name="frontend.host" value="localhost" />
@@ -341,6 +364,9 @@
 		<condition type="packselection" id="selected.dataprovider">
 			<name>dataprovider</name>
 		</condition>
+		<condition type="packselection" id="selected.storage">
+			<name>storage</name>
+		</condition>
 		<condition type="packselection" id="selected.access">
 			<name>access</name>
 		</condition>
@@ -354,6 +380,7 @@
 			<condition type="ref" refid="selected.catalog" />
 			<condition type="ref" refid="selected.access" />
 			<condition type="ref" refid="selected.dataprovider" />
+			<condition type="ref" refid="selected.storage" />
 		</condition>
 		<condition type="or" id="at.least.one.db.configured">
 			<condition type="ref" refid="selected.admin" />
@@ -362,6 +389,7 @@
 			<condition type="ref" refid="selected.catalog" />
 			<condition type="ref" refid="selected.access" />
 			<condition type="ref" refid="selected.dataprovider" />
+			<condition type="ref" refid="selected.storage" />
 		</condition>
 		<condition type="variable" id="isHidden">
 			<name>security.level</name>
@@ -413,9 +441,15 @@
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorCatalogPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="DataProviderPanel" condition="izpack.selected.dataprovider">
+		<panel classname="UserInputPanel" id="DataProviderPanel"
+			condition="izpack.selected.dataprovider">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorDataProviderPanel" />
+		</panel>
+		<panel classname="UserInputPanel" id="StoragePanel"
+			condition="izpack.selected.storage">
+			<validator
+				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorStoragePanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="AccessInstancePanel"
 			condition="izpack.selected.access">
@@ -488,12 +522,12 @@
 			</fileset>
 			<file src="sbin/microservice_config.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
-  			<fileset dir="config/config/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/config"
+			<fileset dir="config/config/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/config"
 				override="true">
 				<include name="logback.xml" />
 			</fileset>
-  			<fileset dir="config/regards/BOOT-INF/classes/regards" targetdir="$INSTALL_PATH/REGARDS/config/regards"
-				override="true">
+			<fileset dir="config/regards/BOOT-INF/classes/regards"
+				targetdir="$INSTALL_PATH/REGARDS/config/regards" override="true">
 				<include name="*" />
 			</fileset>
 			<parsable type="javaprop">
@@ -542,7 +576,7 @@
 			</fileset>
 			<file src="sbin/microservice_registry.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
-  			<fileset dir="config/registry/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/registry"
+			<fileset dir="config/registry/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/registry"
 				override="true">
 				<include name="logback.xml" />
 			</fileset>
@@ -586,7 +620,7 @@
 			</fileset>
 			<file src="sbin/microservice_gateway.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
-  			<fileset dir="config/gateway/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/gateway"
+			<fileset dir="config/gateway/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/gateway"
 				override="true">
 				<include name="logback.xml" />
 			</fileset>
@@ -630,7 +664,7 @@
 			</fileset>
 			<file src="sbin/microservice_admin.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
-  			<fileset dir="config/admin/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/admin"
+			<fileset dir="config/admin/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/admin"
 				override="true">
 				<include name="logback.xml" />
 			</fileset>
@@ -674,7 +708,8 @@
 			</fileset>
 			<file src="sbin/microservice_authentication.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
-  			<fileset dir="config/authentication/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/authentication"
+			<fileset dir="config/authentication/BOOT-INF/classes/"
+				targetdir="$INSTALL_PATH/REGARDS/config/logback/authentication"
 				override="true">
 				<include name="logback.xml" />
 			</fileset>
@@ -718,7 +753,7 @@
 			</fileset>
 			<file src="sbin/microservice_dam.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
-  			<fileset dir="config/dam/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/dam"
+			<fileset dir="config/dam/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/dam"
 				override="true">
 				<include name="logback.xml" />
 			</fileset>
@@ -761,7 +796,7 @@
 			</fileset>
 			<file src="sbin/microservice_catalog.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
-  			<fileset dir="config/catalog/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/catalog"
+			<fileset dir="config/catalog/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/catalog"
 				override="true">
 				<include name="logback.xml" />
 			</fileset>
@@ -795,7 +830,7 @@
 				</args>
 			</executable>
 		</pack>
-		
+
 		<pack name="dataprovider" required="false" preselected="false">
 			<description>Installing the Data provider microservice</description>
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
@@ -804,7 +839,8 @@
 			</fileset>
 			<file src="sbin/microservice_dataprovider.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
-  			<fileset dir="config/catalog/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/dataprovider"
+			<fileset dir="config/catalog/BOOT-INF/classes/"
+				targetdir="$INSTALL_PATH/REGARDS/config/logback/dataprovider"
 				override="true">
 				<include name="logback.xml" />
 			</fileset>
@@ -839,6 +875,50 @@
 			</executable>
 		</pack>
 
+		<pack name="storage" required="false" preselected="false">
+			<description>Installing the Storage microservice</description>
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+				override="true">
+				<include name="bootstrap-storage.jar" />
+			</fileset>
+			<file src="sbin/microservice_storage.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true" />
+			<fileset dir="config/catalog/BOOT-INF/classes/"
+				targetdir="$INSTALL_PATH/REGARDS/config/logback/storage"
+				override="true">
+				<include name="logback.xml" />
+			</fileset>
+			<executable type="bin" stage="never" keep="true">
+				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
+			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="storage" />
+					<arg value="-c" />
+					<arg value="${storage.instanceList}" />
+				</args>
+			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="storage" />
+					<arg value="-w" />
+					<arg value="${storage.waitRuleList}" />
+				</args>
+			</executable>
+		</pack>
+
 		<pack name="access" required="false" preselected="true">
 			<description>REGARDS Access service installation</description>
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
@@ -850,11 +930,13 @@
 				override="true" />
 			<file src="sbin/microservice_access-project.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
-  			<fileset dir="config/access-instance/BOOT-INF/classes" targetdir="$INSTALL_PATH/REGARDS/config/logback/access-instance"
+			<fileset dir="config/access-instance/BOOT-INF/classes"
+				targetdir="$INSTALL_PATH/REGARDS/config/logback/access-instance"
 				override="true">
 				<include name="logback.xml" />
 			</fileset>
-  			<fileset dir="config/access-project/BOOT-INF/classes" targetdir="$INSTALL_PATH/REGARDS/config/logback/access-projet"
+			<fileset dir="config/access-project/BOOT-INF/classes"
+				targetdir="$INSTALL_PATH/REGARDS/config/logback/access-projet"
 				override="true">
 				<include name="logback.xml" />
 			</fileset>
