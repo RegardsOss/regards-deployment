@@ -18,8 +18,10 @@
 		<pack index="5" name="authentication" selected="true" />
 		<pack index="6" name="dam" selected="true" />
 		<pack index="7" name="catalog" selected="true" />
-		<pack index="8" name="access" selected="true" />
-		<pack index="9" name="frontend" selected="true" />
+		<pack index="8" name="dataprovider" selected="true"/>
+		<pack index="9" name="storage" selected="false"/>
+		<pack index="10" name="access" selected="true" />
+		<pack index="11" name="frontend" selected="true" />
 	</com.izforge.izpack.panels.packs.PacksPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="SelectSecurityLevelPanel">

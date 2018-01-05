@@ -83,6 +83,9 @@ pipeline {
           catalog: {
             sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t catalog stop" || true'
           },
+          dataprovider: {
+            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t dataprovider stop" || true'
+          },          
           acessinstance: {
             sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t access-instance stop" || true'
           },
@@ -176,6 +179,9 @@ pipeline {
           },
           catalog: {
             sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t catalog status"'
+          },
+          dataprovider: {
+            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t dataprovider status"'
           },
           acessinstance: {
             sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t access-instance status"'
