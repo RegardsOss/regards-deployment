@@ -19,7 +19,7 @@
 		<pack index="6" name="dam" selected="true" />
 		<pack index="7" name="catalog" selected="true" />
 		<pack index="8" name="dataprovider" selected="true"/>
-		<pack index="9" name="storage" selected="false"/>
+		<pack index="9" name="storage" selected="true"/>
 		<pack index="10" name="access" selected="true" />
 		<pack index="11" name="frontend" selected="true" />
 	</com.izforge.izpack.panels.packs.PacksPanel>
@@ -202,7 +202,6 @@
 		<entry key="regards.config.dataprovider.regards.jpa.multitenant.tenants.password.1"
 			value="azertyuiop123456789" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
-<!--	
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="StoragePanel">
 		<entry key="storage.host.1" value="0.0.0.0" />
@@ -216,7 +215,6 @@
 		<entry key="regards.config.storage.regards.jpa.multitenant.tenants.password.1"
 			value="azertyuiop123456789" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
--->
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="FrontendPanel">
 		<entry key="frontend.host.1" value="localhost" />

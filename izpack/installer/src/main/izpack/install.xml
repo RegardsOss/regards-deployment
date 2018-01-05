@@ -433,6 +433,11 @@
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAuthenticationPanel" />
 		</panel>
+		<panel classname="UserInputPanel" id="StoragePanel"
+			condition="izpack.selected.storage">
+			<validator
+				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorStoragePanel" />
+		</panel>
 		<panel classname="UserInputPanel" id="DamPanel" condition="izpack.selected.dam">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorDamPanel" />
@@ -445,11 +450,6 @@
 			condition="izpack.selected.dataprovider">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorDataProviderPanel" />
-		</panel>
-		<panel classname="UserInputPanel" id="StoragePanel"
-			condition="izpack.selected.storage">
-			<validator
-				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorStoragePanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="AccessInstancePanel"
 			condition="izpack.selected.access">
@@ -744,6 +744,50 @@
 			</executable>
 		</pack>
 
+		<pack name="storage" required="false" preselected="false">
+			<description>Installing the Storage microservice</description>
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+				override="true">
+				<include name="bootstrap-storage.jar" />
+			</fileset>
+			<file src="sbin/microservice_storage.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true" />
+			<fileset dir="config/catalog/BOOT-INF/classes/"
+				targetdir="$INSTALL_PATH/REGARDS/config/logback/storage"
+				override="true">
+				<include name="logback.xml" />
+			</fileset>
+			<executable type="bin" stage="never" keep="true">
+				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
+			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="storage" />
+					<arg value="-c" />
+					<arg value="${storage.instanceList}" />
+				</args>
+			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="storage" />
+					<arg value="-w" />
+					<arg value="${storage.waitRuleList}" />
+				</args>
+			</executable>
+		</pack>
+
 		<pack name="dam" required="false" preselected="true">
 			<description>REGARDS Data Management service installation
 			</description>
@@ -871,50 +915,6 @@
 					<arg value="dataprovider" />
 					<arg value="-w" />
 					<arg value="${dataprovider.waitRuleList}" />
-				</args>
-			</executable>
-		</pack>
-
-		<pack name="storage" required="false" preselected="false">
-			<description>Installing the Storage microservice</description>
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-storage.jar" />
-			</fileset>
-			<file src="sbin/microservice_storage.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<fileset dir="config/catalog/BOOT-INF/classes/"
-				targetdir="$INSTALL_PATH/REGARDS/config/logback/storage"
-				override="true">
-				<include name="logback.xml" />
-			</fileset>
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="storage" />
-					<arg value="-c" />
-					<arg value="${storage.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="storage" />
-					<arg value="-w" />
-					<arg value="${storage.waitRuleList}" />
 				</args>
 			</executable>
 		</pack>

@@ -416,6 +416,64 @@
 		</field>
 	</panel>
 
+	<panel id="StoragePanel">
+		<field id="storage.panel.title.label" type="title" />
+		<field type="custom" minRow="1" maxRow="50" variable="storage.count">
+			<spec>
+				<col>
+					<field type="text" variable="storage.host">
+						<spec id="host.label" size="15" default="${storage.host}" />
+					</field>
+				</col>
+				<col>
+					<field type="text" variable="storage.port">
+						<spec id="port.label" size="15" default="${storage.port}" />
+						<validator
+							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							id="validator.port.error.label" />
+					</field>
+				</col>
+			</spec>
+		</field>
+
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+
+		<field type="staticText" id="first.project.database.label" />
+		<field type="rule"
+			variable="regards.config.storage.regards.jpa.multitenant.tenants.url.1">
+			<spec
+				default="${regards.config.storage.regards.jpa.multitenant.tenants.url.1}"
+				id="url.label" layout="O:15:U : N:5:U / O:15:U" resultFormat="displayFormat" />
+		</field>
+		<field type="text"
+			variable="regards.config.storage.regards.jpa.multitenant.tenants.user.name.1">
+			<spec id="username.label" size="15" />
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.username.label" />
+		</field>
+		<field type="password"
+			variable="regards.config.storage.regards.jpa.multitenant.tenants.password.1">
+			<spec>
+				<pwd id="password.label" size="15" />
+			</spec>
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.password.label" />
+		</field>
+
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+
+		<field type="text" variable="regards.config.storage.cache.directory">
+			<spec id="storage.panel.cache.directory" size="35"
+				default="${regards.config.storage.cache.directory.default.value}" />
+		</field>
+	</panel>
+
 	<panel id="DamPanel">
 		<field id="dam.panel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="50" variable="dam.count">
@@ -610,63 +668,6 @@
 		</field>
 	</panel>
 
-	<panel id="StoragePanel">
-		<field id="storage.panel.title.label" type="title" />
-		<field type="custom" minRow="1" maxRow="50" variable="storage.count">
-			<spec>
-				<col>
-					<field type="text" variable="storage.host">
-						<spec id="host.label" size="15" default="${storage.host}" />
-					</field>
-				</col>
-				<col>
-					<field type="text" variable="storage.port">
-						<spec id="port.label" size="15" default="${storage.port}" />
-						<validator
-							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
-							id="validator.port.error.label" />
-					</field>
-				</col>
-			</spec>
-		</field>
-
-		<field type="space" />
-		<field type="divider" />
-		<field type="space" />
-
-		<field type="staticText" id="first.project.database.label" />
-		<field type="rule"
-			variable="regards.config.storage.regards.jpa.multitenant.tenants.url.1">
-			<spec
-				default="${regards.config.storage.regards.jpa.multitenant.tenants.url.1}"
-				id="url.label" layout="O:15:U : N:5:U / O:15:U" resultFormat="displayFormat" />
-		</field>
-		<field type="text"
-			variable="regards.config.storage.regards.jpa.multitenant.tenants.user.name.1">
-			<spec id="username.label" size="15" />
-			<validator
-				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
-				id="validator.notempty.username.label" />
-		</field>
-		<field type="password"
-			variable="regards.config.storage.regards.jpa.multitenant.tenants.password.1">
-			<spec>
-				<pwd id="password.label" size="15" />
-			</spec>
-			<validator
-				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
-				id="validator.notempty.password.label" />
-		</field>
-
-		<field type="space" />
-		<field type="divider" />
-		<field type="space" />
-
-		<field type="text" variable="regards.config.storage.cache.directory">
-			<spec id="storage.panel.cache.directory" size="35"
-				default="${regards.config.storage.cache.directory.default.value}" />
-		</field>
-	</panel>
 
 
 	<panel id="AccessInstancePanel">

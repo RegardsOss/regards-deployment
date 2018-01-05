@@ -116,12 +116,12 @@
 								bootstrap-administration,
 								bootstrap-dataprovider,
 								bootstrap-storage,
-								bootstrap-dam,
-								bootstrap-catalog,
-								bootstrap-access-instance,
-								bootstrap-access-project,								
-								bootstrap-frontend,
-								bootstrap-authentication
+								bootstrap-dam, 
+                				bootstrap-catalog, 
+                				bootstrap-access-instance, 
+                				bootstrap-access-project,                 
+                				bootstrap-frontend, 
+                				bootstrap-authentication 
 							</includeArtifactIds>
 						</configuration>
 					</execution>
@@ -431,16 +431,16 @@
     		</dependency>
 		<dependency>
 			<groupId>
-				fr.cnes.regards.microservices.dataprovider
-			</groupId>
-			<artifactId>bootstrap-dataprovider</artifactId>
-			<version>2.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>
 				fr.cnes.regards.microservices.storage
 			</groupId>
 			<artifactId>bootstrap-storage</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>
+				fr.cnes.regards.microservices.dataprovider
+			</groupId>
+			<artifactId>bootstrap-dataprovider</artifactId>
+			<version>2.0.0-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 
