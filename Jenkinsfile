@@ -49,7 +49,7 @@ pipeline {
         // -V : strongly recommended in CI, will display the JDK and Maven versions in use.
         //      Very useful to be quickly sure the selected versions were the ones you think.
         // -U : force maven to update snapshots each time (default : once an hour, makes no sense in CI).
-        sh 'export MAVEN_M2=~/.m2 && mvn -V -U -P delivery clean package org.jacoco:jacoco-maven-plugin:0.7.7.201606060606:prepare-agent sonar:sonar -fae -Dsonar.jacoco.reportPath=${WORKSPACE}/jacoco-ut.exec -Dsonar.jacoco.itReportPath=${WORKSPACE}/jacoco-it.exec -Dsonar.branch=develop -DcmdLineTarget=target'
+        sh 'export MAVEN_M2=~/.m2 && mvn -V -U -P delivery,CI clean package org.jacoco:jacoco-maven-plugin:0.7.7.201606060606:prepare-agent sonar:sonar -fae -Dsonar.jacoco.reportPath=${WORKSPACE}/jacoco-ut.exec -Dsonar.jacoco.itReportPath=${WORKSPACE}/jacoco-it.exec -Dsonar.branch=develop -DcmdLineTarget=target'
       }
       post {
         success {
