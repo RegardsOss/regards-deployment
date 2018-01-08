@@ -108,10 +108,10 @@ public class WaitRulesInjector implements InstallDataInjector {
         WAIT_RULES.put(ComponentType.STORAGE, storageProviderWaitList);
         
         Map<ComponentType, Integer> ingestProviderWaitList = new HashMap<>();
-        dataProviderWaitList.put(ComponentType.CONFIG, 60);
-        dataProviderWaitList.put(ComponentType.REGISTRY, 90);
-        dataProviderWaitList.put(ComponentType.ADMIN, 240);
-        dataProviderWaitList.put(ComponentType.STORAGE, 240);
+        ingestProviderWaitList.put(ComponentType.CONFIG, 60);
+        ingestProviderWaitList.put(ComponentType.REGISTRY, 90);
+        ingestProviderWaitList.put(ComponentType.ADMIN, 240);
+        ingestProviderWaitList.put(ComponentType.STORAGE, 240);
         WAIT_RULES.put(ComponentType.INGEST, ingestProviderWaitList);
 
         Map<ComponentType, Integer> damWaitList = new HashMap<>();
