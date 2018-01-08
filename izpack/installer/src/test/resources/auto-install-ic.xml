@@ -18,8 +18,8 @@
 		<pack index="5" name="authentication" selected="true" />
 		<pack index="6" name="dam" selected="true" />
 		<pack index="7" name="catalog" selected="true" />
-		<pack index="8" name="dataprovider" selected="true"/>
-		<pack index="9" name="storage" selected="true"/>
+		<pack index="8" name="dataprovider" selected="true" />
+		<pack index="9" name="storage" selected="true" />
 		<pack index="10" name="access" selected="true" />
 		<pack index="11" name="frontend" selected="true" />
 	</com.izforge.izpack.panels.packs.PacksPanel>
@@ -142,7 +142,8 @@
 			value="azertyuiop123456789" />
 		<entry key="regards.config.dam.regards.jpa.multitenant.tenants.password.1"
 			value="azertyuiop123456789" />
-		<entry key="regards.config.dam.regards.local_storage.path" value="/tmp/rs-dam/document" />
+		<entry key="regards.config.dam.regards.local_storage.path"
+			value="/tmp/rs-dam/document" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="CatalogPanel">
@@ -193,12 +194,14 @@
 		<entry key="dataprovider.host.1" value="0.0.0.0" />
 		<entry key="dataprovider.port.1" value="8890" />
 		<entry key="dataprovider.count" value="1" />
-		<entry key="regards.config.dataprovider.regards.jpa.multitenant.tenants.url.1"
+		<entry
+			key="regards.config.dataprovider.regards.jpa.multitenant.tenants.url.1"
 			value="172.26.47.52:5432/rs_dataprovider_tenant0" />
 		<entry
 			key="regards.config.dataprovider.regards.jpa.multitenant.tenants.user.name.1"
 			value="azertyuiop123456789" />
-		<entry key="regards.config.dataprovider.regards.jpa.multitenant.tenants.password.1"
+		<entry
+			key="regards.config.dataprovider.regards.jpa.multitenant.tenants.password.1"
 			value="azertyuiop123456789" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
@@ -211,8 +214,10 @@
 		<entry
 			key="regards.config.storage.regards.jpa.multitenant.tenants.user.name.1"
 			value="azertyuiop123456789" />
-		<entry key="regards.config.storage.regards.jpa.multitenant.tenants.password.1"
+		<entry
+			key="regards.config.storage.regards.jpa.multitenant.tenants.password.1"
 			value="azertyuiop123456789" />
+		<entry key="regards.config.storage.cache.directory" value="/tmp/rs-storage-cache" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="FrontendPanel">
