@@ -135,7 +135,6 @@
 		<entry key="dam.count" value="1" />
 		<entry key="regards.config.dam.regards.jpa.multitenant.tenants.url.1"
 			value="172.26.47.52:5432/rs_dam_tenant0" />
-		<entry key="regards.config.elasticsearch.cluster.name" value="regards" />
 		<entry key="regards.config.elasticsearch.host" value="172.26.47.52" />
 		<entry key="regards.config.elasticsearch.http.port" value="9200" />
 		<entry

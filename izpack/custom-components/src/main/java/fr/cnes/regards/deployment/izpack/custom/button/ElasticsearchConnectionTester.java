@@ -18,13 +18,9 @@
  */
 package fr.cnes.regards.deployment.izpack.custom.button;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-
-import org.elasticsearch.client.transport.TransportClient;
-import org.elasticsearch.common.settings.Settings;
-import org.elasticsearch.common.transport.InetSocketTransportAddress;
-import org.elasticsearch.transport.client.PreBuiltTransportClient;
+import org.apache.http.HttpHost;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestHighLevelClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -57,18 +53,9 @@ public class ElasticsearchConnectionTester extends ButtonAction {
      */
     public static final String PORT_VARIABLE = "regards.config.elasticsearch.http.port";
 
-    /**
-     * The name of the CLUSTER variable in the install data
-     */
-    public static final String CLUSTER_VARIABLE = "regards.config.elasticsearch.cluster.name";
-
     private String host;
 
     private String port;
-
-    private String cluster;
-
-    private TransportClient client;
 
     /**
      * @param installData
@@ -77,35 +64,27 @@ public class ElasticsearchConnectionTester extends ButtonAction {
         super(installData);
     }
 
-    @SuppressWarnings("resource")
-    private void createTransportClient() throws UnknownHostException {
-        Settings settings = Settings.EMPTY;
-
-        if (cluster != null) {
-            settings = Settings.builder().put("cluster.name", cluster).build();
-        }
-
-        client = new PreBuiltTransportClient(settings).addTransportAddress(new InetSocketTransportAddress(
-                InetAddress.getByName(host), Integer.valueOf(port)));
-    }
-
     @Override
     public boolean execute() {
         host = installData.getVariable(HOST_VARIABLE);
         port = installData.getVariable(PORT_VARIABLE);
-        cluster = installData.getVariable(CLUSTER_VARIABLE);
 
+        RestClient restClient = RestClient.builder(new HttpHost(host, Integer.parseInt(port))).build();
+        RestHighLevelClient client = new RestHighLevelClient(restClient);
+
+        boolean result = false;
         try {
-            createTransportClient();
-            return !client.connectedNodes().isEmpty();
-        } catch (UnknownHostException e) {
-            LOGGER.error("Connection Failed to Elasticsearch : " + host + "(" + port + ") for cluster : " + cluster, e);
-            return false;
-        } finally {
-            if (client != null) {
-                client.close();
+            // Testing availability of ES
+            if (!client.ping()) {
+                LOGGER.error("Elasticsearch is down. ");
+            } else {
+                result = true;
             }
+        } catch (Throwable t) {
+            LOGGER.error("Error while pinging Elasticsearch", t);
         }
+
+        return result;
     }
 
     public boolean execute(Console console) {

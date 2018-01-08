@@ -531,10 +531,6 @@
 			<spec id="host.label" size="15"
 				default="${regards.config.elasticsearch.host}" />
 		</field>
-		<field type="text" variable="regards.config.elasticsearch.cluster.name">
-			<spec id="cluster.label" size="15"
-				default="${regards.config.elasticsearch.cluster.name}" />
-		</field>
 		<field type="text" variable="regards.config.elasticsearch.http.port">
 			<spec id="port.label" size="15"
 				default="${regards.config.elasticsearch.http.port}" />
