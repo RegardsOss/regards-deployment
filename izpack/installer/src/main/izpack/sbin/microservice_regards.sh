@@ -60,10 +60,10 @@ fi
 typeset service_type_list
 case "${COMMAND}" in
   start|status)
-service_type_list="config registry gateway admin authentication dam catalog access-instance access-project frontend"
+service_type_list="config registry gateway admin authentication dam catalog storage dataprovider access-instance access-project frontend"
     ;;
   stop)
-service_type_list="frontend access-project access-instance catalog dam admin authentication gateway registry config"
+service_type_list="frontend access-project access-instance dataprovider storage catalog dam admin authentication gateway registry config"
     ;;
   *)
     usage ${PROCESSUS_NAME}
