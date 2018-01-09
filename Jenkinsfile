@@ -134,7 +134,7 @@ pipeline {
 	    steps {
 	        // Deploy installer to a LIVRAISON folder
 	        sh 'ssh -t rsins@172.26.47.95 "mkdir -p LIVRAISON"'
-	        sh 'ssh -t rsins@172.26.47.95 "rm LIVRAISON/REGARDS-OSS-Installer.jar"'
+	        sh 'ssh -t rsins@172.26.47.95 "rm -f LIVRAISON/REGARDS-OSS-Installer.jar"'
 	        sh 'scp izpack/installer/target/REGARDS-OSS-Installer.jar rsins@172.26.47.95:LIVRAISON'
 	        sh 'scp izpack/installer/src/test/resources/auto-install-ic.xml rsins@172.26.47.95:LIVRAISON'
 	    }
