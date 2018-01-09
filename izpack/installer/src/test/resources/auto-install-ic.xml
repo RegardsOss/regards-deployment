@@ -20,7 +20,7 @@
 		<pack index="7" name="dam" selected="true" />
 		<pack index="8" name="catalog" selected="true" />
 		<pack index="9" name="order" selected="true" />
-		<pack index="10" name="ingest" selected="false" />
+		<pack index="10" name="ingest" selected="true" />
 		<pack index="11" name="dataprovider" selected="true" />
 		<pack index="12" name="access" selected="true" />
 		<pack index="13" name="frontend" selected="true" />
@@ -284,6 +284,21 @@
 		<entry key="regards.acquisition.process.run.chains.delay" value="300000" />
 		<entry key="dataprovider.host.1" value="0.0.0.0" />
 		<entry key="dataprovider.port.1" value="8890" />
+	</com.izforge.izpack.panels.userinput.UserInputPanel>
+	
+	<com.izforge.izpack.panels.userinput.UserInputPanel
+		id="IngestPanel">
+		<entry
+			key="regards.config.ingest.regards.jpa.multitenant.tenants.password.1"
+			value="azertyuiop123456789" />
+		<entry key="ingest.host.1" value="0.0.0.0" />
+		<entry key="ingest.count" value="1" />
+		<entry key="ingest.port.1" value="8893" />
+		<entry key="regards.config.ingest.regards.jpa.multitenant.tenants.url.1"
+			value="172.26.47.52:5432/rs_ingest_tenant0" />
+		<entry
+			key="regards.config.ingest.regards.jpa.multitenant.tenants.user.name.1"
+			value="azertyuiop123456789" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 
 	<com.izforge.izpack.panels.userinput.UserInputPanel

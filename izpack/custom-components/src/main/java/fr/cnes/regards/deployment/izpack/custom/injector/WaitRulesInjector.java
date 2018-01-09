@@ -163,9 +163,9 @@ public class WaitRulesInjector implements InstallDataInjector {
             String waitedPack = waitedType.getName(); // The type of component we should be waiting for
             Boolean isWaitedPackBeingInstalled = installData.getSelectedPacks().stream()
                     .anyMatch(pack -> pack.getName().equals(waitedPack)); // Is the component/pack we are waiting for is being installed?
-
+            
             // Only wait for a component/pack which is being installed
-            if (isWaitedPackBeingInstalled) {
+            if (isWaitedPackBeingInstalled && installData.getVariable(waitedPack + INSTANCE_LIST_SUFFIX) != null) {
                 ComponentConfigList waitedComponentConfigList = XmlAccessor
                         .readFromString(installData.getVariable(waitedPack + INSTANCE_LIST_SUFFIX),
                                         ComponentConfigList.class);
