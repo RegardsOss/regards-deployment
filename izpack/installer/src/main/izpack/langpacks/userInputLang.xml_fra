@@ -34,6 +34,8 @@
 	<str id="components.access.instance" txt="Access instance" />
 	<str id="components.access.project" txt="Access projet" />
 	<str id="components.storage" txt="Storage" />
+	<str id="components.order" txt="Order" />
+	<str id="components.ingest" txt="Ingest" />
 	<str id="protocol.http" txt="http" />
 	<str id="protocol.https" txt="https" />
 
@@ -132,8 +134,21 @@
 	<str id="catalog.panel.title.label" txt="Microservice Catalog" />
 	
 	<!-- StoragePanel -->
-	<str id="storage.panel.title.label" txt="Microservice Storage" />	
-	<str id="storage.panel.cache.directory" txt="Répertoire du cache" />	
+	<str id="storage.panel.title.label" txt="Microservice Storage" />
+	<str id="storage.panel.cache.directory" txt="Répertoire du cache" />
+
+	<!-- OrderPanel -->
+	<str id="order.panel.title.label" txt="Microservice Order" />
+	<str id="order.jobs.pool.size" txt="Taille des pools de jobs" />
+	<str id="order.files.bucket.size.Mb" txt="Taille des sous-commandes en Mb" />
+	<str id="order.validation.period.days" txt="Durée de validité des commandes en jours" />
+	<str id="order.days.before.considering.order.as.aside" txt="Nombre de jours avant envoi de mail de relance" />
+	<str id="order.secret" txt="Phrase secrète pour token" />
+	<str id="order.files.displayable.maximum" txt="Nombre maximum de fichiers affichés" />
+	<str id="order.max.storage.files.jobs.per.user" txt="Nombre maximum de jobs par utilisateur" />
+
+	<!-- IngestPanel -->
+	<str id="ingest.panel.title.label" txt="Microservice ingest" />
 
 	<!-- DataProviderPanel -->
 	<str id="dataprovider.panel.title.label" txt="Microservice Fourniture de données" />

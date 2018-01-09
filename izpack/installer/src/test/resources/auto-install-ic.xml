@@ -16,12 +16,14 @@
 		<pack index="3" name="gateway" selected="true" />
 		<pack index="4" name="admin" selected="true" />
 		<pack index="5" name="authentication" selected="true" />
-		<pack index="6" name="dam" selected="true" />
-		<pack index="7" name="catalog" selected="true" />
-		<pack index="8" name="dataprovider" selected="true" />
-		<pack index="9" name="storage" selected="true" />
-		<pack index="10" name="access" selected="true" />
-		<pack index="11" name="frontend" selected="true" />
+		<pack index="6" name="storage" selected="true" />
+		<pack index="7" name="dam" selected="true" />
+		<pack index="8" name="catalog" selected="true" />
+		<pack index="9" name="order" selected="true" />
+		<pack index="10" name="ingest" selected="false" />
+		<pack index="11" name="dataprovider" selected="true" />
+		<pack index="12" name="access" selected="true" />
+		<pack index="13" name="frontend" selected="true" />
 	</com.izforge.izpack.panels.packs.PacksPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="SelectSecurityLevelPanel">
@@ -160,6 +162,52 @@
 			value="azertyuiop123456789" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
+		id="OrderPanel">
+		<entry
+			key="regards.config.order.regards.jpa.multitenant.tenants.user.name.1"
+			value="azertyuiop123456789" />
+		<entry key="regards.config.order.regards.jobs.pool.size" value="10" />
+		<entry
+			key="regards.config.order.regards.order.max.storage.files.jobs.per.user"
+			value="2" />
+		<entry key="regards.config.order.regards.order.files.bucket.size.Mb"
+			value="100" />
+		<entry
+			key="regards.config.order.regards.jpa.multitenant.tenants.password.1"
+			value="" />
+		<entry key="order.port.1" value="8892" />
+		<entry key="regards.config.order.regards.order.validation.period.days"
+			value="3" />
+		<entry key="regards.config.order.regards.order.files.displayable.maximum"
+			value="5000" />
+		<entry
+			key="regards.config.order.regards.order.days.before.considering.order.as.aside"
+			value="7" />
+		<entry key="regards.config.order.regards.jpa.multitenant.tenants.url.1"
+			value="172.26.47.52:5432/rs_order_tenant0" />
+		<entry key="order.count" value="1" />
+		<entry key="order.host.1" value="0.0.0.0" />
+		<entry key="regards.config.order.regards.order.secret" value="order's passphrase" />
+	</com.izforge.izpack.panels.userinput.UserInputPanel>
+
+	<com.izforge.izpack.panels.userinput.UserInputPanel
+		id="StoragePanel">
+		<entry
+			key="regards.config.storage.regards.jpa.multitenant.tenants.password.1"
+			value="azertyuiop123456789" />
+		<entry key="storage.host.1" value="0.0.0.0" />
+		<entry key="storage.port.1" value="8891" />
+		<entry key="storage.count" value="1" />
+		<entry key="regards.config.storage.cache.directory" value="/tmp/rs-storage-cache" />
+		<entry key="regards.config.storage.regards.jpa.multitenant.tenants.url.1"
+			value="172.26.47.52:5432/rs_storage_tenant0" />
+		<entry
+			key="regards.config.storage.regards.jpa.multitenant.tenants.user.name.1"
+			value="azertyuiop123456789" />
+	</com.izforge.izpack.panels.userinput.UserInputPanel>
+
+
+	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="AccessInstancePanel">
 		<entry key="access-instance.host.1" value="0.0.0.0" />
 		<entry key="access-instance.port.1" value="9040" />
@@ -220,6 +268,25 @@
 		<entry key="regards.config.storage.cache.directory" value="/tmp/rs-storage-cache" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
+		id="DataProviderPanel">
+		<entry key="regards.acquisition.process.new.sip.ingest.delay"
+			value="5000" />
+		<entry
+			key="regards.config.dataprovider.regards.jpa.multitenant.tenants.url.1"
+			value="172.26.47.52:5432/rs_dataprovider_tenant0" />
+		<entry
+			key="regards.config.dataprovider.regards.jpa.multitenant.tenants.password.1"
+			value="azertyuiop123456789" />
+		<entry key="dataprovider.count" value="1" />
+		<entry
+			key="regards.config.dataprovider.regards.jpa.multitenant.tenants.user.name.1"
+			value="azertyuiop123456789" />
+		<entry key="regards.acquisition.process.run.chains.delay" value="300000" />
+		<entry key="dataprovider.host.1" value="0.0.0.0" />
+		<entry key="dataprovider.port.1" value="8890" />
+	</com.izforge.izpack.panels.userinput.UserInputPanel>
+
+	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="FrontendPanel">
 		<entry key="frontend.host.1" value="localhost" />
 		<entry key="frontend.count" value="1" />
@@ -229,11 +296,11 @@
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="CheckJdbcConnectionsPanel" />
 	<com.izforge.izpack.panels.summary.SummaryPanel
-		id="SummaryPanel_24" />
+		id="SummaryPanel_26" />
 	<com.izforge.izpack.panels.install.InstallPanel
-		id="InstallPanel_25" />
+		id="InstallPanel_27" />
 	<com.izforge.izpack.panels.process.ProcessPanel
-		id="ProcessPanel_26" />
+		id="ProcessPanel_28" />
 	<com.izforge.izpack.panels.finish.FinishPanel
-		id="FinishPanel_27" />
+		id="FinishPanel_29" />
 </AutomatedInstallation>

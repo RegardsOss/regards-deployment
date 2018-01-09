@@ -28,15 +28,13 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import fr.cnes.regards.deployment.izpack.custom.button.AbstractJdbcConnectionTester;
 import fr.cnes.regards.deployment.izpack.custom.model.ComponentConfigList;
 import fr.cnes.regards.deployment.izpack.custom.model.WaitRuleList;
 
 /**
  * Tests for class {@link XmlAccessor}
  *
- * @author CS
- * @since 1.0.0
+ * @author Christophe Mertz
  */
 public class XmlAccessorTest {
 

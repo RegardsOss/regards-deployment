@@ -263,7 +263,8 @@
 		<variable
 			name="regards.config.dataprovider.regards.jpa.multitenant.tenants.password.1"
 			value="" />
-		<variable name="regards.acquisition.process.new.sip.ingest.delay.default.value"
+		<variable
+			name="regards.acquisition.process.new.sip.ingest.delay.default.value"
 			value="5000" />
 		<variable name="regards.acquisition.process.run.chains.delay.default.value"
 			value="300000" />
@@ -284,6 +285,51 @@
 			value="" />
 		<variable name="regards.config.storage.cache.directory.default.value"
 			value="/tmp/rs-storage-cache" />
+
+		<!-- Order -->
+		<variable name="order.count" value="0" />
+		<variable name="order.host" value="0.0.0.0" />
+		<variable name="order.port" value="8892" />
+		<variable name="order.xmx" value="256m" />
+		<variable name="regards.config.order.regards.jpa.multitenant.tenants.url.1"
+			value="localhost:5432/rs_order_tenant0" />
+		<variable
+			name="regards.config.order.regards.jpa.multitenant.tenants.user.name.1"
+			value="" />
+		<variable
+			name="regards.config.order.regards.jpa.multitenant.tenants.password.1"
+			value="" />
+		<variable name="regards.config.order.regards.jobs.pool.size"
+			value="10" />
+		<variable name="regards.config.order.regards.order.files.bucket.size.Mb"
+			value="100" />
+		<variable name="regards.config.order.regards.order.validation.period.days"
+			value="3" />
+		<variable
+			name="regards.config.order.regards.order.days.before.considering.order.as.aside"
+			value="7" />
+		<variable name="regards.config.order.regards.order.secret"
+			value="order's passphrase" />
+		<variable
+			name="regards.config.order.regards.order.files.displayable.maximum"
+			value="5000" />
+		<variable
+			name="regards.config.order.regards.order.max.storage.files.jobs.per.user"
+			value="2" />
+
+		<!-- Ingest -->
+		<variable name="ingest.count" value="0" />
+		<variable name="ingest.host" value="0.0.0.0" />
+		<variable name="ingest.port" value="8893" />
+		<variable name="ingest.xmx" value="256m" />
+		<variable name="regards.config.ingest.regards.jpa.multitenant.tenants.url.1"
+			value="localhost:5432/rs_ingest_tenant0" />
+		<variable
+			name="regards.config.ingest.regards.jpa.multitenant.tenants.user.name.1"
+			value="" />
+		<variable
+			name="regards.config.ingest.regards.jpa.multitenant.tenants.password.1"
+			value="" />
 
 		<!-- Access Instance -->
 		<variable name="access-instance.count" value="0" />
@@ -354,6 +400,12 @@
 		<condition type="packselection" id="selected.catalog">
 			<name>catalog</name>
 		</condition>
+		<condition type="packselection" id="selected.order">
+			<name>order</name>
+		</condition>
+		<condition type="packselection" id="selected.ingest">
+			<name>ingest</name>
+		</condition>
 		<condition type="packselection" id="selected.dataprovider">
 			<name>dataprovider</name>
 		</condition>
@@ -372,6 +424,8 @@
 			<condition type="ref" refid="selected.dam" />
 			<condition type="ref" refid="selected.catalog" />
 			<condition type="ref" refid="selected.access" />
+			<condition type="ref" refid="selected.order" />
+			<condition type="ref" refid="selected.ingest" />
 			<condition type="ref" refid="selected.dataprovider" />
 			<condition type="ref" refid="selected.storage" />
 		</condition>
@@ -381,6 +435,8 @@
 			<condition type="ref" refid="selected.dam" />
 			<condition type="ref" refid="selected.catalog" />
 			<condition type="ref" refid="selected.access" />
+			<condition type="ref" refid="selected.order" />
+			<condition type="ref" refid="selected.ingest" />
 			<condition type="ref" refid="selected.dataprovider" />
 			<condition type="ref" refid="selected.storage" />
 		</condition>
@@ -426,10 +482,13 @@
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAuthenticationPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="StoragePanel"
-			condition="izpack.selected.storage">
+		<panel classname="UserInputPanel" id="StoragePanel" condition="izpack.selected.storage">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorStoragePanel" />
+		</panel>
+		<panel classname="UserInputPanel" id="IngestPanel" condition="izpack.selected.ingest">
+			<validator
+				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorIngestPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="DamPanel" condition="izpack.selected.dam">
 			<validator
@@ -438,6 +497,10 @@
 		<panel classname="UserInputPanel" id="CatalogPanel" condition="izpack.selected.catalog">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorCatalogPanel" />
+		</panel>
+		<panel classname="UserInputPanel" id="OrderPanel" condition="izpack.selected.order">
+			<validator
+				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorOrderPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="DataProviderPanel"
 			condition="izpack.selected.dataprovider">
@@ -745,8 +808,7 @@
 			</fileset>
 			<file src="sbin/microservice_storage.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
-			<fileset dir="config/catalog/BOOT-INF/classes/"
-				targetdir="$INSTALL_PATH/REGARDS/config/logback/storage"
+			<fileset dir="config/catalog/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/storage"
 				override="true">
 				<include name="logback.xml" />
 			</fileset>
@@ -868,6 +930,94 @@
 			</executable>
 		</pack>
 
+		<pack name="order" required="false" preselected="false">
+			<description>Installing the Order microservice</description>
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+				override="true">
+				<include name="bootstrap-order.jar" />
+			</fileset>
+			<file src="sbin/microservice_order.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true" />
+			<fileset dir="config/order/BOOT-INF/classes/"
+				targetdir="$INSTALL_PATH/REGARDS/config/logback/order"
+				override="true">
+				<include name="logback.xml" />
+			</fileset>
+			<executable type="bin" stage="never" keep="true">
+				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
+			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="order" />
+					<arg value="-c" />
+					<arg value="${order.instanceList}" />
+				</args>
+			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="order" />
+					<arg value="-w" />
+					<arg value="${order.waitRuleList}" />
+				</args>
+			</executable>
+		</pack>
+
+		<pack name="ingest" required="false" preselected="false">
+			<description>Installing the Ingest microservice</description>
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+				override="true">
+				<include name="bootstrap-ingest.jar" />
+			</fileset>
+			<file src="sbin/microservice_ingest.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true" />
+			<fileset dir="config/ingest/BOOT-INF/classes/"
+				targetdir="$INSTALL_PATH/REGARDS/config/logback/ingest"
+				override="true">
+				<include name="logback.xml" />
+			</fileset>
+			<executable type="bin" stage="never" keep="true">
+				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
+			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="ingest" />
+					<arg value="-c" />
+					<arg value="${ingest.instanceList}" />
+				</args>
+			</executable>
+			<executable
+				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+				type="bin" stage="postinstall" failure="abort" keep="true">
+				<os family="unix" />
+				<args>
+					<arg value="-i" />
+					<arg value="$INSTALL_PATH/REGARDS" />
+					<arg value="-t" />
+					<arg value="ingest" />
+					<arg value="-w" />
+					<arg value="${ingest.waitRuleList}" />
+				</args>
+			</executable>
+		</pack>
+
 		<pack name="dataprovider" required="false" preselected="false">
 			<description>Installing the Data provider microservice</description>
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
@@ -876,7 +1026,7 @@
 			</fileset>
 			<file src="sbin/microservice_dataprovider.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
-			<fileset dir="config/catalog/BOOT-INF/classes/"
+			<fileset dir="config/dataprovider/BOOT-INF/classes/"
 				targetdir="$INSTALL_PATH/REGARDS/config/logback/dataprovider"
 				override="true">
 				<include name="logback.xml" />

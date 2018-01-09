@@ -35,6 +35,8 @@
 	<str id="components.access.instance" txt="Access instance" />
 	<str id="components.access.project" txt="Access project" />	
 	<str id="components.storage" txt="Storage" />
+	<str id="components.order" txt="Order" />
+	<str id="components.ingest" txt="Ingest" />
 	<str id="protocol.http" txt="http" />
 	<str id="protocol.https" txt="https" />
 
@@ -132,8 +134,21 @@
 	<str id="catalog.panel.title.label" txt="Catalog microservice" />
 
 	<!-- StoragePanel -->
-	<str id="storage.panel.title.label" txt="Storage microservice" />	
-	<str id="storage.panel.cache.directory" txt="Cache directory" />	
+	<str id="storage.panel.title.label" txt="Storage microservice" />
+	<str id="storage.panel.cache.directory" txt="Cache directory" />
+
+	<!-- OrderPanel -->
+	<str id="order.panel.title.label" txt="Order microservice" />
+	<str id="order.jobs.pool.size" txt="Jobs pool size" />
+	<str id="order.files.bucket.size.Mb" txt="Orders bucket size in Mb" />
+	<str id="order.validation.period.days" txt="Orders validation period in days" />
+	<str id="order.days.before.considering.order.as.aside" txt="Days before sending mail notification" />
+	<str id="order.secret" txt="Passphrase used to generate token" />
+	<str id="order.files.displayable.maximum" txt="Maximum number of displayable files" />
+	<str id="order.max.storage.files.jobs.per.user" txt="Maximum number of job's order per user" />	
+	
+	<!-- IngestPanel -->
+	<str id="ingest.panel.title.label" txt="Ingest microservice" />
 
 	<!-- DataProviderPanel -->
 	<str id="dataprovider.panel.title.label" txt="Data provider microservice" />

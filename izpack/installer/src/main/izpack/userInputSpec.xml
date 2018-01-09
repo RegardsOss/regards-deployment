@@ -598,6 +598,162 @@
 		</field>
 	</panel>
 
+	<panel id="OrderPanel">
+		<field id="order.panel.title.label" type="title" />
+		<field type="custom" minRow="1" maxRow="50" variable="order.count">
+			<spec>
+				<col>
+					<field type="text" variable="order.host">
+						<spec id="host.label" size="15" default="${order.host}" />
+					</field>
+				</col>
+				<col>
+					<field type="text" variable="order.port">
+						<spec id="port.label" size="15" default="${order.port}" />
+						<validator
+							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							id="validator.port.error.label" />
+					</field>
+				</col>
+			</spec>
+		</field>
+
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+
+		<field type="staticText" id="first.project.database.label" />
+		<field type="rule"
+			variable="regards.config.order.regards.jpa.multitenant.tenants.url.1">
+			<spec default="${regards.config.order.regards.jpa.multitenant.tenants.url.1}"
+				id="url.label" layout="O:15:U : N:5:U / O:15:U" resultFormat="displayFormat" />
+		</field>
+		<field type="text"
+			variable="regards.config.order.regards.jpa.multitenant.tenants.user.name.1">
+			<spec id="username.label" size="15" />
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.username.label" />
+		</field>
+		<field type="password"
+			variable="regards.config.order.regards.jpa.multitenant.tenants.password.1">
+			<spec>
+				<pwd id="password.label" size="15" />
+			</spec>
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.password.label" />
+		</field>
+
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+
+		<field type="text" variable="regards.config.order.regards.jobs.pool.size">
+			<spec id="order.jobs.pool.size" size="15"
+				default="${regards.config.order.regards.jobs.pool.size}" />
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.password.label" />
+		</field>
+		<field type="text"
+			variable="regards.config.order.regards.order.files.bucket.size.Mb">
+			<spec id="order.files.bucket.size.Mb" size="15"
+				default="${regards.config.order.regards.order.files.bucket.size.Mb}" />
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.password.label" />
+		</field>
+		<field type="text"
+			variable="regards.config.order.regards.order.validation.period.days">
+			<spec id="order.validation.period.days" size="15"
+				default="${regards.config.order.regards.order.validation.period.days}" />
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.password.label" />
+		</field>
+		<field type="text"
+			variable="regards.config.order.regards.order.days.before.considering.order.as.aside">
+			<spec id="order.days.before.considering.order.as.aside" size="15"
+				default="${regards.config.order.regards.order.days.before.considering.order.as.aside}" />
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.password.label" />
+		</field>
+		<field type="text" variable="regards.config.order.regards.order.secret">
+			<spec id="order.secret" size="15"
+				default="${regards.config.order.regards.order.secret}" />
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.password.label" />
+		</field>
+		<field type="text"
+			variable="regards.config.order.regards.order.files.displayable.maximum">
+			<spec id="order.files.displayable.maximum" size="15"
+				default="${regards.config.order.regards.order.files.displayable.maximum}" />
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.password.label" />
+		</field>
+		<field type="text"
+			variable="regards.config.order.regards.order.max.storage.files.jobs.per.user">
+			<spec id="order.max.storage.files.jobs.per.user" size="15"
+				default="${regards.config.order.regards.order.max.storage.files.jobs.per.user}" />
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.password.label" />
+		</field>
+	</panel>
+
+	<panel id="IngestPanel">
+		<field id="ingest.panel.title.label" type="title" />
+		<field type="custom" minRow="1" maxRow="50" variable="ingest.count">
+			<spec>
+				<col>
+					<field type="text" variable="ingest.host">
+						<spec id="host.label" size="15" default="${ingest.host}" />
+					</field>
+				</col>
+				<col>
+					<field type="text" variable="ingest.port">
+						<spec id="port.label" size="15" default="${ingest.port}" />
+						<validator
+							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							id="validator.port.error.label" />
+					</field>
+				</col>
+			</spec>
+		</field>
+
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+
+		<field type="staticText" id="first.project.database.label" />
+		<field type="rule"
+			variable="regards.config.ingest.regards.jpa.multitenant.tenants.url.1">
+			<spec
+				default="${regards.config.ingest.regards.jpa.multitenant.tenants.url.1}"
+				id="url.label" layout="O:15:U : N:5:U / O:15:U" resultFormat="displayFormat" />
+		</field>
+		<field type="text"
+			variable="regards.config.ingest.regards.jpa.multitenant.tenants.user.name.1">
+			<spec id="username.label" size="15" />
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.username.label" />
+		</field>
+		<field type="password"
+			variable="regards.config.ingest.regards.jpa.multitenant.tenants.password.1">
+			<spec>
+				<pwd id="password.label" size="15" />
+			</spec>
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.password.label" />
+		</field>
+	</panel>
+
 	<panel id="DataProviderPanel">
 		<field id="dataprovider.panel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="50" variable="dataprovider.count">
@@ -663,8 +819,6 @@
 				default="${regards.acquisition.process.run.chains.delay.default.value}" />
 		</field>
 	</panel>
-
-
 
 	<panel id="AccessInstancePanel">
 		<field id="access-instance.panel.title.label" type="title" />
@@ -839,6 +993,24 @@
 			<spec id="connection.tester.test" successMsg="connection.tester.success">
 				<run
 					class="fr.cnes.regards.deployment.izpack.custom.button.CatalogJdbcConnectionTester">
+					<msg id="connection.tester.fail" name="error" />
+				</run>
+			</spec>
+		</field>
+		
+		<field type="button" conditionid="izpack.selected.order" id="components.ingest">
+			<spec id="connection.tester.test" successMsg="connection.tester.success">
+				<run
+					class="fr.cnes.regards.deployment.izpack.custom.button.IngestJdbcConnectionTester">
+					<msg id="connection.tester.fail" name="error" />
+				</run>
+			</spec>
+		</field>
+
+		<field type="button" conditionid="izpack.selected.order" id="components.order">
+			<spec id="connection.tester.test" successMsg="connection.tester.success">
+				<run
+					class="fr.cnes.regards.deployment.izpack.custom.button.OrderJdbcConnectionTester">
 					<msg id="connection.tester.fail" name="error" />
 				</run>
 			</spec>
