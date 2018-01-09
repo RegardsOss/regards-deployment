@@ -98,14 +98,13 @@ public class WaitRulesInjector implements InstallDataInjector {
         dataProviderWaitList.put(ComponentType.CONFIG, 60);
         dataProviderWaitList.put(ComponentType.REGISTRY, 90);
         dataProviderWaitList.put(ComponentType.ADMIN, 240);
-        // TODO CMZ add ingest
+        dataProviderWaitList.put(ComponentType.INGEST, 240);
         WAIT_RULES.put(ComponentType.DATAPROVIDER, dataProviderWaitList);
 
         Map<ComponentType, Integer> storageProviderWaitList = new HashMap<>();
         storageProviderWaitList.put(ComponentType.CONFIG, 60);
         storageProviderWaitList.put(ComponentType.REGISTRY, 90);
         storageProviderWaitList.put(ComponentType.ADMIN, 240);
-        storageProviderWaitList.put(ComponentType.INGEST, 240);
         WAIT_RULES.put(ComponentType.STORAGE, storageProviderWaitList);
 
         Map<ComponentType, Integer> ingestProviderWaitList = new HashMap<>();
