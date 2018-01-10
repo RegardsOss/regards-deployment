@@ -124,6 +124,7 @@
 
 		<!-- Common -->
 		<variable name="regards.config.first.project" value="project1" />
+		<variable name="regards.config.workspace.directory" value="/tmp/workspace" />
 
 		<!-- Config -->
 		<variable name="config.count" value="0" /> <!-- TODO: Don't think we can have multiple -->
