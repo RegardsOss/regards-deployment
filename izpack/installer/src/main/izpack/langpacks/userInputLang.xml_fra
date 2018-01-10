@@ -60,8 +60,9 @@
 		txt="	* L'administrateur devra faire partie des groupes REGARDS, ADMIN et RUNTIME" />
 
 	<!-- ProjectPanel -->
-	<str id="project.panel.title.label" txt="Quel est le premier projet que nous devrions ajouter?" />
-	<str id="project.panel.project.label" txt="Nom:" />
+	<str id="project.panel.title.label" txt="Paramètres généraux" />
+	<str id="project.panel.project.label" txt="Le premier projet à ajouter" />
+	<str id="workspace.folder.label" txt="Le répertoire de base des espaces de travail" />
 
 	<!-- ConfigSecurityLevelPanel -->
 	<str id="configsecuritylevel.panel.title.label" txt="Personnaliser les droits" />

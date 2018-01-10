@@ -96,6 +96,9 @@
 		<field type="text" variable="regards.config.first.project" size="35">
 			<spec size="15" id="project.panel.project.label" default="project1" />
 		</field>
+		<field type="text" variable="regards.config.workspace.directory" size="35">
+			<spec size="15" id="workspace.folder.label" default="${regards.config.workspace.directory}" />
+		</field>
 	</panel>
 
 	<panel id="ConfigPanel">

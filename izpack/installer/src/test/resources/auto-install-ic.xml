@@ -45,6 +45,7 @@
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="ProjectPanel">
 		<entry key="regards.config.first.project" value="project1" />
+		<entry key="regards.config.workspace.directory" value="/tmp/workspace" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="ConfigPanel">
@@ -285,7 +286,7 @@
 		<entry key="dataprovider.host.1" value="0.0.0.0" />
 		<entry key="dataprovider.port.1" value="8890" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	
+
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="IngestPanel">
 		<entry

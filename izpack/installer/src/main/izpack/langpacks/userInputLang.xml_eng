@@ -61,8 +61,9 @@
 		txt="	* The admin user must have groups REGARDS, ADMIN and RUNTIME" />
 
 	<!-- ProjectPanel -->
-	<str id="project.panel.title.label" txt="What is the first project we should add?" />
-	<str id="project.panel.project.label" txt="Name:" />
+	<str id="project.panel.title.label" txt="General parameters" />
+	<str id="project.panel.project.label" txt="The first project to add" />
+	<str id="workspace.folder.label" txt="The workspaces basic directory" />
 
 	<!-- ConfigSecurityLevelPanel -->
 	<str id="configsecuritylevel.panel.title.label" txt="Security customization" />
