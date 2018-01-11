@@ -103,6 +103,17 @@ Node.js                 |  6.11.0 LTS     |   Linux Foundation                  
 
 Apache Software are distributed under Apache License version 2.0.
 
+Prerequisite tools :
+--------------------
+
+.................................................................................................
+Name                    |  Version        |   Provider                                          |
+.................................................................................................
+Elasticsearch           |  5.1.1          |   Elastic                                           |
+PostgreSQL              |  9.4+           |   PostgreSQL                                        |
+RabbitMQ                |  3.6.5          |   Pivotal                                           |
+.................................................................................................
+
 
 4/ Content
 __________
