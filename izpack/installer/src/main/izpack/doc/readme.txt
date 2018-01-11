@@ -168,7 +168,16 @@ cd rs-admin
 mvn install -DskipTests -P delivery
 
 cd ..
+git clone https://thor.si.c-s.fr/git/rs-frontend
 git clone https://thor.si.c-s.fr/git/rs-cloud
+cd rs-frontend/frontend-webapp/src/main/webapp/
+npm run bootstrap
+npm install
+npm run build:production
+
+cd ../../../../../
+mkdir -p ./rs-cloud/rs-frontend/frontend-webapp/src/main/webapp/dist
+cp rs-frontend/frontend-webapp/src/main/webapp/dist ./rs-cloud/rs-frontend/frontend-webapp/src/main/webapp/dist
 cd rs-cloud
 mvn install -DskipTests -P delivery
 
@@ -186,11 +195,6 @@ cd ..
 git clone https://thor.si.c-s.fr/git/rs-access
 cd rs-access
 mvn install -DskipTests
-
-cd ..
-git clone https://thor.si.c-s.fr/git/rs-frontend
-cd rs-frontend
-mvn install -DskipTests -P delivery
 
 7/ Build installer
 __________________
