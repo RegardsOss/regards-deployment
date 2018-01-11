@@ -103,6 +103,7 @@ Node.js                 |  6.11.0 LTS     |   Linux Foundation                  
 
 Apache Software are distributed under Apache License version 2.0.
 
+In order to install the frontend, you need to be sure that your user has write access to the global module folder. If you have an EACCESS issue while executing `touch $(npm config get prefix)/lib/node_modules/test`, npm has [released a guide to fix it](https://docs.npmjs.com/getting-started/fixing-npm-permissions)
 
 4/ Content
 __________
