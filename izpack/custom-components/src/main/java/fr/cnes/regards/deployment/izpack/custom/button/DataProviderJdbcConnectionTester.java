@@ -20,6 +20,12 @@ package fr.cnes.regards.deployment.izpack.custom.button;
 
 import com.izforge.izpack.api.data.InstallData;
 
+/**
+ * Checks the Data provider's database connection
+ * 
+ * @author Christophe Mertz
+ *
+ */
 public class DataProviderJdbcConnectionTester extends AbstractJdbcConnectionTester {
 
     /**
@@ -37,6 +43,11 @@ public class DataProviderJdbcConnectionTester extends AbstractJdbcConnectionTest
      */
     public static final String PASSWORD_DATASOURCE_VARIABLE = "regards.config.dataprovider.regards.jpa.multitenant.tenants.password.1";
 
+    /**
+     * Constructor
+     * 
+     * @param installData {@link InstallData} used throughout the installation
+     */
     public DataProviderJdbcConnectionTester(InstallData installData) {
         super(installData);
         urlVariable = URL_DATASOURCE_VARIABLE;

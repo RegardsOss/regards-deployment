@@ -36,7 +36,7 @@ import javax.xml.bind.JAXB;
 public final class XmlAccessor {
 
     /**
-     * Private contructor in order to hide the default one
+     * Private constructor in order to hide the default one
      */
     private XmlAccessor() {
         super();
@@ -95,10 +95,9 @@ public final class XmlAccessor {
      * @since 1.0.0
      */
     public static <T> T readFromString(String xmlString, Class<T> pType) {
-        T result;
         StringReader sr = new StringReader(xmlString);
 
-        result = JAXB.unmarshal(sr, pType);
+        T result = JAXB.unmarshal(sr, pType);
         return result;
     }
 
@@ -110,9 +109,7 @@ public final class XmlAccessor {
      * @since 1.0.0
      */
     public static <T> T readFromFile(Path inputXmlFile, Class<T> pType) {
-        T result;
-
-        result = JAXB.unmarshal(inputXmlFile.toFile(), pType);
+        T result = JAXB.unmarshal(inputXmlFile.toFile(), pType);
         return result;
     }
 }

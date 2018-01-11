@@ -34,14 +34,32 @@ import fr.cnes.regards.deployment.izpack.custom.model.JdbcConnectionModel;
 import fr.cnes.regards.deployment.izpack.custom.model.PostgreSqlJdbcConnectionModel;
 
 /**
- * When the corresponding button is clicked, it attempts to verify the connection to the database.
+ * Abstract class used to checks the database connection
  *
  * @author Xavier-Alexandre Brochard
  * @author Christophe Mertz
  */
 public abstract class AbstractJdbcConnectionTester extends ButtonAction {
 
+    /**
+     * Class logger
+     */
     private static final Logger LOGGER = LoggerFactory.getLogger(AbstractJdbcConnectionTester.class);
+
+    /**
+     * The name of the URL datasource variable in the install data
+     */
+    public String URL_DATASOURCE_VARIABLE;
+
+    /**
+     * The name of the username datasource variable in the install data
+     */
+    public String USERNAME_DATASOURCE_VARIABLE;
+
+    /**
+     * The name of the password datasource variable in the install data
+     */
+    public String PASSWORD_DATASOURCE_VARIABLE;
 
     /**
      * Message
@@ -64,10 +82,15 @@ public abstract class AbstractJdbcConnectionTester extends ButtonAction {
     protected String passwordVariable;
 
     /**
-     * @param installData
+     * Default constructor
+     * 
+     * @param installData {@link InstallData} used throughout the installation
      */
     public AbstractJdbcConnectionTester(InstallData installData) {
         super(installData);
+        urlVariable = URL_DATASOURCE_VARIABLE;
+        userVariable = USERNAME_DATASOURCE_VARIABLE;
+        passwordVariable = PASSWORD_DATASOURCE_VARIABLE;
     }
 
     @Override
@@ -97,6 +120,7 @@ public abstract class AbstractJdbcConnectionTester extends ButtonAction {
 
     }
 
+    @Override
     public boolean execute(Console console) {
         if (!execute()) {
             console.println(messages.get(ERROR));
@@ -105,6 +129,7 @@ public abstract class AbstractJdbcConnectionTester extends ButtonAction {
         return true;
     }
 
+    @Override
     public boolean execute(Prompt prompt) {
         if (!execute()) {
             prompt.warn(messages.get(ERROR));

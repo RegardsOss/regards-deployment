@@ -30,12 +30,15 @@ import com.izforge.izpack.panels.userinput.action.ButtonAction;
 import com.izforge.izpack.util.Console;
 
 /**
- * When the corresponding button is clicked, it attemps to verify the connection to Elasticsearch
+ * Checks the Elasticsearch connection
  *
  * @author Christophe Mertz
  */
 public class ElasticsearchConnectionTester extends ButtonAction {
 
+    /**
+     * Class logger
+     */
     private static final Logger LOGGER = LoggerFactory.getLogger(ElasticsearchConnectionTester.class);
 
     /**
@@ -53,12 +56,20 @@ public class ElasticsearchConnectionTester extends ButtonAction {
      */
     public static final String PORT_VARIABLE = "regards.config.elasticsearch.http.port";
 
+    /**
+     * The host to the Elasticsearch instance 
+     */
     private String host;
 
+    /**
+     * The port to the Elasticsearch instance 
+     */
     private String port;
 
     /**
-     * @param installData
+     * Constructor
+     * 
+     * @param installData {@link InstallData} used throughout the installation
      */
     public ElasticsearchConnectionTester(InstallData installData) {
         super(installData);
@@ -87,6 +98,7 @@ public class ElasticsearchConnectionTester extends ButtonAction {
         return result;
     }
 
+    @Override
     public boolean execute(Console console) {
         if (!execute()) {
             console.println(messages.get(ERROR));
@@ -95,6 +107,7 @@ public class ElasticsearchConnectionTester extends ButtonAction {
         return true;
     }
 
+    @Override
     public boolean execute(Prompt prompt) {
         if (!execute()) {
             prompt.warn(messages.get(ERROR));

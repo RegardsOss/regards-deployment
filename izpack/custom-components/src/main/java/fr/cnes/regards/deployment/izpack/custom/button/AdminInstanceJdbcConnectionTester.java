@@ -20,6 +20,12 @@ package fr.cnes.regards.deployment.izpack.custom.button;
 
 import com.izforge.izpack.api.data.InstallData;
 
+/**
+ * Checks the Admin instance's database connection
+ * 
+ * @author Christophe Mertz
+ *
+ */
 public class AdminInstanceJdbcConnectionTester extends AbstractJdbcConnectionTester {
     
     /**
@@ -37,6 +43,11 @@ public class AdminInstanceJdbcConnectionTester extends AbstractJdbcConnectionTes
      */
     public static final String PASSWORD_DATASOURCE_VARIABLE = "regards.config.admin.regards.jpa.instance.datasource.password";
 
+    /**
+     * Constructor
+     * 
+     * @param installData {@link InstallData} used throughout the installation
+     */
     public AdminInstanceJdbcConnectionTester(InstallData installData) {
         super(installData);
         urlVariable = URL_DATASOURCE_VARIABLE;
