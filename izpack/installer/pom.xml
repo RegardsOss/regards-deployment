@@ -114,15 +114,16 @@
 								bootstrap-gateway,
 								bootstrap-administration,
 								bootstrap-dataprovider,
-								bootstrap-storage,
+								acquisition-plugins-ssalto,
 								bootstrap-order,
+								bootstrap-storage,
 								bootstrap-ingest,
 								bootstrap-dam, 
-								bootstrap-catalog, 
-								bootstrap-access-instance, 
-								bootstrap-access-project,                 
+								bootstrap-catalog,
+								bootstrap-access-instance,
+								bootstrap-access-project,
 								bootstrap-frontend, 
-								bootstrap-authentication								
+								bootstrap-authentication
 							</includeArtifactIds>
 						</configuration>
 					</execution>
@@ -330,6 +331,23 @@
 						</configuration>
 					</execution>
 					<execution>
+						<id>unpack-plugin-ssalto</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>fr.cnes.regards.modules</groupId>
+									<artifactId>acquisition-plugins-ssalto</artifactId>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${temp.dir.filtering}/dataprovider</outputDirectory>
+							<includes>ssalto/domain/plugins/impl/tools/,pluginsRepository.properties</includes>
+						</configuration>
+					</execution>					
+					<execution>
 						<id>unpack-logback-order</id>
 						<phase>generate-sources</phase>
 						<goals>
@@ -487,6 +505,10 @@
 				fr.cnes.regards.microservices.ingestion
 			</groupId>
 			<artifactId>bootstrap-ingest</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>fr.cnes.regards.modules</groupId>
+			<artifactId>acquisition-plugins-ssalto</artifactId>
 		</dependency>
 	</dependencies>
 

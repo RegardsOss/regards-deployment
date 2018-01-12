@@ -821,6 +821,26 @@
 			<spec id="dataprovider.panel.run.chains.delay" size="8"
 				default="${regards.acquisition.process.run.chains.delay.default.value}" />
 		</field>
+		<field type="text" variable="project.acquisition.plugins.tools.dir_TOKEN">
+			<spec id="dataprovider.panel.plugin.tools.folder" size="24"
+				default="${project.acquisition.plugins.tools.dir.default.value}" />
+		</field>
+		<field type="text" variable="project.acquisition.plugins.translations.dir_TOKEN">
+			<spec id="dataprovider.panel.translations.folder" size="24"
+				default="${project.acquisition.plugins.translations.dir.default.value}" />
+		</field>
+		<field type="text" variable="project.acquisition.plugins.confs.dir_TOKEN">
+			<spec id="dataprovider.panel.plugin.confs.folder" size="24"
+				default="${project.acquisition.plugins.confs.dir.default.value}" />
+		</field>		
+		<field type="text" variable="project.acquisition.plugins.cycles.dir_TOKEN">
+			<spec id="dataprovider.panel.cycles.folder" size="24"
+				default="${project.acquisition.plugins.cycles.dir.default.value}" />
+		</field>
+		<field type="text" variable="service.ssalto.supply.dir_TOKEN">
+			<spec id="dataprovider.panel.histo.orf.folder" size="24"
+				default="${service.ssalto.supply.dir.default.value}" />
+		</field>		
 	</panel>
 
 	<panel id="AccessInstancePanel">
