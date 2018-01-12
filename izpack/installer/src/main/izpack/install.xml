@@ -583,8 +583,8 @@
 				override="true">
 				<include name="logback.xml" />
 			</fileset>
-			<fileset dir="config/regards/BOOT-INF/classes/regards"
-				targetdir="$INSTALL_PATH/REGARDS/config/regards" override="true">
+			<fileset dir="config/regards/BOOT-INF/classes/regards" targetdir="$INSTALL_PATH/REGARDS/config/regards"
+				override="true">
 				<include name="*" />
 			</fileset>
 			<parsable type="javaprop">
