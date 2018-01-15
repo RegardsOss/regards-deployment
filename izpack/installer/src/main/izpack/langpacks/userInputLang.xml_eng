@@ -156,11 +156,11 @@
 	<str id="dataprovider.panel.waiting.label" txt="Waiting time" />
 	<str id="dataprovider.panel.sip.ingest.delay" txt="For ingestion of new SIPs" />
 	<str id="dataprovider.panel.run.chains.delay" txt="For chains activation" />
-	<str id="dataprovider.panel.plugin.tools.folder" txt="Plugin tools folder" />
+	<str id="dataprovider.panel.cycle.orf.folder" txt="Cycles and ORF configuration folder" />
 	<str id="dataprovider.panel.translations.folder" txt="Translation files folder" />
 	<str id="dataprovider.panel.plugin.confs.folder" txt="Plugins configuration folder" />
 	<str id="dataprovider.panel.histo.orf.folder" txt="ORF file history folder" />
-	<str id="dataprovider.panel.cycles.folder" txt="Cycles folder" />
+	<str id="dataprovider.panel.cycles.folder" txt="Chain's cycles folder" />
 
 	<!-- AccessInstancePanel -->
 	<str id="access-instance.panel.title.label" txt="Access Instance microservice" />

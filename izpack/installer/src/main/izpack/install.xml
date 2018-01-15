@@ -271,11 +271,11 @@
 			name="regards.acquisition.process.run.chains.delay.default.value"
 			value="300000" />
 
-		<variable name="project.acquisition.plugins.tools.dir.default.value"		value="plugins/tools" />
-		<variable name="project.acquisition.plugins.translations.dir.default.value"	value="plugins/translations" />
-		<variable name="project.acquisition.plugins.confs.dir.default.value"		value="plugins/confs" />
-		<variable name="project.acquisition.plugins.cycles.dir.default.value"		value="/data/cycles" />
-		<variable name="service.ssalto.supply.dir.default.value"					value="/data/orf" />
+		<variable name="regards.acquisition.cycle.orf.conf.path.default.value"			value="/opt/regards/config/regards/dataprovider" />
+		<variable name="regards.acquisition.plugins.translations.path.default.value"	value="plugins/translations" />
+		<variable name="regards.acquisition.plugins.conf.path.default.value"			value="plugins/confs" />
+		<variable name="regards.acquisition.plugins.cycles.path.default.value"			value="/data/cycles" />
+		<variable name="regards.acquisition.chains.cycles.path.default.value"			value="/data/chains/cycles" />
 
 		<!-- Storage -->
 		<variable name="storage.count" value="0" />
@@ -634,7 +634,7 @@
 			<description>Microservice registering other microservices in the
 				cloud and handling load balancing
 			</description>
-			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-registry.jar" />
 			</fileset>
@@ -672,13 +672,13 @@
 					<arg value="-w" />
 					<arg value="${registry.waitRuleList}" />
 				</args>
-			</executable> -->
+			</executable>
 		</pack>
 
 		<pack name="gateway" required="false" preselected="true">
 			<description>Gateway between clients and all microservices
 			</description>
-			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-gateway.jar" />
 			</fileset>
@@ -716,13 +716,13 @@
 					<arg value="-w" />
 					<arg value="${gateway.waitRuleList}" />
 				</args>
-			</executable> -->
+			</executable>
 		</pack>
 
 		<pack name="admin" required="false" preselected="true">
 			<description>Microservice handling system's administration
 			</description>
-			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-administration.jar" />
 			</fileset>
@@ -760,13 +760,13 @@
 					<arg value="-w" />
 					<arg value="${admin.waitRuleList}" />
 				</args>
-			</executable> -->
+			</executable>
 		</pack>
 
 		<pack name="authentication" required="false" preselected="true">
 			<description>Microservice dedicated to users' authentication
 			</description>
-			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-authentication.jar" />
 			</fileset>
@@ -805,12 +805,12 @@
 					<arg value="-w" />
 					<arg value="${authentication.waitRuleList}" />
 				</args>
-			</executable> -->
+			</executable>
 		</pack>
 
 		<pack name="storage" required="false" preselected="false">
 			<description>Installing the Storage microservice</description>
-			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-storage.jar" />
 			</fileset>
@@ -848,13 +848,13 @@
 					<arg value="-w" />
 					<arg value="${storage.waitRuleList}" />
 				</args>
-			</executable> -->
+			</executable>
 		</pack>
 
 		<pack name="dam" required="false" preselected="true">
 			<description>REGARDS Data Management service installation
 			</description>
-			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-dam.jar" />
 			</fileset>
@@ -892,12 +892,12 @@
 					<arg value="-w" />
 					<arg value="${dam.waitRuleList}" />
 				</args>
-			</executable> -->
+			</executable>
 		</pack>
 
 		<pack name="catalog" required="false" preselected="true">
 			<description>REGARDS Catalog service installation</description>
-			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-catalog.jar" />
 			</fileset>
@@ -935,12 +935,12 @@
 					<arg value="-w" />
 					<arg value="${catalog.waitRuleList}" />
 				</args>
-			</executable> -->
+			</executable>
 		</pack>
 
 		<pack name="order" required="false" preselected="false">
 			<description>Installing the Order microservice</description>
-			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-order.jar" />
 			</fileset>
@@ -979,12 +979,12 @@
 					<arg value="-w" />
 					<arg value="${order.waitRuleList}" />
 				</args>
-			</executable> -->
+			</executable>
 		</pack>
 
 		<pack name="ingest" required="false" preselected="false">
 			<description>Installing the Ingest microservice</description>
-			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-ingest.jar" />
 			</fileset>
@@ -1023,7 +1023,7 @@
 					<arg value="-w" />
 					<arg value="${ingest.waitRuleList}" />
 				</args>
-			</executable> -->
+			</executable>
 		</pack>
 
 		<pack name="dataprovider" required="false" preselected="false">
@@ -1049,6 +1049,11 @@
 				override="true">
 				<include name="pluginsRepository.properties" />
 			</fileset>
+			<parsable type="javaprop">
+				<fileset targetdir="$INSTALL_PATH/REGARDS/config/regards/dataprovider">
+					<include name="*.properties" />
+				</fileset>
+			</parsable>			
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
@@ -1082,7 +1087,7 @@
 
 		<pack name="access" required="false" preselected="true">
 			<description>REGARDS Access service installation</description>
-			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-access-instance.jar" />
 				<include name="bootstrap-access-project.jar" />
@@ -1155,12 +1160,12 @@
 					<arg value="-w" />
 					<arg value="${access-project.waitRuleList}" />
 				</args>
-			</executable> -->
+			</executable>
 		</pack>
 
 		<pack name="frontend" required="false" preselected="true">
 			<description>Web application serving the frontend</description>
-			<!-- <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-frontend.*ar" />
 			</fileset>
@@ -1201,7 +1206,7 @@
 					<arg value="-w" />
 					<arg value="${frontend.waitRuleList}" />
 				</args>
-			</executable> -->
+			</executable>
 		</pack>
 
 	</packs>

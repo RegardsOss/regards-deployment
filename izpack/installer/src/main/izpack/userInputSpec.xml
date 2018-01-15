@@ -821,25 +821,25 @@
 			<spec id="dataprovider.panel.run.chains.delay" size="8"
 				default="${regards.acquisition.process.run.chains.delay.default.value}" />
 		</field>
-		<field type="text" variable="project.acquisition.plugins.tools.dir_TOKEN">
-			<spec id="dataprovider.panel.plugin.tools.folder" size="24"
-				default="${project.acquisition.plugins.tools.dir.default.value}" />
+		<field type="text" variable="regards.acquisition.cycle.orf.conf.path">
+			<spec id="dataprovider.panel.cycle.orf.folder" size="24"
+				default="${regards.acquisition.cycle.orf.conf.path.default.value}" />
 		</field>
-		<field type="text" variable="project.acquisition.plugins.translations.dir_TOKEN">
+		<field type="text" variable="regards.acquisition.plugins.translations.path">
 			<spec id="dataprovider.panel.translations.folder" size="24"
-				default="${project.acquisition.plugins.translations.dir.default.value}" />
+				default="${regards.acquisition.plugins.translations.path.default.value}" />
 		</field>
-		<field type="text" variable="project.acquisition.plugins.confs.dir_TOKEN">
+		<field type="text" variable="regards.acquisition.plugins.conf.path">
 			<spec id="dataprovider.panel.plugin.confs.folder" size="24"
-				default="${project.acquisition.plugins.confs.dir.default.value}" />
+				default="${regards.acquisition.plugins.conf.path.default.value}" />
 		</field>		
-		<field type="text" variable="project.acquisition.plugins.cycles.dir_TOKEN">
+		<field type="text" variable="regards.acquisition.plugins.cycles.path">
 			<spec id="dataprovider.panel.cycles.folder" size="24"
-				default="${project.acquisition.plugins.cycles.dir.default.value}" />
+				default="${regards.acquisition.plugins.cycles.path.default.value}" />
 		</field>
-		<field type="text" variable="service.ssalto.supply.dir_TOKEN">
+		<field type="text" variable="regards.acquisition.chains.cycles.path">
 			<spec id="dataprovider.panel.histo.orf.folder" size="24"
-				default="${service.ssalto.supply.dir.default.value}" />
+				default="${regards.acquisition.chains.cycles.path.default.value}" />
 		</field>		
 	</panel>
 
