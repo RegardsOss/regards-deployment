@@ -49,17 +49,17 @@ public abstract class AbstractJdbcConnectionTester extends ButtonAction {
     /**
      * The name of the URL datasource variable in the install data
      */
-    public String URL_DATASOURCE_VARIABLE;
+    public String urlDatasourceVariable;
 
     /**
      * The name of the username datasource variable in the install data
      */
-    public String USERNAME_DATASOURCE_VARIABLE;
+    protected String usernameDatasourceVariable;
 
     /**
      * The name of the password datasource variable in the install data
      */
-    public String PASSWORD_DATASOURCE_VARIABLE;
+    protected String passwordDatasourceVariable;
 
     /**
      * Message
@@ -88,9 +88,9 @@ public abstract class AbstractJdbcConnectionTester extends ButtonAction {
      */
     public AbstractJdbcConnectionTester(InstallData installData) {
         super(installData);
-        urlVariable = URL_DATASOURCE_VARIABLE;
-        userVariable = USERNAME_DATASOURCE_VARIABLE;
-        passwordVariable = PASSWORD_DATASOURCE_VARIABLE;
+        urlVariable = urlDatasourceVariable;
+        userVariable = usernameDatasourceVariable;
+        passwordVariable = passwordDatasourceVariable;
     }
 
     @Override

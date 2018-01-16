@@ -18,6 +18,8 @@
  */
 package fr.cnes.regards.deployment.izpack.custom.button;
 
+import java.io.IOException;
+
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestHighLevelClient;
@@ -57,16 +59,6 @@ public class ElasticsearchConnectionTester extends ButtonAction {
     public static final String PORT_VARIABLE = "regards.config.elasticsearch.http.port";
 
     /**
-     * The host to the Elasticsearch instance 
-     */
-    private String host;
-
-    /**
-     * The port to the Elasticsearch instance 
-     */
-    private String port;
-
-    /**
      * Constructor
      * 
      * @param installData {@link InstallData} used throughout the installation
@@ -77,8 +69,8 @@ public class ElasticsearchConnectionTester extends ButtonAction {
 
     @Override
     public boolean execute() {
-        host = installData.getVariable(HOST_VARIABLE);
-        port = installData.getVariable(PORT_VARIABLE);
+        String host = installData.getVariable(HOST_VARIABLE);
+        String port = installData.getVariable(PORT_VARIABLE);
 
         RestClient restClient = RestClient.builder(new HttpHost(host, Integer.parseInt(port))).build();
         RestHighLevelClient client = new RestHighLevelClient(restClient);
@@ -86,12 +78,12 @@ public class ElasticsearchConnectionTester extends ButtonAction {
         boolean result = false;
         try {
             // Testing availability of ES
-            if (!client.ping()) {
-                LOGGER.error("Elasticsearch is down. ");
-            } else {
+            if (client.ping()) {
                 result = true;
+            } else {
+                LOGGER.error("Elasticsearch is down. ");
             }
-        } catch (Throwable t) {
+        } catch (IOException t) {
             LOGGER.error("Error while pinging Elasticsearch", t);
         }
 

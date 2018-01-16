@@ -24,6 +24,8 @@ import java.nio.file.Path;
 
 import javax.xml.bind.JAXB;
 
+import com.izforge.izpack.api.data.Info.Author;
+
 /**
  * Class ComponentConfigListAccessor
  *
@@ -31,7 +33,7 @@ import javax.xml.bind.JAXB;
  *
  * @author Guillaume Barthe de Montmejan
  * @author Xavier-Alexandre Brochard
- * @since 1.0.0
+ * @author Christophe Mertz
  */
 public final class XmlAccessor {
 
@@ -49,7 +51,6 @@ public final class XmlAccessor {
      *            input XML String
      * @param outputXmlFile
      *            output file path
-     * @since 1.0.0
      */
     public static <T> void writeToFile(String xmlString, Path outputXmlFile, Class<T> pType) {
         T pObject = readFromString(xmlString, pType);
@@ -64,7 +65,6 @@ public final class XmlAccessor {
      *            input POJO
      * @param outputXmlFile
      *            output file path
-     * @since 1.0.0
      */
     public static <T> void writeToFile(T pObject, Path outputXmlFile) {
         JAXB.marshal(pObject, outputXmlFile.toFile());
@@ -77,7 +77,6 @@ public final class XmlAccessor {
      * @param pObject
      *            input POJO
      * @return output XML String
-     * @since 1.0.0
      */
     public static <T> String writeToString(T pObject) {
         StringWriter sw = new StringWriter();
@@ -92,13 +91,11 @@ public final class XmlAccessor {
      * @param xmlString
      *            input XML String
      * @return output POJO
-     * @since 1.0.0
      */
     public static <T> T readFromString(String xmlString, Class<T> pType) {
         StringReader sr = new StringReader(xmlString);
 
-        T result = JAXB.unmarshal(sr, pType);
-        return result;
+        return  (T) JAXB.unmarshal(sr, pType);
     }
 
     /**
@@ -106,10 +103,8 @@ public final class XmlAccessor {
      *
      * @param inputXmlFile
      * @return output POJO
-     * @since 1.0.0
      */
     public static <T> T readFromFile(Path inputXmlFile, Class<T> pType) {
-        T result = JAXB.unmarshal(inputXmlFile.toFile(), pType);
-        return result;
+        return (T) JAXB.unmarshal(inputXmlFile.toFile(), pType);
     }
 }
