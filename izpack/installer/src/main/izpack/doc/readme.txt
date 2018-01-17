@@ -164,18 +164,18 @@ __________________
 6/ Build
 ________
 
-git clone https://thor.si.c-s.fr/git/regards
-cd regards
+git clone https://github.com/RegardsOss/regards-bom.git
+cd regards-bom
 mvn install -DskipTests
 
 cd ..
-git clone https://thor.si.c-s.fr/git/rs-microservice
-cd rs-microservice
+git clone https://github.com/RegardsOss/regards-microservice.git
+cd regards-microservice
 mvn install -DskipTests
 
 cd ..
-git clone https://thor.si.c-s.fr/git/rs-admin
-cd rs-admin
+git clone https://github.com/RegardsOss/regards-admin.git
+cd regards-admin
 mvn install -DskipTests -P delivery
 
 cd ..
@@ -193,25 +193,26 @@ cd rs-cloud
 mvn install -DskipTests -P delivery
 
 cd ..
-git clone https://thor.si.c-s.fr/git/rs-dam
-cd rs-dam
+git clone https://github.com/RegardsOss/regards-dam.git
+cd regards-dam
 mvn clean install -Dmaven.test.skip=true -P delivery
 
 cd ..
-git clone https://thor.si.c-s.fr/git/rs-catalog
-cd rs-catalog
+git clone https://github.com/RegardsOss/regards-catalog.git
+cd regards-catalog
 mvn install -DskipTests -P delivery
 
 cd ..
-git clone https://thor.si.c-s.fr/git/rs-access
-cd rs-access
+git clone https://github.com/RegardsOss/regards-access.git
+cd regards-access
 mvn install -DskipTests
 
 7/ Build installer
 __________________
 
-git clone https://thor.si.c-s.fr/git/rs-deployment
-cd rs-deployment
+cd ..
+git clone https://github.com/RegardsOss/regards-deployment.git
+cd regards-deployment
 mvn install -DskipTests -P delivery
 
 8/ Install
