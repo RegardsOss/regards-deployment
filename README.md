@@ -21,6 +21,8 @@ Dependencies :
 * All artifacts must have been built.
 
 ```shell
+export REGARDS_HOME=`pwd`
+
 git clone https://github.com/RegardsOss/regards-bom.git
 cd regards-bom
 mvn install -DskipTests
