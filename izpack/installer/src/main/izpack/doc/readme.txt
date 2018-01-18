@@ -164,6 +164,8 @@ __________________
 6/ Build
 ________
 
+export REGARDS_HOME=`pwd`
+
 git clone https://github.com/RegardsOss/regards-bom.git
 cd regards-bom
 mvn install -DskipTests
