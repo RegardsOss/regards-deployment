@@ -24,7 +24,6 @@ import fr.cnes.regards.deployment.izpack.custom.model.ComponentType;
  * Validator for rs-authentication configuration panel.
  *
  * @author Xavier-Alexandre Brochard
- * @since 1.0.0
  */
 public class ValidatorAuthenticationPanel extends AbstractInjectDataValidator {
 

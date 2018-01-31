@@ -214,18 +214,18 @@
 		</field>
 	</panel>
 
-	<panel id="AdminPanel">
-		<field id="admin.panel.title.label" type="title" />
-		<field type="custom" minRow="1" maxRow="50" variable="admin.count">
+	<panel id="AdminInstancePanel">
+		<field id="admin.panel.title.label.instance" type="title" />
+		<field type="custom" minRow="1" maxRow="50" variable="admin-instance.count">
 			<spec>
 				<col>
-					<field type="text" variable="admin.host">
-						<spec id="host.label" size="15" default="${admin.host}" />
+					<field type="text" variable="admin-instance.host">
+						<spec id="host.label" size="15" default="${admin-instance.host}" />
 					</field>
 				</col>
 				<col>
-					<field type="text" variable="admin.port">
-						<spec id="port.label" size="15" default="${admin.port}" />
+					<field type="text" variable="admin-instance.port">
+						<spec id="port.label" size="15" default="${admin-instance.port}" />
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
 							id="validator.port.error.label" />
@@ -283,6 +283,27 @@
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
 				id="validator.notempty.password.label" />
 		</field>
+	</panel>
+	
+	<panel id="AdminPanel">
+		<field id="admin.panel.title.label" type="title" />
+		<field type="custom" minRow="1" maxRow="50" variable="admin.count">
+			<spec>
+				<col>
+					<field type="text" variable="admin.host">
+						<spec id="host.label" size="15" default="${admin.host}" />
+					</field>
+				</col>
+				<col>
+					<field type="text" variable="admin.port">
+						<spec id="port.label" size="15" default="${admin.port}" />
+						<validator
+							class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
+							id="validator.port.error.label" />
+					</field>
+				</col>
+			</spec>
+		</field>
 
 		<field type="space" />
 		<field type="divider" />
@@ -311,6 +332,7 @@
 				id="validator.notempty.password.label" />
 		</field>
 	</panel>
+	
 
 	<panel id="AccountsPanel">
 		<field id="accounts.panel.title.label" type="title" />

@@ -108,6 +108,7 @@
 
 	<!-- AdminPanel -->
 	<str id="admin.panel.title.label" txt="Microservice Administration" />
+	<str id="admin.panel.title.label.instance" txt="Microservice Administration instance" />
 	<str id="admin.panel.root.user.label" txt="Administrateur d'instance" />
 
 	<!-- AccountsPanel -->

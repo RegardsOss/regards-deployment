@@ -21,19 +21,18 @@ package fr.cnes.regards.deployment.izpack.custom.validator;
 import fr.cnes.regards.deployment.izpack.custom.model.ComponentType;
 
 /**
- * Validator for config panel.
+ * Validator for admin instance panel.
  *
- * @author Guillaume Barthe de Montmejan
- * @author Xavier-Alexandre Brochard
+ * @author Christophe Mertz
  */
-public class ValidatorConfigPanel extends AbstractInjectDataValidator {
+public class ValidatorAdminInstancePanel extends AbstractInjectDataValidator {
 
     /**
      * Default constructor
      */
-    public ValidatorConfigPanel() {
+    public ValidatorAdminInstancePanel() {
         super();
-        type = ComponentType.CONFIG;
+        type = ComponentType.ADMIN_INSTANCE;
         entryKey = type.getName();
     }
 }

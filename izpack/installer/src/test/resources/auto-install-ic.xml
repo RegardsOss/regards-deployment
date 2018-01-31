@@ -14,16 +14,17 @@
 		<pack index="1" name="config" selected="true" />
 		<pack index="2" name="registry" selected="true" />
 		<pack index="3" name="gateway" selected="true" />
-		<pack index="4" name="admin" selected="true" />
-		<pack index="5" name="authentication" selected="true" />
-		<pack index="6" name="storage" selected="true" />
-		<pack index="7" name="dam" selected="true" />
-		<pack index="8" name="catalog" selected="true" />
-		<pack index="9" name="order" selected="true" />
-		<pack index="10" name="ingest" selected="true" />
-		<pack index="11" name="dataprovider" selected="true" />
-		<pack index="12" name="access" selected="true" />
-		<pack index="13" name="frontend" selected="true" />
+		<pack index="4" name="admin-instance" selected="true" />
+		<pack index="5" name="admin" selected="true" />
+		<pack index="6" name="authentication" selected="true" />
+		<pack index="7" name="storage" selected="true" />
+		<pack index="8" name="dam" selected="true" />
+		<pack index="9" name="catalog" selected="true" />
+		<pack index="10" name="order" selected="true" />
+		<pack index="11" name="ingest" selected="true" />
+		<pack index="12" name="dataprovider" selected="true" />
+		<pack index="13" name="access" selected="true" />
+		<pack index="14" name="frontend" selected="true" />
 	</com.izforge.izpack.panels.packs.PacksPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="SelectSecurityLevelPanel">
@@ -75,28 +76,32 @@
 		<entry key="gateway.count" value="1" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="AdminPanel">
-		<entry key="admin.host.1" value="0.0.0.0" />
-		<entry key="admin.port.1" value="8777" />
-		<entry key="admin.count" value="1" />
+		id="AdminInstancePanel">
+		<entry key="admin-instance.count" value="1"/>
+		<entry key="admin-instance.host.1" value="0.0.0.0"/>
+		<entry key="admin-instance.port.1" value="8877"/>
 		<entry key="regards.config.admin.regards.accounts.root.user.login"
 			value="regards-admin@c-s.fr" />
 		<entry key="regards.config.admin.regards.accounts.root.user.password"
 			value="root_admin" />
 		<entry key="regards.config.admin.regards.jpa.instance.datasource.url"
 			value="172.26.47.52:5432/rs_admin_instance" />
-		<entry key="regards.config.admin.regards.jpa.multitenant.tenants.url.1"
-			value="172.26.47.52:5432/rs_admin_tenant0" />
-		<entry
-			key="regards.config.admin.regards.jpa.instance.datasource.user.name"
+		<entry key="regards.config.admin.regards.jpa.instance.datasource.user.name"
 			value="azertyuiop123456789" />
 		<entry key="regards.config.admin.regards.jpa.instance.datasource.password"
 			value="azertyuiop123456789" />
-		<entry
-			key="regards.config.admin.regards.jpa.multitenant.tenants.user.name.1"
+	</com.izforge.izpack.panels.userinput.UserInputPanel>
+
+	<com.izforge.izpack.panels.userinput.UserInputPanel
+		id="AdminPanel">
+		<entry key="admin.host.1" value="0.0.0.0" />
+		<entry key="admin.port.1" value="8777" />
+		<entry key="admin.count" value="1" />
+		<entry key="regards.config.admin.regards.jpa.multitenant.tenants.url.1"
+			value="172.26.47.52:5432/rs_admin_tenant0" />
+		<entry key="regards.config.admin.regards.jpa.multitenant.tenants.user.name.1"
 			value="azertyuiop123456789" />
-		<entry
-			key="regards.config.admin.regards.jpa.multitenant.tenants.password.1"
+		<entry key="regards.config.admin.regards.jpa.multitenant.tenants.password.1"
 			value="azertyuiop123456789" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
@@ -104,7 +109,7 @@
 		<entry key="regards.config.admin.accounts.password.regex" value="^[a-z\d_@!%:=,\/.\-+]{5,16}$" />
 		<entry key="regards.config.admin.accounts.failed.authentication.max"
 			value="5" />
-		<entry key="regards.config.admin.accounts.password.rules" value="Password should contain letters or numbers" />
+		<entry key="regards.config.admin.accounts.password.rules" value="Password must contain letters or numbers" />
 		<entry key="regards.config.admin.accounts.password.validity.duration"
 			value="350" />
 		<entry key="regards.accounts.validity.duration" value="30" />
@@ -321,11 +326,11 @@
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="CheckJdbcConnectionsPanel" />
 	<com.izforge.izpack.panels.summary.SummaryPanel
-		id="SummaryPanel_26" />
+		id="SummaryPanel_27" />
 	<com.izforge.izpack.panels.install.InstallPanel
-		id="InstallPanel_27" />
+		id="InstallPanel_28" />
 	<com.izforge.izpack.panels.process.ProcessPanel
-		id="ProcessPanel_28" />
+		id="ProcessPanel_29" />
 	<com.izforge.izpack.panels.finish.FinishPanel
-		id="FinishPanel_29" />
+		id="FinishPanel_30" />
 </AutomatedInstallation>

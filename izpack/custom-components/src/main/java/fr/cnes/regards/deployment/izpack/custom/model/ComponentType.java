@@ -29,6 +29,7 @@ public enum ComponentType {
     REGISTRY("registry"),
     GATEWAY("gateway"),
     ADMIN("admin"),
+    ADMIN_INSTANCE("admin-instance"),
     AUTHENTICATION("authentication"),
     DAM("dam"),
     CATALOG("catalog"),
