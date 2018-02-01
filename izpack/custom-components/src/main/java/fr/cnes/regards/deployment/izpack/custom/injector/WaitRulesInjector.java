@@ -83,15 +83,14 @@ public class WaitRulesInjector implements InstallDataInjector {
         gatewayWaitList.put(ComponentType.REGISTRY, 90);
         WAIT_RULES.put(ComponentType.GATEWAY, gatewayWaitList);
 
-        Map<ComponentType, Integer> adminWaitList = new HashMap<>();
-        adminWaitList.put(ComponentType.CONFIG, 60);
-        adminWaitList.put(ComponentType.REGISTRY, 90);
-        WAIT_RULES.put(ComponentType.ADMIN, adminWaitList);
-        
         Map<ComponentType, Integer> adminInstanceWaitList = new HashMap<>();
         adminInstanceWaitList.put(ComponentType.CONFIG, 65);
         adminInstanceWaitList.put(ComponentType.REGISTRY, 95);
         WAIT_RULES.put(ComponentType.ADMIN_INSTANCE, adminInstanceWaitList);
+
+        Map<ComponentType, Integer> adminWaitList = new HashMap<>();
+        adminWaitList.put(ComponentType.ADMIN_INSTANCE, 180);
+        WAIT_RULES.put(ComponentType.ADMIN, adminWaitList);
 
         Map<ComponentType, Integer> authenticationWaitList = new HashMap<>();
         authenticationWaitList.put(ComponentType.CONFIG, 60);

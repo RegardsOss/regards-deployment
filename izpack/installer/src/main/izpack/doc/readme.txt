@@ -229,6 +229,7 @@ ________
 In a standard installation, with all the microservices and a standard security level, the microservices can be started with the following commands :
 {install_dir}/REGARDS/bin/start_microservice.sh -t config             && \
 {install_dir}/REGARDS/bin/start_microservice.sh -t registry           && \
+{install_dir}/REGARDS/bin/start_microservice.sh -t admin-instance     && \
 {install_dir}/REGARDS/bin/start_microservice.sh -t admin              && \
 {install_dir}/REGARDS/bin/start_microservice.sh -t gateway            && \
 {install_dir}/REGARDS/bin/start_microservice.sh -t dam                && \
