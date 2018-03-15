@@ -181,20 +181,24 @@ cd regards-admin
 mvn install -DskipTests -P delivery
 
 cd ..
-git clone https://thor.si.c-s.fr/git/rs-frontend
-git clone https://thor.si.c-s.fr/git/rs-cloud
+git clone https://github.com/RegardsOss/regards-cloud.git
+cd regards-cloud
+mvn install -DskipTests -P delivery
+
+cd ..
+git clone https://github.com/RegardsOss/regards-frontend.git
 cd rs-frontend/frontend-webapp/src/main/webapp/
 npm run bootstrap
 npm install
 npm run build:production
-
+npm run build:plugins
 cd ../../../../../
-mkdir -p ./rs-cloud/rs-frontend/frontend-webapp/src/main/webapp/dist
-cp rs-frontend/frontend-webapp/src/main/webapp/dist ./rs-cloud/rs-frontend/frontend-webapp/src/main/webapp/dist
-cd rs-cloud
+mkdir -p ./regards-cloud/rs-frontend/frontend-webapp/src/main/webapp/dist
+cp -rp regards-frontend/frontend-webapp/src/main/webapp/dist ./regards-cloud/rs-frontend/frontend-webapp/src/main/webapp/dist
+cd regards-cloud/rs-frontend/frontend-boot
 mvn install -DskipTests -P delivery
 
-cd ..
+cd ../../..
 git clone https://github.com/RegardsOss/regards-dam.git
 cd regards-dam
 mvn clean install -Dmaven.test.skip=true -P delivery
@@ -207,7 +211,27 @@ mvn install -DskipTests -P delivery
 cd ..
 git clone https://github.com/RegardsOss/regards-access.git
 cd regards-access
-mvn install -DskipTests
+mvn install -DskipTests -P delivery
+
+cd ..
+git clone https://github.com/RegardsOss/regards-ingest.git
+cd regards-ingest
+mvn install -DskipTests -P delivery
+
+cd ..
+git clone https://github.com/RegardsOss/regards-storage.git
+cd regards-storage
+mvn install -DskipTests -P delivery
+
+cd ..
+git clone https://github.com/RegardsOss/regards-dataprovider.git
+cd regards-dataprovider
+mvn install -DskipTests -P delivery
+
+cd ..
+git clone https://github.com/RegardsOss/regards-order.git
+cd regards-order
+mvn install -DskipTests -P delivery
 
 7/ Build installer
 __________________
