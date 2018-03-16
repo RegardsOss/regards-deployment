@@ -181,22 +181,17 @@ cd regards-admin
 mvn install -DskipTests -P delivery
 
 cd ..
-git clone https://github.com/RegardsOss/regards-cloud.git
-cd regards-cloud
-mvn install -DskipTests -P delivery
-
-cd ..
 git clone https://github.com/RegardsOss/regards-frontend.git
-cd rs-frontend/frontend-webapp/src/main/webapp/
+cd regards-frontend/frontend-webapp/src/main/webapp/
 npm run bootstrap
 npm install
 npm run build:production
 npm run build:plugins
-cd ../../../../../
-mkdir -p ./regards-cloud/rs-frontend/frontend-webapp/src/main/webapp/dist
-cp -rp regards-frontend/frontend-webapp/src/main/webapp/dist ./regards-cloud/rs-frontend/frontend-webapp/src/main/webapp/dist
-cd regards-cloud/rs-frontend/frontend-boot
-mvn install -DskipTests -P delivery
+
+cd ../../../../..
+git clone https://github.com/RegardsOss/regards-cloud.git
+cd regards-cloud
+mvn install -DskipTests -P delivery -Dwebapp.dir=../regards-frontend
 
 cd ../../..
 git clone https://github.com/RegardsOss/regards-dam.git
