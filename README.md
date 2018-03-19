@@ -13,8 +13,8 @@ Build relies on :
 * Node.js 6.11.0 LTS
 
 Prerequisite tools :
-* Elasticsearch 5.1.1
-* PostgreSQL 9.4+
+* Elasticsearch 5.4
+* PostgreSQL 9.6
 * RabbitMQ 3.6.5
 
 Dependencies : 
