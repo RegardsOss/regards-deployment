@@ -85,7 +85,7 @@
 		<entry key="regards.config.admin.regards.accounts.root.user.password"
 			value="root_admin" />
 		<entry key="regards.config.admin.regards.jpa.instance.datasource.url"
-			value="172.26.47.52:5432/rs_admin_instance" />
+			value="172.26.47.52:5432/rs_installation_continue_instance" />
 		<entry key="regards.config.admin.regards.jpa.instance.datasource.user.name"
 			value="azertyuiop123456789" />
 		<entry key="regards.config.admin.regards.jpa.instance.datasource.password"
@@ -98,7 +98,7 @@
 		<entry key="admin.port.1" value="8777" />
 		<entry key="admin.count" value="1" />
 		<entry key="regards.config.admin.regards.jpa.multitenant.tenants.url.1"
-			value="172.26.47.52:5432/rs_admin_tenant0" />
+			value="172.26.47.52:5432/rs_installation_continue" />
 		<entry key="regards.config.admin.regards.jpa.multitenant.tenants.user.name.1"
 			value="azertyuiop123456789" />
 		<entry key="regards.config.admin.regards.jpa.multitenant.tenants.password.1"
@@ -128,7 +128,7 @@
 		<entry key="authentication.port.1" value="8889" />
 		<entry key="authentication.count" value="1" />
 		<entry key="regards.config.gateway.regards.jpa.multitenant.tenants.url.1"
-			value="172.26.47.52:5432/rs_gateway_tenant0" />
+			value="172.26.47.52:5432/rs_installation_continue" />
 		<entry
 			key="regards.config.gateway.regards.jpa.multitenant.tenants.user.name.1"
 			value="azertyuiop123456789" />
@@ -142,7 +142,7 @@
 		<entry key="dam.port.1" value="8080" />
 		<entry key="dam.count" value="1" />
 		<entry key="regards.config.dam.regards.jpa.multitenant.tenants.url.1"
-			value="172.26.47.52:5432/rs_dam_tenant0" />
+			value="172.26.47.52:5432/rs_installation_continue" />
 		<entry key="regards.config.elasticsearch.host" value="172.26.47.52" />
 		<entry key="regards.config.elasticsearch.http.port" value="9200" />
 		<entry
@@ -159,7 +159,7 @@
 		<entry key="catalog.port.1" value="4444" />
 		<entry key="catalog.count" value="1" />
 		<entry key="regards.config.catalog.regards.jpa.multitenant.tenants.url.1"
-			value="172.26.47.52:5432/rs_catalog_tenant0" />
+			value="172.26.47.52:5432/rs_installation_continue" />
 		<entry
 			key="regards.config.catalog.regards.jpa.multitenant.tenants.user.name.1"
 			value="azertyuiop123456789" />
@@ -190,7 +190,7 @@
 			key="regards.config.order.regards.order.days.before.considering.order.as.aside"
 			value="7" />
 		<entry key="regards.config.order.regards.jpa.multitenant.tenants.url.1"
-			value="172.26.47.52:5432/rs_order_tenant0" />
+			value="172.26.47.52:5432/rs_installation_continue" />
 		<entry key="order.count" value="1" />
 		<entry key="order.host.1" value="0.0.0.0" />
 		<entry key="regards.config.order.regards.order.secret" value="order's passphrase" />
@@ -206,7 +206,7 @@
 		<entry key="storage.count" value="1" />
 		<entry key="regards.config.storage.cache.directory" value="/tmp/rs-storage-cache" />
 		<entry key="regards.config.storage.regards.jpa.multitenant.tenants.url.1"
-			value="172.26.47.52:5432/rs_storage_tenant0" />
+			value="172.26.47.52:5432/rs_installation_continue" />
 		<entry
 			key="regards.config.storage.regards.jpa.multitenant.tenants.user.name.1"
 			value="azertyuiop123456789" />
@@ -226,7 +226,7 @@
 			value="azertyuiop123456789" />
 		<entry
 			key="regards.config.access.instance.regards.jpa.instance.datasource.url"
-			value="172.26.47.52:5432/rs_access_instance" />
+			value="172.26.47.52:5432/rs_installation_continue_instance" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="AccessProjectPanel">
@@ -241,7 +241,7 @@
 			value="azertyuiop123456789" />
 		<entry
 			key="regards.config.access.project.regards.jpa.multitenant.tenants.url.1"
-			value="172.26.47.52:5432/rs_access_tenant0" />
+			value="172.26.47.52:5432/rs_installation_continue" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="DataProviderPanel">
@@ -250,7 +250,7 @@
 		<entry key="dataprovider.count" value="1" />
 		<entry
 			key="regards.config.dataprovider.regards.jpa.multitenant.tenants.url.1"
-			value="172.26.47.52:5432/rs_dataprovider_tenant0" />
+			value="172.26.47.52:5432/rs_installation_continue" />
 		<entry
 			key="regards.config.dataprovider.regards.jpa.multitenant.tenants.user.name.1"
 			value="azertyuiop123456789" />
@@ -277,7 +277,7 @@
 		<entry key="ingest.count" value="1" />
 		<entry key="ingest.port.1" value="8893" />
 		<entry key="regards.config.ingest.regards.jpa.multitenant.tenants.url.1"
-			value="172.26.47.52:5432/rs_ingest_tenant0" />
+			value="172.26.47.52:5432/rs_installation_continue" />
 		<entry
 			key="regards.config.ingest.regards.jpa.multitenant.tenants.user.name.1"
 			value="azertyuiop123456789" />
