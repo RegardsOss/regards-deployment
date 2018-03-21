@@ -46,7 +46,7 @@
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="ProjectPanel">
 		<entry key="regards.config.first.project" value="project1" />
-		<entry key="regards.config.workspace.directory" value="/tmp/workspace" />
+		<entry key="regards.config.workspace.directory" value="/opt/regards/workspace" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="ConfigPanel">
@@ -151,7 +151,7 @@
 		<entry key="regards.config.dam.regards.jpa.multitenant.tenants.password.1"
 			value="azertyuiop123456789" />
 		<entry key="regards.config.dam.regards.local_storage.path"
-			value="/tmp/rs-dam/document" />
+			value="/opt/regards/documents" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="CatalogPanel">
@@ -204,7 +204,7 @@
 		<entry key="storage.host.1" value="0.0.0.0" />
 		<entry key="storage.port.1" value="8891" />
 		<entry key="storage.count" value="1" />
-		<entry key="regards.config.storage.cache.directory" value="/tmp/rs-storage-cache" />
+		<entry key="regards.config.storage.cache.directory" value="/opt/regards/rs-storage-cache" />
 		<entry key="regards.config.storage.regards.jpa.multitenant.tenants.url.1"
 			value="172.26.47.52:5432/rs_installation_continue" />
 		<entry
