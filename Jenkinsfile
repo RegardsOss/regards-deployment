@@ -64,47 +64,7 @@ pipeline {
 		    }
 	  }
       steps {
-        parallel(
-          config: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t config stop" || true'
-          },
-          registry: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t registry stop" || true'
-          },
-          admin: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t admin stop" || true'
-          },
-          gateway: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t gateway stop" || true'
-          },
-          storage: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t storage stop" || true'
-          },
-          dam: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t dam stop" || true'
-          },
-          catalog: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t catalog stop" || true'
-          },
-          dataprovider: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t dataprovider stop" || true'
-          },          
-          order: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t order stop" || true'
-          },          
-          acessinstance: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t access-instance stop" || true'
-          },
-          accessproject: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t access-project stop" || true'
-          },
-          authentication: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t authentication stop" || true'
-          },
-          frontend: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t frontend stop" || true'
-          }
-        )
+        sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh stop || true'
       }
     }
     stage('Clean') {
