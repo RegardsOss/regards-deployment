@@ -64,7 +64,7 @@ pipeline {
 		    }
 	  }
       steps {
-        sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh stop || true'
+        sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh stop" || true'
       }
     }
     stage('Clean') {
