@@ -161,90 +161,12 @@ __________________
 .xsd            ascii          XML schema
 .yaml           ascii          Yaml file
 
-6/ Build
+6/ Build & install
 ________
 
-export REGARDS_HOME=`pwd`
+You can find out the tutorial on the README.md file at the root of this repository.
 
-git clone https://github.com/RegardsOss/regards-bom.git
-cd regards-bom
-mvn install -DskipTests
-
-cd ${REGARDS_HOME}
-git clone https://github.com/RegardsOss/regards-microservice.git
-cd regards-microservice
-mvn install -DskipTests
-
-cd ${REGARDS_HOME}
-git clone https://github.com/RegardsOss/regards-admin.git
-cd regards-admin
-mvn install -DskipTests -P delivery
-
-cd ${REGARDS_HOME}
-git clone https://github.com/RegardsOss/regards-cloud.git
-cd regards-cloud
-mvn install -DskipTests -P delivery 
-
-cd ${REGARDS_HOME}
-git clone https://github.com/RegardsOss/regards-dam.git
-cd regards-dam
-mvn clean install -Dmaven.test.skip=true -P delivery
-
-cd ${REGARDS_HOME}
-git clone https://github.com/RegardsOss/regards-catalog.git
-cd regards-catalog
-mvn install -DskipTests -P delivery
-
-cd ${REGARDS_HOME}
-git clone https://github.com/RegardsOss/regards-access.git
-cd regards-access
-mvn install -DskipTests -P delivery
-
-cd ${REGARDS_HOME}
-git clone https://github.com/RegardsOss/regards-ingest.git
-cd regards-ingest
-mvn install -DskipTests -P delivery
-
-cd ${REGARDS_HOME}
-git clone https://github.com/RegardsOss/regards-storage.git
-cd regards-storage
-mvn install -DskipTests -P delivery
-
-cd ${REGARDS_HOME}
-git clone https://github.com/RegardsOss/regards-dataprovider.git
-cd regards-dataprovider
-mvn install -DskipTests -P delivery
-
-cd ${REGARDS_HOME}
-git clone https://github.com/RegardsOss/regards-order.git
-cd regards-order
-mvn install -DskipTests -P delivery
-
-cd ${REGARDS_HOME}
-git clone https://github.com/RegardsOss/regards-frontend.git
-cd regards-frontend/frontend-webapp/src/main/webapp/
-npm run bootstrap
-npm install
-npm run build:production
-npm run build:plugins
-cd ${REGARDS_HOME}/regards-frontend/frontend-boot/
-mvn clean install -DskipTests -Dwebapp.dir=${REGARDS_HOME}/regards-frontend/frontend-webapp
-
-7/ Build installer
-__________________
-
-cd ${REGARDS_HOME}
-git clone https://github.com/RegardsOss/regards-deployment.git
-cd regards-deployment
-mvn install -DskipTests -P delivery
-
-8/ Install
-__________
-
-cd izpack/installer/target
-java -jar REGARDS-OSS-Installer.jar
-
-9/ Start
+7/ Start
 ________
 
 In a standard installation, with all the microservices and a standard security level, the microservices can be started with the following commands :
@@ -268,7 +190,7 @@ The following command allows to stop a microservice :
 
 If you need to install Regards with an enforced security level, see the Regards Manual Installation.
 
-10 / Copyright
+8 / Copyright
 ______________
 
 This software distribution is covered by this copyright notice.
@@ -278,7 +200,7 @@ of their respective copyright owners and are subject to separate license
 agreements.
 
 
-11 / License
+9 / License
 ____________
 
 You can obtain a copy of the GPL 3.0 license at

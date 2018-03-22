@@ -20,53 +20,77 @@ Prerequisite tools :
 Dependencies : 
 * All artifacts must have been built.
 
-```shell
+```bash
 export REGARDS_HOME=`pwd`
 
 git clone https://github.com/RegardsOss/regards-bom.git
 cd regards-bom
 mvn install -DskipTests
 
-cd ..
+cd ${REGARDS_HOME}
 git clone https://github.com/RegardsOss/regards-microservice.git
 cd regards-microservice
 mvn install -DskipTests
 
-cd ..
+cd ${REGARDS_HOME}
 git clone https://github.com/RegardsOss/regards-admin.git
 cd regards-admin
 mvn install -DskipTests -P delivery
 
-cd ..
+cd ${REGARDS_HOME}
 git clone https://github.com/RegardsOss/regards-cloud.git
 cd regards-cloud
-mvn install -DskipTests -P delivery
+mvn install -DskipTests -P delivery 
 
-cd ..
+cd ${REGARDS_HOME}
 git clone https://github.com/RegardsOss/regards-dam.git
 cd regards-dam
 mvn clean install -Dmaven.test.skip=true -P delivery
 
-cd ..
+cd ${REGARDS_HOME}
 git clone https://github.com/RegardsOss/regards-catalog.git
 cd regards-catalog
 mvn install -DskipTests -P delivery
 
-cd ..
+cd ${REGARDS_HOME}
 git clone https://github.com/RegardsOss/regards-access.git
 cd regards-access
-mvn install -DskipTests
-
-cd ..
-git clone https://github.com/RegardsOss/regards-frontend.git
-cd regards-frontend
 mvn install -DskipTests -P delivery
+
+cd ${REGARDS_HOME}
+git clone https://github.com/RegardsOss/regards-ingest.git
+cd regards-ingest
+mvn install -DskipTests -P delivery
+
+cd ${REGARDS_HOME}
+git clone https://github.com/RegardsOss/regards-storage.git
+cd regards-storage
+mvn install -DskipTests -P delivery
+
+cd ${REGARDS_HOME}
+git clone https://github.com/RegardsOss/regards-dataprovider.git
+cd regards-dataprovider
+mvn install -DskipTests -P delivery
+
+cd ${REGARDS_HOME}
+git clone https://github.com/RegardsOss/regards-order.git
+cd regards-order
+mvn install -DskipTests -P delivery
+
+cd ${REGARDS_HOME}
+git clone https://github.com/RegardsOss/regards-frontend.git
+cd regards-frontend/frontend-webapp/src/main/webapp/
+npm install
+npm run build:production
+npm run build:plugins
+cd ${REGARDS_HOME}/regards-frontend/frontend-boot/
+mvn clean install -DskipTests -Dwebapp.dir=${REGARDS_HOME}/regards-frontend/frontend-webapp
 ```
 
 ## Build
 
-```shell
-cd ..
+```bash
+cd ${REGARDS_HOME}
 git clone https://github.com/RegardsOss/regards-deployment.git
 cd regards-deployment
 mvn install -DskipTests -P delivery
@@ -74,7 +98,7 @@ mvn install -DskipTests -P delivery
 
 ## Install
 
-```shell
+```bash
 cd izpack/installer/target
 java -jar REGARDS-OSS-Installer.jar
 ```
