@@ -161,69 +161,12 @@ __________________
 .xsd            ascii          XML schema
 .yaml           ascii          Yaml file
 
-6/ Build
+6/ Build & install
 ________
 
-export REGARDS_HOME=`pwd`
+You can find out the tutorial on the README.md file at the root of this repository.
 
-git clone https://github.com/RegardsOss/regards-bom.git
-cd regards-bom
-mvn install -DskipTests
-
-cd ..
-git clone https://github.com/RegardsOss/regards-microservice.git
-cd regards-microservice
-mvn install -DskipTests
-
-cd ..
-git clone https://github.com/RegardsOss/regards-admin.git
-cd regards-admin
-mvn install -DskipTests -P delivery
-
-cd ..
-git clone https://thor.si.c-s.fr/git/rs-frontend
-git clone https://thor.si.c-s.fr/git/rs-cloud
-cd rs-frontend/frontend-webapp/src/main/webapp/
-npm run bootstrap
-npm install
-npm run build:production
-
-cd ../../../../../
-mkdir -p ./rs-cloud/rs-frontend/frontend-webapp/src/main/webapp/dist
-cp rs-frontend/frontend-webapp/src/main/webapp/dist ./rs-cloud/rs-frontend/frontend-webapp/src/main/webapp/dist
-cd rs-cloud
-mvn install -DskipTests -P delivery
-
-cd ..
-git clone https://github.com/RegardsOss/regards-dam.git
-cd regards-dam
-mvn clean install -Dmaven.test.skip=true -P delivery
-
-cd ..
-git clone https://github.com/RegardsOss/regards-catalog.git
-cd regards-catalog
-mvn install -DskipTests -P delivery
-
-cd ..
-git clone https://github.com/RegardsOss/regards-access.git
-cd regards-access
-mvn install -DskipTests
-
-7/ Build installer
-__________________
-
-cd ..
-git clone https://github.com/RegardsOss/regards-deployment.git
-cd regards-deployment
-mvn install -DskipTests -P delivery
-
-8/ Install
-__________
-
-cd izpack/installer/target
-java -jar REGARDS-OSS-Installer.jar
-
-9/ Start
+7/ Start
 ________
 
 In a standard installation, with all the microservices and a standard security level, the microservices can be started with the following commands :
@@ -247,7 +190,7 @@ The following command allows to stop a microservice :
 
 If you need to install Regards with an enforced security level, see the Regards Manual Installation.
 
-10 / Copyright
+8 / Copyright
 ______________
 
 This software distribution is covered by this copyright notice.
@@ -257,7 +200,7 @@ of their respective copyright owners and are subject to separate license
 agreements.
 
 
-11 / License
+9 / License
 ____________
 
 You can obtain a copy of the GPL 3.0 license at
