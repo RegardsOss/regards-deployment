@@ -115,10 +115,10 @@ pipeline {
     }
     stage('Start') {
       when {
-			anyOf {
-				branch 'develop'
+			  anyOf {
+				  branch 'develop'
 		    }
-	  }
+	    }
       steps {
         sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh start"'
       }
@@ -127,8 +127,8 @@ pipeline {
       when {
 			anyOf {
 				branch 'develop'
-		    }
-	  }
+			}
+		}
       steps {
         parallel(
           config: {
@@ -140,7 +140,7 @@ pipeline {
           admin: {
             sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t admin status"'
           },
-          admin-instance: {
+          admininstance: {
             sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t admin-instance status"'
           },          
           gateway: {
@@ -160,10 +160,10 @@ pipeline {
     }  
     stage('Check - 2') {
       when {
-			anyOf {
-				branch 'develop'
-		    }
-	  }
+			  anyOf {
+				  branch 'develop'
+		      }
+	    }
       steps {
         parallel(
           storage: {
