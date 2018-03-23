@@ -51,7 +51,7 @@ pipeline {
         // -V : strongly recommended in CI, will display the JDK and Maven versions in use.
         //      Very useful to be quickly sure the selected versions were the ones you think.
         // -U : force maven to update snapshots each time (default : once an hour, makes no sense in CI).
-        sh 'export MAVEN_M2=~/.m2 && mvn -V -U -P delivery,CI clean package org.jacoco:jacoco-maven-plugin:0.7.7.201606060606:prepare-agent sonar:sonar -Dsonar.jacoco.reportPath=${WORKSPACE}/jacoco-ut.exec -Dsonar.jacoco.itReportPath=${WORKSPACE}/jacoco-it.exec -Dsonar.branch=develop -DcmdLineTarget=target'
+        sh 'export MAVEN_M2=~/.m2 && mvn -V -U -P delivery,CI clean package org.jacoco:jacoco-maven-plugin:0.7.7.201606060606:prepare-agent sonar:sonar -Dsonar.jacoco.reportPath=${WORKSPACE}/jacoco-ut.exec -Dsonar.jacoco.itReportPath=${WORKSPACE}/jacoco-it.exec -Dsonar.branch=release/V2.0.0 -DcmdLineTarget=target'
       }
       post {
         success {
@@ -62,7 +62,7 @@ pipeline {
     stage('Stop') {
       when {
 			anyOf {
-				branch 'develop'
+				branch 'release/V2.0.0'
 		    }
 	  }
       steps {
@@ -72,7 +72,7 @@ pipeline {
     stage('Clean') {
         when {
 			anyOf {
-				branch 'develop'
+				branch 'release/V2.0.0'
 		    }
 	    }
     	steps {
@@ -90,7 +90,7 @@ pipeline {
     stage('Deploy') {
 	    when {
 			anyOf {
-				branch 'develop'
+				branch 'release/V2.0.0'
 			}
 		}
 	    steps {
@@ -105,7 +105,7 @@ pipeline {
       // Installation continue sur la VM regard-ic (172.26.47.95)
       when {
 			anyOf {
-				branch 'develop'
+				branch 'release/V2.0.0'
 			}
 		}
         steps {
@@ -116,7 +116,7 @@ pipeline {
     stage('Start') {
       when {
 			  anyOf {
-				  branch 'develop'
+				  branch 'release/V2.0.0'
 		    }
 	    }
       steps {
@@ -126,7 +126,7 @@ pipeline {
     stage('Check - 1') {
       when {
 			anyOf {
-				branch 'develop'
+				branch 'release/V2.0.0'
 			}
 		}
       steps {
@@ -161,7 +161,7 @@ pipeline {
     stage('Check - 2') {
       when {
 			  anyOf {
-				  branch 'develop'
+				  branch 'release/V2.0.0'
 		      }
 	    }
       steps {
