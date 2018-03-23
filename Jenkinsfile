@@ -25,6 +25,8 @@
  * and is expected to be the single source of truth.
  *
  * @author Xavier-Alexandre Brochard
+ * @author Christophe Mertz
+ *
  * @see https://jenkins.io/doc/book/pipeline/jenkinsfile/
  */
 pipeline {
@@ -121,7 +123,7 @@ pipeline {
         sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh start"'
       }
     }
-    stage('Check') {
+    stage('Check - 1') {
       when {
 			anyOf {
 				branch 'develop'
@@ -139,11 +141,31 @@ pipeline {
             sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t admin status"'
           },
           admin-instance: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t admin status"'
+            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t admin-instance status"'
           },          
           gateway: {
             sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t gateway status"'
           },
+          acessinstance: {
+            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t access-instance status"'
+          },
+          accessproject: {
+            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t access-project status"'
+          },
+          authentication: {
+            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t authentication status"'
+          }
+        )
+      }
+    }  
+    stage('Check - 2') {
+      when {
+			anyOf {
+				branch 'develop'
+		    }
+	  }
+      steps {
+        parallel(
           storage: {
             sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t storage status"'
           },
@@ -159,14 +181,8 @@ pipeline {
           order: {
             sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t order status"'
           },
-          acessinstance: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t access-instance status"'
-          },
-          accessproject: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t access-project status"'
-          },
-          authentication: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t authentication status"'
+          ingest: {
+            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t ingest status"'
           },
           frontend: {
             sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t frontend status"'
