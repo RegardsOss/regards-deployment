@@ -109,7 +109,7 @@ Prerequisite tools :
 .................................................................................................
 Name                    |  Version        |   Provider                                          |
 .................................................................................................
-Elasticsearch           |  5.1.1          |   Elastic                                           |
+Elasticsearch           |  5.4            |   Elastic                                           |
 PostgreSQL              |  9.4+           |   PostgreSQL                                        |
 RabbitMQ                |  3.6.5          |   Pivotal                                           |
 .................................................................................................
@@ -163,6 +163,13 @@ __________________
 6/ Build
 ________
 
+:warning: If you want to run regards-frontend compilation using root user you have to add the hereunder line in your .npmrc file.
+If your root user does not have any .npmrc file yet, you can create it in your root user home directory. You can read [npm documentation about npmrc here](https://docs.npmjs.com/files/npmrc). 
+```sh
+unsafe-perm=true
+```
+
+
 export REGARDS_HOME=`pwd`
 
 git clone https://github.com/RegardsOss/regards-bom.git
@@ -202,7 +209,7 @@ mvn install -DskipTests
 cd ..
 git clone https://github.com/RegardsOss/regards-frontend.git
 cd regards-frontend
-mvn install -DskipTests -P delivery
+mvn install -DskipTests
 
 7/ Build installer
 __________________
