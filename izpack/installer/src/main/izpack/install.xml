@@ -1076,16 +1076,6 @@
 				override="true">
 				<include name="logback.xml" />
 			</fileset>
-			<fileset dir="config/dataprovider/ssalto/domain/plugins/impl/tools/"
-				targetdir="$INSTALL_PATH/REGARDS/config/regards/dataprovider"
-				override="true">
-				<include name="pluginConfiguration.properties" />
-			</fileset>
-			<fileset dir="config/dataprovider/"
-				targetdir="$INSTALL_PATH/REGARDS/config/regards/dataprovider"
-				override="true">
-				<include name="pluginsRepository.properties" />
-			</fileset>
 			<parsable type="javaprop">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/config/regards/dataprovider">
 					<include name="*.properties" />
