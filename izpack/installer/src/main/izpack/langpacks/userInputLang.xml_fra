@@ -38,6 +38,8 @@
 	<str id="components.ingest" txt="Ingest" />
 	<str id="protocol.http" txt="http" />
 	<str id="protocol.https" txt="https" />
+	<str id="jobs.pool.size" txt="Taille des pools de jobs" />	
+	<str id="jobs.completion.update.rate.ms" txt="Période d'actualisation de l'avancement des jobs (en ms)" />
 
 	<!-- SelectInstallationTypePanel -->
 	<str id="selectinstallationtype.panel.title.label" txt="Comment voulez-vous installer REGARDS?" />
@@ -141,13 +143,13 @@
 
 	<!-- OrderPanel -->
 	<str id="order.panel.title.label" txt="Microservice Order" />
-	<str id="order.jobs.pool.size" txt="Taille des pools de jobs" />
 	<str id="order.files.bucket.size.Mb" txt="Taille des sous-commandes en Mb" />
 	<str id="order.validation.period.days" txt="Durée de validité des commandes en jours" />
 	<str id="order.days.before.considering.order.as.aside" txt="Nombre de jours avant envoi de mail de relance" />
 	<str id="order.secret" txt="Phrase secrète pour token" />
 	<str id="order.files.displayable.maximum" txt="Nombre maximum de fichiers affichés" />
 	<str id="order.max.storage.files.jobs.per.user" txt="Nombre maximum de jobs par utilisateur" />
+	<str id="order.periodic.files.availability.check.cron" txt="Vérification périodique de la disponibiité des fichiers (format cron)" />
 
 	<!-- IngestPanel -->
 	<str id="ingest.panel.title.label" txt="Microservice ingest" />
