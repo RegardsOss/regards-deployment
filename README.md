@@ -79,12 +79,12 @@ mvn install -DskipTests -P delivery
 
 cd ${REGARDS_HOME}
 git clone https://github.com/RegardsOss/regards-frontend.git
-cd regards-frontend/frontend-webapp/src/main/webapp/
+cd regards-frontend/webapp
 npm install
 npm run build:production
 npm run build:plugins
 cd ${REGARDS_HOME}/regards-frontend/frontend-boot/
-mvn clean install -DskipTests -Dwebapp.dir=${REGARDS_HOME}/regards-frontend/frontend-webapp
+mvn clean install -DskipTests -Dwebapp.dir=${REGARDS_HOME}/regards-frontend/webapp
 ```
 
 ## Build
