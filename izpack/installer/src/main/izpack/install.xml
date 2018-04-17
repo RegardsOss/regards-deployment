@@ -337,7 +337,7 @@
 			name="regards.config.order.regards.order.max.storage.files.jobs.per.user"
 			value="2" />
 		<variable
-			name="regards.order.periodic.files.availability.check.cron"
+			name="regards.config.order.regards.order.periodic.files.availability.check.cron"
 			value="0 23 * * 7 *" />
 
 		<!-- Ingest -->

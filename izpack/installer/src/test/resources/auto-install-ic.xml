@@ -179,7 +179,7 @@
 			key="regards.config.order.regards.order.max.storage.files.jobs.per.user"
 			value="2" />
 		<entry
-			key="regards.order.periodic.files.availability.check.cron"
+			key="regards.config.order.regards.order.periodic.files.availability.check.cron"
 			value="0 23 * * 7 *" />
 		<entry key="regards.config.order.regards.order.files.bucket.size.Mb"
 			value="100" />
