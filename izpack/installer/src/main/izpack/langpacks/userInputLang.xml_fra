@@ -186,6 +186,7 @@
 	<str id="validator.notempty.username.label" txt="Renseignez l'utilisateur pour continuer" />
 	<str id="validator.notempty.password.label" txt="Renseignez le mot de passe pour continuer" />
 	<str id="validator.notempty.email.label" txt="Renseignez l'email pour continuer" />
+	<str id="validator.folder.error.not.exists" txt="Le répertoire n'existe pas" />
 	
 	<str id="UserInputPanel.custom.swing.buttonlabel.add" txt="Ajouter"/>
     <str id="UserInputPanel.custom.swing.buttonlabel.remove" txt="Supprimer"/>
