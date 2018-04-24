@@ -114,10 +114,10 @@
 								bootstrap-gateway,
 								bootstrap-administration,
 								bootstrap-administration-instance,
-								bootstrap-dataprovider,
+								bootstrap-storage,
+	 							bootstrap-dataprovider,
 								acquisition-plugins-ssalto,
 								bootstrap-order,
-								bootstrap-storage,
 								bootstrap-ingest,
 								bootstrap-dam, 
 								bootstrap-catalog,
@@ -125,7 +125,7 @@
 								bootstrap-access-project,
 								bootstrap-frontend, 
 								bootstrap-authentication
-							</includeArtifactIds>
+ 							</includeArtifactIds>
 						</configuration>
 					</execution>
 					<execution>

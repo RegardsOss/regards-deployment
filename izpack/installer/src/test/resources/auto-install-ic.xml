@@ -77,16 +77,17 @@
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="AdminInstancePanel">
-		<entry key="admin-instance.count" value="1"/>
-		<entry key="admin-instance.host.1" value="0.0.0.0"/>
-		<entry key="admin-instance.port.1" value="8877"/>
+		<entry key="admin-instance.count" value="1" />
+		<entry key="admin-instance.host.1" value="0.0.0.0" />
+		<entry key="admin-instance.port.1" value="8877" />
 		<entry key="regards.config.admin.regards.accounts.root.user.login"
 			value="regards-admin@c-s.fr" />
 		<entry key="regards.config.admin.regards.accounts.root.user.password"
 			value="root_admin" />
 		<entry key="regards.config.admin.regards.jpa.instance.datasource.url"
 			value="172.26.47.52:5432/rs_installation_continue_instance" />
-		<entry key="regards.config.admin.regards.jpa.instance.datasource.user.name"
+		<entry
+			key="regards.config.admin.regards.jpa.instance.datasource.user.name"
 			value="azertyuiop123456789" />
 		<entry key="regards.config.admin.regards.jpa.instance.datasource.password"
 			value="azertyuiop123456789" />
@@ -99,9 +100,11 @@
 		<entry key="admin.count" value="1" />
 		<entry key="regards.config.admin.regards.jpa.multitenant.tenants.url.1"
 			value="172.26.47.52:5432/rs_installation_continue" />
-		<entry key="regards.config.admin.regards.jpa.multitenant.tenants.user.name.1"
+		<entry
+			key="regards.config.admin.regards.jpa.multitenant.tenants.user.name.1"
 			value="azertyuiop123456789" />
-		<entry key="regards.config.admin.regards.jpa.multitenant.tenants.password.1"
+		<entry
+			key="regards.config.admin.regards.jpa.multitenant.tenants.password.1"
 			value="azertyuiop123456789" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
@@ -172,10 +175,12 @@
 		<entry
 			key="regards.config.order.regards.jpa.multitenant.tenants.user.name.1"
 			value="azertyuiop123456789" />
-		<entry key="regards.config.order.regards.jobs.pool.size" value="10" />
 		<entry
 			key="regards.config.order.regards.order.max.storage.files.jobs.per.user"
 			value="2" />
+		<entry
+			key="regards.config.order.regards.order.periodic.files.availability.check.cron"
+			value="0 23 * * 7 *" />
 		<entry key="regards.config.order.regards.order.files.bucket.size.Mb"
 			value="100" />
 		<entry
@@ -194,6 +199,7 @@
 		<entry key="order.count" value="1" />
 		<entry key="order.host.1" value="0.0.0.0" />
 		<entry key="regards.config.order.regards.order.secret" value="order's passphrase" />
+		<entry key="regards.config.order.regards.jobs.pool.size" value="10" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 
 	<com.izforge.izpack.panels.userinput.UserInputPanel
@@ -210,6 +216,8 @@
 		<entry
 			key="regards.config.storage.regards.jpa.multitenant.tenants.user.name.1"
 			value="azertyuiop123456789" />
+		<entry key="regards.config.storage.regards.jobs.pool.size"
+			value="10" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 
 
@@ -266,6 +274,8 @@
 		<entry key="regards.acquisition.process.new.sip.ingest.delay"
 			value="5000" />
 		<entry key="regards.acquisition.process.run.chains.delay" value="300000" />
+		<entry key="regards.config.dataprovider.regards.jobs.pool.size"
+			value="10" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 
 	<com.izforge.izpack.panels.userinput.UserInputPanel
@@ -281,6 +291,7 @@
 		<entry
 			key="regards.config.ingest.regards.jpa.multitenant.tenants.user.name.1"
 			value="azertyuiop123456789" />
+		<entry key="regards.config.ingest.regards.jobs.pool.size" value="10" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 
 	<com.izforge.izpack.panels.userinput.UserInputPanel

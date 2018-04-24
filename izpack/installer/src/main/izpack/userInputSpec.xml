@@ -96,8 +96,12 @@
 		<field type="text" variable="regards.config.first.project" size="35">
 			<spec size="15" id="project.panel.project.label" default="project1" />
 		</field>
-		<field type="text" variable="regards.config.workspace.directory" size="35">
+		<field type="text" variable="regards.config.workspace.directory"
+			size="35">
 			<spec size="15" id="workspace.folder.label" default="${regards.config.workspace.directory}" />
+			<validator
+				class="fr.cnes.regards.deployment.izpack.custom.validator.FolderValidator"
+				id="validator.folder.error.not.exists" />
 		</field>
 	</panel>
 
@@ -284,7 +288,7 @@
 				id="validator.notempty.password.label" />
 		</field>
 	</panel>
-	
+
 	<panel id="AdminPanel">
 		<field id="admin.panel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="50" variable="admin.count">
@@ -332,12 +336,12 @@
 				id="validator.notempty.password.label" />
 		</field>
 	</panel>
-	
 
 	<panel id="AccountsPanel">
 		<field id="accounts.panel.title.label" type="title" />
-		<field type="staticText" id="accounts.panel.accounts.label"
-			bold="true" />
+		<field type="staticText" id="accounts.panel.title.header" bold="true" />
+		<field type="space" />
+
 		<field type="text" variable="regards.accounts.validity.duration">
 			<spec id="accounts.panel.accounts.validity.duration.label" size="3"
 				default="${regards.accounts.validity.duration}" />
@@ -493,9 +497,30 @@
 		<field type="divider" />
 		<field type="space" />
 
+		<field type="text" variable="regards.config.storage.regards.jobs.pool.size">
+			<spec id="jobs.pool.size" size="15"
+				default="${regards.config.storage.regards.jobs.pool.size}" />
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.password.label" />
+		</field>
+		<field type="staticText" id="jobs.completion.update.rate.ms.header" />
+		<field type="text"
+			variable="regards.config.storage.regards.jobs.completion.update.rate.ms">
+			<spec id="jobs.completion.update.rate.ms" size="15"
+				default="${regards.config.storage.regards.jobs.completion.update.rate.ms}" />
+		</field>
+
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+
 		<field type="text" variable="regards.config.storage.cache.directory">
 			<spec id="storage.panel.cache.directory" size="35"
 				default="${regards.config.storage.cache.directory.default.value}" />
+			<validator
+				class="fr.cnes.regards.deployment.izpack.custom.validator.FolderValidator"
+				id="validator.folder.error.not.exists" />
 		</field>
 	</panel>
 
@@ -568,9 +593,13 @@
 		<field type="divider" />
 		<field type="space" />
 
+		<field type="staticText" id="dam.panel.local.storage.header" />
 		<field type="text" variable="regards.config.dam.regards.local_storage.path">
 			<spec id="dam.panel.local.storage" size="28"
 				default="${regards.dam.local_storage.path.default.value}" />
+			<validator
+				class="fr.cnes.regards.deployment.izpack.custom.validator.FolderValidator"
+				id="validator.folder.error.not.exists" />
 		</field>
 	</panel>
 
@@ -675,11 +704,16 @@
 		<field type="space" />
 
 		<field type="text" variable="regards.config.order.regards.jobs.pool.size">
-			<spec id="order.jobs.pool.size" size="15"
+			<spec id="jobs.pool.size" size="15"
 				default="${regards.config.order.regards.jobs.pool.size}" />
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
 				id="validator.notempty.password.label" />
+		</field>
+		<field type="text"
+			variable="regards.config.order.regards.jobs.completion.update.rate.ms">
+			<spec id="jobs.completion.update.rate.ms" size="15"
+				default="${regards.config.order.regards.jobs.completion.update.rate.ms}" />
 		</field>
 		<field type="text"
 			variable="regards.config.order.regards.order.files.bucket.size.Mb">
@@ -727,6 +761,13 @@
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
 				id="validator.notempty.password.label" />
+		</field>
+		<field type="staticText"
+			id="order.periodic.files.availability.check.cron.header" />
+		<field type="text"
+			variable="regards.config.order.regards.order.periodic.files.availability.check.cron">
+			<spec id="order.periodic.files.availability.check.cron" size="15"
+				default="${regards.config.order.regards.order.periodic.files.availability.check.cron}" />
 		</field>
 	</panel>
 
@@ -776,6 +817,23 @@
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
 				id="validator.notempty.password.label" />
+		</field>
+
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+
+		<field type="text" variable="regards.config.ingest.regards.jobs.pool.size">
+			<spec id="jobs.pool.size" size="15"
+				default="${regards.config.ingest.regards.jobs.pool.size}" />
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.password.label" />
+		</field>
+		<field type="text"
+			variable="regards.config.ingest.regards.jobs.completion.update.rate.ms">
+			<spec id="jobs.completion.update.rate.ms" size="15"
+				default="${regards.config.ingest.regards.jobs.completion.update.rate.ms}" />
 		</field>
 	</panel>
 
@@ -831,6 +889,24 @@
 		<field type="divider" />
 		<field type="space" />
 
+		<field type="text" variable="regards.config.dataprovider.regards.jobs.pool.size">
+			<spec id="jobs.pool.size" size="15"
+				default="${regards.config.dataprovider.regards.jobs.pool.size}" />
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
+				id="validator.notempty.password.label" />
+		</field>
+
+		<field type="text"
+			variable="regards.config.dataprovider.regards.jobs.completion.update.rate.ms">
+			<spec id="jobs.completion.update.rate.ms" size="15"
+				default="${regards.config.dataprovider.regards.jobs.completion.update.rate.ms}" />
+		</field>
+
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+
 		<field type="staticText" id="dataprovider.panel.waiting.label"
 			bold="true" />
 		<field type="space" />
@@ -843,6 +919,12 @@
 			<spec id="dataprovider.panel.run.chains.delay" size="8"
 				default="${regards.acquisition.process.run.chains.delay.default.value}" />
 		</field>
+
+
+		<field type="space" />
+		<field type="staticText" id="dataprovider.panel.folder" bold="true" />
+		<field type="space" />
+
 		<field type="text" variable="regards.acquisition.cycle.orf.conf.path">
 			<spec id="dataprovider.panel.cycle.orf.folder" size="24"
 				default="${regards.acquisition.cycle.orf.conf.path.default.value}" />
@@ -854,7 +936,7 @@
 		<field type="text" variable="regards.acquisition.plugins.conf.path">
 			<spec id="dataprovider.panel.plugin.confs.folder" size="24"
 				default="${regards.acquisition.plugins.conf.path.default.value}" />
-		</field>		
+		</field>
 		<field type="text" variable="regards.acquisition.plugins.cycles.path">
 			<spec id="dataprovider.panel.cycles.folder" size="24"
 				default="${regards.acquisition.plugins.cycles.path.default.value}" />
@@ -862,7 +944,7 @@
 		<field type="text" variable="regards.acquisition.chains.cycles.path">
 			<spec id="dataprovider.panel.histo.orf.folder" size="24"
 				default="${regards.acquisition.chains.cycles.path.default.value}" />
-		</field>		
+		</field>
 	</panel>
 
 	<panel id="AccessInstancePanel">
@@ -1042,7 +1124,7 @@
 				</run>
 			</spec>
 		</field>
-		
+
 		<field type="button" conditionid="izpack.selected.order" id="components.ingest">
 			<spec id="connection.tester.test" successMsg="connection.tester.success">
 				<run

@@ -5,13 +5,13 @@
 	xsi:schemaLocation="http://izpack.org/schema/langpack http://izpack.org/schema/5.0/izpack-langpack-5.0.xsd">
 
 	<!-- Common -->
-	<str id="host.label" txt="Host:" />
-	<str id="port.label" txt="Port:" />
-	<str id="xmx.label" txt="Max heap size:" />
-	<str id="url.label" txt="Url:" />
-	<str id="username.label" txt="Username:" />
-	<str id="password.label" txt="Password:" />
-	<str id="email.label" txt="Email:" />
+	<str id="host.label" txt="Host" />
+	<str id="port.label" txt="Port" />
+	<str id="xmx.label" txt="Max heap size" />
+	<str id="url.label" txt="Url" />
+	<str id="username.label" txt="Username" />
+	<str id="password.label" txt="Password" />
+	<str id="email.label" txt="Email" />
 	<str id="instance.database.label" txt="Cross projects database" />
 	<str id="first.project.database.label" txt="First project's database" />
 	<str id="cluster.label" txt="Cluster" />
@@ -39,6 +39,9 @@
 	<str id="components.ingest" txt="Ingest" />
 	<str id="protocol.http" txt="http" />
 	<str id="protocol.https" txt="https" />
+	<str id="jobs.pool.size" txt="Jobs pool size" />
+	<str id="jobs.completion.update.rate.ms.header" txt="Jobs completion refresh rate (in ms)" />
+	<str id="jobs.completion.update.rate.ms" txt="Value" />
 
 	<!-- SelectInstallationTypePanel -->
 	<str id="selectinstallationtype.panel.title.label" txt="How do you want to install REGARDS?" />
@@ -112,9 +115,9 @@
 	<str id="admin.panel.root.user.label" txt="Instance admin" />
 
 	<!-- AccountsPanel -->
-	<str id="accounts.panel.title.label" txt="Which rules should follow the user accounts?" />
-	<str id="accounts.panel.accounts.label" txt="Accounts" />
-	<str id="accounts.panel.accounts.validity.duration.label" txt="Period of validity (days)" />
+	<str id="accounts.panel.title.label" txt="Security" />
+	<str id="accounts.panel.title.header" txt="Which rules should follow the user accounts ?" />	
+	<str id="accounts.panel.accounts.validity.duration.label" txt="Account period of validity in days" />
 	<str id="accounts.panel.passwords.label" txt="Passwords" />
 	<str id="accounts.panel.regex.label" txt="Must match the regex" />
 	<str id="accounts.panel.password.rules.label" txt="Or else users will receive the message" />
@@ -130,7 +133,8 @@
 	<!-- DamPanel -->
 	<str id="dam.panel.title.label" txt="Data Management microservice" />
 	<str id="dam.panel.elasticsearch.label" txt="Elasticsearch" />
-	<str id="dam.panel.local.storage" txt="Documents local storage folder" />
+	<str id="dam.panel.local.storage.header" txt="Documents local storage folder" />
+	<str id="dam.panel.local.storage" txt="Path" />
 
 	<!-- CatalogPanel -->
 	<str id="catalog.panel.title.label" txt="Catalog microservice" />
@@ -141,27 +145,29 @@
 
 	<!-- OrderPanel -->
 	<str id="order.panel.title.label" txt="Order microservice" />
-	<str id="order.jobs.pool.size" txt="Jobs pool size" />
 	<str id="order.files.bucket.size.Mb" txt="Orders bucket size in Mb" />
 	<str id="order.validation.period.days" txt="Orders validation period in days" />
 	<str id="order.days.before.considering.order.as.aside" txt="Days before sending mail notification" />
 	<str id="order.secret" txt="Passphrase used to generate token" />
 	<str id="order.files.displayable.maximum" txt="Maximum number of displayable files" />
-	<str id="order.max.storage.files.jobs.per.user" txt="Maximum number of job's order per user" />	
+	<str id="order.max.storage.files.jobs.per.user" txt="Maximum number of job's order per user" />
+	<str id="order.periodic.files.availability.check.cron.header" txt="Periodic files availability check (cron format)" />
+	<str id="order.periodic.files.availability.check.cron" txt="Value" />
 	
 	<!-- IngestPanel -->
 	<str id="ingest.panel.title.label" txt="Ingest microservice" />
 
 	<!-- DataProviderPanel -->
 	<str id="dataprovider.panel.title.label" txt="Data provider microservice" />
-	<str id="dataprovider.panel.waiting.label" txt="Waiting time" />
+	<str id="dataprovider.panel.waiting.label" txt="Waitings time" />
 	<str id="dataprovider.panel.sip.ingest.delay" txt="For ingestion of new SIPs" />
 	<str id="dataprovider.panel.run.chains.delay" txt="For chains activation" />
-	<str id="dataprovider.panel.cycle.orf.folder" txt="Cycles and ORF configuration folder" />
-	<str id="dataprovider.panel.translations.folder" txt="Translation files folder" />
-	<str id="dataprovider.panel.plugin.confs.folder" txt="Plugins configuration folder" />
-	<str id="dataprovider.panel.histo.orf.folder" txt="ORF file history folder" />
-	<str id="dataprovider.panel.cycles.folder" txt="Chain's cycles folder" />
+	<str id="dataprovider.panel.folder" txt="Folders" />	
+	<str id="dataprovider.panel.cycle.orf.folder" txt="Cycles and ORF configuration" />
+	<str id="dataprovider.panel.translations.folder" txt="Translation files" />
+	<str id="dataprovider.panel.plugin.confs.folder" txt="Plugins configuration" />
+	<str id="dataprovider.panel.histo.orf.folder" txt="ORF file history" />
+	<str id="dataprovider.panel.cycles.folder" txt="Chain's cycles" />
 
 	<!-- AccessInstancePanel -->
 	<str id="access-instance.panel.title.label" txt="Access Instance microservice" />
@@ -181,7 +187,7 @@
 	<str id="validator.notempty.password.label" txt="Fill the password to continue" />
 	<str id="validator.notempty.email.label" txt="Fill the email to continue" />
 	
-	<str id="UserInputPanel.custom.swing.buttonlabel.add" txt="Hinzufügen"/>
-    <str id="UserInputPanel.custom.swing.buttonlabel.remove" txt="Entfernen"/>
+	<str id="UserInputPanel.custom.swing.buttonlabel.add" txt="Add"/>
+    <str id="UserInputPanel.custom.swing.buttonlabel.remove" txt="Remove"/>
 
 </izpack:langpack>

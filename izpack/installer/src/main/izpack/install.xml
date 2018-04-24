@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
- Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
- 
- This file is part of REGARDS.
- 
- REGARDS is free software: you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation, either version 3 of the License, or
- (at your option) any later version.
- 
- REGARDS is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- GNU General Public License for more details.
- 
- You should have received a copy of the GNU General Public License
- along with REGARDS. If not, see <http://www.gnu.org/licenses/>.
--->
+<!-- Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES This file is 
+	part of REGARDS. REGARDS is free software: you can redistribute it and/or 
+	modify it under the terms of the GNU General Public License as published 
+	by the Free Software Foundation, either version 3 of the License, or (at 
+	your option) any later version. REGARDS is distributed in the hope that it 
+	will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty 
+	of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General 
+	Public License for more details. You should have received a copy of the GNU 
+	General Public License along with REGARDS. If not, see <http://www.gnu.org/licenses/>. -->
 <izpack:installation version="5.0"
 	xmlns:izpack="http://izpack.org/schema/installation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://izpack.org/schema/installation http://izpack.org/schema/installation/izpack-installation-5.0.xsd">
@@ -65,27 +56,33 @@
 	<jar src="lib/log4j-api-2.9.1.jar" />
 	<jar src="lib/jackson-core-2.8.1.jar" />
 	<jar src="lib/joda-time-2.7.jar" />
-	<jar src="lib/lucene-analyzers-common-6.3.0.jar" />
-	<jar src="lib/lucene-backward-codecs-6.3.0.jar" />
-	<jar src="lib/lucene-core-6.3.0.jar" />
-	<jar src="lib/lucene-grouping-6.3.0.jar" />
-	<jar src="lib/lucene-highlighter-6.3.0.jar" />
-	<jar src="lib/lucene-join-6.3.0.jar" />
-	<jar src="lib/lucene-memory-6.3.0.jar" />
-	<jar src="lib/lucene-misc-6.3.0.jar" />
-	<jar src="lib/lucene-queries-6.3.0.jar" />
-	<jar src="lib/lucene-queryparser-6.3.0.jar" />
-	<jar src="lib/lucene-suggest-6.3.0.jar" />
-	<jar src="lib/lucene-sandbox-6.3.0.jar" />
-	<jar src="lib/lucene-spatial-6.3.0.jar" />
-	<jar src="lib/lucene-spatial-extras-6.3.0.jar" />
-	<jar src="lib/lucene-spatial3d-6.3.0.jar" />
+	<jar src="lib/lucene-analyzers-common-6.6.1.jar" />
+	<jar src="lib/lucene-backward-codecs-6.6.1.jar" />
+	<jar src="lib/lucene-core-6.6.1.jar" />
+	<jar src="lib/lucene-grouping-6.6.1.jar" />
+	<jar src="lib/lucene-highlighter-6.6.1.jar" />
+	<jar src="lib/lucene-join-6.6.1.jar" />
+	<jar src="lib/lucene-memory-6.6.1.jar" />
+	<jar src="lib/lucene-misc-6.6.1.jar" />
+	<jar src="lib/lucene-queries-6.6.1.jar" />
+	<jar src="lib/lucene-queryparser-6.6.1.jar" />
+	<jar src="lib/lucene-suggest-6.6.1.jar" />
+	<jar src="lib/lucene-sandbox-6.6.1.jar" />
+	<jar src="lib/lucene-spatial-6.6.1.jar" />
+	<jar src="lib/lucene-spatial-extras-6.6.1.jar" />
+	<jar src="lib/lucene-spatial3d-6.6.1.jar" />
 	<jar src="lib/netty-3.10.6.Final.jar" />
 	<jar src="lib/netty-all-4.1.16.Final.jar" />
 	<jar src="lib/t-digest-3.0.jar" />
+	
 	<jar src="lib/elasticsearch-5.6.4.jar" />
 	<jar src="lib/elasticsearch-rest-client-5.6.4.jar" />
 	<jar src="lib/elasticsearch-rest-high-level-client-5.6.4.jar" />
+	
+	<jar src="lib/httpcore-4.4.6.jar" />
+	<jar src="lib/commons-logging-1.2.jar" />
+	<jar src="lib/httpasyncclient-4.1.3.jar" />
+	<jar src="lib/httpcore-nio-4.4.9.jar" />	
 
 	<jar src="lib/amqp-client-3.6.3.jar" />
 
@@ -147,8 +144,10 @@
 		<!-- Message broker -->
 		<variable name="regards.config.spring.rabbitmq.host" value="localhost" />
 		<variable name="regards.config.spring.rabbitmq.port" value="5672" />
-		<variable name="regards.config.spring.rabbitmq.username" value="" />
-		<variable name="regards.config.spring.rabbitmq.password" value="" />
+		<variable name="regards.config.spring.rabbitmq.username"
+			value="" />
+		<variable name="regards.config.spring.rabbitmq.password"
+			value="" />
 		<variable name="regards.config.regards.amqp.management.host"
 			value="localhost" />
 		<variable name="regards.config.regards.amqp.management.port"
@@ -163,25 +162,35 @@
 
 		<!-- Admin Instance -->
 		<variable name="admin-instance.count" value="0" />
-		<variable name="admin-instance.host"  value="0.0.0.0" />
-		<variable name="admin-instance.port"  value="8777" />
-		<variable name="admin-instance.xmx"   value="133m" />
-		<variable name="regards.config.admin.regards.accounts.root.user.login" value="" />
-		<variable name="regards.config.admin.regards.accounts.root.user.password" value="" />
+		<variable name="admin-instance.host" value="0.0.0.0" />
+		<variable name="admin-instance.port" value="8777" />
+		<variable name="admin-instance.xmx" value="133m" />
+		<variable name="regards.config.admin.regards.accounts.root.user.login"
+			value="" />
+		<variable name="regards.config.admin.regards.accounts.root.user.password"
+			value="" />
 		<variable name="regards.config.admin.regards.jpa.instance.datasource.url"
 			value="localhost:5432/rs_admin_instance" />
-		<variable name="regards.config.admin.regards.jpa.instance.datasource.user.name" value="" />
-		<variable name="regards.config.admin.regards.jpa.instance.datasource.password"  value="" />
-			
+		<variable
+			name="regards.config.admin.regards.jpa.instance.datasource.user.name"
+			value="" />
+		<variable
+			name="regards.config.admin.regards.jpa.instance.datasource.password"
+			value="" />
+
 		<!-- Admin Project -->
 		<variable name="admin.count" value="0" />
-		<variable name="admin.host"  value="0.0.0.0" />
-		<variable name="admin.port"  value="8877" />
-		<variable name="admin.xmx"   value="128m" />
+		<variable name="admin.host" value="0.0.0.0" />
+		<variable name="admin.port" value="8877" />
+		<variable name="admin.xmx" value="128m" />
 		<variable name="regards.config.admin.regards.jpa.multitenant.tenants.url.1"
 			value="localhost:5432/rs_admin_tenant0" />
-		<variable name="regards.config.admin.regards.jpa.multitenant.tenants.user.name.1" value="" />
-		<variable name="regards.config.admin.regards.jpa.multitenant.tenants.password.1"  value="" />
+		<variable
+			name="regards.config.admin.regards.jpa.multitenant.tenants.user.name.1"
+			value="" />
+		<variable
+			name="regards.config.admin.regards.jpa.multitenant.tenants.password.1"
+			value="" />
 
 		<!-- AccountPanel -->
 		<variable name="regards.accounts.validity.duration" value="30" />
@@ -258,18 +267,27 @@
 		<variable
 			name="regards.config.dataprovider.regards.jpa.multitenant.tenants.password.1"
 			value="" />
+		<variable name="regards.config.dataprovider.regards.jobs.pool.size"
+			value="10" />
+		<variable name="regards.config.dataprovider.regards.jobs.completion.update.rate.ms"
+			value="500000" />
 		<variable
 			name="regards.acquisition.process.new.sip.ingest.delay.default.value"
 			value="5000" />
-		<variable
-			name="regards.acquisition.process.run.chains.delay.default.value"
+		<variable name="regards.acquisition.process.run.chains.delay.default.value"
 			value="300000" />
 
-		<variable name="regards.acquisition.cycle.orf.conf.path.default.value"			value="/opt/regards/config/regards/dataprovider" />
-		<variable name="regards.acquisition.plugins.translations.path.default.value"	value="plugins/translations" />
-		<variable name="regards.acquisition.plugins.conf.path.default.value"			value="plugins/confs" />
-		<variable name="regards.acquisition.plugins.cycles.path.default.value"			value="/data/cycles" />
-		<variable name="regards.acquisition.chains.cycles.path.default.value"			value="/data/chains/cycles" />
+		<variable name="regards.acquisition.cycle.orf.conf.path.default.value"
+			value="/opt/regards/config/regards/dataprovider" />
+		<variable
+			name="regards.acquisition.plugins.translations.path.default.value"
+			value="plugins/translations" />
+		<variable name="regards.acquisition.plugins.conf.path.default.value"
+			value="plugins/confs" />
+		<variable name="regards.acquisition.plugins.cycles.path.default.value"
+			value="/data/cycles" />
+		<variable name="regards.acquisition.chains.cycles.path.default.value"
+			value="/data/chains/cycles" />
 
 		<!-- Storage -->
 		<variable name="storage.count" value="0" />
@@ -285,6 +303,10 @@
 		<variable
 			name="regards.config.storage.regards.jpa.multitenant.tenants.password.1"
 			value="" />
+		<variable name="regards.config.storage.regards.jobs.pool.size"
+			value="10" />
+		<variable name="regards.config.storage.regards.jobs.completion.update.rate.ms"
+			value="500000" />
 		<variable name="regards.config.storage.cache.directory.default.value"
 			value="/tmp/rs-storage-cache" />
 
@@ -303,6 +325,8 @@
 			value="" />
 		<variable name="regards.config.order.regards.jobs.pool.size"
 			value="10" />
+		<variable name="regards.config.order.regards.jobs.completion.update.rate.ms"
+			value="500000" />
 		<variable name="regards.config.order.regards.order.files.bucket.size.Mb"
 			value="100" />
 		<variable name="regards.config.order.regards.order.validation.period.days"
@@ -318,13 +342,17 @@
 		<variable
 			name="regards.config.order.regards.order.max.storage.files.jobs.per.user"
 			value="2" />
+		<variable
+			name="regards.config.order.regards.order.periodic.files.availability.check.cron"
+			value="0 23 * * 7 *" />
 
 		<!-- Ingest -->
 		<variable name="ingest.count" value="0" />
 		<variable name="ingest.host" value="0.0.0.0" />
 		<variable name="ingest.port" value="8893" />
 		<variable name="ingest.xmx" value="256m" />
-		<variable name="regards.config.ingest.regards.jpa.multitenant.tenants.url.1"
+		<variable
+			name="regards.config.ingest.regards.jpa.multitenant.tenants.url.1"
 			value="localhost:5432/rs_ingest_tenant0" />
 		<variable
 			name="regards.config.ingest.regards.jpa.multitenant.tenants.user.name.1"
@@ -332,6 +360,10 @@
 		<variable
 			name="regards.config.ingest.regards.jpa.multitenant.tenants.password.1"
 			value="" />
+		<variable name="regards.config.ingest.regards.jobs.pool.size"
+			value="10" />
+		<variable name="regards.config.ingest.regards.jobs.completion.update.rate.ms"
+			value="500000" />
 
 		<!-- Access Instance -->
 		<variable name="access-instance.count" value="0" />
@@ -395,7 +427,7 @@
 		</condition>
 		<condition type="packselection" id="selected.admin">
 			<name>admin</name>
-		</condition>		
+		</condition>
 		<condition type="packselection" id="selected.authentication">
 			<name>authentication</name>
 		</condition>
@@ -478,7 +510,8 @@
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorGatewayPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="AdminInstancePanel" condition="izpack.selected.admin">
+		<panel classname="UserInputPanel" id="AdminInstancePanel"
+			condition="izpack.selected.admin">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAdminInstancePanel" />
 		</panel>
@@ -488,7 +521,8 @@
 		</panel>
 		<panel classname="UserInputPanel" id="AccountsPanel" condition="izpack.selected.admin" />
 		<panel classname="UserInputPanel" id="SmtpPanel" condition="izpack.selected.admin" />
-		<panel classname="UserInputPanel" id="AuthenticationPanel" condition="izpack.selected.authentication">
+		<panel classname="UserInputPanel" id="AuthenticationPanel"
+			condition="izpack.selected.authentication">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAuthenticationPanel" />
 		</panel>
@@ -543,7 +577,8 @@
 		<!-- Pack names of components MUST match the ComponentType enum -->
 		<!-- /!\ Mind the order of the packs -->
 		<pack name="core" required="true">
-			<description>Core installation. Required for any component.</description>
+			<description>Core installation. Required for any component.
+			</description>
 			<file targetdir="$INSTALL_PATH" src="doc/readme.txt" override="true" />
 			<file targetdir="$INSTALL_PATH" src="legal/License.txt"
 				override="true" />
@@ -578,7 +613,9 @@
 		</pack>
 
 		<pack name="config" required="false" preselected="true">
-			<description>Microservice providing configuration to any other microservice</description>
+			<description>Microservice providing configuration to any other
+				microservice
+			</description>
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-config.jar" />
@@ -589,8 +626,8 @@
 				override="true">
 				<include name="logback.xml" />
 			</fileset>
-			<fileset dir="config/regards/BOOT-INF/classes/regards" targetdir="$INSTALL_PATH/REGARDS/config/regards"
-				override="true">
+			<fileset dir="config/regards/BOOT-INF/classes/regards"
+				targetdir="$INSTALL_PATH/REGARDS/config/regards" override="true">
 				<include name="*" />
 			</fileset>
 			<parsable type="javaprop">
@@ -675,7 +712,8 @@
 		</pack>
 
 		<pack name="gateway" required="false" preselected="true">
-			<description>Gateway between clients and all microservices</description>
+			<description>Gateway between clients and all microservices
+			</description>
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-gateway.jar" />
@@ -716,15 +754,17 @@
 				</args>
 			</executable>
 		</pack>
-		
+
 		<pack name="admin-instance" required="false" preselected="true">
-			<description>Microservice handling system's administration instance</description>
+			<description>Microservice handling system's administration instance
+			</description>
 			<singlefile src="microservices/bootstrap-administration-instance.jar"
-						target="$INSTALL_PATH/REGARDS/bootstrap-admin-instance.jar"
-						override ="true" />
+				target="$INSTALL_PATH/REGARDS/bootstrap-admin-instance.jar"
+				override="true" />
 			<file src="sbin/microservice_admin-instance.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
-			<fileset dir="config/admin/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/admin-instance"
+			<fileset dir="config/admin/BOOT-INF/classes/"
+				targetdir="$INSTALL_PATH/REGARDS/config/logback/admin-instance"
 				override="true">
 				<include name="logback.xml" />
 			</fileset>
@@ -760,7 +800,8 @@
 		</pack>
 
 		<pack name="admin" required="false" preselected="true">
-			<description>Microservice handling system's administration</description>
+			<description>Microservice handling system's administration
+			</description>
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-administration.jar" />
@@ -803,7 +844,8 @@
 		</pack>
 
 		<pack name="authentication" required="false" preselected="true">
-			<description>Microservice dedicated to users' authentication</description>
+			<description>Microservice dedicated to users' authentication
+			</description>
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-authentication.jar" />
@@ -890,7 +932,8 @@
 		</pack>
 
 		<pack name="dam" required="false" preselected="true">
-			<description>REGARDS Data Management service installation</description>
+			<description>REGARDS Data Management service installation
+			</description>
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
 				override="true">
 				<include name="bootstrap-dam.jar" />
@@ -983,8 +1026,7 @@
 			</fileset>
 			<file src="sbin/microservice_order.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
-			<fileset dir="config/order/BOOT-INF/classes/"
-				targetdir="$INSTALL_PATH/REGARDS/config/logback/order"
+			<fileset dir="config/order/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/order"
 				override="true">
 				<include name="logback.xml" />
 			</fileset>
@@ -1027,8 +1069,7 @@
 			</fileset>
 			<file src="sbin/microservice_ingest.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
-			<fileset dir="config/ingest/BOOT-INF/classes/"
-				targetdir="$INSTALL_PATH/REGARDS/config/logback/ingest"
+			<fileset dir="config/ingest/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/ingest"
 				override="true">
 				<include name="logback.xml" />
 			</fileset>
@@ -1080,7 +1121,7 @@
 				<fileset targetdir="$INSTALL_PATH/REGARDS/config/regards/dataprovider">
 					<include name="*.properties" />
 				</fileset>
-			</parsable>			
+			</parsable>
 			<executable type="bin" stage="never" keep="true">
 				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
