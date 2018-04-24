@@ -10,7 +10,8 @@ Build relies on :
 * Maven 3.3+
 * OpenJDK 8
 * Groovy 2.4+
-* Node.js 6.11.0 LTS
+* Node.js 8.10+
+* Npm 5.7.1+
 
 Prerequisite tools :
 * Elasticsearch 5.1.1
@@ -43,6 +44,11 @@ cd regards-cloud
 mvn install -DskipTests -P delivery 
 
 cd ${REGARDS_HOME}
+git clone https://github.com/RegardsOss/regards-storage.git
+cd regards-storage
+mvn install -DskipTests -P delivery
+
+cd ${REGARDS_HOME}
 git clone https://github.com/RegardsOss/regards-dam.git
 cd regards-dam
 mvn clean install -Dmaven.test.skip=true -P delivery
@@ -60,11 +66,6 @@ mvn install -DskipTests -P delivery
 cd ${REGARDS_HOME}
 git clone https://github.com/RegardsOss/regards-ingest.git
 cd regards-ingest
-mvn install -DskipTests -P delivery
-
-cd ${REGARDS_HOME}
-git clone https://github.com/RegardsOss/regards-storage.git
-cd regards-storage
 mvn install -DskipTests -P delivery
 
 cd ${REGARDS_HOME}
@@ -98,7 +99,16 @@ mvn install -DskipTests -P delivery
 
 ## Install
 
+To install with the user interface use the command below:
+
 ```bash
 cd izpack/installer/target
-java -jar REGARDS-OSS-Installer.jar
+java -jar REGARDS-OSS-Installer.jar 
+```
+
+If you have a xml configuration file for automatic installation use the command below:
+
+```bash
+cd izpack/installer/target
+java -jar REGARDS-OSS-Installer.jar auto-install-config.xml
 ```
