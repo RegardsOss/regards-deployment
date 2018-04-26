@@ -164,7 +164,7 @@
 		<variable name="admin-instance.count" value="0" />
 		<variable name="admin-instance.host" value="0.0.0.0" />
 		<variable name="admin-instance.port" value="8777" />
-		<variable name="admin-instance.xmx" value="133m" />
+		<variable name="admin-instance.xmx" value="256m" />
 		<variable name="regards.config.admin.regards.accounts.root.user.login"
 			value="" />
 		<variable name="regards.config.admin.regards.accounts.root.user.password"
@@ -182,7 +182,7 @@
 		<variable name="admin.count" value="0" />
 		<variable name="admin.host" value="0.0.0.0" />
 		<variable name="admin.port" value="8877" />
-		<variable name="admin.xmx" value="128m" />
+		<variable name="admin.xmx" value="256m" />
 		<variable name="regards.config.admin.regards.jpa.multitenant.tenants.url.1"
 			value="localhost:5432/rs_admin_tenant0" />
 		<variable
@@ -257,7 +257,7 @@
 		<variable name="dataprovider.count" value="0" />
 		<variable name="dataprovider.host" value="0.0.0.0" />
 		<variable name="dataprovider.port" value="8890" />
-		<variable name="dataprovider.xmx" value="256m" />
+		<variable name="dataprovider.xmx" value="512m" />
 		<variable
 			name="regards.config.dataprovider.regards.jpa.multitenant.tenants.url.1"
 			value="localhost:5432/rs_dataprovider_tenant0" />
@@ -293,7 +293,7 @@
 		<variable name="storage.count" value="0" />
 		<variable name="storage.host" value="0.0.0.0" />
 		<variable name="storage.port" value="8891" />
-		<variable name="storage.xmx" value="256m" />
+		<variable name="storage.xmx" value="512m" />
 		<variable
 			name="regards.config.storage.regards.jpa.multitenant.tenants.url.1"
 			value="localhost:5432/rs_storage_tenant0" />
@@ -314,7 +314,7 @@
 		<variable name="order.count" value="0" />
 		<variable name="order.host" value="0.0.0.0" />
 		<variable name="order.port" value="8892" />
-		<variable name="order.xmx" value="256m" />
+		<variable name="order.xmx" value="512m" />
 		<variable name="regards.config.order.regards.jpa.multitenant.tenants.url.1"
 			value="localhost:5432/rs_order_tenant0" />
 		<variable
@@ -350,7 +350,7 @@
 		<variable name="ingest.count" value="0" />
 		<variable name="ingest.host" value="0.0.0.0" />
 		<variable name="ingest.port" value="8893" />
-		<variable name="ingest.xmx" value="256m" />
+		<variable name="ingest.xmx" value="512m" />
 		<variable
 			name="regards.config.ingest.regards.jpa.multitenant.tenants.url.1"
 			value="localhost:5432/rs_ingest_tenant0" />
@@ -384,7 +384,7 @@
 		<variable name="access-project.count" value="0" />
 		<variable name="access-project.host" value="0.0.0.0" />
 		<variable name="access-project.port" value="9990" />
-		<variable name="access-project.xmx" value="300m" />
+		<variable name="access-project.xmx" value="256m" />
 		<variable
 			name="regards.config.access.project.regards.jpa.multitenant.tenants.url.1"
 			value="localhost:5432/rs_access_tenant0" />
