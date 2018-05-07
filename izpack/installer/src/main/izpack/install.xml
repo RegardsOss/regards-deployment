@@ -364,6 +364,8 @@
 			value="10" />
 		<variable name="regards.config.ingest.regards.jobs.completion.update.rate.ms"
 			value="500000" />
+		<variable name="regards.config.ingest.aips.bulk.request.limit.default.value"
+			value="1000" />
 
 		<!-- Access Instance -->
 		<variable name="access-instance.count" value="0" />

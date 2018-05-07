@@ -292,6 +292,7 @@
 			key="regards.config.ingest.regards.jpa.multitenant.tenants.user.name.1"
 			value="azertyuiop123456789" />
 		<entry key="regards.config.ingest.regards.jobs.pool.size" value="10" />
+		<entry key="regards.config.ingest.aips.bulk.request.limit" value="1234"/>
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 
 	<com.izforge.izpack.panels.userinput.UserInputPanel

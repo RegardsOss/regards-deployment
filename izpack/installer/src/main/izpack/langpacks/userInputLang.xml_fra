@@ -156,6 +156,8 @@
 
 	<!-- IngestPanel -->
 	<str id="ingest.panel.title.label" txt="Microservice ingest" />
+	<str id="ingest.aips.bulk.request.limit.header" txt="Taille des requêtes de masse de création des AIPs" />
+	<str id="ingest.aips.bulk.request.limit" txt="Taille" />
 
 	<!-- DataProviderPanel -->
 	<str id="dataprovider.panel.title.label" txt="Microservice Fourniture de données" />

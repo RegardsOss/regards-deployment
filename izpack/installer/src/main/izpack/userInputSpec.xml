@@ -710,6 +710,7 @@
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
 				id="validator.notempty.password.label" />
 		</field>
+		<field type="staticText" id="jobs.completion.update.rate.ms.header" />
 		<field type="text"
 			variable="regards.config.order.regards.jobs.completion.update.rate.ms">
 			<spec id="jobs.completion.update.rate.ms" size="15"
@@ -830,11 +831,23 @@
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
 				id="validator.notempty.password.label" />
 		</field>
+		<field type="staticText" id="jobs.completion.update.rate.ms.header" />
 		<field type="text"
 			variable="regards.config.ingest.regards.jobs.completion.update.rate.ms">
 			<spec id="jobs.completion.update.rate.ms" size="15"
 				default="${regards.config.ingest.regards.jobs.completion.update.rate.ms}" />
 		</field>
+		
+		<field type="space" />
+		<field type="divider" />
+		<field type="space" />
+		
+		<field type="staticText" id="ingest.aips.bulk.request.limit.header" />
+		<field type="text" variable="regards.config.ingest.aips.bulk.request.limit">
+			<spec id="ingest.aips.bulk.request.limit" size="8"
+				default="${regards.config.ingest.aips.bulk.request.limit.default.value}" />
+		</field>
+		
 	</panel>
 
 	<panel id="DataProviderPanel">
@@ -896,7 +909,7 @@
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
 				id="validator.notempty.password.label" />
 		</field>
-
+		<field type="staticText" id="jobs.completion.update.rate.ms.header" />
 		<field type="text"
 			variable="regards.config.dataprovider.regards.jobs.completion.update.rate.ms">
 			<spec id="jobs.completion.update.rate.ms" size="15"
@@ -1125,7 +1138,7 @@
 			</spec>
 		</field>
 
-		<field type="button" conditionid="izpack.selected.order" id="components.ingest">
+		<field type="button" conditionid="izpack.selected.ingest" id="components.ingest">
 			<spec id="connection.tester.test" successMsg="connection.tester.success">
 				<run
 					class="fr.cnes.regards.deployment.izpack.custom.button.IngestJdbcConnectionTester">
