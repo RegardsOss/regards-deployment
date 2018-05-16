@@ -126,7 +126,7 @@ chmod 0650 "${ROOT_DIR}"/bin/stop_microservice.sh
 
 # Files accessed through rx by admin users
 chown :${RUNTIME_REGARDS_GROUP} "${ROOT_DIR}"/bin/status_microservice.sh
-chown 0750 "${ROOT_DIR}"/bin/status_microservice.sh
+chmod 0750 "${ROOT_DIR}"/bin/status_microservice.sh
 
 # Dirs accessed through rx by root users
 chmod 0700 "${ROOT_DIR}"/sbin
