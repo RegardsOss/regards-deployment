@@ -5,13 +5,13 @@
 	xsi:schemaLocation="http://izpack.org/schema/langpack http://izpack.org/schema/5.0/izpack-langpack-5.0.xsd">
 
 	<!-- Common -->
-	<str id="host.label" txt="Host:" />
-	<str id="port.label" txt="Port:" />
-	<str id="xmx.label" txt="Max heap size:" />
-	<str id="url.label" txt="Url:" />
-	<str id="username.label" txt="Utilisateur:" />
-	<str id="password.label" txt="Mot de passe:" />
-	<str id="email.label" txt="Email:" />
+	<str id="host.label" txt="Host" />
+	<str id="port.label" txt="Port" />
+	<str id="xmx.label" txt="Max heap size" />
+	<str id="url.label" txt="Url" />
+	<str id="username.label" txt="Utilisateur" />
+	<str id="password.label" txt="Mot de passe" />
+	<str id="email.label" txt="Email" />
 	<str id="instance.database.label" txt="Base de données transverse" />
 	<str id="first.project.database.label" txt="Base de données du premier projet" />
 	<str id="cluster.label" txt="Cluster" />
@@ -38,6 +38,9 @@
 	<str id="components.ingest" txt="Ingest" />
 	<str id="protocol.http" txt="http" />
 	<str id="protocol.https" txt="https" />
+	<str id="jobs.pool.size" txt="Taille des pools de jobs" />	
+	<str id="jobs.completion.update.rate.ms.header" txt="Période d'actualisation de l'avancement des jobs (en ms)" />
+	<str id="jobs.completion.update.rate.ms" txt="Période" />
 
 	<!-- SelectInstallationTypePanel -->
 	<str id="selectinstallationtype.panel.title.label" txt="Comment voulez-vous installer REGARDS?" />
@@ -112,9 +115,9 @@
 	<str id="admin.panel.root.user.label" txt="Administrateur d'instance" />
 
 	<!-- AccountsPanel -->
-	<str id="accounts.panel.title.label" txt="Quelles règles doivent suivre les comptes utilisateurs?" />
-	<str id="accounts.panel.accounts.label" txt="Compte" />
-	<str id="accounts.panel.accounts.validity.duration.label" txt="Durée de validité (jours)" />
+	<str id="accounts.panel.title.label" txt="Sécurité" />
+	<str id="accounts.panel.title.header" txt="Quelles règles doivent suivre les comptes utilisateurs ?" />
+	<str id="accounts.panel.accounts.validity.duration.label" txt="Durée de validité d'un compte en jours" />
 	<str id="accounts.panel.passwords.label" txt="Mots de passe" />
 	<str id="accounts.panel.regex.label" txt="Doivent suivre la regex" />
 	<str id="accounts.panel.password.rules.label" txt="Sinon les utilisateurs recevront le message" />
@@ -130,7 +133,8 @@
 	<!-- DamPanel -->
 	<str id="dam.panel.title.label" txt="Microservice Data Management" />
 	<str id="dam.panel.elasticsearch.label" txt="Elasticsearch" />
-	<str id="dam.panel.local.storage" txt="Dossier local de stockage des documents" />
+	<str id="dam.panel.local.storage.header" txt="Dossier local de stockage des documents" />
+	<str id="dam.panel.local.storage" txt="Path" />
 
 	<!-- CatalogPanel -->
 	<str id="catalog.panel.title.label" txt="Microservice Catalog" />
@@ -141,27 +145,31 @@
 
 	<!-- OrderPanel -->
 	<str id="order.panel.title.label" txt="Microservice Order" />
-	<str id="order.jobs.pool.size" txt="Taille des pools de jobs" />
 	<str id="order.files.bucket.size.Mb" txt="Taille des sous-commandes en Mb" />
 	<str id="order.validation.period.days" txt="Durée de validité des commandes en jours" />
 	<str id="order.days.before.considering.order.as.aside" txt="Nombre de jours avant envoi de mail de relance" />
 	<str id="order.secret" txt="Phrase secrète pour token" />
 	<str id="order.files.displayable.maximum" txt="Nombre maximum de fichiers affichés" />
 	<str id="order.max.storage.files.jobs.per.user" txt="Nombre maximum de jobs par utilisateur" />
+	<str id="order.periodic.files.availability.check.cron.header" txt="Vérification périodique de la disponibilité des fichiers (format cron)" />
+	<str id="order.periodic.files.availability.check.cron" txt="Valeur" />
 
 	<!-- IngestPanel -->
 	<str id="ingest.panel.title.label" txt="Microservice ingest" />
+	<str id="ingest.aips.bulk.request.limit.header" txt="Taille des requêtes de masse de création des AIPs" />
+	<str id="ingest.aips.bulk.request.limit" txt="Taille" />
 
 	<!-- DataProviderPanel -->
 	<str id="dataprovider.panel.title.label" txt="Microservice Fourniture de données" />
-	<str id="dataprovider.panel.waiting.label" txt="Délai d'attente" />
+	<str id="dataprovider.panel.waiting.label" txt="Délais d'attente" />
 	<str id="dataprovider.panel.sip.ingest.delay" txt="Pour l'ingestion des nouveaux SIPs" />
 	<str id="dataprovider.panel.run.chains.delay" txt="Pour l'activation des chaînes" />
-	<str id="dataprovider.panel.cycle.orf.folder" txt="Répertoire de configuration des cycles et orbites" />
-	<str id="dataprovider.panel.translations.folder" txt="Répertoire des fichiers de translation" />
-	<str id="dataprovider.panel.plugin.confs.folder" txt="Répertoire des configurations de plugins" />
-	<str id="dataprovider.panel.histo.orf.folder" txt="Répertoire des cycles globaux" />
-	<str id="dataprovider.panel.cycles.folder" txt="Répertoires des cycles par chaines" />
+	<str id="dataprovider.panel.folder" txt="Répertoires" />
+	<str id="dataprovider.panel.cycle.orf.folder" txt="Configuration des cycles et orbites" />
+	<str id="dataprovider.panel.translations.folder" txt="Fichiers de translation" />
+	<str id="dataprovider.panel.plugin.confs.folder" txt="Configurations de plugins" />
+	<str id="dataprovider.panel.histo.orf.folder" txt="Cycles globaux" />
+	<str id="dataprovider.panel.cycles.folder" txt="Cycles par chaînes" />
 
 	<!-- AccessInstancePanel -->
 	<str id="access-instance.panel.title.label" txt="Microservice Access Instance" />
@@ -176,13 +184,13 @@
 
 	<!-- Validators -->
 	<str id="validator.host.error.label" txt="Le host est invalide" />
-	<str id="validator.port.error.label"
-		txt="Le port est invalide ou bien déjà utilisé par un autre application" />
+	<str id="validator.port.error.label" txt="Le port est invalide ou bien déjà utilisé par un autre application" />
 	<str id="validator.notempty.username.label" txt="Renseignez l'utilisateur pour continuer" />
 	<str id="validator.notempty.password.label" txt="Renseignez le mot de passe pour continuer" />
 	<str id="validator.notempty.email.label" txt="Renseignez l'email pour continuer" />
+	<str id="validator.folder.error.not.exists" txt="Le répertoire n'existe pas" />
 	
-	<str id="UserInputPanel.custom.swing.buttonlabel.add" txt="Hinzufügen"/>
-    <str id="UserInputPanel.custom.swing.buttonlabel.remove" txt="Entfernen"/>
+	<str id="UserInputPanel.custom.swing.buttonlabel.add" txt="Ajouter"/>
+    <str id="UserInputPanel.custom.swing.buttonlabel.remove" txt="Supprimer"/>
 
 </izpack:langpack>
