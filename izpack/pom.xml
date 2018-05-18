@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
  
  This file is part of REGARDS.
  
@@ -23,7 +23,7 @@
 
 	<artifactId>izpack</artifactId>
 	<packaging>pom</packaging>
-	<version>2.0.0-SNAPSHOT</version>
+	<version>2.1.0-SNAPSHOT</version>
 	
 	<name>Izpack</name>
 	<description>Module creating the Izpack installer</description>
@@ -51,7 +51,7 @@
 	<parent>
 		<groupId>fr.cnes.regards.deployment</groupId>
 		<artifactId>rs-deployment</artifactId>
-		<version>2.0.0-SNAPSHOT</version>
+		<version>2.1.0-SNAPSHOT</version>
 	</parent>
 
 	<properties>
