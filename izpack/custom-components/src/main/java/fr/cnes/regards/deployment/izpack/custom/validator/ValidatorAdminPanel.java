@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
  *
  * This file is part of REGARDS.
  *
@@ -21,12 +21,9 @@ package fr.cnes.regards.deployment.izpack.custom.validator;
 import fr.cnes.regards.deployment.izpack.custom.model.ComponentType;
 
 /**
- * Class ValidatorAdminPanel
- *
  * Validator for admin panel.
  *
  * @author Guillaume Barthe de Montmejan
- * @since 1.0.0
  */
 public class ValidatorAdminPanel extends AbstractInjectDataValidator {
 

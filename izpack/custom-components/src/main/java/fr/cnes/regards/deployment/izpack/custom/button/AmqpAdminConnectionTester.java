@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
  *
  * This file is part of REGARDS.
  *
@@ -33,12 +33,15 @@ import com.izforge.izpack.panels.userinput.action.ButtonAction;
 import com.izforge.izpack.util.Console;
 
 /**
- * When the corresponding button is clicked, it attemps to verify the connection to Elasticsearch
+ * Checks the Amqp admin's connection
  *
  * @author Christophe Mertz
  */
 public class AmqpAdminConnectionTester extends ButtonAction {
     
+    /**
+     * Class logger
+     */
     private static final Logger LOGGER = LoggerFactory.getLogger(AmqpAdminConnectionTester.class);
 
     /**
@@ -46,8 +49,14 @@ public class AmqpAdminConnectionTester extends ButtonAction {
      */
     private static final String ERROR = "error";
 
+    /**
+     * The protocol used to test the Amqp connection
+     */
     private static final String PROTOCOL = "http://";
 
+    /**
+     * ":" separator used to build the request used to test the Amqp connection
+     */
     private static final String SEPARATOR = ":";
 
     /**
@@ -61,7 +70,9 @@ public class AmqpAdminConnectionTester extends ButtonAction {
     public static final String PORT_ADMIN_VARIABLE = "regards.config.regards.amqp.management.port";
 
     /**
-     * @param installData
+     * Constructor
+     * 
+     * @param installData {@link InstallData} used throughout the installation
      */
     public AmqpAdminConnectionTester(InstallData installData) {
         super(installData);
@@ -91,7 +102,7 @@ public class AmqpAdminConnectionTester extends ButtonAction {
 
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
             String inputLine;
-            StringBuffer content = new StringBuffer();
+            StringBuilder content = new StringBuilder();
             while ((inputLine = in.readLine()) != null) {
                 content.append(inputLine);
             }

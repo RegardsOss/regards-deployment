@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
 /*
- * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
  *
  * This file is part of REGARDS.
  *
@@ -20,11 +20,13 @@
  */
 
 /**
- * Declaratve Jenkinsfile. The language is Groovy.
+ * Declarative Jenkinsfile. The language is Groovy.
  * Contains the definition of a Jenkins Pipeline, is checked into source control
  * and is expected to be the single source of truth.
  *
  * @author Xavier-Alexandre Brochard
+ * @author Christophe Mertz
+ *
  * @see https://jenkins.io/doc/book/pipeline/jenkinsfile/
  */
 pipeline {
@@ -49,7 +51,7 @@ pipeline {
         // -V : strongly recommended in CI, will display the JDK and Maven versions in use.
         //      Very useful to be quickly sure the selected versions were the ones you think.
         // -U : force maven to update snapshots each time (default : once an hour, makes no sense in CI).
-        sh 'export MAVEN_M2=~/.m2 && mvn -V -U -P delivery,CI clean package org.jacoco:jacoco-maven-plugin:0.7.7.201606060606:prepare-agent sonar:sonar -fae -Dsonar.jacoco.reportPath=${WORKSPACE}/jacoco-ut.exec -Dsonar.jacoco.itReportPath=${WORKSPACE}/jacoco-it.exec'
+        sh 'export MAVEN_M2=~/.m2 && mvn -V -U -P delivery,CI clean package org.jacoco:jacoco-maven-plugin:0.7.7.201606060606:prepare-agent sonar:sonar -Dsonar.jacoco.reportPath=${WORKSPACE}/jacoco-ut.exec -Dsonar.jacoco.itReportPath=${WORKSPACE}/jacoco-it.exec -Dsonar.branch=release/V2.0.0 -DcmdLineTarget=target'
       }
       post {
         success {
@@ -58,42 +60,21 @@ pipeline {
       }
     }
     stage('Stop') {
+      when {
+			anyOf {
+				branch 'release/V2.0.0'
+		    }
+	  }
       steps {
-        parallel(
-          config: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t config stop" || true'
-          },
-          registry: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t registry stop" || true'
-          },
-          admin: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t admin stop" || true'
-          },
-          gateway: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t gateway stop" || true'
-          },
-          dam: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t dam stop" || true'
-          },
-          catalog: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t catalog stop" || true'
-          },
-          acessinstance: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t access-instance stop" || true'
-          },
-          accessproject: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t access-project stop" || true'
-          },
-          authentication: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t authentication stop" || true'
-          },
-          frontend: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t frontend stop" || true'
-          }
-        )
+        sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh stop" || true'
       }
     }
     stage('Clean') {
+        when {
+			anyOf {
+				branch 'release/V2.0.0'
+		    }
+	    }
     	steps {
         // Retour au SNAPSHOT
         // Les VM-Cli ne marchent pas sur centos 7 (pb perl ou ?). Tant que ce n'est pas résolu,
@@ -107,26 +88,47 @@ pipeline {
       }
     }
     stage('Deploy') {
-      steps {
-        // Deploy installer to a LIVRAISON folder
-        sh 'ssh -t rsins@172.26.47.95 "mkdir -p LIVRAISON"'
-        sh 'scp izpack/installer/target/REGARDS-OSS-Installer.jar rsins@172.26.47.95:LIVRAISON'
-        sh 'scp izpack/installer/src/test/resources/auto-install-ic.xml rsins@172.26.47.95:LIVRAISON'
-      }
+	    when {
+			anyOf {
+				branch 'release/V2.0.0'
+			}
+		}
+	    steps {
+	        // Deploy installer to a LIVRAISON folder
+	        sh 'ssh -t rsins@172.26.47.95 "mkdir -p LIVRAISON"'
+	        sh 'ssh -t rsins@172.26.47.95 "rm -f LIVRAISON/REGARDS-OSS-Installer.jar"'
+	        sh 'scp izpack/installer/target/REGARDS-OSS-Installer.jar rsins@172.26.47.95:LIVRAISON'
+	        sh 'scp izpack/installer/src/test/resources/auto-install-ic.xml rsins@172.26.47.95:LIVRAISON'
+	    }
     }
     stage('Install') {
       // Installation continue sur la VM regard-ic (172.26.47.95)
-      steps {
-        // The installation
-        sh 'ssh -t rsins@172.26.47.95 "cd LIVRAISON && java -jar REGARDS-OSS-Installer.jar auto-install-ic.xml"'
-      }
+      when {
+			anyOf {
+				branch 'release/V2.0.0'
+			}
+		}
+        steps {
+        	// The installation
+        	sh 'ssh -t rsins@172.26.47.95 "cd LIVRAISON && java -jar REGARDS-OSS-Installer.jar auto-install-ic.xml"'
+        }
     }
     stage('Start') {
+      when {
+			  anyOf {
+				  branch 'release/V2.0.0'
+		    }
+	    }
       steps {
         sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh start"'
       }
     }
-    stage('Check') {
+    stage('Check - 1') {
+      when {
+			anyOf {
+				branch 'release/V2.0.0'
+			}
+		}
       steps {
         parallel(
           config: {
@@ -138,14 +140,11 @@ pipeline {
           admin: {
             sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t admin status"'
           },
+          admininstance: {
+            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t admin-instance status"'
+          },          
           gateway: {
             sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t gateway status"'
-          },
-          dam: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t dam status"'
-          },
-          catalog: {
-            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t catalog status"'
           },
           acessinstance: {
             sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t access-instance status"'
@@ -155,6 +154,35 @@ pipeline {
           },
           authentication: {
             sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t authentication status"'
+          }
+        )
+      }
+    }  
+    stage('Check - 2') {
+      when {
+			  anyOf {
+				  branch 'release/V2.0.0'
+		      }
+	    }
+      steps {
+        parallel(
+          storage: {
+            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t storage status"'
+          },
+          dam: {
+            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t dam status"'
+          },
+          catalog: {
+            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t catalog status"'
+          },
+          dataprovider: {
+            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t dataprovider status"'
+          },
+          order: {
+            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t order status"'
+          },
+          ingest: {
+            sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t ingest status"'
           },
           frontend: {
             sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh -t frontend status"'

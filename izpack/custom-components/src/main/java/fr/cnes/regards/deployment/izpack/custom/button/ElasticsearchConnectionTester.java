@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
  *
  * This file is part of REGARDS.
  *
@@ -18,13 +18,11 @@
  */
 package fr.cnes.regards.deployment.izpack.custom.button;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
+import java.io.IOException;
 
-import org.elasticsearch.client.transport.TransportClient;
-import org.elasticsearch.common.settings.Settings;
-import org.elasticsearch.common.transport.InetSocketTransportAddress;
-import org.elasticsearch.transport.client.PreBuiltTransportClient;
+import org.apache.http.HttpHost;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestHighLevelClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,12 +32,15 @@ import com.izforge.izpack.panels.userinput.action.ButtonAction;
 import com.izforge.izpack.util.Console;
 
 /**
- * When the corresponding button is clicked, it attemps to verify the connection to Elasticsearch
+ * Checks the Elasticsearch connection
  *
  * @author Christophe Mertz
  */
 public class ElasticsearchConnectionTester extends ButtonAction {
 
+    /**
+     * Class logger
+     */
     private static final Logger LOGGER = LoggerFactory.getLogger(ElasticsearchConnectionTester.class);
 
     /**
@@ -55,59 +56,41 @@ public class ElasticsearchConnectionTester extends ButtonAction {
     /**
      * The name of the PORT variable in the install data
      */
-    public static final String PORT_VARIABLE = "regards.config.elasticsearch.tcp.port";
+    public static final String PORT_VARIABLE = "regards.config.elasticsearch.http.port";
 
     /**
-     * The name of the CLUSTER variable in the install data
-     */
-    public static final String CLUSTER_VARIABLE = "regards.config.elasticsearch.cluster.name";
-
-    private String host;
-
-    private String port;
-
-    private String cluster;
-
-    private TransportClient client;
-
-    /**
-     * @param installData
+     * Constructor
+     * 
+     * @param installData {@link InstallData} used throughout the installation
      */
     public ElasticsearchConnectionTester(InstallData installData) {
         super(installData);
     }
 
-    @SuppressWarnings("resource")
-    private void createTransportClient() throws UnknownHostException {
-        Settings settings = Settings.EMPTY;
+    @Override
+    public boolean execute() {
+        String host = installData.getVariable(HOST_VARIABLE);
+        String port = installData.getVariable(PORT_VARIABLE);
 
-        if (cluster != null) {
-            settings = Settings.builder().put("cluster.name", cluster).build();
+        RestClient restClient = RestClient.builder(new HttpHost(host, Integer.parseInt(port))).build();
+        RestHighLevelClient client = new RestHighLevelClient(restClient);
+
+        boolean result = false;
+        try {
+            // Testing availability of ES
+            if (client.ping()) {
+                result = true;
+            } else {
+                LOGGER.error("Elasticsearch is down. ");
+            }
+        } catch (IOException t) {
+            LOGGER.error("Error while pinging Elasticsearch", t);
         }
 
-        client = new PreBuiltTransportClient(settings).addTransportAddress(new InetSocketTransportAddress(
-                InetAddress.getByName(host), Integer.valueOf(port)));
+        return result;
     }
 
     @Override
-    public boolean execute() {
-        host = installData.getVariable(HOST_VARIABLE);
-        port = installData.getVariable(PORT_VARIABLE);
-        cluster = installData.getVariable(CLUSTER_VARIABLE);
-
-        try {
-            createTransportClient();
-            return !client.connectedNodes().isEmpty();
-        } catch (UnknownHostException e) {
-            LOGGER.error("Connection Failed to Elasticsearch : " + host + "(" + port + ") for cluster : " + cluster, e);
-            return false;
-        } finally {
-            if (client != null) {
-                client.close();
-            }
-        }
-    }
-
     public boolean execute(Console console) {
         if (!execute()) {
             console.println(messages.get(ERROR));
@@ -116,6 +99,7 @@ public class ElasticsearchConnectionTester extends ButtonAction {
         return true;
     }
 
+    @Override
     public boolean execute(Prompt prompt) {
         if (!execute()) {
             prompt.warn(messages.get(ERROR));

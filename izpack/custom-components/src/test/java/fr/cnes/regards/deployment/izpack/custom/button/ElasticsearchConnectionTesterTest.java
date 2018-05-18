@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
  *
  * This file is part of REGARDS.
  *
@@ -37,9 +37,7 @@ public class ElasticsearchConnectionTesterTest {
 
     private final static String HOST_VALUE = "172.26.47.52";
 
-    private final static String PORT_VALUE = "9300";
-
-    private final static String CLUSTER_VALUE = "regards";
+    private final static String PORT_VALUE = "9200";
 
     private static final Variables variables = new DefaultVariables();
 
@@ -64,7 +62,6 @@ public class ElasticsearchConnectionTesterTest {
     public final void testExecute() {
         variables.set(ElasticsearchConnectionTester.HOST_VARIABLE, HOST_VALUE);
         variables.set(ElasticsearchConnectionTester.PORT_VARIABLE, PORT_VALUE);
-        variables.set(ElasticsearchConnectionTester.CLUSTER_VARIABLE, CLUSTER_VALUE);
 
         Assert.assertTrue(launchTest());
     }
@@ -73,7 +70,6 @@ public class ElasticsearchConnectionTesterTest {
     public final void testExecuteWrongHost() {
         variables.set(ElasticsearchConnectionTester.HOST_VARIABLE, "10.11.1.10");
         variables.set(ElasticsearchConnectionTester.PORT_VARIABLE, PORT_VALUE);
-        variables.set(ElasticsearchConnectionTester.CLUSTER_VARIABLE, CLUSTER_VALUE);
 
         Assert.assertFalse(launchTest());
     }
@@ -82,16 +78,6 @@ public class ElasticsearchConnectionTesterTest {
     public final void testExecuteWrongPort() {
         variables.set(ElasticsearchConnectionTester.HOST_VARIABLE, HOST_VALUE);
         variables.set(ElasticsearchConnectionTester.PORT_VARIABLE, "9250");
-        variables.set(ElasticsearchConnectionTester.CLUSTER_VARIABLE, CLUSTER_VALUE);
-
-        Assert.assertFalse(launchTest());
-    }
-
-    @Test
-    public final void testExecuteWrongCluster() {
-        variables.set(ElasticsearchConnectionTester.HOST_VARIABLE, HOST_VALUE);
-        variables.set(ElasticsearchConnectionTester.PORT_VARIABLE, PORT_VALUE);
-        variables.set(ElasticsearchConnectionTester.CLUSTER_VARIABLE, "regard");
 
         Assert.assertFalse(launchTest());
     }

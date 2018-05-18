@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
  *
  * This file is part of REGARDS.
  *
@@ -35,7 +35,7 @@ import com.izforge.izpack.util.Platform.Name;
  */
 public class DamJdbcConnectionTesterTest {
     
-    private static final String URL = "172.26.47.52:5432/rs_catalog_tenant0";
+    private static final String URL = "172.26.47.52:5432/rs_gateway_tenant0";
 
     private static final String USER = "azertyuiop123456789";
     

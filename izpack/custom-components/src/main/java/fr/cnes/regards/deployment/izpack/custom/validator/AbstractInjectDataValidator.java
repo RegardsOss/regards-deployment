@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
  *
  * This file is part of REGARDS.
  *
@@ -40,7 +40,8 @@ public abstract class AbstractInjectDataValidator implements DataValidator {
     protected ComponentType type;
 
     /**
-     * Key identifiying the component's properties in the install data. Ideally matches the above type, but some exceptions exist.
+     * Key used to identifiy the component's properties in the install data.<br>
+     * Ideally matches the above type, but some exceptions exists.
      */
     protected String entryKey;
 

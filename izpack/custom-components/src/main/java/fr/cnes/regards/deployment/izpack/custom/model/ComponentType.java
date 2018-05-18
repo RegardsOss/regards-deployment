@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
  *
  * This file is part of REGARDS.
  *
@@ -19,19 +19,26 @@
 package fr.cnes.regards.deployment.izpack.custom.model;
 
 /**
- *
+ * Enumerates possible values for type of instance
+ * 
  * @author Xavier-Alexandre Brochard
+ * @author Christophe Mertz
  */
 public enum ComponentType {
     CONFIG("config"),
     REGISTRY("registry"),
     GATEWAY("gateway"),
     ADMIN("admin"),
+    ADMIN_INSTANCE("admin-instance"),
     AUTHENTICATION("authentication"),
     DAM("dam"),
     CATALOG("catalog"),
     ACCESS_INSTANCE("access-instance"),
     ACCESS_PROJECT("access-project"),
+    DATAPROVIDER("dataprovider"),
+    STORAGE("storage"),
+    ORDER("order"),
+    INGEST("ingest"),
     FRONTEND("frontend");
 
     /**
@@ -40,13 +47,16 @@ public enum ComponentType {
     private final String name;
 
     /**
-     * @param pName
+     * Default constructor
+     * 
+     * @param newName the new instance's name
      */
-    private ComponentType(String pName) {
-        name = pName;
+    private ComponentType(String newName) {
+        name = newName;
     }
 
     /**
+     * Get the instance's name
      * @return the name
      */
     public String getName() {

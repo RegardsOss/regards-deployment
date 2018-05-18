@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
  *
  * This file is part of REGARDS.
  *
@@ -29,15 +29,12 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author Guillaume Barthe de Montmejan
  * @author Xavier-Alexandre Brochard
- * @since 1.0.0
  */
 @XmlRootElement
 public class ComponentConfigList {
 
     /**
      * items field
-     *
-     * @since 1.0.0
      */
     @XmlElement(name = "componentConfig")
     private final List<ComponentConfig> items = new ArrayList<>();
@@ -47,7 +44,6 @@ public class ComponentConfigList {
      *
      * @param componentConfig
      *            configuration to add
-     * @since 1.0.0
      */
     public void add(ComponentConfig componentConfig) {
         items.add(componentConfig);
@@ -59,7 +55,6 @@ public class ComponentConfigList {
      * @param id
      *            of the configuration
      * @return configuration corresponded to the id, null if none exists
-     * @since 1.0.0
      */
     public ComponentConfig get(int id) {
         for (ComponentConfig componentConfig : items) {
@@ -78,12 +73,6 @@ public class ComponentConfigList {
         return items;
     }
 
-    /**
-     * Methode surchargee
-     *
-     * @see java.lang.Object#toString()
-     * @since 1.0.0
-     */
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();

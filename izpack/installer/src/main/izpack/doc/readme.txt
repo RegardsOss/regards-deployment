@@ -114,6 +114,7 @@ PostgreSQL              |  9.4+           |   PostgreSQL                        
 RabbitMQ                |  3.6.5          |   Pivotal                                           |
 .................................................................................................
 
+In order to install the frontend, you need to be sure that your user has write access to the global module folder. If you have an EACCESS issue while executing `touch $(npm config get prefix)/lib/node_modules/test`, npm has [released a guide to fix it](https://docs.npmjs.com/getting-started/fixing-npm-permissions)
 
 4/ Content
 __________
@@ -160,68 +161,18 @@ __________________
 .xsd            ascii          XML schema
 .yaml           ascii          Yaml file
 
-6/ Build
+6/ Build & install
 ________
 
-git clone https://github.com/RegardsOss/regards-bom.git
-cd regards-bom
-mvn install -DskipTests
+You can find out the tutorial on the README.md file at the root of this repository.
 
-cd ..
-git clone https://github.com/RegardsOss/regards-microservice.git
-cd regards-microservice
-mvn install -DskipTests
-
-cd ..
-git clone https://github.com/RegardsOss/regards-admin.git
-cd regards-admin
-mvn install -DskipTests -P delivery
-
-cd ..
-git clone https://github.com/RegardsOss/regards-cloud.git
-cd regards-cloud
-mvn install -DskipTests -P delivery
-
-cd ..
-git clone https://github.com/RegardsOss/regards-dam.git
-cd regards-dam
-mvn clean install -Dmaven.test.skip=true -P delivery
-
-cd ..
-git clone https://github.com/RegardsOss/regards-catalog.git
-cd regards-catalog
-mvn install -DskipTests -P delivery
-
-cd ..
-git clone https://github.com/RegardsOss/regards-access.git
-cd regards-access
-mvn install -DskipTests
-
-cd ..
-git clone https://github.com/RegardsOss/regards-frontend.git
-cd regards-frontend
-mvn install -DskipTests -P delivery
-
-7/ Build installer
-__________________
-
-cd ..
-git clone https://github.com/RegardsOss/regards-deployment.git
-cd regards-deployment
-mvn install -DskipTests -P delivery
-
-8/ Install
-__________
-
-cd izpack/installer/target
-java -jar REGARDS-OSS-Installer.jar
-
-9/ Start
+7/ Start
 ________
 
 In a standard installation, with all the microservices and a standard security level, the microservices can be started with the following commands :
 {install_dir}/REGARDS/bin/start_microservice.sh -t config             && \
 {install_dir}/REGARDS/bin/start_microservice.sh -t registry           && \
+{install_dir}/REGARDS/bin/start_microservice.sh -t admin-instance     && \
 {install_dir}/REGARDS/bin/start_microservice.sh -t admin              && \
 {install_dir}/REGARDS/bin/start_microservice.sh -t gateway            && \
 {install_dir}/REGARDS/bin/start_microservice.sh -t dam                && \
@@ -239,7 +190,7 @@ The following command allows to stop a microservice :
 
 If you need to install Regards with an enforced security level, see the Regards Manual Installation.
 
-10 / Copyright
+8 / Copyright
 ______________
 
 This software distribution is covered by this copyright notice.
@@ -249,7 +200,7 @@ of their respective copyright owners and are subject to separate license
 agreements.
 
 
-11 / License
+9 / License
 ____________
 
 You can obtain a copy of the GPL 3.0 license at

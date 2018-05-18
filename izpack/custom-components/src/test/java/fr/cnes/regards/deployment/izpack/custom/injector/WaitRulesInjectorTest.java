@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
  *
  * This file is part of REGARDS.
  *
@@ -39,36 +39,24 @@ import fr.cnes.regards.deployment.izpack.custom.model.ComponentType;
  *
  * @author Guillaume Barthe de Montmejan
  * @author Xavier-Alexandre Brochard
- * @since 1.0.0
+ * @author Christophe Mertz
  */
 public class WaitRulesInjectorTest {
 
     @Test
     public void testInject() {
         // @formatter:off
-        String EXPECTED_VALUE_0 = ""
-                + "    <waitRule>\n"
-                + "        <host>localhost</host>\n"
-                + "        <port>1111</port>\n"
-                + "        <timeout>60</timeout>\n"
-                + "    </waitRule>\n";
         String EXPECTED_VALUE_1 = ""
-                + "    <waitRule>\n"
-                + "        <host>127.0.0.1</host>\n"
-                + "        <port>2222</port>\n"
-                + "        <timeout>60</timeout>\n"
-                + "    </waitRule>\n";
-        String EXPECTED_VALUE_2 = ""
                 + "    <waitRule>\n"
                 + "        <host>localhost</host>\n"
                 + "        <port>3333</port>\n"
-                + "        <timeout>90</timeout>\n"
+                + "        <timeout>180</timeout>\n"
                 + "    </waitRule>\n";
         String EXPECTED_VALUE_3 = ""
                 + "    <waitRule>\n"
                 + "        <host>127.0.0.1</host>\n"
                 + "        <port>3333</port>\n"
-                + "        <timeout>90</timeout>\n"
+                + "        <timeout>180</timeout>\n"
                 + "    </waitRule>\n";
 
         // @formatter:on
@@ -91,14 +79,14 @@ public class WaitRulesInjectorTest {
         variables.set(portName + ".2", "3457");
 
         List<Pack> selectedPacks = new ArrayList<>();
-        selectedPacks
-                .add(new Pack("config", portName, uriName, null, null, true, true, false, waitRuleListName, false, 0));
-        selectedPacks.add(new Pack("registry", portName, uriName, null, null, true, true, false, waitRuleListName,
-                false, 0));
+        selectedPacks.add(new Pack(ComponentType.CONFIG.getName(), portName, uriName, null, null, true, true, false,
+                waitRuleListName, false, 0));
+        selectedPacks.add(new Pack(ComponentType.REGISTRY.getName(), portName, uriName, null, null, true, true, false,
+                waitRuleListName, false, 0));
+        selectedPacks.add(new Pack(ComponentType.ADMIN_INSTANCE.getName(), portName, uriName, null, null, true, true,
+                false, waitRuleListName, false, 0));
         installData.setSelectedPacks(selectedPacks);
 
-        //        variables.set("izpack.selected.config", "true");
-        //        variables.set("izpack.selected.registry", "true");
         // @formatter:off
         variables.set(componentListName, "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
                 + "<componentConfigList>\n"
@@ -122,7 +110,7 @@ public class WaitRulesInjectorTest {
                 + "        <port>2222</port>\n"
                 + "    </componentConfig>\n"
                 + "</componentConfigList>\n");
-        variables.set("registry.instanceList", "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
+        variables.set("admin-instance.instanceList", "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
                 + "<componentConfigList>\n"
                 + "    <componentConfig id=\"0\">\n"
                 + "        <host>localhost</host>\n"
@@ -140,9 +128,7 @@ public class WaitRulesInjectorTest {
 
         // Check transformation
         String valueOfComponentListName = installData.getVariable(waitRuleListName);
-        Assert.assertTrue(valueOfComponentListName.contains(EXPECTED_VALUE_0));
         Assert.assertTrue(valueOfComponentListName.contains(EXPECTED_VALUE_1));
-        Assert.assertTrue(valueOfComponentListName.contains(EXPECTED_VALUE_2));
         Assert.assertTrue(valueOfComponentListName.contains(EXPECTED_VALUE_3));
 
     }

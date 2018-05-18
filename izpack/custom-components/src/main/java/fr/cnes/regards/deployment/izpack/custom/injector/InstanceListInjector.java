@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
  *
  * This file is part of REGARDS.
  *
@@ -27,19 +27,20 @@ import fr.cnes.regards.deployment.izpack.custom.xml.XmlAccessor;
 
 /**
  * Injects the list of instances of a component into the installation data.
+ * 
  * @author Guillaume Barthe de Montmejan
  * @author Xavier-Alexandre Brochard
+ * @author Christophe Mertz
  */
 public class InstanceListInjector implements InstallDataInjector {
 
     /**
-     * Component type
+     * The current {@link ComponentType}
      */
     protected final ComponentType type;
 
     /**
-     * Identifier concatenated to pattern string to identify one specific
-     * component
+     * Identifier concatenated to pattern string to identify one specific component
      */
     protected final String entryKey;
 
@@ -49,36 +50,34 @@ public class InstanceListInjector implements InstallDataInjector {
     private static final int IZPACK_FIRST_INDEX_OF_VARIABLE_LIST = 1;
 
     /**
-     * @param pType
-     * @param pEntryKey
+     * Add a new instance
+     * @param newType the instance's {@link ComponentType}
+     * @param newEntryKey the an entry key for this new instance. Ideally matches the above type.
      */
-    public InstanceListInjector(ComponentType pType, String pEntryKey) {
+    public InstanceListInjector(ComponentType newType, String newEntryKey) {
         super();
-        type = pType;
-        entryKey = pEntryKey;
+        type = newType;
+        entryKey = newEntryKey;
     }
 
-    /* (non-Javadoc)
-     * @see fr.cnes.regards.deployment.izpack.custom.InstallDataInjector#inject(com.izforge.izpack.api.data.InstallData)
-     */
     @Override
-    public void inject(InstallData pInstallData) {
+    public void inject(InstallData installData) {
         final String count = type.getName() + ".count";
         final String uriName = entryKey + ".host";
         final String portName = entryKey + ".port";
         final String xmxName = entryKey + ".xmx";
         final String microserviceListName = type.getName() + ".instanceList";
 
-        String countAsString = pInstallData.getVariable(count);
+        String countAsString = installData.getVariable(count);
         int nbComponents = Integer.valueOf(countAsString) + IZPACK_FIRST_INDEX_OF_VARIABLE_LIST;
 
         ComponentConfigList componentConfigList = new ComponentConfigList();
         // Concatenate all values in single one formatted
         for (int i = IZPACK_FIRST_INDEX_OF_VARIABLE_LIST; i < nbComponents; i++) {
-            
-            String uri = pInstallData.getVariable(uriName + "." + i);
-            int port = Integer.parseInt(pInstallData.getVariable(portName + "." + i));
-            String xmx = pInstallData.getVariable(xmxName);
+
+            String uri = installData.getVariable(uriName + "." + i);
+            int port = Integer.parseInt(installData.getVariable(portName + "." + i));
+            String xmx = installData.getVariable(xmxName);
 
             ComponentConfig componentConfig = new ComponentConfig();
             componentConfig.setHost(uri);
@@ -90,7 +89,7 @@ public class InstanceListInjector implements InstallDataInjector {
         }
         // Set result in a new variable
         // Careful, if you use an existing one, it doesn't work.
-        pInstallData.setVariable(microserviceListName, XmlAccessor.writeToString(componentConfigList));
+        installData.setVariable(microserviceListName, XmlAccessor.writeToString(componentConfigList));
     }
 
 }

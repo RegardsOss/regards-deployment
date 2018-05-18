@@ -1,5 +1,20 @@
 #!/bin/bash -e
-# LICENSE_PLACEHOLDER
+# Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+#
+# This file is part of REGARDS.
+#
+# REGARDS is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# REGARDS is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with REGARDS. If not, see <http://www.gnu.org/licenses/>.
 
 # usage ################################################################
 function usage
@@ -107,12 +122,13 @@ do
 
     logback_file="${ROOT_DIR}"/config/logback/${MICROSERVICE_TYPE}/logback.xml
     plugins_dir="${ROOT_DIR}"/plugins/${MICROSERVICE_TYPE}
+    microservice_conf_dir="${ROOT_DIR}"/config/regards/${MICROSERVICE_TYPE}
 
     if [ ${MICROSERVICE_TYPE} == "frontend" ]
     then
         java -Xms${microservices_infos_t[xmx]} -Xmx${microservices_infos_t[xmx]} -jar -Dserver.address="0.0.0.0"  -Dserver.port="${microservices_infos_t[port]}" ${lib_exec_java} --regards.frontend.www.path=./www > "${log_file}" 2>&1 &
     else
-        java -Xms${microservices_infos_t[xmx]} -Xmx${microservices_infos_t[xmx]} -Dserver.address="0.0.0.0" -Dserver.port="${microservices_infos_t[port]}" -Dloader.path=${plugins_dir} -jar ${lib_exec_java} -Dlogging.config=${logback_file}  > "${log_file}" 2>&1 &
+        java -Xms${microservices_infos_t[xmx]} -Xmx${microservices_infos_t[xmx]} -Dserver.address="0.0.0.0" -Dserver.port="${microservices_infos_t[port]}" -Dloader.path=${plugins_dir} -cp ${microservice_conf_dir} -jar ${lib_exec_java} -Dlogging.config=${logback_file}  > "${log_file}" 2>&1 &
     fi
     pid=$!
 

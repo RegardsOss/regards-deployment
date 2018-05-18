@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
  *
  * This file is part of REGARDS.
  *
@@ -32,12 +32,15 @@ import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 
 /**
- * When the corresponding button is clicked, it attemps to verify the connection to Elasticsearch
+ * Checks the Amqp connection
  *
  * @author Christophe Mertz
  */
 public class AmqpConnectionTester extends ButtonAction {
 
+    /**
+     * Class logger
+     */
     private static final Logger LOGGER = LoggerFactory.getLogger(AmqpConnectionTester.class);
 
     /**
@@ -66,7 +69,9 @@ public class AmqpConnectionTester extends ButtonAction {
     public static final String PASSWORD_VARIABLE = "regards.config.spring.rabbitmq.password";
 
     /**
-     * @param installData
+     * Constructor
+     * 
+     * @param installData {@link InstallData} used throughout the installation
      */
     public AmqpConnectionTester(InstallData installData) {
         super(installData);
@@ -103,6 +108,7 @@ public class AmqpConnectionTester extends ButtonAction {
         }
     }
 
+    @Override
     public boolean execute(Console console) {
         if (!execute()) {
             console.println(messages.get(ERROR));
@@ -111,6 +117,7 @@ public class AmqpConnectionTester extends ButtonAction {
         return true;
     }
 
+    @Override
     public boolean execute(Prompt prompt) {
         if (!execute()) {
             prompt.warn(messages.get(ERROR));

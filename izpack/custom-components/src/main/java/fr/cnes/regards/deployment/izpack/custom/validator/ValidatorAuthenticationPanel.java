@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
  *
  * This file is part of REGARDS.
  *
@@ -24,7 +24,6 @@ import fr.cnes.regards.deployment.izpack.custom.model.ComponentType;
  * Validator for rs-authentication configuration panel.
  *
  * @author Xavier-Alexandre Brochard
- * @since 1.0.0
  */
 public class ValidatorAuthenticationPanel extends AbstractInjectDataValidator {
 

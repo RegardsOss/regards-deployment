@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
  *
  * This file is part of REGARDS.
  *
@@ -25,31 +25,28 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * List of {@link WaitRule}s.
+ * {@link List} of {@link WaitRule}
  *
  * @author Xavier-Alexandre Brochard
- * @since 1.0.0
+ * @author Christophe Mertz
  */
 @XmlRootElement
 public class WaitRuleList {
 
     /**
      * items field
-     *
-     * @since 1.0.0
      */
     @XmlElement(name = "waitRule")
     private final List<WaitRule> items = new ArrayList<>();
 
     /**
-     * Add wait rule to the list
+     * Add {@link WaitRule} to the {@link List}
      *
-     * @param pWaitRule
+     * @param waitRule
      *            wait rule to add
-     * @since 1.0.0
      */
-    public void add(WaitRule pWaitRule) {
-        items.add(pWaitRule);
+    public void add(WaitRule waitRule) {
+        items.add(waitRule);
     }
 
     /**
@@ -59,10 +56,6 @@ public class WaitRuleList {
         return items;
     }
 
-    /**
-     * @see java.lang.Object#toString()
-     * @since 1.0.0
-     */
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();

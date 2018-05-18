@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
  *
  * This file is part of REGARDS.
  *
@@ -20,6 +20,12 @@ package fr.cnes.regards.deployment.izpack.custom.button;
 
 import com.izforge.izpack.api.data.InstallData;
 
+/**
+ * Checks the Admin project's database connection
+ * 
+ * @author Christophe Mertz
+ *
+ */
 public class AdminProjectJdbcConnectionTester extends AbstractJdbcConnectionTester {
 
     /**
@@ -37,6 +43,11 @@ public class AdminProjectJdbcConnectionTester extends AbstractJdbcConnectionTest
      */
     public static final String PASSWORD_DATASOURCE_VARIABLE = "regards.config.admin.regards.jpa.multitenant.tenants.password.1";
 
+    /**
+     * Constructor
+     * 
+     * @param installData {@link InstallData} used throughout the installation
+     */
     public AdminProjectJdbcConnectionTester(InstallData installData) {
         super(installData);
         urlVariable = URL_DATASOURCE_VARIABLE;

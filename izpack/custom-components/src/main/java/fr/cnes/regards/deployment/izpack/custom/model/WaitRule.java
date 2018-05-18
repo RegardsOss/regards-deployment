@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ * Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
  *
  * This file is part of REGARDS.
  *
@@ -26,22 +26,16 @@ public class WaitRule {
 
     /**
      * host field.
-     *
-     * @since 1.0.0
      */
     private String host;
 
     /**
      * port field.
-     *
-     * @since 1.0.0
      */
     private int port;
 
     /**
      * timeout in seconds
-     *
-     * @since 1.0.0
      */
     private int timeout;
 
@@ -54,14 +48,14 @@ public class WaitRule {
 
     /**
      * Constructor
-     * @param pComponentConfig
-     * @param pTimeout
+     * @param componentConfig the {@link ComponentType} to wait
+     * @param timeout the time delay to wait 
      */
-    public WaitRule(ComponentConfig pComponentConfig, int pTimeout) {
+    public WaitRule(ComponentConfig componentConfig, int tOut) {
         super();
-        host = pComponentConfig.getHost();
-        port = pComponentConfig.getPort();
-        timeout = pTimeout;
+        host = componentConfig.getHost();
+        port = componentConfig.getPort();
+        timeout = tOut;
     }
 
     /**
@@ -86,29 +80,26 @@ public class WaitRule {
     }
 
     /**
-     * @param pHost the host to set
+     * @param newHost the host to set
      */
-    public void setHost(String pHost) {
-        host = pHost;
+    public void setHost(String newHost) {
+        host = newHost;
     }
 
     /**
-     * @param pPort the port to set
+     * @param newPort the port to set
      */
-    public void setPort(int pPort) {
-        port = pPort;
+    public void setPort(int newPort) {
+        port = newPort;
     }
 
     /**
-     * @param pTimeout the timeout to set
+     * @param tOut the timeout to set
      */
-    public void setTimeout(int pTimeout) {
-        timeout = pTimeout;
+    public void setTimeout(int tOut) {
+        timeout = tOut;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
     @Override
     public String toString() {
         return "WaitRule [host=" + host + ", port=" + port + ", timeout=" + timeout + "]";

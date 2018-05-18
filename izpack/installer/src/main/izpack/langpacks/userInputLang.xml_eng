@@ -1,17 +1,34 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<!-- LICENSE_PLACEHOLDER -->
+<!--
+ Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ 
+ This file is part of REGARDS.
+ 
+ REGARDS is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ REGARDS is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with REGARDS. If not, see <http://www.gnu.org/licenses/>.
+-->
 <izpack:langpack version="5.0"
 	xmlns:izpack="http://izpack.org/schema/langpack" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://izpack.org/schema/langpack http://izpack.org/schema/5.0/izpack-langpack-5.0.xsd">
 
 	<!-- Common -->
-	<str id="host.label" txt="Host:" />
-	<str id="port.label" txt="Port:" />
-	<str id="xmx.label" txt="Max heap size:" />
-	<str id="url.label" txt="Url:" />
-	<str id="username.label" txt="Username:" />
-	<str id="password.label" txt="Password:" />
-	<str id="email.label" txt="Email:" />
+	<str id="host.label" txt="Host" />
+	<str id="port.label" txt="Port" />
+	<str id="xmx.label" txt="Max heap size" />
+	<str id="url.label" txt="Url" />
+	<str id="username.label" txt="Username" />
+	<str id="password.label" txt="Password" />
+	<str id="email.label" txt="Email" />
 	<str id="instance.database.label" txt="Cross projects database" />
 	<str id="first.project.database.label" txt="First project's database" />
 	<str id="cluster.label" txt="Cluster" />
@@ -29,12 +46,19 @@
 	<str id="components.rabbit.test" txt="RabbitMQ" />
 	<str id="components.rabbit.management.test" txt="RabbitMQ management" />
 	<str id="components.catalog" txt="Catalog" />
+	<str id="components.dataprovider" txt="Data provider" />
+	<str id="components.storage.cache.directory" txt="Cache directory" />
 	<str id="components.access" txt="Access" />
 	<str id="components.access.instance" txt="Access instance" />
 	<str id="components.access.project" txt="Access project" />	
 	<str id="components.storage" txt="Storage" />
+	<str id="components.order" txt="Order" />
+	<str id="components.ingest" txt="Ingest" />
 	<str id="protocol.http" txt="http" />
 	<str id="protocol.https" txt="https" />
+	<str id="jobs.pool.size" txt="Jobs pool size" />
+	<str id="jobs.completion.update.rate.ms.header" txt="Jobs completion refresh rate (in ms)" />
+	<str id="jobs.completion.update.rate.ms" txt="Value" />
 
 	<!-- SelectInstallationTypePanel -->
 	<str id="selectinstallationtype.panel.title.label" txt="How do you want to install REGARDS?" />
@@ -57,8 +81,9 @@
 		txt="	* The admin user must have groups REGARDS, ADMIN and RUNTIME" />
 
 	<!-- ProjectPanel -->
-	<str id="project.panel.title.label" txt="What is the first project we should add?" />
-	<str id="project.panel.project.label" txt="Name:" />
+	<str id="project.panel.title.label" txt="General parameters" />
+	<str id="project.panel.project.label" txt="The first project to add" />
+	<str id="workspace.folder.label" txt="The workspaces basic directory" />
 
 	<!-- ConfigSecurityLevelPanel -->
 	<str id="configsecuritylevel.panel.title.label" txt="Security customization" />
@@ -103,12 +128,13 @@
 
 	<!-- AdminPanel -->
 	<str id="admin.panel.title.label" txt="Administration microservice" />
+	<str id="admin.panel.title.label.instance" txt="Microservice Administration instance" />
 	<str id="admin.panel.root.user.label" txt="Instance admin" />
 
 	<!-- AccountsPanel -->
-	<str id="accounts.panel.title.label" txt="Which rules should follow the user accounts?" />
-	<str id="accounts.panel.accounts.label" txt="Accounts" />
-	<str id="accounts.panel.accounts.validity.duration.label" txt="Period of validity (days)" />
+	<str id="accounts.panel.title.label" txt="Security" />
+	<str id="accounts.panel.title.header" txt="Which rules should follow the user accounts ?" />	
+	<str id="accounts.panel.accounts.validity.duration.label" txt="Account period of validity in days" />
 	<str id="accounts.panel.passwords.label" txt="Passwords" />
 	<str id="accounts.panel.regex.label" txt="Must match the regex" />
 	<str id="accounts.panel.password.rules.label" txt="Or else users will receive the message" />
@@ -119,13 +145,48 @@
 	<!-- SmtpPanel -->
 	<str id="smtp.panel.title" txt="SMTP Configuration" />
 	<str id="smtp.panel.detail" txt="REGARDS keeps you in touch via emails. You can provide a specific SMTP server or leave the default one." />
+	<str id="sender.no.reply" txt="Mail address for no reply" />
 
 	<!-- DamPanel -->
 	<str id="dam.panel.title.label" txt="Data Management microservice" />
 	<str id="dam.panel.elasticsearch.label" txt="Elasticsearch" />
+	<str id="dam.panel.local.storage.header" txt="Documents local storage folder" />
+	<str id="dam.panel.local.storage" txt="Path" />
 
 	<!-- CatalogPanel -->
 	<str id="catalog.panel.title.label" txt="Catalog microservice" />
+
+	<!-- StoragePanel -->
+	<str id="storage.panel.title.label" txt="Storage microservice" />
+	<str id="storage.panel.cache.directory" txt="Cache directory" />
+
+	<!-- OrderPanel -->
+	<str id="order.panel.title.label" txt="Order microservice" />
+	<str id="order.files.bucket.size.Mb" txt="Orders bucket size in Mb" />
+	<str id="order.validation.period.days" txt="Orders validation period in days" />
+	<str id="order.days.before.considering.order.as.aside" txt="Days before sending mail notification" />
+	<str id="order.secret" txt="Passphrase used to generate token" />
+	<str id="order.files.displayable.maximum" txt="Maximum number of displayable files" />
+	<str id="order.max.storage.files.jobs.per.user" txt="Maximum number of job's order per user" />
+	<str id="order.periodic.files.availability.check.cron.header" txt="Periodic files availability check (cron format)" />
+	<str id="order.periodic.files.availability.check.cron" txt="Value" />
+	
+	<!-- IngestPanel -->
+	<str id="ingest.panel.title.label" txt="Ingest microservice" />
+	<str id="ingest.aips.bulk.request.limit.header" txt="AIPs bulk request size" />
+	<str id="ingest.aips.bulk.request.limit" txt="Size" />
+
+	<!-- DataProviderPanel -->
+	<str id="dataprovider.panel.title.label" txt="Data provider microservice" />
+	<str id="dataprovider.panel.waiting.label" txt="Waitings time" />
+	<str id="dataprovider.panel.sip.ingest.delay" txt="For ingestion of new SIPs" />
+	<str id="dataprovider.panel.run.chains.delay" txt="For chains activation" />
+	<str id="dataprovider.panel.folder" txt="Folders" />	
+	<str id="dataprovider.panel.cycle.orf.folder" txt="Cycles and ORF configuration" />
+	<str id="dataprovider.panel.translations.folder" txt="Translation files" />
+	<str id="dataprovider.panel.plugin.confs.folder" txt="Plugins configuration" />
+	<str id="dataprovider.panel.histo.orf.folder" txt="ORF file history" />
+	<str id="dataprovider.panel.cycles.folder" txt="Chain's cycles" />
 
 	<!-- AccessInstancePanel -->
 	<str id="access-instance.panel.title.label" txt="Access Instance microservice" />
@@ -144,5 +205,8 @@
 	<str id="validator.notempty.username.label" txt="Fill the username to continue" />
 	<str id="validator.notempty.password.label" txt="Fill the password to continue" />
 	<str id="validator.notempty.email.label" txt="Fill the email to continue" />
+	
+	<str id="UserInputPanel.custom.swing.buttonlabel.add" txt="Add"/>
+    <str id="UserInputPanel.custom.swing.buttonlabel.remove" txt="Remove"/>
 
 </izpack:langpack>
