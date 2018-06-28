@@ -47,6 +47,8 @@
 		id="ProjectPanel">
 		<entry key="regards.config.first.project" value="project1" />
 		<entry key="regards.config.workspace.directory" value="/opt/regards/workspace" />
+		<entry key="regards.config.http.proxy.host" value="" />
+		<entry key="regards.config.http.proxy.port" value="0" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="ConfigPanel">

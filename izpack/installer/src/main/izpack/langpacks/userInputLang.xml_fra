@@ -86,6 +86,7 @@
 	<str id="project.panel.title.label" txt="Paramètres généraux" />
 	<str id="project.panel.project.label" txt="Le premier projet à ajouter" />
 	<str id="workspace.folder.label" txt="Le répertoire de base des espaces de travail" />
+	<str id="proxy.config.header" txt="Confguration du proxy" />
 
 	<!-- ConfigSecurityLevelPanel -->
 	<str id="configsecuritylevel.panel.title.label" txt="Personnaliser les droits" />

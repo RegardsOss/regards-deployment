@@ -111,15 +111,28 @@
 	<panel id="ProjectPanel">
 		<field id="project.panel.title.label" type="title" />
 		<field type="text" variable="regards.config.first.project" size="35">
-			<spec size="15" id="project.panel.project.label" default="project1" />
+			<spec size="15" id="project.panel.project.label" default="${regards.config.first.project.default.value}" />
 		</field>
 		<field type="text" variable="regards.config.workspace.directory"
 			size="35">
-			<spec size="15" id="workspace.folder.label" default="${regards.config.workspace.directory}" />
+			<spec size="15" id="workspace.folder.label" default="${regards.config.workspace.directory.default.value}" />
 			<validator
 				class="fr.cnes.regards.deployment.izpack.custom.validator.FolderValidator"
 				id="validator.folder.error.not.exists" />
 		</field>
+		
+		<field type="staticText" id="proxy.config.header" />
+		
+		<field type="text" variable="regards.config.http.proxy.host">
+			<spec id="host.label" size="15" />
+		</field>
+		<field type="text" variable="regards.config.http.proxy.port">
+			<spec id="port.label" size="15" default="0"/>
+			<validator
+				class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
+				id="validator.port.error.label" />
+		</field>
+		
 	</panel>
 
 	<panel id="ConfigPanel">
