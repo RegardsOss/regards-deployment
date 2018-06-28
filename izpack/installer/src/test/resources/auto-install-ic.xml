@@ -200,6 +200,10 @@
 		<entry key="order.host.1" value="0.0.0.0" />
 		<entry key="regards.config.order.regards.order.secret" value="order's passphrase" />
 		<entry key="regards.config.order.regards.jobs.pool.size" value="10" />
+		<entry key="regards.config.order.regards.jobs.succeeded.retention.days"
+			value="1" />
+		<entry key="regards.config.order.regards.jobs.failed.retention.days"
+			value="30" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 
 	<com.izforge.izpack.panels.userinput.UserInputPanel
@@ -218,6 +222,10 @@
 			value="azertyuiop123456789" />
 		<entry key="regards.config.storage.regards.jobs.pool.size"
 			value="10" />
+		<entry key="regards.config.storage.regards.jobs.succeeded.retention.days"
+			value="1" />
+		<entry key="regards.config.storage.regards.jobs.failed.retention.days"
+			value="30" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 
 
@@ -276,6 +284,11 @@
 		<entry key="regards.acquisition.process.run.chains.delay" value="300000" />
 		<entry key="regards.config.dataprovider.regards.jobs.pool.size"
 			value="10" />
+		<entry
+			key="regards.config.dataprovider.regards.jobs.succeeded.retention.days"
+			value="1" />
+		<entry key="regards.config.dataprovider.regards.jobs.failed.retention.days"
+			value="30" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 
 	<com.izforge.izpack.panels.userinput.UserInputPanel
@@ -292,7 +305,12 @@
 			key="regards.config.ingest.regards.jpa.multitenant.tenants.user.name.1"
 			value="azertyuiop123456789" />
 		<entry key="regards.config.ingest.regards.jobs.pool.size" value="10" />
-		<entry key="regards.config.ingest.aips.bulk.request.limit" value="1234"/>
+		<entry key="regards.config.ingest.aips.bulk.request.limit"
+			value="1234" />
+		<entry key="regards.config.ingest.regards.jobs.succeeded.retention.days"
+			value="1" />
+		<entry key="regards.config.ingest.regards.jobs.failed.retention.days"
+			value="30" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 
 	<com.izforge.izpack.panels.userinput.UserInputPanel
