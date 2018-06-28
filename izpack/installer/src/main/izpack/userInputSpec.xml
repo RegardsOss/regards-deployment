@@ -527,6 +527,18 @@
 			<spec id="jobs.completion.update.rate.ms" size="15"
 				default="${regards.config.storage.regards.jobs.completion.update.rate.ms}" />
 		</field>
+		
+		<field type="staticText" id="jobs.retention.days.header" />
+		<field type="text"
+			variable="regards.config.storage.regards.jobs.succeeded.retention.days">
+			<spec id="jobs.succeeded.retention.days" size="15"
+				default="${regards.jobs.succeeded.retention.days.default.value}" />
+		</field>
+		<field type="text"
+			variable="regards.config.storage.regards.jobs.failed.retention.days">
+			<spec id="jobs.failed.retention.days" size="15"
+				default="${regards.jobs.failed.retention.days.default.value}" />
+		</field>
 
 		<field type="space" />
 		<field type="divider" />
@@ -780,6 +792,19 @@
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
 				id="validator.notempty.password.label" />
 		</field>
+		
+		<field type="staticText" id="jobs.retention.days.header" />
+		<field type="text"
+			variable="regards.config.order.regards.jobs.succeeded.retention.days">
+			<spec id="jobs.succeeded.retention.days" size="15"
+				default="${regards.jobs.succeeded.retention.days.default.value}" />
+		</field>
+		<field type="text"
+			variable="regards.config.order.regards.jobs.failed.retention.days">
+			<spec id="jobs.failed.retention.days" size="15"
+				default="${regards.jobs.failed.retention.days.default.value}" />
+		</field>
+		
 		<field type="staticText"
 			id="order.periodic.files.availability.check.cron.header" />
 		<field type="text"
@@ -853,6 +878,18 @@
 			variable="regards.config.ingest.regards.jobs.completion.update.rate.ms">
 			<spec id="jobs.completion.update.rate.ms" size="15"
 				default="${regards.config.ingest.regards.jobs.completion.update.rate.ms}" />
+		</field>
+		
+		<field type="staticText" id="jobs.retention.days.header" />
+		<field type="text"
+			variable="regards.config.ingest.regards.jobs.succeeded.retention.days">
+			<spec id="jobs.succeeded.retention.days" size="15"
+				default="${regards.jobs.succeeded.retention.days.default.value}" />
+		</field>
+		<field type="text"
+			variable="regards.config.ingest.regards.jobs.failed.retention.days">
+			<spec id="jobs.failed.retention.days" size="15"
+				default="${regards.jobs.failed.retention.days.default.value}" />
 		</field>
 		
 		<field type="space" />
@@ -932,6 +969,18 @@
 			<spec id="jobs.completion.update.rate.ms" size="15"
 				default="${regards.config.dataprovider.regards.jobs.completion.update.rate.ms}" />
 		</field>
+		
+		<field type="staticText" id="jobs.retention.days.header" />
+		<field type="text"
+			variable="regards.config.dataprovider.regards.jobs.succeeded.retention.days">
+			<spec id="jobs.succeeded.retention.days" size="15"
+				default="${regards.jobs.succeeded.retention.days.default.value}" />
+		</field>
+		<field type="text"
+			variable="regards.config.dataprovider.regards.jobs.failed.retention.days">
+			<spec id="jobs.failed.retention.days" size="15"
+				default="${regards.jobs.failed.retention.days.default.value}" />
+		</field>
 
 		<field type="space" />
 		<field type="divider" />
@@ -949,7 +998,6 @@
 			<spec id="dataprovider.panel.run.chains.delay" size="8"
 				default="${regards.acquisition.process.run.chains.delay.default.value}" />
 		</field>
-
 
 		<field type="space" />
 		<field type="staticText" id="dataprovider.panel.folder" bold="true" />
