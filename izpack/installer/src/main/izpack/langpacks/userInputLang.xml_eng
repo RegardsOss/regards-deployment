@@ -57,8 +57,11 @@
 	<str id="protocol.http" txt="http" />
 	<str id="protocol.https" txt="https" />
 	<str id="jobs.pool.size" txt="Jobs pool size" />
-	<str id="jobs.completion.update.rate.ms.header" txt="Jobs completion refresh rate (in ms)" />
-	<str id="jobs.completion.update.rate.ms" txt="Value" />
+	<str id="jobs.completion.update.rate.ms.header" txt="Jobs completion refresh rate" />
+	<str id="jobs.completion.update.rate.ms" txt="Value in ms" />
+	<str id="jobs.retention.days.header" txt="Jobs period retention in days" />
+	<str id="jobs.succeeded.retention.days" txt="Jobs successfully completed" />
+	<str id="jobs.failed.retention.days" txt="Jobs completed with error" />
 
 	<!-- SelectInstallationTypePanel -->
 	<str id="selectinstallationtype.panel.title.label" txt="How do you want to install REGARDS?" />
