@@ -129,8 +129,8 @@
 			value="rsrun" />
 
 		<!-- Common -->
-		<variable name="regards.config.first.project" value="project1" />
-		<variable name="regards.config.workspace.directory" value="/tmp/workspace" />
+		<variable name="regards.config.first.project.default.value" value="project1" />
+		<variable name="regards.config.workspace.directory.default.value" value="/tmp/workspace" />
 		<variable name="regards.jobs.succeeded.retention.days.default.value" value="1" />
 		<variable name="regards.jobs.failed.retention.days.default.value" value="30" />
 
