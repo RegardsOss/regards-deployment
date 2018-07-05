@@ -58,5 +58,6 @@
 
 	<modules>
 		<module>izpack</module>
-	</modules>
+        <module>security</module>
+    </modules>
 </project>
