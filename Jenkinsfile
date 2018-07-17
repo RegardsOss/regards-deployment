@@ -189,6 +189,16 @@ pipeline {
           }
         )
       }
-    }  
+    }
+    stage('Deploy archiva') {
+        when {
+            anyOf {
+                branch 'develop'
+            }
+        }
+        steps {
+            sh 'mvn -V -U -P install,CI clean deploy -Dmaven.test.skip=true'
+        }
+    }
   }
 }
