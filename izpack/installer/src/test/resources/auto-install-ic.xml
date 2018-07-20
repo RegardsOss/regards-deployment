@@ -23,8 +23,9 @@
 		<pack index="10" name="order" selected="true" />
 		<pack index="11" name="ingest" selected="true" />
 		<pack index="12" name="dataprovider" selected="true" />
-		<pack index="13" name="access" selected="true" />
-		<pack index="14" name="frontend" selected="true" />
+		<pack index="13" name="access-instance" selected="true" />
+		<pack index="14" name="access-project" selected="true" />
+		<pack index="15" name="frontend" selected="true" />
 	</com.izforge.izpack.panels.packs.PacksPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="SelectSecurityLevelPanel">
