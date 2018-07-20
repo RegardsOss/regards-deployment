@@ -92,8 +92,8 @@ chmod 0750 "${ROOT_DIR_INSTALL}"
 find "${ROOT_DIR_INSTALL}"/* -prune -type f -exec chown :${GLOBAL_REGARDS_GROUP} {} \;
 find "${ROOT_DIR_INSTALL}"/* -prune -type f -exec chmod 0640 {} \;
 # TODO .installationinformation is a file from izpack for izpack I don't think it should be given access to rsadmin
-chown :${ADMIN_REGARDS_GROUP} "${ROOT_DIR_INSTALL}"/.installationinformation
-chmod 0640 "${ROOT_DIR_INSTALL}"/.installationinformation
+#chown :${ADMIN_REGARDS_GROUP} "${ROOT_DIR_INSTALL}"/.installationinformation
+#chmod 0640 "${ROOT_DIR_INSTALL}"/.installationinformation
 
 # Root dir acceded by admin and exec user
 chown :${RUNTIME_REGARDS_GROUP} "${ROOT_DIR}"

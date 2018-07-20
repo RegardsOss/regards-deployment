@@ -1253,7 +1253,7 @@
 			</spec>
 		</field>
 
-		<field type="button" conditionid="izpack.selected.access" id="components.access.instance">
+		<field type="button" conditionid="izpack.selected.access-instance" id="components.access.instance">
 			<spec id="connection.tester.test" successMsg="connection.tester.success">
 				<run
 					class="fr.cnes.regards.deployment.izpack.custom.button.AccessInstanceJdbcConnectionTester">
@@ -1262,7 +1262,7 @@
 			</spec>
 		</field>
 
-		<field type="button" conditionid="izpack.selected.access" id="components.access.project">
+		<field type="button" conditionid="izpack.selected.access-project" id="components.access.project">
 			<spec id="connection.tester.test" successMsg="connection.tester.success">
 				<run
 					class="fr.cnes.regards.deployment.izpack.custom.button.AccessProjectJdbcConnectionTester">

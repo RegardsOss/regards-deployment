@@ -565,12 +565,12 @@
 				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorDataProviderPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="AccessInstancePanel"
-			condition="izpack.selected.access">
+			condition="izpack.selected.access-instance">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAccessInstancePanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="AccessProjectPanel"
-			condition="izpack.selected.access">
+			condition="izpack.selected.access-project">
 			<validator
 				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAccessProjectPanel" />
 		</panel>
