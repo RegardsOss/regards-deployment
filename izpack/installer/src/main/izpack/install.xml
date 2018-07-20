@@ -1166,33 +1166,22 @@
 			</executable>
 		</pack>
 
-		<pack name="access" required="false" preselected="true">
-			<description>REGARDS Access service installation</description>
+		<pack name="access-instance" required="false" preselected="true">
+			<description>REGARDS Instance Access service installation</description>
 			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
+					 override="true">
 				<include name="bootstrap-access-instance.jar" />
-				<include name="bootstrap-access-project.jar" />
 			</fileset>
 			<file src="sbin/microservice_access-instance.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<file src="sbin/microservice_access-project.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
+				  override="true" />
 			<fileset dir="config/access-instance/BOOT-INF/classes"
-				targetdir="$INSTALL_PATH/REGARDS/config/logback/access-instance"
-				override="true">
+					 targetdir="$INSTALL_PATH/REGARDS/config/logback/access-instance"
+					 override="true">
 				<include name="logback.xml" />
 			</fileset>
-			<fileset dir="config/access-project/BOOT-INF/classes"
-				targetdir="$INSTALL_PATH/REGARDS/config/logback/access-projet"
-				override="true">
-				<include name="logback.xml" />
-			</fileset>
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
 			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
+					targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+					type="bin" stage="postinstall" failure="abort" keep="true">
 				<os family="unix" />
 				<args>
 					<arg value="-i" />
@@ -1204,8 +1193,8 @@
 				</args>
 			</executable>
 			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
+					targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+					type="bin" stage="postinstall" failure="abort" keep="true">
 				<os family="unix" />
 				<args>
 					<arg value="-i" />
@@ -1215,6 +1204,24 @@
 					<arg value="-w" />
 					<arg value="${access-instance.waitRuleList}" />
 				</args>
+			</executable>
+		</pack>
+
+		<pack name="access-project" required="false" preselected="true">
+			<description>REGARDS Project Access service installation</description>
+			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+				override="true">
+				<include name="bootstrap-access-project.jar" />
+			</fileset>
+			<file src="sbin/microservice_access-project.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+				override="true" />
+			<fileset dir="config/access-project/BOOT-INF/classes"
+				targetdir="$INSTALL_PATH/REGARDS/config/logback/access-projet"
+				override="true">
+				<include name="logback.xml" />
+			</fileset>
+			<executable type="bin" stage="never" keep="true">
+				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
 			</executable>
 			<executable
 				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
