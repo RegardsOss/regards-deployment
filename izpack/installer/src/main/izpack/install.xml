@@ -130,7 +130,7 @@
 
 		<!-- Common -->
 		<variable name="regards.config.first.project.default.value" value="project1" />
-		<variable name="regards.config.workspace.directory.default.value" value="/tmp/workspace" />
+		<variable name="regards.config.workspace.directory.default.value" value="$INSTALL_PATH/workspace" />
 		<variable name="regards.jobs.succeeded.retention.days.default.value" value="1" />
 		<variable name="regards.jobs.failed.retention.days.default.value" value="30" />
 
@@ -247,7 +247,7 @@
 		<variable name="regards.config.elasticsearch.http.port"
 			value="9200" />
 		<variable name="regards.dam.local_storage.path.default.value"
-			value="/tmp/rs-dam" />
+			value="$INSTALL_PATH/rs-dam-document-storage" />
 
 		<!-- Catalog -->
 		<variable name="catalog.count" value="0" />
@@ -319,7 +319,7 @@
 		<variable name="regards.config.storage.regards.jobs.completion.update.rate.ms"
 			value="500000" />
 		<variable name="regards.config.storage.cache.directory.default.value"
-			value="/tmp/rs-storage-cache" />
+			value="$INSTALL_PATH/rs-storage-cache" />
 
 		<!-- Order -->
 		<variable name="order.count" value="0" />

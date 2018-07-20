@@ -118,7 +118,7 @@
 			<spec size="15" id="workspace.folder.label" default="${regards.config.workspace.directory.default.value}" />
 			<validator
 				class="fr.cnes.regards.deployment.izpack.custom.validator.FolderValidator"
-				id="validator.folder.error.not.exists" />
+				id="validator.folder.error.no.sufficient.rights" />
 		</field>
 		
 		<field type="staticText" id="proxy.config.header" />

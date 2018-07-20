@@ -18,6 +18,7 @@
  */
 package fr.cnes.regards.deployment.izpack.custom.validator;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -28,14 +29,13 @@ import com.izforge.izpack.panels.userinput.validator.Validator;
 public class FolderValidator implements Validator {
 
     public boolean validate(ProcessingClient client) {
-        boolean retValue = false;
-
         Path path = Paths.get(client.getText());
-        if (Files.exists(path)) {
-            retValue = true;
+        try {
+            Files.createFile(path);
+            return true;
+        } catch (IOException e) {
+            return false;
         }
-
-        return retValue;
     }
 
 }
