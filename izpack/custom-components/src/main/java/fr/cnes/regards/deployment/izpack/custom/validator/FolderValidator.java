@@ -23,17 +23,24 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.izforge.izpack.panels.userinput.processorclient.ProcessingClient;
 import com.izforge.izpack.panels.userinput.validator.Validator;
 
 public class FolderValidator implements Validator {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(FolderValidator.class);
+
+    @Override
     public boolean validate(ProcessingClient client) {
         Path path = Paths.get(client.getText());
         try {
-            Files.createFile(path);
+            Files.createDirectories(path);
             return true;
         } catch (IOException e) {
+            LOGGER.error("Error creating workspace directory", e);
             return false;
         }
     }
