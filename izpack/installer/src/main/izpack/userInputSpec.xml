@@ -116,9 +116,9 @@
 		<field type="text" variable="regards.config.workspace.directory"
 			size="35">
 			<spec size="15" id="workspace.folder.label" default="${regards.config.workspace.directory.default.value}" />
-			<validator
-				class="fr.cnes.regards.deployment.izpack.custom.validator.FolderValidator"
-				id="validator.folder.error.no.sufficient.rights" />
+			<!--<validator-->
+				<!--class="fr.cnes.regards.deployment.izpack.custom.validator.FolderValidator"-->
+				<!--id="validator.folder.error.no.sufficient.rights" />-->
 		</field>
 		
 		<field type="staticText" id="proxy.config.header" />
@@ -560,9 +560,9 @@
 		<field type="text" variable="regards.config.storage.cache.directory">
 			<spec id="storage.panel.cache.directory" size="35"
 				default="${regards.config.storage.cache.directory.default.value}" />
-			<validator
-				class="fr.cnes.regards.deployment.izpack.custom.validator.FolderValidator"
-				id="validator.folder.error.not.exists" />
+			<!--<validator-->
+				<!--class="fr.cnes.regards.deployment.izpack.custom.validator.FolderValidator"-->
+				<!--id="validator.folder.error.not.exists" />-->
 		</field>
 	</panel>
 
@@ -639,9 +639,9 @@
 		<field type="text" variable="regards.config.dam.regards.local_storage.path">
 			<spec id="dam.panel.local.storage" size="28"
 				default="${regards.dam.local_storage.path.default.value}" />
-			<validator
-				class="fr.cnes.regards.deployment.izpack.custom.validator.FolderValidator"
-				id="validator.folder.error.not.exists" />
+			<!--<validator-->
+				<!--class="fr.cnes.regards.deployment.izpack.custom.validator.FolderValidator"-->
+				<!--id="validator.folder.error.not.exists" />-->
 		</field>
 	</panel>
 

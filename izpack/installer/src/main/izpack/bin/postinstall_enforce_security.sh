@@ -75,6 +75,9 @@ typeset -r GLOBAL_REGARDS_GROUP=$(read_config "${CONFIGURATION_FILE}" "regards.m
 typeset -r EXEC_REGARDS_GROUP=$(read_config "${CONFIGURATION_FILE}" "regards.microservices.exec.group")
 typeset -r ADMIN_REGARDS_GROUP=$(read_config "${CONFIGURATION_FILE}" "regards.microservices.admin.group")
 typeset -r RUNTIME_REGARDS_GROUP=$(read_config "${CONFIGURATION_FILE}" "regards.microservices.runtime.group")
+typeset -r WORKSPACE=$(read_config "${CONFIGURATION_FILE}" "regards.microservices.workspace")
+typeset -r STORAGE_CACHE=$(read_config "${CONFIGURATION_FILE}" "regards.storage.cache")
+typeset -r DAM_LOCAL_STORAGE=$(read_config "${CONFIGURATION_FILE}" "regards.dam.local.storage")
 
 # Two types of users must exist
 # * Admin owned GLOBAL_REGARDS_GROUP, ADMIN_REGARDS_GROUP, RUNTIME_REGARDS_GROUP use to administer REGARDS
@@ -91,9 +94,6 @@ chmod 0750 "${ROOT_DIR_INSTALL}"
 # Root install files
 find "${ROOT_DIR_INSTALL}"/* -prune -type f -exec chown :${GLOBAL_REGARDS_GROUP} {} \;
 find "${ROOT_DIR_INSTALL}"/* -prune -type f -exec chmod 0640 {} \;
-# TODO .installationinformation is a file from izpack for izpack I don't think it should be given access to rsadmin
-#chown :${ADMIN_REGARDS_GROUP} "${ROOT_DIR_INSTALL}"/.installationinformation
-#chmod 0640 "${ROOT_DIR_INSTALL}"/.installationinformation
 
 # Root dir acceded by admin and exec user
 chown :${RUNTIME_REGARDS_GROUP} "${ROOT_DIR}"
@@ -173,6 +173,13 @@ fi
 # Dirs shared through rw by admin and exec users
 chown -R :${RUNTIME_REGARDS_GROUP} "${ROOT_DIR}"/{run,logs}
 chmod 2770 "${ROOT_DIR}"/{run,logs}
+# Lets handle dynamic locations
+chown -R :${RUNTIME_REGARDS_GROUP} ${WORKSPACE}
+chmod 2770 ${WORKSPACE}
+chown -R :${RUNTIME_REGARDS_GROUP} ${STORAGE_CACHE}
+chmod 2770 ${STORAGE_CACHE}
+chown -R :${RUNTIME_REGARDS_GROUP} ${DAM_LOCAL_STORAGE}
+chmod 2770 ${DAM_LOCAL_STORAGE}
 
 # Files shared through rw by admin and exec users
 find "${ROOT_DIR}"/{run,logs} -type f -exec chmod 0660 {} \;
