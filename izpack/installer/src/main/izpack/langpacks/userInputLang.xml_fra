@@ -129,10 +129,13 @@
 
 	<!-- AuthenticationPanel -->
 	<str id="authentication.panel.title.label" txt="Microservice Authentication" />
+	<str id="authentication.panel.title.label.properties" txt="Propriétés du microservice Authentication" />
 
 	<!-- AdminPanel -->
 	<str id="admin.panel.title.label" txt="Microservice Administration" />
+	<str id="admin.panel.title.label.properties" txt="Propriétés du microservice Administration" />
 	<str id="admin.panel.title.label.instance" txt="Microservice Administration instance" />
+	<str id="admin.panel.title.label.instance.properties" txt="Propriétés du microservice Administration instance" />
 	<str id="admin.panel.root.user.label" txt="Administrateur d'instance" />
 
 	<!-- AccountsPanel -->
@@ -153,19 +156,23 @@
 
 	<!-- DamPanel -->
 	<str id="dam.panel.title.label" txt="Microservice Data Management" />
+	<str id="dam.panel.title.label.properties" txt="Propriétés du microservice Data Management" />
 	<str id="dam.panel.elasticsearch.label" txt="Elasticsearch" />
 	<str id="dam.panel.local.storage.header" txt="Dossier local de stockage des documents" />
 	<str id="dam.panel.local.storage" txt="Path" />
 
 	<!-- CatalogPanel -->
 	<str id="catalog.panel.title.label" txt="Microservice Catalog" />
+	<str id="catalog.panel.title.label.properties" txt="Propriétés du microservice Catalog" />
 	
 	<!-- StoragePanel -->
 	<str id="storage.panel.title.label" txt="Microservice Storage" />
+	<str id="storage.panel.title.label.properties" txt="Propriétés du microservice Storage" />
 	<str id="storage.panel.cache.directory" txt="Répertoire du cache" />
 
 	<!-- OrderPanel -->
 	<str id="order.panel.title.label" txt="Microservice Order" />
+	<str id="order.panel.title.label.properties" txt="Propriétés du microservice Order" />
 	<str id="order.files.bucket.size.Mb" txt="Taille des sous-commandes en Mb" />
 	<str id="order.validation.period.days" txt="Durée de validité des commandes en jours" />
 	<str id="order.days.before.considering.order.as.aside" txt="Nombre de jours avant envoi de mail de relance" />
@@ -177,11 +184,13 @@
 
 	<!-- IngestPanel -->
 	<str id="ingest.panel.title.label" txt="Microservice ingest" />
+	<str id="ingest.panel.title.label.properties" txt="Propriétés du microservice Ingest" />
 	<str id="ingest.aips.bulk.request.limit.header" txt="Taille des requêtes de masse de création des AIPs" />
 	<str id="ingest.aips.bulk.request.limit" txt="Taille" />
 
 	<!-- DataProviderPanel -->
 	<str id="dataprovider.panel.title.label" txt="Microservice Fourniture de données" />
+	<str id="dataprovider.panel.title.label.properties" txt="Propriétés du microservice de fourniture de données" />
 	<str id="dataprovider.panel.waiting.label" txt="Délais d'attente" />
 	<str id="dataprovider.panel.sip.ingest.delay" txt="Pour l'ingestion des nouveaux SIPs" />
 	<str id="dataprovider.panel.run.chains.delay" txt="Pour l'activation des chaînes" />
@@ -194,9 +203,11 @@
 
 	<!-- AccessInstancePanel -->
 	<str id="access-instance.panel.title.label" txt="Microservice Access Instance" />
+	<str id="access-instance.panel.title.label.properties" txt="Propriétés du microservice Access Instance" />
 
 	<!-- AccessProjectPanel -->
 	<str id="access-project.panel.title.label" txt="Microservice Access Project" />
+	<str id="access-project.panel.title.label.properties" txt="Propriétés du microservice Access Project" />
 	
 	<!-- CheckJdbcConnectionsPanel -->
 	<str id="check.jdbc.connections.panel.title" txt="Vérification des connexions configurées" />
@@ -211,7 +222,4 @@
 	<str id="validator.notempty.email.label" txt="Renseignez l'email pour continuer" />
 	<str id="validator.folder.error.not.exists" txt="Le répertoire n'existe pas" />
 	
-	<str id="UserInputPanel.custom.swing.buttonlabel.add" txt="Ajouter"/>
-    <str id="UserInputPanel.custom.swing.buttonlabel.remove" txt="Supprimer"/>
-
 </izpack:langpack>

@@ -132,7 +132,7 @@
 				class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
 				id="validator.port.error.label" />
 		</field>
-		
+
 	</panel>
 
 	<panel id="ConfigPanel">
@@ -267,10 +267,10 @@
 				</col>
 			</spec>
 		</field>
-
-		<field type="space" />
-		<field type="divider" />
-		<field type="space" />
+	</panel>
+ 
+	<panel id="AdminInstancePropertiesPanel">
+		<field id="admin.panel.title.label.instance.properties" type="title" />
 
 		<field type="staticText" id="admin.panel.root.user.label" />
 		<field type="text"
@@ -338,16 +338,16 @@
 				</col>
 			</spec>
 		</field>
-
-		<field type="space" />
-		<field type="divider" />
-		<field type="space" />
+	</panel>
+	
+	<panel id="AdminPropertiesPanel">
+		<field id="admin.panel.title.label.properties" type="title" />
 
 		<field type="staticText" id="first.project.database.label" bold="true" />
 		<field type="rule"
 			variable="regards.config.admin.regards.jpa.multitenant.tenants.url.1">
 			<spec default="${regards.config.admin.regards.jpa.multitenant.tenants.url.1}"
-				id="url.label" layout="O:15:U : N:5:U / O:15:U" resultFormat="displayFormat" />
+				id="url.label" layout="O:15:U : N:5:5 / O:10:U" resultFormat="displayFormat" />
 		</field>
 		<field type="text"
 			variable="regards.config.admin.regards.jpa.multitenant.tenants.user.name.1">
@@ -365,7 +365,7 @@
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
 				id="validator.notempty.password.label" />
 		</field>
-	</panel>
+	</panel>	
 
 	<panel id="AccountsPanel">
 		<field id="accounts.panel.title.label" type="title" />
@@ -447,9 +447,9 @@
 				</col>
 			</spec>
 		</field>
-		<field type="space" />
-		<field type="divider" />
-		<field type="space" />
+	</panel>
+
+	<panel id="AuthenticationPropertiesPanel">
 		<field type="staticText" id="first.project.database.label" />
 		<field type="rule"
 			variable="regards.config.gateway.regards.jpa.multitenant.tenants.url.1">
@@ -494,11 +494,10 @@
 				</col>
 			</spec>
 		</field>
+	</panel>
 
-		<field type="space" />
-		<field type="divider" />
-		<field type="space" />
-
+	<panel id="StoragePropertiesPanel">
+		<field id="storage.panel.title.label.properties" type="title" />
 		<field type="staticText" id="first.project.database.label" />
 		<field type="rule"
 			variable="regards.config.storage.regards.jpa.multitenant.tenants.url.1">
@@ -540,7 +539,7 @@
 			<spec id="jobs.completion.update.rate.ms" size="15"
 				default="${regards.config.storage.regards.jobs.completion.update.rate.ms}" />
 		</field>
-		
+
 		<field type="staticText" id="jobs.retention.days.header" />
 		<field type="text"
 			variable="regards.config.storage.regards.jobs.succeeded.retention.days">
@@ -560,9 +559,9 @@
 		<field type="text" variable="regards.config.storage.cache.directory">
 			<spec id="storage.panel.cache.directory" size="35"
 				default="${regards.config.storage.cache.directory.default.value}" />
-			<!--<validator-->
-				<!--class="fr.cnes.regards.deployment.izpack.custom.validator.FolderValidator"-->
-				<!--id="validator.folder.error.not.exists" />-->
+			<!--<validator -->
+			<!--class="fr.cnes.regards.deployment.izpack.custom.validator.FolderValidator" -->
+			<!--id="validator.folder.error.not.exists" /> -->
 		</field>
 	</panel>
 
@@ -585,11 +584,10 @@
 				</col>
 			</spec>
 		</field>
+	</panel>
 
-		<field type="space" />
-		<field type="divider" />
-		<field type="space" />
-
+	<panel id="DamPropertiesPanel">
+		<field id="dam.panel.title.label.properties" type="title" />
 		<field type="staticText" id="first.project.database.label" bold="true" />
 		<field type="rule"
 			variable="regards.config.dam.regards.jpa.multitenant.tenants.url.1">
@@ -639,9 +637,9 @@
 		<field type="text" variable="regards.config.dam.regards.local_storage.path">
 			<spec id="dam.panel.local.storage" size="28"
 				default="${regards.dam.local_storage.path.default.value}" />
-			<!--<validator-->
-				<!--class="fr.cnes.regards.deployment.izpack.custom.validator.FolderValidator"-->
-				<!--id="validator.folder.error.not.exists" />-->
+			<!--<validator -->
+			<!--class="fr.cnes.regards.deployment.izpack.custom.validator.FolderValidator" -->
+			<!--id="validator.folder.error.not.exists" /> -->
 		</field>
 	</panel>
 
@@ -664,10 +662,10 @@
 				</col>
 			</spec>
 		</field>
+	</panel>
 
-		<field type="space" />
-		<field type="divider" />
-		<field type="space" />
+	<panel id="CatalogPropertiesPanel">
+		<field id="catalog.panel.title.label.properties" type="title" />
 
 		<field type="staticText" id="first.project.database.label" bold="true" />
 		<field type="rule"
@@ -713,10 +711,10 @@
 				</col>
 			</spec>
 		</field>
+	</panel>
 
-		<field type="space" />
-		<field type="divider" />
-		<field type="space" />
+	<panel id="OrderPropertiesPanel">
+		<field id="order.panel.title.label.properties" type="title" />
 
 		<field type="staticText" id="first.project.database.label" />
 		<field type="rule"
@@ -805,7 +803,7 @@
 				class="com.izforge.izpack.panels.userinput.validator.NotEmptyValidator"
 				id="validator.notempty.password.label" />
 		</field>
-		
+
 		<field type="staticText" id="jobs.retention.days.header" />
 		<field type="text"
 			variable="regards.config.order.regards.jobs.succeeded.retention.days">
@@ -817,7 +815,7 @@
 			<spec id="jobs.failed.retention.days" size="15"
 				default="${regards.jobs.failed.retention.days.default.value}" />
 		</field>
-		
+
 		<field type="staticText"
 			id="order.periodic.files.availability.check.cron.header" />
 		<field type="text"
@@ -846,11 +844,10 @@
 				</col>
 			</spec>
 		</field>
+	</panel>
 
-		<field type="space" />
-		<field type="divider" />
-		<field type="space" />
-
+	<panel id="IngestPropertiesPanel">
+		<field id="ingest.panel.title.label.properties" type="title" />
 		<field type="staticText" id="first.project.database.label" />
 		<field type="rule"
 			variable="regards.config.ingest.regards.jpa.multitenant.tenants.url.1">
@@ -892,7 +889,7 @@
 			<spec id="jobs.completion.update.rate.ms" size="15"
 				default="${regards.config.ingest.regards.jobs.completion.update.rate.ms}" />
 		</field>
-		
+
 		<field type="staticText" id="jobs.retention.days.header" />
 		<field type="text"
 			variable="regards.config.ingest.regards.jobs.succeeded.retention.days">
@@ -904,17 +901,17 @@
 			<spec id="jobs.failed.retention.days" size="15"
 				default="${regards.jobs.failed.retention.days.default.value}" />
 		</field>
-		
+
 		<field type="space" />
 		<field type="divider" />
 		<field type="space" />
-		
+
 		<field type="staticText" id="ingest.aips.bulk.request.limit.header" />
 		<field type="text" variable="regards.config.ingest.aips.bulk.request.limit">
 			<spec id="ingest.aips.bulk.request.limit" size="8"
 				default="${regards.config.ingest.aips.bulk.request.limit.default.value}" />
 		</field>
-		
+
 	</panel>
 
 	<panel id="DataProviderPanel">
@@ -936,10 +933,10 @@
 				</col>
 			</spec>
 		</field>
+	</panel>
 
-		<field type="space" />
-		<field type="divider" />
-		<field type="space" />
+	<panel id="DataProviderPropertiesPanel">
+		<field id="dataprovider.panel.title.label.properties" type="title" />
 
 		<field type="staticText" id="first.project.database.label" />
 		<field type="rule"
@@ -982,7 +979,7 @@
 			<spec id="jobs.completion.update.rate.ms" size="15"
 				default="${regards.config.dataprovider.regards.jobs.completion.update.rate.ms}" />
 		</field>
-		
+
 		<field type="staticText" id="jobs.retention.days.header" />
 		<field type="text"
 			variable="regards.config.dataprovider.regards.jobs.succeeded.retention.days">
@@ -1057,10 +1054,10 @@
 				</col>
 			</spec>
 		</field>
+	</panel>
 
-		<field type="space" />
-		<field type="divider" />
-		<field type="space" />
+	<panel id="AccessInstancePropertiesPanel">
+		<field id="access-instance.panel.title.label.properties" type="title" />
 
 		<field type="staticText" id="instance.database.label" bold="true" />
 		<field type="rule"
@@ -1106,10 +1103,10 @@
 				</col>
 			</spec>
 		</field>
+	</panel>
 
-		<field type="space" />
-		<field type="divider" />
-		<field type="space" />
+	<panel id="AccessProjectPropertiesPanel">
+		<field id="access-project.panel.title.label.properties" type="title" />
 
 		<field type="staticText" id="first.project.database.label" bold="true" />
 		<field type="rule"
@@ -1180,7 +1177,7 @@
 			</spec>
 		</field>
 
-		<field type="button" conditionid="izpack.selected.admin" id="components.admin.instance">
+		<field type="button" conditionid="izpack.selected.admin-instance" id="components.admin.instance">
 			<spec id="connection.tester.test" successMsg="connection.tester.success">
 				<run
 					class="fr.cnes.regards.deployment.izpack.custom.button.AdminInstanceJdbcConnectionTester">
