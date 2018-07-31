@@ -43,14 +43,12 @@
 		<entry key="regards.config.http.proxy.host" value="" />
 		<entry key="regards.config.http.proxy.port" value="0" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="ConfigPanel">
+	<com.izforge.izpack.panels.userinput.UserInputPanel	id="ConfigPanel">
 		<entry key="config.host.1" value="0.0.0.0" />
 		<entry key="config.port.1" value="8888" />
 		<entry key="config.count" value="1" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="RabbitmqPanel">
+	<com.izforge.izpack.panels.userinput.UserInputPanel	id="RabbitmqPanel">
 		<entry key="regards.config.spring.rabbitmq.host" value="localhost" />
 		<entry key="regards.config.regards.amqp.management.host" value="localhost" />
 		<entry key="regards.config.spring.rabbitmq.username" value="guest" />
@@ -58,14 +56,12 @@
 		<entry key="regards.config.regards.amqp.management.port" value="15672" />
 		<entry key="regards.config.spring.rabbitmq.port" value="5672" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="RegistryPanel">
+	<com.izforge.izpack.panels.userinput.UserInputPanel	id="RegistryPanel">
 		<entry key="regards.config.cloud.registry.host.1" value="0.0.0.0" />
 		<entry key="regards.config.cloud.registry.port.1" value="8761" />
 		<entry key="registry.count" value="1" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="GatewayPanel">
+	<com.izforge.izpack.panels.userinput.UserInputPanel	id="GatewayPanel">
 		<entry key="gateway.host.1" value="0.0.0.0" />
 		<entry key="gateway.port.1" value="8000" />
 		<entry key="gateway.count" value="1" />
@@ -76,7 +72,7 @@
 		<entry key="admin-instance.host.1" value="0.0.0.0" />
 		<entry key="admin-instance.port.1" value="8877" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel	id="AdminInstancePanel">
+	<com.izforge.izpack.panels.userinput.UserInputPanel	id="AdminInstancePropertiesPanel">
 		<entry key="regards.config.admin.regards.accounts.root.user.login" value="regards-admin@c-s.fr" />
 		<entry key="regards.config.admin.regards.accounts.root.user.password" value="root_admin" />
 		<entry key="regards.config.admin.regards.jpa.instance.datasource.url" value="172.26.47.52:5432/rs_installation_continue_instance" />
@@ -97,11 +93,9 @@
 	
 	<com.izforge.izpack.panels.userinput.UserInputPanel id="AccountsPanel">
 		<entry key="regards.config.admin.accounts.password.regex" value="^[a-z\d_@!%:=,\/.\-+]{5,16}$" />
-		<entry key="regards.config.admin.accounts.failed.authentication.max"
-			value="5" />
+		<entry key="regards.config.admin.accounts.failed.authentication.max" value="5" />
 		<entry key="regards.config.admin.accounts.password.rules" value="Password must contain letters or numbers" />
-		<entry key="regards.config.admin.accounts.password.validity.duration"
-			value="350" />
+		<entry key="regards.config.admin.accounts.password.validity.duration" value="350" />
 		<entry key="regards.accounts.validity.duration" value="30" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel	id="SmtpPanel">
