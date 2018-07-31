@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <AutomatedInstallation langpack="fra">
-	<com.izforge.izpack.panels.hello.HelloPanel
-		id="HelloPanel_0" />
-	<com.izforge.izpack.panels.licence.LicencePanel
-		id="LicencePanel_1" />
-	<com.izforge.izpack.panels.target.TargetPanel
-		id="TargetPanel_2">
+	<com.izforge.izpack.panels.hello.HelloPanel	id="HelloPanel_0" />
+	<com.izforge.izpack.panels.licence.LicencePanel	id="LicencePanel_1" />
+	<com.izforge.izpack.panels.target.TargetPanel id="TargetPanel_2">
 		<installpath>/opt/regards/regards-ic</installpath>
 	</com.izforge.izpack.panels.target.TargetPanel>
-	<com.izforge.izpack.panels.packs.PacksPanel
-		id="PacksPanel_3">
+	
+	<com.izforge.izpack.panels.packs.PacksPanel	id="PacksPanel_3">
 		<pack index="0" name="core" selected="true" />
 		<pack index="1" name="config" selected="true" />
 		<pack index="2" name="registry" selected="true" />
@@ -27,22 +24,17 @@
 		<pack index="14" name="access-project" selected="true" />
 		<pack index="15" name="frontend" selected="true" />
 	</com.izforge.izpack.panels.packs.PacksPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="SelectSecurityLevelPanel">
+	
+	<com.izforge.izpack.panels.userinput.UserInputPanel	id="SelectSecurityLevelPanel">
 		<entry key="security.level" value="enforce" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="ConfigSecurityPanel">
-		<entry key="regards.config.regards.microservices.admin.group"
-			value="rsadmin" />
-		<entry key="regards.config.regards.microservices.regards.group"
-			value="regards" />
-		<entry key="regards.config.regards.microservices.runtime.group"
-			value="rsrun" />
-		<entry key="regards.config.regards.microservices.exec.user"
-			value="regards" />
-		<entry key="regards.config.regards.microservices.exec.group"
-			value="rsexec" />
+	
+	<com.izforge.izpack.panels.userinput.UserInputPanel	id="ConfigSecurityPanel">
+		<entry key="regards.config.regards.microservices.admin.group" value="rsadmin" />
+		<entry key="regards.config.regards.microservices.regards.group" value="regards" />
+		<entry key="regards.config.regards.microservices.runtime.group" value="rsrun" />
+		<entry key="regards.config.regards.microservices.exec.user" value="regards" />
+		<entry key="regards.config.regards.microservices.exec.group" value="rsexec" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	<com.izforge.izpack.panels.userinput.UserInputPanel
 		id="ProjectPanel">
@@ -78,40 +70,32 @@
 		<entry key="gateway.port.1" value="8000" />
 		<entry key="gateway.count" value="1" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="AdminInstancePanel">
+	
+	<com.izforge.izpack.panels.userinput.UserInputPanel	id="AdminInstancePanel">
 		<entry key="admin-instance.count" value="1" />
 		<entry key="admin-instance.host.1" value="0.0.0.0" />
 		<entry key="admin-instance.port.1" value="8877" />
-		<entry key="regards.config.admin.regards.accounts.root.user.login"
-			value="regards-admin@c-s.fr" />
-		<entry key="regards.config.admin.regards.accounts.root.user.password"
-			value="root_admin" />
-		<entry key="regards.config.admin.regards.jpa.instance.datasource.url"
-			value="172.26.47.52:5432/rs_installation_continue_instance" />
-		<entry
-			key="regards.config.admin.regards.jpa.instance.datasource.user.name"
-			value="azertyuiop123456789" />
-		<entry key="regards.config.admin.regards.jpa.instance.datasource.password"
-			value="azertyuiop123456789" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
-
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="AdminPanel">
+	<com.izforge.izpack.panels.userinput.UserInputPanel	id="AdminInstancePanel">
+		<entry key="regards.config.admin.regards.accounts.root.user.login" value="regards-admin@c-s.fr" />
+		<entry key="regards.config.admin.regards.accounts.root.user.password" value="root_admin" />
+		<entry key="regards.config.admin.regards.jpa.instance.datasource.url" value="172.26.47.52:5432/rs_installation_continue_instance" />
+		<entry key="regards.config.admin.regards.jpa.instance.datasource.user.name" value="azertyuiop123456789" />
+		<entry key="regards.config.admin.regards.jpa.instance.datasource.password" value="azertyuiop123456789" />
+	</com.izforge.izpack.panels.userinput.UserInputPanel>
+	
+	<com.izforge.izpack.panels.userinput.UserInputPanel id="AdminPanel">
 		<entry key="admin.host.1" value="0.0.0.0" />
 		<entry key="admin.port.1" value="8777" />
 		<entry key="admin.count" value="1" />
-		<entry key="regards.config.admin.regards.jpa.multitenant.tenants.url.1"
-			value="172.26.47.52:5432/rs_installation_continue" />
-		<entry
-			key="regards.config.admin.regards.jpa.multitenant.tenants.user.name.1"
-			value="azertyuiop123456789" />
-		<entry
-			key="regards.config.admin.regards.jpa.multitenant.tenants.password.1"
-			value="azertyuiop123456789" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="AccountsPanel">
+	<com.izforge.izpack.panels.userinput.UserInputPanel	id="AdminPropertiesPanel">
+		<entry key="regards.config.admin.regards.jpa.multitenant.tenants.url.1"	value="172.26.47.52:5432/rs_installation_continue" />
+		<entry key="regards.config.admin.regards.jpa.multitenant.tenants.user.name.1" value="azertyuiop123456789" />
+		<entry key="regards.config.admin.regards.jpa.multitenant.tenants.password.1" value="azertyuiop123456789" />
+	</com.izforge.izpack.panels.userinput.UserInputPanel>
+	
+	<com.izforge.izpack.panels.userinput.UserInputPanel id="AccountsPanel">
 		<entry key="regards.config.admin.accounts.password.regex" value="^[a-z\d_@!%:=,\/.\-+]{5,16}$" />
 		<entry key="regards.config.admin.accounts.failed.authentication.max"
 			value="5" />
@@ -120,217 +104,151 @@
 			value="350" />
 		<entry key="regards.accounts.validity.duration" value="30" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="SmtpPanel">
+	<com.izforge.izpack.panels.userinput.UserInputPanel	id="SmtpPanel">
 		<entry key="spring.mail.host" value="192.168.25.192" />
 		<entry key="spring.mail.username" value="" />
 		<entry key="spring.mail.password" value="" />
 		<entry key="spring.mail.port" value="25" />
 		<entry key="spring.mail.sender.no.reply" value="regards@c-s.fr" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="AuthenticationPanel">
+	<com.izforge.izpack.panels.userinput.UserInputPanel	id="AuthenticationPanel">
 		<entry key="authentication.host.1" value="0.0.0.0" />
 		<entry key="authentication.port.1" value="8889" />
 		<entry key="authentication.count" value="1" />
-		<entry key="regards.config.gateway.regards.jpa.multitenant.tenants.url.1"
-			value="172.26.47.52:5432/rs_installation_continue" />
-		<entry
-			key="regards.config.gateway.regards.jpa.multitenant.tenants.user.name.1"
-			value="azertyuiop123456789" />
-		<entry
-			key="regards.config.gateway.regards.jpa.multitenant.tenants.password.1"
-			value="azertyuiop123456789" />
+		<entry key="regards.config.gateway.regards.jpa.multitenant.tenants.url.1" value="172.26.47.52:5432/rs_installation_continue" />
+		<entry key="regards.config.gateway.regards.jpa.multitenant.tenants.user.name.1"	value="azertyuiop123456789" />
+		<entry key="regards.config.gateway.regards.jpa.multitenant.tenants.password.1" value="azertyuiop123456789" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="DamPanel">
+	
+	<com.izforge.izpack.panels.userinput.UserInputPanel	id="DamPanel">
 		<entry key="dam.host.1" value="0.0.0.0" />
 		<entry key="dam.port.1" value="8080" />
 		<entry key="dam.count" value="1" />
-		<entry key="regards.config.dam.regards.jpa.multitenant.tenants.url.1"
-			value="172.26.47.52:5432/rs_installation_continue" />
+	</com.izforge.izpack.panels.userinput.UserInputPanel>
+	<com.izforge.izpack.panels.userinput.UserInputPanel id="DamPropertiesPanel">
+		<entry key="regards.config.dam.regards.jpa.multitenant.tenants.url.1" value="172.26.47.52:5432/rs_installation_continue" />
 		<entry key="regards.config.elasticsearch.host" value="172.26.47.52" />
 		<entry key="regards.config.elasticsearch.http.port" value="9200" />
-		<entry
-			key="regards.config.dam.regards.jpa.multitenant.tenants.user.name.1"
-			value="azertyuiop123456789" />
-		<entry key="regards.config.dam.regards.jpa.multitenant.tenants.password.1"
-			value="azertyuiop123456789" />
-		<entry key="regards.config.dam.regards.local_storage.path"
-			value="/opt/regards/documents" />
+		<entry key="regards.config.dam.regards.jpa.multitenant.tenants.user.name.1" value="azertyuiop123456789" />
+		<entry key="regards.config.dam.regards.jpa.multitenant.tenants.password.1" value="azertyuiop123456789" />
+		<entry key="regards.config.dam.regards.local_storage.path" value="/opt/regards/documents" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="CatalogPanel">
+	
+	<com.izforge.izpack.panels.userinput.UserInputPanel id="CatalogPanel">
 		<entry key="catalog.host.1" value="0.0.0.0" />
 		<entry key="catalog.port.1" value="4444" />
 		<entry key="catalog.count" value="1" />
-		<entry key="regards.config.catalog.regards.jpa.multitenant.tenants.url.1"
-			value="172.26.47.52:5432/rs_installation_continue" />
-		<entry
-			key="regards.config.catalog.regards.jpa.multitenant.tenants.user.name.1"
-			value="azertyuiop123456789" />
-		<entry
-			key="regards.config.catalog.regards.jpa.multitenant.tenants.password.1"
-			value="azertyuiop123456789" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="OrderPanel">
-		<entry
-			key="regards.config.order.regards.jpa.multitenant.tenants.user.name.1"
-			value="azertyuiop123456789" />
-		<entry
-			key="regards.config.order.regards.order.max.storage.files.jobs.per.user"
-			value="2" />
-		<entry
-			key="regards.config.order.regards.order.periodic.files.availability.check.cron"
-			value="0 23 * * 7 *" />
-		<entry key="regards.config.order.regards.order.files.bucket.size.Mb"
-			value="100" />
-		<entry
-			key="regards.config.order.regards.jpa.multitenant.tenants.password.1"
-			value="azertyuiop123456789" />
+	<com.izforge.izpack.panels.userinput.UserInputPanel	id="CatalogPropertiesPanel">
+		<entry key="regards.config.catalog.regards.jpa.multitenant.tenants.url.1" value="172.26.47.52:5432/rs_installation_continue" />
+		<entry key="regards.config.catalog.regards.jpa.multitenant.tenants.user.name.1" value="azertyuiop123456789" />
+		<entry key="regards.config.catalog.regards.jpa.multitenant.tenants.password.1" value="azertyuiop123456789" />
+	</com.izforge.izpack.panels.userinput.UserInputPanel>
+	
+	<com.izforge.izpack.panels.userinput.UserInputPanel id="OrderPanel">
 		<entry key="order.port.1" value="8892" />
-		<entry key="regards.config.order.regards.order.validation.period.days"
-			value="3" />
-		<entry key="regards.config.order.regards.order.files.displayable.maximum"
-			value="5000" />
-		<entry
-			key="regards.config.order.regards.order.days.before.considering.order.as.aside"
-			value="7" />
-		<entry key="regards.config.order.regards.jpa.multitenant.tenants.url.1"
-			value="172.26.47.52:5432/rs_installation_continue" />
 		<entry key="order.count" value="1" />
 		<entry key="order.host.1" value="0.0.0.0" />
+	</com.izforge.izpack.panels.userinput.UserInputPanel>
+	<com.izforge.izpack.panels.userinput.UserInputPanel id="OrderPropertiesPanel">
+		<entry key="regards.config.order.regards.jpa.multitenant.tenants.user.name.1" value="azertyuiop123456789" />
+		<entry key="regards.config.order.regards.order.max.storage.files.jobs.per.user"	value="2" />
+		<entry key="regards.config.order.regards.order.periodic.files.availability.check.cron" value="0 23 * * 7 *" />
+		<entry key="regards.config.order.regards.order.files.bucket.size.Mb" value="100" />
+		<entry key="regards.config.order.regards.jpa.multitenant.tenants.password.1" value="azertyuiop123456789" />
+		<entry key="regards.config.order.regards.order.validation.period.days" value="3" />
+		<entry key="regards.config.order.regards.order.files.displayable.maximum" value="5000" />
+		<entry key="regards.config.order.regards.order.days.before.considering.order.as.aside" value="7" />
+		<entry key="regards.config.order.regards.jpa.multitenant.tenants.url.1" value="172.26.47.52:5432/rs_installation_continue" />
 		<entry key="regards.config.order.regards.order.secret" value="order's passphrase" />
 		<entry key="regards.config.order.regards.jobs.pool.size" value="10" />
-		<entry key="regards.config.order.regards.jobs.succeeded.retention.days"
-			value="1" />
-		<entry key="regards.config.order.regards.jobs.failed.retention.days"
-			value="30" />
+		<entry key="regards.config.order.regards.jobs.succeeded.retention.days" value="1" />
+		<entry key="regards.config.order.regards.jobs.failed.retention.days" value="30" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
-
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="StoragePanel">
-		<entry
-			key="regards.config.storage.regards.jpa.multitenant.tenants.password.1"
-			value="azertyuiop123456789" />
+	
+	<com.izforge.izpack.panels.userinput.UserInputPanel id="StoragePanel">
 		<entry key="storage.host.1" value="0.0.0.0" />
 		<entry key="storage.port.1" value="8891" />
 		<entry key="storage.count" value="1" />
-		<entry key="regards.config.storage.cache.directory" value="/opt/regards/rs-storage-cache" />
-		<entry key="regards.config.storage.regards.jpa.multitenant.tenants.url.1"
-			value="172.26.47.52:5432/rs_installation_continue" />
-		<entry
-			key="regards.config.storage.regards.jpa.multitenant.tenants.user.name.1"
-			value="azertyuiop123456789" />
-		<entry key="regards.config.storage.regards.jobs.pool.size"
-			value="10" />
-		<entry key="regards.config.storage.regards.jobs.succeeded.retention.days"
-			value="1" />
-		<entry key="regards.config.storage.regards.jobs.failed.retention.days"
-			value="30" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
-
-
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="AccessInstancePanel">
+	<com.izforge.izpack.panels.userinput.UserInputPanel id="StoragePropertiesPanel">
+		<entry key="regards.config.storage.regards.jpa.multitenant.tenants.password.1" value="azertyuiop123456789" />
+		<entry key="regards.config.storage.cache.directory" value="/opt/regards/rs-storage-cache" />
+		<entry key="regards.config.storage.regards.jpa.multitenant.tenants.url.1" value="172.26.47.52:5432/rs_installation_continue" />
+		<entry key="regards.config.storage.regards.jpa.multitenant.tenants.user.name.1" value="azertyuiop123456789" />
+		<entry key="regards.config.storage.regards.jobs.pool.size" value="10" />
+		<entry key="regards.config.storage.regards.jobs.succeeded.retention.days" value="1" />
+		<entry key="regards.config.storage.regards.jobs.failed.retention.days" value="30" />
+	</com.izforge.izpack.panels.userinput.UserInputPanel>
+	
+	<com.izforge.izpack.panels.userinput.UserInputPanel id="AccessInstancePanel">
 		<entry key="access-instance.host.1" value="0.0.0.0" />
 		<entry key="access-instance.port.1" value="9040" />
 		<entry key="access-instance.count" value="1" />
-		<entry
-			key="regards.config.access.instance.regards.jpa.instance.datasource.user.name"
-			value="azertyuiop123456789" />
-		<entry
-			key="regards.config.access.instance.regards.jpa.instance.datasource.password"
-			value="azertyuiop123456789" />
-		<entry
-			key="regards.config.access.instance.regards.jpa.instance.datasource.url"
-			value="172.26.47.52:5432/rs_installation_continue_instance" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="AccessProjectPanel">
+	<com.izforge.izpack.panels.userinput.UserInputPanel id="AccessInstancePropertiesPanel">
+		<entry key="regards.config.access.instance.regards.jpa.instance.datasource.user.name" value="azertyuiop123456789" />
+		<entry key="regards.config.access.instance.regards.jpa.instance.datasource.password" value="azertyuiop123456789" />
+		<entry key="regards.config.access.instance.regards.jpa.instance.datasource.url" value="172.26.47.52:5432/rs_installation_continue_instance" />
+	</com.izforge.izpack.panels.userinput.UserInputPanel>
+	
+	<com.izforge.izpack.panels.userinput.UserInputPanel id="AccessProjectPanel">
 		<entry key="access-project.host.1" value="0.0.0.0" />
 		<entry key="access-project.port.1" value="9041" />
 		<entry key="access-project.count" value="1" />
-		<entry
-			key="regards.config.access.project.regards.jpa.multitenant.tenants.user.name.1"
-			value="azertyuiop123456789" />
-		<entry
-			key="regards.config.access.project.regards.jpa.multitenant.tenants.password.1"
-			value="azertyuiop123456789" />
-		<entry
-			key="regards.config.access.project.regards.jpa.multitenant.tenants.url.1"
-			value="172.26.47.52:5432/rs_installation_continue" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="DataProviderPanel">
+	<com.izforge.izpack.panels.userinput.UserInputPanel id="AccessProjectPropertiesPanel">
+		<entry key="regards.config.access.project.regards.jpa.multitenant.tenants.user.name.1" value="azertyuiop123456789" />
+		<entry key="regards.config.access.project.regards.jpa.multitenant.tenants.password.1" value="azertyuiop123456789" />
+		<entry key="regards.config.access.project.regards.jpa.multitenant.tenants.url.1" value="172.26.47.52:5432/rs_installation_continue" />
+	</com.izforge.izpack.panels.userinput.UserInputPanel>
+	
+	<com.izforge.izpack.panels.userinput.UserInputPanel id="DataProviderPanel">
 		<entry key="dataprovider.host.1" value="0.0.0.0" />
 		<entry key="dataprovider.port.1" value="8890" />
 		<entry key="dataprovider.count" value="1" />
-		<entry
-			key="regards.config.dataprovider.regards.jpa.multitenant.tenants.url.1"
-			value="172.26.47.52:5432/rs_installation_continue" />
-		<entry
-			key="regards.config.dataprovider.regards.jpa.multitenant.tenants.user.name.1"
-			value="azertyuiop123456789" />
-		<entry
-			key="regards.config.dataprovider.regards.jpa.multitenant.tenants.password.1"
-			value="azertyuiop123456789" />
+	</com.izforge.izpack.panels.userinput.UserInputPanel>
+	<com.izforge.izpack.panels.userinput.UserInputPanel id="DataProviderPropertiesPanel">
+		<entry key="regards.config.dataprovider.regards.jpa.multitenant.tenants.url.1" value="172.26.47.52:5432/rs_installation_continue" />
+		<entry key="regards.config.dataprovider.regards.jpa.multitenant.tenants.user.name.1" value="azertyuiop123456789" />
+		<entry key="regards.config.dataprovider.regards.jpa.multitenant.tenants.password.1" value="azertyuiop123456789" />
 		<entry key="regards.acquisition.cycle.orf.conf.path" value="plugins/tools" />
 		<entry key="regards.acquisition.plugins.conf.path" value="plugins/confs" />
-		<entry key="regards.acquisition.plugins.translations.path"
-			value="plugins/translations" />
+		<entry key="regards.acquisition.plugins.translations.path" value="plugins/translations" />
 		<entry key="regards.acquisition.chains.cycles.path" value="/data/orf" />
 		<entry key="regards.acquisition.plugins.cycles.path" value="/data/cycles" />
-		<entry key="regards.acquisition.process.new.sip.ingest.delay"
-			value="5000" />
+		<entry key="regards.acquisition.process.new.sip.ingest.delay" value="5000" />
 		<entry key="regards.acquisition.process.run.chains.delay" value="300000" />
-		<entry key="regards.config.dataprovider.regards.jobs.pool.size"
-			value="10" />
-		<entry
-			key="regards.config.dataprovider.regards.jobs.succeeded.retention.days"
-			value="1" />
-		<entry key="regards.config.dataprovider.regards.jobs.failed.retention.days"
-			value="30" />
+		<entry key="regards.config.dataprovider.regards.jobs.pool.size"	value="10" />
+		<entry key="regards.config.dataprovider.regards.jobs.succeeded.retention.days" value="1" />
+		<entry key="regards.config.dataprovider.regards.jobs.failed.retention.days"	value="30" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
-
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="IngestPanel">
-		<entry
-			key="regards.config.ingest.regards.jpa.multitenant.tenants.password.1"
-			value="azertyuiop123456789" />
+	
+	<com.izforge.izpack.panels.userinput.UserInputPanel id="IngestPanel">
 		<entry key="ingest.host.1" value="0.0.0.0" />
 		<entry key="ingest.count" value="1" />
 		<entry key="ingest.port.1" value="8893" />
-		<entry key="regards.config.ingest.regards.jpa.multitenant.tenants.url.1"
-			value="172.26.47.52:5432/rs_installation_continue" />
-		<entry
-			key="regards.config.ingest.regards.jpa.multitenant.tenants.user.name.1"
-			value="azertyuiop123456789" />
-		<entry key="regards.config.ingest.regards.jobs.pool.size" value="10" />
-		<entry key="regards.config.ingest.aips.bulk.request.limit"
-			value="1234" />
-		<entry key="regards.config.ingest.regards.jobs.succeeded.retention.days"
-			value="1" />
-		<entry key="regards.config.ingest.regards.jobs.failed.retention.days"
-			value="30" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
-
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="FrontendPanel">
+	<com.izforge.izpack.panels.userinput.UserInputPanel id="IngestPropertiesPanel">
+		<entry key="regards.config.ingest.regards.jpa.multitenant.tenants.password.1" value="azertyuiop123456789" />
+		<entry key="regards.config.ingest.regards.jpa.multitenant.tenants.url.1" value="172.26.47.52:5432/rs_installation_continue" />
+		<entry key="regards.config.ingest.regards.jpa.multitenant.tenants.user.name.1" value="azertyuiop123456789" />
+		<entry key="regards.config.ingest.regards.jobs.pool.size" value="10" />
+		<entry key="regards.config.ingest.aips.bulk.request.limit" value="1234" />
+		<entry key="regards.config.ingest.regards.jobs.succeeded.retention.days" value="1" />
+		<entry key="regards.config.ingest.regards.jobs.failed.retention.days" value="30" />
+	</com.izforge.izpack.panels.userinput.UserInputPanel>
+	
+	<com.izforge.izpack.panels.userinput.UserInputPanel id="FrontendPanel">
 		<entry key="frontend.host.1" value="localhost" />
 		<entry key="frontend.count" value="1" />
 		<entry key="frontend.port.1" value="3333" />
 		<entry key="regards.config.cloud.gateway.url" value="http://172.26.47.95" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
-	<com.izforge.izpack.panels.userinput.UserInputPanel
-		id="CheckJdbcConnectionsPanel" />
-	<com.izforge.izpack.panels.summary.SummaryPanel
-		id="SummaryPanel_27" />
-	<com.izforge.izpack.panels.install.InstallPanel
-		id="InstallPanel_28" />
-	<com.izforge.izpack.panels.process.ProcessPanel
-		id="ProcessPanel_29" />
-	<com.izforge.izpack.panels.finish.FinishPanel
-		id="FinishPanel_30" />
+	
+	<com.izforge.izpack.panels.userinput.UserInputPanel	id="CheckJdbcConnectionsPanel" />
+	<com.izforge.izpack.panels.summary.SummaryPanel id="SummaryPanel_38" />
+	<com.izforge.izpack.panels.install.InstallPanel	id="InstallPanel_39" />
+	<com.izforge.izpack.panels.process.ProcessPanel	id="ProcessPanel_40" />
+	<com.izforge.izpack.panels.finish.FinishPanel	id="FinishPanel_41" />
 </AutomatedInstallation>
