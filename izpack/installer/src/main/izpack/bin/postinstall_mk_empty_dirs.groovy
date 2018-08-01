@@ -34,8 +34,8 @@ if (!Files.exists(Paths.get("plugins"))) {
 // Lets create some mandatory directories
 // First lets read the properties file
 Properties systemProperties = new Properties()
-File systemPropertiesFile = new File(Paths.get("config", "system.properties"))
-systemPropertiesFile.withInputStream { properties.load(it) }
+File systemPropertiesFile = new File(Paths.get("config", "system.properties").toUri())
+systemPropertiesFile.withInputStream { systemProperties.load(it) }
 
 // now, lets create some dirs
 Files.createDirectories(Paths.get(systemProperties."regards.microservices.workspace"))
