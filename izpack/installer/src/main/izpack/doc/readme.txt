@@ -2,8 +2,8 @@
 ______________
 
 Identification                       : Regards
-Date                                 : 2017-10-24
-Version                              : 1.1
+Date                                 : 2018-05-18
+Version                              : 2.0
 Owner                                : CNES
 Developer                            : CS SI
 Type                                 : Complete
@@ -11,7 +11,7 @@ Project page                         : https://github.com/RegardsOss
 Classification                       : Not Confidential - Opensource GPL V3
 Characteristics                      : Microservice, NetflixOSS, Spring, Java, Javascript, React
 Role/Function                        : Data valorization product
-Reference tag                        : (1.1)
+Reference tag                        : (2.0)
 
 2/ Changes
 ______________
@@ -66,6 +66,11 @@ ______________
 		46 : Enlever la description markdown d'une collection
 		48 : Remarques Ihm utilisateur
 
+- 2.0 (2018-05-18) : 
+
+	- Bugs fixed : 
+
+	- Known bugs : 
 
 3/ System requirements
 ______________________
@@ -80,11 +85,11 @@ Build tools :
 .................................................................................................
 Name                    |  Version        |   Provider                                          |
 .................................................................................................
-Java Development Kit    |  1.8            |   Oracle                                            |
+OpenJDK                 |  8              |   Oracle                                            |
 Maven                   |  3.3+           |   Apache Software Foundation                        |
 Groovy                  |  2.4+           |   Apache Software Foundation                        |
-Node.js                 |  6.11.0 LTS     |   Linux Foundation                                  |
-npm                     |  3+ and 4.x max |   Linux Foundation                                  |
+Node.js                 |  8.10+          |   Linux Foundation                                  |
+npm                     |  5.7.1+         |   Linux Foundation                                  |
 IzPack                  |                 |                                                     |
 .................................................................................................
 
@@ -95,10 +100,10 @@ Tools to install :
 .................................................................................................
 Name                    |  Version        |   Provider                                          |
 .................................................................................................
-Java Development Kit    |  1.8            |   Oracle                                            |
+OpenJDK                 |  8              |   Oracle                                            |
 Maven                   |  3.3+           |   Apache Software Foundation                        |
 Groovy                  |  2.4+           |   Apache Software Foundation                        |
-Node.js                 |  6.11.0 LTS     |   Linux Foundation                                  |
+Node.js                 |  8.10+          |   Linux Foundation                                  |
 .................................................................................................
 
 Apache Software are distributed under Apache License version 2.0.
@@ -109,8 +114,8 @@ Prerequisite tools :
 .................................................................................................
 Name                    |  Version        |   Provider                                          |
 .................................................................................................
-Elasticsearch           |  5.1.1          |   Elastic                                           |
-PostgreSQL              |  9.4+           |   PostgreSQL                                        |
+Elasticsearch           |  5.4            |   Elastic                                           |
+PostgreSQL              |  9.6            |   PostgreSQL                                        |
 RabbitMQ                |  3.6.5          |   Pivotal                                           |
 .................................................................................................
 
@@ -121,12 +126,17 @@ __________
 
 1) Backend
 	Access : two microservices Access, one for the instance frontend, one for the project frontend
-			Administration : the microservice Administration
+			Access : the microservices Access-Project and Access-Instance
+			Administration : the microservices Administration and Administration-Instance
 			Catalog : the microservice Catalog
 			Cloud : the components Config, Registry, Gateway and the microservice Authentication
 			Data Management : the microservice Data management
+			Data Provider : the microservice Data management
+			Ingest : the microsrvice Ingest
 			Microservice : the core of Regards
-			regards : the Maven BOM (Bill of Materials)
+			Order : the microsrvice Order
+			regards-bom : the Maven BOM (Bill of Materials)
+			Storage : the microservice Storage
 
 2) Client
 	Frontend  : the web interface
@@ -164,7 +174,71 @@ __________________
 6/ Build & install
 ________
 
+<<<<<<< HEAD
 You can find out the tutorial on the README.md file at the root of this repository.
+=======
+:warning: If you want to run regards-frontend compilation using root user you have to add the hereunder line in your .npmrc file.
+If your root user does not have any .npmrc file yet, you can create it in your root user home directory. You can read [npm documentation about npmrc here](https://docs.npmjs.com/files/npmrc). 
+```sh
+unsafe-perm=true
+```
+
+
+export REGARDS_HOME=`pwd`
+
+git clone https://github.com/RegardsOss/regards-bom.git
+cd regards-bom
+mvn install -DskipTests
+
+cd ..
+git clone https://github.com/RegardsOss/regards-microservice.git
+cd regards-microservice
+mvn install -DskipTests
+
+cd ..
+git clone https://github.com/RegardsOss/regards-admin.git
+cd regards-admin
+mvn install -DskipTests -P delivery
+
+cd ..
+git clone https://github.com/RegardsOss/regards-cloud.git
+cd regards-cloud
+mvn install -DskipTests -P delivery
+
+cd ..
+git clone https://github.com/RegardsOss/regards-dam.git
+cd regards-dam
+mvn clean install -Dmaven.test.skip=true -P delivery
+
+cd ..
+git clone https://github.com/RegardsOss/regards-catalog.git
+cd regards-catalog
+mvn install -DskipTests -P delivery
+
+cd ..
+git clone https://github.com/RegardsOss/regards-access.git
+cd regards-access
+mvn install -DskipTests
+
+cd ..
+git clone https://github.com/RegardsOss/regards-frontend.git
+cd regards-frontend
+mvn install -DskipTests
+
+7/ Build installer
+__________________
+
+cd ..
+git clone https://github.com/RegardsOss/regards-deployment.git
+cd regards-deployment
+mvn install -DskipTests -P delivery
+
+8/ Install
+__________
+
+cd izpack/installer/target
+java -jar REGARDS-OSS-Installer.jar
+>>>>>>> 5e5ba22980d20cfc186ee06d1c3f76bacbc1a843
 
 7/ Start
 ________

@@ -4,6 +4,12 @@ This repository is used to build IZPACK jar for system deployment.
 
 REGARDS is still under heavy development. Operational version V1.0.0 is planed for 2018.
 
+:warning: If you want to run regards-frontend compilation using root user you have to add the hereunder line in your .npmrc file.
+If your root user does not have any .npmrc file yet, you can create it in your root user home directory. You can read [npm documentation about npmrc here](https://docs.npmjs.com/files/npmrc). 
+```sh
+unsafe-perm=true
+```
+
 ## Build requirements
 
 Build relies on :
@@ -14,8 +20,8 @@ Build relies on :
 * Npm 5.7.1+
 
 Prerequisite tools :
-* Elasticsearch 5.1.1
-* PostgreSQL 9.4+
+* Elasticsearch 5.4
+* PostgreSQL 9.6
 * RabbitMQ 3.6.5
 
 Dependencies : 
