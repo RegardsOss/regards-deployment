@@ -480,17 +480,9 @@
 			<condition type="ref" refid="selected.dataprovider" />
 			<condition type="ref" refid="selected.storage" />
 		</condition>
-		<condition type="or" id="at.least.one.db.configured">
-			<condition type="ref" refid="selected.admin-instance" />
-			<condition type="ref" refid="selected.admin" />
-			<condition type="ref" refid="selected.authentication" />
-			<condition type="ref" refid="selected.dam" />
-			<condition type="ref" refid="selected.catalog" />
-			<condition type="ref" refid="selected.access" />
-			<condition type="ref" refid="selected.order" />
-			<condition type="ref" refid="selected.ingest" />
-			<condition type="ref" refid="selected.dataprovider" />
-			<condition type="ref" refid="selected.storage" />
+		<condition type="or" id="display.check.connection">
+			<condition type="ref" refid="at.least.one.backend.pack.selected" />
+			<condition type="ref" refid="selected.config" />
 		</condition>
 		<condition type="variable" id="isHidden">
 			<name>security.level</name>
@@ -504,24 +496,18 @@
 		<panel classname="TargetPanel" />
 		<panel classname="PacksPanel" />
 		<panel classname="UserInputPanel" id="SelectSecurityLevelPanel" />
-		<panel classname="UserInputPanel" id="ConfigSecurityPanel"
-			condition="isSecurityEnforced" />
-		<panel classname="UserInputPanel" id="LinkToExistingConfigPanel"
-			condition="!izpack.selected.config" />
+		<panel classname="UserInputPanel" id="ConfigSecurityPanel" condition="isSecurityEnforced" />
+		<panel classname="UserInputPanel" id="LinkToExistingConfigPanel" condition="!izpack.selected.config" />
 		<panel classname="UserInputPanel" id="ProjectPanel" condition="izpack.selected.config" />
 		<panel classname="UserInputPanel" id="ConfigPanel" condition="izpack.selected.config">
-			<validator
-				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorConfigPanel" />
+			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorConfigPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="RabbitmqPanel"
-			condition="at.least.one.backend.pack.selected" />
+		<panel classname="UserInputPanel" id="RabbitmqPanel" condition="at.least.one.backend.pack.selected" />
 		<panel classname="UserInputPanel" id="RegistryPanel" condition="izpack.selected.registry">
-			<validator
-				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorRegistryPanel" />
+			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorRegistryPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="GatewayPanel" condition="izpack.selected.gateway">
-			<validator
-				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorGatewayPanel" />
+			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorGatewayPanel" />
 		</panel>
 
 		<panel classname="UserInputPanel" id="AdminInstancePropertiesPanel" condition="izpack.selected.config" />
@@ -535,63 +521,49 @@
 		<panel classname="UserInputPanel" id="DataProviderPropertiesPanel" condition="izpack.selected.config" />
 		<panel classname="UserInputPanel" id="AccessInstancePropertiesPanel" condition="izpack.selected.config" />
 		<panel classname="UserInputPanel" id="AccessProjectPropertiesPanel" condition="izpack.selected.config" />
+		
+		<panel classname="UserInputPanel" id="CheckConnectionsPanel" condition="display.check.connection" />
 
 		<panel classname="UserInputPanel" id="AdminInstancePanel" condition="izpack.selected.admin-instance">
-			<validator
-				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAdminInstancePanel" />
+			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAdminInstancePanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="AdminPanel" condition="izpack.selected.admin">
-			<validator
-				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAdminPanel" />
+			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAdminPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="AccountsPanel" condition="izpack.selected.admin" />
 		<panel classname="UserInputPanel" id="SmtpPanel" condition="izpack.selected.admin" />
 		<panel classname="UserInputPanel" id="AuthenticationPanel"
 			condition="izpack.selected.authentication">
-			<validator
-				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAuthenticationPanel" />
+			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAuthenticationPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="StoragePanel" condition="izpack.selected.storage">
-			<validator
-				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorStoragePanel" />
+			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorStoragePanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="IngestPanel" condition="izpack.selected.ingest">
-			<validator
-				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorIngestPanel" />
+			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorIngestPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="DamPanel" condition="izpack.selected.dam">
-			<validator
-				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorDamPanel" />
+			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorDamPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="CatalogPanel" condition="izpack.selected.catalog">
-			<validator
-				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorCatalogPanel" />
+			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorCatalogPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="OrderPanel" condition="izpack.selected.order">
-			<validator
-				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorOrderPanel" />
+			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorOrderPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="DataProviderPanel"
-			condition="izpack.selected.dataprovider">
-			<validator
-				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorDataProviderPanel" />
+		<panel classname="UserInputPanel" id="DataProviderPanel" condition="izpack.selected.dataprovider">
+			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorDataProviderPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="AccessInstancePanel"
-			condition="izpack.selected.access-instance">
-			<validator
-				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAccessInstancePanel" />
+		<panel classname="UserInputPanel" id="AccessInstancePanel" condition="izpack.selected.access-instance">
+			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAccessInstancePanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="AccessProjectPanel"
-			condition="izpack.selected.access-project">
-			<validator
-				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAccessProjectPanel" />
+		<panel classname="UserInputPanel" id="AccessProjectPanel" condition="izpack.selected.access-project">
+			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAccessProjectPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="FrontendPanel" condition="izpack.selected.frontend">
-			<validator
-				classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorFrontendPanel" />
+			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorFrontendPanel" />
 		</panel>
-		<panel classname="UserInputPanel" id="CheckJdbcConnectionsPanel"
-			condition="at.least.one.db.configured" />
+		
 		<panel classname="SummaryPanel" />
 		<panel classname="InstallPanel" />
 		<panel classname="ProcessPanel" />

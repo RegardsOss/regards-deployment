@@ -209,7 +209,7 @@
 	<str id="access-project.panel.title.label" txt="Access Project microservice" />
 	<str id="access-project.panel.title.label.properties" txt="Access Project microservice properties" />
 
-	<!-- CheckJdbcConnectionsPanel -->
+	<!-- CheckConnectionsPanel -->
 	<str id="check.jdbc.connections.panel.title" txt="Check the connections you configured" />
 	<str id="check.jdbc.connections.panel.detail"
 		txt="Perform this quick check to ensure you connections are properly configured. However you can finish the installation even if they are not." />

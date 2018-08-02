@@ -240,7 +240,7 @@
 		<entry key="regards.config.cloud.gateway.url" value="http://172.26.47.95" />
 	</com.izforge.izpack.panels.userinput.UserInputPanel>
 	
-	<com.izforge.izpack.panels.userinput.UserInputPanel	id="CheckJdbcConnectionsPanel" />
+	<com.izforge.izpack.panels.userinput.UserInputPanel	id="CheckConnectionsPanel" />
 	<com.izforge.izpack.panels.summary.SummaryPanel id="SummaryPanel_38" />
 	<com.izforge.izpack.panels.install.InstallPanel	id="InstallPanel_39" />
 	<com.izforge.izpack.panels.process.ProcessPanel	id="ProcessPanel_40" />

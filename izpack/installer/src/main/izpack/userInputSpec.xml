@@ -450,6 +450,8 @@
 	</panel>
 
 	<panel id="AuthenticationPropertiesPanel">
+	<field id="authentication.panel.title.label.properties" type="title" />
+	
 		<field type="staticText" id="first.project.database.label" />
 		<field type="rule"
 			variable="regards.config.gateway.regards.jpa.multitenant.tenants.url.1">
@@ -1163,12 +1165,11 @@
 		</field>
 	</panel>
 
-	<panel id="CheckJdbcConnectionsPanel">
+	<panel id="CheckConnectionsPanel">
 		<field id="check.jdbc.connections.panel.title" type="title" />
 		<field id="check.jdbc.connections.panel.detail" type="staticText" />
 
-		<field type="button" conditionid="izpack.selected.authentication"
-			id="components.authentication">
+		<field type="button" conditionid="izpack.selected.config" id="components.authentication">
 			<spec id="connection.tester.test" successMsg="connection.tester.success">
 				<run
 					class="fr.cnes.regards.deployment.izpack.custom.button.AuthenticationJdbcConnectionTester">
@@ -1177,7 +1178,7 @@
 			</spec>
 		</field>
 
-		<field type="button" conditionid="izpack.selected.admin-instance" id="components.admin.instance">
+		<field type="button" conditionid="izpack.selected.config" id="components.admin.instance">
 			<spec id="connection.tester.test" successMsg="connection.tester.success">
 				<run
 					class="fr.cnes.regards.deployment.izpack.custom.button.AdminInstanceJdbcConnectionTester">
@@ -1186,7 +1187,7 @@
 			</spec>
 		</field>
 
-		<field type="button" conditionid="izpack.selected.admin" id="components.admin.project">
+		<field type="button" conditionid="izpack.selected.config" id="components.admin.project">
 			<spec id="connection.tester.test" successMsg="connection.tester.success">
 				<run
 					class="fr.cnes.regards.deployment.izpack.custom.button.AdminProjectJdbcConnectionTester">
@@ -1195,7 +1196,7 @@
 			</spec>
 		</field>
 
-		<field type="button" conditionid="izpack.selected.dam" id="components.dam">
+		<field type="button" conditionid="izpack.selected.config" id="components.dam">
 			<spec id="connection.tester.test" successMsg="connection.tester.success">
 				<run
 					class="fr.cnes.regards.deployment.izpack.custom.button.DamJdbcConnectionTester">
@@ -1204,7 +1205,7 @@
 			</spec>
 		</field>
 
-		<field type="button" conditionid="izpack.selected.catalog" id="components.catalog">
+		<field type="button" conditionid="izpack.selected.config" id="components.catalog">
 			<spec id="connection.tester.test" successMsg="connection.tester.success">
 				<run
 					class="fr.cnes.regards.deployment.izpack.custom.button.CatalogJdbcConnectionTester">
@@ -1213,7 +1214,7 @@
 			</spec>
 		</field>
 
-		<field type="button" conditionid="izpack.selected.ingest" id="components.ingest">
+		<field type="button" conditionid="izpack.selected.config" id="components.ingest">
 			<spec id="connection.tester.test" successMsg="connection.tester.success">
 				<run
 					class="fr.cnes.regards.deployment.izpack.custom.button.IngestJdbcConnectionTester">
@@ -1222,7 +1223,7 @@
 			</spec>
 		</field>
 
-		<field type="button" conditionid="izpack.selected.order" id="components.order">
+		<field type="button" conditionid="izpack.selected.config" id="components.order">
 			<spec id="connection.tester.test" successMsg="connection.tester.success">
 				<run
 					class="fr.cnes.regards.deployment.izpack.custom.button.OrderJdbcConnectionTester">
@@ -1231,8 +1232,7 @@
 			</spec>
 		</field>
 
-		<field type="button" conditionid="izpack.selected.dataprovider"
-			id="components.dataprovider">
+		<field type="button" conditionid="izpack.selected.config" id="components.dataprovider">
 			<spec id="connection.tester.test" successMsg="connection.tester.success">
 				<run
 					class="fr.cnes.regards.deployment.izpack.custom.button.DataProviderJdbcConnectionTester">
@@ -1241,7 +1241,7 @@
 			</spec>
 		</field>
 
-		<field type="button" conditionid="izpack.selected.storage" id="components.storage">
+		<field type="button" conditionid="izpack.selected.config" id="components.storage">
 			<spec id="connection.tester.test" successMsg="connection.tester.success">
 				<run
 					class="fr.cnes.regards.deployment.izpack.custom.button.StorageJdbcConnectionTester">
@@ -1250,7 +1250,7 @@
 			</spec>
 		</field>
 
-		<field type="button" conditionid="izpack.selected.access-instance" id="components.access.instance">
+		<field type="button" conditionid="izpack.selected.config" id="components.access.instance">
 			<spec id="connection.tester.test" successMsg="connection.tester.success">
 				<run
 					class="fr.cnes.regards.deployment.izpack.custom.button.AccessInstanceJdbcConnectionTester">
@@ -1259,7 +1259,7 @@
 			</spec>
 		</field>
 
-		<field type="button" conditionid="izpack.selected.access-project" id="components.access.project">
+		<field type="button" conditionid="izpack.selected.config" id="components.access.project">
 			<spec id="connection.tester.test" successMsg="connection.tester.success">
 				<run
 					class="fr.cnes.regards.deployment.izpack.custom.button.AccessProjectJdbcConnectionTester">
@@ -1267,7 +1267,6 @@
 				</run>
 			</spec>
 		</field>
-
 
 		<field type="button" conditionid="izpack.selected.dam" id="components.dam.elastic">
 			<spec id="connection.tester.test" successMsg="elasticsearch.tester.success">

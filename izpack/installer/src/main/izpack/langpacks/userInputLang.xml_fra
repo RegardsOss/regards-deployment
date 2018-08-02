@@ -209,7 +209,7 @@
 	<str id="access-project.panel.title.label" txt="Microservice Access Project" />
 	<str id="access-project.panel.title.label.properties" txt="Propriétés du microservice Access Project" />
 	
-	<!-- CheckJdbcConnectionsPanel -->
+	<!-- CheckConnectionsPanel -->
 	<str id="check.jdbc.connections.panel.title" txt="Vérification des connexions configurées" />
 	<str id="check.jdbc.connections.panel.detail"
 		txt="Effectuez cette vérification rapide pour vous assurer que vos connexions sont correctement configurées. Vous pouvez toutefois terminer l'installation sans que cela soit le cas." />
