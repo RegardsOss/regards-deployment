@@ -85,8 +85,9 @@
 	<!-- ProjectPanel -->
 	<str id="project.panel.title.label" txt="Paramètres généraux" />
 	<str id="project.panel.project.label" txt="Le premier projet à ajouter" />
+	<str id="project.panel.project.public.access.label" txt="Nom de domaine public pour accéder au projet. Il s'agit de l'adresse public que les utilisateurs utiliseraons pour accéder aux services et IHM du projet. Cette address dépend de la configuration de votre serveur web." />
 	<str id="workspace.folder.label" txt="Le répertoire de base des espaces de travail" />
-	<str id="proxy.config.header" txt="Confguration du proxy" />
+	<str id="proxy.config.header" txt="Configuration du proxy pour accéder à internet" />
 
 	<!-- ConfigSecurityLevelPanel -->
 	<str id="configsecuritylevel.panel.title.label" txt="Personnaliser les droits" />

@@ -113,6 +113,10 @@
 		<field type="text" variable="regards.config.first.project" size="35">
 			<spec size="15" id="project.panel.project.label" default="${regards.config.first.project.default.value}" />
 		</field>
+		
+		<field type="text" variable="regards.config.first.project.public.access" size="50">
+			<spec size="15" id="project.panel.project.public.access.label" default="https://$IP_ADDRESS/project1" />
+		</field>
 		<field type="text" variable="regards.config.workspace.directory"
 			size="35">
 			<spec size="15" id="workspace.folder.label" default="${regards.config.workspace.directory.default.value}" />
