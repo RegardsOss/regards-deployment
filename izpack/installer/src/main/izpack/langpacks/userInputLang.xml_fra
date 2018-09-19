@@ -85,9 +85,13 @@
 	<!-- ProjectPanel -->
 	<str id="project.panel.title.label" txt="Paramètres généraux" />
 	<str id="project.panel.project.label" txt="Le premier projet à ajouter" />
-	<str id="project.panel.project.public.access.label" txt="Nom de domaine public pour accéder au projet. Il s'agit de l'adresse public que les utilisateurs utiliseraons pour accéder aux services et IHM du projet. Cette address dépend de la configuration de votre serveur web." />
+	<str id="project.panel.project.public.access.label" txt="Adresse" />
+	<str id="project.panel.project.public.access.description" txt="Nom de domaine public pour accéder au projet: il s'agit de l'adresse public que les utilisateurs utiliseraons pour accéder aux services et IHM du projet. Cette address dépend de la configuration de votre serveur web." />
 	<str id="workspace.folder.label" txt="Le répertoire de base des espaces de travail" />
 	<str id="proxy.config.header" txt="Configuration du proxy pour accéder à internet" />
+	<str id="cipher.config.header" txt="Configuration du cryptage" />
+	<str id="cipher.key.location.label" txt="Emplacement de la clef de cryptage" />
+    <str id="cipher.iv.label" txt="Vecteur d'initialisation du cryptage" />
 
 	<!-- ConfigSecurityLevelPanel -->
 	<str id="configsecuritylevel.panel.title.label" txt="Personnaliser les droits" />
