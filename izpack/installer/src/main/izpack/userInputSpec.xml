@@ -115,7 +115,8 @@
 		</field>
 		
 		<field type="text" variable="regards.config.first.project.public.access" size="50">
-			<spec size="15" id="project.panel.project.public.access.label" default="https://$IP_ADDRESS/project1" />
+			<spec size="50" id="project.panel.project.public.access.label" default="https://$IP_ADDRESS/project1" />
+			<description id="project.panel.project.public.access.description" />
 		</field>
 		<field type="text" variable="regards.config.workspace.directory"
 			size="35">
@@ -132,6 +133,15 @@
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
 				id="validator.port.error.label" />
+		</field>
+
+		<field type="staticText" id="cipher.config.header" />
+
+		<field type="text" variable="regards.config.cipher.key.location">
+			<spec id="cipher.key.location.label" size="15" default="${regards.config.cipher.key.location}" />
+		</field>
+		<field type="text" variable="regards.config.cipher.iv">
+			<spec id="cipher.iv.label" size="15" default="0" />
 		</field>
 
 	</panel>

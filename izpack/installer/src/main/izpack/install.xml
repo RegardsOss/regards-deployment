@@ -130,9 +130,12 @@
 
 		<!-- Common -->
 		<variable name="regards.config.first.project.default.value" value="project1" />
+		<variable name="regards.config.first.project.public.access" value="https://$IP_ADDRESS/project1" />
 		<variable name="regards.config.workspace.directory.default.value" value="$INSTALL_PATH/workspace" />
 		<variable name="regards.jobs.succeeded.retention.days.default.value" value="1" />
 		<variable name="regards.jobs.failed.retention.days.default.value" value="30" />
+		<variable name="regards.config.cipher.key.location" value="" />
+		<variable name="regards.config.cipher.iv" value="" />
 
 		<!-- Config -->
 		<variable name="config.count" value="0" /> <!-- TODO: Don't think we can have multiple -->
