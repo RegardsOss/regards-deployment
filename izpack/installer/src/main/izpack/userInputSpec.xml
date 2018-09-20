@@ -137,7 +137,7 @@
 
 		<field type="staticText" id="cipher.config.header" />
 
-		<field type="text" variable="regards.config.cipher.key.location">
+		<field type="file" variable="regards.config.cipher.key.location">
 			<spec id="cipher.key.location.label" size="15" default="${regards.config.cipher.key.location}" />
 		</field>
 		<field type="text" variable="regards.config.cipher.iv">
