@@ -1203,7 +1203,7 @@
 			<file src="sbin/microservice_access-project.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
 				override="true" />
 			<fileset dir="config/access-project/BOOT-INF/classes"
-				targetdir="$INSTALL_PATH/REGARDS/config/logback/access-projet"
+				targetdir="$INSTALL_PATH/REGARDS/config/logback/access-project"
 				override="true">
 				<include name="logback.xml" />
 			</fileset>
