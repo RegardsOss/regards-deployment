@@ -37,9 +37,12 @@ Properties systemProperties = new Properties()
 File systemPropertiesFile = new File(Paths.get("config", "system.properties").toUri())
 systemPropertiesFile.withInputStream { systemProperties.load(it) }
 
-// now, lets create some dirs
+// now, lets create some dirs only if corresponding microservice exists
 Files.createDirectories(Paths.get(systemProperties."regards.microservices.workspace"))
-Files.createDirectories(Paths.get(systemProperties."regards.storage.cache"))
-Files.createDirectories(Paths.get(systemProperties."regards.dam.local.storage"))
-
+if(Files.exists(Paths.get("bootstrap-storage.jar"))) {
+    Files.createDirectories(Paths.get(systemProperties."regards.storage.cache"))
+}
+if(Files.exists(Paths.get("bootstrap-dam.jar"))) {
+    Files.createDirectories(Paths.get(systemProperties."regards.dam.local.storage"))
+}
 System.exit(0);

@@ -118,10 +118,6 @@
 			<spec size="50" id="project.panel.project.public.access.label" default="https://$IP_ADDRESS/project1" />
 			<description id="project.panel.project.public.access.description" />
 		</field>
-		<field type="text" variable="regards.config.workspace.directory"
-			size="35">
-			<spec size="15" id="workspace.folder.label" default="${regards.config.workspace.directory.default.value}" />
-		</field>
 		
 		<field type="staticText" id="proxy.config.header" />
 		
@@ -164,6 +160,10 @@
 					</field>
 				</col>
 			</spec>
+		</field>
+		<field type="text" variable="regards.config.workspace.directory"
+			   size="35">
+			<spec size="15" id="workspace.folder.label" default="${regards.config.workspace.directory.default.value}" />
 		</field>
 	</panel>
 
