@@ -506,8 +506,7 @@
 			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorConfigPanel" />
 		</panel>
 		<panel classname="UserInputPanel" id="RabbitmqPanel" condition="at.least.one.backend.pack.selected" />
-		<panel classname="UserInputPanel" id="RegistryPanel" condition="izpack.selected.registry">
-			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorRegistryPanel" />
+		<panel classname="UserInputPanel" id="RegistryPanel" condition="at.least.one.backend.pack.selected" >
 		</panel>
 		<panel classname="UserInputPanel" id="GatewayPanel" condition="izpack.selected.gateway">
 			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorGatewayPanel" />
