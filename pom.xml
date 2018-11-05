@@ -24,7 +24,7 @@
 	<groupId>fr.cnes.regards.deployment</groupId>
 	<artifactId>rs-deployment</artifactId>
 	<packaging>pom</packaging>
-	<version>2.0.0-RELEASE</version>
+	<version>3.0.0-RELEASE</version>
 
 	<name>REGARDS Deployment</name>
 	<description>Generates the Izpack installer</description>
@@ -52,11 +52,12 @@
 	<parent>
 		<groupId>fr.cnes.regards</groupId>
 		<artifactId>regards-parent</artifactId>
-		<version>2.0.0-RELEASE</version>
+		<version>3.0.0-RELEASE</version>
 		<relativePath/>
 	</parent>
 
 	<modules>
 		<module>izpack</module>
-	</modules>
+        <module>security</module>
+    </modules>
 </project>

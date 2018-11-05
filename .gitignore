@@ -4,3 +4,6 @@ regards_install.log
 .settings/
 target/
 .iml
+\.idea/
+
+*.iml

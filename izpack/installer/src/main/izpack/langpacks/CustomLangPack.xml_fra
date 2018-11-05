@@ -30,4 +30,7 @@
 	<str id="rabbit.tester.fail" txt="RabbitMQ ne réponds pas. Vérifiez ses paramètres" />
 	<str id="error" txt="Error" />
 
+	<str id="UserInputPanel.custom.swing.buttonlabel.add" txt="Ajouter"/>
+	<str id="UserInputPanel.custom.swing.buttonlabel.remove" txt="Supprimer"/>
+
 </izpack:langpack>

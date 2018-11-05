@@ -61,9 +61,7 @@ pipeline {
     }
     stage('Stop') {
       when {
-			anyOf {
-				branch 'release/V2.0.0'
-		    }
+          expression { BRANCH_NAME ==~ /(develop.*|release.*)/ }
 	  }
       steps {
         sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh stop" || true'
@@ -71,9 +69,7 @@ pipeline {
     }
     stage('Clean') {
         when {
-			anyOf {
-				branch 'release/V2.0.0'
-		    }
+            expression { BRANCH_NAME ==~ /(develop.*|release.*)/ }
 	    }
     	steps {
         // Retour au SNAPSHOT
@@ -89,9 +85,7 @@ pipeline {
     }
     stage('Deploy') {
 	    when {
-			anyOf {
-				branch 'release/V2.0.0'
-			}
+            expression { BRANCH_NAME ==~ /(develop.*|release.*)/ }
 		}
 	    steps {
 	        // Deploy installer to a LIVRAISON folder
@@ -104,9 +98,7 @@ pipeline {
     stage('Install') {
       // Installation continue sur la VM regard-ic (172.26.47.95)
       when {
-			anyOf {
-				branch 'release/V2.0.0'
-			}
+          expression { BRANCH_NAME ==~ /(develop.*|release.*)/ }
 		}
         steps {
         	// The installation
@@ -115,19 +107,15 @@ pipeline {
     }
     stage('Start') {
       when {
-			  anyOf {
-				  branch 'release/V2.0.0'
-		    }
+            expression { BRANCH_NAME ==~ /(develop.*|release.*)/ }
 	    }
       steps {
-        sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh start"'
+        sh 'ssh -tty rsadmin@172.26.47.95 "sudo /opt/regards/regards-ic/REGARDS/sbin/microservice_regards.sh start ; sleep 120"'
       }
     }
     stage('Check - 1') {
       when {
-			anyOf {
-				branch 'release/V2.0.0'
-			}
+          expression { BRANCH_NAME ==~ /(develop.*|release.*)/ }
 		}
       steps {
         parallel(
@@ -160,9 +148,7 @@ pipeline {
     }  
     stage('Check - 2') {
       when {
-			  anyOf {
-				  branch 'release/V2.0.0'
-		      }
+          expression { BRANCH_NAME ==~ /(develop.*|release.*)/ }
 	    }
       steps {
         parallel(
@@ -189,6 +175,14 @@ pipeline {
           }
         )
       }
-    }  
+    }
+    stage('Deploy archiva') {
+        when {
+            expression { BRANCH_NAME ==~ /(develop.*|release.*)/ }
+        }
+        steps {
+            sh 'mvn -V -U -P install,CI clean deploy -Dmaven.test.skip=true -DcmdLineTarget=target'
+        }
+    }
   }
 }

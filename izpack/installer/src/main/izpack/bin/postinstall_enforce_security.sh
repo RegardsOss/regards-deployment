@@ -35,6 +35,7 @@ function end
 typeset -r DIR="$(pwd)"
 
 typeset -r PROCESSUS_NAME=$(basename $0)
+# ROOT_DIR reflects the directory in which the application is installed
 typeset -r ROOT_DIR="$(readlink -e "$(dirname $0)/..")"
 typeset -r ROOT_DIR_INSTALL="$(readlink -e "${ROOT_DIR}"/..)"
 
@@ -74,6 +75,9 @@ typeset -r GLOBAL_REGARDS_GROUP=$(read_config "${CONFIGURATION_FILE}" "regards.m
 typeset -r EXEC_REGARDS_GROUP=$(read_config "${CONFIGURATION_FILE}" "regards.microservices.exec.group")
 typeset -r ADMIN_REGARDS_GROUP=$(read_config "${CONFIGURATION_FILE}" "regards.microservices.admin.group")
 typeset -r RUNTIME_REGARDS_GROUP=$(read_config "${CONFIGURATION_FILE}" "regards.microservices.runtime.group")
+typeset -r WORKSPACE=$(read_config "${CONFIGURATION_FILE}" "regards.microservices.workspace")
+typeset -r STORAGE_CACHE=$(read_config "${CONFIGURATION_FILE}" "regards.storage.cache")
+typeset -r DAM_LOCAL_STORAGE=$(read_config "${CONFIGURATION_FILE}" "regards.dam.local.storage")
 
 # Two types of users must exist
 # * Admin owned GLOBAL_REGARDS_GROUP, ADMIN_REGARDS_GROUP, RUNTIME_REGARDS_GROUP use to administer REGARDS
@@ -90,8 +94,6 @@ chmod 0750 "${ROOT_DIR_INSTALL}"
 # Root install files
 find "${ROOT_DIR_INSTALL}"/* -prune -type f -exec chown :${GLOBAL_REGARDS_GROUP} {} \;
 find "${ROOT_DIR_INSTALL}"/* -prune -type f -exec chmod 0640 {} \;
-chown :${ADMIN_REGARDS_GROUP} "${ROOT_DIR_INSTALL}"/.installationinformation
-chmod 0640 "${ROOT_DIR_INSTALL}"/.installationinformation
 
 # Root dir acceded by admin and exec user
 chown :${RUNTIME_REGARDS_GROUP} "${ROOT_DIR}"
@@ -114,22 +116,32 @@ chown -R :${EXEC_REGARDS_GROUP} "${ROOT_DIR}/"plugins
 find "${ROOT_DIR}"/plugins -type d -exec chmod 0750 {} \;
 find "${ROOT_DIR}"/plugins -type f -exec chmod 0640 {} \;
 
-# Dirs shared by admin (rw) and exec (ro) users
+# Dirs shared by admin (rw) and exec (ro) users(files are owned by rsins)
 chown -R :${ADMIN_REGARDS_GROUP} "${ROOT_DIR}"/config
 find "${ROOT_DIR}"/config -type d -exec chmod 2775 {} \;
 
-# Files shared by admin (rw) and exec (ro) users
+# Files shared by admin (rw) and exec (ro) users(files are owned by rsins)
 find "${ROOT_DIR}"/config -type f -exec chmod 0664 {} \;
 
 # Dirs accessed through rx by exec users
-chown -R :${RUNTIME_REGARDS_GROUP} "${ROOT_DIR}"/bin
-chmod 0750 "${ROOT_DIR}"/bin
+chown :${RUNTIME_REGARDS_GROUP} "${ROOT_DIR}"/bin
+chmod -R 0750 "${ROOT_DIR}"/bin
 
 # Files accessed through rx by exec users
-if ls "${ROOT_DIR}"/bin/* > /dev/null 2>&1
-then
-  chmod 0750 "${ROOT_DIR}"/bin/*
-fi
+chown :${EXEC_REGARDS_GROUP} "${ROOT_DIR}"/bin/start_microservice.sh
+chmod 0650 "${ROOT_DIR}"/bin/start_microservice.sh
+chown :${EXEC_REGARDS_GROUP} "${ROOT_DIR}"/bin/wait-for-it.sh
+chmod 0650 "${ROOT_DIR}"/bin/wait-for-it.sh
+chown :${EXEC_REGARDS_GROUP} "${ROOT_DIR}"/bin/get_microservice_info.groovy
+chmod 0650 "${ROOT_DIR}"/bin/get_microservice_info.groovy
+chown :${EXEC_REGARDS_GROUP} "${ROOT_DIR}"/bin/read_component_wait_rule_list.groovy
+chmod 0650 "${ROOT_DIR}"/bin/read_component_wait_rule_list.groovy
+chown :${EXEC_REGARDS_GROUP} "${ROOT_DIR}"/bin/stop_microservice.sh
+chmod 0650 "${ROOT_DIR}"/bin/stop_microservice.sh
+
+# Files accessed through rx by admin users
+chown :${RUNTIME_REGARDS_GROUP} "${ROOT_DIR}"/bin/status_microservice.sh
+chmod 0750 "${ROOT_DIR}"/bin/status_microservice.sh
 
 # Dirs accessed through rx by root users
 chmod 0700 "${ROOT_DIR}"/sbin
@@ -161,6 +173,13 @@ fi
 # Dirs shared through rw by admin and exec users
 chown -R :${RUNTIME_REGARDS_GROUP} "${ROOT_DIR}"/{run,logs}
 chmod 2770 "${ROOT_DIR}"/{run,logs}
+# Lets handle dynamic locations
+chown -R :${RUNTIME_REGARDS_GROUP} ${WORKSPACE}
+chmod 2770 ${WORKSPACE}
+chown -R :${RUNTIME_REGARDS_GROUP} ${STORAGE_CACHE}
+chmod 2770 ${STORAGE_CACHE}
+chown -R :${RUNTIME_REGARDS_GROUP} ${DAM_LOCAL_STORAGE}
+chmod 2770 ${DAM_LOCAL_STORAGE}
 
 # Files shared through rw by admin and exec users
 find "${ROOT_DIR}"/{run,logs} -type f -exec chmod 0660 {} \;

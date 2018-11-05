@@ -57,8 +57,11 @@
 	<str id="protocol.http" txt="http" />
 	<str id="protocol.https" txt="https" />
 	<str id="jobs.pool.size" txt="Jobs pool size" />
-	<str id="jobs.completion.update.rate.ms.header" txt="Jobs completion refresh rate (in ms)" />
-	<str id="jobs.completion.update.rate.ms" txt="Value" />
+	<str id="jobs.completion.update.rate.ms.header" txt="Jobs completion refresh rate" />
+	<str id="jobs.completion.update.rate.ms" txt="Value in ms" />
+	<str id="jobs.retention.days.header" txt="Jobs period retention in days" />
+	<str id="jobs.succeeded.retention.days" txt="Jobs successfully completed" />
+	<str id="jobs.failed.retention.days" txt="Jobs completed with error" />
 
 	<!-- SelectInstallationTypePanel -->
 	<str id="selectinstallationtype.panel.title.label" txt="How do you want to install REGARDS?" />
@@ -83,7 +86,14 @@
 	<!-- ProjectPanel -->
 	<str id="project.panel.title.label" txt="General parameters" />
 	<str id="project.panel.project.label" txt="The first project to add" />
+	<str id="project.panel.project.public.access.label" txt="Address" />
+	<str id="project.panel.project.public.access.description" txt="Public domain to access project: this is the public address users will use to access project user/admin interfaces and services. This address depends on your web server configuration." />
 	<str id="workspace.folder.label" txt="The workspaces basic directory" />
+	<str id="proxy.config.header" txt="Proxy confguration for internet access" />
+	<str id="cipher.config.header" txt="Cipher configuration" />
+	<str id="cipher.key.location.label" txt="Cipher key location" />
+	<str id="cipher.iv.label" txt="Cipher initialization vector" />
+
 
 	<!-- ConfigSecurityLevelPanel -->
 	<str id="configsecuritylevel.panel.title.label" txt="Security customization" />
@@ -125,10 +135,13 @@
 
 	<!-- AuthenticationPanel -->
 	<str id="authentication.panel.title.label" txt="Authentication microservice" />
+	<str id="authentication.panel.title.label.properties" txt="Authentication microservice properties" />
 
 	<!-- AdminPanel -->
 	<str id="admin.panel.title.label" txt="Administration microservice" />
-	<str id="admin.panel.title.label.instance" txt="Microservice Administration instance" />
+	<str id="admin.panel.title.label.properties" txt="Administration microservice properties" />
+	<str id="admin.panel.title.label.instance" txt="Administration instance microservice" />
+	<str id="admin.panel.title.label.instance.properties" txt="Administration instance microservice properties" />
 	<str id="admin.panel.root.user.label" txt="Instance admin" />
 
 	<!-- AccountsPanel -->
@@ -149,19 +162,23 @@
 
 	<!-- DamPanel -->
 	<str id="dam.panel.title.label" txt="Data Management microservice" />
+	<str id="dam.panel.title.label.properties" txt="Data Management microservice properties" />
 	<str id="dam.panel.elasticsearch.label" txt="Elasticsearch" />
 	<str id="dam.panel.local.storage.header" txt="Documents local storage folder" />
 	<str id="dam.panel.local.storage" txt="Path" />
 
 	<!-- CatalogPanel -->
 	<str id="catalog.panel.title.label" txt="Catalog microservice" />
+	<str id="catalog.panel.title.label.properties" txt="Catalog microservice properties" />
 
 	<!-- StoragePanel -->
 	<str id="storage.panel.title.label" txt="Storage microservice" />
+	<str id="storage.panel.title.label.properties" txt="Storage microservice properties" />
 	<str id="storage.panel.cache.directory" txt="Cache directory" />
 
 	<!-- OrderPanel -->
 	<str id="order.panel.title.label" txt="Order microservice" />
+	<str id="order.panel.title.label.properties" txt="Order microservice properties" />
 	<str id="order.files.bucket.size.Mb" txt="Orders bucket size in Mb" />
 	<str id="order.validation.period.days" txt="Orders validation period in days" />
 	<str id="order.days.before.considering.order.as.aside" txt="Days before sending mail notification" />
@@ -173,11 +190,13 @@
 	
 	<!-- IngestPanel -->
 	<str id="ingest.panel.title.label" txt="Ingest microservice" />
+	<str id="ingest.panel.title.label.properties" txt="Ingest microservice properties" />
 	<str id="ingest.aips.bulk.request.limit.header" txt="AIPs bulk request size" />
 	<str id="ingest.aips.bulk.request.limit" txt="Size" />
 
 	<!-- DataProviderPanel -->
 	<str id="dataprovider.panel.title.label" txt="Data provider microservice" />
+	<str id="dataprovider.panel.title.label.properties" txt="Data provider microservice properties" />
 	<str id="dataprovider.panel.waiting.label" txt="Waitings time" />
 	<str id="dataprovider.panel.sip.ingest.delay" txt="For ingestion of new SIPs" />
 	<str id="dataprovider.panel.run.chains.delay" txt="For chains activation" />
@@ -190,11 +209,13 @@
 
 	<!-- AccessInstancePanel -->
 	<str id="access-instance.panel.title.label" txt="Access Instance microservice" />
+	<str id="access-instance.panel.title.label.properties" txt="Access Instance microservice properties" />
 
 	<!-- AccessProjectPanel -->
 	<str id="access-project.panel.title.label" txt="Access Project microservice" />
+	<str id="access-project.panel.title.label.properties" txt="Access Project microservice properties" />
 
-	<!-- CheckJdbcConnectionsPanel -->
+	<!-- CheckConnectionsPanel -->
 	<str id="check.jdbc.connections.panel.title" txt="Check the connections you configured" />
 	<str id="check.jdbc.connections.panel.detail"
 		txt="Perform this quick check to ensure you connections are properly configured. However you can finish the installation even if they are not." />
