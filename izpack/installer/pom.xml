@@ -58,7 +58,7 @@
 	<properties>
 		<staging.dir>${project.build.directory}/staging</staging.dir>
 		<temp.dir.filtering>target/config-to-filter</temp.dir.filtering>
-		<custom.components.version>2.0.0-RELEASE</custom.components.version>
+		<custom.components.version>3.0.0-RELEASE</custom.components.version>
 	</properties>
 
 	<build>
