@@ -27,7 +27,7 @@
 		<appsubpath>regards</appsubpath>
 		<javaversion>@{java.version}</javaversion>
 		<requiresjdk>no</requiresjdk>
-		<url>https://github.com/regards</url>
+		<url>https://regardsoss.github.io/</url>
 		<pack-compression-format>gz</pack-compression-format>
 		<authors>
 			<author name="CS" email="regards@c-s.fr" />

@@ -25,7 +25,7 @@
 	
 	<name>Installer</name>
 	<description>Required files describing an Izpack installer</description>
-	<url>https://github.com/RegardsOss/RegardsOss.github.io</url>
+	<url>https://regardsoss.github.io/</url>
 	<inceptionYear>2016</inceptionYear>
 	<licenses>
 		<license>
