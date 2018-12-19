@@ -21,7 +21,9 @@ package fr.cnes.regards.deployment.izpack.custom.button;
 import java.io.IOException;
 
 import org.apache.http.HttpHost;
+import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestClientBuilder;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,7 +62,7 @@ public class ElasticsearchConnectionTester extends ButtonAction {
 
     /**
      * Constructor
-     * 
+     *
      * @param installData {@link InstallData} used throughout the installation
      */
     public ElasticsearchConnectionTester(InstallData installData) {
@@ -72,19 +74,31 @@ public class ElasticsearchConnectionTester extends ButtonAction {
         String host = installData.getVariable(HOST_VARIABLE);
         String port = installData.getVariable(PORT_VARIABLE);
 
-        RestClient restClient = RestClient.builder(new HttpHost(host, Integer.parseInt(port))).build();
-        RestHighLevelClient client = new RestHighLevelClient(restClient);
+        RestClientBuilder builder = RestClient.builder(new HttpHost(host, Integer.parseInt(port)));
+        RestClient restClient = builder.build();
+        RestHighLevelClient client = new RestHighLevelClient(builder);
 
         boolean result = false;
         try {
             // Testing availability of ES
-            if (client.ping()) {
+            if (client.ping(RequestOptions.DEFAULT)) {
                 result = true;
             } else {
                 LOGGER.error("Elasticsearch is down. ");
             }
         } catch (IOException t) {
             LOGGER.error("Error while pinging Elasticsearch", t);
+        } finally {
+            try {
+                client.close();
+            } catch (IOException e) {
+                LOGGER.error(e.getMessage(), e);
+            }
+            try {
+                restClient.close();
+            } catch (IOException e) {
+                LOGGER.error(e.getMessage(), e);
+            }
         }
 
         return result;
