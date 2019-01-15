@@ -49,7 +49,7 @@ public abstract class AbstractJdbcConnectionTester extends ButtonAction {
     /**
      * The name of the URL datasource variable in the install data
      */
-    public String urlDatasourceVariable;
+    protected String urlDatasourceVariable;
 
     /**
      * The name of the username datasource variable in the install data

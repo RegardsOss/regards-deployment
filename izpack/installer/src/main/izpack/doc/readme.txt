@@ -7,7 +7,7 @@ Version                              : 2.0
 Owner                                : CNES
 Developer                            : CS SI
 Type                                 : Complete
-Project page                         : https://github.com/RegardsOss
+Project page                         : https://regardsoss.github.io/
 Classification                       : Not Confidential - Opensource GPL V3
 Characteristics                      : Microservice, NetflixOSS, Spring, Java, Javascript, React
 Role/Function                        : Data valorization product

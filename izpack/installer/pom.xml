@@ -25,7 +25,7 @@
 	
 	<name>Installer</name>
 	<description>Required files describing an Izpack installer</description>
-	<url>https://github.com/RegardsOss/RegardsOss.github.io</url>
+	<url>https://regardsoss.github.io/</url>
 	<inceptionYear>2016</inceptionYear>
 	<licenses>
 		<license>
@@ -116,7 +116,6 @@
 								bootstrap-administration-instance,
 								bootstrap-storage,
 	 							bootstrap-dataprovider,
-								acquisition-plugins-ssalto,
 								bootstrap-order,
 								bootstrap-ingest,
 								bootstrap-dam, 
@@ -348,23 +347,6 @@
 							<includes>BOOT-INF/classes/logback.xml</includes>
 						</configuration>
 					</execution>
-					<execution>
-						<id>unpack-plugin-ssalto</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>unpack</goal>
-						</goals>
-						<configuration>
-							<artifactItems>
-								<artifactItem>
-									<groupId>fr.cnes.regards.modules.acquisition</groupId>
-									<artifactId>acquisition-plugins-ssalto</artifactId>
-								</artifactItem>
-							</artifactItems>
-							<outputDirectory>${temp.dir.filtering}/dataprovider</outputDirectory>
-							<includes>BOOT-INF/classes/logback.xml</includes>
-						</configuration>
-					</execution>					
 					<execution>
 						<id>unpack-logback-order</id>
 						<phase>generate-sources</phase>
