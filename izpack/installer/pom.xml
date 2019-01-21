@@ -510,11 +510,6 @@
 			</groupId>
 			<artifactId>bootstrap-ingest</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>fr.cnes.regards.modules.acquisition</groupId>
-			<artifactId>acquisition-plugins-ssalto</artifactId>
-			<version>3.1.0-RC</version>
-		</dependency>
 	</dependencies>
 
 	<profiles>
