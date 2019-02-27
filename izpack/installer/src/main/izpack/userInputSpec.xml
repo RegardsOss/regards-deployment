@@ -100,7 +100,7 @@
 					<field type="text" variable="config.port">
 						<spec id="port.label" size="15" default="${config.port}" />
 						<validator
-							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
 							id="validator.port.error.label" />
 					</field>
 				</col>
@@ -155,7 +155,7 @@
 					<field type="text" variable="config.port">
 						<spec id="port.label" size="15" default="${config.port}" />
 						<validator
-							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
 							id="validator.port.error.label" />
 					</field>
 				</col>
@@ -183,7 +183,7 @@
 							default="${regards.config.cloud.registry.port}">
 						</spec>
 						<validator
-							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
 							id="validator.port.error.label" />
 					</field>
 				</col>
@@ -204,7 +204,7 @@
 					<field type="text" variable="gateway.port">
 						<spec id="port.label" size="15" default="${gateway.port}" />
 						<validator
-							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
 							id="validator.port.error.label" />
 					</field>
 				</col>
@@ -224,7 +224,7 @@
 			<spec id="port.label" size="15"
 				default="${regards.config.spring.rabbitmq.port}" />
 			<validator
-				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+				class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
 				id="validator.port.error.label" />
 		</field>
 		<field type="text" variable="regards.config.spring.rabbitmq.username">
@@ -254,7 +254,7 @@
 			<spec id="port.label" size="15"
 				default="${regards.config.regards.amqp.management.port}" />
 			<validator
-				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+				class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
 				id="validator.port.error.label" />
 		</field>
 	</panel>
@@ -452,7 +452,7 @@
 					<field type="text" variable="authentication.port">
 						<spec id="port.label" size="15" default="${authentication.port}" />
 						<validator
-							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
 							id="validator.port.error.label" />
 					</field>
 				</col>
@@ -501,7 +501,7 @@
 					<field type="text" variable="storage.port">
 						<spec id="port.label" size="15" default="${storage.port}" />
 						<validator
-							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
 							id="validator.port.error.label" />
 					</field>
 				</col>
@@ -591,7 +591,7 @@
 					<field type="text" variable="dam.port">
 						<spec id="port.label" size="15" default="${dam.port}" />
 						<validator
-							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
 							id="validator.port.error.label" />
 					</field>
 				</col>
@@ -638,7 +638,7 @@
 			<spec id="port.label" size="15"
 				default="${regards.config.elasticsearch.http.port}" />
 			<validator
-				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+				class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
 				id="validator.port.error.label" />
 		</field>
 
@@ -669,7 +669,7 @@
 					<field type="text" variable="catalog.port">
 						<spec id="port.label" size="15" default="${catalog.port}" />
 						<validator
-							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
 							id="validator.port.error.label" />
 					</field>
 				</col>
@@ -718,7 +718,7 @@
 					<field type="text" variable="order.port">
 						<spec id="port.label" size="15" default="${order.port}" />
 						<validator
-							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
 							id="validator.port.error.label" />
 					</field>
 				</col>
@@ -851,7 +851,7 @@
 					<field type="text" variable="ingest.port">
 						<spec id="port.label" size="15" default="${ingest.port}" />
 						<validator
-							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
 							id="validator.port.error.label" />
 					</field>
 				</col>
@@ -940,7 +940,7 @@
 					<field type="text" variable="dataprovider.port">
 						<spec id="port.label" size="15" default="${dataprovider.port}" />
 						<validator
-							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
 							id="validator.port.error.label" />
 					</field>
 				</col>
@@ -1061,7 +1061,7 @@
 					<field type="text" variable="access-instance.port">
 						<spec id="port.label" size="15" default="${access-instance.port}" />
 						<validator
-							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
 							id="validator.port.error.label" />
 					</field>
 				</col>
@@ -1110,7 +1110,7 @@
 					<field type="text" variable="access-project.port">
 						<spec id="port.label" size="15" default="${access-project.port}" />
 						<validator
-							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
 							id="validator.port.error.label" />
 					</field>
 				</col>
@@ -1160,7 +1160,7 @@
 						<spec id="port.label" size="15" default="${frontend.port}">
 						</spec>
 						<validator
-							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
 							id="validator.port.error.label" />
 					</field>
 				</col>
