@@ -144,7 +144,7 @@ function read_config
     printf >&2  "ERROR : Property line definition \"${search_line}\" is malformed.\n"
     exit 1
   fi
-  if [ $(expr "${search_value}" : '${.*}') ]
+  if [ $(expr "${search_value}" : '${.*}') -ne 0 ]
   then
     search_value=''
   fi
