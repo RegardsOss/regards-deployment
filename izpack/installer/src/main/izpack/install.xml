@@ -84,9 +84,9 @@
 	<jar src="lib/netty-all-4.1.16.Final.jar" />
 	<jar src="lib/t-digest-3.0.jar" />
 
-	<jar src="lib/elasticsearch-5.6.4.jar" />
-	<jar src="lib/elasticsearch-rest-client-5.6.4.jar" />
-	<jar src="lib/elasticsearch-rest-high-level-client-5.6.4.jar" />
+	<jar src="lib/elasticsearch-6.5.0.jar" />
+	<jar src="lib/elasticsearch-rest-client-6.5.0.jar" />
+	<jar src="lib/elasticsearch-rest-high-level-client-6.5.0.jar" />
 
 	<jar src="lib/httpcore-4.4.6.jar" />
 	<jar src="lib/commons-logging-1.2.jar" />
@@ -291,17 +291,19 @@
 		<variable name="regards.acquisition.process.run.chains.delay.default.value"
 			value="300000" />
 
-		<variable name="regards.acquisition.cycle.orf.conf.path.default.value"
-			value="/opt/regards/config/regards/dataprovider" />
-		<variable
-			name="regards.acquisition.plugins.translations.path.default.value"
-			value="plugins/translations" />
-		<variable name="regards.acquisition.plugins.conf.path.default.value"
-			value="plugins/confs" />
-		<variable name="regards.acquisition.plugins.cycles.path.default.value"
-			value="/data/cycles" />
-		<variable name="regards.acquisition.chains.cycles.path.default.value"
-			value="/data/chains/cycles" />
+		<!-- FIXME: Values were used when ssalto plugins were isntalled with izpack, now that they are not,
+		 they are just commented to add them back more easly when plugins will be installable with izpack -->
+		<!--<variable name="regards.acquisition.cycle.orf.conf.path.default.value"-->
+			<!--value="$INSTALL_PATH/config/regards/dataprovider" />-->
+		<!--<variable-->
+			<!--name="regards.acquisition.plugins.translations.path.default.value"-->
+			<!--value="plugins/translations" />-->
+		<!--<variable name="regards.acquisition.plugins.conf.path.default.value"-->
+			<!--value="plugins/confs" />-->
+		<!--<variable name="regards.acquisition.plugins.cycles.path.default.value"-->
+			<!--value="/data/cycles" />-->
+		<!--<variable name="regards.acquisition.chains.cycles.path.default.value"-->
+			<!--value="/data/chains/cycles" />-->
 
 		<!-- Storage -->
 		<variable name="storage.count" value="0" />
