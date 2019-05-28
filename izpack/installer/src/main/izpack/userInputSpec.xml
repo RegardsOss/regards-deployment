@@ -130,6 +130,9 @@
 				class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
 				id="validator.port.error.label" />
 		</field>
+		<field type="text" variable="regards.config.http.proxy.noproxy">
+			<spec id="noproxy.label" size="15" />
+		</field>
 
 		<field type="staticText" id="cipher.config.header" />
 
