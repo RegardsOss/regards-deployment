@@ -24,6 +24,7 @@
 	<!-- Common -->
 	<str id="host.label" txt="Host" />
 	<str id="port.label" txt="Port" />
+	<str id="noproxy.label" txt="Adresses qui doivent être contactées sans utiliser le proxy" />
 	<str id="xmx.label" txt="Max heap size" />
 	<str id="url.label" txt="Url" />
 	<str id="username.label" txt="Utilisateur" />
