@@ -62,7 +62,7 @@
 
 	<jar src="lib/hppc-0.7.1.jar" />
 	<jar src="lib/httpclient-4.5.3.jar" />
-	<jar src="lib/log4j-api-2.9.1.jar" />
+	<jar src="lib/log4j-api-2.11.1.jar" />
 	<jar src="lib/jackson-core-2.8.1.jar" />
 	<jar src="lib/joda-time-2.7.jar" />
 	<jar src="lib/lucene-analyzers-common-6.6.1.jar" />
@@ -84,7 +84,11 @@
 	<jar src="lib/netty-all-4.1.16.Final.jar" />
 	<jar src="lib/t-digest-3.0.jar" />
 
+	<jar src="lib/lang-mustache-client-6.5.0.jar" />
+	<jar src="lib/rank-eval-client-6.5.0.jar" />
 	<jar src="lib/elasticsearch-6.5.0.jar" />
+	<jar src="lib/elasticsearch-core-6.5.0.jar" />
+	<jar src="lib/elasticsearch-x-content-6.5.0.jar" />
 	<jar src="lib/elasticsearch-rest-client-6.5.0.jar" />
 	<jar src="lib/elasticsearch-rest-high-level-client-6.5.0.jar" />
 
@@ -98,7 +102,7 @@
 	<jar src="lib/slf4j-api-1.7.21.jar" />
 	<jar src="lib/logback-classic-1.1.7.jar" />
 	<jar src="lib/logback-core-1.1.7.jar" />
-	<jar src="lib/log4j-core-2.6.2.jar" />
+	<jar src="lib/log4j-core-2.11.1.jar" />
 
 	<resources>
 		<res id="Splash.image" src="images/splash.jpg" />
