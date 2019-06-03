@@ -2,8 +2,8 @@
 ______________
 
 Identification                       : Regards
-Date                                 : 2017-10-24
-Version                              : 1.1
+Date                                 : 2019-06-17
+Version                              : 0.4.0
 Owner                                : CNES
 Developer                            : CS SI
 Type                                 : Complete
@@ -11,12 +11,36 @@ Project page                         : https://regardsoss.github.io/
 Classification                       : Not Confidential - Opensource GPL V3
 Characteristics                      : Microservice, NetflixOSS, Spring, Java, Javascript, React
 Role/Function                        : Data valorization product
-Reference tag                        : (1.1)
+Reference tag                        : (0.4.0)
 
 2/ Changes
 ______________
 
-- 1.1 (2017-10-24) : Initial version of Regards
+- 0.4.0 (2019-06-17) :
+        - New features :
+              1 : COTS upgrade : OpenJDK 8, Spring Boot 2.1, ElasticSearch 6+, etc.
+              2 : Full text search
+              3 : Access right definition at the group level with gliding criterion
+              4 : Data flow
+              5 : Scalability improvements
+              6 : Geospatial search & vizualisation with Mizar
+              7 : New datasource plugin to crawl datas from external web services (opensearch / geojson features)
+
+- 0.3.0 (2018-11-07) :
+        - New features :
+              1 : OpenSearch implementation with Geo, Time and Parameter extensions for interoperability
+              2 : Geospatial data feature (point, line string, polygon, multi polygon) on Earth, Mars and Celestial vault (aka Astro)
+              3 : Geospatial search with convex polygon, circle and bounding box on Earth, Mars and Astro including poles
+              4 : RegardsDownloader
+ 
+- 0.2.0 (2018-07-01) : 
+        - New features :
+               1 : REGARDS framework
+               2 : Partial implementation of the OAIS recommandation with administration, data management and access microservices
+               3 : Backend and frontend plugins
+               4 : Granular access rights on API endpoints and data ingested
+
+- 0.1.1 (2017-10-24) : Initial version of Regards
 
 	- Bugs fixed : 
 		1  : Inscription d'un nouvel utilisateur via l'IhmUser : il ne reçoit pas le mail
@@ -98,7 +122,7 @@ Name                    |  Version        |   Provider                          
 Java Development Kit    |  1.8            |   Oracle                                            |
 Maven                   |  3.3+           |   Apache Software Foundation                        |
 Groovy                  |  2.4+           |   Apache Software Foundation                        |
-Node.js                 |  6.11.0 LTS     |   Linux Foundation                                  |
+Node.js                 |  8.10           |   Linux Foundation                                  |
 .................................................................................................
 
 Apache Software are distributed under Apache License version 2.0.
@@ -109,8 +133,8 @@ Prerequisite tools :
 .................................................................................................
 Name                    |  Version        |   Provider                                          |
 .................................................................................................
-Elasticsearch           |  5.1.1          |   Elastic                                           |
-PostgreSQL              |  9.4+           |   PostgreSQL                                        |
+Elasticsearch           |  6.5            |   Elastic                                           |
+PostgreSQL              |  9.6+           |   PostgreSQL                                        |
 RabbitMQ                |  3.6.5          |   Pivotal                                           |
 .................................................................................................
 
@@ -180,6 +204,9 @@ In a standard installation, with all the microservices and a standard security l
 {install_dir}/REGARDS/bin/start_microservice.sh -t access-instance    && \
 {install_dir}/REGARDS/bin/start_microservice.sh -t access-project     && \
 {install_dir}/REGARDS/bin/start_microservice.sh -t authentication     && \
+{install_dir}/REGARDS/bin/start_microservice.sh -t ingest             && \
+{install_dir}/REGARDS/bin/start_microservice.sh -t dataprovider       && \
+{install_dir}/REGARDS/bin/start_microservice.sh -t order              && \
 {install_dir}/REGARDS/bin/start_microservice.sh -t frontend
 
 The following command allows to get the status of a microservice :
