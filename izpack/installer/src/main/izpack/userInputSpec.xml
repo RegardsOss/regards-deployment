@@ -194,6 +194,30 @@
 		</field>
 	</panel>
 
+	<panel id="LinkToExistingRegistryPanel">
+		<field id="linktoexistingregistry.panel.title.label" type="title" />
+		<field type="custom" minRow="1" maxRow="1" variable="registry.count">
+			<spec>
+				<col>
+					<field type="text" variable="regards.config.cloud.registry.host">
+						<spec id="host.label" size="15"
+							  default="${regards.config.cloud.registry.host}" />
+					</field>
+				</col>
+				<col>
+					<field type="text" variable="regards.config.cloud.registry.port">
+						<spec id="port.label" size="15"
+							  default="${regards.config.cloud.registry.port}">
+						</spec>
+						<validator
+								class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+								id="validator.port.error.label" />
+					</field>
+				</col>
+			</spec>
+		</field>
+	</panel>
+
 	<panel id="GatewayPanel">
 		<field id="gateway.panel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="1" variable="gateway.count">
@@ -282,6 +306,27 @@
 			</spec>
 		</field>
 	</panel>
+
+	<panel id="LinkToExistingAdminInstancePanel">
+		<field id="linktoexistingadmin.panel.title.label.instance" type="title" />
+		<field type="custom" minRow="1" maxRow="50" variable="admin-instance.count">
+			<spec>
+				<col>
+					<field type="text" variable="admin-instance.host">
+						<spec id="host.label" size="15" default="${admin-instance.host}" />
+					</field>
+				</col>
+				<col>
+					<field type="text" variable="admin-instance.port">
+						<spec id="port.label" size="15" default="${admin-instance.port}" />
+						<validator
+								class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+								id="validator.port.error.label" />
+					</field>
+				</col>
+			</spec>
+		</field>
+	</panel>
  
 	<panel id="AdminInstancePropertiesPanel">
 		<field id="admin.panel.title.label.instance.properties" type="title" />
@@ -333,8 +378,8 @@
 		</field>
 	</panel>
 
-	<panel id="AdminPanel">
-		<field id="admin.panel.title.label" type="title" />
+	<panel id="LinkToExistingAdminPanel">
+		<field id="linktoexistingadmin.panel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="50" variable="admin.count">
 			<spec>
 				<col>
@@ -353,7 +398,28 @@
 			</spec>
 		</field>
 	</panel>
-	
+
+	<panel id="AdminPanel">
+		<field id="admin.panel.title.label" type="title" />
+		<field type="custom" minRow="1" maxRow="50" variable="admin.count">
+			<spec>
+				<col>
+					<field type="text" variable="admin.host">
+						<spec id="host.label" size="15" default="${admin.host}" />
+					</field>
+				</col>
+				<col>
+					<field type="text" variable="admin.port">
+						<spec id="port.label" size="15" default="${admin.port}" />
+						<validator
+								class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+								id="validator.port.error.label" />
+					</field>
+				</col>
+			</spec>
+		</field>
+	</panel>
+
 	<panel id="AdminPropertiesPanel">
 		<field id="admin.panel.title.label.properties" type="title" />
 
@@ -578,6 +644,27 @@
 			<!--<validator -->
 			<!--class="fr.cnes.regards.deployment.izpack.custom.validator.FolderValidator" -->
 			<!--id="validator.folder.error.not.exists" /> -->
+		</field>
+	</panel>
+
+	<panel id="LinkToExistingDamPanel">
+		<field id="linktoexistingdam.panel.title.label" type="title" />
+		<field type="custom" minRow="1" maxRow="50" variable="dam.count">
+			<spec>
+				<col>
+					<field type="text" variable="dam.host">
+						<spec id="host.label" size="15" default="${dam.host}" />
+					</field>
+				</col>
+				<col>
+					<field type="text" variable="dam.port">
+						<spec id="port.label" size="15" default="${dam.port}" />
+						<validator
+								class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+								id="validator.port.error.label" />
+					</field>
+				</col>
+			</spec>
 		</field>
 	</panel>
 
@@ -1024,10 +1111,6 @@
 			<spec id="dataprovider.panel.run.chains.delay" size="8"
 				default="${regards.acquisition.process.run.chains.delay.default.value}" />
 		</field>
-
-		<field type="space" />
-		<field type="staticText" id="dataprovider.panel.folder" bold="true" />
-		<field type="space" />
 	</panel>
 
 	<panel id="AccessInstancePanel">

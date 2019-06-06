@@ -18,1278 +18,1295 @@
  along with REGARDS. If not, see <http://www.gnu.org/licenses/>.
 -->
 <izpack:installation version="5.0"
-	xmlns:izpack="http://izpack.org/schema/installation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://izpack.org/schema/installation http://izpack.org/schema/installation/izpack-installation-5.0.xsd">
+                     xmlns:izpack="http://izpack.org/schema/installation"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     xsi:schemaLocation="http://izpack.org/schema/installation http://izpack.org/schema/installation/izpack-installation-5.0.xsd">
 
-	<info>
-		<appname>REGARDS</appname>
-		<appversion>@{regards.izpack.installer.version}</appversion>
-		<appsubpath>regards</appsubpath>
-		<javaversion>@{java.version}</javaversion>
-		<requiresjdk>no</requiresjdk>
-		<url>https://regardsoss.github.io/</url>
-		<pack-compression-format>gz</pack-compression-format>
-		<authors>
-			<author name="CS" email="regards@c-s.fr" />
-		</authors>
-	</info>
+    <info>
+        <appname>REGARDS</appname>
+        <appversion>@{regards.izpack.installer.version}</appversion>
+        <appsubpath>regards</appsubpath>
+        <javaversion>@{java.version}</javaversion>
+        <requiresjdk>no</requiresjdk>
+        <url>https://regardsoss.github.io/</url>
+        <pack-compression-format>gz</pack-compression-format>
+        <authors>
+            <author name="CS" email="regards@c-s.fr"/>
+        </authors>
+    </info>
 
-	<locale>
-		<langpack iso3="eng" />
-		<langpack iso3="fra" />
-	</locale>
+    <locale>
+        <langpack iso3="eng"/>
+        <langpack iso3="fra"/>
+    </locale>
 
-	<logging>
-		<log-file pattern="regards_install.log" append="false" level="ALL" />
-	</logging>
+    <logging>
+        <log-file pattern="regards_install.log" append="false" level="ALL"/>
+    </logging>
 
-	<guiprefs width="800" height="800" resizable="no">
-		<modifier key="useSplashScreen" value="3000" />
-		<modifier key="useHeadingPanel" value="yes" />
-		<modifier key="headingBackgroundColor" value="0x00193b50" />
-		<modifier key="headingPanelCounter" value="progressbar" />
-		<modifier key="headingPanelCounterPos" value="inNavigationPanel" />
-		<modifier key="headingImageOnLeft" value="yes" />
-		<modifier key="headingImageBorderSize" value="0" />
-		<modifier key="showDebugWindow" value="true" />
-	</guiprefs>
+    <guiprefs width="800" height="800" resizable="no">
+        <modifier key="useSplashScreen" value="3000"/>
+        <modifier key="useHeadingPanel" value="yes"/>
+        <modifier key="headingBackgroundColor" value="0x00193b50"/>
+        <modifier key="headingPanelCounter" value="progressbar"/>
+        <modifier key="headingPanelCounterPos" value="inNavigationPanel"/>
+        <modifier key="headingImageOnLeft" value="yes"/>
+        <modifier key="headingImageBorderSize" value="0"/>
+        <modifier key="showDebugWindow" value="true"/>
+    </guiprefs>
 
-	<!-- Regards custom panels, buttons, validator ... -->
-	<jar src="custom/custom-components.jar" />
+    <!-- Regards custom panels, buttons, validator ... -->
+    <jar src="custom/custom-components.jar"/>
 
-	<!-- JDBC database drivers -->
-	<jar src="lib/postgresql-42.1.1.jre7.jar" />
+    <!-- JDBC database drivers -->
+    <jar src="lib/postgresql-42.1.1.jre7.jar"/>
 
-	<jar src="lib/hppc-0.7.1.jar" />
-	<jar src="lib/httpclient-4.5.3.jar" />
-	<jar src="lib/log4j-api-2.11.1.jar" />
-	<jar src="lib/jackson-core-2.8.1.jar" />
-	<jar src="lib/joda-time-2.7.jar" />
-	<jar src="lib/lucene-analyzers-common-6.6.1.jar" />
-	<jar src="lib/lucene-backward-codecs-6.6.1.jar" />
-	<jar src="lib/lucene-core-6.6.1.jar" />
-	<jar src="lib/lucene-grouping-6.6.1.jar" />
-	<jar src="lib/lucene-highlighter-6.6.1.jar" />
-	<jar src="lib/lucene-join-6.6.1.jar" />
-	<jar src="lib/lucene-memory-6.6.1.jar" />
-	<jar src="lib/lucene-misc-6.6.1.jar" />
-	<jar src="lib/lucene-queries-6.6.1.jar" />
-	<jar src="lib/lucene-queryparser-6.6.1.jar" />
-	<jar src="lib/lucene-suggest-6.6.1.jar" />
-	<jar src="lib/lucene-sandbox-6.6.1.jar" />
-	<jar src="lib/lucene-spatial-6.6.1.jar" />
-	<jar src="lib/lucene-spatial-extras-6.6.1.jar" />
-	<jar src="lib/lucene-spatial3d-6.6.1.jar" />
-	<jar src="lib/netty-3.10.6.Final.jar" />
-	<jar src="lib/netty-all-4.1.16.Final.jar" />
-	<jar src="lib/t-digest-3.0.jar" />
+    <jar src="lib/hppc-0.7.1.jar"/>
+    <jar src="lib/httpclient-4.5.3.jar"/>
+    <jar src="lib/log4j-api-2.11.1.jar"/>
+    <jar src="lib/jackson-core-2.8.1.jar"/>
+    <jar src="lib/joda-time-2.7.jar"/>
+    <jar src="lib/lucene-analyzers-common-6.6.1.jar"/>
+    <jar src="lib/lucene-backward-codecs-6.6.1.jar"/>
+    <jar src="lib/lucene-core-6.6.1.jar"/>
+    <jar src="lib/lucene-grouping-6.6.1.jar"/>
+    <jar src="lib/lucene-highlighter-6.6.1.jar"/>
+    <jar src="lib/lucene-join-6.6.1.jar"/>
+    <jar src="lib/lucene-memory-6.6.1.jar"/>
+    <jar src="lib/lucene-misc-6.6.1.jar"/>
+    <jar src="lib/lucene-queries-6.6.1.jar"/>
+    <jar src="lib/lucene-queryparser-6.6.1.jar"/>
+    <jar src="lib/lucene-suggest-6.6.1.jar"/>
+    <jar src="lib/lucene-sandbox-6.6.1.jar"/>
+    <jar src="lib/lucene-spatial-6.6.1.jar"/>
+    <jar src="lib/lucene-spatial-extras-6.6.1.jar"/>
+    <jar src="lib/lucene-spatial3d-6.6.1.jar"/>
+    <jar src="lib/netty-3.10.6.Final.jar"/>
+    <jar src="lib/netty-all-4.1.16.Final.jar"/>
+    <jar src="lib/t-digest-3.0.jar"/>
 
-	<jar src="lib/lang-mustache-client-6.5.0.jar" />
-	<jar src="lib/rank-eval-client-6.5.0.jar" />
-	<jar src="lib/elasticsearch-6.5.0.jar" />
-	<jar src="lib/elasticsearch-core-6.5.0.jar" />
-	<jar src="lib/elasticsearch-x-content-6.5.0.jar" />
-	<jar src="lib/elasticsearch-rest-client-6.5.0.jar" />
-	<jar src="lib/elasticsearch-rest-high-level-client-6.5.0.jar" />
+    <jar src="lib/lang-mustache-client-6.5.0.jar"/>
+    <jar src="lib/rank-eval-client-6.5.0.jar"/>
+    <jar src="lib/elasticsearch-6.5.0.jar"/>
+    <jar src="lib/elasticsearch-core-6.5.0.jar"/>
+    <jar src="lib/elasticsearch-x-content-6.5.0.jar"/>
+    <jar src="lib/elasticsearch-rest-client-6.5.0.jar"/>
+    <jar src="lib/elasticsearch-rest-high-level-client-6.5.0.jar"/>
 
-	<jar src="lib/httpcore-4.4.6.jar" />
-	<jar src="lib/commons-logging-1.2.jar" />
-	<jar src="lib/httpasyncclient-4.1.3.jar" />
-	<jar src="lib/httpcore-nio-4.4.9.jar" />
+    <jar src="lib/httpcore-4.4.6.jar"/>
+    <jar src="lib/commons-logging-1.2.jar"/>
+    <jar src="lib/httpasyncclient-4.1.3.jar"/>
+    <jar src="lib/httpcore-nio-4.4.9.jar"/>
 
-	<jar src="lib/amqp-client-3.6.3.jar" />
+    <jar src="lib/amqp-client-3.6.3.jar"/>
 
-	<jar src="lib/slf4j-api-1.7.21.jar" />
-	<jar src="lib/logback-classic-1.1.7.jar" />
-	<jar src="lib/logback-core-1.1.7.jar" />
-	<jar src="lib/log4j-core-2.11.1.jar" />
+    <jar src="lib/slf4j-api-1.7.21.jar"/>
+    <jar src="lib/logback-classic-1.1.7.jar"/>
+    <jar src="lib/logback-core-1.1.7.jar"/>
+    <jar src="lib/log4j-core-2.11.1.jar"/>
 
-	<resources>
-		<res id="Splash.image" src="images/splash.jpg" />
-		<res id="Heading.image" src="images/heading.png" />
-		<res id="InfoPanel.info" src="doc/readme.txt" parse="yes" />
-		<res id="LicencePanel.licence" src="legal/License.txt" />
-		<res id="userInputSpec.xml" src="userInputSpec.xml" parse="yes"
-			type="xml" />
-		<res id="ProcessPanel.Spec.xml" src="ProcessPanel.Spec.xml" parse="yes"
-			type="xml" />
-		<res id="CustomLangPack.xml" src="langpacks/CustomLangPack.xml" />
-		<res id="CustomLangPack.xml_fra" src="langpacks/CustomLangPack.xml_fra" />
-		<res id="userInputLang.xml" src="langpacks/userInputLang.xml_eng" />
-		<res id="userInputLang.xml_fra" src="langpacks/userInputLang.xml_fra" />
-	</resources>
+    <resources>
+        <res id="Splash.image" src="images/splash.jpg"/>
+        <res id="Heading.image" src="images/heading.png"/>
+        <res id="InfoPanel.info" src="doc/readme.txt" parse="yes"/>
+        <res id="LicencePanel.licence" src="legal/License.txt"/>
+        <res id="userInputSpec.xml" src="userInputSpec.xml" parse="yes"
+             type="xml"/>
+        <res id="ProcessPanel.Spec.xml" src="ProcessPanel.Spec.xml" parse="yes"
+             type="xml"/>
+        <res id="CustomLangPack.xml" src="langpacks/CustomLangPack.xml"/>
+        <res id="CustomLangPack.xml_fra" src="langpacks/CustomLangPack.xml_fra"/>
+        <res id="userInputLang.xml" src="langpacks/userInputLang.xml_eng"/>
+        <res id="userInputLang.xml_fra" src="langpacks/userInputLang.xml_fra"/>
+    </resources>
 
-	<variables>
-		<!-- Security -->
-		<variable name="regards.config.regards.microservices.exec.user"
-			value="regards" />
-		<variable name="regards.config.regards.microservices.regards.group"
-			value="regards" />
-		<variable name="regards.config.regards.microservices.exec.group"
-			value="rsexec" />
-		<variable name="regards.config.regards.microservices.admin.group"
-			value="rsadmin" />
-		<variable name="regards.config.regards.microservices.runtime.group"
-			value="rsrun" />
+    <variables>
+        <!-- Security -->
+        <variable name="regards.config.regards.microservices.exec.user"
+                  value="regards"/>
+        <variable name="regards.config.regards.microservices.regards.group"
+                  value="regards"/>
+        <variable name="regards.config.regards.microservices.exec.group"
+                  value="rsexec"/>
+        <variable name="regards.config.regards.microservices.admin.group"
+                  value="rsadmin"/>
+        <variable name="regards.config.regards.microservices.runtime.group"
+                  value="rsrun"/>
 
-		<!-- Common -->
-		<variable name="regards.config.first.project.default.value" value="project1" />
-		<variable name="regards.config.first.project.public.access" value="https://$IP_ADDRESS/project1" />
-		<variable name="regards.config.workspace.directory.default.value" value="$INSTALL_PATH/workspace" />
-		<variable name="regards.jobs.succeeded.retention.days.default.value" value="1" />
-		<variable name="regards.jobs.failed.retention.days.default.value" value="30" />
-		<variable name="regards.config.cipher.key.location" value="" />
-		<variable name="regards.config.cipher.iv" value="" />
+        <!-- Common -->
+        <variable name="regards.config.first.project.default.value" value="project1"/>
+        <variable name="regards.config.first.project.public.access" value="https://$IP_ADDRESS/project1"/>
+        <variable name="regards.config.workspace.directory.default.value" value="$INSTALL_PATH/workspace"/>
+        <variable name="regards.jobs.succeeded.retention.days.default.value" value="1"/>
+        <variable name="regards.jobs.failed.retention.days.default.value" value="30"/>
+        <variable name="regards.config.cipher.key.location" value=""/>
+        <variable name="regards.config.cipher.iv" value=""/>
 
-		<!-- Config -->
-		<variable name="config.count" value="0" /> <!-- TODO: Don't think we can have multiple -->
-		<variable name="config.host" value="0.0.0.0" />
-		<variable name="config.port" value="9031" />
-		<variable name="config.xmx" value="128m" />
+        <!-- Config -->
+        <variable name="config.count" value="0"/> <!-- TODO: Don't think we can have multiple -->
+        <variable name="config.host" value="0.0.0.0"/>
+        <variable name="config.port" value="9031"/>
+        <variable name="config.xmx" value="128m"/>
 
-		<!-- Registry -->
-		<variable name="registry.count" value="0" />
-		<variable name="regards.config.cloud.registry.host" value="0.0.0.0" />
-		<variable name="regards.config.cloud.registry.port" value="9032" />
-		<variable name="regards.config.cloud.registry.xmx" value="128m" />
+        <!-- Registry -->
+        <variable name="registry.count" value="0"/>
+        <variable name="regards.config.cloud.registry.host" value="0.0.0.0"/>
+        <variable name="regards.config.cloud.registry.port" value="9032"/>
+        <variable name="regards.config.cloud.registry.xmx" value="128m"/>
 
-		<!-- Gateway -->
-		<variable name="gateway.count" value="0" />
-		<variable name="gateway.host" value="0.0.0.0" />
-		<variable name="gateway.port" value="9030" />
-		<variable name="gateway.xmx" value="128m" />
+        <!-- Gateway -->
+        <variable name="gateway.count" value="0"/>
+        <variable name="gateway.host" value="0.0.0.0"/>
+        <variable name="gateway.port" value="9030"/>
+        <variable name="gateway.xmx" value="128m"/>
 
-		<!-- Message broker -->
-		<variable name="regards.config.spring.rabbitmq.host" value="localhost" />
-		<variable name="regards.config.spring.rabbitmq.port" value="5672" />
-		<variable name="regards.config.spring.rabbitmq.username"
-			value="" />
-		<variable name="regards.config.spring.rabbitmq.password"
-			value="" />
-		<variable name="regards.config.regards.amqp.management.host"
-			value="localhost" />
-		<variable name="regards.config.regards.amqp.management.port"
-			value="15672" />
+        <!-- Message broker -->
+        <variable name="regards.config.spring.rabbitmq.host" value="localhost"/>
+        <variable name="regards.config.spring.rabbitmq.port" value="5672"/>
+        <variable name="regards.config.spring.rabbitmq.username"
+                  value=""/>
+        <variable name="regards.config.spring.rabbitmq.password"
+                  value=""/>
+        <variable name="regards.config.regards.amqp.management.host"
+                  value="localhost"/>
+        <variable name="regards.config.regards.amqp.management.port"
+                  value="15672"/>
 
-		<!-- SMTP -->
-		<variable name="spring.mail.host" value="smtp.gmail.com" />
-		<variable name="spring.mail.port" value="465" />
-		<variable name="spring.mail.username" value="" />
-		<variable name="spring.mail.password" value="" />
-		<variable name="spring.mail.sender.no.reply" value="regards@noreply.fr" />
+        <!-- SMTP -->
+        <variable name="spring.mail.host" value="smtp.gmail.com"/>
+        <variable name="spring.mail.port" value="465"/>
+        <variable name="spring.mail.username" value=""/>
+        <variable name="spring.mail.password" value=""/>
+        <variable name="spring.mail.sender.no.reply" value="regards@noreply.fr"/>
 
-		<!-- Admin Instance -->
-		<variable name="admin-instance.count" value="0" />
-		<variable name="admin-instance.host" value="0.0.0.0" />
-		<variable name="admin-instance.port" value="9037" />
-		<variable name="admin-instance.xmx" value="256m" />
-		<variable name="regards.config.admin.regards.accounts.root.user.login"
-			value="" />
-		<variable name="regards.config.admin.regards.accounts.root.user.password"
-			value="" />
-		<variable name="regards.config.admin.regards.jpa.instance.datasource.url"
-			value="localhost:5432/rs_instance" />
-		<variable
-			name="regards.config.admin.regards.jpa.instance.datasource.user.name"
-			value="" />
-		<variable
-			name="regards.config.admin.regards.jpa.instance.datasource.password"
-			value="" />
+        <!-- Admin Instance -->
+        <variable name="admin-instance.count" value="0"/>
+        <variable name="admin-instance.host" value="0.0.0.0"/>
+        <variable name="admin-instance.port" value="9037"/>
+        <variable name="admin-instance.xmx" value="256m"/>
+        <variable name="regards.config.admin.regards.accounts.root.user.login"
+                  value=""/>
+        <variable name="regards.config.admin.regards.accounts.root.user.password"
+                  value=""/>
+        <variable name="regards.config.admin.regards.jpa.instance.datasource.url"
+                  value="localhost:5432/rs_instance"/>
+        <variable
+                name="regards.config.admin.regards.jpa.instance.datasource.user.name"
+                value=""/>
+        <variable
+                name="regards.config.admin.regards.jpa.instance.datasource.password"
+                value=""/>
 
-		<!-- Admin Project -->
-		<variable name="admin.count" value="0" />
-		<variable name="admin.host" value="0.0.0.0" />
-		<variable name="admin.port" value="9033" />
-		<variable name="admin.xmx" value="256m" />
-		<variable name="regards.config.admin.regards.jpa.multitenant.tenants.url.1"
-			value="localhost:5432/rs_project1" />
-		<variable
-			name="regards.config.admin.regards.jpa.multitenant.tenants.user.name.1"
-			value="" />
-		<variable
-			name="regards.config.admin.regards.jpa.multitenant.tenants.password.1"
-			value="" />
+        <!-- Admin Project -->
+        <variable name="admin.count" value="0"/>
+        <variable name="admin.host" value="0.0.0.0"/>
+        <variable name="admin.port" value="9033"/>
+        <variable name="admin.xmx" value="256m"/>
+        <variable name="regards.config.admin.regards.jpa.multitenant.tenants.url.1"
+                  value="localhost:5432/rs_project1"/>
+        <variable
+                name="regards.config.admin.regards.jpa.multitenant.tenants.user.name.1"
+                value=""/>
+        <variable
+                name="regards.config.admin.regards.jpa.multitenant.tenants.password.1"
+                value=""/>
 
-		<!-- AccountPanel -->
-		<variable name="regards.accounts.validity.duration" value="30" />
-		<variable name="regards.config.admin.accounts.password.regex"
-			value="[a-z0-9]*" />
-		<variable name="regards.config.admin.accounts.password.rules"
-			value="Password must contain letters or numbers" />
-		<variable name="regards.config.admin.accounts.password.validity.duration"
-			value="350" />
-		<variable name="regards.config.admin.accounts.failed.authentication.max"
-			value="5" />
+        <!-- AccountPanel -->
+        <variable name="regards.accounts.validity.duration" value="30"/>
+        <variable name="regards.config.admin.accounts.password.regex"
+                  value="[a-z0-9]*"/>
+        <variable name="regards.config.admin.accounts.password.rules"
+                  value="Password must contain letters or numbers"/>
+        <variable name="regards.config.admin.accounts.password.validity.duration"
+                  value="350"/>
+        <variable name="regards.config.admin.accounts.failed.authentication.max"
+                  value="5"/>
 
-		<!-- Authentication -->
-		<variable name="authentication.count" value="0" />
-		<variable name="authentication.host" value="0.0.0.0" />
-		<variable name="authentication.port" value="9034" />
-		<variable name="authentication.xmx" value="128m" />
-		<variable
-			name="regards.config.gateway.regards.jpa.multitenant.tenants.url.1"
-			value="localhost:5432/rs_project1" />
-		<variable
-			name="regards.config.gateway.regards.jpa.multitenant.tenants.user.name.1"
-			value="" />
-		<variable
-			name="regards.config.gateway.regards.jpa.multitenant.tenants.password.1"
-			value="" />
+        <!-- Authentication -->
+        <variable name="authentication.count" value="0"/>
+        <variable name="authentication.host" value="0.0.0.0"/>
+        <variable name="authentication.port" value="9034"/>
+        <variable name="authentication.xmx" value="128m"/>
+        <variable
+                name="regards.config.gateway.regards.jpa.multitenant.tenants.url.1"
+                value="localhost:5432/rs_project1"/>
+        <variable
+                name="regards.config.gateway.regards.jpa.multitenant.tenants.user.name.1"
+                value=""/>
+        <variable
+                name="regards.config.gateway.regards.jpa.multitenant.tenants.password.1"
+                value=""/>
 
-		<!-- DAM -->
-		<variable name="dam.count" value="0" />
-		<variable name="dam.host" value="0.0.0.0" />
-		<variable name="dam.port" value="9035" />
-		<variable name="dam.xmx" value="2000m" />
-		<variable name="regards.config.dam.regards.jpa.multitenant.tenants.url.1"
-			value="localhost:5432/rs_project1" />
-		<variable
-			name="regards.config.dam.regards.jpa.multitenant.tenants.user.name.1"
-			value="" />
-		<variable
-			name="regards.config.dam.regards.jpa.multitenant.tenants.password.1"
-			value="" />
-		<variable name="regards.config.elasticsearch.address" value="" />
-		<variable name="regards.config.elasticsearch.host" value="localhost" />
-		<variable name="regards.config.elasticsearch.http.port"
-			value="9200" />
-		<variable name="regards.dam.local_storage.path.default.value"
-			value="$INSTALL_PATH/rs-dam-document-storage" />
+        <!-- DAM -->
+        <variable name="dam.count" value="0"/>
+        <variable name="dam.host" value="0.0.0.0"/>
+        <variable name="dam.port" value="9035"/>
+        <variable name="dam.xmx" value="2000m"/>
+        <variable name="regards.config.dam.regards.jpa.multitenant.tenants.url.1"
+                  value="localhost:5432/rs_project1"/>
+        <variable
+                name="regards.config.dam.regards.jpa.multitenant.tenants.user.name.1"
+                value=""/>
+        <variable
+                name="regards.config.dam.regards.jpa.multitenant.tenants.password.1"
+                value=""/>
+        <variable name="regards.config.elasticsearch.address" value=""/>
+        <variable name="regards.config.elasticsearch.host" value="localhost"/>
+        <variable name="regards.config.elasticsearch.http.port"
+                  value="9200"/>
+        <variable name="regards.dam.local_storage.path.default.value"
+                  value="$INSTALL_PATH/rs-dam-document-storage"/>
 
-		<!-- Catalog -->
-		<variable name="catalog.count" value="0" />
-		<variable name="catalog.host" value="0.0.0.0" />
-		<variable name="catalog.port" value="9036" />
-		<variable name="catalog.xmx" value="1g" />
-		<variable
-			name="regards.config.catalog.regards.jpa.multitenant.tenants.url.1"
-			value="localhost:5432/rs_project1" />
-		<variable
-			name="regards.config.catalog.regards.jpa.multitenant.tenants.user.name.1"
-			value="" />
-		<variable
-			name="regards.config.catalog.regards.jpa.multitenant.tenants.password.1"
-			value="" />
+        <!-- Catalog -->
+        <variable name="catalog.count" value="0"/>
+        <variable name="catalog.host" value="0.0.0.0"/>
+        <variable name="catalog.port" value="9036"/>
+        <variable name="catalog.xmx" value="1g"/>
+        <variable
+                name="regards.config.catalog.regards.jpa.multitenant.tenants.url.1"
+                value="localhost:5432/rs_project1"/>
+        <variable
+                name="regards.config.catalog.regards.jpa.multitenant.tenants.user.name.1"
+                value=""/>
+        <variable
+                name="regards.config.catalog.regards.jpa.multitenant.tenants.password.1"
+                value=""/>
 
-		<!-- Data provider -->
-		<variable name="dataprovider.count" value="0" />
-		<variable name="dataprovider.host" value="0.0.0.0" />
-		<variable name="dataprovider.port" value="9045" />
-		<variable name="dataprovider.xmx" value="512m" />
-		<variable
-			name="regards.config.dataprovider.regards.jpa.multitenant.tenants.url.1"
-			value="localhost:5432/rs_project1" />
-		<variable
-			name="regards.config.dataprovider.regards.jpa.multitenant.tenants.user.name.1"
-			value="" />
-		<variable
-			name="regards.config.dataprovider.regards.jpa.multitenant.tenants.password.1"
-			value="" />
-		<variable name="regards.config.dataprovider.regards.jobs.pool.size"
-			value="10" />
-		<variable name="regards.config.dataprovider.regards.jobs.completion.update.rate.ms"
-			value="500000" />
-		<variable
-			name="regards.acquisition.process.new.sip.ingest.delay.default.value"
-			value="5000" />
-		<variable name="regards.acquisition.process.run.chains.delay.default.value"
-			value="300000" />
+        <!-- Data provider -->
+        <variable name="dataprovider.count" value="0"/>
+        <variable name="dataprovider.host" value="0.0.0.0"/>
+        <variable name="dataprovider.port" value="9045"/>
+        <variable name="dataprovider.xmx" value="512m"/>
+        <variable
+                name="regards.config.dataprovider.regards.jpa.multitenant.tenants.url.1"
+                value="localhost:5432/rs_project1"/>
+        <variable
+                name="regards.config.dataprovider.regards.jpa.multitenant.tenants.user.name.1"
+                value=""/>
+        <variable
+                name="regards.config.dataprovider.regards.jpa.multitenant.tenants.password.1"
+                value=""/>
+        <variable name="regards.config.dataprovider.regards.jobs.pool.size"
+                  value="10"/>
+        <variable name="regards.config.dataprovider.regards.jobs.completion.update.rate.ms"
+                  value="500000"/>
+        <variable
+                name="regards.acquisition.process.new.sip.ingest.delay.default.value"
+                value="5000"/>
+        <variable name="regards.acquisition.process.run.chains.delay.default.value"
+                  value="300000"/>
 
-		<!-- FIXME: Values were used when ssalto plugins were isntalled with izpack, now that they are not,
-		 they are just commented to add them back more easly when plugins will be installable with izpack -->
-		<!--<variable name="regards.acquisition.cycle.orf.conf.path.default.value"-->
-			<!--value="$INSTALL_PATH/config/regards/dataprovider" />-->
-		<!--<variable-->
-			<!--name="regards.acquisition.plugins.translations.path.default.value"-->
-			<!--value="plugins/translations" />-->
-		<!--<variable name="regards.acquisition.plugins.conf.path.default.value"-->
-			<!--value="plugins/confs" />-->
-		<!--<variable name="regards.acquisition.plugins.cycles.path.default.value"-->
-			<!--value="/data/cycles" />-->
-		<!--<variable name="regards.acquisition.chains.cycles.path.default.value"-->
-			<!--value="/data/chains/cycles" />-->
+        <!-- Storage -->
+        <variable name="storage.count" value="0"/>
+        <variable name="storage.host" value="0.0.0.0"/>
+        <variable name="storage.port" value="9042"/>
+        <variable name="storage.xmx" value="512m"/>
+        <variable
+                name="regards.config.storage.regards.jpa.multitenant.tenants.url.1"
+                value="localhost:5432/rs_project1"/>
+        <variable
+                name="regards.config.storage.regards.jpa.multitenant.tenants.user.name.1"
+                value=""/>
+        <variable
+                name="regards.config.storage.regards.jpa.multitenant.tenants.password.1"
+                value=""/>
+        <variable name="regards.config.storage.regards.jobs.pool.size"
+                  value="10"/>
+        <variable name="regards.config.storage.regards.jobs.completion.update.rate.ms"
+                  value="500000"/>
+        <variable name="regards.config.storage.cache.directory.default.value"
+                  value="$INSTALL_PATH/rs-storage-cache"/>
 
-		<!-- Storage -->
-		<variable name="storage.count" value="0" />
-		<variable name="storage.host" value="0.0.0.0" />
-		<variable name="storage.port" value="9042" />
-		<variable name="storage.xmx" value="512m" />
-		<variable
-			name="regards.config.storage.regards.jpa.multitenant.tenants.url.1"
-			value="localhost:5432/rs_project1" />
-		<variable
-			name="regards.config.storage.regards.jpa.multitenant.tenants.user.name.1"
-			value="" />
-		<variable
-			name="regards.config.storage.regards.jpa.multitenant.tenants.password.1"
-			value="" />
-		<variable name="regards.config.storage.regards.jobs.pool.size"
-			value="10" />
-		<variable name="regards.config.storage.regards.jobs.completion.update.rate.ms"
-			value="500000" />
-		<variable name="regards.config.storage.cache.directory.default.value"
-			value="$INSTALL_PATH/rs-storage-cache" />
+        <!-- Order -->
+        <variable name="order.count" value="0"/>
+        <variable name="order.host" value="0.0.0.0"/>
+        <variable name="order.port" value="9043"/>
+        <variable name="order.xmx" value="512m"/>
+        <variable name="regards.config.order.regards.jpa.multitenant.tenants.url.1"
+                  value="localhost:5432/rs_project1"/>
+        <variable
+                name="regards.config.order.regards.jpa.multitenant.tenants.user.name.1"
+                value=""/>
+        <variable
+                name="regards.config.order.regards.jpa.multitenant.tenants.password.1"
+                value=""/>
+        <variable name="regards.config.order.regards.jobs.pool.size"
+                  value="10"/>
+        <variable name="regards.config.order.regards.jobs.completion.update.rate.ms"
+                  value="500000"/>
+        <variable name="regards.config.order.regards.order.files.bucket.size.Mb"
+                  value="100"/>
+        <variable name="regards.config.order.regards.order.validation.period.days"
+                  value="3"/>
+        <variable
+                name="regards.config.order.regards.order.days.before.considering.order.as.aside"
+                value="7"/>
+        <variable name="regards.config.order.regards.order.secret"
+                  value="order's passphrase"/>
+        <variable
+                name="regards.config.order.regards.order.files.displayable.maximum"
+                value="5000"/>
+        <variable
+                name="regards.config.order.regards.order.max.storage.files.jobs.per.user"
+                value="2"/>
+        <variable
+                name="regards.config.order.regards.order.periodic.files.availability.check.cron"
+                value="0 23 * * 7 *"/>
 
-		<!-- Order -->
-		<variable name="order.count" value="0" />
-		<variable name="order.host" value="0.0.0.0" />
-		<variable name="order.port" value="9043" />
-		<variable name="order.xmx" value="512m" />
-		<variable name="regards.config.order.regards.jpa.multitenant.tenants.url.1"
-			value="localhost:5432/rs_project1" />
-		<variable
-			name="regards.config.order.regards.jpa.multitenant.tenants.user.name.1"
-			value="" />
-		<variable
-			name="regards.config.order.regards.jpa.multitenant.tenants.password.1"
-			value="" />
-		<variable name="regards.config.order.regards.jobs.pool.size"
-			value="10" />
-		<variable name="regards.config.order.regards.jobs.completion.update.rate.ms"
-			value="500000" />
-		<variable name="regards.config.order.regards.order.files.bucket.size.Mb"
-			value="100" />
-		<variable name="regards.config.order.regards.order.validation.period.days"
-			value="3" />
-		<variable
-			name="regards.config.order.regards.order.days.before.considering.order.as.aside"
-			value="7" />
-		<variable name="regards.config.order.regards.order.secret"
-			value="order's passphrase" />
-		<variable
-			name="regards.config.order.regards.order.files.displayable.maximum"
-			value="5000" />
-		<variable
-			name="regards.config.order.regards.order.max.storage.files.jobs.per.user"
-			value="2" />
-		<variable
-			name="regards.config.order.regards.order.periodic.files.availability.check.cron"
-			value="0 23 * * 7 *" />
+        <!-- Ingest -->
+        <variable name="ingest.count" value="0"/>
+        <variable name="ingest.host" value="0.0.0.0"/>
+        <variable name="ingest.port" value="9044"/>
+        <variable name="ingest.xmx" value="512m"/>
+        <variable
+                name="regards.config.ingest.regards.jpa.multitenant.tenants.url.1"
+                value="localhost:5432/rs_project1"/>
+        <variable
+                name="regards.config.ingest.regards.jpa.multitenant.tenants.user.name.1"
+                value=""/>
+        <variable
+                name="regards.config.ingest.regards.jpa.multitenant.tenants.password.1"
+                value=""/>
+        <variable name="regards.config.ingest.regards.jobs.pool.size"
+                  value="10"/>
+        <variable name="regards.config.ingest.regards.jobs.completion.update.rate.ms"
+                  value="500000"/>
+        <variable name="regards.config.ingest.aips.bulk.request.limit.default.value"
+                  value="1000"/>
 
-		<!-- Ingest -->
-		<variable name="ingest.count" value="0" />
-		<variable name="ingest.host" value="0.0.0.0" />
-		<variable name="ingest.port" value="9044" />
-		<variable name="ingest.xmx" value="512m" />
-		<variable
-			name="regards.config.ingest.regards.jpa.multitenant.tenants.url.1"
-			value="localhost:5432/rs_project1" />
-		<variable
-			name="regards.config.ingest.regards.jpa.multitenant.tenants.user.name.1"
-			value="" />
-		<variable
-			name="regards.config.ingest.regards.jpa.multitenant.tenants.password.1"
-			value="" />
-		<variable name="regards.config.ingest.regards.jobs.pool.size"
-			value="10" />
-		<variable name="regards.config.ingest.regards.jobs.completion.update.rate.ms"
-			value="500000" />
-		<variable name="regards.config.ingest.aips.bulk.request.limit.default.value"
-			value="1000" />
+        <!-- Access Instance -->
+        <variable name="access-instance.count" value="0"/>
+        <variable name="access-instance.host" value="0.0.0.0"/>
+        <variable name="access-instance.port" value="9040"/>
+        <variable name="access-instance.xmx" value="128m"/>
+        <variable
+                name="regards.config.access.instance.regards.jpa.instance.datasource.url"
+                value="localhost:5432/rs_instance"/>
+        <variable
+                name="regards.config.access.instance.regards.jpa.instance.datasource.user.name"
+                value=""/>
+        <variable
+                name="regards.config.access.instance.regards.jpa.instance.datasource.password"
+                value=""/>
 
-		<!-- Access Instance -->
-		<variable name="access-instance.count" value="0" />
-		<variable name="access-instance.host" value="0.0.0.0" />
-		<variable name="access-instance.port" value="9040" />
-		<variable name="access-instance.xmx" value="128m" />
-		<variable
-			name="regards.config.access.instance.regards.jpa.instance.datasource.url"
-			value="localhost:5432/rs_instance" />
-		<variable
-			name="regards.config.access.instance.regards.jpa.instance.datasource.user.name"
-			value="" />
-		<variable
-			name="regards.config.access.instance.regards.jpa.instance.datasource.password"
-			value="" />
+        <!-- Access Project -->
+        <variable name="access-project.count" value="0"/>
+        <variable name="access-project.host" value="0.0.0.0"/>
+        <variable name="access-project.port" value="9041"/>
+        <variable name="access-project.xmx" value="256m"/>
+        <variable
+                name="regards.config.access.project.regards.jpa.multitenant.tenants.url.1"
+                value="localhost:5432/rs_project1"/>
+        <variable
+                name="regards.config.access.project.regards.jpa.multitenant.tenants.user.name.1"
+                value=""/>
+        <variable
+                name="regards.config.access.project.regards.jpa.multitenant.tenants.password.1"
+                value=""/>
 
-		<!-- Access Project -->
-		<variable name="access-project.count" value="0" />
-		<variable name="access-project.host" value="0.0.0.0" />
-		<variable name="access-project.port" value="9041" />
-		<variable name="access-project.xmx" value="256m" />
-		<variable
-			name="regards.config.access.project.regards.jpa.multitenant.tenants.url.1"
-			value="localhost:5432/rs_project1" />
-		<variable
-			name="regards.config.access.project.regards.jpa.multitenant.tenants.user.name.1"
-			value="" />
-		<variable
-			name="regards.config.access.project.regards.jpa.multitenant.tenants.password.1"
-			value="" />
+        <!-- Frontend -->
+        <variable name="frontend.count" value="0"/>
+        <variable name="frontend.host" value="localhost"/>
+        <variable name="frontend.port" value="3333"/>
+        <variable name="frontend.xmx" value="256m"/>
+        <variable name="regards.config.cloud.gateway.url" value="http://localhost:8000"/>
 
-		<!-- Frontend -->
-		<variable name="frontend.count" value="0" />
-		<variable name="frontend.host" value="localhost" />
-		<variable name="frontend.port" value="3333" />
-		<variable name="frontend.xmx" value="256m" />
-		<variable name="regards.config.cloud.gateway.url" value="http://localhost:8000" />
+        <!-- Internal variables for workflow management -->
+        <variable name="installation.type" value="full"/>
+        <variable name="security.level" value="normal"/>
 
-		<!-- Internal variables for workflow management -->
-		<variable name="installation.type" value="full" />
-		<variable name="security.level" value="normal" />
+    </variables>
 
-	</variables>
+    <conditions>
+        <condition type="variable" id="isSecurityEnforced">
+            <name>security.level</name>
+            <value>enforce</value>
+        </condition>
+        <condition type="packselection" id="selected.config">
+            <name>config</name>
+        </condition>
+        <condition type="packselection" id="selected.registry">
+            <name>registry</name>
+        </condition>
+        <condition type="packselection" id="selected.gateway">
+            <name>gateway</name>
+        </condition>
+        <condition type="packselection" id="selected.admin-instance">
+            <name>admininstance</name>
+        </condition>
+        <condition type="packselection" id="selected.admin">
+            <name>admin</name>
+        </condition>
+        <condition type="packselection" id="selected.authentication">
+            <name>authentication</name>
+        </condition>
+        <condition type="packselection" id="selected.dam">
+            <name>dam</name>
+        </condition>
+        <condition type="packselection" id="selected.catalog">
+            <name>catalog</name>
+        </condition>
+        <condition type="packselection" id="selected.order">
+            <name>order</name>
+        </condition>
+        <condition type="packselection" id="selected.ingest">
+            <name>ingest</name>
+        </condition>
+        <condition type="packselection" id="selected.dataprovider">
+            <name>dataprovider</name>
+        </condition>
+        <condition type="packselection" id="selected.storage">
+            <name>storage</name>
+        </condition>
+        <condition type="packselection" id="selected.access">
+            <name>access</name>
+        </condition>
+        <condition type="or" id="at.least.one.backend.pack.selected">
+            <condition type="ref" refid="selected.config"/>
+            <condition type="ref" refid="selected.registry"/>
+            <condition type="ref" refid="selected.gateway"/>
+            <condition type="ref" refid="selected.admin-instance"/>
+            <condition type="ref" refid="selected.admin"/>
+            <condition type="ref" refid="selected.authentication"/>
+            <condition type="ref" refid="selected.dam"/>
+            <condition type="ref" refid="selected.catalog"/>
+            <condition type="ref" refid="selected.access"/>
+            <condition type="ref" refid="selected.order"/>
+            <condition type="ref" refid="selected.ingest"/>
+            <condition type="ref" refid="selected.dataprovider"/>
+            <condition type="ref" refid="selected.storage"/>
+        </condition>
+        <condition type="or" id="display.check.connection">
+            <condition type="ref" refid="at.least.one.backend.pack.selected"/>
+            <condition type="ref" refid="selected.config"/>
+        </condition>
+        <condition type="not" id="dam.notselected">
+            <condition type="ref" refid="selected.dam"/>
+        </condition>
+        <condition type="and" id="dam.is.needed">
+            <condition type="or" id="needs.dam">
+                <condition type="ref" refid="selected.catalog"/>
+                <condition type="ref" refid="selected.order"/>
+            </condition>
+            <condition type="ref" refid="dam.notselected"/>
+        </condition>
+        <condition type="and" id="admin-instance.is.needed">
+            <condition type="ref" refid="selected.admin"/>
+            <condition type="not" id="admin.noselected">
+                <condition type="ref" refid="selected.admin-instance"/>
+            </condition>
+        </condition>
+        <condition type="variable" id="isHidden">
+            <name>security.level</name>
+            <value>enforce</value>
+        </condition>
+    </conditions>
 
-	<conditions>
-		<condition type="variable" id="isSecurityEnforced">
-			<name>security.level</name>
-			<value>enforce</value>
-		</condition>
-		<condition type="packselection" id="selected.config">
-			<name>config</name>
-		</condition>
-		<condition type="packselection" id="selected.registry">
-			<name>registry</name>
-		</condition>
-		<condition type="packselection" id="selected.gateway">
-			<name>gateway</name>
-		</condition>
-		<condition type="packselection" id="selected.admin-instance">
-			<name>admininstance</name>
-		</condition>
-		<condition type="packselection" id="selected.admin">
-			<name>admin</name>
-		</condition>
-		<condition type="packselection" id="selected.authentication">
-			<name>authentication</name>
-		</condition>
-		<condition type="packselection" id="selected.dam">
-			<name>dam</name>
-		</condition>
-		<condition type="packselection" id="selected.catalog">
-			<name>catalog</name>
-		</condition>
-		<condition type="packselection" id="selected.order">
-			<name>order</name>
-		</condition>
-		<condition type="packselection" id="selected.ingest">
-			<name>ingest</name>
-		</condition>
-		<condition type="packselection" id="selected.dataprovider">
-			<name>dataprovider</name>
-		</condition>
-		<condition type="packselection" id="selected.storage">
-			<name>storage</name>
-		</condition>
-		<condition type="packselection" id="selected.access">
-			<name>access</name>
-		</condition>
-		<condition type="or" id="at.least.one.backend.pack.selected">
-			<condition type="ref" refid="selected.config" />
-			<condition type="ref" refid="selected.registry" />
-			<condition type="ref" refid="selected.gateway" />
-			<condition type="ref" refid="selected.admin-instance" />
-			<condition type="ref" refid="selected.admin" />
-			<condition type="ref" refid="selected.authentication" />
-			<condition type="ref" refid="selected.dam" />
-			<condition type="ref" refid="selected.catalog" />
-			<condition type="ref" refid="selected.access" />
-			<condition type="ref" refid="selected.order" />
-			<condition type="ref" refid="selected.ingest" />
-			<condition type="ref" refid="selected.dataprovider" />
-			<condition type="ref" refid="selected.storage" />
-		</condition>
-		<condition type="or" id="display.check.connection">
-			<condition type="ref" refid="at.least.one.backend.pack.selected" />
-			<condition type="ref" refid="selected.config" />
-		</condition>
-		<condition type="variable" id="isHidden">
-			<name>security.level</name>
-			<value>enforce</value>
-		</condition>
-	</conditions>
+    <panels>
+        <panel classname="HelloPanel"/>
+        <panel classname="LicencePanel"/>
+        <panel classname="TargetPanel"/>
+        <panel classname="PacksPanel"/>
+        <panel classname="UserInputPanel" id="SelectSecurityLevelPanel"/>
+        <panel classname="UserInputPanel" id="ConfigSecurityPanel" condition="isSecurityEnforced"/>
+        <panel classname="UserInputPanel" id="LinkToExistingConfigPanel" condition="!izpack.selected.config">
+            <validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorConfigPanel"/>
+        </panel>
+        <panel classname="UserInputPanel" id="ProjectPanel" condition="izpack.selected.config"/>
+        <panel classname="UserInputPanel" id="ConfigPanel" condition="izpack.selected.config">
+            <validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorConfigPanel"/>
+        </panel>
+        <panel classname="UserInputPanel" id="RabbitmqPanel" condition="at.least.one.backend.pack.selected"/>
+        <panel classname="UserInputPanel" id="LinkToExistingRegistryPanel" condition="!izpack.selected.registry">
+            <validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorRegistryPanel"/>
+        </panel>
+        <panel classname="UserInputPanel" id="RegistryPanel" condition="izpack.selected.registry">
+            <validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorRegistryPanel"/>
+        </panel>
+        <panel classname="UserInputPanel" id="GatewayPanel" condition="izpack.selected.gateway">
+            <validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorGatewayPanel"/>
+        </panel>
 
-	<panels>
-		<panel classname="HelloPanel" />
-		<panel classname="LicencePanel" />
-		<panel classname="TargetPanel" />
-		<panel classname="PacksPanel" />
-		<panel classname="UserInputPanel" id="SelectSecurityLevelPanel" />
-		<panel classname="UserInputPanel" id="ConfigSecurityPanel" condition="isSecurityEnforced" />
-		<panel classname="UserInputPanel" id="LinkToExistingConfigPanel" condition="!izpack.selected.config" />
-		<panel classname="UserInputPanel" id="ProjectPanel" condition="izpack.selected.config" />
-		<panel classname="UserInputPanel" id="ConfigPanel" condition="izpack.selected.config">
-			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorConfigPanel" />
-		</panel>
-		<panel classname="UserInputPanel" id="RabbitmqPanel" condition="at.least.one.backend.pack.selected" />
-		<panel classname="UserInputPanel" id="RegistryPanel" condition="at.least.one.backend.pack.selected" >
-			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorRegistryPanel" />
-		</panel>
-		<panel classname="UserInputPanel" id="GatewayPanel" condition="izpack.selected.gateway">
-			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorGatewayPanel" />
-		</panel>
+        <panel classname="UserInputPanel" id="AdminInstancePropertiesPanel" condition="izpack.selected.config"/>
+        <panel classname="UserInputPanel" id="AdminPropertiesPanel" condition="izpack.selected.config"/>
+        <panel classname="UserInputPanel" id="AuthenticationPropertiesPanel" condition="izpack.selected.config"/>
+        <panel classname="UserInputPanel" id="StoragePropertiesPanel" condition="izpack.selected.config"/>
+        <panel classname="UserInputPanel" id="DamPropertiesPanel" condition="izpack.selected.config"/>
+        <panel classname="UserInputPanel" id="CatalogPropertiesPanel" condition="izpack.selected.config"/>
+        <panel classname="UserInputPanel" id="OrderPropertiesPanel" condition="izpack.selected.config"/>
+        <panel classname="UserInputPanel" id="IngestPropertiesPanel" condition="izpack.selected.config"/>
+        <panel classname="UserInputPanel" id="DataProviderPropertiesPanel" condition="izpack.selected.config"/>
+        <panel classname="UserInputPanel" id="AccessInstancePropertiesPanel" condition="izpack.selected.config"/>
+        <panel classname="UserInputPanel" id="AccessProjectPropertiesPanel" condition="izpack.selected.config"/>
 
-		<panel classname="UserInputPanel" id="AdminInstancePropertiesPanel" condition="izpack.selected.config" />
-		<panel classname="UserInputPanel" id="AdminPropertiesPanel" condition="izpack.selected.config" />
-		<panel classname="UserInputPanel" id="AuthenticationPropertiesPanel" condition="izpack.selected.config" />
-		<panel classname="UserInputPanel" id="StoragePropertiesPanel" condition="izpack.selected.config" />
-		<panel classname="UserInputPanel" id="DamPropertiesPanel" condition="izpack.selected.config" />
-		<panel classname="UserInputPanel" id="CatalogPropertiesPanel" condition="izpack.selected.config" />
-		<panel classname="UserInputPanel" id="OrderPropertiesPanel" condition="izpack.selected.config" />
-		<panel classname="UserInputPanel" id="IngestPropertiesPanel" condition="izpack.selected.config" />
-		<panel classname="UserInputPanel" id="DataProviderPropertiesPanel" condition="izpack.selected.config" />
-		<panel classname="UserInputPanel" id="AccessInstancePropertiesPanel" condition="izpack.selected.config" />
-		<panel classname="UserInputPanel" id="AccessProjectPropertiesPanel" condition="izpack.selected.config" />
-		
-		<panel classname="UserInputPanel" id="CheckConnectionsPanel" condition="display.check.connection" />
+        <panel classname="UserInputPanel" id="CheckConnectionsPanel" condition="display.check.connection"/>
 
-		<panel classname="UserInputPanel" id="AdminInstancePanel" condition="izpack.selected.admin-instance">
-			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAdminInstancePanel" />
-		</panel>
-		<panel classname="UserInputPanel" id="AdminPanel" condition="izpack.selected.admin">
-			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAdminPanel" />
-		</panel>
-		<panel classname="UserInputPanel" id="AccountsPanel" condition="izpack.selected.admin" />
-		<panel classname="UserInputPanel" id="SmtpPanel" condition="izpack.selected.admin" />
-		<panel classname="UserInputPanel" id="AuthenticationPanel"
-			condition="izpack.selected.authentication">
-			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAuthenticationPanel" />
-		</panel>
-		<panel classname="UserInputPanel" id="StoragePanel" condition="izpack.selected.storage">
-			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorStoragePanel" />
-		</panel>
-		<panel classname="UserInputPanel" id="IngestPanel" condition="izpack.selected.ingest">
-			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorIngestPanel" />
-		</panel>
-		<panel classname="UserInputPanel" id="DamPanel" condition="izpack.selected.dam">
-			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorDamPanel" />
-		</panel>
-		<panel classname="UserInputPanel" id="CatalogPanel" condition="izpack.selected.catalog">
-			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorCatalogPanel" />
-		</panel>
-		<panel classname="UserInputPanel" id="OrderPanel" condition="izpack.selected.order">
-			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorOrderPanel" />
-		</panel>
-		<panel classname="UserInputPanel" id="DataProviderPanel" condition="izpack.selected.dataprovider">
-			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorDataProviderPanel" />
-		</panel>
-		<panel classname="UserInputPanel" id="AccessInstancePanel" condition="izpack.selected.access-instance">
-			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAccessInstancePanel" />
-		</panel>
-		<panel classname="UserInputPanel" id="AccessProjectPanel" condition="izpack.selected.access-project">
-			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAccessProjectPanel" />
-		</panel>
-		<panel classname="UserInputPanel" id="FrontendPanel" condition="izpack.selected.frontend">
-			<validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorFrontendPanel" />
-		</panel>
-		
-		<panel classname="SummaryPanel" />
-		<panel classname="InstallPanel" />
-		<panel classname="ProcessPanel" />
-		<panel classname="FinishPanel" />
-	</panels>
+        <panel classname="UserInputPanel" id="LinkToExistingAdminInstancePanel" condition="admin-instance.is.needed">
+            <validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAdminInstancePanel"/>
+        </panel>
+        <panel classname="UserInputPanel" id="AdminInstancePanel" condition="izpack.selected.admin-instance">
+            <validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAdminInstancePanel"/>
+        </panel>
+        <panel classname="UserInputPanel" id="LinkToExistingAdminPanel" condition="!izpack.selected.admin">
+            <validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAdminPanel"/>
+        </panel>
+        <panel classname="UserInputPanel" id="AdminPanel" condition="izpack.selected.admin">
+            <validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAdminPanel"/>
+        </panel>
+        <panel classname="UserInputPanel" id="AccountsPanel" condition="izpack.selected.admin"/>
+        <panel classname="UserInputPanel" id="SmtpPanel" condition="izpack.selected.admin"/>
+        <panel classname="UserInputPanel" id="AuthenticationPanel"
+               condition="izpack.selected.authentication">
+            <validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAuthenticationPanel"/>
+        </panel>
+        <panel classname="UserInputPanel" id="StoragePanel" condition="izpack.selected.storage">
+            <validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorStoragePanel"/>
+        </panel>
+        <panel classname="UserInputPanel" id="IngestPanel" condition="izpack.selected.ingest">
+            <validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorIngestPanel"/>
+        </panel>
+        <panel classname="UserInputPanel" id="LinkToExistingDamPanel" condition="dam.is.needed">
+            <validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorDamPanel"/>
+        </panel>
+        <panel classname="UserInputPanel" id="DamPanel" condition="izpack.selected.dam">
+            <validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorDamPanel"/>
+        </panel>
+        <panel classname="UserInputPanel" id="CatalogPanel" condition="izpack.selected.catalog">
+            <validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorCatalogPanel"/>
+        </panel>
+        <panel classname="UserInputPanel" id="OrderPanel" condition="izpack.selected.order">
+            <validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorOrderPanel"/>
+        </panel>
+        <panel classname="UserInputPanel" id="DataProviderPanel" condition="izpack.selected.dataprovider">
+            <validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorDataProviderPanel"/>
+        </panel>
+        <panel classname="UserInputPanel" id="AccessInstancePanel" condition="izpack.selected.access-instance">
+            <validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAccessInstancePanel"/>
+        </panel>
+        <panel classname="UserInputPanel" id="AccessProjectPanel" condition="izpack.selected.access-project">
+            <validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorAccessProjectPanel"/>
+        </panel>
+        <panel classname="UserInputPanel" id="FrontendPanel" condition="izpack.selected.frontend">
+            <validator classname="fr.cnes.regards.deployment.izpack.custom.validator.ValidatorFrontendPanel"/>
+        </panel>
 
-	<packs>
-		<!-- Pack names of components MUST match the ComponentType enum -->
-		<!-- /!\ Mind the order of the packs -->
-		<pack name="core" required="true">
-			<description>Core installation. Required for any component.
-			</description>
-			<file targetdir="$INSTALL_PATH" src="doc/readme.txt" override="true" />
-			<file targetdir="$INSTALL_PATH" src="legal/License.txt"
-				override="true" />
-			<file targetdir="$INSTALL_PATH/REGARDS/config" src="config/system.properties"
-				override="true" />
-			<file targetdir="$INSTALL_PATH/REGARDS/config" src="config/bootstrap.properties"
-				override="true" />
-			<fileset dir="bin/" targetdir="$INSTALL_PATH/REGARDS/bin"
-				override="true">
-				<include name="*" />
-			</fileset>
-			<file src="sbin/microservice.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<file src="sbin/microservice_regards.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS/lib"
-				override="true">
-				<include name="*" />
-			</fileset>
-			<fileset dir="custom" targetdir="$INSTALL_PATH/REGARDS/lib"
-				override="true">
-				<include name="*.jar" />
-			</fileset>
-			<parsable type="javaprop"
-				targetfile="$INSTALL_PATH/REGARDS/config/system.properties" />
-			<parsable type="javaprop"
-				targetfile="$INSTALL_PATH/REGARDS/config/bootstrap.properties" />
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/bin" includes="*" />
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-		</pack>
+        <panel classname="SummaryPanel"/>
+        <panel classname="InstallPanel"/>
+        <panel classname="ProcessPanel"/>
+        <panel classname="FinishPanel"/>
+    </panels>
 
-		<pack name="config" required="false" preselected="true">
-			<description>Microservice providing configuration to any other
-				microservice
-			</description>
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-config.jar" />
-			</fileset>
-			<file src="sbin/microservice_config.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<fileset dir="config/config/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/config"
-				override="true">
-				<include name="logback.xml" />
-			</fileset>
-			<fileset dir="config/regards/BOOT-INF/classes/regards"
-				targetdir="$INSTALL_PATH/REGARDS/config/regards" override="true">
-				<include name="*" />
-			</fileset>
-			<parsable type="javaprop">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/config/regards">
-					<include name="*.properties" />
-				</fileset>
-			</parsable>
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="config" />
-					<arg value="-c" />
-					<arg value="${config.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="config" />
-					<arg value="-w" />
-					<arg value="${config.waitRuleList}" />
-				</args>
-			</executable>
-		</pack>
+    <packs>
+        <!-- Pack names of components MUST match the ComponentType enum -->
+        <!-- /!\ Mind the order of the packs -->
+        <pack name="core" required="true">
+            <description>Core installation. Required for any component.
+            </description>
+            <file targetdir="$INSTALL_PATH" src="doc/readme.txt" override="true"/>
+            <file targetdir="$INSTALL_PATH" src="legal/License.txt"
+                  override="true"/>
+            <file targetdir="$INSTALL_PATH/REGARDS/config" src="config/system.properties"
+                  override="true"/>
+            <file targetdir="$INSTALL_PATH/REGARDS/config" src="config/bootstrap.properties"
+                  override="true"/>
+            <fileset dir="bin/" targetdir="$INSTALL_PATH/REGARDS/bin"
+                     override="true">
+                <include name="*"/>
+            </fileset>
+            <file src="sbin/microservice.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+                  override="true"/>
+            <file src="sbin/microservice_regards.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+                  override="true"/>
+            <fileset dir="lib/" targetdir="$INSTALL_PATH/REGARDS/lib"
+                     override="true">
+                <include name="*"/>
+            </fileset>
+            <fileset dir="custom" targetdir="$INSTALL_PATH/REGARDS/lib"
+                     override="true">
+                <include name="*.jar"/>
+            </fileset>
+            <parsable type="javaprop"
+                      targetfile="$INSTALL_PATH/REGARDS/config/system.properties"/>
+            <parsable type="javaprop"
+                      targetfile="$INSTALL_PATH/REGARDS/config/bootstrap.properties"/>
+            <executable type="bin" stage="never" keep="true">
+                <fileset targetdir="$INSTALL_PATH/REGARDS/bin" includes="*"/>
+                <fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+            </executable>
+        </pack>
 
-		<pack name="registry" required="false" preselected="true">
-			<description>Microservice registering other microservices in the
-				cloud and handling load balancing
-			</description>
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-registry.jar" />
-			</fileset>
-			<file src="sbin/microservice_registry.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<fileset dir="config/registry/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/registry"
-				override="true">
-				<include name="logback.xml" />
-			</fileset>
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="registry" />
-					<arg value="-c" />
-					<arg value="${registry.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="registry" />
-					<arg value="-w" />
-					<arg value="${registry.waitRuleList}" />
-				</args>
-			</executable>
-		</pack>
+        <pack name="config" required="false" preselected="true">
+            <description>Microservice providing configuration to any other
+                microservice
+            </description>
+            <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+                     override="true">
+                <include name="bootstrap-config.jar"/>
+            </fileset>
+            <file src="sbin/microservice_config.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+                  override="true"/>
+            <fileset dir="config/config/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/config"
+                     override="true">
+                <include name="logback.xml"/>
+            </fileset>
+            <fileset dir="config/regards/BOOT-INF/classes/regards"
+                     targetdir="$INSTALL_PATH/REGARDS/config/regards" override="true">
+                <include name="*"/>
+            </fileset>
+            <parsable type="javaprop">
+                <fileset targetdir="$INSTALL_PATH/REGARDS/config/regards">
+                    <include name="*.properties"/>
+                </fileset>
+            </parsable>
+            <executable type="bin" stage="never" keep="true">
+                <fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="config"/>
+                    <arg value="-c"/>
+                    <arg value="${config.instanceList}"/>
+                </args>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="config"/>
+                    <arg value="-w"/>
+                    <arg value="${config.waitRuleList}"/>
+                </args>
+            </executable>
+        </pack>
 
-		<pack name="gateway" required="false" preselected="true">
-			<description>Gateway between clients and all microservices
-			</description>
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-gateway.jar" />
-			</fileset>
-			<file src="sbin/microservice_gateway.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<fileset dir="config/gateway/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/gateway"
-				override="true">
-				<include name="logback.xml" />
-			</fileset>
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="gateway" />
-					<arg value="-c" />
-					<arg value="${gateway.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="gateway" />
-					<arg value="-w" />
-					<arg value="${gateway.waitRuleList}" />
-				</args>
-			</executable>
-		</pack>
+        <pack name="registry" required="false" preselected="true">
+            <description>Microservice registering other microservices in the
+                cloud and handling load balancing
+            </description>
+            <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+                     override="true">
+                <include name="bootstrap-registry.jar"/>
+            </fileset>
+            <file src="sbin/microservice_registry.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+                  override="true"/>
+            <fileset dir="config/registry/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/registry"
+                     override="true">
+                <include name="logback.xml"/>
+            </fileset>
+            <executable type="bin" stage="never" keep="true">
+                <fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="registry"/>
+                    <arg value="-c"/>
+                    <arg value="${registry.instanceList}"/>
+                </args>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="registry"/>
+                    <arg value="-w"/>
+                    <arg value="${registry.waitRuleList}"/>
+                </args>
+            </executable>
+        </pack>
 
-		<pack name="admin-instance" required="false" preselected="true">
-			<description>Microservice handling system's administration instance
-			</description>
-			<singlefile src="microservices/bootstrap-administration-instance.jar"
-				target="$INSTALL_PATH/REGARDS/bootstrap-admin-instance.jar"
-				override="true" />
-			<file src="sbin/microservice_admin-instance.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<fileset dir="config/admin/BOOT-INF/classes/"
-				targetdir="$INSTALL_PATH/REGARDS/config/logback/admin-instance"
-				override="true">
-				<include name="logback.xml" />
-			</fileset>
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="admin-instance" />
-					<arg value="-c" />
-					<arg value="${admin-instance.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="admin-instance" />
-					<arg value="-w" />
-					<arg value="${admin-instance.waitRuleList}" />
-				</args>
-			</executable>
-		</pack>
+        <pack name="gateway" required="false" preselected="true">
+            <description>Gateway between clients and all microservices
+            </description>
+            <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+                     override="true">
+                <include name="bootstrap-gateway.jar"/>
+            </fileset>
+            <file src="sbin/microservice_gateway.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+                  override="true"/>
+            <fileset dir="config/gateway/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/gateway"
+                     override="true">
+                <include name="logback.xml"/>
+            </fileset>
+            <executable type="bin" stage="never" keep="true">
+                <fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="gateway"/>
+                    <arg value="-c"/>
+                    <arg value="${gateway.instanceList}"/>
+                </args>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="gateway"/>
+                    <arg value="-w"/>
+                    <arg value="${gateway.waitRuleList}"/>
+                </args>
+            </executable>
+        </pack>
 
-		<pack name="admin" required="false" preselected="true">
-			<description>Microservice handling system's administration
-			</description>
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-administration.jar" />
-			</fileset>
-			<file src="sbin/microservice_admin.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<fileset dir="config/admin/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/admin"
-				override="true">
-				<include name="logback.xml" />
-			</fileset>
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="admin" />
-					<arg value="-c" />
-					<arg value="${admin.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="admin" />
-					<arg value="-w" />
-					<arg value="${admin.waitRuleList}" />
-				</args>
-			</executable>
-		</pack>
+        <pack name="admin-instance" required="false" preselected="true">
+            <description>Microservice handling system's administration instance
+            </description>
+            <singlefile src="microservices/bootstrap-administration-instance.jar"
+                        target="$INSTALL_PATH/REGARDS/bootstrap-admin-instance.jar"
+                        override="true"/>
+            <file src="sbin/microservice_admin-instance.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+                  override="true"/>
+            <fileset dir="config/admin/BOOT-INF/classes/"
+                     targetdir="$INSTALL_PATH/REGARDS/config/logback/admin-instance"
+                     override="true">
+                <include name="logback.xml"/>
+            </fileset>
+            <executable type="bin" stage="never" keep="true">
+                <fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="admin-instance"/>
+                    <arg value="-c"/>
+                    <arg value="${admin-instance.instanceList}"/>
+                </args>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="admin-instance"/>
+                    <arg value="-w"/>
+                    <arg value="${admin-instance.waitRuleList}"/>
+                </args>
+            </executable>
+        </pack>
 
-		<pack name="authentication" required="false" preselected="true">
-			<description>Microservice dedicated to users' authentication
-			</description>
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-authentication.jar" />
-			</fileset>
-			<file src="sbin/microservice_authentication.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<fileset dir="config/authentication/BOOT-INF/classes/"
-				targetdir="$INSTALL_PATH/REGARDS/config/logback/authentication"
-				override="true">
-				<include name="logback.xml" />
-			</fileset>
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="authentication" />
-					<arg value="-c" />
-					<arg value="${authentication.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="authentication" />
-					<arg value="-w" />
-					<arg value="${authentication.waitRuleList}" />
-				</args>
-			</executable>
-		</pack>
+        <pack name="admin" required="false" preselected="true">
+            <description>Microservice handling system's administration
+            </description>
+            <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+                     override="true">
+                <include name="bootstrap-administration.jar"/>
+            </fileset>
+            <file src="sbin/microservice_admin.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+                  override="true"/>
+            <fileset dir="config/admin/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/admin"
+                     override="true">
+                <include name="logback.xml"/>
+            </fileset>
+            <executable type="bin" stage="never" keep="true">
+                <fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="admin"/>
+                    <arg value="-c"/>
+                    <arg value="${admin.instanceList}"/>
+                </args>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="admin"/>
+                    <arg value="-w"/>
+                    <arg value="${admin.waitRuleList}"/>
+                </args>
+            </executable>
+        </pack>
 
-		<pack name="storage" required="false" preselected="false">
-			<description>Installing the Storage microservice</description>
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-storage.jar" />
-			</fileset>
-			<file src="sbin/microservice_storage.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<fileset dir="config/catalog/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/storage"
-				override="true">
-				<include name="logback.xml" />
-			</fileset>
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="storage" />
-					<arg value="-c" />
-					<arg value="${storage.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="storage" />
-					<arg value="-w" />
-					<arg value="${storage.waitRuleList}" />
-				</args>
-			</executable>
-		</pack>
+        <pack name="authentication" required="false" preselected="true">
+            <description>Microservice dedicated to users' authentication
+            </description>
+            <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+                     override="true">
+                <include name="bootstrap-authentication.jar"/>
+            </fileset>
+            <file src="sbin/microservice_authentication.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+                  override="true"/>
+            <fileset dir="config/authentication/BOOT-INF/classes/"
+                     targetdir="$INSTALL_PATH/REGARDS/config/logback/authentication"
+                     override="true">
+                <include name="logback.xml"/>
+            </fileset>
+            <executable type="bin" stage="never" keep="true">
+                <fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="authentication"/>
+                    <arg value="-c"/>
+                    <arg value="${authentication.instanceList}"/>
+                </args>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="authentication"/>
+                    <arg value="-w"/>
+                    <arg value="${authentication.waitRuleList}"/>
+                </args>
+            </executable>
+        </pack>
 
-		<pack name="dam" required="false" preselected="true">
-			<description>REGARDS Data Management service installation
-			</description>
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-dam.jar" />
-			</fileset>
-			<file src="sbin/microservice_dam.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<fileset dir="config/dam/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/dam"
-				override="true">
-				<include name="logback.xml" />
-			</fileset>
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="dam" />
-					<arg value="-c" />
-					<arg value="${dam.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="dam" />
-					<arg value="-w" />
-					<arg value="${dam.waitRuleList}" />
-				</args>
-			</executable>
-		</pack>
+        <pack name="storage" required="false" preselected="false">
+            <description>Installing the Storage microservice</description>
+            <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+                     override="true">
+                <include name="bootstrap-storage.jar"/>
+            </fileset>
+            <file src="sbin/microservice_storage.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+                  override="true"/>
+            <fileset dir="config/catalog/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/storage"
+                     override="true">
+                <include name="logback.xml"/>
+            </fileset>
+            <executable type="bin" stage="never" keep="true">
+                <fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="storage"/>
+                    <arg value="-c"/>
+                    <arg value="${storage.instanceList}"/>
+                </args>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="storage"/>
+                    <arg value="-w"/>
+                    <arg value="${storage.waitRuleList}"/>
+                </args>
+            </executable>
+        </pack>
 
-		<pack name="catalog" required="false" preselected="true">
-			<description>REGARDS Catalog service installation</description>
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-catalog.jar" />
-			</fileset>
-			<file src="sbin/microservice_catalog.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<fileset dir="config/catalog/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/catalog"
-				override="true">
-				<include name="logback.xml" />
-			</fileset>
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="catalog" />
-					<arg value="-c" />
-					<arg value="${catalog.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="catalog" />
-					<arg value="-w" />
-					<arg value="${catalog.waitRuleList}" />
-				</args>
-			</executable>
-		</pack>
+        <pack name="dam" required="false" preselected="true">
+            <description>REGARDS Data Management service installation
+            </description>
+            <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+                     override="true">
+                <include name="bootstrap-dam.jar"/>
+            </fileset>
+            <file src="sbin/microservice_dam.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+                  override="true"/>
+            <fileset dir="config/dam/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/dam"
+                     override="true">
+                <include name="logback.xml"/>
+            </fileset>
+            <executable type="bin" stage="never" keep="true">
+                <fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="dam"/>
+                    <arg value="-c"/>
+                    <arg value="${dam.instanceList}"/>
+                </args>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="dam"/>
+                    <arg value="-w"/>
+                    <arg value="${dam.waitRuleList}"/>
+                </args>
+            </executable>
+        </pack>
 
-		<pack name="order" required="false" preselected="false">
-			<description>Installing the Order microservice</description>
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-order.jar" />
-			</fileset>
-			<file src="sbin/microservice_order.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<fileset dir="config/order/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/order"
-				override="true">
-				<include name="logback.xml" />
-			</fileset>
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="order" />
-					<arg value="-c" />
-					<arg value="${order.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="order" />
-					<arg value="-w" />
-					<arg value="${order.waitRuleList}" />
-				</args>
-			</executable>
-		</pack>
+        <pack name="catalog" required="false" preselected="true">
+            <description>REGARDS Catalog service installation</description>
+            <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+                     override="true">
+                <include name="bootstrap-catalog.jar"/>
+            </fileset>
+            <file src="sbin/microservice_catalog.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+                  override="true"/>
+            <fileset dir="config/catalog/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/catalog"
+                     override="true">
+                <include name="logback.xml"/>
+            </fileset>
+            <executable type="bin" stage="never" keep="true">
+                <fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="catalog"/>
+                    <arg value="-c"/>
+                    <arg value="${catalog.instanceList}"/>
+                </args>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="catalog"/>
+                    <arg value="-w"/>
+                    <arg value="${catalog.waitRuleList}"/>
+                </args>
+            </executable>
+        </pack>
 
-		<pack name="ingest" required="false" preselected="false">
-			<description>Installing the Ingest microservice</description>
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-ingest.jar" />
-			</fileset>
-			<file src="sbin/microservice_ingest.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<fileset dir="config/ingest/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/ingest"
-				override="true">
-				<include name="logback.xml" />
-			</fileset>
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="ingest" />
-					<arg value="-c" />
-					<arg value="${ingest.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="ingest" />
-					<arg value="-w" />
-					<arg value="${ingest.waitRuleList}" />
-				</args>
-			</executable>
-		</pack>
+        <pack name="order" required="false" preselected="false">
+            <description>Installing the Order microservice</description>
+            <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+                     override="true">
+                <include name="bootstrap-order.jar"/>
+            </fileset>
+            <file src="sbin/microservice_order.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+                  override="true"/>
+            <fileset dir="config/order/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/order"
+                     override="true">
+                <include name="logback.xml"/>
+            </fileset>
+            <executable type="bin" stage="never" keep="true">
+                <fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="order"/>
+                    <arg value="-c"/>
+                    <arg value="${order.instanceList}"/>
+                </args>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="order"/>
+                    <arg value="-w"/>
+                    <arg value="${order.waitRuleList}"/>
+                </args>
+            </executable>
+        </pack>
 
-		<pack name="dataprovider" required="false" preselected="false">
-			<description>Installing the Data provider microservice</description>
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-dataprovider.jar" />
-			</fileset>
-			<file src="sbin/microservice_dataprovider.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<fileset dir="config/dataprovider/BOOT-INF/classes/"
-				targetdir="$INSTALL_PATH/REGARDS/config/logback/dataprovider"
-				override="true">
-				<include name="logback.xml" />
-			</fileset>
-			<parsable type="javaprop">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/config/regards/dataprovider">
-					<include name="*.properties" />
-				</fileset>
-			</parsable>
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="dataprovider" />
-					<arg value="-c" />
-					<arg value="${dataprovider.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="dataprovider" />
-					<arg value="-w" />
-					<arg value="${dataprovider.waitRuleList}" />
-				</args>
-			</executable>
-		</pack>
+        <pack name="ingest" required="false" preselected="false">
+            <description>Installing the Ingest microservice</description>
+            <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+                     override="true">
+                <include name="bootstrap-ingest.jar"/>
+            </fileset>
+            <file src="sbin/microservice_ingest.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+                  override="true"/>
+            <fileset dir="config/ingest/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/ingest"
+                     override="true">
+                <include name="logback.xml"/>
+            </fileset>
+            <executable type="bin" stage="never" keep="true">
+                <fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="ingest"/>
+                    <arg value="-c"/>
+                    <arg value="${ingest.instanceList}"/>
+                </args>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="ingest"/>
+                    <arg value="-w"/>
+                    <arg value="${ingest.waitRuleList}"/>
+                </args>
+            </executable>
+        </pack>
 
-		<pack name="access-instance" required="false" preselected="true">
-			<description>REGARDS Instance Access service installation</description>
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-access-instance.jar" />
-			</fileset>
-			<file src="sbin/microservice_access-instance.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<fileset dir="config/access-instance/BOOT-INF/classes"
-				targetdir="$INSTALL_PATH/REGARDS/config/logback/access-instance"
-				override="true">
-				<include name="logback.xml" />
-			</fileset>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="access-instance" />
-					<arg value="-c" />
-					<arg value="${access-instance.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="access-instance" />
-					<arg value="-w" />
-					<arg value="${access-instance.waitRuleList}" />
-				</args>
-			</executable>
-		</pack>
+        <pack name="dataprovider" required="false" preselected="false">
+            <description>Installing the Data provider microservice</description>
+            <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+                     override="true">
+                <include name="bootstrap-dataprovider.jar"/>
+            </fileset>
+            <file src="sbin/microservice_dataprovider.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+                  override="true"/>
+            <fileset dir="config/dataprovider/BOOT-INF/classes/"
+                     targetdir="$INSTALL_PATH/REGARDS/config/logback/dataprovider"
+                     override="true">
+                <include name="logback.xml"/>
+            </fileset>
+            <parsable type="javaprop">
+                <fileset targetdir="$INSTALL_PATH/REGARDS/config/regards/dataprovider">
+                    <include name="*.properties"/>
+                </fileset>
+            </parsable>
+            <executable type="bin" stage="never" keep="true">
+                <fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="dataprovider"/>
+                    <arg value="-c"/>
+                    <arg value="${dataprovider.instanceList}"/>
+                </args>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="dataprovider"/>
+                    <arg value="-w"/>
+                    <arg value="${dataprovider.waitRuleList}"/>
+                </args>
+            </executable>
+        </pack>
 
-		<pack name="access-project" required="false" preselected="true">
-			<description>REGARDS Project Access service installation</description>
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-access-project.jar" />
-			</fileset>
-			<file src="sbin/microservice_access-project.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<fileset dir="config/access-project/BOOT-INF/classes"
-				targetdir="$INSTALL_PATH/REGARDS/config/logback/access-project"
-				override="true">
-				<include name="logback.xml" />
-			</fileset>
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="access-project" />
-					<arg value="-c" />
-					<arg value="${access-project.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="access-project" />
-					<arg value="-w" />
-					<arg value="${access-project.waitRuleList}" />
-				</args>
-			</executable>
-		</pack>
+        <pack name="access-instance" required="false" preselected="true">
+            <description>REGARDS Instance Access service installation</description>
+            <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+                     override="true">
+                <include name="bootstrap-access-instance.jar"/>
+            </fileset>
+            <file src="sbin/microservice_access-instance.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+                  override="true"/>
+            <fileset dir="config/access-instance/BOOT-INF/classes"
+                     targetdir="$INSTALL_PATH/REGARDS/config/logback/access-instance"
+                     override="true">
+                <include name="logback.xml"/>
+            </fileset>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="access-instance"/>
+                    <arg value="-c"/>
+                    <arg value="${access-instance.instanceList}"/>
+                </args>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="access-instance"/>
+                    <arg value="-w"/>
+                    <arg value="${access-instance.waitRuleList}"/>
+                </args>
+            </executable>
+        </pack>
 
-		<pack name="frontend" required="false" preselected="true">
-			<description>Web application serving the frontend</description>
-			<fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
-				override="true">
-				<include name="bootstrap-frontend.*ar" />
-			</fileset>
-			<fileset dir="config/frontend/static" targetdir="$INSTALL_PATH/REGARDS/www"
-				override="true">
-				<include name="**/*" />
-			</fileset>
-			<file src="sbin/microservice_frontend.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
-				override="true" />
-			<parsable type="plain" encoding="UTF-8">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/www" includes="conf/*.js" />
-			</parsable>
-			<executable type="bin" stage="never" keep="true">
-				<fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*" />
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="frontend" />
-					<arg value="-c" />
-					<arg value="${frontend.instanceList}" />
-				</args>
-			</executable>
-			<executable
-				targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
-				type="bin" stage="postinstall" failure="abort" keep="true">
-				<os family="unix" />
-				<args>
-					<arg value="-i" />
-					<arg value="$INSTALL_PATH/REGARDS" />
-					<arg value="-t" />
-					<arg value="frontend" />
-					<arg value="-w" />
-					<arg value="${frontend.waitRuleList}" />
-				</args>
-			</executable>
-		</pack>
+        <pack name="access-project" required="false" preselected="true">
+            <description>REGARDS Project Access service installation</description>
+            <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+                     override="true">
+                <include name="bootstrap-access-project.jar"/>
+            </fileset>
+            <file src="sbin/microservice_access-project.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+                  override="true"/>
+            <fileset dir="config/access-project/BOOT-INF/classes"
+                     targetdir="$INSTALL_PATH/REGARDS/config/logback/access-project"
+                     override="true">
+                <include name="logback.xml"/>
+            </fileset>
+            <executable type="bin" stage="never" keep="true">
+                <fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="access-project"/>
+                    <arg value="-c"/>
+                    <arg value="${access-project.instanceList}"/>
+                </args>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="access-project"/>
+                    <arg value="-w"/>
+                    <arg value="${access-project.waitRuleList}"/>
+                </args>
+            </executable>
+        </pack>
 
-	</packs>
+        <pack name="frontend" required="false" preselected="true">
+            <description>Web application serving the frontend</description>
+            <fileset dir="microservices/" targetdir="$INSTALL_PATH/REGARDS"
+                     override="true">
+                <include name="bootstrap-frontend.*ar"/>
+            </fileset>
+            <fileset dir="config/frontend/static" targetdir="$INSTALL_PATH/REGARDS/www"
+                     override="true">
+                <include name="**/*"/>
+            </fileset>
+            <file src="sbin/microservice_frontend.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
+                  override="true"/>
+            <parsable type="plain" encoding="UTF-8">
+                <fileset targetdir="$INSTALL_PATH/REGARDS/www" includes="conf/*.js"/>
+            </parsable>
+            <executable type="bin" stage="never" keep="true">
+                <fileset targetdir="$INSTALL_PATH/REGARDS/sbin" includes="*"/>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_microservice_confile.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="frontend"/>
+                    <arg value="-c"/>
+                    <arg value="${frontend.instanceList}"/>
+                </args>
+            </executable>
+            <executable
+                    targetfile="$INSTALL_PATH/REGARDS/bin/create_component_wait_rule_list.groovy"
+                    type="bin" stage="postinstall" failure="abort" keep="true">
+                <os family="unix"/>
+                <args>
+                    <arg value="-i"/>
+                    <arg value="$INSTALL_PATH/REGARDS"/>
+                    <arg value="-t"/>
+                    <arg value="frontend"/>
+                    <arg value="-w"/>
+                    <arg value="${frontend.waitRuleList}"/>
+                </args>
+            </executable>
+        </pack>
+
+    </packs>
 
 </izpack:installation>
