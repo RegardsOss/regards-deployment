@@ -69,7 +69,7 @@ public class WaitRulesInjector implements InstallDataInjector {
     private static final Map<ComponentType, Map<ComponentType, Integer>> WAIT_RULES;
 
     static {
-        WAIT_RULES = new HashMap<ComponentType, Map<ComponentType, Integer>>();
+        WAIT_RULES = new HashMap<>();
 
         Map<ComponentType, Integer> configWaitList = new HashMap<>();
         WAIT_RULES.put(ComponentType.CONFIG, configWaitList);
@@ -163,12 +163,14 @@ public class WaitRulesInjector implements InstallDataInjector {
     public void inject(InstallData installData) {
         WaitRuleList waitRuleList = new WaitRuleList();
         WAIT_RULES.get(type).forEach((waitedType, timeout) -> {
-            String waitedPack = waitedType.getName(); // The type of component we should be waiting for
-            Boolean isWaitedPackBeingInstalled = installData.getSelectedPacks().stream()
-                    .anyMatch(pack -> pack.getName().equals(waitedPack)); // Is the component/pack we are waiting for is being installed?
+            // The type of component we should be waiting for
+            String waitedPack = waitedType.getName();
+//            // Is the component/pack we are waiting for is being installed?
+//            Boolean isWaitedPackBeingInstalled = installData.getSelectedPacks().stream()
+//                    .anyMatch(pack -> pack.getName().equals(waitedPack));
 
-            // Only wait for a component/pack which is being installed
-            if (isWaitedPackBeingInstalled && installData.getVariable(waitedPack + INSTANCE_LIST_SUFFIX) != null) {
+//             Only wait for a component/pack which is being installed
+            if (/*isWaitedPackBeingInstalled &&*/ installData.getVariable(waitedPack + INSTANCE_LIST_SUFFIX) != null) {
                 ComponentConfigList waitedComponentConfigList = XmlAccessor
                         .readFromString(installData.getVariable(waitedPack + INSTANCE_LIST_SUFFIX),
                                         ComponentConfigList.class);

@@ -118,10 +118,6 @@
 			<spec size="50" id="project.panel.project.public.access.label" default="https://$IP_ADDRESS/project1" />
 			<description id="project.panel.project.public.access.description" />
 		</field>
-		<field type="text" variable="regards.config.workspace.directory"
-			size="35">
-			<spec size="15" id="workspace.folder.label" default="${regards.config.workspace.directory.default.value}" />
-		</field>
 		
 		<field type="staticText" id="proxy.config.header" />
 		
@@ -133,6 +129,9 @@
 			<validator
 				class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
 				id="validator.port.error.label" />
+		</field>
+		<field type="text" variable="regards.config.http.proxy.noproxy">
+			<spec id="noproxy.label" size="15" />
 		</field>
 
 		<field type="staticText" id="cipher.config.header" />
@@ -165,6 +164,10 @@
 				</col>
 			</spec>
 		</field>
+		<field type="text" variable="regards.config.workspace.directory"
+			   size="35">
+			<spec size="15" id="workspace.folder.label" default="${regards.config.workspace.directory.default.value}" />
+		</field>
 	</panel>
 
 	<panel id="RegistryPanel">
@@ -185,6 +188,30 @@
 						<validator
 							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label" />
+					</field>
+				</col>
+			</spec>
+		</field>
+	</panel>
+
+	<panel id="LinkToExistingRegistryPanel">
+		<field id="linktoexistingregistry.panel.title.label" type="title" />
+		<field type="custom" minRow="1" maxRow="1" variable="registry.count">
+			<spec>
+				<col>
+					<field type="text" variable="regards.config.cloud.registry.host">
+						<spec id="host.label" size="15"
+							  default="${regards.config.cloud.registry.host}" />
+					</field>
+				</col>
+				<col>
+					<field type="text" variable="regards.config.cloud.registry.port">
+						<spec id="port.label" size="15"
+							  default="${regards.config.cloud.registry.port}">
+						</spec>
+						<validator
+								class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+								id="validator.port.error.label" />
 					</field>
 				</col>
 			</spec>
@@ -224,7 +251,7 @@
 			<spec id="port.label" size="15"
 				default="${regards.config.spring.rabbitmq.port}" />
 			<validator
-				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+				class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
 				id="validator.port.error.label" />
 		</field>
 		<field type="text" variable="regards.config.spring.rabbitmq.username">
@@ -254,7 +281,7 @@
 			<spec id="port.label" size="15"
 				default="${regards.config.regards.amqp.management.port}" />
 			<validator
-				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+				class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
 				id="validator.port.error.label" />
 		</field>
 	</panel>
@@ -272,8 +299,29 @@
 					<field type="text" variable="admin-instance.port">
 						<spec id="port.label" size="15" default="${admin-instance.port}" />
 						<validator
-							class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
+							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
 							id="validator.port.error.label" />
+					</field>
+				</col>
+			</spec>
+		</field>
+	</panel>
+
+	<panel id="LinkToExistingAdminInstancePanel">
+		<field id="linktoexistingadmin.panel.title.label.instance" type="title" />
+		<field type="custom" minRow="1" maxRow="50" variable="admin-instance.count">
+			<spec>
+				<col>
+					<field type="text" variable="admin-instance.host">
+						<spec id="host.label" size="15" default="${admin-instance.host}" />
+					</field>
+				</col>
+				<col>
+					<field type="text" variable="admin-instance.port">
+						<spec id="port.label" size="15" default="${admin-instance.port}" />
+						<validator
+								class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+								id="validator.port.error.label" />
 					</field>
 				</col>
 			</spec>
@@ -330,6 +378,27 @@
 		</field>
 	</panel>
 
+	<panel id="LinkToExistingAdminPanel">
+		<field id="linktoexistingadmin.panel.title.label" type="title" />
+		<field type="custom" minRow="1" maxRow="50" variable="admin.count">
+			<spec>
+				<col>
+					<field type="text" variable="admin.host">
+						<spec id="host.label" size="15" default="${admin.host}" />
+					</field>
+				</col>
+				<col>
+					<field type="text" variable="admin.port">
+						<spec id="port.label" size="15" default="${admin.port}" />
+						<validator
+							class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+							id="validator.port.error.label" />
+					</field>
+				</col>
+			</spec>
+		</field>
+	</panel>
+
 	<panel id="AdminPanel">
 		<field id="admin.panel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="50" variable="admin.count">
@@ -343,14 +412,14 @@
 					<field type="text" variable="admin.port">
 						<spec id="port.label" size="15" default="${admin.port}" />
 						<validator
-							class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
-							id="validator.port.error.label" />
+								class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+								id="validator.port.error.label" />
 					</field>
 				</col>
 			</spec>
 		</field>
 	</panel>
-	
+
 	<panel id="AdminPropertiesPanel">
 		<field id="admin.panel.title.label.properties" type="title" />
 
@@ -578,6 +647,27 @@
 		</field>
 	</panel>
 
+	<panel id="LinkToExistingDamPanel">
+		<field id="linktoexistingdam.panel.title.label" type="title" />
+		<field type="custom" minRow="1" maxRow="50" variable="dam.count">
+			<spec>
+				<col>
+					<field type="text" variable="dam.host">
+						<spec id="host.label" size="15" default="${dam.host}" />
+					</field>
+				</col>
+				<col>
+					<field type="text" variable="dam.port">
+						<spec id="port.label" size="15" default="${dam.port}" />
+						<validator
+								class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+								id="validator.port.error.label" />
+					</field>
+				</col>
+			</spec>
+		</field>
+	</panel>
+
 	<panel id="DamPanel">
 		<field id="dam.panel.title.label" type="title" />
 		<field type="custom" minRow="1" maxRow="50" variable="dam.count">
@@ -638,7 +728,7 @@
 			<spec id="port.label" size="15"
 				default="${regards.config.elasticsearch.http.port}" />
 			<validator
-				class="com.izforge.izpack.panels.userinput.validator.PortValidator"
+				class="com.izforge.izpack.panels.userinput.validator.IsPortValidator"
 				id="validator.port.error.label" />
 		</field>
 
@@ -1020,31 +1110,6 @@
 		<field type="text" variable="regards.acquisition.process.run.chains.delay">
 			<spec id="dataprovider.panel.run.chains.delay" size="8"
 				default="${regards.acquisition.process.run.chains.delay.default.value}" />
-		</field>
-
-		<field type="space" />
-		<field type="staticText" id="dataprovider.panel.folder" bold="true" />
-		<field type="space" />
-
-		<field type="text" variable="regards.acquisition.cycle.orf.conf.path">
-			<spec id="dataprovider.panel.cycle.orf.folder" size="24"
-				default="${regards.acquisition.cycle.orf.conf.path.default.value}" />
-		</field>
-		<field type="text" variable="regards.acquisition.plugins.translations.path">
-			<spec id="dataprovider.panel.translations.folder" size="24"
-				default="${regards.acquisition.plugins.translations.path.default.value}" />
-		</field>
-		<field type="text" variable="regards.acquisition.plugins.conf.path">
-			<spec id="dataprovider.panel.plugin.confs.folder" size="24"
-				default="${regards.acquisition.plugins.conf.path.default.value}" />
-		</field>
-		<field type="text" variable="regards.acquisition.plugins.cycles.path">
-			<spec id="dataprovider.panel.cycles.folder" size="24"
-				default="${regards.acquisition.plugins.cycles.path.default.value}" />
-		</field>
-		<field type="text" variable="regards.acquisition.chains.cycles.path">
-			<spec id="dataprovider.panel.histo.orf.folder" size="24"
-				default="${regards.acquisition.chains.cycles.path.default.value}" />
 		</field>
 	</panel>
 

@@ -116,6 +116,7 @@ function get_lib_exec_java
 }
 
 # read_config ##########################################################
+# in case the value has not been replaced, return empty string
 function read_config
 {
   typeset -r FCT_CONFIGURATION_FILE="$1"
@@ -142,6 +143,10 @@ function read_config
   then
     printf >&2  "ERROR : Property line definition \"${search_line}\" is malformed.\n"
     exit 1
+  fi
+  if [ $(expr "${search_value}" : '${.*}') -ne 0 ]
+  then
+    search_value=''
   fi
   eval eval echo "${search_value}"
 }

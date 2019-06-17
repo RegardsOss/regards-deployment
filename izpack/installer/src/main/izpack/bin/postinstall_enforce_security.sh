@@ -75,8 +75,12 @@ typeset -r GLOBAL_REGARDS_GROUP=$(read_config "${CONFIGURATION_FILE}" "regards.m
 typeset -r EXEC_REGARDS_GROUP=$(read_config "${CONFIGURATION_FILE}" "regards.microservices.exec.group")
 typeset -r ADMIN_REGARDS_GROUP=$(read_config "${CONFIGURATION_FILE}" "regards.microservices.admin.group")
 typeset -r RUNTIME_REGARDS_GROUP=$(read_config "${CONFIGURATION_FILE}" "regards.microservices.runtime.group")
+# These three are only usable in case:
+# rs-config is being installed, if it is not, value is empty so make sure to test when using it
 typeset -r WORKSPACE=$(read_config "${CONFIGURATION_FILE}" "regards.microservices.workspace")
+# rs-storage is being installed
 typeset -r STORAGE_CACHE=$(read_config "${CONFIGURATION_FILE}" "regards.storage.cache")
+# rs-dam is being installed
 typeset -r DAM_LOCAL_STORAGE=$(read_config "${CONFIGURATION_FILE}" "regards.dam.local.storage")
 
 # Two types of users must exist
@@ -174,12 +178,21 @@ fi
 chown -R :${RUNTIME_REGARDS_GROUP} "${ROOT_DIR}"/{run,logs}
 chmod 2770 "${ROOT_DIR}"/{run,logs}
 # Lets handle dynamic locations
-chown -R :${RUNTIME_REGARDS_GROUP} ${WORKSPACE}
-chmod 2770 ${WORKSPACE}
-chown -R :${RUNTIME_REGARDS_GROUP} ${STORAGE_CACHE}
-chmod 2770 ${STORAGE_CACHE}
-chown -R :${RUNTIME_REGARDS_GROUP} ${DAM_LOCAL_STORAGE}
-chmod 2770 ${DAM_LOCAL_STORAGE}
+if [ -n "${WORKSPACE}" ]
+then
+  chown -R :${RUNTIME_REGARDS_GROUP} ${WORKSPACE}
+  chmod 2770 ${WORKSPACE}
+fi
+if [ -n "${STORAGE_CACHE}" ]
+then
+  chown -R :${RUNTIME_REGARDS_GROUP} ${STORAGE_CACHE}
+  chmod 2770 ${STORAGE_CACHE}
+fi
+if [ -n "${DAM_LOCAL_STORAGE}" ]
+then
+  chown -R :${RUNTIME_REGARDS_GROUP} ${DAM_LOCAL_STORAGE}
+  chmod 2770 ${DAM_LOCAL_STORAGE}
+fi
 
 # Files shared through rw by admin and exec users
 find "${ROOT_DIR}"/{run,logs} -type f -exec chmod 0660 {} \;

@@ -25,7 +25,7 @@
 	
 	<name>Installer</name>
 	<description>Required files describing an Izpack installer</description>
-	<url>https://github.com/RegardsOss/RegardsOss.github.io</url>
+	<url>https://regardsoss.github.io/</url>
 	<inceptionYear>2016</inceptionYear>
 	<licenses>
 		<license>
@@ -52,13 +52,12 @@
 	<parent>
 		<groupId>fr.cnes.regards.deployment</groupId>
 		<artifactId>izpack</artifactId>
-		<version>3.0.0-RELEASE</version>
+		<version>0.4.0</version>
 	</parent>
 
 	<properties>
 		<staging.dir>${project.build.directory}/staging</staging.dir>
 		<temp.dir.filtering>target/config-to-filter</temp.dir.filtering>
-		<custom.components.version>3.0.0-RELEASE</custom.components.version>
 	</properties>
 
 	<build>
@@ -116,7 +115,6 @@
 								bootstrap-administration-instance,
 								bootstrap-storage,
 	 							bootstrap-dataprovider,
-								acquisition-plugins-ssalto,
 								bootstrap-order,
 								bootstrap-ingest,
 								bootstrap-dam, 
@@ -349,23 +347,6 @@
 						</configuration>
 					</execution>
 					<execution>
-						<id>unpack-plugin-ssalto</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>unpack</goal>
-						</goals>
-						<configuration>
-							<artifactItems>
-								<artifactItem>
-									<groupId>fr.cnes.regards.modules.acquisition</groupId>
-									<artifactId>acquisition-plugins-ssalto</artifactId>
-								</artifactItem>
-							</artifactItems>
-							<outputDirectory>${temp.dir.filtering}/dataprovider</outputDirectory>
-							<includes>BOOT-INF/classes/logback.xml</includes>
-						</configuration>
-					</execution>					
-					<execution>
 						<id>unpack-logback-order</id>
 						<phase>generate-sources</phase>
 						<goals>
@@ -527,11 +508,6 @@
 				fr.cnes.regards.microservices.ingestion
 			</groupId>
 			<artifactId>bootstrap-ingest</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>fr.cnes.regards.modules.acquisition</groupId>
-			<artifactId>acquisition-plugins-ssalto</artifactId>
-			<version>3.0.0-RELEASE</version>
 		</dependency>
 	</dependencies>
 
