@@ -23,7 +23,7 @@
 
 	<artifactId>izpack</artifactId>
 	<packaging>pom</packaging>
-	<version>0.4.0</version>
+	<version>0.5.0-SNAPSHOT</version>
 	
 	<name>Izpack</name>
 	<description>Module creating the Izpack installer</description>
@@ -51,7 +51,7 @@
 	<parent>
 		<groupId>fr.cnes.regards.deployment</groupId>
 		<artifactId>rs-deployment</artifactId>
-		<version>0.4.0</version>
+		<version>0.5.0-SNAPSHOT</version>
 	</parent>
 
 	<properties>
