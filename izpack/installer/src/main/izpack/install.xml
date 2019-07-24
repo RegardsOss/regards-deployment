@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- Copyright 2017-2018 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ Copyright 2017-2019 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
  
  This file is part of REGARDS.
  
@@ -287,7 +287,7 @@
                 name="regards.config.dataprovider.regards.jpa.multitenant.tenants.password.1"
                 value=""/>
         <variable name="regards.config.dataprovider.regards.jobs.pool.size"
-                  value="10"/>
+                  value="2"/>
         <variable name="regards.config.dataprovider.regards.jobs.completion.update.rate.ms"
                   value="500000"/>
         <variable
@@ -311,7 +311,7 @@
                 name="regards.config.storage.regards.jpa.multitenant.tenants.password.1"
                 value=""/>
         <variable name="regards.config.storage.regards.jobs.pool.size"
-                  value="10"/>
+                  value="2"/>
         <variable name="regards.config.storage.regards.jobs.completion.update.rate.ms"
                   value="500000"/>
         <variable name="regards.config.storage.cache.directory.default.value"
@@ -331,7 +331,7 @@
                 name="regards.config.order.regards.jpa.multitenant.tenants.password.1"
                 value=""/>
         <variable name="regards.config.order.regards.jobs.pool.size"
-                  value="10"/>
+                  value="2"/>
         <variable name="regards.config.order.regards.jobs.completion.update.rate.ms"
                   value="500000"/>
         <variable name="regards.config.order.regards.order.files.bucket.size.Mb"
@@ -368,7 +368,7 @@
                 name="regards.config.ingest.regards.jpa.multitenant.tenants.password.1"
                 value=""/>
         <variable name="regards.config.ingest.regards.jobs.pool.size"
-                  value="10"/>
+                  value="2"/>
         <variable name="regards.config.ingest.regards.jobs.completion.update.rate.ms"
                   value="500000"/>
         <variable name="regards.config.ingest.aips.bulk.request.limit.default.value"

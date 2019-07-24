@@ -2,8 +2,8 @@
 ______________
 
 Identification                       : Regards
-Date                                 : 2019-06-17
-Version                              : 0.4.0
+Date                                 : 2019-07-31
+Version                              : 0.4.1
 Owner                                : CNES
 Developer                            : CS SI
 Type                                 : Complete
@@ -11,10 +11,27 @@ Project page                         : https://regardsoss.github.io/
 Classification                       : Not Confidential - Opensource GPL V3
 Characteristics                      : Microservice, NetflixOSS, Spring, Java, Javascript, React
 Role/Function                        : Data valorization product
-Reference tag                        : (0.4.0)
+Reference tag                        : (V0.4.1)
 
 2/ Changes
 ______________
+
+- 0.4.1 (2019-07-31) :
+        - Bug fixes :
+              1 : (Frontend) Display of HTML files in entities description 
+              2 : (Frontend) Add visible loading information on access-rights page when loading datasets
+              3 : (Frontend) Fix access-rights configuration when using custom access by plugin
+              4 : (Frontend) Fix bugs on quicklooks display
+              5 : (Frontend) Fix render of entities properties on map view
+              6 : (Frontend) Fix too long request when loading attributes associated to a dataset in search-from module configuration
+              7 : (Framework) Handle disabled plugins in a global way
+              8 : (Framework) Fix notification issues
+              9 : (Storage) Fix API session filters on date
+              10 : (Dataprovider) fix multiple bugs on acquisition process
+              11 : (Ingest) : Fix SIP deletion when a same provider identified SIP is in DELETED state
+              12 ! (Administration) : Fix user account creation issue
+              13 : (Documentation) : Update API documentation for new version
+              14 : (Documentation) : Fix license version in some files
 
 - 0.4.0 (2019-06-17) :
         - New features :
