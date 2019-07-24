@@ -18,6 +18,10 @@
  */
 package fr.cnes.regards.deployment.izpack.custom.validator;
 
+import java.util.UUID;
+
+import com.izforge.izpack.api.data.InstallData;
+import com.izforge.izpack.api.installer.DataValidator;
 import fr.cnes.regards.deployment.izpack.custom.model.ComponentType;
 
 /**
@@ -35,5 +39,11 @@ public class ValidatorConfigPanel extends AbstractInjectDataValidator {
         super();
         type = ComponentType.CONFIG;
         entryKey = type.getName();
+    }
+
+    @Override
+    public Status validateData(InstallData installData) {
+        installData.setVariable("jwt.secret", UUID.randomUUID().toString());
+        return super.validateData(installData);
     }
 }
