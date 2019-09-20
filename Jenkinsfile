@@ -176,7 +176,7 @@ pipeline {
         )
       }
     }
-    stage('Deploy archiva') {
+    stage('Deploy Nexus') {
         when {
             expression { BRANCH_NAME ==~ /(develop.*|release.*)/ }
         }
