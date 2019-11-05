@@ -126,9 +126,9 @@ do
 
     if [ ${MICROSERVICE_TYPE} == "frontend" ]
     then
-        java -Xms${microservices_infos_t[xmx]} -Xmx${microservices_infos_t[xmx]} -jar -Dserver.address="0.0.0.0"  -Dserver.port="${microservices_infos_t[port]}" ${lib_exec_java} --regards.frontend.www.path=./www > "${log_file}" 2>&1 &
+        java -XX:+UseG1GC -Xms${microservices_infos_t[xmx]} -Xmx${microservices_infos_t[xmx]} -jar -Dserver.address="0.0.0.0"  -Dserver.port="${microservices_infos_t[port]}" ${lib_exec_java} --regards.frontend.www.path=./www > "${log_file}" 2>&1 &
     else
-        java -Xms${microservices_infos_t[xmx]} -Xmx${microservices_infos_t[xmx]} -Dserver.address="0.0.0.0" -Dserver.port="${microservices_infos_t[port]}" -Dloader.path=${plugins_dir} -cp ${microservice_conf_dir} -Dlogging.config=${logback_file} -jar ${lib_exec_java}  > "${log_file}" 2>&1 &
+        java -XX:+UseG1GC -Xms${microservices_infos_t[xmx]} -Xmx${microservices_infos_t[xmx]} -Dserver.address="0.0.0.0" -Dserver.port="${microservices_infos_t[port]}" -Dloader.path=${plugins_dir} -cp ${microservice_conf_dir} -Dlogging.config=${logback_file} -jar ${lib_exec_java}  > "${log_file}" 2>&1 &
     fi
     pid=$!
 
