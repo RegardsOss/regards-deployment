@@ -116,7 +116,7 @@ do
       fi
     done
     
-    log_file="${ROOT_DIR}"/logs/"${MICROSERVICE_TYPE}-id${microservices_infos_t[id]}".log
+    log_file="${ROOT_DIR}"/logs/"rs-${MICROSERVICE_TYPE}".log
     touch ${log_file}
     chmod g+r ${log_file}
 
@@ -128,9 +128,9 @@ do
 
     if [ ${MICROSERVICE_TYPE} == "frontend" ]
     then
-        java $java_memory_properties -Dserver.address="0.0.0.0" -Dserver.port="${microservices_infos_t[port]}" -jar ${lib_exec_java} --regards.frontend.www.path=./www > "${log_file}" 2>&1 &
+        java $java_memory_properties -Dserver.address="0.0.0.0" -Dserver.port="${microservices_infos_t[port]}" -jar ${lib_exec_java} --regards.frontend.www.path=./www >> "${log_file}" 2>&1 &
     else
-        java $java_memory_properties -Dserver.address="0.0.0.0" -Dserver.port="${microservices_infos_t[port]}" -Dloader.path=${plugins_dir} -cp ${microservice_conf_dir} -Dlogging.config=${logback_file} -jar ${lib_exec_java}  > "${log_file}" 2>&1 &
+        java $java_memory_properties -Dserver.address="0.0.0.0" -Dserver.port="${microservices_infos_t[port]}" -Dloader.path=${plugins_dir} -cp ${microservice_conf_dir} -Dlogging.config=${logback_file} -jar ${lib_exec_java}  >> "${log_file}" 2>&1 &
     fi
     pid=$!
 
