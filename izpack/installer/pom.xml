@@ -52,7 +52,7 @@
 	<parent>
 		<groupId>fr.cnes.regards.deployment</groupId>
 		<artifactId>izpack</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.1</version>
 	</parent>
 
 	<properties>

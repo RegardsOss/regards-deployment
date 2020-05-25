@@ -1,375 +1,0 @@
-[INFO] Scanning for projects...
-Downloading: http://172.26.46.158:8010/repository/internal/org/codehaus/mojo/versions-maven-plugin/2.3/versions-maven-plugin-2.3.pom
-3/16 KB   7/16 KB   11/16 KB   15/16 KB   16/16 KB              Downloaded: http://172.26.46.158:8010/repository/internal/org/codehaus/mojo/versions-maven-plugin/2.3/versions-maven-plugin-2.3.pom (16 KB at 9.6 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/codehaus/mojo/mojo-parent/39/mojo-parent-39.pom
-3/34 KB    7/34 KB   11/34 KB   15/34 KB   19/34 KB   23/34 KB   27/34 KB   31/34 KB   34/34 KB              Downloaded: http://172.26.46.158:8010/repository/internal/org/codehaus/mojo/mojo-parent/39/mojo-parent-39.pom (34 KB at 32.3 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/codehaus/mojo/versions-maven-plugin/2.3/versions-maven-plugin-2.3.jar
-4/257 KB   8/257 KB   12/257 KB   16/257 KB   20/257 KB   24/257 KB   28/257 KB   32/257 KB   36/257 KB   40/257 KB   40/257 KB   43/257 KB   46/257 KB   48/257 KB   51/257 KB   54/257 KB   56/257 KB   59/257 KB   63/257 KB   66/257 KB   68/257 KB   71/257 KB   74/257 KB   77/257 KB   79/257 KB   83/257 KB   86/257 KB   89/257 KB   91/257 KB   94/257 KB   97/257 KB   101/257 KB   101/257 KB   103/257 KB   106/257 KB   109/257 KB   111/257 KB   114/257 KB   117/257 KB   119/257 KB   123/257 KB   123/257 KB   126/257 KB   129/257 KB   131/257 KB   134/257 KB   137/257 KB   141/257 KB   143/257 KB   146/257 KB   149/257 KB   151/257 KB   154/257 KB   157/257 KB   159/257 KB   163/257 KB   163/257 KB   166/257 KB   169/257 KB   171/257 KB   174/257 KB   177/257 KB   179/257 KB   183/257 KB   183/257 KB   186/257 KB   189/257 KB   191/257 KB   194/257 KB   197/257 KB   199/257 KB   203/257 KB   203/257 KB   206/257 KB   209/257 KB   211/257 KB   214/257 KB   217/257 KB   221/257 KB   221/257 KB   223/257 KB   226/257 KB   229/257 KB   231/257 KB   234/257 KB   237/257 KB   241/257 KB   241/257 KB   243/257 KB   246/257 KB   249/257 KB   251/257 KB   254/257 KB   257/257 KB                Downloaded: http://172.26.46.158:8010/repository/internal/org/codehaus/mojo/versions-maven-plugin/2.3/versions-maven-plugin-2.3.jar (257 KB at 133.3 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-deploy-plugin/2.7/maven-deploy-plugin-2.7.pom
-2/6 KB       6/6 KB   6/6 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-deploy-plugin/2.7/maven-deploy-plugin-2.7.pom (6 KB at 5.5 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-deploy-plugin/2.7/maven-deploy-plugin-2.7.jar
-2/27 KB   6/27 KB   10/27 KB   14/27 KB   18/27 KB   22/27 KB   26/27 KB   27/27 KB              Downloaded: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-deploy-plugin/2.7/maven-deploy-plugin-2.7.jar (27 KB at 13.9 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-site-plugin/3.3/maven-site-plugin-3.3.pom
-4/21 KB    8/21 KB   12/21 KB   16/21 KB   18/21 KB   21/21 KB              Downloaded: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-site-plugin/3.3/maven-site-plugin-3.3.pom (21 KB at 20.6 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-site-plugin/3.3/maven-site-plugin-3.3.jar
-2/122 KB   6/122 KB   10/122 KB   14/122 KB   18/122 KB   22/122 KB   26/122 KB   30/122 KB   30/122 KB   34/122 KB   34/122 KB   36/122 KB   39/122 KB   42/122 KB   44/122 KB   47/122 KB   50/122 KB   54/122 KB   54/122 KB   56/122 KB   59/122 KB   62/122 KB   64/122 KB   67/122 KB   71/122 KB   71/122 KB   74/122 KB   76/122 KB   79/122 KB   82/122 KB   84/122 KB   87/122 KB   90/122 KB   94/122 KB   94/122 KB   96/122 KB   99/122 KB   102/122 KB   105/122 KB   107/122 KB   111/122 KB   111/122 KB   114/122 KB   117/122 KB   119/122 KB   122/122 KB                Downloaded: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-site-plugin/3.3/maven-site-plugin-3.3.jar (122 KB at 61.4 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-antrun-plugin/1.3/maven-antrun-plugin-1.3.pom
-3/5 KB       5/5 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-antrun-plugin/1.3/maven-antrun-plugin-1.3.pom (5 KB at 4.8 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-plugins/12/maven-plugins-12.pom
-3/12 KB   7/12 KB   11/12 KB   12/12 KB              Downloaded: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-plugins/12/maven-plugins-12.pom (12 KB at 19.5 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-antrun-plugin/1.3/maven-antrun-plugin-1.3.jar
-3/24 KB    7/24 KB   11/24 KB   15/24 KB   19/24 KB   22/24 KB   24/24 KB              Downloaded: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-antrun-plugin/1.3/maven-antrun-plugin-1.3.jar (24 KB at 19.6 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/com/spotify/docker-maven-plugin/0.4.11/docker-maven-plugin-0.4.11.pom
-3/13 KB    7/13 KB   11/13 KB   13/13 KB              Downloaded: http://172.26.46.158:8010/repository/internal/com/spotify/docker-maven-plugin/0.4.11/docker-maven-plugin-0.4.11.pom (13 KB at 18.3 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/com/spotify/docker-maven-plugin/0.4.11/docker-maven-plugin-0.4.11.jar
-3/46 KB    7/46 KB   11/46 KB   15/46 KB   16/46 KB   19/46 KB   22/46 KB   24/46 KB   27/46 KB   30/46 KB   34/46 KB   34/46 KB   36/46 KB   39/46 KB   42/46 KB   44/46 KB   46/46 KB              Downloaded: http://172.26.46.158:8010/repository/internal/com/spotify/docker-maven-plugin/0.4.11/docker-maven-plugin-0.4.11.jar (46 KB at 24.4 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/com/spotify/dockerfile-maven-plugin/1.4.0/dockerfile-maven-plugin-1.4.0.pom
-2/6 KB     6/6 KB            Downloaded: http://172.26.46.158:8010/repository/internal/com/spotify/dockerfile-maven-plugin/1.4.0/dockerfile-maven-plugin-1.4.0.pom (6 KB at 2.4 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/com/spotify/dockerfile-maven/1.4.0/dockerfile-maven-1.4.0.pom
-2/3 KB   3/3 KB            Downloaded: http://172.26.46.158:8010/repository/internal/com/spotify/dockerfile-maven/1.4.0/dockerfile-maven-1.4.0.pom (3 KB at 2.1 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/com/spotify/foss-root/6/foss-root-6.pom
-3/9 KB   7/9 KB   9/9 KB            Downloaded: http://172.26.46.158:8010/repository/internal/com/spotify/foss-root/6/foss-root-6.pom (9 KB at 8.1 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/com/spotify/dockerfile-maven-plugin/1.4.0/dockerfile-maven-plugin-1.4.0.jar
-2/36 KB   6/36 KB   10/36 KB   14/36 KB   18/36 KB   19/36 KB   22/36 KB   24/36 KB   27/36 KB   30/36 KB   32/36 KB   36/36 KB              Downloaded: http://172.26.46.158:8010/repository/internal/com/spotify/dockerfile-maven-plugin/1.4.0/dockerfile-maven-plugin-1.4.0.jar (36 KB at 18.4 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-war-plugin/2.5/maven-war-plugin-2.5.pom
-3/9 KB     7/9 KB   9/9 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-war-plugin/2.5/maven-war-plugin-2.5.pom (9 KB at 8.7 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-plugins/25/maven-plugins-25.pom
-2/10 KB   6/10 KB   10/10 KB   10/10 KB              Downloaded: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-plugins/25/maven-plugins-25.pom (10 KB at 9.4 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-war-plugin/2.5/maven-war-plugin-2.5.jar
-4/84 KB    8/84 KB   12/84 KB   16/84 KB   20/84 KB   20/84 KB   23/84 KB   27/84 KB   27/84 KB   30/84 KB   32/84 KB   35/84 KB   38/84 KB   42/84 KB   42/84 KB   44/84 KB   47/84 KB   50/84 KB   52/84 KB   55/84 KB   58/84 KB   60/84 KB   64/84 KB   64/84 KB   67/84 KB   70/84 KB   72/84 KB   75/84 KB   76/84 KB   78/84 KB   80/84 KB   84/84 KB              Downloaded: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-war-plugin/2.5/maven-war-plugin-2.5.jar (84 KB at 44.3 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/boot/spring-boot-maven-plugin/1.4.0.RELEASE/spring-boot-maven-plugin-1.4.0.RELEASE.pom
-2/7 KB     6/7 KB   7/7 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/boot/spring-boot-maven-plugin/1.4.0.RELEASE/spring-boot-maven-plugin-1.4.0.RELEASE.pom (7 KB at 5.7 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/boot/spring-boot-tools/1.4.0.RELEASE/spring-boot-tools-1.4.0.RELEASE.pom
-2/2 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/boot/spring-boot-tools/1.4.0.RELEASE/spring-boot-tools-1.4.0.RELEASE.pom (2 KB at 1.1 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/boot/spring-boot-parent/1.4.0.RELEASE/spring-boot-parent-1.4.0.RELEASE.pom
-4/26 KB   8/26 KB   12/26 KB   15/26 KB   18/26 KB   19/26 KB   22/26 KB   24/26 KB   26/26 KB              Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/boot/spring-boot-parent/1.4.0.RELEASE/spring-boot-parent-1.4.0.RELEASE.pom (26 KB at 23.0 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/boot/spring-boot-dependencies/1.4.0.RELEASE/spring-boot-dependencies-1.4.0.RELEASE.pom
-2/86 KB    6/86 KB   10/86 KB   14/86 KB   16/86 KB   19/86 KB   22/86 KB   24/86 KB   28/86 KB   28/86 KB   31/86 KB   34/86 KB   36/86 KB   39/86 KB   42/86 KB   44/86 KB   48/86 KB   48/86 KB   51/86 KB   54/86 KB   56/86 KB   59/86 KB   62/86 KB   64/86 KB   68/86 KB   68/86 KB   71/86 KB   74/86 KB   76/86 KB   79/86 KB   82/86 KB   86/86 KB              Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/boot/spring-boot-dependencies/1.4.0.RELEASE/spring-boot-dependencies-1.4.0.RELEASE.pom (86 KB at 76.8 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/spring-framework-bom/4.3.2.RELEASE/spring-framework-bom-4.3.2.RELEASE.pom
-3/5 KB     5/5 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/spring-framework-bom/4.3.2.RELEASE/spring-framework-bom-4.3.2.RELEASE.pom (5 KB at 4.7 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/data/spring-data-releasetrain/Hopper-SR2/spring-data-releasetrain-Hopper-SR2.pom
-3/5 KB   5/5 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/data/spring-data-releasetrain/Hopper-SR2/spring-data-releasetrain-Hopper-SR2.pom (5 KB at 4.0 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/data/build/spring-data-build/1.8.2.RELEASE/spring-data-build-1.8.2.RELEASE.pom
-3/6 KB   6/6 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/data/build/spring-data-build/1.8.2.RELEASE/spring-data-build-1.8.2.RELEASE.pom (6 KB at 4.9 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/integration/spring-integration-bom/4.3.1.RELEASE/spring-integration-bom-4.3.1.RELEASE.pom
-3/9 KB   7/9 KB   9/9 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/integration/spring-integration-bom/4.3.1.RELEASE/spring-integration-bom-4.3.1.RELEASE.pom (9 KB at 7.5 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/security/spring-security-bom/4.1.1.RELEASE/spring-security-bom-4.1.1.RELEASE.pom
-3/5 KB   5/5 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/security/spring-security-bom/4.1.1.RELEASE/spring-security-bom-4.1.1.RELEASE.pom (5 KB at 3.9 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/boot/spring-boot-maven-plugin/1.4.0.RELEASE/spring-boot-maven-plugin-1.4.0.RELEASE.jar
-3/61 KB   7/61 KB   11/61 KB   11/61 KB   14/61 KB   16/61 KB   20/61 KB   20/61 KB   23/61 KB   26/61 KB   28/61 KB   31/61 KB   34/61 KB   36/61 KB   39/61 KB   43/61 KB   43/61 KB   46/61 KB   48/61 KB   51/61 KB   54/61 KB   56/61 KB   59/61 KB   61/61 KB              Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/boot/spring-boot-maven-plugin/1.4.0.RELEASE/spring-boot-maven-plugin-1.4.0.RELEASE.jar (61 KB at 30.0 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/fr/cnes/regards/microservices/report-maven-plugin/1.1.0/report-maven-plugin-1.1.0.pom
-3/4 KB     4/4 KB            Downloaded: http://172.26.46.158:8010/repository/internal/fr/cnes/regards/microservices/report-maven-plugin/1.1.0/report-maven-plugin-1.1.0.pom (4 KB at 3.1 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/fr/cnes/regards/regards-parent/1.1.0/regards-parent-1.1.0.pom
-3/15 KB   7/15 KB   11/15 KB   14/15 KB   15/15 KB              Downloaded: http://172.26.46.158:8010/repository/internal/fr/cnes/regards/regards-parent/1.1.0/regards-parent-1.1.0.pom (15 KB at 12.9 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/fr/cnes/regards/regards-dependencies/1.1.0/regards-dependencies-1.1.0.pom
-3/43 KB    7/43 KB   11/43 KB   12/43 KB   15/43 KB   16/43 KB   19/43 KB   23/43 KB   23/43 KB   24/43 KB   26/43 KB   28/43 KB   30/43 KB   32/43 KB   35/43 KB   36/43 KB   40/43 KB   40/43 KB   43/43 KB   43/43 KB              Downloaded: http://172.26.46.158:8010/repository/internal/fr/cnes/regards/regards-dependencies/1.1.0/regards-dependencies-1.1.0.pom (43 KB at 36.8 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-dependencies/Brixton.SR5/spring-cloud-dependencies-Brixton.SR5.pom
-3/14 KB    7/14 KB   11/14 KB   14/14 KB              Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-dependencies/Brixton.SR5/spring-cloud-dependencies-Brixton.SR5.pom (14 KB at 10.0 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-dependencies-parent/1.1.2.RELEASE/spring-cloud-dependencies-parent-1.1.2.RELEASE.pom
-2/7 KB     6/7 KB   7/7 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-dependencies-parent/1.1.2.RELEASE/spring-cloud-dependencies-parent-1.1.2.RELEASE.pom (7 KB at 4.4 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-netflix-dependencies/1.1.5.RELEASE/spring-cloud-netflix-dependencies-1.1.5.RELEASE.pom
-2/17 KB   6/17 KB   10/17 KB   14/17 KB   17/17 KB              Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-netflix-dependencies/1.1.5.RELEASE/spring-cloud-netflix-dependencies-1.1.5.RELEASE.pom (17 KB at 15.1 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-dependencies-parent/1.1.1.RELEASE/spring-cloud-dependencies-parent-1.1.1.RELEASE.pom
-3/7 KB     7/7 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-dependencies-parent/1.1.1.RELEASE/spring-cloud-dependencies-parent-1.1.1.RELEASE.pom (7 KB at 5.7 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-commons-dependencies/1.1.1.RELEASE/spring-cloud-commons-dependencies-1.1.1.RELEASE.pom
-3/3 KB   3/3 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-commons-dependencies/1.1.1.RELEASE/spring-cloud-commons-dependencies-1.1.1.RELEASE.pom (3 KB at 2.6 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-config-dependencies/1.1.2.RELEASE/spring-cloud-config-dependencies-1.1.2.RELEASE.pom
-3/4 KB   4/4 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-config-dependencies/1.1.2.RELEASE/spring-cloud-config-dependencies-1.1.2.RELEASE.pom (4 KB at 3.2 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-stream-dependencies/1.0.2.RELEASE/spring-cloud-stream-dependencies-1.0.2.RELEASE.pom
-2/5 KB   5/5 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-stream-dependencies/1.0.2.RELEASE/spring-cloud-stream-dependencies-1.0.2.RELEASE.pom (5 KB at 4.5 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-task-dependencies/1.0.2.RELEASE/spring-cloud-task-dependencies-1.0.2.RELEASE.pom
-2/6 KB   6/6 KB   6/6 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-task-dependencies/1.0.2.RELEASE/spring-cloud-task-dependencies-1.0.2.RELEASE.pom (6 KB at 5.1 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-config-dependencies/1.1.3.RELEASE/spring-cloud-config-dependencies-1.1.3.RELEASE.pom
-3/4 KB   4/4 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-config-dependencies/1.1.3.RELEASE/spring-cloud-config-dependencies-1.1.3.RELEASE.pom (4 KB at 3.2 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-consul-dependencies/1.0.2.RELEASE/spring-cloud-consul-dependencies-1.0.2.RELEASE.pom
-2/7 KB   6/7 KB   7/7 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-consul-dependencies/1.0.2.RELEASE/spring-cloud-consul-dependencies-1.0.2.RELEASE.pom (7 KB at 5.4 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-bus-dependencies/1.1.0.RELEASE/spring-cloud-bus-dependencies-1.1.0.RELEASE.pom
-3/4 KB   4/4 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-bus-dependencies/1.1.0.RELEASE/spring-cloud-bus-dependencies-1.1.0.RELEASE.pom (4 KB at 3.1 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-dependencies-parent/1.1.0.RELEASE/spring-cloud-dependencies-parent-1.1.0.RELEASE.pom
-2/7 KB   6/7 KB   7/7 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-dependencies-parent/1.1.0.RELEASE/spring-cloud-dependencies-parent-1.1.0.RELEASE.pom (7 KB at 5.9 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-commons-dependencies/1.1.0.RELEASE/spring-cloud-commons-dependencies-1.1.0.RELEASE.pom
-3/3 KB   3/3 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-commons-dependencies/1.1.0.RELEASE/spring-cloud-commons-dependencies-1.1.0.RELEASE.pom (3 KB at 2.8 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-stream-dependencies/1.0.0.RELEASE/spring-cloud-stream-dependencies-1.0.0.RELEASE.pom
-2/5 KB   5/5 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-stream-dependencies/1.0.0.RELEASE/spring-cloud-stream-dependencies-1.0.0.RELEASE.pom (5 KB at 4.4 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-netflix-dependencies/1.1.3.RELEASE/spring-cloud-netflix-dependencies-1.1.3.RELEASE.pom
-2/17 KB   6/17 KB   10/17 KB   14/17 KB   16/17 KB   17/17 KB              Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-netflix-dependencies/1.1.3.RELEASE/spring-cloud-netflix-dependencies-1.1.3.RELEASE.pom (17 KB at 15.9 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-sleuth-dependencies/1.0.6.RELEASE/spring-cloud-sleuth-dependencies-1.0.6.RELEASE.pom
-2/5 KB     5/5 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-sleuth-dependencies/1.0.6.RELEASE/spring-cloud-sleuth-dependencies-1.0.6.RELEASE.pom (5 KB at 4.4 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-zookeeper-dependencies/1.0.2.RELEASE/spring-cloud-zookeeper-dependencies-1.0.2.RELEASE.pom
-3/7 KB   7/7 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-zookeeper-dependencies/1.0.2.RELEASE/spring-cloud-zookeeper-dependencies-1.0.2.RELEASE.pom (7 KB at 5.7 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-cloudfoundry-dependencies/1.0.0.RELEASE/spring-cloud-cloudfoundry-dependencies-1.0.0.RELEASE.pom
-3/4 KB   4/4 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-cloudfoundry-dependencies/1.0.0.RELEASE/spring-cloud-cloudfoundry-dependencies-1.0.0.RELEASE.pom (4 KB at 3.4 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-netflix-dependencies/1.1.0.RELEASE/spring-cloud-netflix-dependencies-1.1.0.RELEASE.pom
-3/17 KB   7/17 KB   11/17 KB   11/17 KB   14/17 KB   17/17 KB              Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-netflix-dependencies/1.1.0.RELEASE/spring-cloud-netflix-dependencies-1.1.0.RELEASE.pom (17 KB at 13.8 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-config-dependencies/1.1.0.RELEASE/spring-cloud-config-dependencies-1.1.0.RELEASE.pom
-4/4 KB              Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-config-dependencies/1.1.0.RELEASE/spring-cloud-config-dependencies-1.1.0.RELEASE.pom (4 KB at 3.2 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-bus-dependencies/1.1.1.RELEASE/spring-cloud-bus-dependencies-1.1.1.RELEASE.pom
-2/4 KB   4/4 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-bus-dependencies/1.1.1.RELEASE/spring-cloud-bus-dependencies-1.1.1.RELEASE.pom (4 KB at 3.1 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-cluster-dependencies/1.0.1.RELEASE/spring-cloud-cluster-dependencies-1.0.1.RELEASE.pom
-3/5 KB   5/5 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-cluster-dependencies/1.0.1.RELEASE/spring-cloud-cluster-dependencies-1.0.1.RELEASE.pom (5 KB at 3.9 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-aws-dependencies/1.1.1.RELEASE/spring-cloud-aws-dependencies-1.1.1.RELEASE.pom
-2/6 KB   6/6 KB   6/6 KB            Downloaded: http://172.26.46.158:8010/repository/internal/org/springframework/cloud/spring-cloud-aws-dependencies/1.1.1.RELEASE/spring-cloud-aws-dependencies-1.1.1.RELEASE.pom (6 KB at 4.2 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/com/amazonaws/aws-java-sdk-bom/1.11.18/aws-java-sdk-bom-1.11.18.pom
-2/15 KB   6/15 KB   10/15 KB   14/15 KB   14/15 KB   15/15 KB              Downloaded: http://172.26.46.158:8010/repository/internal/com/amazonaws/aws-java-sdk-bom/1.11.18/aws-java-sdk-bom-1.11.18.pom (15 KB at 14.5 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/com/amazonaws/aws-java-sdk-pom/1.11.18/aws-java-sdk-pom-1.11.18.pom
-2/9 KB     6/9 KB   9/9 KB            Downloaded: http://172.26.46.158:8010/repository/internal/com/amazonaws/aws-java-sdk-pom/1.11.18/aws-java-sdk-pom-1.11.18.pom (9 KB at 7.5 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/fr/cnes/regards/microservices/report-maven-plugin/1.1.0/report-maven-plugin-1.1.0.jar
-2/8 KB   6/8 KB   7/8 KB   8/8 KB            Downloaded: http://172.26.46.158:8010/repository/internal/fr/cnes/regards/microservices/report-maven-plugin/1.1.0/report-maven-plugin-1.1.0.jar (8 KB at 4.1 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-plugin-plugin/3.5/maven-plugin-plugin-3.5.pom
-2/15 KB   6/15 KB   10/15 KB   14/15 KB   14/15 KB   15/15 KB              Downloaded: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-plugin-plugin/3.5/maven-plugin-plugin-3.5.pom (15 KB at 12.6 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugin-tools/maven-plugin-tools/3.5/maven-plugin-tools-3.5.pom
-2/16 KB    6/16 KB   10/16 KB   11/16 KB   14/16 KB   16/16 KB              Downloaded: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugin-tools/maven-plugin-tools/3.5/maven-plugin-tools-3.5.pom (16 KB at 16.0 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-plugin-plugin/3.5/maven-plugin-plugin-3.5.jar
-2/54 KB    6/54 KB   10/54 KB   12/54 KB   16/54 KB   16/54 KB   19/54 KB   22/54 KB   24/54 KB   27/54 KB   30/54 KB   34/54 KB   34/54 KB   36/54 KB   39/54 KB   42/54 KB   44/54 KB   47/54 KB   51/54 KB   51/54 KB   54/54 KB              Downloaded: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-plugin-plugin/3.5/maven-plugin-plugin-3.5.jar (54 KB at 27.6 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-assembly-plugin/3.0.0/maven-assembly-plugin-3.0.0.pom
-3/16 KB    7/16 KB   11/16 KB   14/16 KB   16/16 KB              Downloaded: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-assembly-plugin/3.0.0/maven-assembly-plugin-3.0.0.pom (16 KB at 11.8 KB/sec)
-Downloading: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-assembly-plugin/3.0.0/maven-assembly-plugin-3.0.0.jar
-2/235 KB   6/235 KB   10/235 KB   11/235 KB   14/235 KB   16/235 KB   19/235 KB   22/235 KB   26/235 KB   26/235 KB   28/235 KB   31/235 KB   34/235 KB   36/235 KB   39/235 KB   42/235 KB   46/235 KB   46/235 KB   48/235 KB   51/235 KB   54/235 KB   56/235 KB   59/235 KB   62/235 KB   64/235 KB   66/235 KB   68/235 KB   71/235 KB   74/235 KB   78/235 KB   79/235 KB   82/235 KB   86/235 KB   86/235 KB   88/235 KB   91/235 KB   94/235 KB   96/235 KB   99/235 KB   102/235 KB   106/235 KB   106/235 KB   109/235 KB   111/235 KB   114/235 KB   117/235 KB   119/235 KB   122/235 KB   126/235 KB   126/235 KB   129/235 KB   131/235 KB   134/235 KB   137/235 KB   139/235 KB   142/235 KB   146/235 KB   146/235 KB   149/235 KB   151/235 KB   154/235 KB   157/235 KB   159/235 KB   162/235 KB   166/235 KB   166/235 KB   169/235 KB   171/235 KB   174/235 KB   177/235 KB   179/235 KB   182/235 KB   186/235 KB   186/235 KB   189/235 KB   191/235 KB   194/235 KB   195/235 KB   197/235 KB   199/235 KB   202/235 KB   206/235 KB   206/235 KB   209/235 KB   211/235 KB   214/235 KB   217/235 KB   219/235 KB   222/235 KB   226/235 KB   226/235 KB   229/235 KB   230/235 KB   231/235 KB   234/235 KB   235/235 KB                Downloaded: http://172.26.46.158:8010/repository/internal/org/apache/maven/plugins/maven-assembly-plugin/3.0.0/maven-assembly-plugin-3.0.0.jar (235 KB at 121.9 KB/sec)
-[INFO]                                                                         
-[INFO] ------------------------------------------------------------------------
-[INFO] Building Custom Components 4.0.0-SNAPSHOT
-[INFO] ------------------------------------------------------------------------
-[INFO] 
-[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ custom-components ---
-[INFO] fr.cnes.regards.deployment:custom-components:jar:4.0.0-SNAPSHOT
-[INFO] +- org.codehaus.izpack:izpack-compiler:jar:5.1.0:provided
-[INFO] |  +- org.codehaus.izpack:izpack-native:jar:5.1.0:provided
-[INFO] |  +- org.codehaus.izpack:izpack-panel:jar:5.1.0:provided
-[INFO] |  |  +- org.codehaus.izpack:izpack-api:jar:5.1.0:provided
-[INFO] |  |  +- org.codehaus.izpack:izpack-tools:jar:5.1.0:provided
-[INFO] |  |  +- org.codehaus.izpack:izpack-installer:jar:5.1.0:provided
-[INFO] |  |  +- org.codehaus.izpack:izpack-gui:jar:5.1.0:provided
-[INFO] |  |  +- org.codehaus.izpack:izpack-core:jar:5.1.0:provided
-[INFO] |  |  +- org.apache.pdfbox:pdfbox:jar:1.8.10:provided
-[INFO] |  |  |  +- org.apache.pdfbox:fontbox:jar:1.8.10:provided
-[INFO] |  |  |  \- org.apache.pdfbox:jempbox:jar:1.8.10:provided
-[INFO] |  |  \- org.icepdf.os:icepdf-viewer:jar:6.2.0:provided
-[INFO] |  |     +- org.icepdf.os:icepdf-core:jar:6.2.0:provided
-[INFO] |  |     |  \- com.sun.media:jai_imageio:pom:1.1:provided
-[INFO] |  |     +- org.bouncycastle:bcpkix-jdk15on:jar:1.54:provided
-[INFO] |  |     +- org.bouncycastle:bcprov-ext-jdk15on:jar:1.54:provided
-[INFO] |  |     +- batik:batik-awt-util:jar:1.6:provided
-[INFO] |  |     +- batik:batik-dom:jar:1.6:provided
-[INFO] |  |     +- batik:batik-svg-dom:jar:1.6:provided
-[INFO] |  |     +- batik:batik-svggen:jar:1.6:provided
-[INFO] |  |     +- batik:batik-util:jar:1.6:provided
-[INFO] |  |     \- batik:batik-xml:jar:1.6:provided
-[INFO] |  +- org.codehaus.izpack:izpack-event:jar:5.1.0:provided
-[INFO] |  |  \- org.apache.ant:ant:jar:1.9.9:provided
-[INFO] |  |     \- org.apache.ant:ant-launcher:jar:1.9.9:provided
-[INFO] |  +- org.codehaus.izpack:izpack-uninstaller:jar:5.1.0:provided
-[INFO] |  +- org.codehaus.izpack:izpack-util:jar:5.1.0:provided
-[INFO] |  |  \- org.jdom:jdom2:jar:2.0.6:provided
-[INFO] |  +- org.picocontainer:picocontainer:jar:2.15:provided
-[INFO] |  +- org.apache.commons:commons-lang3:jar:3.8.1:provided
-[INFO] |  +- commons-cli:commons-cli:jar:1.3.1:provided
-[INFO] |  +- commons-io:commons-io:jar:2.6:provided
-[INFO] |  +- org.apache.commons:commons-compress:jar:1.18:provided
-[INFO] |  +- org.tukaani:xz:jar:1.6:provided
-[INFO] |  +- jline:jline:jar:2.12.1:provided
-[INFO] |  +- org.apache.tika:tika-core:jar:1.9:provided
-[INFO] |  +- org.apache.tika:tika-parsers:jar:1.9:provided
-[INFO] |  |  +- org.gagravarr:vorbis-java-tika:jar:0.6:provided
-[INFO] |  |  +- net.sourceforge.jmatio:jmatio:jar:1.0:provided
-[INFO] |  |  +- org.apache.james:apache-mime4j-core:jar:0.7.2:provided
-[INFO] |  |  +- org.apache.james:apache-mime4j-dom:jar:0.7.2:provided
-[INFO] |  |  +- org.bouncycastle:bcmail-jdk15on:jar:1.52:provided
-[INFO] |  |  +- org.bouncycastle:bcprov-jdk15on:jar:1.52:provided
-[INFO] |  |  +- org.apache.poi:poi:jar:3.12:provided
-[INFO] |  |  +- org.apache.poi:poi-scratchpad:jar:3.12:provided
-[INFO] |  |  +- org.apache.poi:poi-ooxml:jar:3.15:provided
-[INFO] |  |  |  +- org.apache.poi:poi-ooxml-schemas:jar:3.15:provided
-[INFO] |  |  |  |  \- org.apache.xmlbeans:xmlbeans:jar:2.6.0:provided
-[INFO] |  |  |  \- com.github.virtuald:curvesapi:jar:1.04:provided
-[INFO] |  |  +- org.ccil.cowan.tagsoup:tagsoup:jar:1.2.1:provided
-[INFO] |  |  +- org.ow2.asm:asm-debug-all:jar:4.1:provided
-[INFO] |  |  +- com.googlecode.mp4parser:isoparser:jar:1.0.2:provided
-[INFO] |  |  |  \- org.aspectj:aspectjrt:jar:1.9.2:provided
-[INFO] |  |  +- com.drewnoakes:metadata-extractor:jar:2.8.0:provided
-[INFO] |  |  |  \- com.adobe.xmp:xmpcore:jar:5.1.2:provided
-[INFO] |  |  +- de.l3s.boilerpipe:boilerpipe:jar:1.1.0:provided
-[INFO] |  |  +- rome:rome:jar:1.0:provided
-[INFO] |  |  |  \- jdom:jdom:jar:1.0:provided
-[INFO] |  |  +- org.gagravarr:vorbis-java-core:jar:0.6:provided
-[INFO] |  |  +- com.googlecode.juniversalchardet:juniversalchardet:jar:1.0.3:provided
-[INFO] |  |  +- org.codelibs:jhighlight:jar:1.0.2:provided
-[INFO] |  |  +- com.pff:java-libpst:jar:0.8.1:provided
-[INFO] |  |  +- com.github.junrar:junrar:jar:0.7:provided
-[INFO] |  |  |  +- commons-logging:commons-logging-api:jar:1.1:provided
-[INFO] |  |  |  \- org.apache.commons:commons-vfs2:jar:2.0:provided
-[INFO] |  |  |     +- org.apache.maven.scm:maven-scm-api:jar:1.4:provided
-[INFO] |  |  |     |  \- org.codehaus.plexus:plexus-utils:jar:1.5.6:provided
-[INFO] |  |  |     \- org.apache.maven.scm:maven-scm-provider-svnexe:jar:1.4:provided
-[INFO] |  |  |        +- org.apache.maven.scm:maven-scm-provider-svn-commons:jar:1.4:provided
-[INFO] |  |  |        \- regexp:regexp:jar:1.3:provided
-[INFO] |  |  +- org.apache.opennlp:opennlp-tools:jar:1.5.3:provided
-[INFO] |  |  |  +- org.apache.opennlp:opennlp-maxent:jar:3.0.3:provided
-[INFO] |  |  |  \- net.sf.jwordnet:jwnl:jar:1.3.3:provided
-[INFO] |  |  +- org.apache.commons:commons-exec:jar:1.3:provided
-[INFO] |  |  +- com.googlecode.json-simple:json-simple:jar:1.1.1:provided
-[INFO] |  |  +- edu.ucar:netcdf4:jar:4.5.5:provided
-[INFO] |  |  |  +- net.jcip:jcip-annotations:jar:1.0:provided
-[INFO] |  |  |  \- net.java.dev.jna:jna:jar:4.5.2:provided
-[INFO] |  |  +- edu.ucar:grib:jar:4.5.5:provided
-[INFO] |  |  |  +- com.google.protobuf:protobuf-java:jar:2.5.0:provided
-[INFO] |  |  |  +- org.jsoup:jsoup:jar:1.7.2:provided
-[INFO] |  |  |  +- edu.ucar:jj2000:jar:5.2:provided
-[INFO] |  |  |  \- org.itadaki:bzip2:jar:0.9.1:provided
-[INFO] |  |  +- edu.ucar:cdm:jar:4.5.5:provided
-[INFO] |  |  |  +- edu.ucar:udunits:jar:4.5.5:provided
-[INFO] |  |  |  +- org.quartz-scheduler:quartz:jar:2.3.0:provided
-[INFO] |  |  |  |  \- com.mchange:mchange-commons-java:jar:0.2.11:provided
-[INFO] |  |  |  +- net.sf.ehcache:ehcache-core:jar:2.6.2:provided
-[INFO] |  |  |  \- com.beust:jcommander:jar:1.35:provided
-[INFO] |  |  +- edu.ucar:httpservices:jar:4.5.5:provided
-[INFO] |  |  |  \- org.apache.httpcomponents:httpmime:jar:4.5.6:provided
-[INFO] |  |  +- org.apache.commons:commons-csv:jar:1.0:provided
-[INFO] |  |  +- org.apache.sis.core:sis-utility:jar:0.5:provided
-[INFO] |  |  +- org.apache.sis.storage:sis-netcdf:jar:0.5:provided
-[INFO] |  |  |  +- org.apache.sis.storage:sis-storage:jar:0.5:provided
-[INFO] |  |  |  \- org.apache.sis.core:sis-referencing:jar:0.5:provided
-[INFO] |  |  +- org.apache.sis.core:sis-metadata:jar:0.5:provided
-[INFO] |  |  \- org.opengis:geoapi:jar:3.0.0:provided
-[INFO] |  |     \- javax.measure:jsr-275:jar:0.9.3:provided
-[INFO] |  +- com.github.insubstantial:substance:jar:7.3:provided
-[INFO] |  |  +- com.github.insubstantial:trident:jar:swing:7.3:provided
-[INFO] |  |  +- com.github.insubstantial:laf-plugin:jar:7.3:provided
-[INFO] |  |  \- com.github.insubstantial:laf-widget:jar:7.3:provided
-[INFO] |  +- com.incors:kunstoff-laf:jar:2.0.2:provided
-[INFO] |  \- com.jgoodies:looks:jar:2.2.2:provided
-[INFO] +- fr.cnes.regards.framework.test:regards-test:jar:4.0.0-SNAPSHOT:test
-[INFO] |  +- fr.cnes.regards.framework:jpa-data-regards:jar:4.0.0-SNAPSHOT:test
-[INFO] |  |  +- org.hibernate.javax.persistence:hibernate-jpa-2.1-api:jar:1.0.2.Final:test
-[INFO] |  |  +- org.hibernate:hibernate-core:jar:5.3.7.Final:test
-[INFO] |  |  |  +- org.jboss.logging:jboss-logging:jar:3.3.2.Final:test
-[INFO] |  |  |  +- javax.persistence:javax.persistence-api:jar:2.2:test
-[INFO] |  |  |  +- org.javassist:javassist:jar:3.23.1-GA:test
-[INFO] |  |  |  +- net.bytebuddy:byte-buddy:jar:1.9.7:test
-[INFO] |  |  |  +- antlr:antlr:jar:2.7.7:test
-[INFO] |  |  |  +- org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:jar:1.1.1.Final:test
-[INFO] |  |  |  +- org.jboss:jandex:jar:2.0.5.Final:test
-[INFO] |  |  |  +- com.fasterxml:classmate:jar:1.4.0:test
-[INFO] |  |  |  +- javax.activation:javax.activation-api:jar:1.2.0:test
-[INFO] |  |  |  +- org.dom4j:dom4j:jar:2.1.1:test
-[INFO] |  |  |  \- org.hibernate.common:hibernate-commons-annotations:jar:5.0.4.Final:test
-[INFO] |  |  +- org.springframework:spring-tx:jar:5.1.4.RELEASE:test
-[INFO] |  |  +- org.springframework.data:spring-data-jpa:jar:2.1.4.RELEASE:test
-[INFO] |  |  |  \- org.springframework:spring-orm:jar:5.1.4.RELEASE:test
-[INFO] |  |  |     \- org.springframework:spring-jdbc:jar:5.1.4.RELEASE:test
-[INFO] |  |  +- org.hibernate:hibernate-java8:jar:5.3.7.Final:test
-[INFO] |  |  +- org.postgresql:postgresql:jar:42.2.5:test
-[INFO] |  |  +- org.hibernate.validator:hibernate-validator:jar:6.0.14.Final:test
-[INFO] |  |  |  \- javax.validation:validation-api:jar:2.0.1.Final:test
-[INFO] |  |  +- fr.cnes.regards.framework:gson-regards-starter:jar:4.0.0-SNAPSHOT:test
-[INFO] |  |  |  \- fr.cnes.regards.framework:gson-regards:jar:4.0.0-SNAPSHOT:test
-[INFO] |  |  |     +- com.google.code.gson:gson:jar:2.8.5:test
-[INFO] |  |  |     +- org.reflections:reflections:jar:0.9.10:test
-[INFO] |  |  |     |  \- com.google.code.findbugs:annotations:jar:2.0.1:test
-[INFO] |  |  |     +- org.springframework.boot:spring-boot-actuator:jar:2.1.2.RELEASE:test
-[INFO] |  |  |     \- fr.cnes.regards.framework:multitenant-regards:jar:4.0.0-SNAPSHOT:test
-[INFO] |  |  \- org.springframework.boot:spring-boot-autoconfigure:jar:2.1.2.RELEASE:test
-[INFO] |  |     \- org.springframework.boot:spring-boot:jar:2.1.2.RELEASE:test
-[INFO] |  +- org.springframework.boot:spring-boot-starter-test:jar:2.1.2.RELEASE:test
-[INFO] |  |  +- org.springframework.boot:spring-boot-starter:jar:2.1.2.RELEASE:test
-[INFO] |  |  |  +- org.springframework.boot:spring-boot-starter-logging:jar:2.1.2.RELEASE:test
-[INFO] |  |  |  |  +- org.apache.logging.log4j:log4j-to-slf4j:jar:2.11.1:test
-[INFO] |  |  |  |  \- org.slf4j:jul-to-slf4j:jar:1.7.25:test
-[INFO] |  |  |  +- javax.annotation:javax.annotation-api:jar:1.3.2:test
-[INFO] |  |  |  \- org.yaml:snakeyaml:jar:1.23:compile
-[INFO] |  |  +- org.springframework.boot:spring-boot-test:jar:2.1.2.RELEASE:test
-[INFO] |  |  +- org.springframework.boot:spring-boot-test-autoconfigure:jar:2.1.2.RELEASE:test
-[INFO] |  |  +- com.jayway.jsonpath:json-path:jar:2.4.0:test
-[INFO] |  |  |  \- net.minidev:json-smart:jar:2.3:test
-[INFO] |  |  |     \- net.minidev:accessors-smart:jar:1.2:test
-[INFO] |  |  |        \- org.ow2.asm:asm:jar:5.0.4:test
-[INFO] |  |  +- junit:junit:jar:4.12:provided
-[INFO] |  |  +- org.assertj:assertj-core:jar:3.11.1:test
-[INFO] |  |  +- org.mockito:mockito-core:jar:2.23.4:test
-[INFO] |  |  |  +- net.bytebuddy:byte-buddy-agent:jar:1.9.7:test
-[INFO] |  |  |  \- org.objenesis:objenesis:jar:2.6:test
-[INFO] |  |  +- org.hamcrest:hamcrest-core:jar:1.3:provided
-[INFO] |  |  +- org.hamcrest:hamcrest-library:jar:1.3:test
-[INFO] |  |  +- org.skyscreamer:jsonassert:jar:1.5.0:test
-[INFO] |  |  |  \- com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1:test
-[INFO] |  |  +- org.springframework:spring-core:jar:5.1.4.RELEASE:test
-[INFO] |  |  |  \- org.springframework:spring-jcl:jar:5.1.4.RELEASE:test
-[INFO] |  |  +- org.springframework:spring-test:jar:5.1.4.RELEASE:test
-[INFO] |  |  \- org.xmlunit:xmlunit-core:jar:2.6.2:test
-[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.9.8:test
-[INFO] |  |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0:test
-[INFO] |  |  \- com.fasterxml.jackson.core:jackson-core:jar:2.9.8:compile
-[INFO] |  +- org.springframework.data:spring-data-commons:jar:2.1.4.RELEASE:test
-[INFO] |  |  \- org.springframework:spring-beans:jar:5.1.4.RELEASE:test
-[INFO] |  +- org.springframework.hateoas:spring-hateoas:jar:0.25.0.RELEASE:test
-[INFO] |  |  +- org.springframework:spring-aop:jar:5.1.4.RELEASE:test
-[INFO] |  |  +- org.springframework:spring-context:jar:5.1.4.RELEASE:test
-[INFO] |  |  |  \- org.springframework:spring-expression:jar:5.1.4.RELEASE:test
-[INFO] |  |  +- org.springframework:spring-web:jar:5.1.4.RELEASE:test
-[INFO] |  |  \- org.springframework:spring-webmvc:jar:5.1.4.RELEASE:test
-[INFO] |  +- fr.cnes.regards.framework.utils:exception-utils:jar:4.0.0-SNAPSHOT:test
-[INFO] |  +- fr.cnes.regards.framework.test:regards-test-reporting:jar:4.0.0-SNAPSHOT:test
-[INFO] |  \- com.google.guava:guava:jar:27.0.1-jre:provided
-[INFO] |     +- com.google.guava:failureaccess:jar:1.0.1:provided
-[INFO] |     +- com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:provided
-[INFO] |     +- com.google.code.findbugs:jsr305:jar:3.0.2:provided
-[INFO] |     +- org.checkerframework:checker-qual:jar:2.5.2:provided
-[INFO] |     +- com.google.errorprone:error_prone_annotations:jar:2.2.0:provided
-[INFO] |     +- com.google.j2objc:j2objc-annotations:jar:1.1:provided
-[INFO] |     \- org.codehaus.mojo:animal-sniffer-annotations:jar:1.17:provided
-[INFO] +- org.elasticsearch.client:elasticsearch-rest-client:jar:6.5.0:compile
-[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.5.6:compile
-[INFO] |  +- org.apache.httpcomponents:httpcore:jar:4.4.10:compile
-[INFO] |  +- org.apache.httpcomponents:httpasyncclient:jar:4.1.4:compile
-[INFO] |  +- org.apache.httpcomponents:httpcore-nio:jar:4.4.10:compile
-[INFO] |  +- commons-codec:commons-codec:jar:1.11:compile
-[INFO] |  \- commons-logging:commons-logging:jar:1.1.3:compile
-[INFO] +- org.elasticsearch.client:elasticsearch-rest-high-level-client:jar:6.5.0:compile
-[INFO] |  +- org.elasticsearch:elasticsearch:jar:6.5.0:compile
-[INFO] |  |  +- org.elasticsearch:elasticsearch-core:jar:6.5.0:compile
-[INFO] |  |  +- org.elasticsearch:elasticsearch-secure-sm:jar:6.5.0:compile
-[INFO] |  |  +- org.elasticsearch:elasticsearch-x-content:jar:6.5.0:compile
-[INFO] |  |  |  +- com.fasterxml.jackson.dataformat:jackson-dataformat-smile:jar:2.9.8:compile
-[INFO] |  |  |  +- com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:jar:2.9.8:compile
-[INFO] |  |  |  \- com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:jar:2.9.8:compile
-[INFO] |  |  +- org.apache.lucene:lucene-core:jar:7.5.0:compile
-[INFO] |  |  +- org.apache.lucene:lucene-analyzers-common:jar:7.5.0:compile
-[INFO] |  |  +- org.apache.lucene:lucene-backward-codecs:jar:7.5.0:compile
-[INFO] |  |  +- org.apache.lucene:lucene-grouping:jar:7.5.0:compile
-[INFO] |  |  +- org.apache.lucene:lucene-highlighter:jar:7.5.0:compile
-[INFO] |  |  +- org.apache.lucene:lucene-join:jar:7.5.0:compile
-[INFO] |  |  +- org.apache.lucene:lucene-memory:jar:7.5.0:compile
-[INFO] |  |  +- org.apache.lucene:lucene-misc:jar:7.5.0:compile
-[INFO] |  |  +- org.apache.lucene:lucene-queries:jar:7.5.0:compile
-[INFO] |  |  +- org.apache.lucene:lucene-queryparser:jar:7.5.0:compile
-[INFO] |  |  +- org.apache.lucene:lucene-sandbox:jar:7.5.0:compile
-[INFO] |  |  +- org.apache.lucene:lucene-spatial:jar:7.5.0:compile
-[INFO] |  |  +- org.apache.lucene:lucene-spatial-extras:jar:7.5.0:compile
-[INFO] |  |  +- org.apache.lucene:lucene-spatial3d:jar:7.5.0:compile
-[INFO] |  |  +- org.apache.lucene:lucene-suggest:jar:7.5.0:compile
-[INFO] |  |  +- org.elasticsearch:elasticsearch-cli:jar:6.5.0:compile
-[INFO] |  |  |  \- net.sf.jopt-simple:jopt-simple:jar:5.0.2:compile
-[INFO] |  |  +- com.carrotsearch:hppc:jar:0.7.1:compile
-[INFO] |  |  +- joda-time:joda-time:jar:2.10.1:compile
-[INFO] |  |  +- com.tdunning:t-digest:jar:3.2:compile
-[INFO] |  |  +- org.hdrhistogram:HdrHistogram:jar:2.1.9:compile
-[INFO] |  |  \- org.elasticsearch:jna:jar:4.5.1:compile
-[INFO] |  +- org.elasticsearch.plugin:parent-join-client:jar:6.5.0:compile
-[INFO] |  +- org.elasticsearch.plugin:aggs-matrix-stats-client:jar:6.5.0:compile
-[INFO] |  +- org.elasticsearch.plugin:rank-eval-client:jar:6.5.0:compile
-[INFO] |  \- org.elasticsearch.plugin:lang-mustache-client:jar:6.5.0:compile
-[INFO] |     \- com.github.spullara.mustache.java:compiler:jar:0.9.3:compile
-[INFO] +- org.apache.logging.log4j:log4j-api:jar:2.11.1:compile
-[INFO] +- org.apache.logging.log4j:log4j-core:jar:2.11.1:compile
-[INFO] +- org.slf4j:log4j-over-slf4j:jar:1.7.25:compile
-[INFO] |  \- org.slf4j:slf4j-api:jar:1.7.25:compile
-[INFO] +- com.rabbitmq:amqp-client:jar:3.6.3:compile
-[INFO] +- ch.qos.logback:logback-classic:jar:1.2.3:compile
-[INFO] |  \- ch.qos.logback:logback-core:jar:1.2.3:compile
-[INFO] \- org.slf4j:jcl-over-slf4j:jar:1.7.25:compile
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time: 01:25 min
-[INFO] Finished at: 2019-03-15T10:51:08+01:00
-[INFO] Final Memory: 46M/358M
-[INFO] ------------------------------------------------------------------------
