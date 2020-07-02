@@ -2,8 +2,8 @@
 ______________
 
 Identification                       : Regards
-Date                                 : 2019-07-31
-Version                              : 0.4.1
+Date                                 : 2020-03-12
+Version                              : 1.0.0
 Owner                                : CNES
 Developer                            : CS SI
 Type                                 : Complete
@@ -11,10 +11,20 @@ Project page                         : https://regardsoss.github.io/
 Classification                       : Not Confidential - Opensource GPL V3
 Characteristics                      : Microservice, NetflixOSS, Spring, Java, Javascript, React
 Role/Function                        : Data valorization product
-Reference tag                        : (V0.4.1)
+Reference tag                        : (V1.0.0)
 
 2/ Changes
 ______________
+
+- 1.0.0 (2020-03-12) :
+       - New Features :
+             1 : (Storage & ingest) New system for OAIS data archival. New SIP Collection format.
+             2 : (Storage) Deletion of "dispatch stategy" plugins. Storage location is now directly provided to storage microservice.
+             3 : (Storage : Local storage plugin) Allow to store "little" files in a common zip archive.
+             4 : (Storage) A new copy system is available to copy stored files between two configured storage location.
+             5 : (Datamangement) New default user role : Operator.
+             6 : (Frontend) New administration pages to monitor dataprovider, OAIS archival and storage.
+             7 : (Frontend) New user module to display entties description.
 
 - 0.4.1 (2019-07-31) :
         - Bug fixes :

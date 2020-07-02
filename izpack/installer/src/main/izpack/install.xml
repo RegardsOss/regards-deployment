@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- Copyright 2017-2019 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ Copyright 2017-2020 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
  
  This file is part of REGARDS.
  
@@ -146,19 +146,19 @@
         <variable name="config.count" value="0"/> <!-- TODO: Don't think we can have multiple -->
         <variable name="config.host" value="0.0.0.0"/>
         <variable name="config.port" value="9031"/>
-        <variable name="config.xmx" value="128m"/>
+        <variable name="config.xmx" value="256m"/>
 
         <!-- Registry -->
         <variable name="registry.count" value="0"/>
         <variable name="regards.config.cloud.registry.host" value="0.0.0.0"/>
         <variable name="regards.config.cloud.registry.port" value="9032"/>
-        <variable name="regards.config.cloud.registry.xmx" value="128m"/>
+        <variable name="regards.config.cloud.registry.xmx" value="256m"/>
 
         <!-- Gateway -->
         <variable name="gateway.count" value="0"/>
         <variable name="gateway.host" value="0.0.0.0"/>
         <variable name="gateway.port" value="9030"/>
-        <variable name="gateway.xmx" value="128m"/>
+        <variable name="gateway.xmx" value="256m"/>
 
         <!-- Message broker -->
         <variable name="regards.config.spring.rabbitmq.host" value="localhost"/>
@@ -201,7 +201,7 @@
         <variable name="admin.count" value="0"/>
         <variable name="admin.host" value="0.0.0.0"/>
         <variable name="admin.port" value="9033"/>
-        <variable name="admin.xmx" value="256m"/>
+        <variable name="admin.xmx" value="512m"/>
         <variable name="regards.config.admin.regards.jpa.multitenant.tenants.url.1"
                   value="localhost:5432/rs_project1"/>
         <variable
@@ -226,7 +226,7 @@
         <variable name="authentication.count" value="0"/>
         <variable name="authentication.host" value="0.0.0.0"/>
         <variable name="authentication.port" value="9034"/>
-        <variable name="authentication.xmx" value="128m"/>
+        <variable name="authentication.xmx" value="256m"/>
         <variable
                 name="regards.config.gateway.regards.jpa.multitenant.tenants.url.1"
                 value="localhost:5432/rs_project1"/>
@@ -241,7 +241,7 @@
         <variable name="dam.count" value="0"/>
         <variable name="dam.host" value="0.0.0.0"/>
         <variable name="dam.port" value="9035"/>
-        <variable name="dam.xmx" value="2000m"/>
+        <variable name="dam.xmx" value="2g"/>
         <variable name="regards.config.dam.regards.jpa.multitenant.tenants.url.1"
                   value="localhost:5432/rs_project1"/>
         <variable
@@ -276,7 +276,7 @@
         <variable name="dataprovider.count" value="0"/>
         <variable name="dataprovider.host" value="0.0.0.0"/>
         <variable name="dataprovider.port" value="9045"/>
-        <variable name="dataprovider.xmx" value="512m"/>
+        <variable name="dataprovider.xmx" value="1g"/>
         <variable
                 name="regards.config.dataprovider.regards.jpa.multitenant.tenants.url.1"
                 value="localhost:5432/rs_project1"/>
@@ -300,7 +300,7 @@
         <variable name="storage.count" value="0"/>
         <variable name="storage.host" value="0.0.0.0"/>
         <variable name="storage.port" value="9042"/>
-        <variable name="storage.xmx" value="512m"/>
+        <variable name="storage.xmx" value="1g"/>
         <variable
                 name="regards.config.storage.regards.jpa.multitenant.tenants.url.1"
                 value="localhost:5432/rs_project1"/>
@@ -357,7 +357,7 @@
         <variable name="ingest.count" value="0"/>
         <variable name="ingest.host" value="0.0.0.0"/>
         <variable name="ingest.port" value="9044"/>
-        <variable name="ingest.xmx" value="512m"/>
+        <variable name="ingest.xmx" value="1g"/>
         <variable
                 name="regards.config.ingest.regards.jpa.multitenant.tenants.url.1"
                 value="localhost:5432/rs_project1"/>
@@ -378,7 +378,7 @@
         <variable name="access-instance.count" value="0"/>
         <variable name="access-instance.host" value="0.0.0.0"/>
         <variable name="access-instance.port" value="9040"/>
-        <variable name="access-instance.xmx" value="128m"/>
+        <variable name="access-instance.xmx" value="256m"/>
         <variable
                 name="regards.config.access.instance.regards.jpa.instance.datasource.url"
                 value="localhost:5432/rs_instance"/>

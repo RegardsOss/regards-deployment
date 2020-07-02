@@ -1,5 +1,5 @@
 #!/bin/bash -e
-# Copyright 2017-2019 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+# Copyright 2017-2020 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
 #
 # This file is part of REGARDS.
 #
@@ -116,19 +116,21 @@ do
       fi
     done
     
-    log_file="${ROOT_DIR}"/logs/"${MICROSERVICE_TYPE}-id${microservices_infos_t[id]}".log
+    log_file="${ROOT_DIR}"/logs/"rs-${MICROSERVICE_TYPE}".log
     touch ${log_file}
     chmod g+r ${log_file}
 
     logback_file="${ROOT_DIR}"/config/logback/${MICROSERVICE_TYPE}/logback.xml
     plugins_dir="${ROOT_DIR}"/plugins/${MICROSERVICE_TYPE}
     microservice_conf_dir="${ROOT_DIR}"/config/regards/${MICROSERVICE_TYPE}
+    
+    java_memory_properties="-XX:+UseG1GC -Xms256m -Xmx${microservices_infos_t[xmx]} -XX:MinHeapFreeRatio=10 -XX:MaxHeapFreeRatio=70 -XX:CompressedClassSpaceSize=64m -XX:ReservedCodeCacheSize=64m -XX:MaxMetaspaceSize=256m"
 
     if [ ${MICROSERVICE_TYPE} == "frontend" ]
     then
-        java -Xms${microservices_infos_t[xmx]} -Xmx${microservices_infos_t[xmx]} -jar -Dserver.address="0.0.0.0"  -Dserver.port="${microservices_infos_t[port]}" ${lib_exec_java} --regards.frontend.www.path=./www > "${log_file}" 2>&1 &
+        java $java_memory_properties -Dserver.address="0.0.0.0" -Dserver.port="${microservices_infos_t[port]}" -jar ${lib_exec_java} --regards.frontend.www.path=./www >> "${log_file}" 2>&1 &
     else
-        java -Xms${microservices_infos_t[xmx]} -Xmx${microservices_infos_t[xmx]} -Dserver.address="0.0.0.0" -Dserver.port="${microservices_infos_t[port]}" -Dloader.path=${plugins_dir} -cp ${microservice_conf_dir} -Dlogging.config=${logback_file} -jar ${lib_exec_java}  > "${log_file}" 2>&1 &
+        java $java_memory_properties -Dserver.address="0.0.0.0" -Dserver.port="${microservices_infos_t[port]}" -Dloader.path=${plugins_dir} -cp ${microservice_conf_dir} -Dlogging.config=${logback_file} -jar ${lib_exec_java}  >> "${log_file}" 2>&1 &
     fi
     pid=$!
 

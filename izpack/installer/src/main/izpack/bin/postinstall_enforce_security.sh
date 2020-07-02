@@ -1,5 +1,5 @@
 #!/bin/bash -e
-# Copyright 2017-2019 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+# Copyright 2017-2020 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
 #
 # This file is part of REGARDS.
 #
@@ -142,6 +142,10 @@ chown :${EXEC_REGARDS_GROUP} "${ROOT_DIR}"/bin/read_component_wait_rule_list.gro
 chmod 0650 "${ROOT_DIR}"/bin/read_component_wait_rule_list.groovy
 chown :${EXEC_REGARDS_GROUP} "${ROOT_DIR}"/bin/stop_microservice.sh
 chmod 0650 "${ROOT_DIR}"/bin/stop_microservice.sh
+chmod 0700 "${ROOT_DIR}"/bin/create_component_wait_rule_list.groovy
+chmod 0700 "${ROOT_DIR}"/bin/create_microservice_confile.groovy
+chmod 0700 "${ROOT_DIR}"/bin/postinstall_mk_empty_dirs.groovy
+chmod 0700 "${ROOT_DIR}"/bin/postinstall_enforce_security.sh
 
 # Files accessed through rx by admin users
 chown :${RUNTIME_REGARDS_GROUP} "${ROOT_DIR}"/bin/status_microservice.sh

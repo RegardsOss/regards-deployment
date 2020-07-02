@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
 /*
- * Copyright 2017-2019 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
+ * Copyright 2017-2020 CNES - CENTRE NATIONAL d'ETUDES SPATIALES
  *
  * This file is part of REGARDS.
  *
@@ -51,7 +51,7 @@ pipeline {
         // -V : strongly recommended in CI, will display the JDK and Maven versions in use.
         //      Very useful to be quickly sure the selected versions were the ones you think.
         // -U : force maven to update snapshots each time (default : once an hour, makes no sense in CI).
-        sh 'export MAVEN_M2=~/.m2 && mvn -V -U -P delivery,CI clean package org.jacoco:jacoco-maven-plugin:0.7.7.201606060606:prepare-agent sonar:sonar -Dsonar.jacoco.reportPath=${WORKSPACE}/jacoco-ut.exec -Dsonar.jacoco.itReportPath=${WORKSPACE}/jacoco-it.exec -Dsonar.branch=develop -DcmdLineTarget=target -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -Dmaven.wagon.http.ssl.ignore.validity.dates=true'
+        sh 'export MAVEN_M2=~/.m2 && mvn -V -U -P delivery,CI clean package org.jacoco:jacoco-maven-plugin:0.7.7.201606060606:prepare-agent sonar:sonar -Dsonar.jacoco.reportPath=${WORKSPACE}/jacoco-ut.exec -Dsonar.jacoco.itReportPath=${WORKSPACE}/jacoco-it.exec -Dsonar.branch.name=develop -DcmdLineTarget=target -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -Dmaven.wagon.http.ssl.ignore.validity.dates=true'
       }
       post {
         success {
