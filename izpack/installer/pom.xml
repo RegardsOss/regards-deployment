@@ -296,6 +296,23 @@
 						</configuration>
 					</execution>
 					<execution>
+						<id>unpack-logback-storage</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>fr.cnes.regards.microservices.storage</groupId>
+									<artifactId>bootstrap-storage</artifactId>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${temp.dir.filtering}/storage</outputDirectory>
+							<includes>BOOT-INF/classes/logback.xml</includes>
+						</configuration>
+					</execution>
+					<execution>
 						<id>unpack-logback-access-projet</id>
 						<phase>generate-sources</phase>
 						<goals>
