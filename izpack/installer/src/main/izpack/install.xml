@@ -919,7 +919,7 @@
             </fileset>
             <file src="sbin/microservice_storage.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
                   override="true"/>
-            <fileset dir="config/catalog/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/storage"
+            <fileset dir="config/storage/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/storage"
                      override="true">
                 <include name="logback.xml"/>
             </fileset>
