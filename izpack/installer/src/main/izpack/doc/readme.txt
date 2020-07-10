@@ -2,8 +2,8 @@
 ______________
 
 Identification                       : Regards
-Date                                 : 2020-03-12
-Version                              : 1.0.0
+Date                                 : 2020-07-01
+Version                              : 1.2.0
 Owner                                : CNES
 Developer                            : CS SI
 Type                                 : Complete
@@ -11,10 +11,14 @@ Project page                         : https://regardsoss.github.io/
 Classification                       : Not Confidential - Opensource GPL V3
 Characteristics                      : Microservice, NetflixOSS, Spring, Java, Javascript, React
 Role/Function                        : Data valorization product
-Reference tag                        : (V1.0.0)
+Reference tag                        : (V1.2.0)
 
 2/ Changes
 ______________
+
+- 1.2.0 (2020-07-01) :
+       - New Features :
+             1 : (Frontend) New search module
 
 - 1.0.0 (2020-03-12) :
        - New Features :
