@@ -126,6 +126,7 @@ do
     
     java_memory_properties="-XX:+UseG1GC -Xms256m -Xmx${microservices_infos_t[xmx]} -XX:MinHeapFreeRatio=10 -XX:MaxHeapFreeRatio=70 -XX:CompressedClassSpaceSize=64m -XX:ReservedCodeCacheSize=64m -XX:MaxMetaspaceSize=256m"
 
+    umask 0027
     if [ ${MICROSERVICE_TYPE} == "frontend" ]
     then
         java $java_memory_properties -Dserver.address="0.0.0.0" -Dserver.port="${microservices_infos_t[port]}" -jar ${lib_exec_java} --regards.frontend.www.path=./www >> "${log_file}" 2>&1 &
@@ -133,7 +134,7 @@ do
         java $java_memory_properties -Dserver.address="0.0.0.0" -Dserver.port="${microservices_infos_t[port]}" -Dloader.path=${plugins_dir} -cp ${microservice_conf_dir} -Dlogging.config=${logback_file} -jar ${lib_exec_java}  >> "${log_file}" 2>&1 &
     fi
     pid=$!
-
+    umask 0077
     echo "${pid}" > "${pid_file}"
   fi
 done
