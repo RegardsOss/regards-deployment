@@ -645,7 +645,7 @@
             </fileset>
             <file src="sbin/microservice_config.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
                   override="true"/>
-            <fileset dir="config/config/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/config"
+            <fileset dir="config/logback/config" targetdir="$INSTALL_PATH/REGARDS/config/logback/config"
                      override="true">
                 <include name="logback.xml"/>
             </fileset>
@@ -699,7 +699,7 @@
             </fileset>
             <file src="sbin/microservice_registry.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
                   override="true"/>
-            <fileset dir="config/registry/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/registry"
+            <fileset dir="config/logback/registry" targetdir="$INSTALL_PATH/REGARDS/config/logback/registry"
                      override="true">
                 <include name="logback.xml"/>
             </fileset>
@@ -743,7 +743,7 @@
             </fileset>
             <file src="sbin/microservice_gateway.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
                   override="true"/>
-            <fileset dir="config/gateway/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/gateway"
+            <fileset dir="config/logback/gateway" targetdir="$INSTALL_PATH/REGARDS/config/logback/gateway"
                      override="true">
                 <include name="logback.xml"/>
             </fileset>
@@ -786,7 +786,7 @@
                         override="true"/>
             <file src="sbin/microservice_admin-instance.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
                   override="true"/>
-            <fileset dir="config/admin/BOOT-INF/classes/"
+            <fileset dir="config/logback/admin-instance"
                      targetdir="$INSTALL_PATH/REGARDS/config/logback/admin-instance"
                      override="true">
                 <include name="logback.xml"/>
@@ -831,7 +831,7 @@
             </fileset>
             <file src="sbin/microservice_admin.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
                   override="true"/>
-            <fileset dir="config/admin/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/admin"
+            <fileset dir="config/logback/admin" targetdir="$INSTALL_PATH/REGARDS/config/logback/admin"
                      override="true">
                 <include name="logback.xml"/>
             </fileset>
@@ -875,7 +875,7 @@
             </fileset>
             <file src="sbin/microservice_authentication.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
                   override="true"/>
-            <fileset dir="config/authentication/BOOT-INF/classes/"
+            <fileset dir="config/logback/authentication"
                      targetdir="$INSTALL_PATH/REGARDS/config/logback/authentication"
                      override="true">
                 <include name="logback.xml"/>
@@ -919,7 +919,7 @@
             </fileset>
             <file src="sbin/microservice_storage.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
                   override="true"/>
-            <fileset dir="config/catalog/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/storage"
+            <fileset dir="config/logback/storage" targetdir="$INSTALL_PATH/REGARDS/config/logback/storage"
                      override="true">
                 <include name="logback.xml"/>
             </fileset>
@@ -963,7 +963,7 @@
             </fileset>
             <file src="sbin/microservice_dam.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
                   override="true"/>
-            <fileset dir="config/dam/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/dam"
+            <fileset dir="config/logback/dam" targetdir="$INSTALL_PATH/REGARDS/config/logback/dam"
                      override="true">
                 <include name="logback.xml"/>
             </fileset>
@@ -1006,7 +1006,7 @@
             </fileset>
             <file src="sbin/microservice_catalog.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
                   override="true"/>
-            <fileset dir="config/catalog/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/catalog"
+            <fileset dir="config/logback/catalog" targetdir="$INSTALL_PATH/REGARDS/config/logback/catalog"
                      override="true">
                 <include name="logback.xml"/>
             </fileset>
@@ -1049,7 +1049,7 @@
             </fileset>
             <file src="sbin/microservice_order.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
                   override="true"/>
-            <fileset dir="config/order/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/order"
+            <fileset dir="config/logback/order" targetdir="$INSTALL_PATH/REGARDS/config/logback/order"
                      override="true">
                 <include name="logback.xml"/>
             </fileset>
@@ -1092,7 +1092,7 @@
             </fileset>
             <file src="sbin/microservice_ingest.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
                   override="true"/>
-            <fileset dir="config/ingest/BOOT-INF/classes/" targetdir="$INSTALL_PATH/REGARDS/config/logback/ingest"
+            <fileset dir="config/logback/ingest" targetdir="$INSTALL_PATH/REGARDS/config/logback/ingest"
                      override="true">
                 <include name="logback.xml"/>
             </fileset>
@@ -1135,7 +1135,7 @@
             </fileset>
             <file src="sbin/microservice_dataprovider.sh" targetdir="$INSTALL_PATH/REGARDS/sbin"
                   override="true"/>
-            <fileset dir="config/dataprovider/BOOT-INF/classes/"
+            <fileset dir="config/logback/dataprovider"
                      targetdir="$INSTALL_PATH/REGARDS/config/logback/dataprovider"
                      override="true">
                 <include name="logback.xml"/>
